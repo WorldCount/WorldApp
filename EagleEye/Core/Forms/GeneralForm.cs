@@ -35,13 +35,25 @@ namespace EagleEye.Core.Forms
         // Загрузка настроек
         private void LoadSettings()
         {
-
+            // Последняя активная вкладка
+            try
+            {
+                tabsControl.SelectedIndex = Properties.Settings.Default.ActiveTab;
+            }
+            catch
+            {
+                tabsControl.SelectedIndex = 0;
+            }
         }
 
         // Сохранение настроек
         private void SaveSettings()
         {
+            // Последняя активная вкладка
+            int tabIndex = tabsControl.SelectedIndex;
+            Properties.Settings.Default.ActiveTab = tabIndex;
 
+            Properties.Settings.Default.Save();
         }
 
         // Перенос настроек предыдущей сборки в новую

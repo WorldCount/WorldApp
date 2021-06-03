@@ -46,5 +46,17 @@ namespace EagleEye.Properties {
                 this["AppName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ActiveTab {
+            get {
+                return ((int)(this["ActiveTab"]));
+            }
+            set {
+                this["ActiveTab"] = value;
+            }
+        }
     }
 }
