@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EagleEye", "EagleEye\EagleEye.csproj", "{CFAF72F8-26A9-43F2-9F42-1F15AA320446}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wc32Api", "Wc32Api\Wc32Api.csproj", "{456CFAB9-3CCD-4DA7-B73A-9E7CF57225BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CFAF72F8-26A9-43F2-9F42-1F15AA320446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFAF72F8-26A9-43F2-9F42-1F15AA320446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFAF72F8-26A9-43F2-9F42-1F15AA320446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{456CFAB9-3CCD-4DA7-B73A-9E7CF57225BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{456CFAB9-3CCD-4DA7-B73A-9E7CF57225BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{456CFAB9-3CCD-4DA7-B73A-9E7CF57225BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{456CFAB9-3CCD-4DA7-B73A-9E7CF57225BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
