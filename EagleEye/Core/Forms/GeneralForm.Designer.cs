@@ -29,6 +29,7 @@ namespace EagleEye.Core.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -77,6 +78,7 @@ namespace EagleEye.Core.Forms
             this.adminStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
+            this.timerStatus = new System.Windows.Forms.Timer(this.components);
             this.menuBar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
@@ -587,6 +589,10 @@ namespace EagleEye.Core.Forms
             this.btnActiveUserLoad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActiveUserLoad.UseVisualStyleBackColor = false;
             // 
+            // timerStatus
+            // 
+            this.timerStatus.Interval = 3000;
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -661,6 +667,7 @@ namespace EagleEye.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn adminStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel panelActive;
         private System.Windows.Forms.Button btnActiveUserLoad;
+        private System.Windows.Forms.Timer timerStatus;
     }
 }
 

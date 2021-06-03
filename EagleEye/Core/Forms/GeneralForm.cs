@@ -1,12 +1,19 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Security.Principal;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EagleEye.Core.Forms
 {
     public partial class GeneralForm : Form
     {
+
+        readonly string _appVersion = $"{Application.ProductName} {Application.ProductVersion}";
+        readonly string _appText = "EagleEye";
+
         public GeneralForm()
         {
             InitializeComponent();
@@ -131,6 +138,56 @@ namespace EagleEye.Core.Forms
 
         #endregion
 
+        #region Сообщения
 
+        /// <summary>
+        /// Отправляет сообщение в статус
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="color"></param>
+        private void SendStatucMessage(string message, Color color)
+        {
+            statusText.ForeColor = color;
+            statusText.Text = message;
+            timerStatus.Start();
+        }
+
+        // Сообщение: обычное
+        // ReSharper disable once UnusedMember.Global
+        public void NormalMessage(string message)
+        {
+            SendStatucMessage(message, Color.DimGray);
+        }
+
+        // Сообщение: успех
+        public void SuccessMessage(string message)
+        {
+            SendStatucMessage(message, Color.Green);
+        }
+
+        // Сообщение: ошибка
+        public void ErrorMessage(string message)
+        {
+            SendStatucMessage(message, Color.Firebrick);
+        }
+
+        // Сообщение: предупреждение
+        public void WarningMessage(string message)
+        {
+            SendStatucMessage(message, Color.DarkOrange);
+        }
+
+        // Сообщение: информация
+        public void InfoMessage(string message)
+        {
+            SendStatucMessage(message, Color.DodgerBlue);
+        }
+
+        private void timerStatus_Tick(object sender, EventArgs e)
+        {
+            statusText.Text = "";
+        }
+
+        #endregion
     }
 }
