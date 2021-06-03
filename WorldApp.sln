@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wc32Api", "Wc32Api\Wc32Api.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcPostApi", "WcPostApi\WcPostApi.csproj", "{FFA06998-2A11-4DD9-AEA9-4C02BD082CD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcApi", "WcApi\WcApi.csproj", "{D02E0C73-A5A1-404C-ADD8-3115B15594F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FFA06998-2A11-4DD9-AEA9-4C02BD082CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFA06998-2A11-4DD9-AEA9-4C02BD082CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFA06998-2A11-4DD9-AEA9-4C02BD082CD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D02E0C73-A5A1-404C-ADD8-3115B15594F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D02E0C73-A5A1-404C-ADD8-3115B15594F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D02E0C73-A5A1-404C-ADD8-3115B15594F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D02E0C73-A5A1-404C-ADD8-3115B15594F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
