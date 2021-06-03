@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcPostApi", "WcPostApi\WcPo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcApi", "WcApi\WcApi.csproj", "{D02E0C73-A5A1-404C-ADD8-3115B15594F3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestApps", "TestApps", "{835A715A-C7D3-4901-9F42-E38A7E5D016D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApps\TestApp\TestApp.csproj", "{980AE1A0-287B-4E33-98F3-9EC8B2400DE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,16 @@ Global
 		{D02E0C73-A5A1-404C-ADD8-3115B15594F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D02E0C73-A5A1-404C-ADD8-3115B15594F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D02E0C73-A5A1-404C-ADD8-3115B15594F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{980AE1A0-287B-4E33-98F3-9EC8B2400DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980AE1A0-287B-4E33-98F3-9EC8B2400DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980AE1A0-287B-4E33-98F3-9EC8B2400DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980AE1A0-287B-4E33-98F3-9EC8B2400DE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{980AE1A0-287B-4E33-98F3-9EC8B2400DE9} = {835A715A-C7D3-4901-9F42-E38A7E5D016D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA839533-26DA-4342-87E5-06BFDB02D2A1}
