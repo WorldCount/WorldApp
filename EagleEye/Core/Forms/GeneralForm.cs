@@ -25,6 +25,9 @@ namespace EagleEye.Core.Forms
 
             // Загрузка настроек
             LoadSettings();
+
+            // Чтение аргументов
+            CheckArgs();
         }
 
         #region Настройка формы
