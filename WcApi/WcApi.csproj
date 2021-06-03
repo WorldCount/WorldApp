@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Net\Host.cs" />
+    <Compile Include="Net\Ping.cs" />
     <Compile Include="Net\Telegram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
