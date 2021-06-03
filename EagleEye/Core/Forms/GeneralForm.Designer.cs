@@ -29,10 +29,22 @@ namespace EagleEye.Core.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.SuspendLayout();
+            // 
+            // GeneralForm
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.KeyPreview = true;
+            this.Name = "GeneralForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "GeneralForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GeneralForm_FormClosing);
+            this.Load += new System.EventHandler(this.GeneralForm_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

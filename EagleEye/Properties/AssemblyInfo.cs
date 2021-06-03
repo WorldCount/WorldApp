@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
 [assembly: AssemblyTitle("EagleEye")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Программа для консолидации и сверки данных с почтовых программ")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("WorldCount")]
 [assembly: AssemblyProduct("EagleEye")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright WorldCount ©  2021")]
+[assembly: AssemblyTrademark("WorldCount ©")]
 [assembly: AssemblyCulture("")]
 
 // Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
