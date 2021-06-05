@@ -193,6 +193,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Core\Forms\Settings\FormsPosition.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -213,11 +214,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\circle-check-3x.png" />
+    <None Include="Resources\circle-x-3x.png" />
+    <None Include="Resources\white-cancel-24.png" />
+    <None Include="Resources\white-folder-24.png" />
+    <None Include="Resources\white-ok-24.png" />
+    <None Include="Resources\white-restart-24.png" />
+    <None Include="Resources\white-synchronize-24.png" />
     <Content Include="web_hi_res_512.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Forms\SyncForms\" />
     <Folder Include="Core\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wc32Api\Wc32Api.csproj">
+      <Project>{456cfab9-3ccd-4da7-b73a-9e7cf57225bd}</Project>
+      <Name>Wc32Api</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
