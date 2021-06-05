@@ -55,6 +55,7 @@
     <Compile Include="Net\Ping.cs" />
     <Compile Include="Net\Telegram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sys\RunAs.cs" />
     <Compile Include="Xml\Serializer.cs" />
   </ItemGroup>
   <ItemGroup />
