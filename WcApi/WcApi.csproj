@@ -42,11 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cryptography\CRC32.cs" />
+    <Compile Include="Cryptography\CryptText.cs" />
+    <Compile Include="Cryptography\Hasher.cs" />
+    <Compile Include="Cryptography\License.cs" />
+    <Compile Include="Cryptography\Md5Hash.cs" />
     <Compile Include="Keyboard\Keyboard.cs" />
     <Compile Include="Net\Host.cs" />
     <Compile Include="Net\Ping.cs" />
     <Compile Include="Net\Telegram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xml\Serializer.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
