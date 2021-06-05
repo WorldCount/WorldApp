@@ -156,6 +156,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Forms\ConnectForms\PartPostConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\ConnectForms\PartPostConnectForm.Designer.cs">
+      <DependentUpon>PartPostConnectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Forms\GeneralForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     <Compile Include="Core\Parsers\FrankParsers\Models\HierarchyFrankReport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Core\Forms\ConnectForms\PartPostConnectForm.resx">
+      <DependentUpon>PartPostConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\GeneralForm.resx">
       <DependentUpon>GeneralForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +216,7 @@
     <Content Include="web_hi_res_512.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Core\Forms\SyncForms\" />
     <Folder Include="Core\Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

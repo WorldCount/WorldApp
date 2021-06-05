@@ -49,7 +49,7 @@ namespace EagleEye.Core.Forms
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.authMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +79,7 @@ namespace EagleEye.Core.Forms
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
+            this.partpostMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
@@ -124,14 +125,15 @@ namespace EagleEye.Core.Forms
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.exitMenuItem.Size = new System.Drawing.Size(122, 24);
             this.exitMenuItem.Text = "Выход";
             // 
             // connectsMenuItem
             // 
             this.connectsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.authMenuItem,
-            this.databaseToolStripMenuItem});
+            this.databaseMenuItem,
+            this.partpostMenuItem});
             this.connectsMenuItem.Name = "connectsMenuItem";
             this.connectsMenuItem.Size = new System.Drawing.Size(118, 36);
             this.connectsMenuItem.Text = "Подключения";
@@ -139,14 +141,14 @@ namespace EagleEye.Core.Forms
             // authMenuItem
             // 
             this.authMenuItem.Name = "authMenuItem";
-            this.authMenuItem.Size = new System.Drawing.Size(255, 24);
+            this.authMenuItem.Size = new System.Drawing.Size(324, 24);
             this.authMenuItem.Text = "Авторизация на Почта.Ру";
             // 
-            // databaseToolStripMenuItem
+            // databaseMenuItem
             // 
-            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(255, 24);
-            this.databaseToolStripMenuItem.Text = "Подключение к БД";
+            this.databaseMenuItem.Name = "databaseMenuItem";
+            this.databaseMenuItem.Size = new System.Drawing.Size(324, 24);
+            this.databaseMenuItem.Text = "Подключение к БД";
             // 
             // settingsMenuItem
             // 
@@ -593,6 +595,13 @@ namespace EagleEye.Core.Forms
             // 
             this.timerStatus.Interval = 3000;
             // 
+            // partpostMenuItem
+            // 
+            this.partpostMenuItem.Name = "partpostMenuItem";
+            this.partpostMenuItem.Size = new System.Drawing.Size(324, 24);
+            this.partpostMenuItem.Text = "Подключение к Партионной Почте";
+            this.partpostMenuItem.Click += new System.EventHandler(this.partpostMenuItem_Click);
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -638,7 +647,7 @@ namespace EagleEye.Core.Forms
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem authMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem databaseMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createDbMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infosMenuItem;
@@ -668,6 +677,7 @@ namespace EagleEye.Core.Forms
         private System.Windows.Forms.Panel panelActive;
         private System.Windows.Forms.Button btnActiveUserLoad;
         private System.Windows.Forms.Timer timerStatus;
+        private System.Windows.Forms.ToolStripMenuItem partpostMenuItem;
     }
 }
 

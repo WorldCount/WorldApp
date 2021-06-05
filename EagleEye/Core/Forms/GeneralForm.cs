@@ -5,6 +5,7 @@ using System.Net;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EagleEye.Core.Forms.ConnectForms;
 
 namespace EagleEye.Core.Forms
 {
@@ -189,5 +190,11 @@ namespace EagleEye.Core.Forms
         }
 
         #endregion
+
+        private void partpostMenuItem_Click(object sender, EventArgs e)
+        {
+            PartPostConnectForm partPostConnectForm = new PartPostConnectForm();
+            partPostConnectForm.ShowDialog(this);
+        }
     }
 }
