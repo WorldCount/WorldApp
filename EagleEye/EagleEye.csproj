@@ -167,6 +167,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>FormsPosition.settings</DependentUpon>
     </Compile>
+    <Compile Include="Core\Parsers\FrankParsers\Models\FrankMail.cs" />
+    <Compile Include="Core\Parsers\FrankParsers\Models\FrankRow.cs" />
+    <Compile Include="Core\Parsers\FrankParsers\FrankHierarchyReportParser.cs" />
+    <Compile Include="Core\Parsers\FrankParsers\Models\HierarchyFrankReport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Core\Forms\GeneralForm.resx">
@@ -201,6 +205,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="web_hi_res_512.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
