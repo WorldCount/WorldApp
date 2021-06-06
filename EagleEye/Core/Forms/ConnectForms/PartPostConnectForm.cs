@@ -54,7 +54,7 @@ namespace EagleEye.Core.Forms.ConnectForms
                 btnCancel.PerformClick();
         }
 
-        private async void btnCheck_Click(object sender, EventArgs e)
+        private void btnCheck_Click(object sender, EventArgs e)
         {
             // TODO: Проверка подключения к партионной почте
         }
