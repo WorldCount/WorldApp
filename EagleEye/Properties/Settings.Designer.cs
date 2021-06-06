@@ -58,5 +58,29 @@ namespace EagleEye.Properties {
                 this["ActiveTab"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DATA")]
+        public string Data {
+            get {
+                return ((string)(this["Data"]));
+            }
+            set {
+                this["Data"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("connect.xml")]
+        public string ConnectFile {
+            get {
+                return ((string)(this["ConnectFile"]));
+            }
+            set {
+                this["ConnectFile"] = value;
+            }
+        }
     }
 }

@@ -11,5 +11,11 @@
     <Setting Name="ActiveTab" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="Data" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DATA</Value>
+    </Setting>
+    <Setting Name="ConnectFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">connect.xml</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

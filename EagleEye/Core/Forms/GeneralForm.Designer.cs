@@ -50,6 +50,7 @@ namespace EagleEye.Core.Forms
             this.connectsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.authMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.partpostMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,7 +80,6 @@ namespace EagleEye.Core.Forms
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
-            this.partpostMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
@@ -131,8 +131,8 @@ namespace EagleEye.Core.Forms
             // connectsMenuItem
             // 
             this.connectsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.authMenuItem,
             this.databaseMenuItem,
+            this.authMenuItem,
             this.partpostMenuItem});
             this.connectsMenuItem.Name = "connectsMenuItem";
             this.connectsMenuItem.Size = new System.Drawing.Size(118, 36);
@@ -149,6 +149,14 @@ namespace EagleEye.Core.Forms
             this.databaseMenuItem.Name = "databaseMenuItem";
             this.databaseMenuItem.Size = new System.Drawing.Size(324, 24);
             this.databaseMenuItem.Text = "Подключение к БД";
+            this.databaseMenuItem.Click += new System.EventHandler(this.databaseMenuItem_Click);
+            // 
+            // partpostMenuItem
+            // 
+            this.partpostMenuItem.Name = "partpostMenuItem";
+            this.partpostMenuItem.Size = new System.Drawing.Size(324, 24);
+            this.partpostMenuItem.Text = "Подключение к Партионной Почте";
+            this.partpostMenuItem.Click += new System.EventHandler(this.partpostMenuItem_Click);
             // 
             // settingsMenuItem
             // 
@@ -596,13 +604,6 @@ namespace EagleEye.Core.Forms
             // timerStatus
             // 
             this.timerStatus.Interval = 3000;
-            // 
-            // partpostMenuItem
-            // 
-            this.partpostMenuItem.Name = "partpostMenuItem";
-            this.partpostMenuItem.Size = new System.Drawing.Size(324, 24);
-            this.partpostMenuItem.Text = "Подключение к Партионной Почте";
-            this.partpostMenuItem.Click += new System.EventHandler(this.partpostMenuItem_Click);
             // 
             // GeneralForm
             // 

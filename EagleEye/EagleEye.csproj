@@ -161,6 +161,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Forms\ConnectForms\DbConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\ConnectForms\DbConnectForm.Designer.cs">
+      <DependentUpon>DbConnectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Forms\ConnectForms\PartPostConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,8 +188,13 @@
     <Compile Include="Core\Parsers\FrankParsers\Models\FrankRow.cs" />
     <Compile Include="Core\Parsers\FrankParsers\FrankHierarchyReportParser.cs" />
     <Compile Include="Core\Parsers\FrankParsers\Models\HierarchyFrankReport.cs" />
+    <Compile Include="Core\Storage\FileStorage\PosgresConnect.cs" />
+    <Compile Include="Core\Storage\PathManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Core\Forms\ConnectForms\DbConnectForm.resx">
+      <DependentUpon>DbConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\ConnectForms\PartPostConnectForm.resx">
       <DependentUpon>PartPostConnectForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,7 +241,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Forms\SyncForms\" />
-    <Folder Include="Core\Models\" />
+    <Folder Include="Core\Models\Partpost\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wc32Api\Wc32Api.csproj">

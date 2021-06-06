@@ -196,5 +196,11 @@ namespace EagleEye.Core.Forms
             PartPostConnectForm partPostConnectForm = new PartPostConnectForm();
             partPostConnectForm.ShowDialog(this);
         }
+
+        private void databaseMenuItem_Click(object sender, EventArgs e)
+        {
+            DBConnectForm dbConnectForm = new DBConnectForm();
+            dbConnectForm.ShowDialog(this);
+        }
     }
 }
