@@ -181,6 +181,7 @@ namespace EagleEye.Core.Forms
             // 
             // statusBar
             // 
+            this.statusBar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.statusBar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusText,
@@ -193,6 +194,7 @@ namespace EagleEye.Core.Forms
             // 
             // statusText
             // 
+            this.statusText.BackColor = System.Drawing.Color.WhiteSmoke;
             this.statusText.Name = "statusText";
             this.statusText.Size = new System.Drawing.Size(671, 17);
             this.statusText.Spring = true;

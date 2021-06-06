@@ -65,6 +65,7 @@ namespace EagleEye.Core.Forms.ConnectForms
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -80,6 +81,7 @@ namespace EagleEye.Core.Forms.ConnectForms
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Принять";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblHost
             // 
@@ -107,7 +109,7 @@ namespace EagleEye.Core.Forms.ConnectForms
             // btnAuto
             // 
             this.btnAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAuto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.btnAuto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(57)))), ((int)(((byte)(73)))));
             this.btnAuto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnAuto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -119,6 +121,7 @@ namespace EagleEye.Core.Forms.ConnectForms
             this.btnAuto.TabIndex = 0;
             this.btnAuto.Text = "Авто";
             this.btnAuto.UseVisualStyleBackColor = false;
+            this.btnAuto.Click += new System.EventHandler(this.btnAuto_Click);
             // 
             // lblPath
             // 
@@ -146,7 +149,7 @@ namespace EagleEye.Core.Forms.ConnectForms
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.btnOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(57)))), ((int)(((byte)(73)))));
             this.btnOpen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -158,6 +161,7 @@ namespace EagleEye.Core.Forms.ConnectForms
             this.btnOpen.Size = new System.Drawing.Size(54, 36);
             this.btnOpen.TabIndex = 0;
             this.btnOpen.UseVisualStyleBackColor = false;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // lblUser
             // 
@@ -286,6 +290,7 @@ namespace EagleEye.Core.Forms.ConnectForms
             this.btnCheck.Size = new System.Drawing.Size(36, 36);
             this.btnCheck.TabIndex = 0;
             this.btnCheck.UseVisualStyleBackColor = false;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // PartPostConnectForm
             // 
@@ -315,6 +320,7 @@ namespace EagleEye.Core.Forms.ConnectForms
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(560, 450);
             this.Name = "PartPostConnectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PartPostConnectForm";
