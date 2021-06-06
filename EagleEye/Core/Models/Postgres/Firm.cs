@@ -1,4 +1,5 @@
 ﻿using System;
+using EagleEye.Core.Models.Postgres.Bills;
 
 namespace EagleEye.Core.Models.Postgres
 {
@@ -18,5 +19,13 @@ namespace EagleEye.Core.Models.Postgres
         public DateTime DocDate { get; set; }
         /// <summary>Способ оплаты</summary>
         public int PayType { get; set; }
+        /// <summary>Это новая организация</summary>
+        public bool IsNew { get; set; }
+
+        // Связи с балансами
+        /// <summary>Основные услуги</summary>
+        public MainBill BillMain { get; set; }
+        /// <summary>Дополнительные услуги</summary>
+        public ServiceBill BillService { get; set; }
     }
 }

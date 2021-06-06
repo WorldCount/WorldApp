@@ -81,6 +81,8 @@ namespace EagleEye.Core.Forms
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
             this.tarifsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.firmsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFrankReportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
@@ -106,8 +108,9 @@ namespace EagleEye.Core.Forms
             this.menuBar.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuItem,
-            this.connectsMenuItem,
             this.tarifsMenuItem,
+            this.firmsMenuItem,
+            this.connectsMenuItem,
             this.settingsMenuItem,
             this.infosMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
@@ -119,6 +122,7 @@ namespace EagleEye.Core.Forms
             // fileMenuItem
             // 
             this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadFrankReportMenuItem,
             this.exitMenuItem});
             this.fileMenuItem.Name = "fileMenuItem";
             this.fileMenuItem.Size = new System.Drawing.Size(57, 36);
@@ -127,7 +131,7 @@ namespace EagleEye.Core.Forms
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.exitMenuItem.Size = new System.Drawing.Size(263, 24);
             this.exitMenuItem.Text = "Выход";
             // 
             // connectsMenuItem
@@ -613,6 +617,18 @@ namespace EagleEye.Core.Forms
             this.tarifsMenuItem.Size = new System.Drawing.Size(76, 36);
             this.tarifsMenuItem.Text = "Тарифы";
             // 
+            // firmsMenuItem
+            // 
+            this.firmsMenuItem.Name = "firmsMenuItem";
+            this.firmsMenuItem.Size = new System.Drawing.Size(115, 36);
+            this.firmsMenuItem.Text = "Организации";
+            // 
+            // loadFrankReportMenuItem
+            // 
+            this.loadFrankReportMenuItem.Name = "loadFrankReportMenuItem";
+            this.loadFrankReportMenuItem.Size = new System.Drawing.Size(263, 24);
+            this.loadFrankReportMenuItem.Text = "Загрузить отчет по франку";
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -690,6 +706,8 @@ namespace EagleEye.Core.Forms
         private System.Windows.Forms.Timer timerStatus;
         private System.Windows.Forms.ToolStripMenuItem partpostMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tarifsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadFrankReportMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem firmsMenuItem;
     }
 }
 

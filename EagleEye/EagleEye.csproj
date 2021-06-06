@@ -184,15 +184,22 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>FormsPosition.settings</DependentUpon>
     </Compile>
+    <Compile Include="Core\Models\Postgres\Bills\MainPosition.cs" />
+    <Compile Include="Core\Models\Postgres\Bills\MainTransaction.cs" />
+    <Compile Include="Core\Models\Postgres\Bills\ServicePosition.cs" />
+    <Compile Include="Core\Models\Postgres\Bills\ServiceTransaction.cs" />
     <Compile Include="Core\Models\Postgres\Firm.cs" />
     <Compile Include="Core\Models\Postgres\MailTarif.cs" />
     <Compile Include="Core\Models\Postgres\Services.cs" />
+    <Compile Include="Core\Models\Postgres\Bills\MainBill.cs" />
+    <Compile Include="Core\Models\Postgres\Bills\ServiceBill.cs" />
     <Compile Include="Core\Parsers\FrankParsers\Models\FrankMail.cs" />
     <Compile Include="Core\Parsers\FrankParsers\Models\FrankRow.cs" />
     <Compile Include="Core\Parsers\FrankParsers\FrankHierarchyReportParser.cs" />
     <Compile Include="Core\Parsers\FrankParsers\Models\HierarchyFrankReport.cs" />
     <Compile Include="Core\Storage\FileStorage\PosgresConnect.cs" />
     <Compile Include="Core\Storage\PathManager.cs" />
+    <Compile Include="Core\Types\TransactionType.cs" />
     <Compile Include="Core\Types\TransType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -246,6 +253,7 @@
   <ItemGroup>
     <Folder Include="Core\Context\" />
     <Folder Include="Core\Forms\SyncForms\" />
+    <Folder Include="Core\Models\Frank\" />
     <Folder Include="Core\Models\Partpost\" />
   </ItemGroup>
   <ItemGroup>
