@@ -80,6 +80,7 @@ namespace EagleEye.Core.Forms
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
+            this.tarifsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
@@ -106,6 +107,7 @@ namespace EagleEye.Core.Forms
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuItem,
             this.connectsMenuItem,
+            this.tarifsMenuItem,
             this.settingsMenuItem,
             this.infosMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
@@ -605,6 +607,12 @@ namespace EagleEye.Core.Forms
             // 
             this.timerStatus.Interval = 3000;
             // 
+            // tarifsMenuItem
+            // 
+            this.tarifsMenuItem.Name = "tarifsMenuItem";
+            this.tarifsMenuItem.Size = new System.Drawing.Size(76, 36);
+            this.tarifsMenuItem.Text = "Тарифы";
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -681,6 +689,7 @@ namespace EagleEye.Core.Forms
         private System.Windows.Forms.Button btnActiveUserLoad;
         private System.Windows.Forms.Timer timerStatus;
         private System.Windows.Forms.ToolStripMenuItem partpostMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tarifsMenuItem;
     }
 }
 
