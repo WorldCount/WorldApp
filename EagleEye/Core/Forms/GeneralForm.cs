@@ -2,9 +2,8 @@
 using System.Drawing;
 using System.Linq;
 using System.Net;
-using System.Security.Principal;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using EagleEye.Core.Context;
 using EagleEye.Core.Forms.ConnectForms;
 
 namespace EagleEye.Core.Forms
@@ -201,6 +200,27 @@ namespace EagleEye.Core.Forms
         {
             DBConnectForm dbConnectForm = new DBConnectForm();
             dbConnectForm.ShowDialog(this);
+        }
+
+        private async void createDbMenuItem_Click(object sender, EventArgs e)
+        {
+            using (DatabaseContext db = new Context.DatabaseContext())
+            {
+                try
+                {
+                    await db.Database.EnsureCreatedAsync();
+                }
+                catch (InvalidOperationException)
+                {
+                    MessageBox.Show(@"Подключение к БД еще не настроено", @"Ошибка подключения", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                catch (Npgsql.PostgresException)
+                {
+                    MessageBox.Show(@"Не могу подключиться к серверу БД", @"Ошибка доступа к серверу", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

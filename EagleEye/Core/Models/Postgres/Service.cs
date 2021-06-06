@@ -1,7 +1,7 @@
 ﻿namespace EagleEye.Core.Models.Postgres
 {
     /// <summary>Услуги</summary>
-    public class Services
+    public class Service
     {
         public int Id { get; set; }
         /// <summary>Код номенклатуры</summary>

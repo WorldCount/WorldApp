@@ -12,7 +12,7 @@ namespace EagleEye.Core.Forms.ConnectForms
     public partial class DBConnectForm : Form
     {
 
-        private readonly PosgresConnect _connect;
+        private readonly PostgresConnect _connect;
 
         public DBConnectForm()
         {
@@ -21,7 +21,7 @@ namespace EagleEye.Core.Forms.ConnectForms
             // ReSharper disable once VirtualMemberCallInConstructor
             Text = $@"{Properties.Settings.Default.AppName}: Подключение к БД";
 
-            _connect = PosgresConnect.Load() ?? new PosgresConnect();
+            _connect = PostgresConnect.Load() ?? new PostgresConnect();
 
             WcApi.Keyboard.Keyboard.SetEnglishLanguage();
         }

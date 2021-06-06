@@ -161,6 +161,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Context\DatabaseContext.cs" />
     <Compile Include="Core\Forms\ConnectForms\DbConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,14 +191,14 @@
     <Compile Include="Core\Models\Postgres\Bills\ServiceTransaction.cs" />
     <Compile Include="Core\Models\Postgres\Firm.cs" />
     <Compile Include="Core\Models\Postgres\MailTarif.cs" />
-    <Compile Include="Core\Models\Postgres\Services.cs" />
+    <Compile Include="Core\Models\Postgres\Service.cs" />
     <Compile Include="Core\Models\Postgres\Bills\MainBill.cs" />
     <Compile Include="Core\Models\Postgres\Bills\ServiceBill.cs" />
     <Compile Include="Core\Parsers\FrankParsers\Models\FrankMail.cs" />
     <Compile Include="Core\Parsers\FrankParsers\Models\FrankRow.cs" />
     <Compile Include="Core\Parsers\FrankParsers\FrankHierarchyReportParser.cs" />
     <Compile Include="Core\Parsers\FrankParsers\Models\HierarchyFrankReport.cs" />
-    <Compile Include="Core\Storage\FileStorage\PosgresConnect.cs" />
+    <Compile Include="Core\Storage\FileStorage\PostgresConnect.cs" />
     <Compile Include="Core\Storage\PathManager.cs" />
     <Compile Include="Core\Types\TransactionType.cs" />
     <Compile Include="Core\Types\TransType.cs" />
@@ -251,7 +252,6 @@
     <Content Include="web_hi_res_512.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\Context\" />
     <Folder Include="Core\Forms\SyncForms\" />
     <Folder Include="Core\Models\Frank\" />
     <Folder Include="Core\Models\Partpost\" />

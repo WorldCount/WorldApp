@@ -46,15 +46,19 @@ namespace EagleEye.Core.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFrankReportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tarifsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.firmsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.authMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.authMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partpostMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
+            this.btnSync = new Wc32Api.Widgets.WcButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
@@ -80,10 +84,8 @@ namespace EagleEye.Core.Forms
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
-            this.tarifsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.firmsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadFrankReportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
+            this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
             this.tabPartpost.SuspendLayout();
@@ -128,11 +130,29 @@ namespace EagleEye.Core.Forms
             this.fileMenuItem.Size = new System.Drawing.Size(57, 36);
             this.fileMenuItem.Text = "Файл";
             // 
+            // loadFrankReportMenuItem
+            // 
+            this.loadFrankReportMenuItem.Name = "loadFrankReportMenuItem";
+            this.loadFrankReportMenuItem.Size = new System.Drawing.Size(263, 24);
+            this.loadFrankReportMenuItem.Text = "Загрузить отчет по франку";
+            // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
             this.exitMenuItem.Size = new System.Drawing.Size(263, 24);
             this.exitMenuItem.Text = "Выход";
+            // 
+            // tarifsMenuItem
+            // 
+            this.tarifsMenuItem.Name = "tarifsMenuItem";
+            this.tarifsMenuItem.Size = new System.Drawing.Size(76, 36);
+            this.tarifsMenuItem.Text = "Тарифы";
+            // 
+            // firmsMenuItem
+            // 
+            this.firmsMenuItem.Name = "firmsMenuItem";
+            this.firmsMenuItem.Size = new System.Drawing.Size(115, 36);
+            this.firmsMenuItem.Text = "Организации";
             // 
             // connectsMenuItem
             // 
@@ -144,18 +164,18 @@ namespace EagleEye.Core.Forms
             this.connectsMenuItem.Size = new System.Drawing.Size(118, 36);
             this.connectsMenuItem.Text = "Подключения";
             // 
-            // authMenuItem
-            // 
-            this.authMenuItem.Name = "authMenuItem";
-            this.authMenuItem.Size = new System.Drawing.Size(324, 24);
-            this.authMenuItem.Text = "Авторизация на Почта.Ру";
-            // 
             // databaseMenuItem
             // 
             this.databaseMenuItem.Name = "databaseMenuItem";
             this.databaseMenuItem.Size = new System.Drawing.Size(324, 24);
             this.databaseMenuItem.Text = "Подключение к БД";
             this.databaseMenuItem.Click += new System.EventHandler(this.databaseMenuItem_Click);
+            // 
+            // authMenuItem
+            // 
+            this.authMenuItem.Name = "authMenuItem";
+            this.authMenuItem.Size = new System.Drawing.Size(324, 24);
+            this.authMenuItem.Text = "Авторизация на Почта.Ру";
             // 
             // partpostMenuItem
             // 
@@ -177,6 +197,7 @@ namespace EagleEye.Core.Forms
             this.createDbMenuItem.Name = "createDbMenuItem";
             this.createDbMenuItem.Size = new System.Drawing.Size(205, 24);
             this.createDbMenuItem.Text = "Создать новую БД";
+            this.createDbMenuItem.Click += new System.EventHandler(this.createDbMenuItem_Click);
             // 
             // infosMenuItem
             // 
@@ -187,11 +208,31 @@ namespace EagleEye.Core.Forms
             // panelGeneral
             // 
             this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(57)))), ((int)(((byte)(73)))));
+            this.panelGeneral.Controls.Add(this.btnSync);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelGeneral.Location = new System.Drawing.Point(0, 40);
             this.panelGeneral.Name = "panelGeneral";
             this.panelGeneral.Size = new System.Drawing.Size(800, 44);
             this.panelGeneral.TabIndex = 3;
+            // 
+            // btnSync
+            // 
+            this.btnSync.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSync.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSync.BorderColor = System.Drawing.Color.Silver;
+            this.btnSync.BorderRadius = 2;
+            this.btnSync.BorderThickness = 1F;
+            this.btnSync.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnSync.FlatAppearance.BorderSize = 0;
+            this.btnSync.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSync.ForeColor = System.Drawing.Color.White;
+            this.btnSync.Image = global::EagleEye.Properties.Resources.white_synchronize_24;
+            this.btnSync.Location = new System.Drawing.Point(752, 3);
+            this.btnSync.Name = "btnSync";
+            this.btnSync.Size = new System.Drawing.Size(36, 36);
+            this.btnSync.TabIndex = 0;
+            this.btnSync.UseVisualStyleBackColor = false;
             // 
             // statusBar
             // 
@@ -611,24 +652,6 @@ namespace EagleEye.Core.Forms
             // 
             this.timerStatus.Interval = 3000;
             // 
-            // tarifsMenuItem
-            // 
-            this.tarifsMenuItem.Name = "tarifsMenuItem";
-            this.tarifsMenuItem.Size = new System.Drawing.Size(76, 36);
-            this.tarifsMenuItem.Text = "Тарифы";
-            // 
-            // firmsMenuItem
-            // 
-            this.firmsMenuItem.Name = "firmsMenuItem";
-            this.firmsMenuItem.Size = new System.Drawing.Size(115, 36);
-            this.firmsMenuItem.Text = "Организации";
-            // 
-            // loadFrankReportMenuItem
-            // 
-            this.loadFrankReportMenuItem.Name = "loadFrankReportMenuItem";
-            this.loadFrankReportMenuItem.Size = new System.Drawing.Size(263, 24);
-            this.loadFrankReportMenuItem.Text = "Загрузить отчет по франку";
-            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -648,6 +671,7 @@ namespace EagleEye.Core.Forms
             this.Load += new System.EventHandler(this.GeneralForm_Load);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
+            this.panelGeneral.ResumeLayout(false);
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
             this.tabsControl.ResumeLayout(false);
@@ -708,6 +732,7 @@ namespace EagleEye.Core.Forms
         private System.Windows.Forms.ToolStripMenuItem tarifsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFrankReportMenuItem;
         private System.Windows.Forms.ToolStripMenuItem firmsMenuItem;
+        private Wc32Api.Widgets.WcButton btnSync;
     }
 }
 

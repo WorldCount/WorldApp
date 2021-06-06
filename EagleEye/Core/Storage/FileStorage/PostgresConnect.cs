@@ -7,7 +7,7 @@ using WcApi.Xml;
 
 namespace EagleEye.Core.Storage.FileStorage
 {
-    public class PosgresConnect
+    public class PostgresConnect
     {
         public string Host { get; set; }
         public int Port { get; set; } = 5432;
@@ -15,9 +15,9 @@ namespace EagleEye.Core.Storage.FileStorage
         public string Password { get; set; }
         public string Database { get; set; } = "EagleEyeDb";
 
-        public PosgresConnect() { }
+        public PostgresConnect() { }
 
-        public PosgresConnect(string login, string password, string host, int port = 5432, string database = "EagleEyeDb")
+        public PostgresConnect(string login, string password, string host, int port = 5432, string database = "EagleEyeDb")
         {
             Host = host;
             Login = login;
@@ -65,7 +65,7 @@ namespace EagleEye.Core.Storage.FileStorage
 
         public void Save()
         {
-            PosgresConnect connect = new PosgresConnect
+            PostgresConnect connect = new PostgresConnect
             {
                 Login = Login, 
                 Password = CryptText.EncryptText(Password, AuthKey.Key), 
@@ -77,11 +77,11 @@ namespace EagleEye.Core.Storage.FileStorage
             Serializer.Save(PathManager.PostgresConnectPath, connect);
         }
 
-        public static PosgresConnect Load()
+        public static PostgresConnect Load()
         {
             if(!File.Exists(PathManager.PostgresConnectPath))
                 return null;
-            PosgresConnect connect = Serializer.Load<PosgresConnect>(PathManager.PostgresConnectPath);
+            PostgresConnect connect = Serializer.Load<PostgresConnect>(PathManager.PostgresConnectPath);
             connect.Password = CryptText.DecryptText(connect.Password, AuthKey.Key);
             return connect;
         }

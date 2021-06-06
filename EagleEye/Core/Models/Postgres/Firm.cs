@@ -9,6 +9,8 @@ namespace EagleEye.Core.Models.Postgres
         public int Id { get; set; }
         /// <summary>ID организации по франку</summary>
         public string FrankId { get; set; }
+        /// <summary>Название организации</summary>
+        public string Name { get; set; }
         /// <summary>ИНН</summary>
         public string Inn { get; set; }
         /// <summary>КПП</summary>
@@ -21,6 +23,8 @@ namespace EagleEye.Core.Models.Postgres
         public int PayType { get; set; }
         /// <summary>Это новая организация</summary>
         public bool IsNew { get; set; }
+        /// <summary>Выгружать данные</summary>
+        public bool Unload { get; set; } = true;
 
         // Связи с балансами
         /// <summary>Основные услуги</summary>
