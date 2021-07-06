@@ -247,7 +247,7 @@ namespace ARM.Core.Forms.ConnectForms
             // 
             // btnCheck
             // 
-            this.btnCheck.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
             this.btnCheck.BorderColor = System.Drawing.Color.Silver;
             this.btnCheck.BorderRadius = 4;
             this.btnCheck.BorderThickness = 1F;
