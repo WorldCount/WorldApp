@@ -48,6 +48,9 @@
     <Compile Include="Widgets\WcButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Widgets\WcLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

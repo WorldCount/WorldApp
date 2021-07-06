@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Net;
 using System.Windows.Forms;
@@ -221,6 +222,11 @@ namespace ARM.Core.Forms
                         MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            btnSync.Enabled = !btnSync.Enabled;
         }
     }
 }

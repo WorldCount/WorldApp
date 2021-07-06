@@ -1,24 +1,15 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace Wc32Api.Widgets
 {
-    public class WcButton : Button
+    public class WcLabel : Label
     {
+
         private int _borderRadius = 4;
         private float _borderThickness = 1;
-        private Color _borderColor = Color.Silver;
-        private Color _disableBackColor = Color.Gray;
-        private Color _enableBackColor;
-
-        public WcButton()
-        {
-            DoubleBuffered = true;
-            _enableBackColor = BackColor;
-        }
 
         [Category("Appearance")]
         public int BorderRadius
@@ -46,29 +37,24 @@ namespace Wc32Api.Widgets
             }
         }
 
-        [Category("Appearance")]
-        public Color BorderColor
+        public WcLabel()
         {
-            get => _borderColor;
-            set
-            {
-                if (_borderColor == value)
-                    return;
-                _borderColor = value;
-                Invalidate();
-            }
+            DoubleBuffered = true;
         }
 
-        [Category("Appearance")]
-        public Color DisabledBackColor
+        protected override void OnPaint(PaintEventArgs e)
         {
-            get => _disableBackColor;
-            set
+            base.OnPaint(e);
+            
+            RectangleF rect = new RectangleF(0, 0, Width, Height);
+            GraphicsPath graphPath = GetRoundPath(rect, _borderRadius);
+
+            Region = new Region(graphPath);
+            using (Pen pen = new Pen(BackColor, _borderThickness))
             {
-                if (_disableBackColor == value)
-                    return;
-                _disableBackColor = value;
-                Invalidate();
+                pen.Alignment = PenAlignment.Center;
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                e.Graphics.DrawPath(pen, graphPath);
             }
         }
 
@@ -89,32 +75,6 @@ namespace Wc32Api.Widgets
 
             graphPath.CloseFigure();
             return graphPath;
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-            RectangleF rect = new RectangleF(0, 0, Width, Height);
-            GraphicsPath graphPath = GetRoundPath(rect, _borderRadius);
-
-            Region = new Region(graphPath);
-            using (Pen pen = new Pen(_borderColor, _borderThickness))
-            {
-                pen.Alignment = PenAlignment.Inset;
-                e.Graphics.DrawPath(pen, graphPath);
-            }
-        }
-
-        protected override void OnEnabledChanged(EventArgs e)
-        {
-            base.OnEnabledChanged(e);
-
-            if (!Enabled)
-            {
-                _enableBackColor = BackColor;
-            }
-
-            BackColor = Enabled ? _enableBackColor : _disableBackColor;
         }
     }
 }

@@ -58,7 +58,6 @@ namespace ARM.Core.Forms
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
-            this.btnSync = new Wc32Api.Widgets.WcButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
@@ -84,6 +83,8 @@ namespace ARM.Core.Forms
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
+            this.lblInfo = new Wc32Api.Widgets.WcLabel();
+            this.btnSync = new Wc32Api.Widgets.WcButton();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -207,32 +208,13 @@ namespace ARM.Core.Forms
             // 
             // panelGeneral
             // 
-            this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(57)))), ((int)(((byte)(73)))));
+            this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(67)))), ((int)(((byte)(72)))));
             this.panelGeneral.Controls.Add(this.btnSync);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelGeneral.Location = new System.Drawing.Point(0, 40);
             this.panelGeneral.Name = "panelGeneral";
             this.panelGeneral.Size = new System.Drawing.Size(800, 44);
             this.panelGeneral.TabIndex = 3;
-            // 
-            // btnSync
-            // 
-            this.btnSync.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSync.BackColor = System.Drawing.Color.Firebrick;
-            this.btnSync.BorderColor = System.Drawing.Color.Silver;
-            this.btnSync.BorderRadius = 2;
-            this.btnSync.BorderThickness = 1F;
-            this.btnSync.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnSync.FlatAppearance.BorderSize = 0;
-            this.btnSync.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSync.ForeColor = System.Drawing.Color.White;
-            this.btnSync.Image = global::ARM.Properties.Resources.white_synchronize_24;
-            this.btnSync.Location = new System.Drawing.Point(752, 3);
-            this.btnSync.Name = "btnSync";
-            this.btnSync.Size = new System.Drawing.Size(36, 36);
-            this.btnSync.TabIndex = 0;
-            this.btnSync.UseVisualStyleBackColor = false;
             // 
             // statusBar
             // 
@@ -652,10 +634,46 @@ namespace ARM.Core.Forms
             // 
             this.timerStatus.Interval = 3000;
             // 
+            // lblInfo
+            // 
+            this.lblInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(171)))), ((int)(((byte)(53)))));
+            this.lblInfo.BorderRadius = 2;
+            this.lblInfo.BorderThickness = 5F;
+            this.lblInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfo.ForeColor = System.Drawing.Color.White;
+            this.lblInfo.Location = new System.Drawing.Point(752, 1);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(36, 36);
+            this.lblInfo.TabIndex = 7;
+            this.lblInfo.Text = "1";
+            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnSync
+            // 
+            this.btnSync.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSync.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSync.BorderColor = System.Drawing.Color.Silver;
+            this.btnSync.BorderRadius = 2;
+            this.btnSync.BorderThickness = 1F;
+            this.btnSync.DisabledBackColor = System.Drawing.Color.DimGray;
+            this.btnSync.Enabled = false;
+            this.btnSync.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnSync.FlatAppearance.BorderSize = 0;
+            this.btnSync.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSync.ForeColor = System.Drawing.Color.White;
+            this.btnSync.Image = global::ARM.Properties.Resources.white_synchronize_24;
+            this.btnSync.Location = new System.Drawing.Point(752, 3);
+            this.btnSync.Name = "btnSync";
+            this.btnSync.Size = new System.Drawing.Size(36, 36);
+            this.btnSync.TabIndex = 0;
+            this.btnSync.UseVisualStyleBackColor = false;
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.tabsControl);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.panelGeneral);
@@ -733,6 +751,7 @@ namespace ARM.Core.Forms
         private System.Windows.Forms.ToolStripMenuItem loadFrankReportMenuItem;
         private System.Windows.Forms.ToolStripMenuItem firmsMenuItem;
         private Wc32Api.Widgets.WcButton btnSync;
+        private Wc32Api.Widgets.WcLabel lblInfo;
     }
 }
 
