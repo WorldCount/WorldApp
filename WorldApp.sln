@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EagleEye", "EagleEye\EagleEye.csproj", "{CFAF72F8-26A9-43F2-9F42-1F15AA320446}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARM", "ARM\ARM.csproj", "{CFAF72F8-26A9-43F2-9F42-1F15AA320446}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wc32Api", "Wc32Api\Wc32Api.csproj", "{456CFAB9-3CCD-4DA7-B73A-9E7CF57225BD}"
 EndProject
