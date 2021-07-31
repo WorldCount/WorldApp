@@ -35,7 +35,7 @@ namespace WorldStat.Core.Parsers.Models
 
         public bool SetName(string name)
         {
-            string firm = name.Replace("\"   \"", " ").Replace("   ", "|");
+            string firm = name.Replace("\"   \"", " ").Replace("   ", "|").Replace("\"", "");
             List<string> d = firm.Split('|').ToList();
 
             if (d.Count == 2)
