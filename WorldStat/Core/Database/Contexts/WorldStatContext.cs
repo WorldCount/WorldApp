@@ -17,5 +17,11 @@ namespace WorldStat.Core.Database.Contexts
         {
             optionsBuilder.UseSqlite($"Data Source={DbPath}");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<MailCode>().HasIndex(m => m.Code);
+            modelBuilder.Entity<Firm>().HasIndex(f => f.Code);
+        }
     }
 }
