@@ -654,9 +654,10 @@ namespace ARM.Core.Forms
             this.btnSync.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSync.BackColor = System.Drawing.Color.Firebrick;
             this.btnSync.BorderColor = System.Drawing.Color.Silver;
-            this.btnSync.BorderRadius = 2;
-            this.btnSync.BorderThickness = 1F;
-            this.btnSync.DisabledBackColor = System.Drawing.Color.DimGray;
+            this.btnSync.BorderRadius = 4F;
+            this.btnSync.BorderSize = 0;
+            this.btnSync.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnSync.DisableBorderColor = System.Drawing.Color.Silver;
             this.btnSync.Enabled = false;
             this.btnSync.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnSync.FlatAppearance.BorderSize = 0;
@@ -665,9 +666,13 @@ namespace ARM.Core.Forms
             this.btnSync.ForeColor = System.Drawing.Color.White;
             this.btnSync.Image = global::ARM.Properties.Resources.white_synchronize_24;
             this.btnSync.Location = new System.Drawing.Point(752, 3);
+            this.btnSync.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnSync.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSync.Name = "btnSync";
+            this.btnSync.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.btnSync.Size = new System.Drawing.Size(36, 36);
             this.btnSync.TabIndex = 0;
+            this.btnSync.TextColor = System.Drawing.Color.White;
             this.btnSync.UseVisualStyleBackColor = false;
             // 
             // GeneralForm
