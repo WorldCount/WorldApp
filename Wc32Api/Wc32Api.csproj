@@ -51,9 +51,26 @@
     <Compile Include="Widgets\WcLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Widgets\WcRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Widgets\WcTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Widgets\WcTextBox.designer.cs">
+      <DependentUpon>WcTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\WcToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Widgets\WcTextBox.resx">
+      <DependentUpon>WcTextBox.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
