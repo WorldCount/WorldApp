@@ -83,16 +83,16 @@ namespace WorldStat.Core.Forms
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.dateTimePickerReport = new System.Windows.Forms.DateTimePicker();
             this.btnLoadReport = new Wc32Api.Widgets.WcButton();
-            this.dayNameReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelStat = new System.Windows.Forms.Panel();
             this.labelInfoCount = new System.Windows.Forms.Label();
             this.labelInfoPay = new System.Windows.Forms.Label();
             this.labelCount = new System.Windows.Forms.Label();
             this.labelPay = new System.Windows.Forms.Label();
+            this.reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dayNameReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuBar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
@@ -660,13 +660,6 @@ namespace WorldStat.Core.Forms
             this.btnLoadReport.UseVisualStyleBackColor = false;
             this.btnLoadReport.Click += new System.EventHandler(this.btnLoadReport_Click);
             // 
-            // dayNameReportDataGridViewTextBoxColumn
-            // 
-            this.dayNameReportDataGridViewTextBoxColumn.DataPropertyName = "DayName";
-            this.dayNameReportDataGridViewTextBoxColumn.HeaderText = "День";
-            this.dayNameReportDataGridViewTextBoxColumn.Name = "dayNameReportDataGridViewTextBoxColumn";
-            this.dayNameReportDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // panelStat
             // 
             this.panelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
@@ -676,16 +669,16 @@ namespace WorldStat.Core.Forms
             this.panelStat.Controls.Add(this.labelInfoCount);
             this.panelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelStat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.panelStat.Location = new System.Drawing.Point(0, 327);
+            this.panelStat.Location = new System.Drawing.Point(0, 338);
             this.panelStat.Name = "panelStat";
-            this.panelStat.Size = new System.Drawing.Size(948, 46);
+            this.panelStat.Size = new System.Drawing.Size(948, 35);
             this.panelStat.TabIndex = 6;
             // 
             // labelInfoCount
             // 
             this.labelInfoCount.AutoSize = true;
             this.labelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInfoCount.Location = new System.Drawing.Point(18, 13);
+            this.labelInfoCount.Location = new System.Drawing.Point(21, 7);
             this.labelInfoCount.Name = "labelInfoCount";
             this.labelInfoCount.Size = new System.Drawing.Size(95, 20);
             this.labelInfoCount.TabIndex = 0;
@@ -695,7 +688,7 @@ namespace WorldStat.Core.Forms
             // 
             this.labelInfoPay.AutoSize = true;
             this.labelInfoPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInfoPay.Location = new System.Drawing.Point(395, 13);
+            this.labelInfoPay.Location = new System.Drawing.Point(395, 7);
             this.labelInfoPay.Name = "labelInfoPay";
             this.labelInfoPay.Size = new System.Drawing.Size(60, 20);
             this.labelInfoPay.TabIndex = 0;
@@ -705,7 +698,7 @@ namespace WorldStat.Core.Forms
             // 
             this.labelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelCount.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelCount.Location = new System.Drawing.Point(119, 13);
+            this.labelCount.Location = new System.Drawing.Point(122, 7);
             this.labelCount.Name = "labelCount";
             this.labelCount.Size = new System.Drawing.Size(140, 20);
             this.labelCount.TabIndex = 0;
@@ -715,11 +708,15 @@ namespace WorldStat.Core.Forms
             // 
             this.labelPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelPay.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelPay.Location = new System.Drawing.Point(461, 13);
+            this.labelPay.Location = new System.Drawing.Point(461, 7);
             this.labelPay.Name = "labelPay";
             this.labelPay.Size = new System.Drawing.Size(140, 20);
             this.labelPay.TabIndex = 1;
             this.labelPay.Text = "0";
+            // 
+            // reportBindingSource
+            // 
+            this.reportBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.Report);
             // 
             // dateReportDataGridViewTextBoxColumn
             // 
@@ -730,6 +727,14 @@ namespace WorldStat.Core.Forms
             this.dateReportDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.dateReportDataGridViewTextBoxColumn.HeaderText = "Дата";
             this.dateReportDataGridViewTextBoxColumn.Name = "dateReportDataGridViewTextBoxColumn";
+            this.dateReportDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dayNameReportDataGridViewTextBoxColumn
+            // 
+            this.dayNameReportDataGridViewTextBoxColumn.DataPropertyName = "DayName";
+            this.dayNameReportDataGridViewTextBoxColumn.HeaderText = "День";
+            this.dayNameReportDataGridViewTextBoxColumn.Name = "dayNameReportDataGridViewTextBoxColumn";
+            this.dayNameReportDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // countReportDataGridViewTextBoxColumn
             // 
@@ -738,6 +743,7 @@ namespace WorldStat.Core.Forms
             this.countReportDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.countReportDataGridViewTextBoxColumn.HeaderText = "Количество";
             this.countReportDataGridViewTextBoxColumn.Name = "countReportDataGridViewTextBoxColumn";
+            this.countReportDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // payReportDataGridViewTextBoxColumn
             // 
@@ -748,10 +754,7 @@ namespace WorldStat.Core.Forms
             this.payReportDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.payReportDataGridViewTextBoxColumn.HeaderText = "Плата";
             this.payReportDataGridViewTextBoxColumn.Name = "payReportDataGridViewTextBoxColumn";
-            // 
-            // reportBindingSource
-            // 
-            this.reportBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.Report);
+            this.payReportDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // GeneralForm
             // 
@@ -834,15 +837,15 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.DateTimePicker dateTimePickerReport;
         private System.Windows.Forms.BindingSource reportBindingSource;
         private Wc32Api.Widgets.WcButton btnLoadReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateReportDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dayNameReportDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn countReportDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn payReportDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel panelStat;
         private System.Windows.Forms.Label labelInfoCount;
         private System.Windows.Forms.Label labelInfoPay;
         private System.Windows.Forms.Label labelPay;
         private System.Windows.Forms.Label labelCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateReportDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dayNameReportDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countReportDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn payReportDataGridViewTextBoxColumn;
     }
 }
 

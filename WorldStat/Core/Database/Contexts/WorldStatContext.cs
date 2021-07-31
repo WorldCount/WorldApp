@@ -22,6 +22,7 @@ namespace WorldStat.Core.Database.Contexts
         {
             modelBuilder.Entity<MailCode>().HasIndex(m => m.Code);
             modelBuilder.Entity<Firm>().HasIndex(f => f.Code);
+            modelBuilder.Entity<Report>().HasIndex(r => r.Date);
         }
     }
 }

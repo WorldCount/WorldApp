@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -41,6 +38,9 @@ namespace WorldStat.Core.Forms
 
             // Загрузка настроек
             LoadSettings();
+
+            //
+            InitTable();
         }
 
         #region Form Config
@@ -139,6 +139,8 @@ namespace WorldStat.Core.Forms
                             MessageBoxIcon.Error);
                     }
                 }
+
+            FirstQuery();
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -197,6 +199,36 @@ namespace WorldStat.Core.Forms
         private void timerStatus_Tick(object sender, EventArgs e)
         {
             statusText.Text = "";
+        }
+
+        #endregion
+
+        #region Table Config
+
+        private void InitTable()
+        {
+            dateReportDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dateReportDataGridViewTextBoxColumn.Width = 140;
+
+            dayNameReportDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dayNameReportDataGridViewTextBoxColumn.Width = 140;
+
+            countReportDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            countReportDataGridViewTextBoxColumn.Width = 200;
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private async void FirstQuery()
+        {
+            await Task.Run(() => { 
+                using (WorldStatContext db = new WorldStatContext())
+                {
+                    var entity = db.MailCodes.Last();
+                }
+            });
         }
 
         #endregion
@@ -272,10 +304,11 @@ namespace WorldStat.Core.Forms
 
             using (WorldStatContext db = new WorldStatContext())
             {
-
                 var reports = db.Reports.Where(r => r.Date >= start && r.Date <= end).ToList();
 
-                labelCount.Text = reports.Sum(r => r.Count).ToString("### ###");
+                string count = reports.Sum(r => r.Count).ToString("### ###");
+
+                labelCount.Text = string.IsNullOrEmpty(count) ? "0" : count;
                 labelPay.Text = reports.Sum(r => r.Pay).ToString("C");
 
                 reportBindingSource.DataSource = reports;
