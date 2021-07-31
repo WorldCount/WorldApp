@@ -58,5 +58,29 @@ namespace WorldStat.Properties {
                 this["NeedUpgrade"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
+        public string LastOpenDir {
+            get {
+                return ((string)(this["LastOpenDir"]));
+            }
+            set {
+                this["LastOpenDir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LoggingMode {
+            get {
+                return ((bool)(this["LoggingMode"]));
+            }
+            set {
+                this["LoggingMode"] = value;
+            }
+        }
     }
 }

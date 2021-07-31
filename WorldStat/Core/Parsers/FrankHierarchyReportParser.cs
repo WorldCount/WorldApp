@@ -10,27 +10,48 @@ namespace WorldStat.Core.Parsers
 {
     public class FrankHierarchyReportParser
     {
+
+        #region Private Fields
+
         private readonly string _path;
         private readonly List<HierarchyFrankReport> _frankReports;
+        private bool _isValid;
 
-        public DateTime ReportDate { get; set; }
+        #endregion
 
-        FrankHierarchyReportParser(string path)
+        public FrankHierarchyReportParser(string path)
         {
             _path = path;
             _frankReports = new List<HierarchyFrankReport>();
         }
 
+        #region Properties
+
+        public DateTime ReportDate { get; set; }
+        public int MailCount { get; private set; }
+        public double MailPay { get; private set; }
+
+        #endregion
+
         #region Public Methods
 
         public void Parse()
         {
+            MailPay = 0;
+            MailCount = 0;
+
             IWorkbook workbook = GetWorkbook();
 
             if (workbook == null)
                 return;
 
             ISheet sheet = workbook.GetSheetAt(0);
+
+            if (!CheckValid(sheet))
+            {
+                workbook.Close();
+                return;
+            }
 
             // Парсим дату отчета
             ReportDate = ParseReportDate(sheet);
@@ -81,11 +102,17 @@ namespace WorldStat.Core.Parsers
                     report.Name = $"{report.Name} {frankRow.FirmName}";
 
                 if (frankRow.Type == FrankRowType.Pay)
+                {
                     report.AddPosition(frankRow);
+                    MailCount += frankRow.Count;
+                    MailPay += frankRow.PaySum;
+                }
             }
 
             // Добавляем последний отчет
             _frankReports.Add(report);
+
+            workbook.Close();
         }
 
         public SortedDictionary<int, string> GetKeys()
@@ -119,10 +146,38 @@ namespace WorldStat.Core.Parsers
             return _frankReports.Count;
         }
 
+        public bool IsValid()
+        {
+            return _isValid;
+        }
+
         #endregion
 
 
         #region Private Methods
+
+        private bool CheckValid(ISheet sheet)
+        {
+            try
+            {
+                IRow rowDate = sheet.GetRow(1);
+                string reportName = rowDate.Cells[0].StringCellValue;
+
+                if (reportName.ToUpper().Contains("СПИСОК ИЕРАРХИИ УЧЕТНЫХ ЗАПИСЕЙ ДЛЯ КАЖДОЙ"))
+                {
+                    _isValid = true;
+                    return true;
+                }
+
+                _isValid = false;
+                return false;
+            }
+            catch
+            {
+                _isValid = false;
+                return false;
+            }
+        }
 
         private DateTime ParseReportDate(ISheet sheet)
         {
@@ -149,8 +204,6 @@ namespace WorldStat.Core.Parsers
 
         private IWorkbook GetWorkbook()
         {
-            IWorkbook workbook;
-
             if (string.IsNullOrEmpty(_path))
                 return null;
 
@@ -160,15 +213,24 @@ namespace WorldStat.Core.Parsers
             if ((ext != ".xls") && (ext != ".xlsx"))
                 return null;
 
-            using (FileStream fileStream = new FileStream(_path, FileMode.Open, FileAccess.Read))
+            try
             {
-                if (ext == ".xlsx")
-                    workbook = new XSSFWorkbook(fileStream);
-                else
-                    workbook = new HSSFWorkbook(fileStream);
-            }
+                IWorkbook workbook;
 
-            return workbook;
+                using (FileStream fileStream = new FileStream(_path, FileMode.Open, FileAccess.Read))
+                {
+                    if (ext == ".xlsx")
+                        workbook = new XSSFWorkbook(fileStream);
+                    else
+                        workbook = new HSSFWorkbook(fileStream);
+                }
+
+                return workbook;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         private Tuple<int, string> ParseMailName(string mailName)
