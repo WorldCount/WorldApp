@@ -57,8 +57,6 @@ namespace ARM.Core.Forms.ConnectForms
             this.btnCancel.BackColor = System.Drawing.Color.Firebrick;
             this.btnCancel.BorderColor = System.Drawing.Color.Silver;
             this.btnCancel.BorderRadius = 4;
-            this.btnCancel.BorderThickness = 1F;
-            this.btnCancel.DisabledBackColor = System.Drawing.Color.Gray;
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -77,8 +75,6 @@ namespace ARM.Core.Forms.ConnectForms
             this.btnSave.BackColor = System.Drawing.Color.SeaGreen;
             this.btnSave.BorderColor = System.Drawing.Color.Silver;
             this.btnSave.BorderRadius = 4;
-            this.btnSave.BorderThickness = 1F;
-            this.btnSave.DisabledBackColor = System.Drawing.Color.Gray;
             this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -120,8 +116,6 @@ namespace ARM.Core.Forms.ConnectForms
             this.btnAuto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(57)))), ((int)(((byte)(73)))));
             this.btnAuto.BorderColor = System.Drawing.Color.Silver;
             this.btnAuto.BorderRadius = 4;
-            this.btnAuto.BorderThickness = 1F;
-            this.btnAuto.DisabledBackColor = System.Drawing.Color.Gray;
             this.btnAuto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnAuto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -164,8 +158,6 @@ namespace ARM.Core.Forms.ConnectForms
             this.btnOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(57)))), ((int)(((byte)(73)))));
             this.btnOpen.BorderColor = System.Drawing.Color.Silver;
             this.btnOpen.BorderRadius = 4;
-            this.btnOpen.BorderThickness = 1F;
-            this.btnOpen.DisabledBackColor = System.Drawing.Color.Gray;
             this.btnOpen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -297,8 +289,6 @@ namespace ARM.Core.Forms.ConnectForms
             this.btnCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
             this.btnCheck.BorderColor = System.Drawing.Color.Silver;
             this.btnCheck.BorderRadius = 4;
-            this.btnCheck.BorderThickness = 1F;
-            this.btnCheck.DisabledBackColor = System.Drawing.Color.Gray;
             this.btnCheck.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
