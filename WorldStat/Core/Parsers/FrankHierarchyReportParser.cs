@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using ARM.Core.Parsers.FrankParsers.Models;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
+using WorldStat.Core.Parsers.Models;
 
-namespace ARM.Core.Parsers.FrankParsers
+namespace WorldStat.Core.Parsers
 {
     public class FrankHierarchyReportParser
     {
@@ -27,7 +27,7 @@ namespace ARM.Core.Parsers.FrankParsers
         {
             IWorkbook workbook = GetWorkbook();
 
-            if(workbook == null)
+            if (workbook == null)
                 return;
 
             ISheet sheet = workbook.GetSheetAt(0);
@@ -62,7 +62,7 @@ namespace ARM.Core.Parsers.FrankParsers
 
                 FrankRow frankRow = ParseRow(row);
 
-                if(frankRow.Type == FrankRowType.Skip)
+                if (frankRow.Type == FrankRowType.Skip)
                     continue;
 
                 if (frankRow.Type == FrankRowType.FirmName)
@@ -72,7 +72,7 @@ namespace ARM.Core.Parsers.FrankParsers
                     if (i > 9)
                         _frankReports.Add(report);
 
-                    report = new HierarchyFrankReport {Date = ReportDate, FirmCode = frankRow.FirmCode};
+                    report = new HierarchyFrankReport { Date = ReportDate, FirmCode = frankRow.FirmCode };
                     report.SetName(frankRow.FirmName);
                     continue;
                 }
@@ -80,7 +80,7 @@ namespace ARM.Core.Parsers.FrankParsers
                 if (frankRow.Type == FrankRowType.AppendFirmName)
                     report.Name = $"{report.Name} {frankRow.FirmName}";
 
-                if(frankRow.Type == FrankRowType.Pay)
+                if (frankRow.Type == FrankRowType.Pay)
                     report.AddPosition(frankRow);
             }
 
@@ -96,7 +96,7 @@ namespace ARM.Core.Parsers.FrankParsers
             {
                 foreach (KeyValuePair<int, FrankMail> pos in report.GetAllPositions())
                 {
-                    if(!keys.ContainsKey(pos.Key))
+                    if (!keys.ContainsKey(pos.Key))
                         keys.Add(pos.Key, pos.Value.Name);
                 }
             }
@@ -258,7 +258,7 @@ namespace ARM.Core.Parsers.FrankParsers
                     return new FrankRow { Type = FrankRowType.Skip };
 
                 Tuple<int, string> payTuple = ParseMailName(mail);
-                if(payTuple == null)
+                if (payTuple == null)
                     return new FrankRow { Type = FrankRowType.Skip };
 
 

@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WorldStat.Properties {
+namespace WorldStat.Core.Forms.Settings {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    internal sealed partial class FormsPosition : global::System.Configuration.ApplicationSettingsBase {
         
-        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        private static FormsPosition defaultInstance = ((FormsPosition)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new FormsPosition())));
         
-        public static Settings Default {
+        public static FormsPosition Default {
             get {
                 return defaultInstance;
             }
@@ -25,37 +25,37 @@ namespace WorldStat.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("WorldStat")]
-        public string AppName {
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState GeneralFormState {
             get {
-                return ((string)(this["AppName"]));
+                return ((global::System.Windows.Forms.FormWindowState)(this["GeneralFormState"]));
             }
             set {
-                this["AppName"] = value;
+                this["GeneralFormState"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DATA")]
-        public string DataDir {
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point GeneralFormLocation {
             get {
-                return ((string)(this["DataDir"]));
+                return ((global::System.Drawing.Point)(this["GeneralFormLocation"]));
             }
             set {
-                this["DataDir"] = value;
+                this["GeneralFormLocation"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool NeedUpgrade {
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Size GeneralFormSize {
             get {
-                return ((bool)(this["NeedUpgrade"]));
+                return ((global::System.Drawing.Size)(this["GeneralFormSize"]));
             }
             set {
-                this["NeedUpgrade"] = value;
+                this["GeneralFormSize"] = value;
             }
         }
     }
