@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -243,31 +245,6 @@ namespace WorldStat.Core.Forms
 
         private void ParseReports()
         {
-            //SortedDictionary<int, string> dictKeys = new SortedDictionary<int, string>();
-            //List<MailCode> mailCodes = new List<MailCode>();
-
-            //foreach (string path in _reportsPaths)
-            //{
-            //    FrankHierarchyReportParser parser = new FrankHierarchyReportParser(path);
-            //    parser.Parse();
-
-            //    if (parser.IsValid())
-            //    {
-            //        var reports = parser.GetReports();
-            //        var keys = parser.GetKeys();
-
-            //        foreach (KeyValuePair<int, string> pair in keys)
-            //        {
-            //            if (!dictKeys.ContainsKey(pair.Key))
-            //            {
-            //                dictKeys.Add(pair.Key, pair.Value);
-            //                MailCode mailCode = new MailCode();
-            //                mailCode.Parse(pair.Key, pair.Value);
-            //                mailCodes.Add(mailCode);
-            //            }
-            //        }
-            //    }
-            //}
             LoadReportForm loadReportForm = new LoadReportForm(_reportsPaths);
             loadReportForm.ShowDialog(this);
 
@@ -281,5 +258,28 @@ namespace WorldStat.Core.Forms
         }
 
         #endregion
+
+        private void btnLoadReport_Click(object sender, EventArgs e)
+        {
+
+            DateTime date = dateTimePickerReport.Value;
+            DateTime start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+            DateTime end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+
+            reportBindingSource.DataSource = null;
+            labelCount.Text = "0";
+            labelPay.Text = "0";
+
+            using (WorldStatContext db = new WorldStatContext())
+            {
+
+                var reports = db.Reports.Where(r => r.Date >= start && r.Date <= end).ToList();
+
+                labelCount.Text = reports.Sum(r => r.Count).ToString("### ###");
+                labelPay.Text = reports.Sum(r => r.Pay).ToString("C");
+
+                reportBindingSource.DataSource = reports;
+            }
+        }
     }
 }

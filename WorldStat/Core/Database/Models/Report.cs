@@ -11,6 +11,8 @@ namespace WorldStat.Core.Database.Models
         public int Count { get; set; }
         public double Pay { get; set; }
 
+        public string DayName { get => Date.ToString("ddd");}
+
         public List<ReportPos> ReportPoses { get; set; } = new List<ReportPos>();
     }
 }
