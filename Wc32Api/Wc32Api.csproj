@@ -52,6 +52,9 @@
     <Compile Include="Widgets\WcLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Widgets\WcProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Widgets\WcRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
