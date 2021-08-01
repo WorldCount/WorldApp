@@ -126,21 +126,24 @@ namespace WorldStat.Core.Forms
             // Чтение аргументов
             CheckArgs();
 
-            if (!File.Exists(PathManager.DatabasePath))
-                using (var db = new WorldStatContext())
-                {
-                    try
+            await Task.Run(() =>
+            {
+                if (!File.Exists(PathManager.DatabasePath))
+                    using (var db = new WorldStatContext())
                     {
-                        await db.Database.EnsureCreatedAsync();
+                        try
+                        {
+                            db.Database.EnsureCreated();
+                        }
+                        catch (InvalidOperationException)
+                        {
+                            MessageBox.Show(@"Не могу создать базу данных", @"Ошибка создания БД", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                        }
                     }
-                    catch (InvalidOperationException)
-                    {
-                        MessageBox.Show(@"Не могу создать базу данных", @"Ошибка создания БД", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
-                }
 
-            FirstQuery();
+                FirstQuery();
+            });
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -226,7 +229,14 @@ namespace WorldStat.Core.Forms
             await Task.Run(() => { 
                 using (WorldStatContext db = new WorldStatContext())
                 {
-                    var entity = db.MailCodes.Last();
+                    try
+                    {
+                        var entity = db.MailCodes.Last();
+                    }
+                    catch
+                    {
+                        //
+                    }
                 }
             });
         }

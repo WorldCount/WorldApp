@@ -102,6 +102,9 @@ namespace WorldStat.Core.Forms
 
                     await ParseReportAsync(report, db);
                 }
+
+                SetInfo("Сохраняю данные", _reportCount, _reportCount);
+                db.SaveChanges();
             }
 
             Close();
@@ -140,8 +143,8 @@ namespace WorldStat.Core.Forms
                         MailCode mailCode = new MailCode(code.Key, code.Value);
                         db.Add(mailCode);
                     }
-                        
                 }
+
                 db.SaveChanges();
 
                 List<ReportPos> reportPoses = new List<ReportPos>();
@@ -154,13 +157,11 @@ namespace WorldStat.Core.Forms
                         firm = new Firm
                         {
                             Code = frankReport.FirmCode,
-                            Doc = frankReport.Doc,
-                            Name = frankReport.Name,
-                            ShortName = frankReport.Name
+                            Doc = frankReport.Doc
                         };
+                        firm.ParseName(frankReport.Name);
 
                         db.Add(firm);
-                        db.SaveChanges();
                     }
 
                     foreach (var pos in frankReport.GetAllPositions())
@@ -177,7 +178,6 @@ namespace WorldStat.Core.Forms
                             Count = pos.Value.Count,
                             Pay = pos.Value.PaySum
                         };
-
                         reportPos.ParseMailType(mailCode);
 
                         reportPoses.Add(reportPos);
