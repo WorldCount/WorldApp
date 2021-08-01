@@ -133,24 +133,17 @@ namespace WorldStat.Core.Forms
             // Чтение аргументов
             CheckArgs();
 
-            await Task.Run(() =>
+            if (!File.Exists(PathManager.DatabasePath))
             {
-                if (!File.Exists(PathManager.DatabasePath))
-                    using (var db = new WorldStatContext())
-                    {
-                        try
-                        {
-                            db.Database.EnsureCreated();
-                        }
-                        catch (InvalidOperationException)
-                        {
-                            MessageBox.Show(@"Не могу создать базу данных", @"Ошибка создания БД", MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                        }
-                    }
+                await Task.Run(() =>
+                {
+                    CreateDbForm createDbForm = new CreateDbForm();
 
-                FirstQuery();
-            });
+                    Invoke(new Action(() => { createDbForm.ShowDialog(this); }));
+                });
+            }
+
+            FirstQuery();
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -311,8 +304,9 @@ namespace WorldStat.Core.Forms
                 reports = type == CalendarType.Все ? db.Reports.Where(r => r.Date >= start && r.Date <= end).ToList() : db.Reports.Where(r => r.Date >= start && r.Date <= end && r.Type == type).ToList();
 
                 string count = reports.Sum(r => r.Count).ToString("### ###");
+                string sum = reports.Sum(r => r.Pay).ToString("C");
 
-                labelCount.Text = string.IsNullOrEmpty(count) ? "0" : count;
+                labelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
                 labelPay.Text = reports.Sum(r => r.Pay).ToString("C");
 
                 reportBindingSource.DataSource = reports;
@@ -380,8 +374,15 @@ namespace WorldStat.Core.Forms
             firmsForm = null;
         }
 
+
         #endregion
 
+        private void createDbMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateDbForm createDbForm = new CreateDbForm();
+            createDbForm.ShowDialog(this);
 
+            createDbForm = null;
+        }
     }
 }

@@ -221,6 +221,12 @@
     <Compile Include="Core\Forms\GeneralForm.Designer.cs">
       <DependentUpon>GeneralForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Forms\CreateDbForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\CreateDbForm.designer.cs">
+      <DependentUpon>CreateDbForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Forms\Settings\FormsPosition.Designer.cs">
       <DependentUpon>FormsPosition.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -258,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\GeneralForm.resx">
       <DependentUpon>GeneralForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Forms\CreateDbForm.resx">
+      <DependentUpon>CreateDbForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\LoadReportForm.resx">
       <DependentUpon>LoadReportForm.cs</DependentUpon>
@@ -297,7 +306,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Core\Storage\Manager\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wc32Api\Wc32Api.csproj">
       <Project>{456cfab9-3ccd-4da7-b73a-9e7cf57225bd}</Project>

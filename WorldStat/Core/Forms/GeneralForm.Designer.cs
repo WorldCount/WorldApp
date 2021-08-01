@@ -72,7 +72,6 @@ namespace WorldStat.Core.Forms
             this.panelReceived = new System.Windows.Forms.Panel();
             this.labelCalendar = new System.Windows.Forms.Label();
             this.comboBoxCalendar = new System.Windows.Forms.ComboBox();
-            this.btnLoadReport = new Wc32Api.Widgets.WcButton();
             this.dateTimePickerReport = new System.Windows.Forms.DateTimePicker();
             this.tabOrg = new System.Windows.Forms.TabPage();
             this.dataGridViewDocOrg = new System.Windows.Forms.DataGridView();
@@ -93,6 +92,7 @@ namespace WorldStat.Core.Forms
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.dayNameReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLoadReport = new Wc32Api.Widgets.WcButton();
             this.dateReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -194,6 +194,7 @@ namespace WorldStat.Core.Forms
             this.createDbMenuItem.Name = "createDbMenuItem";
             this.createDbMenuItem.Size = new System.Drawing.Size(205, 24);
             this.createDbMenuItem.Text = "Создать новую БД";
+            this.createDbMenuItem.Click += new System.EventHandler(this.createDbMenuItem_Click);
             // 
             // infosMenuItem
             // 
@@ -291,7 +292,7 @@ namespace WorldStat.Core.Forms
             this.labelPay.Name = "labelPay";
             this.labelPay.Size = new System.Drawing.Size(140, 20);
             this.labelPay.TabIndex = 1;
-            this.labelPay.Text = "0";
+            this.labelPay.Text = "0,00 ₽";
             // 
             // labelCount
             // 
@@ -413,30 +414,6 @@ namespace WorldStat.Core.Forms
             this.comboBoxCalendar.Name = "comboBoxCalendar";
             this.comboBoxCalendar.Size = new System.Drawing.Size(168, 28);
             this.comboBoxCalendar.TabIndex = 25;
-            // 
-            // btnLoadReport
-            // 
-            this.btnLoadReport.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLoadReport.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReport.BorderRadius = 6F;
-            this.btnLoadReport.BorderSize = 0;
-            this.btnLoadReport.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadReport.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReport.FlatAppearance.BorderSize = 0;
-            this.btnLoadReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnLoadReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadReport.ForeColor = System.Drawing.Color.White;
-            this.btnLoadReport.Image = global::WorldStat.Properties.Resources.sinchronize_24;
-            this.btnLoadReport.Location = new System.Drawing.Point(219, 3);
-            this.btnLoadReport.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnLoadReport.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnLoadReport.Name = "btnLoadReport";
-            this.btnLoadReport.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadReport.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadReport.TabIndex = 24;
-            this.btnLoadReport.TextColor = System.Drawing.Color.White;
-            this.btnLoadReport.UseVisualStyleBackColor = false;
-            this.btnLoadReport.Click += new System.EventHandler(this.btnLoadReport_Click);
             // 
             // dateTimePickerReport
             // 
@@ -768,6 +745,30 @@ namespace WorldStat.Core.Forms
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 472;
+            // 
+            // btnLoadReport
+            // 
+            this.btnLoadReport.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadReport.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReport.BorderRadius = 6F;
+            this.btnLoadReport.BorderSize = 0;
+            this.btnLoadReport.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadReport.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReport.FlatAppearance.BorderSize = 0;
+            this.btnLoadReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadReport.ForeColor = System.Drawing.Color.White;
+            this.btnLoadReport.Image = global::WorldStat.Properties.Resources.sinchronize_24;
+            this.btnLoadReport.Location = new System.Drawing.Point(219, 3);
+            this.btnLoadReport.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadReport.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadReport.Name = "btnLoadReport";
+            this.btnLoadReport.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadReport.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadReport.TabIndex = 24;
+            this.btnLoadReport.TextColor = System.Drawing.Color.White;
+            this.btnLoadReport.UseVisualStyleBackColor = false;
+            this.btnLoadReport.Click += new System.EventHandler(this.btnLoadReport_Click);
             // 
             // dateReportDataGridViewTextBoxColumn
             // 
