@@ -46,6 +46,7 @@ namespace WorldStat.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFrankReportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,12 +93,14 @@ namespace WorldStat.Core.Forms
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.dayNameReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnLoadReport = new Wc32Api.Widgets.WcButton();
-            this.dateReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailCategoryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.typeReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnLoadReport = new Wc32Api.Widgets.WcButton();
+            this.mailTypeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
@@ -169,7 +172,9 @@ namespace WorldStat.Core.Forms
             // dataMenuItem
             // 
             this.dataMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.firmsMenuItem});
+            this.firmsMenuItem,
+            this.mailCategoryMenuItem,
+            this.mailTypeMenuItem});
             this.dataMenuItem.Name = "dataMenuItem";
             this.dataMenuItem.Size = new System.Drawing.Size(76, 36);
             this.dataMenuItem.Text = "Данные";
@@ -177,7 +182,7 @@ namespace WorldStat.Core.Forms
             // firmsMenuItem
             // 
             this.firmsMenuItem.Name = "firmsMenuItem";
-            this.firmsMenuItem.Size = new System.Drawing.Size(172, 24);
+            this.firmsMenuItem.Size = new System.Drawing.Size(247, 24);
             this.firmsMenuItem.Text = "Организации";
             this.firmsMenuItem.Click += new System.EventHandler(this.firmsMenuItem_Click);
             // 
@@ -746,29 +751,19 @@ namespace WorldStat.Core.Forms
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 472;
             // 
-            // btnLoadReport
+            // mailCategoryMenuItem
             // 
-            this.btnLoadReport.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLoadReport.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReport.BorderRadius = 6F;
-            this.btnLoadReport.BorderSize = 0;
-            this.btnLoadReport.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadReport.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReport.FlatAppearance.BorderSize = 0;
-            this.btnLoadReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnLoadReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadReport.ForeColor = System.Drawing.Color.White;
-            this.btnLoadReport.Image = global::WorldStat.Properties.Resources.sinchronize_24;
-            this.btnLoadReport.Location = new System.Drawing.Point(219, 3);
-            this.btnLoadReport.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnLoadReport.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnLoadReport.Name = "btnLoadReport";
-            this.btnLoadReport.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadReport.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadReport.TabIndex = 24;
-            this.btnLoadReport.TextColor = System.Drawing.Color.White;
-            this.btnLoadReport.UseVisualStyleBackColor = false;
-            this.btnLoadReport.Click += new System.EventHandler(this.btnLoadReport_Click);
+            this.mailCategoryMenuItem.Name = "mailCategoryMenuItem";
+            this.mailCategoryMenuItem.Size = new System.Drawing.Size(247, 24);
+            this.mailCategoryMenuItem.Text = "Категории отправлений";
+            this.mailCategoryMenuItem.Click += new System.EventHandler(this.mailCategoryMenuItem_Click);
+            // 
+            // typeReportDataGridViewTextBoxColumn
+            // 
+            this.typeReportDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeReportDataGridViewTextBoxColumn.HeaderText = "Смена";
+            this.typeReportDataGridViewTextBoxColumn.Name = "typeReportDataGridViewTextBoxColumn";
+            this.typeReportDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dateReportDataGridViewTextBoxColumn
             // 
@@ -780,13 +775,6 @@ namespace WorldStat.Core.Forms
             this.dateReportDataGridViewTextBoxColumn.HeaderText = "Дата";
             this.dateReportDataGridViewTextBoxColumn.Name = "dateReportDataGridViewTextBoxColumn";
             this.dateReportDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // typeReportDataGridViewTextBoxColumn
-            // 
-            this.typeReportDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeReportDataGridViewTextBoxColumn.HeaderText = "Смена";
-            this.typeReportDataGridViewTextBoxColumn.Name = "typeReportDataGridViewTextBoxColumn";
-            this.typeReportDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // countReportDataGridViewTextBoxColumn
             // 
@@ -812,6 +800,37 @@ namespace WorldStat.Core.Forms
             // 
             this.reportBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.Report);
             // 
+            // btnLoadReport
+            // 
+            this.btnLoadReport.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadReport.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReport.BorderRadius = 6F;
+            this.btnLoadReport.BorderSize = 0;
+            this.btnLoadReport.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadReport.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReport.FlatAppearance.BorderSize = 0;
+            this.btnLoadReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadReport.ForeColor = System.Drawing.Color.White;
+            this.btnLoadReport.Image = global::WorldStat.Properties.Resources.sinchronize_24;
+            this.btnLoadReport.Location = new System.Drawing.Point(219, 3);
+            this.btnLoadReport.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadReport.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadReport.Name = "btnLoadReport";
+            this.btnLoadReport.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadReport.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadReport.TabIndex = 24;
+            this.btnLoadReport.TextColor = System.Drawing.Color.White;
+            this.btnLoadReport.UseVisualStyleBackColor = false;
+            this.btnLoadReport.Click += new System.EventHandler(this.btnLoadReport_Click);
+            // 
+            // mailTypeMenuItem
+            // 
+            this.mailTypeMenuItem.Name = "mailTypeMenuItem";
+            this.mailTypeMenuItem.Size = new System.Drawing.Size(247, 24);
+            this.mailTypeMenuItem.Text = "Типы отправлений";
+            this.mailTypeMenuItem.Click += new System.EventHandler(this.mailTypeMenuItem_Click);
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -823,6 +842,7 @@ namespace WorldStat.Core.Forms
             this.Controls.Add(this.menuBar);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "GeneralForm";
             this.Text = "WorldStat";
@@ -908,6 +928,8 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn countReportDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn payReportDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.ToolStripMenuItem mailCategoryMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mailTypeMenuItem;
     }
 }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorldStat.Core.Database.Contexts;
 using WorldStat.Core.Database.Models;
@@ -28,7 +29,7 @@ namespace WorldStat.Core.Forms.DataForms
             UpdateData();
         }
 
-        public void InitTable()
+        private void InitTable()
         {
             checkDataGridViewCheckBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             checkDataGridViewCheckBoxColumn.Width = 40;
@@ -47,7 +48,7 @@ namespace WorldStat.Core.Forms.DataForms
             docDataGridViewTextBoxColumn.Width = 220;
         }
 
-        public List<Firm> LoadData()
+        private List<Firm> LoadData()
         {
             using (WorldStatContext db = new WorldStatContext())
             {
@@ -55,23 +56,26 @@ namespace WorldStat.Core.Forms.DataForms
             }
         }
 
-        public void SaveData()
+        private async void SaveData()
         {
-            using (WorldStatContext db = new WorldStatContext())
+            await Task.Run(() =>
             {
-                db.UpdateRange(_firms);
-                db.SaveChanges();
-            }
+                using (WorldStatContext db = new WorldStatContext())
+                {
+                    db.UpdateRange(_firms);
+                    db.SaveChanges();
+                }
+            });
         }
 
-        public void UpdateData()
+        private void UpdateData()
         {
             firmBindingSource.DataSource = null;
             firmBindingSource.DataSource = _firms;
             lblCount.Text = $"{_firms.Count} шт";
         }
 
-        public Firm GetFirmByRowIndex(int rowIndex)
+        private Firm GetFirmByRowIndex(int rowIndex)
         {
             List<Firm> firms = (List<Firm>)firmBindingSource.DataSource;
 

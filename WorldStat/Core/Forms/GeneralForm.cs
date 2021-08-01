@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using WorldStat.Core.Database.Contexts;
 using WorldStat.Core.Database.Models;
 using WorldStat.Core.Forms.DataForms;
+using WorldStat.Core.Forms.TypeForms;
 using WorldStat.Core.Parsers;
 using WorldStat.Core.Storage;
 using WorldStat.Core.Types;
@@ -348,6 +349,38 @@ namespace WorldStat.Core.Forms
             openFileDialog = null;
         }
 
+        private void firmsMenuItem_Click(object sender, EventArgs e)
+        {
+            FirmsForm firmsForm = new FirmsForm();
+            firmsForm.ShowDialog(this);
+
+            firmsForm = null;
+        }
+
+        private void createDbMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateDbForm createDbForm = new CreateDbForm();
+            createDbForm.ShowDialog(this);
+
+            createDbForm = null;
+        }
+
+        private void mailCategoryMenuItem_Click(object sender, EventArgs e)
+        {
+            MailCategoryForm mailCategoryForm = new MailCategoryForm();
+            mailCategoryForm.ShowDialog(this);
+
+            mailCategoryForm = null;
+        }
+
+        private void mailTypeMenuItem_Click(object sender, EventArgs e)
+        {
+            MailTypeForm mailTypeForm = new MailTypeForm();
+            mailTypeForm.ShowDialog(this);
+
+            mailTypeForm = null;
+        }
+
         #endregion
 
         #region Private Methods
@@ -358,31 +391,9 @@ namespace WorldStat.Core.Forms
             loadReportForm.ShowDialog(this);
 
             loadReportForm = null;
-
-
-            //string json = JsonConvert.SerializeObject(dictKeys, Formatting.Indented);
-            //string jsonData = JsonConvert.SerializeObject(mailCodes, Formatting.Indented);
-            //File.WriteAllText(Path.Combine(PathManager.DataDir, "data.json"), json);
-            //File.WriteAllText(Path.Combine(PathManager.DataDir, "mailCodes.json"), jsonData);
         }
-
-        private void firmsMenuItem_Click(object sender, EventArgs e)
-        {
-            FirmsForm firmsForm = new FirmsForm();
-            firmsForm.ShowDialog(this);
-
-            firmsForm = null;
-        }
-
 
         #endregion
 
-        private void createDbMenuItem_Click(object sender, EventArgs e)
-        {
-            CreateDbForm createDbForm = new CreateDbForm();
-            createDbForm.ShowDialog(this);
-
-            createDbForm = null;
-        }
     }
 }

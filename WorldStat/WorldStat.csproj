@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>WS.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>..\packages\Portable.BouncyCastle.1.8.6\lib\net40\BouncyCastle.Crypto.dll</HintPath>
@@ -241,6 +244,18 @@
     <Compile Include="Core\Forms\LoadReportForm.designer.cs">
       <DependentUpon>LoadReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Forms\TypeForms\MailCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\TypeForms\MailCategoryForm.designer.cs">
+      <DependentUpon>MailCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Forms\TypeForms\MailTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\TypeForms\MailTypeForm.designer.cs">
+      <DependentUpon>MailTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Parsers\FrankHierarchyReportParser.cs" />
     <Compile Include="Core\Parsers\Models\FrankMail.cs" />
     <Compile Include="Core\Parsers\Models\FrankRow.cs" />
@@ -249,6 +264,7 @@
     <Compile Include="Core\Types\CalendarType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="WS.ico" />
     <None Include="Properties\DataSources\WorldStat.Core.Database.Models.Calendar.datasource" />
     <None Include="Resources\gray-trash-24.png" />
     <None Include="Resources\gray-unchecked-32.png" />
@@ -273,6 +289,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\LoadReportForm.resx">
       <DependentUpon>LoadReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Forms\TypeForms\MailCategoryForm.resx">
+      <DependentUpon>MailCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Forms\TypeForms\MailTypeForm.resx">
+      <DependentUpon>MailTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
