@@ -199,8 +199,11 @@
   <ItemGroup>
     <Compile Include="Core\Database\Contexts\WorldStatContext.cs" />
     <Compile Include="Core\Database\Models\Calendar.cs" />
+    <Compile Include="Core\Database\Models\MailCategory.cs" />
     <Compile Include="Core\Database\Models\MailCode.cs" />
     <Compile Include="Core\Database\Models\Firm.cs" />
+    <Compile Include="Core\Database\Models\MailType.cs" />
+    <Compile Include="Core\Database\Models\Notice.cs" />
     <Compile Include="Core\Database\Models\ReportPos.cs" />
     <Compile Include="Core\Database\Models\Report.cs" />
     <Compile Include="Core\Forms\DataForms\FirmsForm.cs">

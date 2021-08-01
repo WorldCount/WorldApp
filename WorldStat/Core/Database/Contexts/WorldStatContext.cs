@@ -14,6 +14,11 @@ namespace WorldStat.Core.Database.Contexts
         public DbSet<Firm> Firms { get; set; }
         public DbSet<Calendar> Calendars { get; set; }
 
+
+        public DbSet<MailType> MailTypes { get; set; }
+        public DbSet<MailCategory> MailCategories { get; set; }
+        public DbSet<Notice> Notices { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite($"Data Source={DbPath}");
@@ -25,6 +30,9 @@ namespace WorldStat.Core.Database.Contexts
             modelBuilder.Entity<Firm>().HasIndex(f => f.Code);
             modelBuilder.Entity<Report>().HasIndex(r => r.Date);
             modelBuilder.Entity<Calendar>().HasIndex(c => c.Date);
+            modelBuilder.Entity<MailType>().HasIndex(t => t.Code);
+            modelBuilder.Entity<MailCategory>().HasIndex(c => c.Code);
+            modelBuilder.Entity<Notice>().HasIndex(n => n.Code);
         }
     }
 }

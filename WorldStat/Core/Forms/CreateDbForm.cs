@@ -62,7 +62,7 @@ namespace WorldStat.Core.Forms
 
 
 
-        private async void LoadReportForm_Load(object sender, EventArgs e)
+        private void LoadReportForm_Load(object sender, EventArgs e)
         {
             Work();
         }
@@ -86,7 +86,7 @@ namespace WorldStat.Core.Forms
                 {
                     try
                     {
-                        _count = 14;
+                        _count = 20;
 
                         SetInfo("Сохраняю данные по организациям", 1, _count);
                         List<Firm> firms = await ExportFirms(db);
@@ -112,9 +112,21 @@ namespace WorldStat.Core.Forms
                         await ImportCalendars(calendars, db);
                         SetInfo("Добавляю данные по календарю ... Ok", 12, _count);
 
-                        SetInfo("Сохраняю данные", 13, _count);
+                        SetInfo("Добавляю данные по категориям", 13, _count);
+                        await InserMailCategory(db);
+                        SetInfo("Добавляю данные по категориям ... Ok", 14, _count);
+
+                        SetInfo("Добавляю данные по типам", 15, _count);
+                        await InserMailType(db);
+                        SetInfo("Добавляю данные по типам ... Ok", 16, _count);
+
+                        SetInfo("Добавляю данные по уведомлениям", 17, _count);
+                        await InsertNotice(db);
+                        SetInfo("Добавляю данные по уведомлениям ... Ok", 18, _count);
+
+                        SetInfo("Сохраняю данные", 19, _count);
                         db.SaveChanges();
-                        SetInfo("Сохраняю данные ... Ok", 14, _count);
+                        SetInfo("Сохраняю данные ... Ok", 20, _count);
 
                     }
                     catch (InvalidOperationException e)
@@ -126,11 +138,29 @@ namespace WorldStat.Core.Forms
                 }
                 else
                 {
-                    SetInfo("Создаю новую БД", 1, 2);
                     try
                     {
+                        _count = 10;
+
+                        SetInfo("Создаю новую БД", 1, _count);
                         await db.Database.EnsureCreatedAsync();
-                        SetInfo("Создаю новую БД ... Ok", 2, 2);
+                        SetInfo("Создаю новую БД ... Ok", 2, _count);
+
+                        SetInfo("Добавляю данные по категориям", 3, _count);
+                        await InserMailCategory(db);
+                        SetInfo("Добавляю данные по категориям ... Ok", 4, _count);
+
+                        SetInfo("Добавляю данные по типам", 5, _count);
+                        await InserMailType(db);
+                        SetInfo("Добавляю данные по типам ... Ok", 6, _count);
+
+                        SetInfo("Добавляю данные по уведомлениям", 7, _count);
+                        await InsertNotice(db);
+                        SetInfo("Добавляю данные по уведомлениям ... Ok", 8, _count);
+
+                        SetInfo("Сохраняю данные", 9, _count);
+                        db.SaveChanges();
+                        SetInfo("Сохраняю данные ... Ok", 10, _count);
 
                     }
                     catch (InvalidOperationException e)
@@ -182,6 +212,39 @@ namespace WorldStat.Core.Forms
             await Task.Run(() =>
             {
                 db.AddRange(calendars);
+            });
+        }
+
+        private async Task InserMailCategory(WorldStatContext db)
+        {
+            await Task.Run(() =>
+            {
+                foreach (var mailCategory in WcPostApi.Types.PostTypes.MailCategories.GetAll())
+                {
+                    db.Add(new MailCategory(mailCategory));
+                }
+            });
+        }
+
+        private async Task InserMailType(WorldStatContext db)
+        {
+            await Task.Run(() =>
+            {
+                foreach (var mailType in WcPostApi.Types.PostTypes.MailTypes.GetAll())
+                {
+                    db.Add(new MailType(mailType));
+                }
+            });
+        }
+
+        private async Task InsertNotice(WorldStatContext db)
+        {
+            await Task.Run(() =>
+            {
+                foreach (var notice in WcPostApi.Types.PostTypes.Notices.GetAll())
+                {
+                    db.Add(new Notice(notice));
+                }
             });
         }
 
