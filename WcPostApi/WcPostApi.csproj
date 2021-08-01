@@ -43,6 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\PostTypes\Interface\IPostType.cs" />
+    <Compile Include="Types\PostTypes\MailCategory.cs" />
+    <Compile Include="Types\PostTypes\MailRank.cs" />
+    <Compile Include="Types\PostTypes\MailType.cs" />
+    <Compile Include="Types\PostTypes\NoticeType.cs" />
+    <Compile Include="Types\PostTypes\PayType.cs" />
+    <Compile Include="Types\PostTypes\PostMark.cs" />
+    <Compile Include="Types\PostTypes\SenderCategory.cs" />
     <Compile Include="Types\TransCategory.cs" />
     <Compile Include="Types\TransType.cs" />
   </ItemGroup>
