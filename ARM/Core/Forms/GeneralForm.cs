@@ -13,7 +13,6 @@ namespace ARM.Core.Forms
     {
 
         readonly string _appVersion = $"{Application.ProductName} {Application.ProductVersion}";
-        readonly string _appText = "EagleEye";
 
         public GeneralForm()
         {
