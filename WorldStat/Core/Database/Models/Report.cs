@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WorldStat.Core.Types;
 
 namespace WorldStat.Core.Database.Models
 {
@@ -10,6 +11,8 @@ namespace WorldStat.Core.Database.Models
 
         public int Count { get; set; }
         public double Pay { get; set; }
+
+        public CalendarType Type { get; set; } = CalendarType.Все;
 
         public string DayName { get => Date.ToString("ddd");}
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WorldStat.Core.Database.Models
 {
@@ -9,6 +10,9 @@ namespace WorldStat.Core.Database.Models
         public string Name { get; set; }
         public string ShortName { get; set; }
         public string Doc { get; set; }
+
+        [NotMapped]
+        public virtual bool Check { get; set; } = false; 
 
         public List<ReportPos> ReportPoses { get; set; } = new List<ReportPos>();
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -8,8 +9,10 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using WorldStat.Core.Database.Contexts;
 using WorldStat.Core.Database.Models;
+using WorldStat.Core.Forms.DataForms;
 using WorldStat.Core.Parsers;
 using WorldStat.Core.Storage;
+using WorldStat.Core.Types;
 
 namespace WorldStat.Core.Forms
 {
@@ -36,6 +39,9 @@ namespace WorldStat.Core.Forms
             // ReSharper disable once LocalizableElement
             Text = $"{Properties.Settings.Default.AppName} {Application.ProductVersion}";
 
+            Wc32Api.DrawingControl.SetDoubleBuffered(dataGridViewReport);
+            Wc32Api.DrawingControl.SetDoubleBuffered(panelStat);
+
             // Загрузка настроек
             LoadSettings();
 
@@ -48,6 +54,7 @@ namespace WorldStat.Core.Forms
         // Загрузка настроек
         private void LoadSettings()
         {
+            comboBoxCalendar.DataSource = Enum.GetValues(typeof(CalendarType));
         }
 
         // Сохранение настроек
@@ -216,6 +223,9 @@ namespace WorldStat.Core.Forms
             dayNameReportDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dayNameReportDataGridViewTextBoxColumn.Width = 140;
 
+            typeReportDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            typeReportDataGridViewTextBoxColumn.Width = 100;
+
             countReportDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             countReportDataGridViewTextBoxColumn.Width = 200;
         }
@@ -252,7 +262,7 @@ namespace WorldStat.Core.Forms
 
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Multiselect = true, Filter = @"Все файлы (*.*)|*.*|Отчеты (*.xls)|*.xls", RestoreDirectory = false
+                Multiselect = true, Filter = @"Отчеты (*.xls)|*.xls|Все файлы (*.*)|*.*", RestoreDirectory = false
             };
 
             if (!string.IsNullOrEmpty(lastDir))
@@ -281,6 +291,69 @@ namespace WorldStat.Core.Forms
             Close();
         }
 
+        private void btnLoadReport_Click(object sender, EventArgs e)
+        {
+
+            DateTime date = dateTimePickerReport.Value;
+            DateTime start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+            DateTime end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+
+            reportBindingSource.DataSource = null;
+            labelCount.Text = "0";
+            labelPay.Text = "0";
+
+            CalendarType type = (CalendarType) comboBoxCalendar.SelectedItem;
+
+            using (WorldStatContext db = new WorldStatContext())
+            {
+                List<Report> reports;
+
+                reports = type == CalendarType.Все ? db.Reports.Where(r => r.Date >= start && r.Date <= end).ToList() : db.Reports.Where(r => r.Date >= start && r.Date <= end && r.Type == type).ToList();
+
+                string count = reports.Sum(r => r.Count).ToString("### ###");
+
+                labelCount.Text = string.IsNullOrEmpty(count) ? "0" : count;
+                labelPay.Text = reports.Sum(r => r.Pay).ToString("C");
+
+                reportBindingSource.DataSource = reports;
+            }
+        }
+
+        private void importCalendarMenuItem_Click(object sender, EventArgs e)
+        {
+            string lastDir = Properties.Settings.Default.LastOpenDir;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                Filter = @"Экспорт календаря (*.json)|*.json|Все файлы (*.*)|*.*",
+                RestoreDirectory = false
+            };
+
+            if (!string.IsNullOrEmpty(lastDir))
+                openFileDialog.InitialDirectory = Directory.Exists(lastDir) ? lastDir : @"C:\";
+            else
+                openFileDialog.InitialDirectory = @"C:\";
+
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                string path = openFileDialog.FileName;
+
+                if (!string.IsNullOrEmpty(path))
+                {
+                    string data = File.ReadAllText(Path.Combine(PathManager.DataDir, path));
+                    List<Calendar> calendars = JsonConvert.DeserializeObject<List<Calendar>>(data);
+
+                    LoadCalendarForm loadCalendarForm = new LoadCalendarForm(calendars);
+                    loadCalendarForm.ShowDialog(this);
+
+                    loadCalendarForm = null;
+                }
+            }
+
+            openFileDialog = null;
+        }
+
         #endregion
 
         #region Private Methods
@@ -299,30 +372,16 @@ namespace WorldStat.Core.Forms
             //File.WriteAllText(Path.Combine(PathManager.DataDir, "mailCodes.json"), jsonData);
         }
 
+        private void firmsMenuItem_Click(object sender, EventArgs e)
+        {
+            FirmsForm firmsForm = new FirmsForm();
+            firmsForm.ShowDialog(this);
+
+            firmsForm = null;
+        }
+
         #endregion
 
-        private void btnLoadReport_Click(object sender, EventArgs e)
-        {
 
-            DateTime date = dateTimePickerReport.Value;
-            DateTime start = WcApi.Date.DateUtils.CropDate(date, day: 1);
-            DateTime end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
-
-            reportBindingSource.DataSource = null;
-            labelCount.Text = "0";
-            labelPay.Text = "0";
-
-            using (WorldStatContext db = new WorldStatContext())
-            {
-                var reports = db.Reports.Where(r => r.Date >= start && r.Date <= end).ToList();
-
-                string count = reports.Sum(r => r.Count).ToString("### ###");
-
-                labelCount.Text = string.IsNullOrEmpty(count) ? "0" : count;
-                labelPay.Text = reports.Sum(r => r.Pay).ToString("C");
-
-                reportBindingSource.DataSource = reports;
-            }
-        }
     }
 }

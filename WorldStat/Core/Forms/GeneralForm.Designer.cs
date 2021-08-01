@@ -33,12 +33,12 @@ namespace WorldStat.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,9 +49,10 @@ namespace WorldStat.Core.Forms
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFrankReportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importCalendarMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.firmsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,53 +63,57 @@ namespace WorldStat.Core.Forms
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
             this.tabsControl = new System.Windows.Forms.TabControl();
             this.tabAll = new System.Windows.Forms.TabPage();
+            this.panelStat = new System.Windows.Forms.Panel();
+            this.labelPay = new System.Windows.Forms.Label();
+            this.labelCount = new System.Windows.Forms.Label();
+            this.labelInfoPay = new System.Windows.Forms.Label();
+            this.labelInfoCount = new System.Windows.Forms.Label();
             this.dataGridViewReport = new System.Windows.Forms.DataGridView();
             this.panelReceived = new System.Windows.Forms.Panel();
-            this.tabStat = new System.Windows.Forms.TabPage();
-            this.dataGridViewDocReceive = new System.Windows.Forms.DataGridView();
-            this.panelReceivedDoc = new System.Windows.Forms.Panel();
-            this.btnReceiveDocLoad = new System.Windows.Forms.Button();
-            this.receiveDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
-            this.receiveDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.labelCalendar = new System.Windows.Forms.Label();
+            this.comboBoxCalendar = new System.Windows.Forms.ComboBox();
+            this.btnLoadReport = new Wc32Api.Widgets.WcButton();
+            this.dateTimePickerReport = new System.Windows.Forms.DateTimePicker();
             this.tabOrg = new System.Windows.Forms.TabPage();
             this.dataGridViewDocOrg = new System.Windows.Forms.DataGridView();
             this.panelOrgDoc = new System.Windows.Forms.Panel();
             this.btnOrgDocLoad = new System.Windows.Forms.Button();
             this.orgDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.orgDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.tabStat = new System.Windows.Forms.TabPage();
+            this.dataGridViewDocReceive = new System.Windows.Forms.DataGridView();
+            this.panelReceivedDoc = new System.Windows.Forms.Panel();
+            this.btnReceiveDocLoad = new System.Windows.Forms.Button();
+            this.receiveDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.receiveDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.tabChart = new System.Windows.Forms.TabPage();
             this.dataGridViewUserOnline = new System.Windows.Forms.DataGridView();
             this.adminStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
-            this.dateTimePickerReport = new System.Windows.Forms.DateTimePicker();
-            this.btnLoadReport = new Wc32Api.Widgets.WcButton();
-            this.panelStat = new System.Windows.Forms.Panel();
-            this.labelInfoCount = new System.Windows.Forms.Label();
-            this.labelInfoPay = new System.Windows.Forms.Label();
-            this.labelCount = new System.Windows.Forms.Label();
-            this.labelPay = new System.Windows.Forms.Label();
-            this.reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dateReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dayNameReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuBar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
             this.tabAll.SuspendLayout();
+            this.panelStat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport)).BeginInit();
             this.panelReceived.SuspendLayout();
-            this.tabStat.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocReceive)).BeginInit();
-            this.panelReceivedDoc.SuspendLayout();
             this.tabOrg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocOrg)).BeginInit();
             this.panelOrgDoc.SuspendLayout();
+            this.tabStat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocReceive)).BeginInit();
+            this.panelReceivedDoc.SuspendLayout();
             this.tabChart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserOnline)).BeginInit();
             this.panelActive.SuspendLayout();
-            this.panelStat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,8 +126,7 @@ namespace WorldStat.Core.Forms
             this.menuBar.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuItem,
-            this.firmsMenuItem,
-            this.connectsMenuItem,
+            this.dataMenuItem,
             this.settingsMenuItem,
             this.infosMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
@@ -135,6 +139,7 @@ namespace WorldStat.Core.Forms
             // 
             this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadFrankReportMenuItem,
+            this.importCalendarMenuItem,
             this.exitMenuItem});
             this.fileMenuItem.Name = "fileMenuItem";
             this.fileMenuItem.Size = new System.Drawing.Size(57, 36);
@@ -147,6 +152,13 @@ namespace WorldStat.Core.Forms
             this.loadFrankReportMenuItem.Text = "Загрузить отчет по франку";
             this.loadFrankReportMenuItem.Click += new System.EventHandler(this.loadFrankReportMenuItem_Click);
             // 
+            // importCalendarMenuItem
+            // 
+            this.importCalendarMenuItem.Name = "importCalendarMenuItem";
+            this.importCalendarMenuItem.Size = new System.Drawing.Size(263, 24);
+            this.importCalendarMenuItem.Text = "Импорт календаря";
+            this.importCalendarMenuItem.Click += new System.EventHandler(this.importCalendarMenuItem_Click);
+            // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
@@ -154,17 +166,20 @@ namespace WorldStat.Core.Forms
             this.exitMenuItem.Text = "Выход";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
+            // dataMenuItem
+            // 
+            this.dataMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.firmsMenuItem});
+            this.dataMenuItem.Name = "dataMenuItem";
+            this.dataMenuItem.Size = new System.Drawing.Size(76, 36);
+            this.dataMenuItem.Text = "Данные";
+            // 
             // firmsMenuItem
             // 
             this.firmsMenuItem.Name = "firmsMenuItem";
-            this.firmsMenuItem.Size = new System.Drawing.Size(115, 36);
+            this.firmsMenuItem.Size = new System.Drawing.Size(172, 24);
             this.firmsMenuItem.Text = "Организации";
-            // 
-            // connectsMenuItem
-            // 
-            this.connectsMenuItem.Name = "connectsMenuItem";
-            this.connectsMenuItem.Size = new System.Drawing.Size(118, 36);
-            this.connectsMenuItem.Text = "Подключения";
+            this.firmsMenuItem.Click += new System.EventHandler(this.firmsMenuItem_Click);
             // 
             // settingsMenuItem
             // 
@@ -254,10 +269,65 @@ namespace WorldStat.Core.Forms
             this.tabAll.TabIndex = 0;
             this.tabAll.Text = "Общее";
             // 
+            // panelStat
+            // 
+            this.panelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelStat.Controls.Add(this.labelPay);
+            this.panelStat.Controls.Add(this.labelCount);
+            this.panelStat.Controls.Add(this.labelInfoPay);
+            this.panelStat.Controls.Add(this.labelInfoCount);
+            this.panelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelStat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.panelStat.Location = new System.Drawing.Point(0, 343);
+            this.panelStat.Name = "panelStat";
+            this.panelStat.Size = new System.Drawing.Size(948, 30);
+            this.panelStat.TabIndex = 6;
+            // 
+            // labelPay
+            // 
+            this.labelPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPay.ForeColor = System.Drawing.Color.DarkOrange;
+            this.labelPay.Location = new System.Drawing.Point(461, 5);
+            this.labelPay.Name = "labelPay";
+            this.labelPay.Size = new System.Drawing.Size(140, 20);
+            this.labelPay.TabIndex = 1;
+            this.labelPay.Text = "0";
+            // 
+            // labelCount
+            // 
+            this.labelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.labelCount.Location = new System.Drawing.Point(122, 5);
+            this.labelCount.Name = "labelCount";
+            this.labelCount.Size = new System.Drawing.Size(140, 20);
+            this.labelCount.TabIndex = 0;
+            this.labelCount.Text = "0";
+            // 
+            // labelInfoPay
+            // 
+            this.labelInfoPay.AutoSize = true;
+            this.labelInfoPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInfoPay.Location = new System.Drawing.Point(395, 5);
+            this.labelInfoPay.Name = "labelInfoPay";
+            this.labelInfoPay.Size = new System.Drawing.Size(60, 20);
+            this.labelInfoPay.TabIndex = 0;
+            this.labelInfoPay.Text = "Сумма:";
+            // 
+            // labelInfoCount
+            // 
+            this.labelInfoCount.AutoSize = true;
+            this.labelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInfoCount.Location = new System.Drawing.Point(21, 5);
+            this.labelInfoCount.Name = "labelInfoCount";
+            this.labelInfoCount.Size = new System.Drawing.Size(95, 20);
+            this.labelInfoCount.TabIndex = 0;
+            this.labelInfoCount.Text = "Количество:";
+            // 
             // dataGridViewReport
             // 
             this.dataGridViewReport.AllowUserToAddRows = false;
             this.dataGridViewReport.AllowUserToDeleteRows = false;
+            this.dataGridViewReport.AllowUserToResizeColumns = false;
             this.dataGridViewReport.AllowUserToResizeRows = false;
             this.dataGridViewReport.AutoGenerateColumns = false;
             this.dataGridViewReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -276,6 +346,7 @@ namespace WorldStat.Core.Forms
             this.dataGridViewReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dateReportDataGridViewTextBoxColumn,
             this.dayNameReportDataGridViewTextBoxColumn,
+            this.typeReportDataGridViewTextBoxColumn,
             this.countReportDataGridViewTextBoxColumn,
             this.payReportDataGridViewTextBoxColumn});
             this.dataGridViewReport.DataSource = this.reportBindingSource;
@@ -312,6 +383,8 @@ namespace WorldStat.Core.Forms
             // panelReceived
             // 
             this.panelReceived.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelReceived.Controls.Add(this.labelCalendar);
+            this.panelReceived.Controls.Add(this.comboBoxCalendar);
             this.panelReceived.Controls.Add(this.btnLoadReport);
             this.panelReceived.Controls.Add(this.dateTimePickerReport);
             this.panelReceived.Dock = System.Windows.Forms.DockStyle.Top;
@@ -320,109 +393,62 @@ namespace WorldStat.Core.Forms
             this.panelReceived.Size = new System.Drawing.Size(948, 48);
             this.panelReceived.TabIndex = 4;
             // 
-            // tabStat
+            // labelCalendar
             // 
-            this.tabStat.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabStat.Controls.Add(this.dataGridViewDocReceive);
-            this.tabStat.Controls.Add(this.panelReceivedDoc);
-            this.tabStat.Location = new System.Drawing.Point(4, 29);
-            this.tabStat.Name = "tabStat";
-            this.tabStat.Size = new System.Drawing.Size(948, 373);
-            this.tabStat.TabIndex = 2;
-            this.tabStat.Text = "Статистика";
+            this.labelCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelCalendar.AutoSize = true;
+            this.labelCalendar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCalendar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelCalendar.Location = new System.Drawing.Point(712, 13);
+            this.labelCalendar.Name = "labelCalendar";
+            this.labelCalendar.Size = new System.Drawing.Size(54, 20);
+            this.labelCalendar.TabIndex = 26;
+            this.labelCalendar.Text = "Смена";
             // 
-            // dataGridViewDocReceive
+            // comboBoxCalendar
             // 
-            this.dataGridViewDocReceive.AllowUserToAddRows = false;
-            this.dataGridViewDocReceive.AllowUserToDeleteRows = false;
-            this.dataGridViewDocReceive.AllowUserToResizeRows = false;
-            this.dataGridViewDocReceive.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewDocReceive.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewDocReceive.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDocReceive.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewDocReceive.ColumnHeadersHeight = 40;
-            this.dataGridViewDocReceive.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewDocReceive.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridViewDocReceive.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewDocReceive.EnableHeadersVisualStyles = false;
-            this.dataGridViewDocReceive.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.dataGridViewDocReceive.Location = new System.Drawing.Point(0, 48);
-            this.dataGridViewDocReceive.Name = "dataGridViewDocReceive";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDocReceive.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridViewDocReceive.RowHeadersVisible = false;
-            this.dataGridViewDocReceive.RowHeadersWidth = 40;
-            this.dataGridViewDocReceive.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewDocReceive.RowTemplate.Height = 40;
-            this.dataGridViewDocReceive.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewDocReceive.Size = new System.Drawing.Size(948, 325);
-            this.dataGridViewDocReceive.TabIndex = 6;
-            this.dataGridViewDocReceive.TabStop = false;
+            this.comboBoxCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxCalendar.FormattingEnabled = true;
+            this.comboBoxCalendar.Location = new System.Drawing.Point(772, 10);
+            this.comboBoxCalendar.Name = "comboBoxCalendar";
+            this.comboBoxCalendar.Size = new System.Drawing.Size(168, 28);
+            this.comboBoxCalendar.TabIndex = 25;
             // 
-            // panelReceivedDoc
+            // btnLoadReport
             // 
-            this.panelReceivedDoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelReceivedDoc.Controls.Add(this.btnReceiveDocLoad);
-            this.panelReceivedDoc.Controls.Add(this.receiveDateTimePickerEnd);
-            this.panelReceivedDoc.Controls.Add(this.receiveDateTimePickerStart);
-            this.panelReceivedDoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReceivedDoc.Location = new System.Drawing.Point(0, 0);
-            this.panelReceivedDoc.Name = "panelReceivedDoc";
-            this.panelReceivedDoc.Size = new System.Drawing.Size(948, 48);
-            this.panelReceivedDoc.TabIndex = 3;
+            this.btnLoadReport.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadReport.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReport.BorderRadius = 6F;
+            this.btnLoadReport.BorderSize = 0;
+            this.btnLoadReport.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadReport.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReport.FlatAppearance.BorderSize = 0;
+            this.btnLoadReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadReport.ForeColor = System.Drawing.Color.White;
+            this.btnLoadReport.Image = global::WorldStat.Properties.Resources.sinchronize_24;
+            this.btnLoadReport.Location = new System.Drawing.Point(219, 3);
+            this.btnLoadReport.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadReport.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadReport.Name = "btnLoadReport";
+            this.btnLoadReport.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadReport.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadReport.TabIndex = 24;
+            this.btnLoadReport.TextColor = System.Drawing.Color.White;
+            this.btnLoadReport.UseVisualStyleBackColor = false;
+            this.btnLoadReport.Click += new System.EventHandler(this.btnLoadReport_Click);
             // 
-            // btnReceiveDocLoad
+            // dateTimePickerReport
             // 
-            this.btnReceiveDocLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReceiveDocLoad.BackColor = System.Drawing.Color.Brown;
-            this.btnReceiveDocLoad.FlatAppearance.BorderSize = 0;
-            this.btnReceiveDocLoad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.btnReceiveDocLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReceiveDocLoad.ForeColor = System.Drawing.Color.White;
-            this.btnReceiveDocLoad.Location = new System.Drawing.Point(904, 6);
-            this.btnReceiveDocLoad.Name = "btnReceiveDocLoad";
-            this.btnReceiveDocLoad.Size = new System.Drawing.Size(36, 36);
-            this.btnReceiveDocLoad.TabIndex = 21;
-            this.btnReceiveDocLoad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReceiveDocLoad.UseVisualStyleBackColor = false;
-            // 
-            // receiveDateTimePickerEnd
-            // 
-            this.receiveDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.receiveDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.White;
-            this.receiveDateTimePickerEnd.Location = new System.Drawing.Point(219, 11);
-            this.receiveDateTimePickerEnd.Name = "receiveDateTimePickerEnd";
-            this.receiveDateTimePickerEnd.Size = new System.Drawing.Size(200, 27);
-            this.receiveDateTimePickerEnd.TabIndex = 4;
-            // 
-            // receiveDateTimePickerStart
-            // 
-            this.receiveDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.receiveDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.White;
-            this.receiveDateTimePickerStart.Location = new System.Drawing.Point(13, 11);
-            this.receiveDateTimePickerStart.Name = "receiveDateTimePickerStart";
-            this.receiveDateTimePickerStart.Size = new System.Drawing.Size(200, 27);
-            this.receiveDateTimePickerStart.TabIndex = 3;
+            this.dateTimePickerReport.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.dateTimePickerReport.CalendarMonthBackground = System.Drawing.Color.White;
+            this.dateTimePickerReport.CustomFormat = "MMMM yyyy";
+            this.dateTimePickerReport.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerReport.Location = new System.Drawing.Point(8, 11);
+            this.dateTimePickerReport.Name = "dateTimePickerReport";
+            this.dateTimePickerReport.ShowUpDown = true;
+            this.dateTimePickerReport.Size = new System.Drawing.Size(200, 27);
+            this.dateTimePickerReport.TabIndex = 23;
             // 
             // tabOrg
             // 
@@ -528,6 +554,110 @@ namespace WorldStat.Core.Forms
             this.orgDateTimePickerStart.Size = new System.Drawing.Size(200, 27);
             this.orgDateTimePickerStart.TabIndex = 22;
             // 
+            // tabStat
+            // 
+            this.tabStat.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabStat.Controls.Add(this.dataGridViewDocReceive);
+            this.tabStat.Controls.Add(this.panelReceivedDoc);
+            this.tabStat.Location = new System.Drawing.Point(4, 29);
+            this.tabStat.Name = "tabStat";
+            this.tabStat.Size = new System.Drawing.Size(948, 373);
+            this.tabStat.TabIndex = 2;
+            this.tabStat.Text = "Статистика";
+            // 
+            // dataGridViewDocReceive
+            // 
+            this.dataGridViewDocReceive.AllowUserToAddRows = false;
+            this.dataGridViewDocReceive.AllowUserToDeleteRows = false;
+            this.dataGridViewDocReceive.AllowUserToResizeRows = false;
+            this.dataGridViewDocReceive.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewDocReceive.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewDocReceive.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDocReceive.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewDocReceive.ColumnHeadersHeight = 40;
+            this.dataGridViewDocReceive.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewDocReceive.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewDocReceive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewDocReceive.EnableHeadersVisualStyles = false;
+            this.dataGridViewDocReceive.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.dataGridViewDocReceive.Location = new System.Drawing.Point(0, 48);
+            this.dataGridViewDocReceive.Name = "dataGridViewDocReceive";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDocReceive.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewDocReceive.RowHeadersVisible = false;
+            this.dataGridViewDocReceive.RowHeadersWidth = 40;
+            this.dataGridViewDocReceive.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewDocReceive.RowTemplate.Height = 40;
+            this.dataGridViewDocReceive.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewDocReceive.Size = new System.Drawing.Size(948, 325);
+            this.dataGridViewDocReceive.TabIndex = 6;
+            this.dataGridViewDocReceive.TabStop = false;
+            // 
+            // panelReceivedDoc
+            // 
+            this.panelReceivedDoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelReceivedDoc.Controls.Add(this.btnReceiveDocLoad);
+            this.panelReceivedDoc.Controls.Add(this.receiveDateTimePickerEnd);
+            this.panelReceivedDoc.Controls.Add(this.receiveDateTimePickerStart);
+            this.panelReceivedDoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelReceivedDoc.Location = new System.Drawing.Point(0, 0);
+            this.panelReceivedDoc.Name = "panelReceivedDoc";
+            this.panelReceivedDoc.Size = new System.Drawing.Size(948, 48);
+            this.panelReceivedDoc.TabIndex = 3;
+            // 
+            // btnReceiveDocLoad
+            // 
+            this.btnReceiveDocLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReceiveDocLoad.BackColor = System.Drawing.Color.Brown;
+            this.btnReceiveDocLoad.FlatAppearance.BorderSize = 0;
+            this.btnReceiveDocLoad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.btnReceiveDocLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReceiveDocLoad.ForeColor = System.Drawing.Color.White;
+            this.btnReceiveDocLoad.Location = new System.Drawing.Point(904, 6);
+            this.btnReceiveDocLoad.Name = "btnReceiveDocLoad";
+            this.btnReceiveDocLoad.Size = new System.Drawing.Size(36, 36);
+            this.btnReceiveDocLoad.TabIndex = 21;
+            this.btnReceiveDocLoad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReceiveDocLoad.UseVisualStyleBackColor = false;
+            // 
+            // receiveDateTimePickerEnd
+            // 
+            this.receiveDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.receiveDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.White;
+            this.receiveDateTimePickerEnd.Location = new System.Drawing.Point(219, 11);
+            this.receiveDateTimePickerEnd.Name = "receiveDateTimePickerEnd";
+            this.receiveDateTimePickerEnd.Size = new System.Drawing.Size(200, 27);
+            this.receiveDateTimePickerEnd.TabIndex = 4;
+            // 
+            // receiveDateTimePickerStart
+            // 
+            this.receiveDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.receiveDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.White;
+            this.receiveDateTimePickerStart.Location = new System.Drawing.Point(13, 11);
+            this.receiveDateTimePickerStart.Name = "receiveDateTimePickerStart";
+            this.receiveDateTimePickerStart.Size = new System.Drawing.Size(200, 27);
+            this.receiveDateTimePickerStart.TabIndex = 3;
+            // 
             // tabChart
             // 
             this.tabChart.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -624,99 +754,20 @@ namespace WorldStat.Core.Forms
             this.btnActiveUserLoad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActiveUserLoad.UseVisualStyleBackColor = false;
             // 
-            // dateTimePickerReport
+            // dayNameReportDataGridViewTextBoxColumn
             // 
-            this.dateTimePickerReport.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.dateTimePickerReport.CalendarMonthBackground = System.Drawing.Color.White;
-            this.dateTimePickerReport.CustomFormat = "MMMM yyyy";
-            this.dateTimePickerReport.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerReport.Location = new System.Drawing.Point(8, 11);
-            this.dateTimePickerReport.Name = "dateTimePickerReport";
-            this.dateTimePickerReport.ShowUpDown = true;
-            this.dateTimePickerReport.Size = new System.Drawing.Size(200, 27);
-            this.dateTimePickerReport.TabIndex = 23;
+            this.dayNameReportDataGridViewTextBoxColumn.DataPropertyName = "DayName";
+            this.dayNameReportDataGridViewTextBoxColumn.HeaderText = "День";
+            this.dayNameReportDataGridViewTextBoxColumn.Name = "dayNameReportDataGridViewTextBoxColumn";
+            this.dayNameReportDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // btnLoadReport
+            // dataGridViewTextBoxColumn1
             // 
-            this.btnLoadReport.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLoadReport.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReport.BorderRadius = 6F;
-            this.btnLoadReport.BorderSize = 0;
-            this.btnLoadReport.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadReport.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReport.FlatAppearance.BorderSize = 0;
-            this.btnLoadReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnLoadReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadReport.ForeColor = System.Drawing.Color.White;
-            this.btnLoadReport.Image = global::WorldStat.Properties.Resources.sinchronize_24;
-            this.btnLoadReport.Location = new System.Drawing.Point(219, 3);
-            this.btnLoadReport.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnLoadReport.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnLoadReport.Name = "btnLoadReport";
-            this.btnLoadReport.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadReport.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadReport.TabIndex = 24;
-            this.btnLoadReport.TextColor = System.Drawing.Color.White;
-            this.btnLoadReport.UseVisualStyleBackColor = false;
-            this.btnLoadReport.Click += new System.EventHandler(this.btnLoadReport_Click);
-            // 
-            // panelStat
-            // 
-            this.panelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelStat.Controls.Add(this.labelPay);
-            this.panelStat.Controls.Add(this.labelCount);
-            this.panelStat.Controls.Add(this.labelInfoPay);
-            this.panelStat.Controls.Add(this.labelInfoCount);
-            this.panelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelStat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.panelStat.Location = new System.Drawing.Point(0, 338);
-            this.panelStat.Name = "panelStat";
-            this.panelStat.Size = new System.Drawing.Size(948, 35);
-            this.panelStat.TabIndex = 6;
-            // 
-            // labelInfoCount
-            // 
-            this.labelInfoCount.AutoSize = true;
-            this.labelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInfoCount.Location = new System.Drawing.Point(21, 7);
-            this.labelInfoCount.Name = "labelInfoCount";
-            this.labelInfoCount.Size = new System.Drawing.Size(95, 20);
-            this.labelInfoCount.TabIndex = 0;
-            this.labelInfoCount.Text = "Количество:";
-            // 
-            // labelInfoPay
-            // 
-            this.labelInfoPay.AutoSize = true;
-            this.labelInfoPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInfoPay.Location = new System.Drawing.Point(395, 7);
-            this.labelInfoPay.Name = "labelInfoPay";
-            this.labelInfoPay.Size = new System.Drawing.Size(60, 20);
-            this.labelInfoPay.TabIndex = 0;
-            this.labelInfoPay.Text = "Сумма:";
-            // 
-            // labelCount
-            // 
-            this.labelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCount.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelCount.Location = new System.Drawing.Point(122, 7);
-            this.labelCount.Name = "labelCount";
-            this.labelCount.Size = new System.Drawing.Size(140, 20);
-            this.labelCount.TabIndex = 0;
-            this.labelCount.Text = "0";
-            // 
-            // labelPay
-            // 
-            this.labelPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPay.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelPay.Location = new System.Drawing.Point(461, 7);
-            this.labelPay.Name = "labelPay";
-            this.labelPay.Size = new System.Drawing.Size(140, 20);
-            this.labelPay.TabIndex = 1;
-            this.labelPay.Text = "0";
-            // 
-            // reportBindingSource
-            // 
-            this.reportBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.Report);
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Type";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Смена";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 472;
             // 
             // dateReportDataGridViewTextBoxColumn
             // 
@@ -729,12 +780,12 @@ namespace WorldStat.Core.Forms
             this.dateReportDataGridViewTextBoxColumn.Name = "dateReportDataGridViewTextBoxColumn";
             this.dateReportDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dayNameReportDataGridViewTextBoxColumn
+            // typeReportDataGridViewTextBoxColumn
             // 
-            this.dayNameReportDataGridViewTextBoxColumn.DataPropertyName = "DayName";
-            this.dayNameReportDataGridViewTextBoxColumn.HeaderText = "День";
-            this.dayNameReportDataGridViewTextBoxColumn.Name = "dayNameReportDataGridViewTextBoxColumn";
-            this.dayNameReportDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typeReportDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeReportDataGridViewTextBoxColumn.HeaderText = "Смена";
+            this.typeReportDataGridViewTextBoxColumn.Name = "typeReportDataGridViewTextBoxColumn";
+            this.typeReportDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // countReportDataGridViewTextBoxColumn
             // 
@@ -755,6 +806,10 @@ namespace WorldStat.Core.Forms
             this.payReportDataGridViewTextBoxColumn.HeaderText = "Плата";
             this.payReportDataGridViewTextBoxColumn.Name = "payReportDataGridViewTextBoxColumn";
             this.payReportDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // reportBindingSource
+            // 
+            this.reportBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.Report);
             // 
             // GeneralForm
             // 
@@ -778,19 +833,20 @@ namespace WorldStat.Core.Forms
             this.statusBar.PerformLayout();
             this.tabsControl.ResumeLayout(false);
             this.tabAll.ResumeLayout(false);
+            this.panelStat.ResumeLayout(false);
+            this.panelStat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport)).EndInit();
             this.panelReceived.ResumeLayout(false);
-            this.tabStat.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocReceive)).EndInit();
-            this.panelReceivedDoc.ResumeLayout(false);
+            this.panelReceived.PerformLayout();
             this.tabOrg.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocOrg)).EndInit();
             this.panelOrgDoc.ResumeLayout(false);
+            this.tabStat.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocReceive)).EndInit();
+            this.panelReceivedDoc.ResumeLayout(false);
             this.tabChart.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserOnline)).EndInit();
             this.panelActive.ResumeLayout(false);
-            this.panelStat.ResumeLayout(false);
-            this.panelStat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -803,8 +859,7 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFrankReportMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem firmsMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem connectsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createDbMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infosMenuItem;
@@ -842,10 +897,16 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.Label labelInfoPay;
         private System.Windows.Forms.Label labelPay;
         private System.Windows.Forms.Label labelCount;
+        private System.Windows.Forms.ToolStripMenuItem importCalendarMenuItem;
+        private System.Windows.Forms.Label labelCalendar;
+        private System.Windows.Forms.ComboBox comboBoxCalendar;
+        private System.Windows.Forms.ToolStripMenuItem firmsMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateReportDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dayNameReportDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeReportDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countReportDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn payReportDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }
 

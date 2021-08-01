@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NLog;
@@ -132,7 +131,12 @@ namespace WorldStat.Core.Forms
                     db.Remove(report);
                 }
 
+                Calendar calendar = db.Calendars.FirstOrDefault(c => c.Date == parser.ReportDate);
+
                 report = new Report{ Date = parser.ReportDate, Count = parser.MailCount, Pay = parser.MailPay };
+                if (calendar != null)
+                    report.Type = calendar.Type;
+
                 db.Add(report);
 
 

@@ -12,6 +12,7 @@ namespace WorldStat.Core.Database.Contexts
         public DbSet<ReportPos> ReportPoses { get; set; }
         public DbSet<MailCode> MailCodes { get; set; }
         public DbSet<Firm> Firms { get; set; }
+        public DbSet<Calendar> Calendars { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,6 +24,7 @@ namespace WorldStat.Core.Database.Contexts
             modelBuilder.Entity<MailCode>().HasIndex(m => m.Code);
             modelBuilder.Entity<Firm>().HasIndex(f => f.Code);
             modelBuilder.Entity<Report>().HasIndex(r => r.Date);
+            modelBuilder.Entity<Calendar>().HasIndex(c => c.Date);
         }
     }
 }
