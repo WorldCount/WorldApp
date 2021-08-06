@@ -173,6 +173,13 @@ namespace Wc32Api.Widgets
             set => _disableBorderColor = value;
         }
 
+        [Category("WcTextBox - Appearance Format")]
+        public CharacterCasing CharacterCasing
+        {
+            get => textBox.CharacterCasing;
+            set => textBox.CharacterCasing = value;
+        }
+
         #endregion
 
         #region Overidden Methods
