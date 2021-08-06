@@ -35,6 +35,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MailCodeForm));
             this.labelInfo = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.CheckDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.mailTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mailCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.mailCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.transCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailCodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.checkAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,21 +61,11 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbFilter = new Wc32Api.Widgets.WcTextBox();
             this.lblFilter = new System.Windows.Forms.Label();
-            this.mailTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mailCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mailCodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.CheckDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mailTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.mailCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.transCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mailTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCodeBindingSource)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelInfo
@@ -142,6 +142,79 @@
             this.dataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseUp);
             this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
+            // 
+            // CheckDataGridViewCheckBoxColumn
+            // 
+            this.CheckDataGridViewCheckBoxColumn.DataPropertyName = "Check";
+            this.CheckDataGridViewCheckBoxColumn.HeaderText = "Отм";
+            this.CheckDataGridViewCheckBoxColumn.Name = "CheckDataGridViewCheckBoxColumn";
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Код";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mailTypeDataGridViewTextBoxColumn
+            // 
+            this.mailTypeDataGridViewTextBoxColumn.DataPropertyName = "MailType";
+            this.mailTypeDataGridViewTextBoxColumn.DataSource = this.mailTypeBindingSource;
+            this.mailTypeDataGridViewTextBoxColumn.DisplayMember = "ShortName";
+            this.mailTypeDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.mailTypeDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mailTypeDataGridViewTextBoxColumn.HeaderText = "Тип";
+            this.mailTypeDataGridViewTextBoxColumn.Name = "mailTypeDataGridViewTextBoxColumn";
+            this.mailTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.mailTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.mailTypeDataGridViewTextBoxColumn.ValueMember = "Code";
+            // 
+            // mailTypeBindingSource
+            // 
+            this.mailTypeBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailType);
+            // 
+            // mailCategoryDataGridViewTextBoxColumn
+            // 
+            this.mailCategoryDataGridViewTextBoxColumn.DataPropertyName = "MailCategory";
+            this.mailCategoryDataGridViewTextBoxColumn.DataSource = this.mailCategoryBindingSource;
+            this.mailCategoryDataGridViewTextBoxColumn.DisplayMember = "ShortName";
+            this.mailCategoryDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.mailCategoryDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mailCategoryDataGridViewTextBoxColumn.HeaderText = "Категория";
+            this.mailCategoryDataGridViewTextBoxColumn.Name = "mailCategoryDataGridViewTextBoxColumn";
+            this.mailCategoryDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.mailCategoryDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.mailCategoryDataGridViewTextBoxColumn.ValueMember = "Code";
+            // 
+            // mailCategoryBindingSource
+            // 
+            this.mailCategoryBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCategory);
+            // 
+            // transCategoryDataGridViewTextBoxColumn
+            // 
+            this.transCategoryDataGridViewTextBoxColumn.DataPropertyName = "TransCategory";
+            this.transCategoryDataGridViewTextBoxColumn.HeaderText = "МЖД";
+            this.transCategoryDataGridViewTextBoxColumn.Name = "transCategoryDataGridViewTextBoxColumn";
+            this.transCategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // transTypeDataGridViewTextBoxColumn
+            // 
+            this.transTypeDataGridViewTextBoxColumn.DataPropertyName = "TransType";
+            this.transTypeDataGridViewTextBoxColumn.HeaderText = "Пересылка";
+            this.transTypeDataGridViewTextBoxColumn.Name = "transTypeDataGridViewTextBoxColumn";
+            this.transTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.transTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mailCodeBindingSource
+            // 
+            this.mailCodeBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCode);
             // 
             // contextMenuStrip
             // 
@@ -344,6 +417,7 @@
             this.tbFilter.UnderlinedStyle = true;
             this.tbFilter.UsePasswordChar = false;
             this.tbFilter._TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
+            this.tbFilter.Enter += new System.EventHandler(this.tbFilter_Enter);
             // 
             // lblFilter
             // 
@@ -355,79 +429,6 @@
             this.lblFilter.Size = new System.Drawing.Size(69, 21);
             this.lblFilter.TabIndex = 31;
             this.lblFilter.Text = "Фильтр:";
-            // 
-            // mailTypeBindingSource
-            // 
-            this.mailTypeBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailType);
-            // 
-            // mailCategoryBindingSource
-            // 
-            this.mailCategoryBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCategory);
-            // 
-            // mailCodeBindingSource
-            // 
-            this.mailCodeBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCode);
-            // 
-            // CheckDataGridViewCheckBoxColumn
-            // 
-            this.CheckDataGridViewCheckBoxColumn.DataPropertyName = "Check";
-            this.CheckDataGridViewCheckBoxColumn.HeaderText = "Отм";
-            this.CheckDataGridViewCheckBoxColumn.Name = "CheckDataGridViewCheckBoxColumn";
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Код";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mailTypeDataGridViewTextBoxColumn
-            // 
-            this.mailTypeDataGridViewTextBoxColumn.DataPropertyName = "MailType";
-            this.mailTypeDataGridViewTextBoxColumn.DataSource = this.mailTypeBindingSource;
-            this.mailTypeDataGridViewTextBoxColumn.DisplayMember = "ShortName";
-            this.mailTypeDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.mailTypeDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mailTypeDataGridViewTextBoxColumn.HeaderText = "Тип";
-            this.mailTypeDataGridViewTextBoxColumn.Name = "mailTypeDataGridViewTextBoxColumn";
-            this.mailTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.mailTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.mailTypeDataGridViewTextBoxColumn.ValueMember = "Code";
-            // 
-            // mailCategoryDataGridViewTextBoxColumn
-            // 
-            this.mailCategoryDataGridViewTextBoxColumn.DataPropertyName = "MailCategory";
-            this.mailCategoryDataGridViewTextBoxColumn.DataSource = this.mailCategoryBindingSource;
-            this.mailCategoryDataGridViewTextBoxColumn.DisplayMember = "ShortName";
-            this.mailCategoryDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.mailCategoryDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mailCategoryDataGridViewTextBoxColumn.HeaderText = "Категория";
-            this.mailCategoryDataGridViewTextBoxColumn.Name = "mailCategoryDataGridViewTextBoxColumn";
-            this.mailCategoryDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.mailCategoryDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.mailCategoryDataGridViewTextBoxColumn.ValueMember = "Code";
-            // 
-            // transCategoryDataGridViewTextBoxColumn
-            // 
-            this.transCategoryDataGridViewTextBoxColumn.DataPropertyName = "TransCategory";
-            this.transCategoryDataGridViewTextBoxColumn.HeaderText = "МЖД";
-            this.transCategoryDataGridViewTextBoxColumn.Name = "transCategoryDataGridViewTextBoxColumn";
-            this.transCategoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // transTypeDataGridViewTextBoxColumn
-            // 
-            this.transTypeDataGridViewTextBoxColumn.DataPropertyName = "TransType";
-            this.transTypeDataGridViewTextBoxColumn.HeaderText = "Пересылка";
-            this.transTypeDataGridViewTextBoxColumn.Name = "transTypeDataGridViewTextBoxColumn";
-            this.transTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.transTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // MailCodeForm
             // 
@@ -452,10 +453,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MailTypeForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            this.contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mailTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCodeBindingSource)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

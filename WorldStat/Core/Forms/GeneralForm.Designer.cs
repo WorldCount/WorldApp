@@ -39,6 +39,7 @@ namespace WorldStat.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,7 +50,6 @@ namespace WorldStat.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,8 +98,16 @@ namespace WorldStat.Core.Forms
             this.labelFirmInfoPay = new System.Windows.Forms.Label();
             this.labelFirmInfoCount = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.firmDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firmNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firmMailTypeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.mailTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.firmMailCategoryDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.mailCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.firmCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firmPayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firmTransCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firmTransTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportPosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewDocOrg = new System.Windows.Forms.DataGridView();
             this.panelOrgDoc = new System.Windows.Forms.Panel();
@@ -128,14 +136,6 @@ namespace WorldStat.Core.Forms
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmMailTypeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.firmMailCategoryDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.firmCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmPayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmTransCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmTransTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -741,13 +741,84 @@ namespace WorldStat.Core.Forms
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.TabStop = false;
             // 
+            // firmDateDataGridViewTextBoxColumn
+            // 
+            this.firmDateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.firmDateDataGridViewTextBoxColumn.HeaderText = "Дата";
+            this.firmDateDataGridViewTextBoxColumn.Name = "firmDateDataGridViewTextBoxColumn";
+            this.firmDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firmNameDataGridViewTextBoxColumn
+            // 
+            this.firmNameDataGridViewTextBoxColumn.DataPropertyName = "Firm";
+            this.firmNameDataGridViewTextBoxColumn.HeaderText = "Организация";
+            this.firmNameDataGridViewTextBoxColumn.Name = "firmNameDataGridViewTextBoxColumn";
+            this.firmNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firmMailTypeDataGridViewCheckBoxColumn
+            // 
+            this.firmMailTypeDataGridViewCheckBoxColumn.DataPropertyName = "MailType";
+            this.firmMailTypeDataGridViewCheckBoxColumn.DataSource = this.mailTypeBindingSource;
+            this.firmMailTypeDataGridViewCheckBoxColumn.DisplayMember = "ShortName";
+            this.firmMailTypeDataGridViewCheckBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.firmMailTypeDataGridViewCheckBoxColumn.HeaderText = "Тип";
+            this.firmMailTypeDataGridViewCheckBoxColumn.Name = "firmMailTypeDataGridViewCheckBoxColumn";
+            this.firmMailTypeDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.firmMailTypeDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.firmMailTypeDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.firmMailTypeDataGridViewCheckBoxColumn.ValueMember = "Code";
+            // 
             // mailTypeBindingSource
             // 
             this.mailTypeBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailType);
             // 
+            // firmMailCategoryDataGridViewCheckBoxColumn
+            // 
+            this.firmMailCategoryDataGridViewCheckBoxColumn.DataPropertyName = "MailCategory";
+            this.firmMailCategoryDataGridViewCheckBoxColumn.DataSource = this.mailCategoryBindingSource;
+            this.firmMailCategoryDataGridViewCheckBoxColumn.DisplayMember = "ShortName";
+            this.firmMailCategoryDataGridViewCheckBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.firmMailCategoryDataGridViewCheckBoxColumn.HeaderText = "Категория";
+            this.firmMailCategoryDataGridViewCheckBoxColumn.Name = "firmMailCategoryDataGridViewCheckBoxColumn";
+            this.firmMailCategoryDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.firmMailCategoryDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.firmMailCategoryDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.firmMailCategoryDataGridViewCheckBoxColumn.ValueMember = "Code";
+            // 
             // mailCategoryBindingSource
             // 
             this.mailCategoryBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCategory);
+            // 
+            // firmCountDataGridViewTextBoxColumn
+            // 
+            this.firmCountDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.firmCountDataGridViewTextBoxColumn.HeaderText = "Количество";
+            this.firmCountDataGridViewTextBoxColumn.Name = "firmCountDataGridViewTextBoxColumn";
+            this.firmCountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firmPayDataGridViewTextBoxColumn
+            // 
+            this.firmPayDataGridViewTextBoxColumn.DataPropertyName = "Pay";
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.firmPayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.firmPayDataGridViewTextBoxColumn.HeaderText = "Плата";
+            this.firmPayDataGridViewTextBoxColumn.Name = "firmPayDataGridViewTextBoxColumn";
+            this.firmPayDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firmTransCategoryDataGridViewTextBoxColumn
+            // 
+            this.firmTransCategoryDataGridViewTextBoxColumn.DataPropertyName = "TransCategory";
+            this.firmTransCategoryDataGridViewTextBoxColumn.HeaderText = "Класс";
+            this.firmTransCategoryDataGridViewTextBoxColumn.Name = "firmTransCategoryDataGridViewTextBoxColumn";
+            this.firmTransCategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firmTransTypeDataGridViewTextBoxColumn
+            // 
+            this.firmTransTypeDataGridViewTextBoxColumn.DataPropertyName = "TransType";
+            this.firmTransTypeDataGridViewTextBoxColumn.HeaderText = "Пересылка";
+            this.firmTransTypeDataGridViewTextBoxColumn.Name = "firmTransTypeDataGridViewTextBoxColumn";
+            this.firmTransTypeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // reportPosBindingSource
             // 
@@ -950,6 +1021,7 @@ namespace WorldStat.Core.Forms
             this.comboBoxFirms.Size = new System.Drawing.Size(403, 28);
             this.comboBoxFirms.TabIndex = 24;
             this.comboBoxFirms.ValueMember = "Id";
+            this.comboBoxFirms.Enter += new System.EventHandler(this.comboBoxFirms_Enter);
             // 
             // firmBindingSource
             // 
@@ -1162,77 +1234,6 @@ namespace WorldStat.Core.Forms
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 472;
-            // 
-            // firmDateDataGridViewTextBoxColumn
-            // 
-            this.firmDateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.firmDateDataGridViewTextBoxColumn.HeaderText = "Дата";
-            this.firmDateDataGridViewTextBoxColumn.Name = "firmDateDataGridViewTextBoxColumn";
-            this.firmDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firmNameDataGridViewTextBoxColumn
-            // 
-            this.firmNameDataGridViewTextBoxColumn.DataPropertyName = "Firm";
-            this.firmNameDataGridViewTextBoxColumn.HeaderText = "Организация";
-            this.firmNameDataGridViewTextBoxColumn.Name = "firmNameDataGridViewTextBoxColumn";
-            this.firmNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firmMailTypeDataGridViewCheckBoxColumn
-            // 
-            this.firmMailTypeDataGridViewCheckBoxColumn.DataPropertyName = "MailType";
-            this.firmMailTypeDataGridViewCheckBoxColumn.DataSource = this.mailTypeBindingSource;
-            this.firmMailTypeDataGridViewCheckBoxColumn.DisplayMember = "ShortName";
-            this.firmMailTypeDataGridViewCheckBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.firmMailTypeDataGridViewCheckBoxColumn.HeaderText = "Тип";
-            this.firmMailTypeDataGridViewCheckBoxColumn.Name = "firmMailTypeDataGridViewCheckBoxColumn";
-            this.firmMailTypeDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.firmMailTypeDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.firmMailTypeDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.firmMailTypeDataGridViewCheckBoxColumn.ValueMember = "Code";
-            // 
-            // firmMailCategoryDataGridViewCheckBoxColumn
-            // 
-            this.firmMailCategoryDataGridViewCheckBoxColumn.DataPropertyName = "MailCategory";
-            this.firmMailCategoryDataGridViewCheckBoxColumn.DataSource = this.mailCategoryBindingSource;
-            this.firmMailCategoryDataGridViewCheckBoxColumn.DisplayMember = "ShortName";
-            this.firmMailCategoryDataGridViewCheckBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.firmMailCategoryDataGridViewCheckBoxColumn.HeaderText = "Категория";
-            this.firmMailCategoryDataGridViewCheckBoxColumn.Name = "firmMailCategoryDataGridViewCheckBoxColumn";
-            this.firmMailCategoryDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.firmMailCategoryDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.firmMailCategoryDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.firmMailCategoryDataGridViewCheckBoxColumn.ValueMember = "Code";
-            // 
-            // firmCountDataGridViewTextBoxColumn
-            // 
-            this.firmCountDataGridViewTextBoxColumn.DataPropertyName = "Count";
-            this.firmCountDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.firmCountDataGridViewTextBoxColumn.Name = "firmCountDataGridViewTextBoxColumn";
-            this.firmCountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firmPayDataGridViewTextBoxColumn
-            // 
-            this.firmPayDataGridViewTextBoxColumn.DataPropertyName = "Pay";
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.firmPayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            this.firmPayDataGridViewTextBoxColumn.HeaderText = "Плата";
-            this.firmPayDataGridViewTextBoxColumn.Name = "firmPayDataGridViewTextBoxColumn";
-            this.firmPayDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firmTransCategoryDataGridViewTextBoxColumn
-            // 
-            this.firmTransCategoryDataGridViewTextBoxColumn.DataPropertyName = "TransCategory";
-            this.firmTransCategoryDataGridViewTextBoxColumn.HeaderText = "Класс";
-            this.firmTransCategoryDataGridViewTextBoxColumn.Name = "firmTransCategoryDataGridViewTextBoxColumn";
-            this.firmTransCategoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firmTransTypeDataGridViewTextBoxColumn
-            // 
-            this.firmTransTypeDataGridViewTextBoxColumn.DataPropertyName = "TransType";
-            this.firmTransTypeDataGridViewTextBoxColumn.HeaderText = "Пересылка";
-            this.firmTransTypeDataGridViewTextBoxColumn.Name = "firmTransTypeDataGridViewTextBoxColumn";
-            this.firmTransTypeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // GeneralForm
             // 

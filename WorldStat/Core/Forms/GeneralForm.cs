@@ -586,5 +586,10 @@ namespace WorldStat.Core.Forms
                 orgDateTimePickerCalendar.Visible = false;
             }
         }
+
+        private void comboBoxFirms_Enter(object sender, EventArgs e)
+        {
+            WcApi.Keyboard.Keyboard.SetRussianLanguage();
+        }
     }
 }

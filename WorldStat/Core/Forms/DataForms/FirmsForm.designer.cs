@@ -369,6 +369,7 @@
             this.tbFilter.UsePasswordChar = false;
             this.tbFilter._TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
             this.tbFilter.TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
+            this.tbFilter.Enter += new System.EventHandler(this.tbFilter_Enter);
             // 
             // FirmsForm
             // 

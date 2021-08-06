@@ -188,5 +188,10 @@ namespace WorldStat.Core.Forms.TypeForms
                 lblCount.Text = $"{_mailCategories.Count} шт";
             }
         }
+
+        private void tbFilter_Enter(object sender, EventArgs e)
+        {
+            WcApi.Keyboard.Keyboard.SetRussianLanguage();
+        }
     }
 }

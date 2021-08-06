@@ -297,5 +297,10 @@ namespace WorldStat.Core.Forms.DataForms
                 UpdateData();
             }
         }
+
+        private void tbFilter_Enter(object sender, EventArgs e)
+        {
+            WcApi.Keyboard.Keyboard.SetRussianLanguage();
+        }
     }
 }
