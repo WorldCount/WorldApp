@@ -87,10 +87,14 @@ namespace WorldStat.Core.Forms
             this.reportPaytDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelReceived = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelReport = new System.Windows.Forms.FlowLayoutPanel();
+            this.reportToggleButton = new Wc32Api.Widgets.WcToggleButton();
+            this.reportDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.reportDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.reportDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.labelCalendar = new System.Windows.Forms.Label();
             this.comboBoxCalendar = new System.Windows.Forms.ComboBox();
             this.btnLoadReport = new Wc32Api.Widgets.WcButton();
-            this.reportDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.tabOrg = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelFirmPay = new System.Windows.Forms.Label();
@@ -111,13 +115,18 @@ namespace WorldStat.Core.Forms
             this.reportPosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewDocOrg = new System.Windows.Forms.DataGridView();
             this.panelOrgDoc = new System.Windows.Forms.Panel();
-            this.comboBoxFirmsMailCategory = new System.Windows.Forms.ComboBox();
-            this.activeMailCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.flowLayoutPanelOrgFilter = new System.Windows.Forms.FlowLayoutPanel();
+            this.labelFirmInfoMailType = new System.Windows.Forms.Label();
             this.comboBoxFirmsMailType = new System.Windows.Forms.ComboBox();
             this.acitveMailTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelFirmInfoMailCategory = new System.Windows.Forms.Label();
-            this.labelFirmInfoMailType = new System.Windows.Forms.Label();
-            this.flowLayoutPanelOrg = new System.Windows.Forms.FlowLayoutPanel();
+            this.comboBoxFirmsMailCategory = new System.Windows.Forms.ComboBox();
+            this.activeMailCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelFirmInfoTransType = new System.Windows.Forms.Label();
+            this.comboBoxFirmsTransType = new System.Windows.Forms.ComboBox();
+            this.labelFirmInfoTransCategory = new System.Windows.Forms.Label();
+            this.comboBoxFirmsTransCategory = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanelOrgBase = new System.Windows.Forms.FlowLayoutPanel();
             this.orgDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.orgDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.orgDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
@@ -136,10 +145,6 @@ namespace WorldStat.Core.Forms
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flowLayoutPanelReport = new System.Windows.Forms.FlowLayoutPanel();
-            this.reportDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
-            this.reportDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
-            this.reportToggleButton = new Wc32Api.Widgets.WcToggleButton();
             this.menuBar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
@@ -148,6 +153,7 @@ namespace WorldStat.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportBindingSource)).BeginInit();
             this.panelReceived.SuspendLayout();
+            this.flowLayoutPanelReport.SuspendLayout();
             this.tabOrg.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFirms)).BeginInit();
@@ -156,9 +162,10 @@ namespace WorldStat.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.reportPosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocOrg)).BeginInit();
             this.panelOrgDoc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.activeMailCategoryBindingSource)).BeginInit();
+            this.flowLayoutPanelOrgFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acitveMailTypeBindingSource)).BeginInit();
-            this.flowLayoutPanelOrg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.activeMailCategoryBindingSource)).BeginInit();
+            this.flowLayoutPanelOrgBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.firmBindingSource)).BeginInit();
             this.tabStat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocReceive)).BeginInit();
@@ -166,7 +173,6 @@ namespace WorldStat.Core.Forms
             this.tabChart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserOnline)).BeginInit();
             this.panelActive.SuspendLayout();
-            this.flowLayoutPanelReport.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuBar
@@ -559,6 +565,79 @@ namespace WorldStat.Core.Forms
             this.panelReceived.Size = new System.Drawing.Size(1257, 48);
             this.panelReceived.TabIndex = 4;
             // 
+            // flowLayoutPanelReport
+            // 
+            this.flowLayoutPanelReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelReport.Controls.Add(this.reportToggleButton);
+            this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerStart);
+            this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerEnd);
+            this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerCalendar);
+            this.flowLayoutPanelReport.Controls.Add(this.labelCalendar);
+            this.flowLayoutPanelReport.Controls.Add(this.comboBoxCalendar);
+            this.flowLayoutPanelReport.Location = new System.Drawing.Point(8, 7);
+            this.flowLayoutPanelReport.Name = "flowLayoutPanelReport";
+            this.flowLayoutPanelReport.Size = new System.Drawing.Size(1195, 34);
+            this.flowLayoutPanelReport.TabIndex = 27;
+            // 
+            // reportToggleButton
+            // 
+            this.reportToggleButton.AutoSize = true;
+            this.reportToggleButton.Checked = true;
+            this.reportToggleButton.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.reportToggleButton.DisableBackColor = System.Drawing.Color.DimGray;
+            this.reportToggleButton.DisableToggleColor = System.Drawing.Color.Gray;
+            this.reportToggleButton.Location = new System.Drawing.Point(3, 5);
+            this.reportToggleButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.reportToggleButton.MinimumSize = new System.Drawing.Size(45, 22);
+            this.reportToggleButton.Name = "reportToggleButton";
+            this.reportToggleButton.OffBackColor = System.Drawing.Color.DimGray;
+            this.reportToggleButton.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.reportToggleButton.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.reportToggleButton.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.reportToggleButton.Size = new System.Drawing.Size(45, 22);
+            this.reportToggleButton.TabIndex = 30;
+            this.reportToggleButton.UseVisualStyleBackColor = true;
+            this.reportToggleButton.CheckedChanged += new System.EventHandler(this.reportToggleButtonCalendar_CheckedChanged);
+            // 
+            // reportDateTimePickerStart
+            // 
+            this.reportDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.reportDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerStart.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.reportDateTimePickerStart.Location = new System.Drawing.Point(54, 3);
+            this.reportDateTimePickerStart.Name = "reportDateTimePickerStart";
+            this.reportDateTimePickerStart.Size = new System.Drawing.Size(220, 27);
+            this.reportDateTimePickerStart.TabIndex = 28;
+            this.reportDateTimePickerStart.Visible = false;
+            // 
+            // reportDateTimePickerEnd
+            // 
+            this.reportDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.reportDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerEnd.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerEnd.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.reportDateTimePickerEnd.Location = new System.Drawing.Point(280, 3);
+            this.reportDateTimePickerEnd.Name = "reportDateTimePickerEnd";
+            this.reportDateTimePickerEnd.Size = new System.Drawing.Size(200, 27);
+            this.reportDateTimePickerEnd.TabIndex = 29;
+            this.reportDateTimePickerEnd.Visible = false;
+            // 
+            // reportDateTimePickerCalendar
+            // 
+            this.reportDateTimePickerCalendar.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.reportDateTimePickerCalendar.CalendarMonthBackground = System.Drawing.Color.White;
+            this.reportDateTimePickerCalendar.CustomFormat = "MMMM yyyy";
+            this.reportDateTimePickerCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.reportDateTimePickerCalendar.Location = new System.Drawing.Point(486, 3);
+            this.reportDateTimePickerCalendar.Name = "reportDateTimePickerCalendar";
+            this.reportDateTimePickerCalendar.ShowUpDown = true;
+            this.reportDateTimePickerCalendar.Size = new System.Drawing.Size(200, 27);
+            this.reportDateTimePickerCalendar.TabIndex = 23;
+            // 
             // labelCalendar
             // 
             this.labelCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -605,18 +684,6 @@ namespace WorldStat.Core.Forms
             this.btnLoadReport.TextColor = System.Drawing.Color.White;
             this.btnLoadReport.UseVisualStyleBackColor = false;
             this.btnLoadReport.Click += new System.EventHandler(this.btnLoadReport_Click);
-            // 
-            // reportDateTimePickerCalendar
-            // 
-            this.reportDateTimePickerCalendar.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.reportDateTimePickerCalendar.CalendarMonthBackground = System.Drawing.Color.White;
-            this.reportDateTimePickerCalendar.CustomFormat = "MMMM yyyy";
-            this.reportDateTimePickerCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.reportDateTimePickerCalendar.Location = new System.Drawing.Point(486, 3);
-            this.reportDateTimePickerCalendar.Name = "reportDateTimePickerCalendar";
-            this.reportDateTimePickerCalendar.ShowUpDown = true;
-            this.reportDateTimePickerCalendar.Size = new System.Drawing.Size(200, 27);
-            this.reportDateTimePickerCalendar.TabIndex = 23;
             // 
             // tabOrg
             // 
@@ -879,11 +946,8 @@ namespace WorldStat.Core.Forms
             // panelOrgDoc
             // 
             this.panelOrgDoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelOrgDoc.Controls.Add(this.comboBoxFirmsMailCategory);
-            this.panelOrgDoc.Controls.Add(this.comboBoxFirmsMailType);
-            this.panelOrgDoc.Controls.Add(this.labelFirmInfoMailCategory);
-            this.panelOrgDoc.Controls.Add(this.labelFirmInfoMailType);
-            this.panelOrgDoc.Controls.Add(this.flowLayoutPanelOrg);
+            this.panelOrgDoc.Controls.Add(this.flowLayoutPanelOrgFilter);
+            this.panelOrgDoc.Controls.Add(this.flowLayoutPanelOrgBase);
             this.panelOrgDoc.Controls.Add(this.btnLoadReportFirms);
             this.panelOrgDoc.Controls.Add(this.comboBoxFirms);
             this.panelOrgDoc.Dock = System.Windows.Forms.DockStyle.Top;
@@ -892,22 +956,34 @@ namespace WorldStat.Core.Forms
             this.panelOrgDoc.Size = new System.Drawing.Size(1257, 92);
             this.panelOrgDoc.TabIndex = 3;
             // 
-            // comboBoxFirmsMailCategory
+            // flowLayoutPanelOrgFilter
             // 
-            this.comboBoxFirmsMailCategory.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxFirmsMailCategory.DataSource = this.activeMailCategoryBindingSource;
-            this.comboBoxFirmsMailCategory.DisplayMember = "ShortName";
-            this.comboBoxFirmsMailCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.comboBoxFirmsMailCategory.FormattingEnabled = true;
-            this.comboBoxFirmsMailCategory.Location = new System.Drawing.Point(417, 50);
-            this.comboBoxFirmsMailCategory.Name = "comboBoxFirmsMailCategory";
-            this.comboBoxFirmsMailCategory.Size = new System.Drawing.Size(257, 28);
-            this.comboBoxFirmsMailCategory.TabIndex = 31;
-            this.comboBoxFirmsMailCategory.ValueMember = "Code";
+            this.flowLayoutPanelOrgFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.labelFirmInfoMailType);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.comboBoxFirmsMailType);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.labelFirmInfoMailCategory);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.comboBoxFirmsMailCategory);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.labelFirmInfoTransCategory);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.comboBoxFirmsTransCategory);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.labelFirmInfoTransType);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.comboBoxFirmsTransType);
+            this.flowLayoutPanelOrgFilter.Location = new System.Drawing.Point(8, 48);
+            this.flowLayoutPanelOrgFilter.Name = "flowLayoutPanelOrgFilter";
+            this.flowLayoutPanelOrgFilter.Size = new System.Drawing.Size(1241, 34);
+            this.flowLayoutPanelOrgFilter.TabIndex = 0;
             // 
-            // activeMailCategoryBindingSource
+            // labelFirmInfoMailType
             // 
-            this.activeMailCategoryBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCategory);
+            this.labelFirmInfoMailType.AutoSize = true;
+            this.labelFirmInfoMailType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelFirmInfoMailType.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelFirmInfoMailType.Location = new System.Drawing.Point(0, 6);
+            this.labelFirmInfoMailType.Margin = new System.Windows.Forms.Padding(0, 6, 2, 0);
+            this.labelFirmInfoMailType.Name = "labelFirmInfoMailType";
+            this.labelFirmInfoMailType.Size = new System.Drawing.Size(38, 20);
+            this.labelFirmInfoMailType.TabIndex = 30;
+            this.labelFirmInfoMailType.Text = "Тип:";
             // 
             // comboBoxFirmsMailType
             // 
@@ -916,7 +992,7 @@ namespace WorldStat.Core.Forms
             this.comboBoxFirmsMailType.DisplayMember = "ShortName";
             this.comboBoxFirmsMailType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.comboBoxFirmsMailType.FormattingEnabled = true;
-            this.comboBoxFirmsMailType.Location = new System.Drawing.Point(52, 50);
+            this.comboBoxFirmsMailType.Location = new System.Drawing.Point(43, 3);
             this.comboBoxFirmsMailType.Name = "comboBoxFirmsMailType";
             this.comboBoxFirmsMailType.Size = new System.Drawing.Size(257, 28);
             this.comboBoxFirmsMailType.TabIndex = 31;
@@ -931,35 +1007,92 @@ namespace WorldStat.Core.Forms
             this.labelFirmInfoMailCategory.AutoSize = true;
             this.labelFirmInfoMailCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelFirmInfoMailCategory.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFirmInfoMailCategory.Location = new System.Drawing.Point(326, 53);
+            this.labelFirmInfoMailCategory.Location = new System.Drawing.Point(308, 6);
+            this.labelFirmInfoMailCategory.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
             this.labelFirmInfoMailCategory.Name = "labelFirmInfoMailCategory";
             this.labelFirmInfoMailCategory.Size = new System.Drawing.Size(85, 20);
             this.labelFirmInfoMailCategory.TabIndex = 30;
             this.labelFirmInfoMailCategory.Text = "Категория:";
             // 
-            // labelFirmInfoMailType
+            // comboBoxFirmsMailCategory
             // 
-            this.labelFirmInfoMailType.AutoSize = true;
-            this.labelFirmInfoMailType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirmInfoMailType.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFirmInfoMailType.Location = new System.Drawing.Point(8, 53);
-            this.labelFirmInfoMailType.Name = "labelFirmInfoMailType";
-            this.labelFirmInfoMailType.Size = new System.Drawing.Size(38, 20);
-            this.labelFirmInfoMailType.TabIndex = 30;
-            this.labelFirmInfoMailType.Text = "Тип:";
+            this.comboBoxFirmsMailCategory.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxFirmsMailCategory.DataSource = this.activeMailCategoryBindingSource;
+            this.comboBoxFirmsMailCategory.DisplayMember = "ShortName";
+            this.comboBoxFirmsMailCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.comboBoxFirmsMailCategory.FormattingEnabled = true;
+            this.comboBoxFirmsMailCategory.Location = new System.Drawing.Point(398, 3);
+            this.comboBoxFirmsMailCategory.Name = "comboBoxFirmsMailCategory";
+            this.comboBoxFirmsMailCategory.Size = new System.Drawing.Size(215, 28);
+            this.comboBoxFirmsMailCategory.TabIndex = 31;
+            this.comboBoxFirmsMailCategory.ValueMember = "Code";
             // 
-            // flowLayoutPanelOrg
+            // activeMailCategoryBindingSource
             // 
-            this.flowLayoutPanelOrg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.activeMailCategoryBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCategory);
+            // 
+            // labelFirmInfoTransType
+            // 
+            this.labelFirmInfoTransType.AutoSize = true;
+            this.labelFirmInfoTransType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelFirmInfoTransType.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelFirmInfoTransType.Location = new System.Drawing.Point(867, 6);
+            this.labelFirmInfoTransType.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
+            this.labelFirmInfoTransType.Name = "labelFirmInfoTransType";
+            this.labelFirmInfoTransType.Size = new System.Drawing.Size(91, 20);
+            this.labelFirmInfoTransType.TabIndex = 32;
+            this.labelFirmInfoTransType.Text = "Пересылка:";
+            // 
+            // comboBoxFirmsTransType
+            // 
+            this.comboBoxFirmsTransType.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxFirmsTransType.DataSource = this.activeMailCategoryBindingSource;
+            this.comboBoxFirmsTransType.DisplayMember = "ShortName";
+            this.comboBoxFirmsTransType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.comboBoxFirmsTransType.FormattingEnabled = true;
+            this.comboBoxFirmsTransType.Location = new System.Drawing.Point(963, 3);
+            this.comboBoxFirmsTransType.Name = "comboBoxFirmsTransType";
+            this.comboBoxFirmsTransType.Size = new System.Drawing.Size(180, 28);
+            this.comboBoxFirmsTransType.TabIndex = 33;
+            this.comboBoxFirmsTransType.ValueMember = "Code";
+            // 
+            // labelFirmInfoTransCategory
+            // 
+            this.labelFirmInfoTransCategory.AutoSize = true;
+            this.labelFirmInfoTransCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelFirmInfoTransCategory.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelFirmInfoTransCategory.Location = new System.Drawing.Point(621, 6);
+            this.labelFirmInfoTransCategory.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
+            this.labelFirmInfoTransCategory.Name = "labelFirmInfoTransCategory";
+            this.labelFirmInfoTransCategory.Size = new System.Drawing.Size(53, 20);
+            this.labelFirmInfoTransCategory.TabIndex = 34;
+            this.labelFirmInfoTransCategory.Text = "Класс:";
+            // 
+            // comboBoxFirmsTransCategory
+            // 
+            this.comboBoxFirmsTransCategory.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxFirmsTransCategory.DataSource = this.activeMailCategoryBindingSource;
+            this.comboBoxFirmsTransCategory.DisplayMember = "ShortName";
+            this.comboBoxFirmsTransCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.comboBoxFirmsTransCategory.FormattingEnabled = true;
+            this.comboBoxFirmsTransCategory.Location = new System.Drawing.Point(679, 3);
+            this.comboBoxFirmsTransCategory.Name = "comboBoxFirmsTransCategory";
+            this.comboBoxFirmsTransCategory.Size = new System.Drawing.Size(180, 28);
+            this.comboBoxFirmsTransCategory.TabIndex = 35;
+            this.comboBoxFirmsTransCategory.ValueMember = "Code";
+            // 
+            // flowLayoutPanelOrgBase
+            // 
+            this.flowLayoutPanelOrgBase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelOrg.Controls.Add(this.orgToggleButtonCalendar);
-            this.flowLayoutPanelOrg.Controls.Add(this.orgDateTimePickerStart);
-            this.flowLayoutPanelOrg.Controls.Add(this.orgDateTimePickerEnd);
-            this.flowLayoutPanelOrg.Controls.Add(this.orgDateTimePickerCalendar);
-            this.flowLayoutPanelOrg.Location = new System.Drawing.Point(417, 8);
-            this.flowLayoutPanelOrg.Name = "flowLayoutPanelOrg";
-            this.flowLayoutPanelOrg.Size = new System.Drawing.Size(786, 34);
-            this.flowLayoutPanelOrg.TabIndex = 29;
+            this.flowLayoutPanelOrgBase.Controls.Add(this.orgToggleButtonCalendar);
+            this.flowLayoutPanelOrgBase.Controls.Add(this.orgDateTimePickerStart);
+            this.flowLayoutPanelOrgBase.Controls.Add(this.orgDateTimePickerEnd);
+            this.flowLayoutPanelOrgBase.Controls.Add(this.orgDateTimePickerCalendar);
+            this.flowLayoutPanelOrgBase.Location = new System.Drawing.Point(417, 8);
+            this.flowLayoutPanelOrgBase.Name = "flowLayoutPanelOrgBase";
+            this.flowLayoutPanelOrgBase.Size = new System.Drawing.Size(786, 34);
+            this.flowLayoutPanelOrgBase.TabIndex = 29;
             // 
             // orgDateTimePickerStart
             // 
@@ -1256,67 +1389,6 @@ namespace WorldStat.Core.Forms
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 472;
             // 
-            // flowLayoutPanelReport
-            // 
-            this.flowLayoutPanelReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelReport.Controls.Add(this.reportToggleButton);
-            this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerStart);
-            this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerEnd);
-            this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerCalendar);
-            this.flowLayoutPanelReport.Controls.Add(this.labelCalendar);
-            this.flowLayoutPanelReport.Controls.Add(this.comboBoxCalendar);
-            this.flowLayoutPanelReport.Location = new System.Drawing.Point(8, 7);
-            this.flowLayoutPanelReport.Name = "flowLayoutPanelReport";
-            this.flowLayoutPanelReport.Size = new System.Drawing.Size(1195, 34);
-            this.flowLayoutPanelReport.TabIndex = 27;
-            // 
-            // reportDateTimePickerStart
-            // 
-            this.reportDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.reportDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
-            this.reportDateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
-            this.reportDateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
-            this.reportDateTimePickerStart.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
-            this.reportDateTimePickerStart.Location = new System.Drawing.Point(54, 3);
-            this.reportDateTimePickerStart.Name = "reportDateTimePickerStart";
-            this.reportDateTimePickerStart.Size = new System.Drawing.Size(220, 27);
-            this.reportDateTimePickerStart.TabIndex = 28;
-            this.reportDateTimePickerStart.Visible = false;
-            // 
-            // reportDateTimePickerEnd
-            // 
-            this.reportDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.reportDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
-            this.reportDateTimePickerEnd.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
-            this.reportDateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
-            this.reportDateTimePickerEnd.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
-            this.reportDateTimePickerEnd.Location = new System.Drawing.Point(280, 3);
-            this.reportDateTimePickerEnd.Name = "reportDateTimePickerEnd";
-            this.reportDateTimePickerEnd.Size = new System.Drawing.Size(200, 27);
-            this.reportDateTimePickerEnd.TabIndex = 29;
-            this.reportDateTimePickerEnd.Visible = false;
-            // 
-            // reportToggleButton
-            // 
-            this.reportToggleButton.AutoSize = true;
-            this.reportToggleButton.Checked = true;
-            this.reportToggleButton.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.reportToggleButton.DisableBackColor = System.Drawing.Color.DimGray;
-            this.reportToggleButton.DisableToggleColor = System.Drawing.Color.Gray;
-            this.reportToggleButton.Location = new System.Drawing.Point(3, 5);
-            this.reportToggleButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.reportToggleButton.MinimumSize = new System.Drawing.Size(45, 22);
-            this.reportToggleButton.Name = "reportToggleButton";
-            this.reportToggleButton.OffBackColor = System.Drawing.Color.DimGray;
-            this.reportToggleButton.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.reportToggleButton.OnBackColor = System.Drawing.Color.SeaGreen;
-            this.reportToggleButton.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.reportToggleButton.Size = new System.Drawing.Size(45, 22);
-            this.reportToggleButton.TabIndex = 30;
-            this.reportToggleButton.UseVisualStyleBackColor = true;
-            this.reportToggleButton.CheckedChanged += new System.EventHandler(this.reportToggleButtonCalendar_CheckedChanged);
-            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1345,6 +1417,8 @@ namespace WorldStat.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportBindingSource)).EndInit();
             this.panelReceived.ResumeLayout(false);
+            this.flowLayoutPanelReport.ResumeLayout(false);
+            this.flowLayoutPanelReport.PerformLayout();
             this.tabOrg.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1354,11 +1428,12 @@ namespace WorldStat.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.reportPosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocOrg)).EndInit();
             this.panelOrgDoc.ResumeLayout(false);
-            this.panelOrgDoc.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.activeMailCategoryBindingSource)).EndInit();
+            this.flowLayoutPanelOrgFilter.ResumeLayout(false);
+            this.flowLayoutPanelOrgFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acitveMailTypeBindingSource)).EndInit();
-            this.flowLayoutPanelOrg.ResumeLayout(false);
-            this.flowLayoutPanelOrg.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.activeMailCategoryBindingSource)).EndInit();
+            this.flowLayoutPanelOrgBase.ResumeLayout(false);
+            this.flowLayoutPanelOrgBase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.firmBindingSource)).EndInit();
             this.tabStat.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocReceive)).EndInit();
@@ -1366,8 +1441,6 @@ namespace WorldStat.Core.Forms
             this.tabChart.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserOnline)).EndInit();
             this.panelActive.ResumeLayout(false);
-            this.flowLayoutPanelReport.ResumeLayout(false);
-            this.flowLayoutPanelReport.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1440,7 +1513,7 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.BindingSource mailCategoryBindingSource;
         private System.Windows.Forms.DateTimePicker orgDateTimePickerCalendar;
         private Wc32Api.Widgets.WcToggleButton orgToggleButtonCalendar;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelOrg;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelOrgBase;
         private System.Windows.Forms.ComboBox comboBoxFirmsMailCategory;
         private System.Windows.Forms.ComboBox comboBoxFirmsMailType;
         private System.Windows.Forms.Label labelFirmInfoMailCategory;
@@ -1464,6 +1537,11 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.DateTimePicker reportDateTimePickerStart;
         private System.Windows.Forms.DateTimePicker reportDateTimePickerEnd;
         private Wc32Api.Widgets.WcToggleButton reportToggleButton;
+        private System.Windows.Forms.Label labelFirmInfoTransType;
+        private System.Windows.Forms.ComboBox comboBoxFirmsTransType;
+        private System.Windows.Forms.ComboBox comboBoxFirmsTransCategory;
+        private System.Windows.Forms.Label labelFirmInfoTransCategory;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelOrgFilter;
     }
 }
 

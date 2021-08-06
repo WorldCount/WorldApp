@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using WcPostApi.Types;
 using WorldStat.Core.Database.Contexts;
 using WorldStat.Core.Database.Models;
 
@@ -118,7 +119,8 @@ namespace WorldStat.Core.Database
 
         #region Report Poses
 
-        public static List<ReportPos> LoadReportPoses(DateTime start, DateTime end, int firmId = 0, long mailType = 9999, long mailCategory = 9999)
+        public static List<ReportPos> LoadReportPoses(DateTime start, DateTime end, int firmId = 0, long mailType = 9999, 
+            long mailCategory = 9999, TransType transType = TransType.ВСЕ, TransCategory transCategory = TransCategory.ВСЕ)
         {
             using (WorldStatContext db = new WorldStatContext())
             {
@@ -133,13 +135,20 @@ namespace WorldStat.Core.Database
                 if (mailCategory != 9999)
                     q = q.Where(r => r.MailCategory == mailCategory);
 
+                if (transType != TransType.ВСЕ)
+                    q = q.Where(r => r.TransType == transType);
+
+                if (transCategory != TransCategory.ВСЕ)
+                    q = q.Where(r => r.TransCategory == transCategory);
+
                 return q.Include(r => r.Firm).Where(r => r.Date >= start && r.Date <= end).OrderBy(p => p.Date).ToList();
             }
         }
 
-        public static async Task<List<ReportPos>> LoadReportPosesAsync(DateTime start, DateTime end, int firmId = 0, long mailType = 9999, long mailCategory = 9999)
+        public static async Task<List<ReportPos>> LoadReportPosesAsync(DateTime start, DateTime end, int firmId = 0, long mailType = 9999, 
+            long mailCategory = 9999, TransType transType = TransType.ВСЕ, TransCategory transCategory = TransCategory.ВСЕ)
         {
-            return await Task.Run(() => LoadReportPoses(start, end, firmId, mailType, mailCategory));
+            return await Task.Run(() => LoadReportPoses(start, end, firmId, mailType, mailCategory, transType, transCategory));
         }
 
         #endregion

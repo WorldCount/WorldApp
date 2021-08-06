@@ -7,6 +7,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using WcPostApi.Types;
 using WorldStat.Core.Database;
 using WorldStat.Core.Database.Contexts;
 using WorldStat.Core.Database.Models;
@@ -154,6 +155,9 @@ namespace WorldStat.Core.Forms
 
             await LoadDataAsync();
             UpdateData();
+
+            comboBoxFirmsTransType.DataSource = Enum.GetValues(typeof(TransType));
+            comboBoxFirmsTransCategory.DataSource = Enum.GetValues(typeof(TransCategory));
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -335,6 +339,8 @@ namespace WorldStat.Core.Forms
             Firm firm = (Firm)comboBoxFirms.SelectedItem;
             MailType mailType = (MailType)comboBoxFirmsMailType.SelectedItem;
             MailCategory mailCategory = (MailCategory)comboBoxFirmsMailCategory.SelectedItem;
+            TransCategory transCategory = (TransCategory) comboBoxFirmsTransCategory.SelectedItem;
+            TransType transType = (TransType) comboBoxFirmsTransType.SelectedItem;
 
             long type = 9999;
             long category = 9999;
@@ -362,7 +368,7 @@ namespace WorldStat.Core.Forms
                 if (mailType != null)
                     type = mailType.Code;
 
-                _reportPoses = await Db.LoadReportPosesAsync(start, end, firm.Id, type, category);
+                _reportPoses = await Db.LoadReportPosesAsync(start, end, firm.Id, type, category, transType, transCategory);
                 UpdateReportPoses();
 
                 labelFirmCount.Text = _reportPoses.Sum(r => r.Count).ToString();

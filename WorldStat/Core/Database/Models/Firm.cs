@@ -31,7 +31,7 @@ namespace WorldStat.Core.Database.Models
 
         public override string ToString()
         {
-            return $"Firm: {ShortName}";
+            return ShortName;
         }
     }
 }
