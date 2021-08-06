@@ -37,21 +37,21 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.checkDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shortNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.checkAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.uncheckAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.firmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblCount = new System.Windows.Forms.Label();
             this.lblFilter = new System.Windows.Forms.Label();
+            this.btnDelete = new Wc32Api.Widgets.WcButton();
+            this.tbFilter = new Wc32Api.Widgets.WcTextBox();
             this.btnSave = new Wc32Api.Widgets.WcButton();
             this.btnCancel = new Wc32Api.Widgets.WcButton();
             this.btnUpdate = new Wc32Api.Widgets.WcButton();
-            this.btnDelete = new Wc32Api.Widgets.WcButton();
-            this.tbFilter = new Wc32Api.Widgets.WcTextBox();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shortNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.contextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.firmBindingSource)).BeginInit();
@@ -145,19 +145,6 @@
             this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
             this.codeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // shortNameDataGridViewTextBoxColumn
-            // 
-            this.shortNameDataGridViewTextBoxColumn.DataPropertyName = "ShortName";
-            this.shortNameDataGridViewTextBoxColumn.HeaderText = "Сокращение";
-            this.shortNameDataGridViewTextBoxColumn.Name = "shortNameDataGridViewTextBoxColumn";
-            // 
             // docDataGridViewTextBoxColumn
             // 
             this.docDataGridViewTextBoxColumn.DataPropertyName = "Doc";
@@ -199,11 +186,6 @@
             this.uncheckAllMenuItem.Text = "Снять все отметки";
             this.uncheckAllMenuItem.Click += new System.EventHandler(this.uncheckAllMenuItem_Click);
             // 
-            // firmBindingSource
-            // 
-            this.firmBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.Firm);
-            this.firmBindingSource.Filter = "";
-            // 
             // lblCount
             // 
             this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -221,11 +203,68 @@
             this.lblFilter.AutoSize = true;
             this.lblFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblFilter.ForeColor = System.Drawing.Color.Gray;
-            this.lblFilter.Location = new System.Drawing.Point(479, 12);
+            this.lblFilter.Location = new System.Drawing.Point(358, 12);
             this.lblFilter.Name = "lblFilter";
             this.lblFilter.Size = new System.Drawing.Size(69, 21);
             this.lblFilter.TabIndex = 29;
             this.lblFilter.Text = "Фильтр:";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDelete.BackColor = System.Drawing.Color.Firebrick;
+            this.btnDelete.BorderColor = System.Drawing.Color.Silver;
+            this.btnDelete.BorderRadius = 4F;
+            this.btnDelete.BorderSize = 0;
+            this.btnDelete.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnDelete.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Image = global::WorldStat.Properties.Resources.trash_2_24;
+            this.btnDelete.Location = new System.Drawing.Point(168, 393);
+            this.btnDelete.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnDelete.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnDelete.Size = new System.Drawing.Size(46, 46);
+            this.btnDelete.TabIndex = 0;
+            this.btnDelete.TabStop = false;
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.TextColor = System.Drawing.Color.White;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // tbFilter
+            // 
+            this.tbFilter.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbFilter.BorderColor = System.Drawing.Color.DarkOrange;
+            this.tbFilter.BorderFocusColor = System.Drawing.Color.DodgerBlue;
+            this.tbFilter.BorderSize = 2;
+            this.tbFilter.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbFilter.DisableBackColor = System.Drawing.Color.DarkGray;
+            this.tbFilter.DisableBorderColor = System.Drawing.Color.DimGray;
+            this.tbFilter.DisableForeColor = System.Drawing.Color.DimGray;
+            this.tbFilter.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.tbFilter.Location = new System.Drawing.Point(434, 4);
+            this.tbFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.tbFilter.Multiline = false;
+            this.tbFilter.Name = "tbFilter";
+            this.tbFilter.Padding = new System.Windows.Forms.Padding(7);
+            this.tbFilter.PasswordChar = '\0';
+            this.tbFilter.Size = new System.Drawing.Size(310, 40);
+            this.tbFilter.TabIndex = 30;
+            this.tbFilter.Texts = "";
+            this.tbFilter.UnderlinedStyle = true;
+            this.tbFilter.UsePasswordChar = false;
+            this.tbFilter._TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
+            this.tbFilter.TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
+            this.tbFilter.Enter += new System.EventHandler(this.tbFilter_Enter);
             // 
             // btnSave
             // 
@@ -315,61 +354,23 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btnDelete
+            // nameDataGridViewTextBoxColumn
             // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.BackColor = System.Drawing.Color.Firebrick;
-            this.btnDelete.BorderColor = System.Drawing.Color.Silver;
-            this.btnDelete.BorderRadius = 4F;
-            this.btnDelete.BorderSize = 0;
-            this.btnDelete.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnDelete.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnDelete.Enabled = false;
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Image = global::WorldStat.Properties.Resources.trash_2_24;
-            this.btnDelete.Location = new System.Drawing.Point(168, 393);
-            this.btnDelete.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnDelete.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnDelete.Size = new System.Drawing.Size(46, 46);
-            this.btnDelete.TabIndex = 0;
-            this.btnDelete.TabStop = false;
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.TextColor = System.Drawing.Color.White;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // tbFilter
+            // shortNameDataGridViewTextBoxColumn
             // 
-            this.tbFilter.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tbFilter.BorderColor = System.Drawing.Color.DarkOrange;
-            this.tbFilter.BorderFocusColor = System.Drawing.Color.DodgerBlue;
-            this.tbFilter.BorderSize = 2;
-            this.tbFilter.DisableBackColor = System.Drawing.Color.DarkGray;
-            this.tbFilter.DisableBorderColor = System.Drawing.Color.DimGray;
-            this.tbFilter.DisableForeColor = System.Drawing.Color.DimGray;
-            this.tbFilter.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.tbFilter.Location = new System.Drawing.Point(555, 4);
-            this.tbFilter.Margin = new System.Windows.Forms.Padding(4);
-            this.tbFilter.Multiline = false;
-            this.tbFilter.Name = "tbFilter";
-            this.tbFilter.Padding = new System.Windows.Forms.Padding(7);
-            this.tbFilter.PasswordChar = '\0';
-            this.tbFilter.Size = new System.Drawing.Size(190, 40);
-            this.tbFilter.TabIndex = 30;
-            this.tbFilter.Texts = "";
-            this.tbFilter.UnderlinedStyle = true;
-            this.tbFilter.UsePasswordChar = false;
-            this.tbFilter._TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
-            this.tbFilter.TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
-            this.tbFilter.Enter += new System.EventHandler(this.tbFilter_Enter);
+            this.shortNameDataGridViewTextBoxColumn.DataPropertyName = "ShortName";
+            this.shortNameDataGridViewTextBoxColumn.HeaderText = "Сокращение";
+            this.shortNameDataGridViewTextBoxColumn.Name = "shortNameDataGridViewTextBoxColumn";
+            // 
+            // firmBindingSource
+            // 
+            this.firmBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.Firm);
+            this.firmBindingSource.Filter = "";
             // 
             // FirmsForm
             // 

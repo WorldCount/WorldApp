@@ -35,11 +35,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MailCategoryForm));
             this.labelInfo = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.enableDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shortNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mailCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.checkAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,9 +51,14 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbFilter = new Wc32Api.Widgets.WcTextBox();
             this.lblFilter = new System.Windows.Forms.Label();
+            this.enableDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shortNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelInfo
@@ -131,36 +131,6 @@
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             this.dataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseUp);
             this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
-            // 
-            // enableDataGridViewCheckBoxColumn
-            // 
-            this.enableDataGridViewCheckBoxColumn.DataPropertyName = "Enable";
-            this.enableDataGridViewCheckBoxColumn.HeaderText = "Вкл";
-            this.enableDataGridViewCheckBoxColumn.Name = "enableDataGridViewCheckBoxColumn";
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = " Код";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // shortNameDataGridViewTextBoxColumn
-            // 
-            this.shortNameDataGridViewTextBoxColumn.DataPropertyName = "ShortName";
-            this.shortNameDataGridViewTextBoxColumn.HeaderText = "Сокращение";
-            this.shortNameDataGridViewTextBoxColumn.Name = "shortNameDataGridViewTextBoxColumn";
-            // 
-            // mailCategoryBindingSource
-            // 
-            this.mailCategoryBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCategory);
             // 
             // contextMenuStrip
             // 
@@ -346,18 +316,19 @@
             this.tbFilter.BorderColor = System.Drawing.Color.DarkOrange;
             this.tbFilter.BorderFocusColor = System.Drawing.Color.DodgerBlue;
             this.tbFilter.BorderSize = 2;
+            this.tbFilter.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbFilter.DisableBackColor = System.Drawing.Color.DarkGray;
             this.tbFilter.DisableBorderColor = System.Drawing.Color.DimGray;
             this.tbFilter.DisableForeColor = System.Drawing.Color.DimGray;
             this.tbFilter.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.tbFilter.Location = new System.Drawing.Point(477, 4);
+            this.tbFilter.Location = new System.Drawing.Point(434, 4);
             this.tbFilter.Margin = new System.Windows.Forms.Padding(4);
             this.tbFilter.Multiline = false;
             this.tbFilter.Name = "tbFilter";
             this.tbFilter.Padding = new System.Windows.Forms.Padding(7);
             this.tbFilter.PasswordChar = '\0';
-            this.tbFilter.Size = new System.Drawing.Size(190, 40);
+            this.tbFilter.Size = new System.Drawing.Size(230, 40);
             this.tbFilter.TabIndex = 0;
             this.tbFilter.TabStop = false;
             this.tbFilter.Texts = "";
@@ -371,11 +342,41 @@
             this.lblFilter.AutoSize = true;
             this.lblFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblFilter.ForeColor = System.Drawing.Color.Gray;
-            this.lblFilter.Location = new System.Drawing.Point(401, 12);
+            this.lblFilter.Location = new System.Drawing.Point(358, 12);
             this.lblFilter.Name = "lblFilter";
             this.lblFilter.Size = new System.Drawing.Size(69, 21);
             this.lblFilter.TabIndex = 0;
             this.lblFilter.Text = "Фильтр:";
+            // 
+            // enableDataGridViewCheckBoxColumn
+            // 
+            this.enableDataGridViewCheckBoxColumn.DataPropertyName = "Enable";
+            this.enableDataGridViewCheckBoxColumn.HeaderText = "Вкл";
+            this.enableDataGridViewCheckBoxColumn.Name = "enableDataGridViewCheckBoxColumn";
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = " Код";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // shortNameDataGridViewTextBoxColumn
+            // 
+            this.shortNameDataGridViewTextBoxColumn.DataPropertyName = "ShortName";
+            this.shortNameDataGridViewTextBoxColumn.HeaderText = "Сокращение";
+            this.shortNameDataGridViewTextBoxColumn.Name = "shortNameDataGridViewTextBoxColumn";
+            // 
+            // mailCategoryBindingSource
+            // 
+            this.mailCategoryBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCategory);
             // 
             // MailCategoryForm
             // 
@@ -399,8 +400,8 @@
             this.Text = "MailCategory";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MailCategoryForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).EndInit();
             this.contextMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

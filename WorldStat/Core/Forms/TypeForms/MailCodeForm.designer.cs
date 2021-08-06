@@ -29,22 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MailCodeForm));
             this.labelInfo = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.CheckDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mailTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.mailTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mailCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.mailCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.transCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mailCodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.checkAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,11 +52,20 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbFilter = new Wc32Api.Widgets.WcTextBox();
             this.lblFilter = new System.Windows.Forms.Label();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.mailTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mailCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.mailCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.transCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailCodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mailTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCodeBindingSource)).BeginInit();
-            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelInfo
@@ -75,9 +75,9 @@
             this.labelInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.labelInfo.Location = new System.Drawing.Point(12, 9);
             this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(187, 28);
+            this.labelInfo.Size = new System.Drawing.Size(188, 28);
             this.labelInfo.TabIndex = 16;
-            this.labelInfo.Text = "Типы отправлений";
+            this.labelInfo.Text = "Коды отправлений";
             // 
             // dataGridView
             // 
@@ -91,14 +91,14 @@
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ColumnHeadersHeight = 40;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CheckDataGridViewCheckBoxColumn,
@@ -109,27 +109,27 @@
             this.transTypeDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.mailCodeBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.dataGridView.Location = new System.Drawing.Point(12, 51);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 40;
             this.dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -148,73 +148,6 @@
             this.CheckDataGridViewCheckBoxColumn.DataPropertyName = "Check";
             this.CheckDataGridViewCheckBoxColumn.HeaderText = "Отм";
             this.CheckDataGridViewCheckBoxColumn.Name = "CheckDataGridViewCheckBoxColumn";
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Код";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mailTypeDataGridViewTextBoxColumn
-            // 
-            this.mailTypeDataGridViewTextBoxColumn.DataPropertyName = "MailType";
-            this.mailTypeDataGridViewTextBoxColumn.DataSource = this.mailTypeBindingSource;
-            this.mailTypeDataGridViewTextBoxColumn.DisplayMember = "ShortName";
-            this.mailTypeDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.mailTypeDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mailTypeDataGridViewTextBoxColumn.HeaderText = "Тип";
-            this.mailTypeDataGridViewTextBoxColumn.Name = "mailTypeDataGridViewTextBoxColumn";
-            this.mailTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.mailTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.mailTypeDataGridViewTextBoxColumn.ValueMember = "Code";
-            // 
-            // mailTypeBindingSource
-            // 
-            this.mailTypeBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailType);
-            // 
-            // mailCategoryDataGridViewTextBoxColumn
-            // 
-            this.mailCategoryDataGridViewTextBoxColumn.DataPropertyName = "MailCategory";
-            this.mailCategoryDataGridViewTextBoxColumn.DataSource = this.mailCategoryBindingSource;
-            this.mailCategoryDataGridViewTextBoxColumn.DisplayMember = "ShortName";
-            this.mailCategoryDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.mailCategoryDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mailCategoryDataGridViewTextBoxColumn.HeaderText = "Категория";
-            this.mailCategoryDataGridViewTextBoxColumn.Name = "mailCategoryDataGridViewTextBoxColumn";
-            this.mailCategoryDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.mailCategoryDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.mailCategoryDataGridViewTextBoxColumn.ValueMember = "Code";
-            // 
-            // mailCategoryBindingSource
-            // 
-            this.mailCategoryBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCategory);
-            // 
-            // transCategoryDataGridViewTextBoxColumn
-            // 
-            this.transCategoryDataGridViewTextBoxColumn.DataPropertyName = "TransCategory";
-            this.transCategoryDataGridViewTextBoxColumn.HeaderText = "МЖД";
-            this.transCategoryDataGridViewTextBoxColumn.Name = "transCategoryDataGridViewTextBoxColumn";
-            this.transCategoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // transTypeDataGridViewTextBoxColumn
-            // 
-            this.transTypeDataGridViewTextBoxColumn.DataPropertyName = "TransType";
-            this.transTypeDataGridViewTextBoxColumn.HeaderText = "Пересылка";
-            this.transTypeDataGridViewTextBoxColumn.Name = "transTypeDataGridViewTextBoxColumn";
-            this.transTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.transTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mailCodeBindingSource
-            // 
-            this.mailCodeBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCode);
             // 
             // contextMenuStrip
             // 
@@ -400,18 +333,19 @@
             this.tbFilter.BorderColor = System.Drawing.Color.DarkOrange;
             this.tbFilter.BorderFocusColor = System.Drawing.Color.DodgerBlue;
             this.tbFilter.BorderSize = 2;
+            this.tbFilter.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbFilter.DisableBackColor = System.Drawing.Color.DarkGray;
             this.tbFilter.DisableBorderColor = System.Drawing.Color.DimGray;
             this.tbFilter.DisableForeColor = System.Drawing.Color.DimGray;
             this.tbFilter.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.tbFilter.Location = new System.Drawing.Point(477, 4);
+            this.tbFilter.Location = new System.Drawing.Point(434, 4);
             this.tbFilter.Margin = new System.Windows.Forms.Padding(4);
             this.tbFilter.Multiline = false;
             this.tbFilter.Name = "tbFilter";
             this.tbFilter.Padding = new System.Windows.Forms.Padding(7);
             this.tbFilter.PasswordChar = '\0';
-            this.tbFilter.Size = new System.Drawing.Size(190, 40);
+            this.tbFilter.Size = new System.Drawing.Size(230, 40);
             this.tbFilter.TabIndex = 32;
             this.tbFilter.Texts = "";
             this.tbFilter.UnderlinedStyle = true;
@@ -424,11 +358,78 @@
             this.lblFilter.AutoSize = true;
             this.lblFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblFilter.ForeColor = System.Drawing.Color.Gray;
-            this.lblFilter.Location = new System.Drawing.Point(401, 12);
+            this.lblFilter.Location = new System.Drawing.Point(358, 12);
             this.lblFilter.Name = "lblFilter";
             this.lblFilter.Size = new System.Drawing.Size(69, 21);
             this.lblFilter.TabIndex = 31;
             this.lblFilter.Text = "Фильтр:";
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Код";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mailTypeDataGridViewTextBoxColumn
+            // 
+            this.mailTypeDataGridViewTextBoxColumn.DataPropertyName = "MailType";
+            this.mailTypeDataGridViewTextBoxColumn.DataSource = this.mailTypeBindingSource;
+            this.mailTypeDataGridViewTextBoxColumn.DisplayMember = "ShortName";
+            this.mailTypeDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.mailTypeDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mailTypeDataGridViewTextBoxColumn.HeaderText = "Тип";
+            this.mailTypeDataGridViewTextBoxColumn.Name = "mailTypeDataGridViewTextBoxColumn";
+            this.mailTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.mailTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.mailTypeDataGridViewTextBoxColumn.ValueMember = "Code";
+            // 
+            // mailTypeBindingSource
+            // 
+            this.mailTypeBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailType);
+            // 
+            // mailCategoryDataGridViewTextBoxColumn
+            // 
+            this.mailCategoryDataGridViewTextBoxColumn.DataPropertyName = "MailCategory";
+            this.mailCategoryDataGridViewTextBoxColumn.DataSource = this.mailCategoryBindingSource;
+            this.mailCategoryDataGridViewTextBoxColumn.DisplayMember = "ShortName";
+            this.mailCategoryDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.mailCategoryDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mailCategoryDataGridViewTextBoxColumn.HeaderText = "Категория";
+            this.mailCategoryDataGridViewTextBoxColumn.Name = "mailCategoryDataGridViewTextBoxColumn";
+            this.mailCategoryDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.mailCategoryDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.mailCategoryDataGridViewTextBoxColumn.ValueMember = "Code";
+            // 
+            // mailCategoryBindingSource
+            // 
+            this.mailCategoryBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCategory);
+            // 
+            // transCategoryDataGridViewTextBoxColumn
+            // 
+            this.transCategoryDataGridViewTextBoxColumn.DataPropertyName = "TransCategory";
+            this.transCategoryDataGridViewTextBoxColumn.HeaderText = "МЖД";
+            this.transCategoryDataGridViewTextBoxColumn.Name = "transCategoryDataGridViewTextBoxColumn";
+            this.transCategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // transTypeDataGridViewTextBoxColumn
+            // 
+            this.transTypeDataGridViewTextBoxColumn.DataPropertyName = "TransType";
+            this.transTypeDataGridViewTextBoxColumn.HeaderText = "Пересылка";
+            this.transTypeDataGridViewTextBoxColumn.Name = "transTypeDataGridViewTextBoxColumn";
+            this.transTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.transTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mailCodeBindingSource
+            // 
+            this.mailCodeBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCode);
             // 
             // MailCodeForm
             // 
@@ -453,10 +454,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MailTypeForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mailTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCodeBindingSource)).EndInit();
-            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
