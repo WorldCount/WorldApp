@@ -154,8 +154,6 @@ namespace WorldStat.Core.Forms
 
             await LoadDataAsync();
             UpdateData();
-
-            _toggleButtonLocation = orgToggleButtonCalendar.Location;
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
