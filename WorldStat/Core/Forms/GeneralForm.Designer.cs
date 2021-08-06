@@ -65,7 +65,7 @@ namespace WorldStat.Core.Forms
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
-            this.toggleButtonCalendar = new Wc32Api.Widgets.WcToggleButton();
+            this.orgToggleButtonCalendar = new Wc32Api.Widgets.WcToggleButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
@@ -90,14 +90,14 @@ namespace WorldStat.Core.Forms
             this.labelCalendar = new System.Windows.Forms.Label();
             this.comboBoxCalendar = new System.Windows.Forms.ComboBox();
             this.btnLoadReport = new Wc32Api.Widgets.WcButton();
-            this.dateTimePickerReport = new System.Windows.Forms.DateTimePicker();
+            this.reportDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.tabOrg = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelFirmPay = new System.Windows.Forms.Label();
             this.labelFirmCount = new System.Windows.Forms.Label();
             this.labelFirmInfoPay = new System.Windows.Forms.Label();
             this.labelFirmInfoCount = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewFirms = new System.Windows.Forms.DataGridView();
             this.firmDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firmNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firmMailTypeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -117,7 +117,7 @@ namespace WorldStat.Core.Forms
             this.acitveMailTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelFirmInfoMailCategory = new System.Windows.Forms.Label();
             this.labelFirmInfoMailType = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelOrg = new System.Windows.Forms.FlowLayoutPanel();
             this.orgDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.orgDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.orgDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
@@ -136,8 +136,11 @@ namespace WorldStat.Core.Forms
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanelReport = new System.Windows.Forms.FlowLayoutPanel();
+            this.reportDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.reportDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.reportToggleButton = new Wc32Api.Widgets.WcToggleButton();
             this.menuBar.SuspendLayout();
-            this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
             this.tabAll.SuspendLayout();
@@ -147,7 +150,7 @@ namespace WorldStat.Core.Forms
             this.panelReceived.SuspendLayout();
             this.tabOrg.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFirms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportPosBindingSource)).BeginInit();
@@ -155,7 +158,7 @@ namespace WorldStat.Core.Forms
             this.panelOrgDoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activeMailCategoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.acitveMailTypeBindingSource)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanelOrg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.firmBindingSource)).BeginInit();
             this.tabStat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocReceive)).BeginInit();
@@ -163,6 +166,7 @@ namespace WorldStat.Core.Forms
             this.tabChart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserOnline)).BeginInit();
             this.panelActive.SuspendLayout();
+            this.flowLayoutPanelReport.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuBar
@@ -277,7 +281,6 @@ namespace WorldStat.Core.Forms
             // panelGeneral
             // 
             this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.panelGeneral.Controls.Add(this.toggleButtonCalendar);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelGeneral.ForeColor = System.Drawing.Color.Gainsboro;
             this.panelGeneral.Location = new System.Drawing.Point(0, 40);
@@ -285,24 +288,25 @@ namespace WorldStat.Core.Forms
             this.panelGeneral.Size = new System.Drawing.Size(1265, 58);
             this.panelGeneral.TabIndex = 4;
             // 
-            // toggleButtonCalendar
+            // orgToggleButtonCalendar
             // 
-            this.toggleButtonCalendar.AutoSize = true;
-            this.toggleButtonCalendar.Checked = true;
-            this.toggleButtonCalendar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toggleButtonCalendar.DisableBackColor = System.Drawing.Color.DimGray;
-            this.toggleButtonCalendar.DisableToggleColor = System.Drawing.Color.Gray;
-            this.toggleButtonCalendar.Location = new System.Drawing.Point(1029, 19);
-            this.toggleButtonCalendar.MinimumSize = new System.Drawing.Size(45, 22);
-            this.toggleButtonCalendar.Name = "toggleButtonCalendar";
-            this.toggleButtonCalendar.OffBackColor = System.Drawing.Color.DimGray;
-            this.toggleButtonCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.toggleButtonCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
-            this.toggleButtonCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.toggleButtonCalendar.Size = new System.Drawing.Size(45, 22);
-            this.toggleButtonCalendar.TabIndex = 28;
-            this.toggleButtonCalendar.UseVisualStyleBackColor = true;
-            this.toggleButtonCalendar.CheckedChanged += new System.EventHandler(this.toggleButtonCalendar_CheckedChanged);
+            this.orgToggleButtonCalendar.AutoSize = true;
+            this.orgToggleButtonCalendar.Checked = true;
+            this.orgToggleButtonCalendar.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.orgToggleButtonCalendar.DisableBackColor = System.Drawing.Color.DimGray;
+            this.orgToggleButtonCalendar.DisableToggleColor = System.Drawing.Color.Gray;
+            this.orgToggleButtonCalendar.Location = new System.Drawing.Point(3, 5);
+            this.orgToggleButtonCalendar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.orgToggleButtonCalendar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.orgToggleButtonCalendar.Name = "orgToggleButtonCalendar";
+            this.orgToggleButtonCalendar.OffBackColor = System.Drawing.Color.DimGray;
+            this.orgToggleButtonCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.orgToggleButtonCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.orgToggleButtonCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.orgToggleButtonCalendar.Size = new System.Drawing.Size(45, 22);
+            this.orgToggleButtonCalendar.TabIndex = 28;
+            this.orgToggleButtonCalendar.UseVisualStyleBackColor = true;
+            this.orgToggleButtonCalendar.CheckedChanged += new System.EventHandler(this.orgToggleButtonCalendar_CheckedChanged);
             // 
             // statusBar
             // 
@@ -547,10 +551,8 @@ namespace WorldStat.Core.Forms
             // panelReceived
             // 
             this.panelReceived.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelReceived.Controls.Add(this.labelCalendar);
-            this.panelReceived.Controls.Add(this.comboBoxCalendar);
+            this.panelReceived.Controls.Add(this.flowLayoutPanelReport);
             this.panelReceived.Controls.Add(this.btnLoadReport);
-            this.panelReceived.Controls.Add(this.dateTimePickerReport);
             this.panelReceived.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelReceived.Location = new System.Drawing.Point(0, 0);
             this.panelReceived.Name = "panelReceived";
@@ -563,23 +565,25 @@ namespace WorldStat.Core.Forms
             this.labelCalendar.AutoSize = true;
             this.labelCalendar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelCalendar.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelCalendar.Location = new System.Drawing.Point(1021, 14);
+            this.labelCalendar.Location = new System.Drawing.Point(695, 6);
+            this.labelCalendar.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
             this.labelCalendar.Name = "labelCalendar";
-            this.labelCalendar.Size = new System.Drawing.Size(54, 20);
+            this.labelCalendar.Size = new System.Drawing.Size(58, 20);
             this.labelCalendar.TabIndex = 26;
-            this.labelCalendar.Text = "Смена";
+            this.labelCalendar.Text = "Смена:";
             // 
             // comboBoxCalendar
             // 
             this.comboBoxCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxCalendar.FormattingEnabled = true;
-            this.comboBoxCalendar.Location = new System.Drawing.Point(1081, 11);
+            this.comboBoxCalendar.Location = new System.Drawing.Point(759, 3);
             this.comboBoxCalendar.Name = "comboBoxCalendar";
             this.comboBoxCalendar.Size = new System.Drawing.Size(168, 28);
             this.comboBoxCalendar.TabIndex = 25;
             // 
             // btnLoadReport
             // 
+            this.btnLoadReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoadReport.BackColor = System.Drawing.Color.DarkOrange;
             this.btnLoadReport.BorderColor = System.Drawing.Color.Silver;
             this.btnLoadReport.BorderRadius = 6F;
@@ -591,7 +595,7 @@ namespace WorldStat.Core.Forms
             this.btnLoadReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadReport.ForeColor = System.Drawing.Color.White;
             this.btnLoadReport.Image = global::WorldStat.Properties.Resources.sinchronize_24;
-            this.btnLoadReport.Location = new System.Drawing.Point(219, 4);
+            this.btnLoadReport.Location = new System.Drawing.Point(1209, 4);
             this.btnLoadReport.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnLoadReport.MouseOverBackColor = System.Drawing.Color.Orange;
             this.btnLoadReport.Name = "btnLoadReport";
@@ -602,23 +606,23 @@ namespace WorldStat.Core.Forms
             this.btnLoadReport.UseVisualStyleBackColor = false;
             this.btnLoadReport.Click += new System.EventHandler(this.btnLoadReport_Click);
             // 
-            // dateTimePickerReport
+            // reportDateTimePickerCalendar
             // 
-            this.dateTimePickerReport.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.dateTimePickerReport.CalendarMonthBackground = System.Drawing.Color.White;
-            this.dateTimePickerReport.CustomFormat = "MMMM yyyy";
-            this.dateTimePickerReport.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerReport.Location = new System.Drawing.Point(8, 12);
-            this.dateTimePickerReport.Name = "dateTimePickerReport";
-            this.dateTimePickerReport.ShowUpDown = true;
-            this.dateTimePickerReport.Size = new System.Drawing.Size(200, 27);
-            this.dateTimePickerReport.TabIndex = 23;
+            this.reportDateTimePickerCalendar.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.reportDateTimePickerCalendar.CalendarMonthBackground = System.Drawing.Color.White;
+            this.reportDateTimePickerCalendar.CustomFormat = "MMMM yyyy";
+            this.reportDateTimePickerCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.reportDateTimePickerCalendar.Location = new System.Drawing.Point(486, 3);
+            this.reportDateTimePickerCalendar.Name = "reportDateTimePickerCalendar";
+            this.reportDateTimePickerCalendar.ShowUpDown = true;
+            this.reportDateTimePickerCalendar.Size = new System.Drawing.Size(200, 27);
+            this.reportDateTimePickerCalendar.TabIndex = 23;
             // 
             // tabOrg
             // 
             this.tabOrg.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabOrg.Controls.Add(this.panel1);
-            this.tabOrg.Controls.Add(this.dataGridView1);
+            this.tabOrg.Controls.Add(this.dataGridViewFirms);
             this.tabOrg.Controls.Add(this.dataGridViewDocOrg);
             this.tabOrg.Controls.Add(this.panelOrgDoc);
             this.tabOrg.Location = new System.Drawing.Point(4, 29);
@@ -681,16 +685,16 @@ namespace WorldStat.Core.Forms
             this.labelFirmInfoCount.TabIndex = 0;
             this.labelFirmInfoCount.Text = "Количество:";
             // 
-            // dataGridView1
+            // dataGridViewFirms
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridViewFirms.AllowUserToAddRows = false;
+            this.dataGridViewFirms.AllowUserToDeleteRows = false;
+            this.dataGridViewFirms.AllowUserToResizeColumns = false;
+            this.dataGridViewFirms.AllowUserToResizeRows = false;
+            this.dataGridViewFirms.AutoGenerateColumns = false;
+            this.dataGridViewFirms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewFirms.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewFirms.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -698,10 +702,10 @@ namespace WorldStat.Core.Forms
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.ColumnHeadersHeight = 40;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewFirms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewFirms.ColumnHeadersHeight = 40;
+            this.dataGridViewFirms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridViewFirms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.firmDateDataGridViewTextBoxColumn,
             this.firmNameDataGridViewTextBoxColumn,
             this.firmMailTypeDataGridViewCheckBoxColumn,
@@ -710,7 +714,7 @@ namespace WorldStat.Core.Forms
             this.firmPayDataGridViewTextBoxColumn,
             this.firmTransCategoryDataGridViewTextBoxColumn,
             this.firmTransTypeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.reportPosBindingSource;
+            this.dataGridViewFirms.DataSource = this.reportPosBindingSource;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -718,12 +722,12 @@ namespace WorldStat.Core.Forms
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.dataGridView1.Location = new System.Drawing.Point(0, 92);
-            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridViewFirms.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewFirms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewFirms.EnableHeadersVisualStyles = false;
+            this.dataGridViewFirms.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.dataGridViewFirms.Location = new System.Drawing.Point(0, 92);
+            this.dataGridViewFirms.Name = "dataGridViewFirms";
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -731,15 +735,15 @@ namespace WorldStat.Core.Forms
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 40;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1257, 281);
-            this.dataGridView1.TabIndex = 8;
-            this.dataGridView1.TabStop = false;
+            this.dataGridViewFirms.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewFirms.RowHeadersVisible = false;
+            this.dataGridViewFirms.RowHeadersWidth = 40;
+            this.dataGridViewFirms.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewFirms.RowTemplate.Height = 40;
+            this.dataGridViewFirms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewFirms.Size = new System.Drawing.Size(1257, 281);
+            this.dataGridViewFirms.TabIndex = 8;
+            this.dataGridViewFirms.TabStop = false;
             // 
             // firmDateDataGridViewTextBoxColumn
             // 
@@ -879,7 +883,7 @@ namespace WorldStat.Core.Forms
             this.panelOrgDoc.Controls.Add(this.comboBoxFirmsMailType);
             this.panelOrgDoc.Controls.Add(this.labelFirmInfoMailCategory);
             this.panelOrgDoc.Controls.Add(this.labelFirmInfoMailType);
-            this.panelOrgDoc.Controls.Add(this.flowLayoutPanel1);
+            this.panelOrgDoc.Controls.Add(this.flowLayoutPanelOrg);
             this.panelOrgDoc.Controls.Add(this.btnLoadReportFirms);
             this.panelOrgDoc.Controls.Add(this.comboBoxFirms);
             this.panelOrgDoc.Dock = System.Windows.Forms.DockStyle.Top;
@@ -890,8 +894,10 @@ namespace WorldStat.Core.Forms
             // 
             // comboBoxFirmsMailCategory
             // 
+            this.comboBoxFirmsMailCategory.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxFirmsMailCategory.DataSource = this.activeMailCategoryBindingSource;
             this.comboBoxFirmsMailCategory.DisplayMember = "ShortName";
+            this.comboBoxFirmsMailCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.comboBoxFirmsMailCategory.FormattingEnabled = true;
             this.comboBoxFirmsMailCategory.Location = new System.Drawing.Point(417, 50);
             this.comboBoxFirmsMailCategory.Name = "comboBoxFirmsMailCategory";
@@ -905,8 +911,10 @@ namespace WorldStat.Core.Forms
             // 
             // comboBoxFirmsMailType
             // 
+            this.comboBoxFirmsMailType.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxFirmsMailType.DataSource = this.acitveMailTypeBindingSource;
             this.comboBoxFirmsMailType.DisplayMember = "ShortName";
+            this.comboBoxFirmsMailType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.comboBoxFirmsMailType.FormattingEnabled = true;
             this.comboBoxFirmsMailType.Location = new System.Drawing.Point(52, 50);
             this.comboBoxFirmsMailType.Name = "comboBoxFirmsMailType";
@@ -940,23 +948,27 @@ namespace WorldStat.Core.Forms
             this.labelFirmInfoMailType.TabIndex = 30;
             this.labelFirmInfoMailType.Text = "Тип:";
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanelOrg
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.flowLayoutPanelOrg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Controls.Add(this.orgDateTimePickerStart);
-            this.flowLayoutPanel1.Controls.Add(this.orgDateTimePickerEnd);
-            this.flowLayoutPanel1.Controls.Add(this.orgDateTimePickerCalendar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(417, 8);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(786, 34);
-            this.flowLayoutPanel1.TabIndex = 29;
+            this.flowLayoutPanelOrg.Controls.Add(this.orgToggleButtonCalendar);
+            this.flowLayoutPanelOrg.Controls.Add(this.orgDateTimePickerStart);
+            this.flowLayoutPanelOrg.Controls.Add(this.orgDateTimePickerEnd);
+            this.flowLayoutPanelOrg.Controls.Add(this.orgDateTimePickerCalendar);
+            this.flowLayoutPanelOrg.Location = new System.Drawing.Point(417, 8);
+            this.flowLayoutPanelOrg.Name = "flowLayoutPanelOrg";
+            this.flowLayoutPanelOrg.Size = new System.Drawing.Size(786, 34);
+            this.flowLayoutPanelOrg.TabIndex = 29;
             // 
             // orgDateTimePickerStart
             // 
             this.orgDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.orgDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.White;
-            this.orgDateTimePickerStart.Location = new System.Drawing.Point(3, 3);
+            this.orgDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.orgDateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.orgDateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.orgDateTimePickerStart.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.orgDateTimePickerStart.Location = new System.Drawing.Point(54, 3);
             this.orgDateTimePickerStart.Name = "orgDateTimePickerStart";
             this.orgDateTimePickerStart.Size = new System.Drawing.Size(220, 27);
             this.orgDateTimePickerStart.TabIndex = 22;
@@ -966,8 +978,11 @@ namespace WorldStat.Core.Forms
             // orgDateTimePickerEnd
             // 
             this.orgDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.orgDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.White;
-            this.orgDateTimePickerEnd.Location = new System.Drawing.Point(229, 3);
+            this.orgDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.orgDateTimePickerEnd.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.orgDateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.orgDateTimePickerEnd.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.orgDateTimePickerEnd.Location = new System.Drawing.Point(280, 3);
             this.orgDateTimePickerEnd.Name = "orgDateTimePickerEnd";
             this.orgDateTimePickerEnd.Size = new System.Drawing.Size(200, 27);
             this.orgDateTimePickerEnd.TabIndex = 23;
@@ -976,10 +991,13 @@ namespace WorldStat.Core.Forms
             // orgDateTimePickerCalendar
             // 
             this.orgDateTimePickerCalendar.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.orgDateTimePickerCalendar.CalendarMonthBackground = System.Drawing.Color.White;
+            this.orgDateTimePickerCalendar.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.orgDateTimePickerCalendar.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.orgDateTimePickerCalendar.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.orgDateTimePickerCalendar.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
             this.orgDateTimePickerCalendar.CustomFormat = "MMMM yyyy";
             this.orgDateTimePickerCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.orgDateTimePickerCalendar.Location = new System.Drawing.Point(435, 3);
+            this.orgDateTimePickerCalendar.Location = new System.Drawing.Point(486, 3);
             this.orgDateTimePickerCalendar.Name = "orgDateTimePickerCalendar";
             this.orgDateTimePickerCalendar.ShowUpDown = true;
             this.orgDateTimePickerCalendar.Size = new System.Drawing.Size(200, 27);
@@ -1013,8 +1031,11 @@ namespace WorldStat.Core.Forms
             // comboBoxFirms
             // 
             this.comboBoxFirms.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxFirms.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxFirms.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxFirms.DataSource = this.firmBindingSource;
             this.comboBoxFirms.DisplayMember = "ShortName";
+            this.comboBoxFirms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.comboBoxFirms.FormattingEnabled = true;
             this.comboBoxFirms.Location = new System.Drawing.Point(8, 10);
             this.comboBoxFirms.Name = "comboBoxFirms";
@@ -1235,6 +1256,67 @@ namespace WorldStat.Core.Forms
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 472;
             // 
+            // flowLayoutPanelReport
+            // 
+            this.flowLayoutPanelReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelReport.Controls.Add(this.reportToggleButton);
+            this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerStart);
+            this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerEnd);
+            this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerCalendar);
+            this.flowLayoutPanelReport.Controls.Add(this.labelCalendar);
+            this.flowLayoutPanelReport.Controls.Add(this.comboBoxCalendar);
+            this.flowLayoutPanelReport.Location = new System.Drawing.Point(8, 7);
+            this.flowLayoutPanelReport.Name = "flowLayoutPanelReport";
+            this.flowLayoutPanelReport.Size = new System.Drawing.Size(1195, 34);
+            this.flowLayoutPanelReport.TabIndex = 27;
+            // 
+            // reportDateTimePickerStart
+            // 
+            this.reportDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.reportDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerStart.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.reportDateTimePickerStart.Location = new System.Drawing.Point(54, 3);
+            this.reportDateTimePickerStart.Name = "reportDateTimePickerStart";
+            this.reportDateTimePickerStart.Size = new System.Drawing.Size(220, 27);
+            this.reportDateTimePickerStart.TabIndex = 28;
+            this.reportDateTimePickerStart.Visible = false;
+            // 
+            // reportDateTimePickerEnd
+            // 
+            this.reportDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.reportDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerEnd.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.reportDateTimePickerEnd.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.reportDateTimePickerEnd.Location = new System.Drawing.Point(280, 3);
+            this.reportDateTimePickerEnd.Name = "reportDateTimePickerEnd";
+            this.reportDateTimePickerEnd.Size = new System.Drawing.Size(200, 27);
+            this.reportDateTimePickerEnd.TabIndex = 29;
+            this.reportDateTimePickerEnd.Visible = false;
+            // 
+            // reportToggleButton
+            // 
+            this.reportToggleButton.AutoSize = true;
+            this.reportToggleButton.Checked = true;
+            this.reportToggleButton.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.reportToggleButton.DisableBackColor = System.Drawing.Color.DimGray;
+            this.reportToggleButton.DisableToggleColor = System.Drawing.Color.Gray;
+            this.reportToggleButton.Location = new System.Drawing.Point(3, 5);
+            this.reportToggleButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.reportToggleButton.MinimumSize = new System.Drawing.Size(45, 22);
+            this.reportToggleButton.Name = "reportToggleButton";
+            this.reportToggleButton.OffBackColor = System.Drawing.Color.DimGray;
+            this.reportToggleButton.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.reportToggleButton.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.reportToggleButton.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.reportToggleButton.Size = new System.Drawing.Size(45, 22);
+            this.reportToggleButton.TabIndex = 30;
+            this.reportToggleButton.UseVisualStyleBackColor = true;
+            this.reportToggleButton.CheckedChanged += new System.EventHandler(this.reportToggleButtonCalendar_CheckedChanged);
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1254,8 +1336,6 @@ namespace WorldStat.Core.Forms
             this.Load += new System.EventHandler(this.GeneralForm_Load);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
-            this.panelGeneral.ResumeLayout(false);
-            this.panelGeneral.PerformLayout();
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
             this.tabsControl.ResumeLayout(false);
@@ -1265,11 +1345,10 @@ namespace WorldStat.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportBindingSource)).EndInit();
             this.panelReceived.ResumeLayout(false);
-            this.panelReceived.PerformLayout();
             this.tabOrg.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFirms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportPosBindingSource)).EndInit();
@@ -1278,7 +1357,8 @@ namespace WorldStat.Core.Forms
             this.panelOrgDoc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activeMailCategoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.acitveMailTypeBindingSource)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanelOrg.ResumeLayout(false);
+            this.flowLayoutPanelOrg.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.firmBindingSource)).EndInit();
             this.tabStat.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocReceive)).EndInit();
@@ -1286,6 +1366,8 @@ namespace WorldStat.Core.Forms
             this.tabChart.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserOnline)).EndInit();
             this.panelActive.ResumeLayout(false);
+            this.flowLayoutPanelReport.ResumeLayout(false);
+            this.flowLayoutPanelReport.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1326,7 +1408,7 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn adminStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel panelActive;
         private System.Windows.Forms.Button btnActiveUserLoad;
-        private System.Windows.Forms.DateTimePicker dateTimePickerReport;
+        private System.Windows.Forms.DateTimePicker reportDateTimePickerCalendar;
         private System.Windows.Forms.BindingSource reportBindingSource;
         private Wc32Api.Widgets.WcButton btnLoadReport;
         private System.Windows.Forms.Panel panelStat;
@@ -1351,14 +1433,14 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.Label labelFirmCount;
         private System.Windows.Forms.Label labelFirmInfoPay;
         private System.Windows.Forms.Label labelFirmInfoCount;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewFirms;
         private Wc32Api.Widgets.WcButton btnLoadReportFirms;
         private System.Windows.Forms.BindingSource reportPosBindingSource;
         private System.Windows.Forms.BindingSource mailTypeBindingSource;
         private System.Windows.Forms.BindingSource mailCategoryBindingSource;
         private System.Windows.Forms.DateTimePicker orgDateTimePickerCalendar;
-        private Wc32Api.Widgets.WcToggleButton toggleButtonCalendar;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Wc32Api.Widgets.WcToggleButton orgToggleButtonCalendar;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelOrg;
         private System.Windows.Forms.ComboBox comboBoxFirmsMailCategory;
         private System.Windows.Forms.ComboBox comboBoxFirmsMailType;
         private System.Windows.Forms.Label labelFirmInfoMailCategory;
@@ -1378,6 +1460,10 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn firmPayDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firmTransCategoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firmTransTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelReport;
+        private System.Windows.Forms.DateTimePicker reportDateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker reportDateTimePickerEnd;
+        private Wc32Api.Widgets.WcToggleButton reportToggleButton;
     }
 }
 

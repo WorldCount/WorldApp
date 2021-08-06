@@ -157,7 +157,7 @@ namespace WorldStat.Core.Forms
             await LoadDataAsync();
             UpdateData();
 
-            _toggleButtonLocation = toggleButtonCalendar.Location;
+            _toggleButtonLocation = orgToggleButtonCalendar.Location;
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -326,9 +326,20 @@ namespace WorldStat.Core.Forms
         private void btnLoadReport_Click(object sender, EventArgs e)
         {
 
-            DateTime date = dateTimePickerReport.Value;
-            DateTime start = WcApi.Date.DateUtils.CropDate(date, day: 1);
-            DateTime end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+            DateTime start;
+            DateTime end;
+
+            if (reportDateTimePickerCalendar.Visible)
+            {
+                DateTime date = reportDateTimePickerCalendar.Value;
+                start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+                end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+            }
+            else
+            {
+                start = WcApi.Date.DateUtils.CropTime(reportDateTimePickerStart.Value);
+                end = WcApi.Date.DateUtils.CropTime(reportDateTimePickerEnd.Value);
+            }
 
             reportBindingSource.DataSource = null;
             labelCount.Text = "0";
@@ -571,9 +582,25 @@ namespace WorldStat.Core.Forms
             }
         }
 
-        private void toggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        private void reportToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
         {
-            if (toggleButtonCalendar.Checked)
+            if (reportToggleButton.Checked)
+            {
+                reportDateTimePickerStart.Visible = false;
+                reportDateTimePickerEnd.Visible = false;
+                reportDateTimePickerCalendar.Visible = true;
+            }
+            else
+            {
+                reportDateTimePickerStart.Visible = true;
+                reportDateTimePickerEnd.Visible = true;
+                reportDateTimePickerCalendar.Visible = false;
+            }
+        }
+
+        private void orgToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (orgToggleButtonCalendar.Checked)
             {
                 orgDateTimePickerStart.Visible = false;
                 orgDateTimePickerEnd.Visible = false;
