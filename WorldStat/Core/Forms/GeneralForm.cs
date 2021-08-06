@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using WorldStat.Core.Database;
 using WorldStat.Core.Database.Contexts;
@@ -30,7 +29,6 @@ namespace WorldStat.Core.Forms
         private List<MailType> _mailTypes;
         private List<MailCategory> _activeMailCategories;
         private List<MailType> _activeMailTypes;
-        private Point _toggleButtonLocation;
 
         #endregion
 
@@ -285,7 +283,140 @@ namespace WorldStat.Core.Forms
 
         #endregion
 
-        #region Menu Event
+        #region Events
+
+        private void btnLoadReport_Click(object sender, EventArgs e)
+        {
+
+            DateTime start;
+            DateTime end;
+
+            if (reportDateTimePickerCalendar.Visible)
+            {
+                DateTime date = reportDateTimePickerCalendar.Value;
+                start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+                end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+            }
+            else
+            {
+                start = WcApi.Date.DateUtils.CropTime(reportDateTimePickerStart.Value);
+                end = WcApi.Date.DateUtils.CropTime(reportDateTimePickerEnd.Value);
+            }
+
+            reportBindingSource.DataSource = null;
+            labelCount.Text = "0";
+            labelPay.Text = "0";
+
+            CalendarType type = (CalendarType)comboBoxCalendar.SelectedItem;
+
+            using (WorldStatContext db = new WorldStatContext())
+            {
+                List<Report> reports;
+
+                reports = type == CalendarType.Все ? db.Reports.Where(r => r.Date >= start && r.Date <= end).ToList() : db.Reports.Where(r => r.Date >= start && r.Date <= end && r.Type == type).ToList();
+
+                string count = reports.Sum(r => r.Count).ToString("### ###");
+                string sum = reports.Sum(r => r.Pay).ToString("C");
+
+                labelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
+                labelPay.Text = sum;
+
+                labelDaysCount.Text = reports.Count.ToString();
+
+                reportBindingSource.DataSource = reports;
+            }
+        }
+
+        private void orgDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            orgDateTimePickerEnd.Value = orgDateTimePickerStart.Value;
+        }
+
+        private async void btnLoadReportFirms_Click(object sender, EventArgs e)
+        {
+            Firm firm = (Firm)comboBoxFirms.SelectedItem;
+            MailType mailType = (MailType)comboBoxFirmsMailType.SelectedItem;
+            MailCategory mailCategory = (MailCategory)comboBoxFirmsMailCategory.SelectedItem;
+
+            long type = 9999;
+            long category = 9999;
+
+            if (firm != null)
+            {
+                DateTime start;
+                DateTime end;
+
+                if (orgDateTimePickerCalendar.Visible)
+                {
+                    DateTime date = orgDateTimePickerCalendar.Value;
+                    start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+                    end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+                }
+                else
+                {
+                    start = WcApi.Date.DateUtils.CropTime(orgDateTimePickerStart.Value);
+                    end = WcApi.Date.DateUtils.CropTime(orgDateTimePickerEnd.Value);
+                }
+
+                if (mailCategory != null)
+                    category = mailCategory.Code;
+
+                if (mailType != null)
+                    type = mailType.Code;
+
+                _reportPoses = await Db.LoadReportPosesAsync(start, end, firm.Id, type, category);
+                UpdateReportPoses();
+
+                labelFirmCount.Text = _reportPoses.Sum(r => r.Count).ToString();
+
+                string count = _reportPoses.Sum(r => r.Count).ToString("### ###");
+                string sum = _reportPoses.Sum(r => r.Pay).ToString("C");
+
+                labelFirmCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
+                labelFirmPay.Text = sum;
+            }
+        }
+
+        private void reportToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (reportToggleButton.Checked)
+            {
+                reportDateTimePickerStart.Visible = false;
+                reportDateTimePickerEnd.Visible = false;
+                reportDateTimePickerCalendar.Visible = true;
+            }
+            else
+            {
+                reportDateTimePickerStart.Visible = true;
+                reportDateTimePickerEnd.Visible = true;
+                reportDateTimePickerCalendar.Visible = false;
+            }
+        }
+
+        private void orgToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (orgToggleButtonCalendar.Checked)
+            {
+                orgDateTimePickerStart.Visible = false;
+                orgDateTimePickerEnd.Visible = false;
+                orgDateTimePickerCalendar.Visible = true;
+            }
+            else
+            {
+                orgDateTimePickerStart.Visible = true;
+                orgDateTimePickerEnd.Visible = true;
+                orgDateTimePickerCalendar.Visible = false;
+            }
+        }
+
+        private void comboBoxFirms_Enter(object sender, EventArgs e)
+        {
+            WcApi.Keyboard.Keyboard.SetRussianLanguage();
+        }
+
+        #endregion
+
+        #region Menu Events
 
         private void loadFrankReportMenuItem_Click(object sender, EventArgs e)
         {
@@ -321,48 +452,6 @@ namespace WorldStat.Core.Forms
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void btnLoadReport_Click(object sender, EventArgs e)
-        {
-
-            DateTime start;
-            DateTime end;
-
-            if (reportDateTimePickerCalendar.Visible)
-            {
-                DateTime date = reportDateTimePickerCalendar.Value;
-                start = WcApi.Date.DateUtils.CropDate(date, day: 1);
-                end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
-            }
-            else
-            {
-                start = WcApi.Date.DateUtils.CropTime(reportDateTimePickerStart.Value);
-                end = WcApi.Date.DateUtils.CropTime(reportDateTimePickerEnd.Value);
-            }
-
-            reportBindingSource.DataSource = null;
-            labelCount.Text = "0";
-            labelPay.Text = "0";
-
-            CalendarType type = (CalendarType) comboBoxCalendar.SelectedItem;
-
-            using (WorldStatContext db = new WorldStatContext())
-            {
-                List<Report> reports;
-
-                reports = type == CalendarType.Все ? db.Reports.Where(r => r.Date >= start && r.Date <= end).ToList() : db.Reports.Where(r => r.Date >= start && r.Date <= end && r.Type == type).ToList();
-
-                string count = reports.Sum(r => r.Count).ToString("### ###");
-                string sum = reports.Sum(r => r.Pay).ToString("C");
-
-                labelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
-                labelPay.Text = sum;
-
-                labelDaysCount.Text = reports.Count.ToString();
-
-                reportBindingSource.DataSource = reports;
-            }
         }
 
         private void importCalendarMenuItem_Click(object sender, EventArgs e)
@@ -529,94 +618,8 @@ namespace WorldStat.Core.Forms
 
         #endregion
 
-
         #endregion
 
-        private void orgDateTimePickerStart_ValueChanged(object sender, EventArgs e)
-        {
-            orgDateTimePickerEnd.Value = orgDateTimePickerStart.Value;
-        }
-
-        private async void btnLoadReportFirms_Click(object sender, EventArgs e)
-        {
-            Firm firm = (Firm) comboBoxFirms.SelectedItem;
-            MailType mailType = (MailType) comboBoxFirmsMailType.SelectedItem;
-            MailCategory mailCategory = (MailCategory) comboBoxFirmsMailCategory.SelectedItem;
-
-            long type = 9999;
-            long category = 9999;
-
-            if (firm != null)
-            {
-                DateTime start;
-                DateTime end;
-
-                if (orgDateTimePickerCalendar.Visible)
-                {
-                    DateTime date = orgDateTimePickerCalendar.Value;
-                    start = WcApi.Date.DateUtils.CropDate(date, day: 1);
-                    end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
-                }
-                else
-                {
-                    start = WcApi.Date.DateUtils.CropTime(orgDateTimePickerStart.Value);
-                    end = WcApi.Date.DateUtils.CropTime(orgDateTimePickerEnd.Value);
-                }
-
-                if (mailCategory != null)
-                    category = mailCategory.Code;
-
-                if (mailType != null)
-                    type = mailType.Code;
-
-                _reportPoses = await Db.LoadReportPosesAsync(start, end, firm.Id, type, category);
-                UpdateReportPoses();
-
-                labelFirmCount.Text = _reportPoses.Sum(r => r.Count).ToString();
-
-                string count = _reportPoses.Sum(r => r.Count).ToString("### ###");
-                string sum = _reportPoses.Sum(r => r.Pay).ToString("C");
-
-                labelFirmCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
-                labelFirmPay.Text = sum;
-            }
-        }
-
-        private void reportToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
-        {
-            if (reportToggleButton.Checked)
-            {
-                reportDateTimePickerStart.Visible = false;
-                reportDateTimePickerEnd.Visible = false;
-                reportDateTimePickerCalendar.Visible = true;
-            }
-            else
-            {
-                reportDateTimePickerStart.Visible = true;
-                reportDateTimePickerEnd.Visible = true;
-                reportDateTimePickerCalendar.Visible = false;
-            }
-        }
-
-        private void orgToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
-        {
-            if (orgToggleButtonCalendar.Checked)
-            {
-                orgDateTimePickerStart.Visible = false;
-                orgDateTimePickerEnd.Visible = false;
-                orgDateTimePickerCalendar.Visible = true;
-            }
-            else
-            {
-                orgDateTimePickerStart.Visible = true;
-                orgDateTimePickerEnd.Visible = true;
-                orgDateTimePickerCalendar.Visible = false;
-            }
-        }
-
-        private void comboBoxFirms_Enter(object sender, EventArgs e)
-        {
-            WcApi.Keyboard.Keyboard.SetRussianLanguage();
-        }
+        
     }
 }
