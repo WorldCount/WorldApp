@@ -8,14 +8,14 @@ namespace WorldStat.Core.Database.Models
         public int Id { get; set; }
         public int Code { get; set; }
         public string Name { get; set; }
-        public long MailType { get; set; } = 0;
-        public long MailCategory { get; set; } = 0;
+        public long MailType { get; set; }
+        public long MailCategory { get; set; }
 
         [NotMapped]
-        public virtual bool Check { get; set; } = false;
+        public virtual bool Check { get; set; }
 
         public TransCategory TransCategory { get; set; } = TransCategory.Внутренняя;
-        public TransType TransType { get; set; } = TransType.Назем;
+        public TransType TransType { get; set; } = TransType.Нет;
         public int PostMark { get; set; } = 0;
 
         public MailCode() { }
@@ -80,6 +80,10 @@ namespace WorldStat.Core.Database.Models
 
         }
 
+        public override string ToString()
+        {
+            return $"MailCode: {Name}";
+        }
 
     }
 }

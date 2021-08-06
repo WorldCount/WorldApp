@@ -33,5 +33,9 @@ namespace WorldStat.Core.Database.Models
             TransType = mailCode.TransType;
         }
 
+        public override string ToString()
+        {
+            return $"ReportPos: {Date.ToShortDateString()} [Count: {Count}]";
+        }
     }
 }

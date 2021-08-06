@@ -22,5 +22,10 @@ namespace WorldStat.Core.Database.Models
             ShortName = notice.ShortName;
             Enable = notice.Enable;
         }
+
+        public override string ToString()
+        {
+            return $"Notice: {ShortName}";
+        }
     }
 }

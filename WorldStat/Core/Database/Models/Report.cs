@@ -17,5 +17,10 @@ namespace WorldStat.Core.Database.Models
         public string DayName { get => Date.ToString("ddd");}
 
         public List<ReportPos> ReportPoses { get; set; } = new List<ReportPos>();
+
+        public override string ToString()
+        {
+            return $"Report: {Date.ToShortDateString()}";
+        }
     }
 }

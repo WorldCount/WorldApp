@@ -22,5 +22,10 @@ namespace WorldStat.Core.Database.Models
             ShortName = type.ShortName;
             Enable = type.Enable;
         }
+
+        public override string ToString()
+        {
+            return $"MailType: {ShortName}";
+        }
     }
 }

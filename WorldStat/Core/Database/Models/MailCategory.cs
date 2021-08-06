@@ -22,5 +22,10 @@ namespace WorldStat.Core.Database.Models
             ShortName = category.ShortName;
             Enable = category.Enable;
         }
+
+        public override string ToString()
+        {
+            return $"MailCategory: {ShortName}";
+        }
     }
 }
