@@ -3,7 +3,8 @@ namespace WcPostApi.Types
 {
     public enum TransCategory
     {
-        Внутренняя,
-        Международная
+        Все = 0,
+        Внутренняя = 1,
+        Международная = 2
     }
 }
