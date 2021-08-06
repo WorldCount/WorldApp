@@ -11,8 +11,8 @@ namespace WorldStat.Core.Database.Models
 
         public int Count { get; set; }
 
-        public int MailType { get; set; }
-        public int MailCategory { get; set; }
+        public long MailType { get; set; }
+        public long MailCategory { get; set; }
 
         public TransCategory TransCategory { get; set; } = TransCategory.Внутренняя;
         public TransType TransType { get; set; } = TransType.Нет;

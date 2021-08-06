@@ -6,12 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using WorldStat.Core.Database;
 using WorldStat.Core.Database.Contexts;
 using WorldStat.Core.Database.Models;
 using WorldStat.Core.Forms.DataForms;
 using WorldStat.Core.Forms.TypeForms;
-using WorldStat.Core.Parsers;
 using WorldStat.Core.Storage;
 using WorldStat.Core.Types;
 
@@ -23,6 +24,13 @@ namespace WorldStat.Core.Forms
         #region Private Field
 
         private string[] _reportsPaths;
+        private List<Firm> _firms;
+        private List<ReportPos> _reportPoses;
+        private List<MailCategory> _mailCategories;
+        private List<MailType> _mailTypes;
+        private List<MailCategory> _activeMailCategories;
+        private List<MailType> _activeMailTypes;
+        private Point _toggleButtonLocation;
 
         #endregion
 
@@ -145,6 +153,11 @@ namespace WorldStat.Core.Forms
             }
 
             FirstQuery();
+
+            await LoadDataAsync();
+            UpdateData();
+
+            _toggleButtonLocation = toggleButtonCalendar.Location;
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -211,17 +224,42 @@ namespace WorldStat.Core.Forms
 
         private void InitTable()
         {
-            dateReportDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dateReportDataGridViewTextBoxColumn.Width = 140;
+            // Общая таблица
+            reportDateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            reportDateDataGridViewTextBoxColumn.Width = 140;
 
-            dayNameReportDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dayNameReportDataGridViewTextBoxColumn.Width = 140;
+            reportDayNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            reportDayNameDataGridViewTextBoxColumn.Width = 140;
 
-            typeReportDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            typeReportDataGridViewTextBoxColumn.Width = 100;
+            reportTypeDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            reportTypeDataGridViewTextBoxColumn.Width = 100;
 
-            countReportDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            countReportDataGridViewTextBoxColumn.Width = 200;
+            reportCountDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            reportCountDataGridViewTextBoxColumn.Width = 200;
+
+            // Таблица с организациями
+            firmNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            firmDateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            firmDateDataGridViewTextBoxColumn.Width = 140;
+
+            firmMailTypeDataGridViewCheckBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            firmMailTypeDataGridViewCheckBoxColumn.Width = 160;
+
+            firmMailCategoryDataGridViewCheckBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            firmMailCategoryDataGridViewCheckBoxColumn.Width = 130;
+
+            firmPayDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            firmPayDataGridViewTextBoxColumn.Width = 120;
+
+            firmCountDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            firmCountDataGridViewTextBoxColumn.Width = 100;
+
+            firmTransCategoryDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            firmTransCategoryDataGridViewTextBoxColumn.Width = 160;
+
+            firmTransTypeDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            firmTransTypeDataGridViewTextBoxColumn.Width = 120;
         }
 
         #endregion
@@ -308,7 +346,9 @@ namespace WorldStat.Core.Forms
                 string sum = reports.Sum(r => r.Pay).ToString("C");
 
                 labelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
-                labelPay.Text = reports.Sum(r => r.Pay).ToString("C");
+                labelPay.Text = sum;
+
+                labelDaysCount.Text = reports.Count.ToString();
 
                 reportBindingSource.DataSource = reports;
             }
@@ -349,36 +389,56 @@ namespace WorldStat.Core.Forms
             openFileDialog = null;
         }
 
-        private void firmsMenuItem_Click(object sender, EventArgs e)
+        private async void firmsMenuItem_Click(object sender, EventArgs e)
         {
             FirmsForm firmsForm = new FirmsForm();
             firmsForm.ShowDialog(this);
 
+            _firms = await Db.LoadAllFirmsAsync();
+            UpdateFirms();
+
             firmsForm = null;
         }
 
-        private void createDbMenuItem_Click(object sender, EventArgs e)
+        private async void createDbMenuItem_Click(object sender, EventArgs e)
         {
             CreateDbForm createDbForm = new CreateDbForm();
             createDbForm.ShowDialog(this);
 
+            await LoadDataAsync();
+            UpdateData();
+
             createDbForm = null;
         }
 
-        private void mailCategoryMenuItem_Click(object sender, EventArgs e)
+        private async void mailCategoryMenuItem_Click(object sender, EventArgs e)
         {
             MailCategoryForm mailCategoryForm = new MailCategoryForm();
             mailCategoryForm.ShowDialog(this);
 
+            _activeMailCategories = await Db.LoadActiveMailCategoriesAsync();
+            UpdateActiveMailCategories();
+
             mailCategoryForm = null;
         }
 
-        private void mailTypeMenuItem_Click(object sender, EventArgs e)
+        private async void mailTypeMenuItem_Click(object sender, EventArgs e)
         {
             MailTypeForm mailTypeForm = new MailTypeForm();
             mailTypeForm.ShowDialog(this);
 
+            _activeMailTypes = await Db.LoadActiveMailTypesAsync();
+            UpdateActiveMailTypes();
+
             mailTypeForm = null;
+        }
+
+        private void mailCodeMenuItem_Click(object sender, EventArgs e)
+        {
+            MailCodeForm mailCodeForm = new MailCodeForm();
+            mailCodeForm.ShowDialog(this);
+
+            mailCodeForm = null;
         }
 
         #endregion
@@ -395,5 +455,136 @@ namespace WorldStat.Core.Forms
 
         #endregion
 
+        #region Datas
+
+        #region Load Datas
+
+        private async Task LoadDataAsync()
+        {
+            _activeMailTypes = await Db.LoadActiveMailTypesAsync();
+            _activeMailCategories = await Db.LoadActiveMailCategoriesAsync();
+            _mailTypes = await Db.LoadAllMailTypesAsync();
+            _mailCategories = await Db.LoadAllMailCategoriesAsync();
+            _firms = await Db.LoadAllFirmsAsync();
+        }
+        #endregion
+
+        #region Update Datas
+
+        private void UpdateData()
+        {
+            UpdateFirms();
+            UpdateMailCategories();
+            UpdateMailTypes();
+            UpdateActiveMailCategories();
+            UpdateActiveMailTypes();
+        }
+
+        private void UpdateMailTypes()
+        {
+            mailTypeBindingSource.DataSource = null;
+            mailTypeBindingSource.DataSource = _mailTypes;
+        }
+
+        private void UpdateMailCategories()
+        {
+            mailCategoryBindingSource.DataSource = null;
+            mailCategoryBindingSource.DataSource = _mailCategories;
+        }
+
+        private void UpdateActiveMailTypes()
+        {
+            acitveMailTypeBindingSource.DataSource = null;
+            acitveMailTypeBindingSource.DataSource = _activeMailTypes;
+        }
+
+        private void UpdateActiveMailCategories()
+        {
+            activeMailCategoryBindingSource.DataSource = null;
+            activeMailCategoryBindingSource.DataSource = _activeMailCategories;
+        }
+
+        private void UpdateFirms()
+        {
+            firmBindingSource.DataSource = null;
+            firmBindingSource.DataSource = _firms;
+        }
+
+        private void UpdateReportPoses()
+        {
+            reportPosBindingSource.DataSource = null;
+            reportPosBindingSource.DataSource = _reportPoses;
+        }
+
+        #endregion
+
+
+        #endregion
+
+        private void orgDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            orgDateTimePickerEnd.Value = orgDateTimePickerStart.Value;
+        }
+
+        private async void btnLoadReportFirms_Click(object sender, EventArgs e)
+        {
+            Firm firm = (Firm) comboBoxFirms.SelectedItem;
+            MailType mailType = (MailType) comboBoxFirmsMailType.SelectedItem;
+            MailCategory mailCategory = (MailCategory) comboBoxFirmsMailCategory.SelectedItem;
+
+            long type = 9999;
+            long category = 9999;
+
+            if (firm != null)
+            {
+                DateTime start;
+                DateTime end;
+
+                if (orgDateTimePickerCalendar.Visible)
+                {
+                    DateTime date = orgDateTimePickerCalendar.Value;
+                    start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+                    end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+                }
+                else
+                {
+                    start = WcApi.Date.DateUtils.CropTime(orgDateTimePickerStart.Value);
+                    end = WcApi.Date.DateUtils.CropTime(orgDateTimePickerEnd.Value);
+                }
+
+                if (mailCategory != null)
+                    category = mailCategory.Code;
+
+                if (mailType != null)
+                    type = mailType.Code;
+
+                _reportPoses = await Db.LoadReportPosesAsync(start, end, firm.Id, type, category);
+                UpdateReportPoses();
+
+                labelFirmCount.Text = _reportPoses.Sum(r => r.Count).ToString();
+
+                string count = _reportPoses.Sum(r => r.Count).ToString("### ###");
+                string sum = _reportPoses.Sum(r => r.Pay).ToString("C");
+
+                labelFirmCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
+                labelFirmPay.Text = sum;
+            }
+        }
+
+        private void toggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toggleButtonCalendar.Checked)
+            {
+                orgDateTimePickerStart.Visible = false;
+                orgDateTimePickerEnd.Visible = false;
+                orgDateTimePickerCalendar.Visible = true;
+            }
+            else
+            {
+                orgDateTimePickerStart.Visible = true;
+                orgDateTimePickerEnd.Visible = true;
+                orgDateTimePickerCalendar.Visible = false;
+            }
+        }
     }
 }

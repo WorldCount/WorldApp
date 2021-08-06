@@ -58,14 +58,11 @@ namespace WorldStat.Core.Forms.DataForms
 
         private async void SaveData()
         {
-            await Task.Run(() =>
+            using (WorldStatContext db = new WorldStatContext())
             {
-                using (WorldStatContext db = new WorldStatContext())
-                {
-                    db.UpdateRange(_firms);
-                    db.SaveChanges();
-                }
-            });
+                db.UpdateRange(_firms);
+                await db.SaveChangesAsync();
+            }
         }
 
         private void UpdateData()

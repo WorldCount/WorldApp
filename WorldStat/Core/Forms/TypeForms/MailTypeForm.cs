@@ -53,14 +53,11 @@ namespace WorldStat.Core.Forms.TypeForms
 
         private async void SaveData()
         {
-            await Task.Run(() =>
+            using (WorldStatContext db = new WorldStatContext())
             {
-                using (WorldStatContext db = new WorldStatContext())
-                {
-                    db.UpdateRange(_mailTypes);
-                    db.SaveChanges();
-                }
-            });
+                db.UpdateRange(_mailTypes);
+                await db.SaveChangesAsync();
+            }
         }
 
         private MailType GetMailTypeByRowIndex(int rowIndex)

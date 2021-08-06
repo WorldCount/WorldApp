@@ -9,68 +9,96 @@ using WorldStat.Core.Database.Models;
 
 namespace WorldStat.Core.Forms.TypeForms
 {
-    public partial class MailCategoryForm : Form
+    public partial class MailCodeForm : Form
     {
+        private List<MailCode> _mailCodes;
         private List<MailCategory> _mailCategories;
+        private List<MailType> _mailTypes;
 
-        public MailCategoryForm()
+        public MailCodeForm()
         {
             InitializeComponent();
 
             // ReSharper disable once VirtualMemberCallInConstructor
-            Text = $"{Properties.Settings.Default.AppName}: Категории отправлений";
+            Text = $"{Properties.Settings.Default.AppName}: Коды отправлений";
 
             // Хук двойной буфферизации для таблицы
             Wc32Api.DrawingControl.SetDoubleBuffered(dataGridView);
 
             InitTable();
 
-            _mailCategories = LoadData();
+
+            mailCategoryBindingSource.DataSource = null;
+            mailCategoryBindingSource.DataSource = LoadMailCategories();
+            mailTypeBindingSource.DataSource = LoadMailTypes();
+
+
+
+            _mailCodes = LoadData();
+
             UpdateData();
         }
 
         private void InitTable()
         {
-            enableDataGridViewCheckBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            enableDataGridViewCheckBoxColumn.Width = 40;
+            //enableDataGridViewCheckBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            //enableDataGridViewCheckBoxColumn.Width = 40;
 
-            codeDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            codeDataGridViewTextBoxColumn.Width = 60;
+            //codeDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            //codeDataGridViewTextBoxColumn.Width = 60;
 
-            nameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //nameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-            shortNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            shortNameDataGridViewTextBoxColumn.Width = 260;
+            //shortNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            //shortNameDataGridViewTextBoxColumn.Width = 260;
         }
 
-        private List<MailCategory> LoadData()
+        private List<MailCode> LoadData()
         {
-
             using (WorldStatContext db = new WorldStatContext())
             {
-                return db.MailCategories.OrderBy(c => c.Code).ToList();
+                return db.MailCodes.OrderBy(c => c.Code).ToList();
+            }
+        }
+
+        private List<MailType> LoadMailTypes()
+        {
+            using (WorldStatContext db = new WorldStatContext())
+            {
+                return db.MailTypes.ToList();
+            }
+        }
+
+        private List<MailCategory> LoadMailCategories()
+        {
+            using (WorldStatContext db = new WorldStatContext())
+            {
+                return db.MailCategories.ToList();
             }
         }
 
         private async void SaveData()
         {
-            using (WorldStatContext db = new WorldStatContext())
-            {
-                db.UpdateRange(_mailCategories);
-                await db.SaveChangesAsync();
-            }
+            //await Task.Run(() =>
+            //{
+            //    using (WorldStatContext db = new WorldStatContext())
+            //    {
+            //        db.UpdateRange(_mailTypes);
+            //        db.SaveChanges();
+            //    }
+            //});
         }
 
-        private MailCategory GetMailCategoryByRowIndex(int rowIndex)
+        private MailCode GetMailCodeByRowIndex(int rowIndex)
         {
             try
             {
-                List<MailCategory> mailCategories = (List<MailCategory>) mailCategoryBindingSource.DataSource;
+                List<MailCode> mailCodes = (List<MailCode>)mailCodeBindingSource.DataSource;
 
-                if (mailCategories != null && mailCategories.Count > 0)
+                if (mailCodes != null && mailCodes.Count > 0)
                 {
-                    MailCategory mailCategory = mailCategories[rowIndex];
-                    return mailCategory;
+                    MailCode mailCode = mailCodes[rowIndex];
+                    return mailCode;
                 }
             }
             catch
@@ -83,14 +111,14 @@ namespace WorldStat.Core.Forms.TypeForms
 
         private void UpdateData()
         {
-            mailCategoryBindingSource.DataSource = null;
-            mailCategoryBindingSource.DataSource = _mailCategories;
-            lblCount.Text = $"{_mailCategories.Count} шт";
+            mailCodeBindingSource.DataSource = null;
+            mailCodeBindingSource.DataSource = _mailCodes;
+            lblCount.Text = $"{_mailCodes.Count} шт";
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            _mailCategories = LoadData();
+            _mailCodes = LoadData();
             UpdateData();
         }
 
@@ -107,7 +135,7 @@ namespace WorldStat.Core.Forms.TypeForms
             Close();
         }
 
-        private void MailCategoryForm_KeyDown(object sender, KeyEventArgs e)
+        private void MailTypeForm_KeyDown(object sender, KeyEventArgs e)
         {
             // Нажатие Ctrl + S
             if (e.KeyCode == Keys.S && e.Control)
@@ -120,18 +148,18 @@ namespace WorldStat.Core.Forms.TypeForms
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == enableDataGridViewCheckBoxColumn.Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == CheckDataGridViewCheckBoxColumn.Index && e.RowIndex >= 0)
             {
-                MailCategory mailCategory = GetMailCategoryByRowIndex(e.RowIndex);
+                MailCode mailCode = GetMailCodeByRowIndex(e.RowIndex);
 
-                if (mailCategory != null)
-                    mailCategory.Enable = !mailCategory.Enable;
+                if (mailCode != null)
+                    mailCode.Check = !mailCode.Check;
             }
         }
 
         private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.ColumnIndex == enableDataGridViewCheckBoxColumn.Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == CheckDataGridViewCheckBoxColumn.Index && e.RowIndex >= 0)
             {
                 bool value = (bool)e.FormattedValue;
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
@@ -146,7 +174,7 @@ namespace WorldStat.Core.Forms.TypeForms
 
         private void dataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == enableDataGridViewCheckBoxColumn.Index && e.RowIndex != -1)
+            if (e.ColumnIndex == CheckDataGridViewCheckBoxColumn.Index && e.RowIndex != -1)
             {
                 dataGridView.EndEdit();
             }
@@ -154,9 +182,9 @@ namespace WorldStat.Core.Forms.TypeForms
 
         private void checkAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (MailCategory mailType in _mailCategories)
+            foreach (MailCode mailCode in _mailCodes)
             {
-                mailType.Enable = true;
+                mailCode.Check = true;
             }
 
             UpdateData();
@@ -164,9 +192,9 @@ namespace WorldStat.Core.Forms.TypeForms
 
         private void uncheckAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (MailCategory mailType in _mailCategories)
+            foreach (MailCode mailCode in _mailCodes)
             {
-                mailType.Enable = false;
+                mailCode.Check = false;
             }
 
             UpdateData();
@@ -178,15 +206,20 @@ namespace WorldStat.Core.Forms.TypeForms
 
             if (!string.IsNullOrEmpty(q))
             {
-                List<MailCategory> filtered = _mailCategories.Where(m => m.Name.ToUpper().Contains(q) || m.ShortName.ToUpper().Contains(q) || m.Code.ToString().Contains(q)).ToList();
-                mailCategoryBindingSource.DataSource = filtered;
+                List<MailCode> filtered = _mailCodes.Where(m => m.Name.ToUpper().Contains(q) || m.Code.ToString().Contains(q)).ToList();
+                mailCodeBindingSource.DataSource = filtered;
                 lblCount.Text = $"{filtered.Count} шт";
             }
             else
             {
-                mailCategoryBindingSource.DataSource = _mailCategories;
-                lblCount.Text = $"{_mailCategories.Count} шт";
+                mailCodeBindingSource.DataSource = _mailCodes;
+                lblCount.Text = $"{_mailCodes.Count} шт";
             }
+        }
+
+        private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            //
         }
     }
 }

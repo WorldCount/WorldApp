@@ -1,4 +1,5 @@
-﻿using WcPostApi.Types;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using WcPostApi.Types;
 
 namespace WorldStat.Core.Database.Models
 {
@@ -7,8 +8,11 @@ namespace WorldStat.Core.Database.Models
         public int Id { get; set; }
         public int Code { get; set; }
         public string Name { get; set; }
-        public int MailType { get; set; } = 0;
-        public int MailCategory { get; set; } = 0;
+        public long MailType { get; set; } = 0;
+        public long MailCategory { get; set; } = 0;
+
+        [NotMapped]
+        public virtual bool Check { get; set; } = false;
 
         public TransCategory TransCategory { get; set; } = TransCategory.Внутренняя;
         public TransType TransType { get; set; } = TransType.Назем;
@@ -75,5 +79,7 @@ namespace WorldStat.Core.Database.Models
                 PostMark = 2;
 
         }
+
+
     }
 }

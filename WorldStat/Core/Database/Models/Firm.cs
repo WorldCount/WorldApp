@@ -28,5 +28,10 @@ namespace WorldStat.Core.Database.Models
             Name = name;
             ShortName = name;
         }
+
+        public override string ToString()
+        {
+            return ShortName;
+        }
     }
 }

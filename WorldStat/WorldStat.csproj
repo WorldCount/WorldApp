@@ -201,6 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Database\Contexts\WorldStatContext.cs" />
+    <Compile Include="Core\Database\Db.cs" />
     <Compile Include="Core\Database\Models\Calendar.cs" />
     <Compile Include="Core\Database\Models\MailCategory.cs" />
     <Compile Include="Core\Database\Models\MailCode.cs" />
@@ -250,6 +251,12 @@
     <Compile Include="Core\Forms\TypeForms\MailCategoryForm.designer.cs">
       <DependentUpon>MailCategoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Forms\TypeForms\MailCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\TypeForms\MailCodeForm.designer.cs">
+      <DependentUpon>MailCodeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Forms\TypeForms\MailTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +273,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="WS.ico" />
     <None Include="Properties\DataSources\WorldStat.Core.Database.Models.Calendar.datasource" />
+    <None Include="Properties\DataSources\WorldStat.Core.Database.Models.Firm.datasource" />
+    <None Include="Properties\DataSources\WorldStat.Core.Database.Models.MailCategory.datasource" />
+    <None Include="Properties\DataSources\WorldStat.Core.Database.Models.MailCode.datasource" />
+    <None Include="Properties\DataSources\WorldStat.Core.Database.Models.MailType.datasource" />
+    <None Include="Properties\DataSources\WorldStat.Core.Database.Models.ReportPos.datasource" />
     <None Include="Resources\gray-trash-24.png" />
     <None Include="Resources\gray-unchecked-32.png" />
     <None Include="Resources\gray_checked-32.png" />
@@ -292,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\TypeForms\MailCategoryForm.resx">
       <DependentUpon>MailCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Forms\TypeForms\MailCodeForm.resx">
+      <DependentUpon>MailCodeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\TypeForms\MailTypeForm.resx">
       <DependentUpon>MailTypeForm.cs</DependentUpon>
