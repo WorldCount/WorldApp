@@ -646,6 +646,7 @@ namespace WorldStat.Core.Forms
             this.reportDateTimePickerStart.Size = new System.Drawing.Size(220, 27);
             this.reportDateTimePickerStart.TabIndex = 28;
             this.reportDateTimePickerStart.Visible = false;
+            this.reportDateTimePickerStart.ValueChanged += new System.EventHandler(this.reportDateTimePickerStart_ValueChanged);
             // 
             // reportDateTimePickerEnd
             // 

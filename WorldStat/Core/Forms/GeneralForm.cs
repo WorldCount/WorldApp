@@ -288,6 +288,16 @@ namespace WorldStat.Core.Forms
 
         #region Events
 
+        private void orgToggleButtonGroup_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxFirmsTransType.Enabled = !comboBoxFirmsTransType.Enabled;
+        }
+
+        private void reportDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            reportDateTimePickerEnd.Value = reportDateTimePickerStart.Value;
+        }
+
         private void btnLoadReport_Click(object sender, EventArgs e)
         {
 
@@ -675,11 +685,6 @@ namespace WorldStat.Core.Forms
                 labelFirmCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
                 labelFirmPay.Text = sum;
             }
-        }
-
-        private void orgToggleButtonGroup_CheckedChanged(object sender, EventArgs e)
-        {
-            comboBoxFirmsTransType.Enabled = !comboBoxFirmsTransType.Enabled;
         }
     }
 }
