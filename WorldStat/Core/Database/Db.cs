@@ -120,6 +120,56 @@ namespace WorldStat.Core.Database
 
         #region Report Poses
 
+        public static List<ReportPos> LoadGroupIncomeReportPoses(DateTime start, DateTime end, int firmId = 0,
+            long mailType = 9999, long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ, bool group = false)
+        {
+            StringBuilder sb = new StringBuilder();
+            //sb.Append("select r.Id, r.FirmId, r.Date, f.ShortName, Sum(Count) as Count, Sum(Pay) as Pay");
+            sb.Append("select r.Id, r.Date, r.FirmId, r.MailCategory, r.MailType, r.TransCategory, r.TransType, Sum(Count) as Count, Sum(Pay) as Pay, r.ReportId");
+            sb.Append(" from ReportPoses r");
+            sb.Append(" inner join Firms f on r.FirmId = f.Id");
+            sb.Append($" where r.date >= '{start:yyyy-MM-dd}' and r.date <= '{end.AddDays(1):yyyy-MM-dd}'");
+
+            if (firmId > 0)
+                sb.Append($" and r.FirmId = {firmId} ");
+
+            if (mailType != 9999)
+                sb.Append($" and r.MailType = {mailType}");
+
+            if (mailCategory != 9999)
+                sb.Append($" and r.MailCategory = {mailCategory}");
+
+            if (transCategory != TransCategory.ВСЕ)
+                sb.Append($" and r.TransCategory = {(int)transCategory}");
+
+            sb.Append(@group ? " group by r.FirmId" : " group by r.Date, r.FirmId");
+
+            using (WorldStatContext db = new WorldStatContext())
+            {
+                var q = db.ReportPoses.FromSql(sb.ToString());
+
+                q = q.Include(r => r.Firm);
+                q = @group ? q.OrderBy(p => p.Firm.ShortName) : q.OrderBy(p => p.Date).ThenBy(p => p.Firm.ShortName);
+
+                var data = q.ToList();
+
+                if (group)
+                {
+                    DateTime date = new DateTime(1986, 9, 2);
+                    foreach (ReportPos reportPose in data)
+                        reportPose.Date = date;
+                }
+
+                return data;
+            }
+        }
+
+        public static async Task<List<ReportPos>> LoadGroupIncomeReportPosesAsync(DateTime start, DateTime end,
+            int firmId = 0, long mailType = 9999, long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ, bool group = false)
+        {
+            return await Task.Run(() => LoadGroupIncomeReportPoses(start, end, firmId, mailType, mailCategory, transCategory, group));
+        }
+
         public static List<ReportPos> LoadGroupReportPoses(DateTime start, DateTime end, int firmId = 0, long mailType = 9999,
             long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ)
         {
@@ -151,9 +201,10 @@ namespace WorldStat.Core.Database
 
                 var data = q.ToList();
 
+                DateTime date = new DateTime(1986, 9, 2);
                 foreach (ReportPos reportPose in data)
                 {
-                    reportPose.Date = end;
+                    reportPose.Date = date;
                     reportPose.TransType = TransType.ВСЕ;
                 }
 

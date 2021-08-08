@@ -29,7 +29,8 @@ namespace WorldStat.Core.Forms
 
         private string[] _reportsPaths;
         private List<Firm> _firms;
-        private List<ReportPos> _reportPoses;
+        private List<ReportPos> _orgReportPoses;
+        private List<ReportPos> _incomeReportPoses;
         private List<MailCategory> _mailCategories;
         private List<MailType> _mailTypes;
         private List<MailCategory> _activeMailCategories;
@@ -65,7 +66,7 @@ namespace WorldStat.Core.Forms
         // Загрузка настроек
         private void LoadSettings()
         {
-            reportComboBoxTeam.DataSource = Enum.GetValues(typeof(CalendarType));
+            FillComboBoxes();
         }
 
         // Сохранение настроек
@@ -158,9 +159,6 @@ namespace WorldStat.Core.Forms
 
             await LoadDataAsync();
             UpdateData();
-
-            orgComboBoxTransType.DataSource = Enum.GetValues(typeof(TransType));
-            orgComboBoxTransCategory.DataSource = Enum.GetValues(typeof(TransCategory));
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -225,6 +223,18 @@ namespace WorldStat.Core.Forms
 
         #region Widgets Configs
 
+        // Заполнение комбо-боксов
+        private void FillComboBoxes()
+        {
+            reportComboBoxTeam.DataSource = Enum.GetValues(typeof(CalendarType));
+
+            orgComboBoxTransType.DataSource = Enum.GetValues(typeof(TransType));
+            orgComboBoxTransCategory.DataSource = Enum.GetValues(typeof(TransCategory));
+
+            incomeComboBoxTransType.DataSource = Enum.GetValues(typeof(TransType));
+            incomeComboBoxTransCategory.DataSource = Enum.GetValues(typeof(TransCategory));
+        }
+
         // Установка буферизации
         private void SetDoubleBuffered()
         {
@@ -232,6 +242,9 @@ namespace WorldStat.Core.Forms
 
             Wc32Api.DrawingControl.SetDoubleBuffered(reportDataGridView);
             Wc32Api.DrawingControl.SetDoubleBuffered(orgDataGridView);
+            Wc32Api.DrawingControl.SetDoubleBuffered(incomeDataGridView);
+
+            Wc32Api.DrawingControl.SetDoubleBuffered(incomePanel);
 
             #endregion
         }
@@ -280,6 +293,22 @@ namespace WorldStat.Core.Forms
 
             orgColumnTransType.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             orgColumnTransType.Width = 120;
+
+            #endregion
+
+            #region Income
+
+            // Таблица с доходами
+            incomeColumnName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            incomeColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            incomeColumnDate.Width = 140;
+
+            incomeColumnPay.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            incomeColumnPay.Width = 120;
+
+            incomeColumnCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            incomeColumnCount.Width = 120;
 
             #endregion
         }
@@ -337,9 +366,7 @@ namespace WorldStat.Core.Forms
 
             using (WorldStatContext db = new WorldStatContext())
             {
-                List<Report> reports;
-
-                reports = type == CalendarType.Все ? db.Reports.Where(r => r.Date >= start && r.Date <= end).ToList() : db.Reports.Where(r => r.Date >= start && r.Date <= end && r.Type == type).ToList();
+                List<Report> reports = type == CalendarType.Все ? db.Reports.Where(r => r.Date >= start && r.Date <= end).ToList() : db.Reports.Where(r => r.Date >= start && r.Date <= end && r.Type == type).ToList();
 
                 string count = reports.Sum(r => r.Count).ToString("### ###");
                 string sum = reports.Sum(r => r.Pay).ToString("C");
@@ -353,7 +380,7 @@ namespace WorldStat.Core.Forms
             }
         }
 
-        private async void btnLoadFirms_Click(object sender, EventArgs e)
+        private async void btnLoadOrgs_Click(object sender, EventArgs e)
         {
             Firm firm = (Firm)orgComboBoxFirms.SelectedItem;
             MailType mailType = (MailType)orgComboBoxMailType.SelectedItem;
@@ -363,6 +390,10 @@ namespace WorldStat.Core.Forms
 
             long type = 9999;
             long category = 9999;
+
+            orgLabelCount.Text = "0";
+            orgLabelPay.Text = "0";
+            orgLabelPosCount.Text = "0";
 
             if (firm != null)
             {
@@ -388,20 +419,68 @@ namespace WorldStat.Core.Forms
                     type = mailType.Code;
 
                 if (orgToggleButtonGroup.Checked)
-                    _reportPoses = await Db.LoadGroupReportPosesAsync(start, end, firm.Id, type, category, transCategory);
+                    _orgReportPoses = await Db.LoadGroupReportPosesAsync(start, end, firm.Id, type, category, transCategory);
                 else
-                    _reportPoses = await Db.LoadReportPosesAsync(start, end, firm.Id, type, category, transType, transCategory);
+                    _orgReportPoses = await Db.LoadReportPosesAsync(start, end, firm.Id, type, category, transType, transCategory);
 
-                UpdateReportPoses();
+                UpdateOrgReportPoses();
 
-                orgLabelCount.Text = _reportPoses.Sum(r => r.Count).ToString();
-
-                string count = _reportPoses.Sum(r => r.Count).ToString("### ###");
-                string sum = _reportPoses.Sum(r => r.Pay).ToString("C");
+                string count = _orgReportPoses.Sum(r => r.Count).ToString("### ###");
+                string sum = _orgReportPoses.Sum(r => r.Pay).ToString("C");
 
                 orgLabelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
                 orgLabelPay.Text = sum;
-                orgLabelPosCount.Text = _reportPoses.Count.ToString();
+                orgLabelPosCount.Text = _orgReportPoses.Count.ToString();
+            }
+        }
+
+        private async void btnLoadIncomes_Click(object sender, EventArgs e)
+        {
+            Firm firm = (Firm)incomeComboBoxFirms.SelectedItem;
+            MailType mailType = (MailType)incomeComboBoxMailType.SelectedItem;
+            MailCategory mailCategory = (MailCategory)incomeComboBoxMailCategory.SelectedItem;
+            TransCategory transCategory = (TransCategory)incomeComboBoxTransCategory.SelectedItem;
+
+            long type = 9999;
+            long category = 9999;
+
+            incomeLabelCount.Text = "0";
+            incomeLabelPay.Text = "0";
+            incomeLabelPosCount.Text = "0";
+
+            if (firm != null)
+            {
+                DateTime start;
+                DateTime end;
+
+                if (incomeDateTimePickerCalendar.Visible)
+                {
+                    DateTime date = incomeDateTimePickerCalendar.Value;
+                    start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+                    end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+                }
+                else
+                {
+                    start = WcApi.Date.DateUtils.CropTime(incomeDateTimePickerStart.Value);
+                    end = WcApi.Date.DateUtils.CropTime(incomeDateTimePickerEnd.Value);
+                }
+
+                if (mailCategory != null)
+                    category = mailCategory.Code;
+
+                if (mailType != null)
+                    type = mailType.Code;
+
+
+                _incomeReportPoses = await Db.LoadGroupIncomeReportPosesAsync(start, end, firm.Id, type, category, transCategory, incomeToggleButtonGroup.Checked);
+                UpdateIncomeReportPoses();
+
+                string count = _incomeReportPoses.Sum(r => r.Count).ToString("### ###");
+                string sum = _incomeReportPoses.Sum(r => r.Pay).ToString("C");
+
+                incomeLabelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
+                incomeLabelPay.Text = sum;
+                incomeLabelPosCount.Text = _incomeReportPoses.Count.ToString();
             }
         }
 
@@ -419,6 +498,11 @@ namespace WorldStat.Core.Forms
             orgDateTimePickerEnd.Value = orgDateTimePickerStart.Value;
         }
 
+        private void incomeDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            incomeDateTimePickerEnd.Value = incomeDateTimePickerStart.Value;
+        }
+
         #endregion
 
         #region Toggle Buttons Events
@@ -426,6 +510,8 @@ namespace WorldStat.Core.Forms
         private void orgToggleButtonGroup_CheckedChanged(object sender, EventArgs e)
         {
             orgComboBoxTransType.Enabled = !orgComboBoxTransType.Enabled;
+            orgColumnDate.Visible = !orgColumnDate.Visible;
+            orgColumnTransType.Visible = !orgColumnTransType.Visible;
         }
 
         private void reportToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
@@ -460,13 +546,34 @@ namespace WorldStat.Core.Forms
             }
         }
 
+        private void incomeToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (incomeToggleButtonCalendar.Checked)
+            {
+                incomeDateTimePickerStart.Visible = false;
+                incomeDateTimePickerEnd.Visible = false;
+                incomeDateTimePickerCalendar.Visible = true;
+            }
+            else
+            {
+                incomeDateTimePickerStart.Visible = true;
+                incomeDateTimePickerEnd.Visible = true;
+                incomeDateTimePickerCalendar.Visible = false;
+            }
+        }
+
+        private void incomeToggleButtonGroup_CheckedChanged(object sender, EventArgs e)
+        {
+            incomeColumnDate.Visible = !incomeColumnDate.Visible;
+        }
+
         #endregion
 
         #region Others Events
 
         private void comboBoxFirms_Enter(object sender, EventArgs e)
         {
-            WcApi.Keyboard.Keyboard.SetRussianLanguage();
+            Keyboard.SetRussianLanguage();
         }
 
         #endregion
@@ -677,26 +784,41 @@ namespace WorldStat.Core.Forms
 
         private void UpdateActiveMailTypes()
         {
-            acitveMailTypeBindingSource.DataSource = null;
-            acitveMailTypeBindingSource.DataSource = _activeMailTypes;
+            orgAcitveMailTypeBindingSource.DataSource = null;
+            orgAcitveMailTypeBindingSource.DataSource = _activeMailTypes;
+
+            incomeAcitveMailTypeBindingSource.DataSource = null;
+            incomeAcitveMailTypeBindingSource.DataSource = _activeMailTypes;
         }
 
         private void UpdateActiveMailCategories()
         {
-            activeMailCategoryBindingSource.DataSource = null;
-            activeMailCategoryBindingSource.DataSource = _activeMailCategories;
+            orgActiveMailCategoryBindingSource.DataSource = null;
+            orgActiveMailCategoryBindingSource.DataSource = _activeMailCategories;
+
+            incomeActiveMailCategoryBindingSource.DataSource = null;
+            incomeActiveMailCategoryBindingSource.DataSource = _activeMailCategories;
         }
 
         private void UpdateFirms()
         {
-            firmBindingSource.DataSource = null;
-            firmBindingSource.DataSource = _firms;
+            orgFirmBindingSource.DataSource = null;
+            orgFirmBindingSource.DataSource = _firms;
+
+            incomeFirmBindingSource.DataSource = null;
+            incomeFirmBindingSource.DataSource = _firms;
         }
 
-        private void UpdateReportPoses()
+        private void UpdateOrgReportPoses()
         {
-            reportPosBindingSource.DataSource = null;
-            reportPosBindingSource.DataSource = _reportPoses.ToSortableBindingList();
+            orgReportPosBindingSource.DataSource = null;
+            orgReportPosBindingSource.DataSource = _orgReportPoses.ToSortableBindingList();
+        }
+
+        private void UpdateIncomeReportPoses()
+        {
+            incomeReportPosBindingSource.DataSource = null;
+            incomeReportPosBindingSource.DataSource = _incomeReportPoses.ToSortableBindingList();
         }
 
 
@@ -738,19 +860,17 @@ namespace WorldStat.Core.Forms
                 if (mailType != null)
                     type = mailType.Code;
 
-                _reportPoses = await Db.LoadGroupReportPosesAsync(start, end, firm.Id, type, category, transCategory);
-                UpdateReportPoses();
+                _orgReportPoses = await Db.LoadGroupReportPosesAsync(start, end, firm.Id, type, category, transCategory);
+                UpdateOrgReportPoses();
 
-                orgLabelCount.Text = _reportPoses.Sum(r => r.Count).ToString();
+                orgLabelCount.Text = _orgReportPoses.Sum(r => r.Count).ToString();
 
-                string count = _reportPoses.Sum(r => r.Count).ToString("### ###");
-                string sum = _reportPoses.Sum(r => r.Pay).ToString("C");
+                string count = _orgReportPoses.Sum(r => r.Count).ToString("### ###");
+                string sum = _orgReportPoses.Sum(r => r.Pay).ToString("C");
 
                 orgLabelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
                 orgLabelPay.Text = sum;
             }
         }
-
-        
     }
 }

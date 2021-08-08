@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using WcPostApi.Types;
 
 namespace WorldStat.Core.Database.Models
@@ -31,6 +32,17 @@ namespace WorldStat.Core.Database.Models
             MailCategory = mailCode.MailCategory;
             TransCategory = mailCode.TransCategory;
             TransType = mailCode.TransType;
+        }
+
+        [NotMapped]
+        public string DateText
+        {
+            get
+            {
+                if (Date == new DateTime(1986, 9, 2))
+                    return "Нет";
+                return $"{Date:dd.MM.yyyy}";
+            }
         }
 
         public override string ToString()
