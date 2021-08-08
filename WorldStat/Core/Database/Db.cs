@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WcPostApi.Types;
@@ -119,6 +120,54 @@ namespace WorldStat.Core.Database
 
         #region Report Poses
 
+        public static List<ReportPos> LoadGroupReportPoses(DateTime start, DateTime end, int firmId = 0, long mailType = 9999,
+            long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("select r.Id, r.Date, r.FirmId, r.MailCategory, r.MailType, r.TransCategory, r.TransType, Sum(Count) as Count, Sum(Pay) as Pay, r.ReportId");
+            sb.Append(" from ReportPoses r");
+            sb.Append($" where r.date >= '{start:yyyy-MM-dd}' and r.date <= '{end.AddDays(1):yyyy-MM-dd}'");
+
+            if (firmId > 0)
+                sb.Append($" and r.FirmId = {firmId} ");
+
+            if (mailType != 9999)
+                sb.Append($" and r.MailType = {mailType}");
+
+            if(mailCategory != 9999)
+                sb.Append($" and r.MailCategory = {mailCategory}");
+
+            if (transCategory != TransCategory.ВСЕ)
+                sb.Append($" and r.TransCategory = {(int)transCategory}");
+
+            sb.Append(" group by r.FirmId, r.MailCategory, r.MailType, r.TransCategory");
+
+            using (WorldStatContext db = new WorldStatContext())
+            {
+                var q = db.ReportPoses.FromSql(sb.ToString());
+                
+                q = q.Include(r => r.Firm);
+                q = q.OrderBy(p => p.Firm.ShortName).ThenBy(p => p.TransCategory).ThenByDescending(p => p.MailCategory).ThenBy(p => p.MailType);
+
+                var data = q.ToList();
+
+                foreach (ReportPos reportPose in data)
+                {
+                    reportPose.Date = end;
+                    reportPose.TransType = TransType.ВСЕ;
+                }
+
+                return data;
+            }
+        }
+
+        public static async Task<List<ReportPos>> LoadGroupReportPosesAsync(DateTime start, DateTime end,
+            int firmId = 0, long mailType = 9999,
+            long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ)
+        {
+            return await Task.Run(() => LoadGroupReportPoses(start, end, firmId, mailType, mailCategory, transCategory));
+        }
+
         public static List<ReportPos> LoadReportPoses(DateTime start, DateTime end, int firmId = 0, long mailType = 9999, 
             long mailCategory = 9999, TransType transType = TransType.ВСЕ, TransCategory transCategory = TransCategory.ВСЕ)
         {
@@ -141,7 +190,10 @@ namespace WorldStat.Core.Database
                 if (transCategory != TransCategory.ВСЕ)
                     q = q.Where(r => r.TransCategory == transCategory);
 
-                return q.Include(r => r.Firm).Where(r => r.Date >= start && r.Date <= end).OrderBy(p => p.Date).ToList();
+
+                q = q.Include(r => r.Firm).Where(r => r.Date >= start && r.Date <= end).OrderBy(p => p.Date).ThenBy(p => p.Firm.ShortName).ThenBy(p => p.TransCategory).ThenByDescending(p => p.MailCategory).ThenBy(p => p.MailType); ;
+
+                return q.ToList();
             }
         }
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using WcPostApi.Types;
 using WorldStat.Core.Database;
@@ -368,7 +369,11 @@ namespace WorldStat.Core.Forms
                 if (mailType != null)
                     type = mailType.Code;
 
-                _reportPoses = await Db.LoadReportPosesAsync(start, end, firm.Id, type, category, transType, transCategory);
+                if(orgToggleButtonGroup.Checked)
+                    _reportPoses = await Db.LoadGroupReportPosesAsync(start, end, firm.Id, type, category, transCategory);
+                else
+                    _reportPoses = await Db.LoadReportPosesAsync(start, end, firm.Id, type, category, transType, transCategory);
+
                 UpdateReportPoses();
 
                 labelFirmCount.Text = _reportPoses.Sum(r => r.Count).ToString();
@@ -620,10 +625,61 @@ namespace WorldStat.Core.Forms
             reportPosBindingSource.DataSource = _reportPoses;
         }
 
-        #endregion
 
         #endregion
 
-        
+        #endregion
+
+        private async void btnTest_Click(object sender, EventArgs e)
+        {
+            Firm firm = (Firm)comboBoxFirms.SelectedItem;
+            MailType mailType = (MailType)comboBoxFirmsMailType.SelectedItem;
+            MailCategory mailCategory = (MailCategory)comboBoxFirmsMailCategory.SelectedItem;
+            TransCategory transCategory = (TransCategory)comboBoxFirmsTransCategory.SelectedItem;
+            TransType transType = (TransType)comboBoxFirmsTransType.SelectedItem;
+
+            long type = 9999;
+            long category = 9999;
+
+            if (firm != null)
+            {
+                DateTime start;
+                DateTime end;
+
+                if (orgDateTimePickerCalendar.Visible)
+                {
+                    DateTime date = orgDateTimePickerCalendar.Value;
+                    start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+                    end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+                }
+                else
+                {
+                    start = WcApi.Date.DateUtils.CropTime(orgDateTimePickerStart.Value);
+                    end = WcApi.Date.DateUtils.CropTime(orgDateTimePickerEnd.Value);
+                }
+
+                if (mailCategory != null)
+                    category = mailCategory.Code;
+
+                if (mailType != null)
+                    type = mailType.Code;
+
+                _reportPoses = await Db.LoadGroupReportPosesAsync(start, end, firm.Id, type, category, transCategory);
+                UpdateReportPoses();
+
+                labelFirmCount.Text = _reportPoses.Sum(r => r.Count).ToString();
+
+                string count = _reportPoses.Sum(r => r.Count).ToString("### ###");
+                string sum = _reportPoses.Sum(r => r.Pay).ToString("C");
+
+                labelFirmCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
+                labelFirmPay.Text = sum;
+            }
+        }
+
+        private void orgToggleButtonGroup_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxFirmsTransType.Enabled = !comboBoxFirmsTransType.Enabled;
+        }
     }
 }

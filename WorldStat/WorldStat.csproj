@@ -200,6 +200,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Database\Contexts\DbLoggerProvider.cs" />
     <Compile Include="Core\Database\Contexts\WorldStatContext.cs" />
     <Compile Include="Core\Database\Db.cs" />
     <Compile Include="Core\Database\Models\Calendar.cs" />

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using WorldStat.Core.Database.Models;
 using WorldStat.Core.Storage;
 
@@ -6,6 +7,11 @@ namespace WorldStat.Core.Database.Contexts
 {
     public class WorldStatContext : DbContext
     {
+
+        #region DefineLoggerFactory
+        public static readonly LoggerFactory DbLoggerFactory = new LoggerFactory();
+        #endregion
+
         public string DbPath { get;} = PathManager.DatabasePath;
 
         public DbSet<Report> Reports { get; set; }
@@ -19,9 +25,15 @@ namespace WorldStat.Core.Database.Contexts
         public DbSet<MailCategory> MailCategories { get; set; }
         public DbSet<Notice> Notices { get; set; }
 
+        public WorldStatContext() : base()
+        {
+            //MyLoggerFactory.AddProvider(new DbLoggerProvider());
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite($"Data Source={DbPath}");
+            //optionsBuilder.UseLoggerFactory(DbLoggerFactory);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

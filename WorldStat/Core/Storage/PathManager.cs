@@ -11,6 +11,9 @@ namespace WorldStat.Core.Storage
         // Путь к БД
         public static readonly string DatabasePath = Path.Combine(DataDir, "database.db");
 
+        // Путь к Логу
+        public static readonly string LogPath = Path.Combine(DataDir, "log.txt");
+
 
         static PathManager()
         {
