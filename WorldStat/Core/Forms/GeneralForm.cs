@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -8,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Wc32Api.Extensions.Bindings;
+using WcApi.Keyboard;
 using WcPostApi.Types;
 using WorldStat.Core.Database;
 using WorldStat.Core.Database.Contexts;
@@ -48,14 +51,13 @@ namespace WorldStat.Core.Forms
             // ReSharper disable once LocalizableElement
             Text = $"{Properties.Settings.Default.AppName} {Application.ProductVersion}";
 
-            Wc32Api.DrawingControl.SetDoubleBuffered(dataGridViewReport);
-            Wc32Api.DrawingControl.SetDoubleBuffered(panelStat);
+            SetDoubleBuffered();
 
             // Загрузка настроек
             LoadSettings();
 
-            //
-            InitTable();
+            // Инизиализации таблиц
+            InitTables();
         }
 
         #region Form Config
@@ -63,7 +65,7 @@ namespace WorldStat.Core.Forms
         // Загрузка настроек
         private void LoadSettings()
         {
-            comboBoxCalendar.DataSource = Enum.GetValues(typeof(CalendarType));
+            reportComboBoxTeam.DataSource = Enum.GetValues(typeof(CalendarType));
         }
 
         // Сохранение настроек
@@ -157,8 +159,8 @@ namespace WorldStat.Core.Forms
             await LoadDataAsync();
             UpdateData();
 
-            comboBoxFirmsTransType.DataSource = Enum.GetValues(typeof(TransType));
-            comboBoxFirmsTransCategory.DataSource = Enum.GetValues(typeof(TransCategory));
+            orgComboBoxTransType.DataSource = Enum.GetValues(typeof(TransType));
+            orgComboBoxTransCategory.DataSource = Enum.GetValues(typeof(TransCategory));
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -221,46 +223,65 @@ namespace WorldStat.Core.Forms
 
         #endregion
 
-        #region Table Config
+        #region Widgets Configs
 
-        private void InitTable()
+        // Установка буферизации
+        private void SetDoubleBuffered()
         {
-            // Общая таблица
-            reportDateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            reportDateDataGridViewTextBoxColumn.Width = 140;
+            #region Tables
 
-            reportDayNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            reportDayNameDataGridViewTextBoxColumn.Width = 140;
+            Wc32Api.DrawingControl.SetDoubleBuffered(reportDataGridView);
+            Wc32Api.DrawingControl.SetDoubleBuffered(orgDataGridView);
 
-            reportTypeDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            reportTypeDataGridViewTextBoxColumn.Width = 100;
+            #endregion
+        }
 
-            reportCountDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            reportCountDataGridViewTextBoxColumn.Width = 200;
+        // Настройка таблиц
+        private void InitTables()
+        {
+            #region Reports
+
+            reportColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            reportColumnDate.Width = 140;
+
+            reportColumnDayName.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            reportColumnDayName.Width = 140;
+
+            reportColumnType.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            reportColumnType.Width = 100;
+
+            reportColumnCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            reportColumnCount.Width = 200;
+
+            #endregion
+
+            #region Orgs
 
             // Таблица с организациями
-            firmNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            orgColumnName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-            firmDateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            firmDateDataGridViewTextBoxColumn.Width = 140;
+            orgColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            orgColumnDate.Width = 140;
 
-            firmMailTypeDataGridViewCheckBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            firmMailTypeDataGridViewCheckBoxColumn.Width = 160;
+            orgColumnMailType.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            orgColumnMailType.Width = 160;
 
-            firmMailCategoryDataGridViewCheckBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            firmMailCategoryDataGridViewCheckBoxColumn.Width = 130;
+            orgColumnMailCategory.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            orgColumnMailCategory.Width = 130;
 
-            firmPayDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            firmPayDataGridViewTextBoxColumn.Width = 120;
+            orgColumnPay.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            orgColumnPay.Width = 120;
 
-            firmCountDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            firmCountDataGridViewTextBoxColumn.Width = 100;
+            orgColumnCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            orgColumnCount.Width = 120;
 
-            firmTransCategoryDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            firmTransCategoryDataGridViewTextBoxColumn.Width = 160;
+            orgColumnTransCategory.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            orgColumnTransCategory.Width = 160;
 
-            firmTransTypeDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            firmTransTypeDataGridViewTextBoxColumn.Width = 120;
+            orgColumnTransType.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            orgColumnTransType.Width = 120;
+
+            #endregion
         }
 
         #endregion
@@ -288,17 +309,9 @@ namespace WorldStat.Core.Forms
 
         #region Events
 
-        private void orgToggleButtonGroup_CheckedChanged(object sender, EventArgs e)
-        {
-            comboBoxFirmsTransType.Enabled = !comboBoxFirmsTransType.Enabled;
-        }
+        #region Buttons Clicks
 
-        private void reportDateTimePickerStart_ValueChanged(object sender, EventArgs e)
-        {
-            reportDateTimePickerEnd.Value = reportDateTimePickerStart.Value;
-        }
-
-        private void btnLoadReport_Click(object sender, EventArgs e)
+        private void btnLoadReports_Click(object sender, EventArgs e)
         {
 
             DateTime start;
@@ -317,10 +330,10 @@ namespace WorldStat.Core.Forms
             }
 
             reportBindingSource.DataSource = null;
-            labelCount.Text = "0";
-            labelPay.Text = "0";
+            reportLabelCount.Text = "0";
+            reportLabelPay.Text = "0";
 
-            CalendarType type = (CalendarType)comboBoxCalendar.SelectedItem;
+            CalendarType type = (CalendarType)reportComboBoxTeam.SelectedItem;
 
             using (WorldStatContext db = new WorldStatContext())
             {
@@ -331,27 +344,22 @@ namespace WorldStat.Core.Forms
                 string count = reports.Sum(r => r.Count).ToString("### ###");
                 string sum = reports.Sum(r => r.Pay).ToString("C");
 
-                labelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
-                labelPay.Text = sum;
+                reportLabelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
+                reportLabelPay.Text = sum;
 
-                labelDaysCount.Text = reports.Count.ToString();
+                reportLabelDaysCount.Text = reports.Count.ToString();
 
-                reportBindingSource.DataSource = reports;
+                reportBindingSource.DataSource = reports.ToSortableBindingList();
             }
         }
 
-        private void orgDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        private async void btnLoadFirms_Click(object sender, EventArgs e)
         {
-            orgDateTimePickerEnd.Value = orgDateTimePickerStart.Value;
-        }
-
-        private async void btnLoadReportFirms_Click(object sender, EventArgs e)
-        {
-            Firm firm = (Firm)comboBoxFirms.SelectedItem;
-            MailType mailType = (MailType)comboBoxFirmsMailType.SelectedItem;
-            MailCategory mailCategory = (MailCategory)comboBoxFirmsMailCategory.SelectedItem;
-            TransCategory transCategory = (TransCategory) comboBoxFirmsTransCategory.SelectedItem;
-            TransType transType = (TransType) comboBoxFirmsTransType.SelectedItem;
+            Firm firm = (Firm)orgComboBoxFirms.SelectedItem;
+            MailType mailType = (MailType)orgComboBoxMailType.SelectedItem;
+            MailCategory mailCategory = (MailCategory)orgComboBoxMailCategory.SelectedItem;
+            TransCategory transCategory = (TransCategory)orgComboBoxTransCategory.SelectedItem;
+            TransType transType = (TransType)orgComboBoxTransType.SelectedItem;
 
             long type = 9999;
             long category = 9999;
@@ -379,21 +387,45 @@ namespace WorldStat.Core.Forms
                 if (mailType != null)
                     type = mailType.Code;
 
-                if(orgToggleButtonGroup.Checked)
+                if (orgToggleButtonGroup.Checked)
                     _reportPoses = await Db.LoadGroupReportPosesAsync(start, end, firm.Id, type, category, transCategory);
                 else
                     _reportPoses = await Db.LoadReportPosesAsync(start, end, firm.Id, type, category, transType, transCategory);
 
                 UpdateReportPoses();
 
-                labelFirmCount.Text = _reportPoses.Sum(r => r.Count).ToString();
+                orgLabelCount.Text = _reportPoses.Sum(r => r.Count).ToString();
 
                 string count = _reportPoses.Sum(r => r.Count).ToString("### ###");
                 string sum = _reportPoses.Sum(r => r.Pay).ToString("C");
 
-                labelFirmCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
-                labelFirmPay.Text = sum;
+                orgLabelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
+                orgLabelPay.Text = sum;
+                orgLabelPosCount.Text = _reportPoses.Count.ToString();
             }
+        }
+
+        #endregion
+
+        #region DateTime Pickers Events
+
+        private void reportDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            reportDateTimePickerEnd.Value = reportDateTimePickerStart.Value;
+        }
+
+        private void orgDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            orgDateTimePickerEnd.Value = orgDateTimePickerStart.Value;
+        }
+
+        #endregion
+
+        #region Toggle Buttons Events
+
+        private void orgToggleButtonGroup_CheckedChanged(object sender, EventArgs e)
+        {
+            orgComboBoxTransType.Enabled = !orgComboBoxTransType.Enabled;
         }
 
         private void reportToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
@@ -428,10 +460,42 @@ namespace WorldStat.Core.Forms
             }
         }
 
+        #endregion
+
+        #region Others Events
+
         private void comboBoxFirms_Enter(object sender, EventArgs e)
         {
             WcApi.Keyboard.Keyboard.SetRussianLanguage();
         }
+
+        #endregion
+
+        #region DataGrids Events
+
+        private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            var grid = (DataGridView)sender;
+            var sortIconColor = Color.Gray;
+
+            // Отрисовка флага сортировки
+            if (e.RowIndex == -1 && e.ColumnIndex > -1)
+            {
+                e.PaintBackground(e.CellBounds, false);
+                TextRenderer.DrawText(e.Graphics, $"{e.FormattedValue}", e.CellStyle.Font, e.CellBounds, e.CellStyle.ForeColor,
+                    TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter);
+
+                if (grid.SortedColumn?.Index == e.ColumnIndex)
+                {
+                    var sortIcon = grid.SortOrder == SortOrder.Ascending ? "▲" : "▼";
+                    TextRenderer.DrawText(e.Graphics, sortIcon, e.CellStyle.Font, e.CellBounds, sortIconColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+                }
+
+                e.Handled = true;
+            }
+        }
+
+        #endregion
 
         #endregion
 
@@ -632,7 +696,7 @@ namespace WorldStat.Core.Forms
         private void UpdateReportPoses()
         {
             reportPosBindingSource.DataSource = null;
-            reportPosBindingSource.DataSource = _reportPoses;
+            reportPosBindingSource.DataSource = _reportPoses.ToSortableBindingList();
         }
 
 
@@ -642,11 +706,11 @@ namespace WorldStat.Core.Forms
 
         private async void btnTest_Click(object sender, EventArgs e)
         {
-            Firm firm = (Firm)comboBoxFirms.SelectedItem;
-            MailType mailType = (MailType)comboBoxFirmsMailType.SelectedItem;
-            MailCategory mailCategory = (MailCategory)comboBoxFirmsMailCategory.SelectedItem;
-            TransCategory transCategory = (TransCategory)comboBoxFirmsTransCategory.SelectedItem;
-            TransType transType = (TransType)comboBoxFirmsTransType.SelectedItem;
+            Firm firm = (Firm)orgComboBoxFirms.SelectedItem;
+            MailType mailType = (MailType)orgComboBoxMailType.SelectedItem;
+            MailCategory mailCategory = (MailCategory)orgComboBoxMailCategory.SelectedItem;
+            TransCategory transCategory = (TransCategory)orgComboBoxTransCategory.SelectedItem;
+            TransType transType = (TransType)orgComboBoxTransType.SelectedItem;
 
             long type = 9999;
             long category = 9999;
@@ -677,14 +741,16 @@ namespace WorldStat.Core.Forms
                 _reportPoses = await Db.LoadGroupReportPosesAsync(start, end, firm.Id, type, category, transCategory);
                 UpdateReportPoses();
 
-                labelFirmCount.Text = _reportPoses.Sum(r => r.Count).ToString();
+                orgLabelCount.Text = _reportPoses.Sum(r => r.Count).ToString();
 
                 string count = _reportPoses.Sum(r => r.Count).ToString("### ###");
                 string sum = _reportPoses.Sum(r => r.Pay).ToString("C");
 
-                labelFirmCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
-                labelFirmPay.Text = sum;
+                orgLabelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
+                orgLabelPay.Text = sum;
             }
         }
+
+        
     }
 }

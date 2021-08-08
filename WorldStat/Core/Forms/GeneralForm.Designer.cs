@@ -44,12 +44,16 @@ namespace WorldStat.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,111 +76,155 @@ namespace WorldStat.Core.Forms
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
             this.tabsControl = new System.Windows.Forms.TabControl();
-            this.tabAll = new System.Windows.Forms.TabPage();
-            this.panelStat = new System.Windows.Forms.Panel();
-            this.labelDaysCount = new System.Windows.Forms.Label();
-            this.labelInfoDays = new System.Windows.Forms.Label();
-            this.labelPay = new System.Windows.Forms.Label();
-            this.labelCount = new System.Windows.Forms.Label();
-            this.labelInfoPay = new System.Windows.Forms.Label();
-            this.labelInfoCount = new System.Windows.Forms.Label();
-            this.dataGridViewReport = new System.Windows.Forms.DataGridView();
-            this.reportDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reportDayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reportTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reportCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reportPaytDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabReports = new System.Windows.Forms.TabPage();
+            this.reportPanelStat = new System.Windows.Forms.Panel();
+            this.reportLabelDaysCount = new System.Windows.Forms.Label();
+            this.reportLabelInfoDays = new System.Windows.Forms.Label();
+            this.reportLabelPay = new System.Windows.Forms.Label();
+            this.reportLabelCount = new System.Windows.Forms.Label();
+            this.reportLabelInfoPay = new System.Windows.Forms.Label();
+            this.reportLabelInfoCount = new System.Windows.Forms.Label();
+            this.reportDataGridView = new System.Windows.Forms.DataGridView();
+            this.reportColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportColumnDayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportColumnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panelReceived = new System.Windows.Forms.Panel();
+            this.reportPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelReport = new System.Windows.Forms.FlowLayoutPanel();
             this.reportToggleButton = new Wc32Api.Widgets.WcToggleButton();
             this.reportDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.reportDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.reportDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
-            this.labelCalendar = new System.Windows.Forms.Label();
-            this.comboBoxCalendar = new System.Windows.Forms.ComboBox();
-            this.btnLoadReport = new Wc32Api.Widgets.WcButton();
-            this.tabOrg = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelFirmPay = new System.Windows.Forms.Label();
-            this.labelFirmCount = new System.Windows.Forms.Label();
-            this.labelFirmInfoPay = new System.Windows.Forms.Label();
-            this.labelFirmInfoCount = new System.Windows.Forms.Label();
-            this.dataGridViewFirms = new System.Windows.Forms.DataGridView();
-            this.firmDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmMailTypeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.reportLabelInfoTeam = new System.Windows.Forms.Label();
+            this.reportComboBoxTeam = new System.Windows.Forms.ComboBox();
+            this.btnLoadReports = new Wc32Api.Widgets.WcButton();
+            this.tabOrgs = new System.Windows.Forms.TabPage();
+            this.orgPanelStat = new System.Windows.Forms.Panel();
+            this.orgLabelPosCount = new System.Windows.Forms.Label();
+            this.orgLabelInfoPosCount = new System.Windows.Forms.Label();
+            this.orgLabelPay = new System.Windows.Forms.Label();
+            this.orgLabelCount = new System.Windows.Forms.Label();
+            this.orgLabelInfoPay = new System.Windows.Forms.Label();
+            this.orgLabelInfoCount = new System.Windows.Forms.Label();
+            this.orgDataGridView = new System.Windows.Forms.DataGridView();
+            this.orgColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgColumnMailType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.mailTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.firmMailCategoryDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.orgColumnMailCategory = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.mailCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.firmTransCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmPayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firmTransTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgColumnTransCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgColumnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgColumnTransType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportPosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewDocOrg = new System.Windows.Forms.DataGridView();
-            this.panelOrgDoc = new System.Windows.Forms.Panel();
+            this.orgPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelOrgFilter = new System.Windows.Forms.FlowLayoutPanel();
-            this.labelFirmInfoMailType = new System.Windows.Forms.Label();
-            this.comboBoxFirmsMailType = new System.Windows.Forms.ComboBox();
+            this.orgLabelInfoMailType = new System.Windows.Forms.Label();
+            this.orgComboBoxMailType = new System.Windows.Forms.ComboBox();
             this.acitveMailTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.labelFirmInfoMailCategory = new System.Windows.Forms.Label();
-            this.comboBoxFirmsMailCategory = new System.Windows.Forms.ComboBox();
+            this.orgLabelInfoMailCategory = new System.Windows.Forms.Label();
+            this.orgComboBoxMailCategory = new System.Windows.Forms.ComboBox();
             this.activeMailCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.labelFirmInfoTransCategory = new System.Windows.Forms.Label();
-            this.comboBoxFirmsTransCategory = new System.Windows.Forms.ComboBox();
-            this.labelFirmInfoTransType = new System.Windows.Forms.Label();
-            this.comboBoxFirmsTransType = new System.Windows.Forms.ComboBox();
+            this.orgLabelInfoTransCategory = new System.Windows.Forms.Label();
+            this.orgComboBoxTransCategory = new System.Windows.Forms.ComboBox();
+            this.orgLabelInfoTransType = new System.Windows.Forms.Label();
+            this.orgComboBoxTransType = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanelOrgBase = new System.Windows.Forms.FlowLayoutPanel();
             this.orgDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.orgDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.orgDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
-            this.labelFirmInfoGroup = new System.Windows.Forms.Label();
+            this.orgLabelInfoGroup = new System.Windows.Forms.Label();
             this.orgToggleButtonGroup = new Wc32Api.Widgets.WcToggleButton();
-            this.btnLoadReportFirms = new Wc32Api.Widgets.WcButton();
-            this.comboBoxFirms = new System.Windows.Forms.ComboBox();
+            this.btnLoadFirms = new Wc32Api.Widgets.WcButton();
+            this.orgComboBoxFirms = new System.Windows.Forms.ComboBox();
             this.firmBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabStat = new System.Windows.Forms.TabPage();
+            this.tabPageIncomes = new System.Windows.Forms.TabPage();
+            this.incomeDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.incomePanel = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.incomeLabelInfoMailType = new System.Windows.Forms.Label();
+            this.incomeComboBoxMailType = new System.Windows.Forms.ComboBox();
+            this.incomeLabelInfoMailCategory = new System.Windows.Forms.Label();
+            this.incomeComboBoxMailCategory = new System.Windows.Forms.ComboBox();
+            this.incomeLabelInfoTransCategory = new System.Windows.Forms.Label();
+            this.incomeComboBoxTransCategory = new System.Windows.Forms.ComboBox();
+            this.incomeLabelInfoTransType = new System.Windows.Forms.Label();
+            this.incomeComboBoxTransType = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.incomeToggleButtonCalendar = new Wc32Api.Widgets.WcToggleButton();
+            this.incomeDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.incomeDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.incomeDateTimeCalendar = new System.Windows.Forms.DateTimePicker();
+            this.wcButton1 = new Wc32Api.Widgets.WcButton();
+            this.incomeComboBoxFirms = new System.Windows.Forms.ComboBox();
+            this.tabStats = new System.Windows.Forms.TabPage();
             this.dataGridViewDocReceive = new System.Windows.Forms.DataGridView();
             this.panelReceivedDoc = new System.Windows.Forms.Panel();
             this.btnReceiveDocLoad = new System.Windows.Forms.Button();
             this.receiveDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.receiveDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
-            this.tabChart = new System.Windows.Forms.TabPage();
+            this.tabCharts = new System.Windows.Forms.TabPage();
             this.dataGridViewUserOnline = new System.Windows.Forms.DataGridView();
             this.adminStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.incomePanelStat = new System.Windows.Forms.Panel();
+            this.incomeLabelPosCount = new System.Windows.Forms.Label();
+            this.incomeLabelInfoPosCount = new System.Windows.Forms.Label();
+            this.incomeLabelPay = new System.Windows.Forms.Label();
+            this.incomeLabelCount = new System.Windows.Forms.Label();
+            this.incomeLabelInfoPay = new System.Windows.Forms.Label();
+            this.incomeLabelInfoCount = new System.Windows.Forms.Label();
+            this.incomeToggleButtonGroup = new Wc32Api.Widgets.WcToggleButton();
+            this.incomeLabelInfoGroup = new System.Windows.Forms.Label();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
-            this.tabAll.SuspendLayout();
-            this.panelStat.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport)).BeginInit();
+            this.tabReports.SuspendLayout();
+            this.reportPanelStat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportBindingSource)).BeginInit();
-            this.panelReceived.SuspendLayout();
+            this.reportPanel.SuspendLayout();
             this.flowLayoutPanelReport.SuspendLayout();
-            this.tabOrg.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFirms)).BeginInit();
+            this.tabOrgs.SuspendLayout();
+            this.orgPanelStat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orgDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportPosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocOrg)).BeginInit();
-            this.panelOrgDoc.SuspendLayout();
+            this.orgPanel.SuspendLayout();
             this.flowLayoutPanelOrgFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acitveMailTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activeMailCategoryBindingSource)).BeginInit();
             this.flowLayoutPanelOrgBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.firmBindingSource)).BeginInit();
-            this.tabStat.SuspendLayout();
+            this.tabPageIncomes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.incomeDataGridView)).BeginInit();
+            this.incomePanel.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.tabStats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocReceive)).BeginInit();
             this.panelReceivedDoc.SuspendLayout();
-            this.tabChart.SuspendLayout();
+            this.tabCharts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserOnline)).BeginInit();
             this.panelActive.SuspendLayout();
+            this.incomePanelStat.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuBar
@@ -382,10 +430,11 @@ namespace WorldStat.Core.Forms
             // 
             // tabsControl
             // 
-            this.tabsControl.Controls.Add(this.tabAll);
-            this.tabsControl.Controls.Add(this.tabOrg);
-            this.tabsControl.Controls.Add(this.tabStat);
-            this.tabsControl.Controls.Add(this.tabChart);
+            this.tabsControl.Controls.Add(this.tabReports);
+            this.tabsControl.Controls.Add(this.tabOrgs);
+            this.tabsControl.Controls.Add(this.tabPageIncomes);
+            this.tabsControl.Controls.Add(this.tabStats);
+            this.tabsControl.Controls.Add(this.tabCharts);
             this.tabsControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabsControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabsControl.Location = new System.Drawing.Point(0, 98);
@@ -394,104 +443,104 @@ namespace WorldStat.Core.Forms
             this.tabsControl.Size = new System.Drawing.Size(1357, 406);
             this.tabsControl.TabIndex = 6;
             // 
-            // tabAll
+            // tabReports
             // 
-            this.tabAll.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabAll.Controls.Add(this.panelStat);
-            this.tabAll.Controls.Add(this.dataGridViewReport);
-            this.tabAll.Controls.Add(this.panelReceived);
-            this.tabAll.Location = new System.Drawing.Point(4, 29);
-            this.tabAll.Name = "tabAll";
-            this.tabAll.Size = new System.Drawing.Size(1349, 373);
-            this.tabAll.TabIndex = 0;
-            this.tabAll.Text = "Общее";
+            this.tabReports.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabReports.Controls.Add(this.reportPanelStat);
+            this.tabReports.Controls.Add(this.reportDataGridView);
+            this.tabReports.Controls.Add(this.reportPanel);
+            this.tabReports.Location = new System.Drawing.Point(4, 29);
+            this.tabReports.Name = "tabReports";
+            this.tabReports.Size = new System.Drawing.Size(1349, 373);
+            this.tabReports.TabIndex = 0;
+            this.tabReports.Text = "Общее";
             // 
-            // panelStat
+            // reportPanelStat
             // 
-            this.panelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelStat.Controls.Add(this.labelDaysCount);
-            this.panelStat.Controls.Add(this.labelInfoDays);
-            this.panelStat.Controls.Add(this.labelPay);
-            this.panelStat.Controls.Add(this.labelCount);
-            this.panelStat.Controls.Add(this.labelInfoPay);
-            this.panelStat.Controls.Add(this.labelInfoCount);
-            this.panelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelStat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.panelStat.Location = new System.Drawing.Point(0, 343);
-            this.panelStat.Name = "panelStat";
-            this.panelStat.Size = new System.Drawing.Size(1349, 30);
-            this.panelStat.TabIndex = 6;
+            this.reportPanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.reportPanelStat.Controls.Add(this.reportLabelDaysCount);
+            this.reportPanelStat.Controls.Add(this.reportLabelInfoDays);
+            this.reportPanelStat.Controls.Add(this.reportLabelPay);
+            this.reportPanelStat.Controls.Add(this.reportLabelCount);
+            this.reportPanelStat.Controls.Add(this.reportLabelInfoPay);
+            this.reportPanelStat.Controls.Add(this.reportLabelInfoCount);
+            this.reportPanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.reportPanelStat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.reportPanelStat.Location = new System.Drawing.Point(0, 343);
+            this.reportPanelStat.Name = "reportPanelStat";
+            this.reportPanelStat.Size = new System.Drawing.Size(1349, 30);
+            this.reportPanelStat.TabIndex = 6;
             // 
-            // labelDaysCount
+            // reportLabelDaysCount
             // 
-            this.labelDaysCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDaysCount.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelDaysCount.Location = new System.Drawing.Point(712, 5);
-            this.labelDaysCount.Name = "labelDaysCount";
-            this.labelDaysCount.Size = new System.Drawing.Size(140, 20);
-            this.labelDaysCount.TabIndex = 3;
-            this.labelDaysCount.Text = "0";
+            this.reportLabelDaysCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.reportLabelDaysCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.reportLabelDaysCount.Location = new System.Drawing.Point(712, 5);
+            this.reportLabelDaysCount.Name = "reportLabelDaysCount";
+            this.reportLabelDaysCount.Size = new System.Drawing.Size(140, 20);
+            this.reportLabelDaysCount.TabIndex = 3;
+            this.reportLabelDaysCount.Text = "0";
             // 
-            // labelInfoDays
+            // reportLabelInfoDays
             // 
-            this.labelInfoDays.AutoSize = true;
-            this.labelInfoDays.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInfoDays.Location = new System.Drawing.Point(664, 5);
-            this.labelInfoDays.Name = "labelInfoDays";
-            this.labelInfoDays.Size = new System.Drawing.Size(42, 20);
-            this.labelInfoDays.TabIndex = 2;
-            this.labelInfoDays.Text = "Дни:";
+            this.reportLabelInfoDays.AutoSize = true;
+            this.reportLabelInfoDays.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.reportLabelInfoDays.Location = new System.Drawing.Point(664, 5);
+            this.reportLabelInfoDays.Name = "reportLabelInfoDays";
+            this.reportLabelInfoDays.Size = new System.Drawing.Size(42, 20);
+            this.reportLabelInfoDays.TabIndex = 2;
+            this.reportLabelInfoDays.Text = "Дни:";
             // 
-            // labelPay
+            // reportLabelPay
             // 
-            this.labelPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPay.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelPay.Location = new System.Drawing.Point(461, 5);
-            this.labelPay.Name = "labelPay";
-            this.labelPay.Size = new System.Drawing.Size(140, 20);
-            this.labelPay.TabIndex = 1;
-            this.labelPay.Text = "0,00 ₽";
+            this.reportLabelPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.reportLabelPay.ForeColor = System.Drawing.Color.DarkOrange;
+            this.reportLabelPay.Location = new System.Drawing.Point(461, 5);
+            this.reportLabelPay.Name = "reportLabelPay";
+            this.reportLabelPay.Size = new System.Drawing.Size(140, 20);
+            this.reportLabelPay.TabIndex = 1;
+            this.reportLabelPay.Text = "0,00 ₽";
             // 
-            // labelCount
+            // reportLabelCount
             // 
-            this.labelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCount.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelCount.Location = new System.Drawing.Point(122, 5);
-            this.labelCount.Name = "labelCount";
-            this.labelCount.Size = new System.Drawing.Size(140, 20);
-            this.labelCount.TabIndex = 0;
-            this.labelCount.Text = "0";
+            this.reportLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.reportLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.reportLabelCount.Location = new System.Drawing.Point(122, 5);
+            this.reportLabelCount.Name = "reportLabelCount";
+            this.reportLabelCount.Size = new System.Drawing.Size(140, 20);
+            this.reportLabelCount.TabIndex = 0;
+            this.reportLabelCount.Text = "0";
             // 
-            // labelInfoPay
+            // reportLabelInfoPay
             // 
-            this.labelInfoPay.AutoSize = true;
-            this.labelInfoPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInfoPay.Location = new System.Drawing.Point(395, 5);
-            this.labelInfoPay.Name = "labelInfoPay";
-            this.labelInfoPay.Size = new System.Drawing.Size(60, 20);
-            this.labelInfoPay.TabIndex = 0;
-            this.labelInfoPay.Text = "Сумма:";
+            this.reportLabelInfoPay.AutoSize = true;
+            this.reportLabelInfoPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.reportLabelInfoPay.Location = new System.Drawing.Point(395, 5);
+            this.reportLabelInfoPay.Name = "reportLabelInfoPay";
+            this.reportLabelInfoPay.Size = new System.Drawing.Size(60, 20);
+            this.reportLabelInfoPay.TabIndex = 0;
+            this.reportLabelInfoPay.Text = "Сумма:";
             // 
-            // labelInfoCount
+            // reportLabelInfoCount
             // 
-            this.labelInfoCount.AutoSize = true;
-            this.labelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInfoCount.Location = new System.Drawing.Point(21, 5);
-            this.labelInfoCount.Name = "labelInfoCount";
-            this.labelInfoCount.Size = new System.Drawing.Size(95, 20);
-            this.labelInfoCount.TabIndex = 0;
-            this.labelInfoCount.Text = "Количество:";
+            this.reportLabelInfoCount.AutoSize = true;
+            this.reportLabelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.reportLabelInfoCount.Location = new System.Drawing.Point(21, 5);
+            this.reportLabelInfoCount.Name = "reportLabelInfoCount";
+            this.reportLabelInfoCount.Size = new System.Drawing.Size(95, 20);
+            this.reportLabelInfoCount.TabIndex = 0;
+            this.reportLabelInfoCount.Text = "Количество:";
             // 
-            // dataGridViewReport
+            // reportDataGridView
             // 
-            this.dataGridViewReport.AllowUserToAddRows = false;
-            this.dataGridViewReport.AllowUserToDeleteRows = false;
-            this.dataGridViewReport.AllowUserToResizeColumns = false;
-            this.dataGridViewReport.AllowUserToResizeRows = false;
-            this.dataGridViewReport.AutoGenerateColumns = false;
-            this.dataGridViewReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewReport.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewReport.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.reportDataGridView.AllowUserToAddRows = false;
+            this.reportDataGridView.AllowUserToDeleteRows = false;
+            this.reportDataGridView.AllowUserToResizeColumns = false;
+            this.reportDataGridView.AllowUserToResizeRows = false;
+            this.reportDataGridView.AutoGenerateColumns = false;
+            this.reportDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.reportDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.reportDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -499,16 +548,16 @@ namespace WorldStat.Core.Forms
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewReport.ColumnHeadersHeight = 40;
-            this.dataGridViewReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridViewReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.reportDateDataGridViewTextBoxColumn,
-            this.reportDayNameDataGridViewTextBoxColumn,
-            this.reportTypeDataGridViewTextBoxColumn,
-            this.reportCountDataGridViewTextBoxColumn,
-            this.reportPaytDataGridViewTextBoxColumn});
-            this.dataGridViewReport.DataSource = this.reportBindingSource;
+            this.reportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.reportDataGridView.ColumnHeadersHeight = 40;
+            this.reportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.reportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.reportColumnDate,
+            this.reportColumnDayName,
+            this.reportColumnType,
+            this.reportColumnCount,
+            this.reportColumnPay});
+            this.reportDataGridView.DataSource = this.reportBindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -516,12 +565,12 @@ namespace WorldStat.Core.Forms
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewReport.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewReport.EnableHeadersVisualStyles = false;
-            this.dataGridViewReport.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.dataGridViewReport.Location = new System.Drawing.Point(0, 48);
-            this.dataGridViewReport.Name = "dataGridViewReport";
+            this.reportDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.reportDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportDataGridView.EnableHeadersVisualStyles = false;
+            this.reportDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.reportDataGridView.Location = new System.Drawing.Point(0, 48);
+            this.reportDataGridView.Name = "reportDataGridView";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -529,75 +578,76 @@ namespace WorldStat.Core.Forms
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewReport.RowHeadersVisible = false;
-            this.dataGridViewReport.RowHeadersWidth = 40;
-            this.dataGridViewReport.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewReport.RowTemplate.Height = 40;
-            this.dataGridViewReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewReport.Size = new System.Drawing.Size(1349, 325);
-            this.dataGridViewReport.TabIndex = 5;
-            this.dataGridViewReport.TabStop = false;
+            this.reportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.reportDataGridView.RowHeadersVisible = false;
+            this.reportDataGridView.RowHeadersWidth = 40;
+            this.reportDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.reportDataGridView.RowTemplate.Height = 40;
+            this.reportDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.reportDataGridView.Size = new System.Drawing.Size(1349, 325);
+            this.reportDataGridView.TabIndex = 5;
+            this.reportDataGridView.TabStop = false;
+            this.reportDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             // 
-            // reportDateDataGridViewTextBoxColumn
+            // reportColumnDate
             // 
-            this.reportDateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.reportColumnDate.DataPropertyName = "Date";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.Format = "d";
             dataGridViewCellStyle2.NullValue = null;
-            this.reportDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.reportDateDataGridViewTextBoxColumn.HeaderText = "Дата";
-            this.reportDateDataGridViewTextBoxColumn.Name = "reportDateDataGridViewTextBoxColumn";
-            this.reportDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.reportColumnDate.DefaultCellStyle = dataGridViewCellStyle2;
+            this.reportColumnDate.HeaderText = "Дата";
+            this.reportColumnDate.Name = "reportColumnDate";
+            this.reportColumnDate.ReadOnly = true;
             // 
-            // reportDayNameDataGridViewTextBoxColumn
+            // reportColumnDayName
             // 
-            this.reportDayNameDataGridViewTextBoxColumn.DataPropertyName = "DayName";
-            this.reportDayNameDataGridViewTextBoxColumn.HeaderText = "День";
-            this.reportDayNameDataGridViewTextBoxColumn.Name = "reportDayNameDataGridViewTextBoxColumn";
-            this.reportDayNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.reportColumnDayName.DataPropertyName = "DayName";
+            this.reportColumnDayName.HeaderText = "День";
+            this.reportColumnDayName.Name = "reportColumnDayName";
+            this.reportColumnDayName.ReadOnly = true;
             // 
-            // reportTypeDataGridViewTextBoxColumn
+            // reportColumnType
             // 
-            this.reportTypeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.reportTypeDataGridViewTextBoxColumn.HeaderText = "Смена";
-            this.reportTypeDataGridViewTextBoxColumn.Name = "reportTypeDataGridViewTextBoxColumn";
-            this.reportTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.reportColumnType.DataPropertyName = "Type";
+            this.reportColumnType.HeaderText = "Смена";
+            this.reportColumnType.Name = "reportColumnType";
+            this.reportColumnType.ReadOnly = true;
             // 
-            // reportCountDataGridViewTextBoxColumn
+            // reportColumnCount
             // 
-            this.reportCountDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.reportColumnCount.DataPropertyName = "Count";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.reportCountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.reportCountDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.reportCountDataGridViewTextBoxColumn.Name = "reportCountDataGridViewTextBoxColumn";
-            this.reportCountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.reportColumnCount.DefaultCellStyle = dataGridViewCellStyle3;
+            this.reportColumnCount.HeaderText = "Количество";
+            this.reportColumnCount.Name = "reportColumnCount";
+            this.reportColumnCount.ReadOnly = true;
             // 
-            // reportPaytDataGridViewTextBoxColumn
+            // reportColumnPay
             // 
-            this.reportPaytDataGridViewTextBoxColumn.DataPropertyName = "Pay";
+            this.reportColumnPay.DataPropertyName = "Pay";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.Format = "N2";
             dataGridViewCellStyle4.NullValue = null;
-            this.reportPaytDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.reportPaytDataGridViewTextBoxColumn.HeaderText = "Плата";
-            this.reportPaytDataGridViewTextBoxColumn.Name = "reportPaytDataGridViewTextBoxColumn";
-            this.reportPaytDataGridViewTextBoxColumn.ReadOnly = true;
+            this.reportColumnPay.DefaultCellStyle = dataGridViewCellStyle4;
+            this.reportColumnPay.HeaderText = "Плата";
+            this.reportColumnPay.Name = "reportColumnPay";
+            this.reportColumnPay.ReadOnly = true;
             // 
             // reportBindingSource
             // 
             this.reportBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.Report);
             // 
-            // panelReceived
+            // reportPanel
             // 
-            this.panelReceived.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelReceived.Controls.Add(this.flowLayoutPanelReport);
-            this.panelReceived.Controls.Add(this.btnLoadReport);
-            this.panelReceived.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReceived.Location = new System.Drawing.Point(0, 0);
-            this.panelReceived.Name = "panelReceived";
-            this.panelReceived.Size = new System.Drawing.Size(1349, 48);
-            this.panelReceived.TabIndex = 4;
+            this.reportPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.reportPanel.Controls.Add(this.flowLayoutPanelReport);
+            this.reportPanel.Controls.Add(this.btnLoadReports);
+            this.reportPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.reportPanel.Location = new System.Drawing.Point(0, 0);
+            this.reportPanel.Name = "reportPanel";
+            this.reportPanel.Size = new System.Drawing.Size(1349, 48);
+            this.reportPanel.TabIndex = 4;
             // 
             // flowLayoutPanelReport
             // 
@@ -607,8 +657,8 @@ namespace WorldStat.Core.Forms
             this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerStart);
             this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerEnd);
             this.flowLayoutPanelReport.Controls.Add(this.reportDateTimePickerCalendar);
-            this.flowLayoutPanelReport.Controls.Add(this.labelCalendar);
-            this.flowLayoutPanelReport.Controls.Add(this.comboBoxCalendar);
+            this.flowLayoutPanelReport.Controls.Add(this.reportLabelInfoTeam);
+            this.flowLayoutPanelReport.Controls.Add(this.reportComboBoxTeam);
             this.flowLayoutPanelReport.Location = new System.Drawing.Point(8, 7);
             this.flowLayoutPanelReport.Name = "flowLayoutPanelReport";
             this.flowLayoutPanelReport.Size = new System.Drawing.Size(1287, 34);
@@ -673,130 +723,152 @@ namespace WorldStat.Core.Forms
             this.reportDateTimePickerCalendar.Size = new System.Drawing.Size(200, 27);
             this.reportDateTimePickerCalendar.TabIndex = 23;
             // 
-            // labelCalendar
+            // reportLabelInfoTeam
             // 
-            this.labelCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelCalendar.AutoSize = true;
-            this.labelCalendar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCalendar.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelCalendar.Location = new System.Drawing.Point(695, 6);
-            this.labelCalendar.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
-            this.labelCalendar.Name = "labelCalendar";
-            this.labelCalendar.Size = new System.Drawing.Size(58, 20);
-            this.labelCalendar.TabIndex = 26;
-            this.labelCalendar.Text = "Смена:";
+            this.reportLabelInfoTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportLabelInfoTeam.AutoSize = true;
+            this.reportLabelInfoTeam.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.reportLabelInfoTeam.ForeColor = System.Drawing.Color.Gainsboro;
+            this.reportLabelInfoTeam.Location = new System.Drawing.Point(695, 6);
+            this.reportLabelInfoTeam.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.reportLabelInfoTeam.Name = "reportLabelInfoTeam";
+            this.reportLabelInfoTeam.Size = new System.Drawing.Size(58, 20);
+            this.reportLabelInfoTeam.TabIndex = 26;
+            this.reportLabelInfoTeam.Text = "Смена:";
             // 
-            // comboBoxCalendar
+            // reportComboBoxTeam
             // 
-            this.comboBoxCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxCalendar.FormattingEnabled = true;
-            this.comboBoxCalendar.Location = new System.Drawing.Point(759, 3);
-            this.comboBoxCalendar.Name = "comboBoxCalendar";
-            this.comboBoxCalendar.Size = new System.Drawing.Size(168, 28);
-            this.comboBoxCalendar.TabIndex = 25;
+            this.reportComboBoxTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportComboBoxTeam.FormattingEnabled = true;
+            this.reportComboBoxTeam.Location = new System.Drawing.Point(759, 3);
+            this.reportComboBoxTeam.Name = "reportComboBoxTeam";
+            this.reportComboBoxTeam.Size = new System.Drawing.Size(168, 28);
+            this.reportComboBoxTeam.TabIndex = 25;
             // 
-            // btnLoadReport
+            // btnLoadReports
             // 
-            this.btnLoadReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoadReport.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLoadReport.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReport.BorderRadius = 6F;
-            this.btnLoadReport.BorderSize = 0;
-            this.btnLoadReport.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadReport.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReport.FlatAppearance.BorderSize = 0;
-            this.btnLoadReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnLoadReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadReport.ForeColor = System.Drawing.Color.White;
-            this.btnLoadReport.Image = global::WorldStat.Properties.Resources.sinchronize_24;
-            this.btnLoadReport.Location = new System.Drawing.Point(1301, 4);
-            this.btnLoadReport.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnLoadReport.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnLoadReport.Name = "btnLoadReport";
-            this.btnLoadReport.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadReport.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadReport.TabIndex = 24;
-            this.btnLoadReport.TextColor = System.Drawing.Color.White;
-            this.btnLoadReport.UseVisualStyleBackColor = false;
-            this.btnLoadReport.Click += new System.EventHandler(this.btnLoadReport_Click);
+            this.btnLoadReports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadReports.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadReports.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReports.BorderRadius = 6F;
+            this.btnLoadReports.BorderSize = 0;
+            this.btnLoadReports.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadReports.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReports.FlatAppearance.BorderSize = 0;
+            this.btnLoadReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadReports.ForeColor = System.Drawing.Color.White;
+            this.btnLoadReports.Image = global::WorldStat.Properties.Resources.sinchronize_24;
+            this.btnLoadReports.Location = new System.Drawing.Point(1301, 4);
+            this.btnLoadReports.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadReports.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadReports.Name = "btnLoadReports";
+            this.btnLoadReports.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadReports.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadReports.TabIndex = 24;
+            this.btnLoadReports.TextColor = System.Drawing.Color.White;
+            this.btnLoadReports.UseVisualStyleBackColor = false;
+            this.btnLoadReports.Click += new System.EventHandler(this.btnLoadReports_Click);
             // 
-            // tabOrg
+            // tabOrgs
             // 
-            this.tabOrg.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabOrg.Controls.Add(this.panel1);
-            this.tabOrg.Controls.Add(this.dataGridViewFirms);
-            this.tabOrg.Controls.Add(this.dataGridViewDocOrg);
-            this.tabOrg.Controls.Add(this.panelOrgDoc);
-            this.tabOrg.Location = new System.Drawing.Point(4, 29);
-            this.tabOrg.Name = "tabOrg";
-            this.tabOrg.Size = new System.Drawing.Size(1349, 373);
-            this.tabOrg.TabIndex = 1;
-            this.tabOrg.Text = "Организации";
+            this.tabOrgs.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabOrgs.Controls.Add(this.orgPanelStat);
+            this.tabOrgs.Controls.Add(this.orgDataGridView);
+            this.tabOrgs.Controls.Add(this.dataGridViewDocOrg);
+            this.tabOrgs.Controls.Add(this.orgPanel);
+            this.tabOrgs.Location = new System.Drawing.Point(4, 29);
+            this.tabOrgs.Name = "tabOrgs";
+            this.tabOrgs.Size = new System.Drawing.Size(1349, 373);
+            this.tabOrgs.TabIndex = 1;
+            this.tabOrgs.Text = "Организации";
             // 
-            // panel1
+            // orgPanelStat
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panel1.Controls.Add(this.labelFirmPay);
-            this.panel1.Controls.Add(this.labelFirmCount);
-            this.panel1.Controls.Add(this.labelFirmInfoPay);
-            this.panel1.Controls.Add(this.labelFirmInfoCount);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.panel1.Location = new System.Drawing.Point(0, 343);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1349, 30);
-            this.panel1.TabIndex = 9;
+            this.orgPanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.orgPanelStat.Controls.Add(this.orgLabelPosCount);
+            this.orgPanelStat.Controls.Add(this.orgLabelInfoPosCount);
+            this.orgPanelStat.Controls.Add(this.orgLabelPay);
+            this.orgPanelStat.Controls.Add(this.orgLabelCount);
+            this.orgPanelStat.Controls.Add(this.orgLabelInfoPay);
+            this.orgPanelStat.Controls.Add(this.orgLabelInfoCount);
+            this.orgPanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.orgPanelStat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.orgPanelStat.Location = new System.Drawing.Point(0, 343);
+            this.orgPanelStat.Name = "orgPanelStat";
+            this.orgPanelStat.Size = new System.Drawing.Size(1349, 30);
+            this.orgPanelStat.TabIndex = 9;
             // 
-            // labelFirmPay
+            // orgLabelPosCount
             // 
-            this.labelFirmPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirmPay.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelFirmPay.Location = new System.Drawing.Point(461, 5);
-            this.labelFirmPay.Name = "labelFirmPay";
-            this.labelFirmPay.Size = new System.Drawing.Size(140, 20);
-            this.labelFirmPay.TabIndex = 1;
-            this.labelFirmPay.Text = "0,00 ₽";
+            this.orgLabelPosCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgLabelPosCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.orgLabelPosCount.Location = new System.Drawing.Point(731, 5);
+            this.orgLabelPosCount.Name = "orgLabelPosCount";
+            this.orgLabelPosCount.Size = new System.Drawing.Size(140, 20);
+            this.orgLabelPosCount.TabIndex = 3;
+            this.orgLabelPosCount.Text = "0";
             // 
-            // labelFirmCount
+            // orgLabelInfoPosCount
             // 
-            this.labelFirmCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirmCount.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelFirmCount.Location = new System.Drawing.Point(122, 5);
-            this.labelFirmCount.Name = "labelFirmCount";
-            this.labelFirmCount.Size = new System.Drawing.Size(140, 20);
-            this.labelFirmCount.TabIndex = 0;
-            this.labelFirmCount.Text = "0";
+            this.orgLabelInfoPosCount.AutoSize = true;
+            this.orgLabelInfoPosCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgLabelInfoPosCount.Location = new System.Drawing.Point(649, 5);
+            this.orgLabelInfoPosCount.Name = "orgLabelInfoPosCount";
+            this.orgLabelInfoPosCount.Size = new System.Drawing.Size(76, 20);
+            this.orgLabelInfoPosCount.TabIndex = 2;
+            this.orgLabelInfoPosCount.Text = "Позиций:";
             // 
-            // labelFirmInfoPay
+            // orgLabelPay
             // 
-            this.labelFirmInfoPay.AutoSize = true;
-            this.labelFirmInfoPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirmInfoPay.Location = new System.Drawing.Point(395, 5);
-            this.labelFirmInfoPay.Name = "labelFirmInfoPay";
-            this.labelFirmInfoPay.Size = new System.Drawing.Size(60, 20);
-            this.labelFirmInfoPay.TabIndex = 0;
-            this.labelFirmInfoPay.Text = "Сумма:";
+            this.orgLabelPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgLabelPay.ForeColor = System.Drawing.Color.DarkOrange;
+            this.orgLabelPay.Location = new System.Drawing.Point(461, 5);
+            this.orgLabelPay.Name = "orgLabelPay";
+            this.orgLabelPay.Size = new System.Drawing.Size(140, 20);
+            this.orgLabelPay.TabIndex = 1;
+            this.orgLabelPay.Text = "0,00 ₽";
             // 
-            // labelFirmInfoCount
+            // orgLabelCount
             // 
-            this.labelFirmInfoCount.AutoSize = true;
-            this.labelFirmInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirmInfoCount.Location = new System.Drawing.Point(21, 5);
-            this.labelFirmInfoCount.Name = "labelFirmInfoCount";
-            this.labelFirmInfoCount.Size = new System.Drawing.Size(95, 20);
-            this.labelFirmInfoCount.TabIndex = 0;
-            this.labelFirmInfoCount.Text = "Количество:";
+            this.orgLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.orgLabelCount.Location = new System.Drawing.Point(122, 5);
+            this.orgLabelCount.Name = "orgLabelCount";
+            this.orgLabelCount.Size = new System.Drawing.Size(140, 20);
+            this.orgLabelCount.TabIndex = 0;
+            this.orgLabelCount.Text = "0";
             // 
-            // dataGridViewFirms
+            // orgLabelInfoPay
             // 
-            this.dataGridViewFirms.AllowUserToAddRows = false;
-            this.dataGridViewFirms.AllowUserToDeleteRows = false;
-            this.dataGridViewFirms.AllowUserToResizeColumns = false;
-            this.dataGridViewFirms.AllowUserToResizeRows = false;
-            this.dataGridViewFirms.AutoGenerateColumns = false;
-            this.dataGridViewFirms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewFirms.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewFirms.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.orgLabelInfoPay.AutoSize = true;
+            this.orgLabelInfoPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgLabelInfoPay.Location = new System.Drawing.Point(395, 5);
+            this.orgLabelInfoPay.Name = "orgLabelInfoPay";
+            this.orgLabelInfoPay.Size = new System.Drawing.Size(60, 20);
+            this.orgLabelInfoPay.TabIndex = 0;
+            this.orgLabelInfoPay.Text = "Сумма:";
+            // 
+            // orgLabelInfoCount
+            // 
+            this.orgLabelInfoCount.AutoSize = true;
+            this.orgLabelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgLabelInfoCount.Location = new System.Drawing.Point(21, 5);
+            this.orgLabelInfoCount.Name = "orgLabelInfoCount";
+            this.orgLabelInfoCount.Size = new System.Drawing.Size(95, 20);
+            this.orgLabelInfoCount.TabIndex = 0;
+            this.orgLabelInfoCount.Text = "Количество:";
+            // 
+            // orgDataGridView
+            // 
+            this.orgDataGridView.AllowUserToAddRows = false;
+            this.orgDataGridView.AllowUserToDeleteRows = false;
+            this.orgDataGridView.AllowUserToResizeColumns = false;
+            this.orgDataGridView.AllowUserToResizeRows = false;
+            this.orgDataGridView.AutoGenerateColumns = false;
+            this.orgDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.orgDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.orgDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -804,19 +876,19 @@ namespace WorldStat.Core.Forms
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFirms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewFirms.ColumnHeadersHeight = 40;
-            this.dataGridViewFirms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridViewFirms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.firmDateDataGridViewTextBoxColumn,
-            this.firmNameDataGridViewTextBoxColumn,
-            this.firmMailTypeDataGridViewCheckBoxColumn,
-            this.firmMailCategoryDataGridViewCheckBoxColumn,
-            this.firmTransCategoryDataGridViewTextBoxColumn,
-            this.firmCountDataGridViewTextBoxColumn,
-            this.firmPayDataGridViewTextBoxColumn,
-            this.firmTransTypeDataGridViewTextBoxColumn});
-            this.dataGridViewFirms.DataSource = this.reportPosBindingSource;
+            this.orgDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.orgDataGridView.ColumnHeadersHeight = 40;
+            this.orgDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.orgDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orgColumnDate,
+            this.orgColumnName,
+            this.orgColumnMailType,
+            this.orgColumnMailCategory,
+            this.orgColumnTransCategory,
+            this.orgColumnCount,
+            this.orgColumnPay,
+            this.orgColumnTransType});
+            this.orgDataGridView.DataSource = this.reportPosBindingSource;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -824,13 +896,13 @@ namespace WorldStat.Core.Forms
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewFirms.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewFirms.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewFirms.EnableHeadersVisualStyles = false;
-            this.dataGridViewFirms.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.dataGridViewFirms.Location = new System.Drawing.Point(0, 92);
-            this.dataGridViewFirms.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.dataGridViewFirms.Name = "dataGridViewFirms";
+            this.orgDataGridView.DefaultCellStyle = dataGridViewCellStyle9;
+            this.orgDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orgDataGridView.EnableHeadersVisualStyles = false;
+            this.orgDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.orgDataGridView.Location = new System.Drawing.Point(0, 92);
+            this.orgDataGridView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.orgDataGridView.Name = "orgDataGridView";
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -838,94 +910,95 @@ namespace WorldStat.Core.Forms
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFirms.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewFirms.RowHeadersVisible = false;
-            this.dataGridViewFirms.RowHeadersWidth = 40;
-            this.dataGridViewFirms.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewFirms.RowTemplate.Height = 40;
-            this.dataGridViewFirms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewFirms.Size = new System.Drawing.Size(1349, 281);
-            this.dataGridViewFirms.TabIndex = 8;
-            this.dataGridViewFirms.TabStop = false;
+            this.orgDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.orgDataGridView.RowHeadersVisible = false;
+            this.orgDataGridView.RowHeadersWidth = 40;
+            this.orgDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.orgDataGridView.RowTemplate.Height = 40;
+            this.orgDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.orgDataGridView.Size = new System.Drawing.Size(1349, 281);
+            this.orgDataGridView.TabIndex = 8;
+            this.orgDataGridView.TabStop = false;
+            this.orgDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             // 
-            // firmDateDataGridViewTextBoxColumn
+            // orgColumnDate
             // 
-            this.firmDateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.firmDateDataGridViewTextBoxColumn.HeaderText = "Дата";
-            this.firmDateDataGridViewTextBoxColumn.Name = "firmDateDataGridViewTextBoxColumn";
-            this.firmDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.orgColumnDate.DataPropertyName = "Date";
+            this.orgColumnDate.HeaderText = "Дата";
+            this.orgColumnDate.Name = "orgColumnDate";
+            this.orgColumnDate.ReadOnly = true;
             // 
-            // firmNameDataGridViewTextBoxColumn
+            // orgColumnName
             // 
-            this.firmNameDataGridViewTextBoxColumn.DataPropertyName = "Firm";
-            this.firmNameDataGridViewTextBoxColumn.HeaderText = "Организация";
-            this.firmNameDataGridViewTextBoxColumn.Name = "firmNameDataGridViewTextBoxColumn";
-            this.firmNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.orgColumnName.DataPropertyName = "Firm";
+            this.orgColumnName.HeaderText = "Организация";
+            this.orgColumnName.Name = "orgColumnName";
+            this.orgColumnName.ReadOnly = true;
             // 
-            // firmMailTypeDataGridViewCheckBoxColumn
+            // orgColumnMailType
             // 
-            this.firmMailTypeDataGridViewCheckBoxColumn.DataPropertyName = "MailType";
-            this.firmMailTypeDataGridViewCheckBoxColumn.DataSource = this.mailTypeBindingSource;
-            this.firmMailTypeDataGridViewCheckBoxColumn.DisplayMember = "ShortName";
-            this.firmMailTypeDataGridViewCheckBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.firmMailTypeDataGridViewCheckBoxColumn.HeaderText = "Тип";
-            this.firmMailTypeDataGridViewCheckBoxColumn.Name = "firmMailTypeDataGridViewCheckBoxColumn";
-            this.firmMailTypeDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.firmMailTypeDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.firmMailTypeDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.firmMailTypeDataGridViewCheckBoxColumn.ValueMember = "Code";
+            this.orgColumnMailType.DataPropertyName = "MailType";
+            this.orgColumnMailType.DataSource = this.mailTypeBindingSource;
+            this.orgColumnMailType.DisplayMember = "ShortName";
+            this.orgColumnMailType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.orgColumnMailType.HeaderText = "Тип";
+            this.orgColumnMailType.Name = "orgColumnMailType";
+            this.orgColumnMailType.ReadOnly = true;
+            this.orgColumnMailType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.orgColumnMailType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.orgColumnMailType.ValueMember = "Code";
             // 
             // mailTypeBindingSource
             // 
             this.mailTypeBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailType);
             // 
-            // firmMailCategoryDataGridViewCheckBoxColumn
+            // orgColumnMailCategory
             // 
-            this.firmMailCategoryDataGridViewCheckBoxColumn.DataPropertyName = "MailCategory";
-            this.firmMailCategoryDataGridViewCheckBoxColumn.DataSource = this.mailCategoryBindingSource;
-            this.firmMailCategoryDataGridViewCheckBoxColumn.DisplayMember = "ShortName";
-            this.firmMailCategoryDataGridViewCheckBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.firmMailCategoryDataGridViewCheckBoxColumn.HeaderText = "Категория";
-            this.firmMailCategoryDataGridViewCheckBoxColumn.Name = "firmMailCategoryDataGridViewCheckBoxColumn";
-            this.firmMailCategoryDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.firmMailCategoryDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.firmMailCategoryDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.firmMailCategoryDataGridViewCheckBoxColumn.ValueMember = "Code";
+            this.orgColumnMailCategory.DataPropertyName = "MailCategory";
+            this.orgColumnMailCategory.DataSource = this.mailCategoryBindingSource;
+            this.orgColumnMailCategory.DisplayMember = "ShortName";
+            this.orgColumnMailCategory.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.orgColumnMailCategory.HeaderText = "Категория";
+            this.orgColumnMailCategory.Name = "orgColumnMailCategory";
+            this.orgColumnMailCategory.ReadOnly = true;
+            this.orgColumnMailCategory.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.orgColumnMailCategory.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.orgColumnMailCategory.ValueMember = "Code";
             // 
             // mailCategoryBindingSource
             // 
             this.mailCategoryBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCategory);
             // 
-            // firmTransCategoryDataGridViewTextBoxColumn
+            // orgColumnTransCategory
             // 
-            this.firmTransCategoryDataGridViewTextBoxColumn.DataPropertyName = "TransCategory";
-            this.firmTransCategoryDataGridViewTextBoxColumn.HeaderText = "Класс";
-            this.firmTransCategoryDataGridViewTextBoxColumn.Name = "firmTransCategoryDataGridViewTextBoxColumn";
-            this.firmTransCategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.orgColumnTransCategory.DataPropertyName = "TransCategory";
+            this.orgColumnTransCategory.HeaderText = "Класс";
+            this.orgColumnTransCategory.Name = "orgColumnTransCategory";
+            this.orgColumnTransCategory.ReadOnly = true;
             // 
-            // firmCountDataGridViewTextBoxColumn
+            // orgColumnCount
             // 
-            this.firmCountDataGridViewTextBoxColumn.DataPropertyName = "Count";
-            this.firmCountDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.firmCountDataGridViewTextBoxColumn.Name = "firmCountDataGridViewTextBoxColumn";
-            this.firmCountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.orgColumnCount.DataPropertyName = "Count";
+            this.orgColumnCount.HeaderText = "Количество";
+            this.orgColumnCount.Name = "orgColumnCount";
+            this.orgColumnCount.ReadOnly = true;
             // 
-            // firmPayDataGridViewTextBoxColumn
+            // orgColumnPay
             // 
-            this.firmPayDataGridViewTextBoxColumn.DataPropertyName = "Pay";
+            this.orgColumnPay.DataPropertyName = "Pay";
             dataGridViewCellStyle8.Format = "N2";
             dataGridViewCellStyle8.NullValue = null;
-            this.firmPayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            this.firmPayDataGridViewTextBoxColumn.HeaderText = "Плата";
-            this.firmPayDataGridViewTextBoxColumn.Name = "firmPayDataGridViewTextBoxColumn";
-            this.firmPayDataGridViewTextBoxColumn.ReadOnly = true;
+            this.orgColumnPay.DefaultCellStyle = dataGridViewCellStyle8;
+            this.orgColumnPay.HeaderText = "Плата";
+            this.orgColumnPay.Name = "orgColumnPay";
+            this.orgColumnPay.ReadOnly = true;
             // 
-            // firmTransTypeDataGridViewTextBoxColumn
+            // orgColumnTransType
             // 
-            this.firmTransTypeDataGridViewTextBoxColumn.DataPropertyName = "TransType";
-            this.firmTransTypeDataGridViewTextBoxColumn.HeaderText = "Пересылка";
-            this.firmTransTypeDataGridViewTextBoxColumn.Name = "firmTransTypeDataGridViewTextBoxColumn";
-            this.firmTransTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.orgColumnTransType.DataPropertyName = "TransType";
+            this.orgColumnTransType.HeaderText = "Пересылка";
+            this.orgColumnTransType.Name = "orgColumnTransType";
+            this.orgColumnTransType.ReadOnly = true;
             // 
             // reportPosBindingSource
             // 
@@ -979,143 +1052,143 @@ namespace WorldStat.Core.Forms
             this.dataGridViewDocOrg.TabIndex = 7;
             this.dataGridViewDocOrg.TabStop = false;
             // 
-            // panelOrgDoc
+            // orgPanel
             // 
-            this.panelOrgDoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelOrgDoc.Controls.Add(this.flowLayoutPanelOrgFilter);
-            this.panelOrgDoc.Controls.Add(this.flowLayoutPanelOrgBase);
-            this.panelOrgDoc.Controls.Add(this.btnLoadReportFirms);
-            this.panelOrgDoc.Controls.Add(this.comboBoxFirms);
-            this.panelOrgDoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelOrgDoc.Location = new System.Drawing.Point(0, 0);
-            this.panelOrgDoc.Name = "panelOrgDoc";
-            this.panelOrgDoc.Size = new System.Drawing.Size(1349, 92);
-            this.panelOrgDoc.TabIndex = 3;
+            this.orgPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.orgPanel.Controls.Add(this.flowLayoutPanelOrgFilter);
+            this.orgPanel.Controls.Add(this.flowLayoutPanelOrgBase);
+            this.orgPanel.Controls.Add(this.btnLoadFirms);
+            this.orgPanel.Controls.Add(this.orgComboBoxFirms);
+            this.orgPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.orgPanel.Location = new System.Drawing.Point(0, 0);
+            this.orgPanel.Name = "orgPanel";
+            this.orgPanel.Size = new System.Drawing.Size(1349, 92);
+            this.orgPanel.TabIndex = 3;
             // 
             // flowLayoutPanelOrgFilter
             // 
             this.flowLayoutPanelOrgFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelOrgFilter.Controls.Add(this.labelFirmInfoMailType);
-            this.flowLayoutPanelOrgFilter.Controls.Add(this.comboBoxFirmsMailType);
-            this.flowLayoutPanelOrgFilter.Controls.Add(this.labelFirmInfoMailCategory);
-            this.flowLayoutPanelOrgFilter.Controls.Add(this.comboBoxFirmsMailCategory);
-            this.flowLayoutPanelOrgFilter.Controls.Add(this.labelFirmInfoTransCategory);
-            this.flowLayoutPanelOrgFilter.Controls.Add(this.comboBoxFirmsTransCategory);
-            this.flowLayoutPanelOrgFilter.Controls.Add(this.labelFirmInfoTransType);
-            this.flowLayoutPanelOrgFilter.Controls.Add(this.comboBoxFirmsTransType);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.orgLabelInfoMailType);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.orgComboBoxMailType);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.orgLabelInfoMailCategory);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.orgComboBoxMailCategory);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.orgLabelInfoTransCategory);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.orgComboBoxTransCategory);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.orgLabelInfoTransType);
+            this.flowLayoutPanelOrgFilter.Controls.Add(this.orgComboBoxTransType);
             this.flowLayoutPanelOrgFilter.Location = new System.Drawing.Point(8, 48);
             this.flowLayoutPanelOrgFilter.Name = "flowLayoutPanelOrgFilter";
             this.flowLayoutPanelOrgFilter.Size = new System.Drawing.Size(1333, 34);
             this.flowLayoutPanelOrgFilter.TabIndex = 0;
             // 
-            // labelFirmInfoMailType
+            // orgLabelInfoMailType
             // 
-            this.labelFirmInfoMailType.AutoSize = true;
-            this.labelFirmInfoMailType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirmInfoMailType.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFirmInfoMailType.Location = new System.Drawing.Point(0, 6);
-            this.labelFirmInfoMailType.Margin = new System.Windows.Forms.Padding(0, 6, 2, 0);
-            this.labelFirmInfoMailType.Name = "labelFirmInfoMailType";
-            this.labelFirmInfoMailType.Size = new System.Drawing.Size(38, 20);
-            this.labelFirmInfoMailType.TabIndex = 30;
-            this.labelFirmInfoMailType.Text = "Тип:";
+            this.orgLabelInfoMailType.AutoSize = true;
+            this.orgLabelInfoMailType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgLabelInfoMailType.ForeColor = System.Drawing.Color.Gainsboro;
+            this.orgLabelInfoMailType.Location = new System.Drawing.Point(0, 6);
+            this.orgLabelInfoMailType.Margin = new System.Windows.Forms.Padding(0, 6, 2, 0);
+            this.orgLabelInfoMailType.Name = "orgLabelInfoMailType";
+            this.orgLabelInfoMailType.Size = new System.Drawing.Size(38, 20);
+            this.orgLabelInfoMailType.TabIndex = 30;
+            this.orgLabelInfoMailType.Text = "Тип:";
             // 
-            // comboBoxFirmsMailType
+            // orgComboBoxMailType
             // 
-            this.comboBoxFirmsMailType.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxFirmsMailType.DataSource = this.acitveMailTypeBindingSource;
-            this.comboBoxFirmsMailType.DisplayMember = "ShortName";
-            this.comboBoxFirmsMailType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.comboBoxFirmsMailType.FormattingEnabled = true;
-            this.comboBoxFirmsMailType.Location = new System.Drawing.Point(43, 3);
-            this.comboBoxFirmsMailType.Name = "comboBoxFirmsMailType";
-            this.comboBoxFirmsMailType.Size = new System.Drawing.Size(257, 28);
-            this.comboBoxFirmsMailType.TabIndex = 31;
-            this.comboBoxFirmsMailType.ValueMember = "Code";
+            this.orgComboBoxMailType.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.orgComboBoxMailType.DataSource = this.acitveMailTypeBindingSource;
+            this.orgComboBoxMailType.DisplayMember = "ShortName";
+            this.orgComboBoxMailType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.orgComboBoxMailType.FormattingEnabled = true;
+            this.orgComboBoxMailType.Location = new System.Drawing.Point(43, 3);
+            this.orgComboBoxMailType.Name = "orgComboBoxMailType";
+            this.orgComboBoxMailType.Size = new System.Drawing.Size(257, 28);
+            this.orgComboBoxMailType.TabIndex = 31;
+            this.orgComboBoxMailType.ValueMember = "Code";
             // 
             // acitveMailTypeBindingSource
             // 
             this.acitveMailTypeBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailType);
             // 
-            // labelFirmInfoMailCategory
+            // orgLabelInfoMailCategory
             // 
-            this.labelFirmInfoMailCategory.AutoSize = true;
-            this.labelFirmInfoMailCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirmInfoMailCategory.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFirmInfoMailCategory.Location = new System.Drawing.Point(308, 6);
-            this.labelFirmInfoMailCategory.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
-            this.labelFirmInfoMailCategory.Name = "labelFirmInfoMailCategory";
-            this.labelFirmInfoMailCategory.Size = new System.Drawing.Size(85, 20);
-            this.labelFirmInfoMailCategory.TabIndex = 30;
-            this.labelFirmInfoMailCategory.Text = "Категория:";
+            this.orgLabelInfoMailCategory.AutoSize = true;
+            this.orgLabelInfoMailCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgLabelInfoMailCategory.ForeColor = System.Drawing.Color.Gainsboro;
+            this.orgLabelInfoMailCategory.Location = new System.Drawing.Point(308, 6);
+            this.orgLabelInfoMailCategory.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
+            this.orgLabelInfoMailCategory.Name = "orgLabelInfoMailCategory";
+            this.orgLabelInfoMailCategory.Size = new System.Drawing.Size(85, 20);
+            this.orgLabelInfoMailCategory.TabIndex = 30;
+            this.orgLabelInfoMailCategory.Text = "Категория:";
             // 
-            // comboBoxFirmsMailCategory
+            // orgComboBoxMailCategory
             // 
-            this.comboBoxFirmsMailCategory.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxFirmsMailCategory.DataSource = this.activeMailCategoryBindingSource;
-            this.comboBoxFirmsMailCategory.DisplayMember = "ShortName";
-            this.comboBoxFirmsMailCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.comboBoxFirmsMailCategory.FormattingEnabled = true;
-            this.comboBoxFirmsMailCategory.Location = new System.Drawing.Point(398, 3);
-            this.comboBoxFirmsMailCategory.Name = "comboBoxFirmsMailCategory";
-            this.comboBoxFirmsMailCategory.Size = new System.Drawing.Size(215, 28);
-            this.comboBoxFirmsMailCategory.TabIndex = 31;
-            this.comboBoxFirmsMailCategory.ValueMember = "Code";
+            this.orgComboBoxMailCategory.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.orgComboBoxMailCategory.DataSource = this.activeMailCategoryBindingSource;
+            this.orgComboBoxMailCategory.DisplayMember = "ShortName";
+            this.orgComboBoxMailCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.orgComboBoxMailCategory.FormattingEnabled = true;
+            this.orgComboBoxMailCategory.Location = new System.Drawing.Point(398, 3);
+            this.orgComboBoxMailCategory.Name = "orgComboBoxMailCategory";
+            this.orgComboBoxMailCategory.Size = new System.Drawing.Size(215, 28);
+            this.orgComboBoxMailCategory.TabIndex = 31;
+            this.orgComboBoxMailCategory.ValueMember = "Code";
             // 
             // activeMailCategoryBindingSource
             // 
             this.activeMailCategoryBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.MailCategory);
             // 
-            // labelFirmInfoTransCategory
+            // orgLabelInfoTransCategory
             // 
-            this.labelFirmInfoTransCategory.AutoSize = true;
-            this.labelFirmInfoTransCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirmInfoTransCategory.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFirmInfoTransCategory.Location = new System.Drawing.Point(621, 6);
-            this.labelFirmInfoTransCategory.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
-            this.labelFirmInfoTransCategory.Name = "labelFirmInfoTransCategory";
-            this.labelFirmInfoTransCategory.Size = new System.Drawing.Size(53, 20);
-            this.labelFirmInfoTransCategory.TabIndex = 34;
-            this.labelFirmInfoTransCategory.Text = "Класс:";
+            this.orgLabelInfoTransCategory.AutoSize = true;
+            this.orgLabelInfoTransCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgLabelInfoTransCategory.ForeColor = System.Drawing.Color.Gainsboro;
+            this.orgLabelInfoTransCategory.Location = new System.Drawing.Point(621, 6);
+            this.orgLabelInfoTransCategory.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
+            this.orgLabelInfoTransCategory.Name = "orgLabelInfoTransCategory";
+            this.orgLabelInfoTransCategory.Size = new System.Drawing.Size(53, 20);
+            this.orgLabelInfoTransCategory.TabIndex = 34;
+            this.orgLabelInfoTransCategory.Text = "Класс:";
             // 
-            // comboBoxFirmsTransCategory
+            // orgComboBoxTransCategory
             // 
-            this.comboBoxFirmsTransCategory.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxFirmsTransCategory.DataSource = this.activeMailCategoryBindingSource;
-            this.comboBoxFirmsTransCategory.DisplayMember = "ShortName";
-            this.comboBoxFirmsTransCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.comboBoxFirmsTransCategory.FormattingEnabled = true;
-            this.comboBoxFirmsTransCategory.Location = new System.Drawing.Point(679, 3);
-            this.comboBoxFirmsTransCategory.Name = "comboBoxFirmsTransCategory";
-            this.comboBoxFirmsTransCategory.Size = new System.Drawing.Size(180, 28);
-            this.comboBoxFirmsTransCategory.TabIndex = 35;
-            this.comboBoxFirmsTransCategory.ValueMember = "Code";
+            this.orgComboBoxTransCategory.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.orgComboBoxTransCategory.DataSource = this.activeMailCategoryBindingSource;
+            this.orgComboBoxTransCategory.DisplayMember = "ShortName";
+            this.orgComboBoxTransCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.orgComboBoxTransCategory.FormattingEnabled = true;
+            this.orgComboBoxTransCategory.Location = new System.Drawing.Point(679, 3);
+            this.orgComboBoxTransCategory.Name = "orgComboBoxTransCategory";
+            this.orgComboBoxTransCategory.Size = new System.Drawing.Size(180, 28);
+            this.orgComboBoxTransCategory.TabIndex = 35;
+            this.orgComboBoxTransCategory.ValueMember = "Code";
             // 
-            // labelFirmInfoTransType
+            // orgLabelInfoTransType
             // 
-            this.labelFirmInfoTransType.AutoSize = true;
-            this.labelFirmInfoTransType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirmInfoTransType.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFirmInfoTransType.Location = new System.Drawing.Point(867, 6);
-            this.labelFirmInfoTransType.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
-            this.labelFirmInfoTransType.Name = "labelFirmInfoTransType";
-            this.labelFirmInfoTransType.Size = new System.Drawing.Size(91, 20);
-            this.labelFirmInfoTransType.TabIndex = 32;
-            this.labelFirmInfoTransType.Text = "Пересылка:";
+            this.orgLabelInfoTransType.AutoSize = true;
+            this.orgLabelInfoTransType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgLabelInfoTransType.ForeColor = System.Drawing.Color.Gainsboro;
+            this.orgLabelInfoTransType.Location = new System.Drawing.Point(867, 6);
+            this.orgLabelInfoTransType.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
+            this.orgLabelInfoTransType.Name = "orgLabelInfoTransType";
+            this.orgLabelInfoTransType.Size = new System.Drawing.Size(91, 20);
+            this.orgLabelInfoTransType.TabIndex = 32;
+            this.orgLabelInfoTransType.Text = "Пересылка:";
             // 
-            // comboBoxFirmsTransType
+            // orgComboBoxTransType
             // 
-            this.comboBoxFirmsTransType.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxFirmsTransType.DataSource = this.activeMailCategoryBindingSource;
-            this.comboBoxFirmsTransType.DisplayMember = "ShortName";
-            this.comboBoxFirmsTransType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.comboBoxFirmsTransType.FormattingEnabled = true;
-            this.comboBoxFirmsTransType.Location = new System.Drawing.Point(963, 3);
-            this.comboBoxFirmsTransType.Name = "comboBoxFirmsTransType";
-            this.comboBoxFirmsTransType.Size = new System.Drawing.Size(180, 28);
-            this.comboBoxFirmsTransType.TabIndex = 33;
-            this.comboBoxFirmsTransType.ValueMember = "Code";
+            this.orgComboBoxTransType.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.orgComboBoxTransType.DataSource = this.activeMailCategoryBindingSource;
+            this.orgComboBoxTransType.DisplayMember = "ShortName";
+            this.orgComboBoxTransType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.orgComboBoxTransType.FormattingEnabled = true;
+            this.orgComboBoxTransType.Location = new System.Drawing.Point(963, 3);
+            this.orgComboBoxTransType.Name = "orgComboBoxTransType";
+            this.orgComboBoxTransType.Size = new System.Drawing.Size(180, 28);
+            this.orgComboBoxTransType.TabIndex = 33;
+            this.orgComboBoxTransType.ValueMember = "Code";
             // 
             // flowLayoutPanelOrgBase
             // 
@@ -1125,7 +1198,7 @@ namespace WorldStat.Core.Forms
             this.flowLayoutPanelOrgBase.Controls.Add(this.orgDateTimePickerStart);
             this.flowLayoutPanelOrgBase.Controls.Add(this.orgDateTimePickerEnd);
             this.flowLayoutPanelOrgBase.Controls.Add(this.orgDateTimePickerCalendar);
-            this.flowLayoutPanelOrgBase.Controls.Add(this.labelFirmInfoGroup);
+            this.flowLayoutPanelOrgBase.Controls.Add(this.orgLabelInfoGroup);
             this.flowLayoutPanelOrgBase.Controls.Add(this.orgToggleButtonGroup);
             this.flowLayoutPanelOrgBase.Location = new System.Drawing.Point(417, 8);
             this.flowLayoutPanelOrgBase.Name = "flowLayoutPanelOrgBase";
@@ -1174,17 +1247,17 @@ namespace WorldStat.Core.Forms
             this.orgDateTimePickerCalendar.Size = new System.Drawing.Size(200, 27);
             this.orgDateTimePickerCalendar.TabIndex = 27;
             // 
-            // labelFirmInfoGroup
+            // orgLabelInfoGroup
             // 
-            this.labelFirmInfoGroup.AutoSize = true;
-            this.labelFirmInfoGroup.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirmInfoGroup.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFirmInfoGroup.Location = new System.Drawing.Point(694, 6);
-            this.labelFirmInfoGroup.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
-            this.labelFirmInfoGroup.Name = "labelFirmInfoGroup";
-            this.labelFirmInfoGroup.Size = new System.Drawing.Size(105, 20);
-            this.labelFirmInfoGroup.TabIndex = 33;
-            this.labelFirmInfoGroup.Text = "Группировка:";
+            this.orgLabelInfoGroup.AutoSize = true;
+            this.orgLabelInfoGroup.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgLabelInfoGroup.ForeColor = System.Drawing.Color.Gainsboro;
+            this.orgLabelInfoGroup.Location = new System.Drawing.Point(694, 6);
+            this.orgLabelInfoGroup.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
+            this.orgLabelInfoGroup.Name = "orgLabelInfoGroup";
+            this.orgLabelInfoGroup.Size = new System.Drawing.Size(105, 20);
+            this.orgLabelInfoGroup.TabIndex = 33;
+            this.orgLabelInfoGroup.Text = "Группировка:";
             // 
             // orgToggleButtonGroup
             // 
@@ -1204,61 +1277,449 @@ namespace WorldStat.Core.Forms
             this.orgToggleButtonGroup.UseVisualStyleBackColor = true;
             this.orgToggleButtonGroup.CheckedChanged += new System.EventHandler(this.orgToggleButtonGroup_CheckedChanged);
             // 
-            // btnLoadReportFirms
+            // btnLoadFirms
             // 
-            this.btnLoadReportFirms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoadReportFirms.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLoadReportFirms.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReportFirms.BorderRadius = 6F;
-            this.btnLoadReportFirms.BorderSize = 0;
-            this.btnLoadReportFirms.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadReportFirms.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReportFirms.FlatAppearance.BorderSize = 0;
-            this.btnLoadReportFirms.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnLoadReportFirms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadReportFirms.ForeColor = System.Drawing.Color.White;
-            this.btnLoadReportFirms.Image = global::WorldStat.Properties.Resources.sinchronize_24;
-            this.btnLoadReportFirms.Location = new System.Drawing.Point(1301, 4);
-            this.btnLoadReportFirms.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnLoadReportFirms.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnLoadReportFirms.Name = "btnLoadReportFirms";
-            this.btnLoadReportFirms.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadReportFirms.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadReportFirms.TabIndex = 26;
-            this.btnLoadReportFirms.TextColor = System.Drawing.Color.White;
-            this.btnLoadReportFirms.UseVisualStyleBackColor = false;
-            this.btnLoadReportFirms.Click += new System.EventHandler(this.btnLoadReportFirms_Click);
+            this.btnLoadFirms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadFirms.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadFirms.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadFirms.BorderRadius = 6F;
+            this.btnLoadFirms.BorderSize = 0;
+            this.btnLoadFirms.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadFirms.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadFirms.FlatAppearance.BorderSize = 0;
+            this.btnLoadFirms.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadFirms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadFirms.ForeColor = System.Drawing.Color.White;
+            this.btnLoadFirms.Image = global::WorldStat.Properties.Resources.sinchronize_24;
+            this.btnLoadFirms.Location = new System.Drawing.Point(1301, 4);
+            this.btnLoadFirms.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadFirms.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadFirms.Name = "btnLoadFirms";
+            this.btnLoadFirms.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadFirms.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadFirms.TabIndex = 26;
+            this.btnLoadFirms.TextColor = System.Drawing.Color.White;
+            this.btnLoadFirms.UseVisualStyleBackColor = false;
+            this.btnLoadFirms.Click += new System.EventHandler(this.btnLoadFirms_Click);
             // 
-            // comboBoxFirms
+            // orgComboBoxFirms
             // 
-            this.comboBoxFirms.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxFirms.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxFirms.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxFirms.DataSource = this.firmBindingSource;
-            this.comboBoxFirms.DisplayMember = "ShortName";
-            this.comboBoxFirms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.comboBoxFirms.FormattingEnabled = true;
-            this.comboBoxFirms.Location = new System.Drawing.Point(8, 10);
-            this.comboBoxFirms.Name = "comboBoxFirms";
-            this.comboBoxFirms.Size = new System.Drawing.Size(403, 28);
-            this.comboBoxFirms.TabIndex = 24;
-            this.comboBoxFirms.ValueMember = "Id";
-            this.comboBoxFirms.Enter += new System.EventHandler(this.comboBoxFirms_Enter);
+            this.orgComboBoxFirms.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.orgComboBoxFirms.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.orgComboBoxFirms.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.orgComboBoxFirms.DataSource = this.firmBindingSource;
+            this.orgComboBoxFirms.DisplayMember = "ShortName";
+            this.orgComboBoxFirms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.orgComboBoxFirms.FormattingEnabled = true;
+            this.orgComboBoxFirms.Location = new System.Drawing.Point(8, 10);
+            this.orgComboBoxFirms.Name = "orgComboBoxFirms";
+            this.orgComboBoxFirms.Size = new System.Drawing.Size(403, 28);
+            this.orgComboBoxFirms.TabIndex = 24;
+            this.orgComboBoxFirms.ValueMember = "Id";
+            this.orgComboBoxFirms.Enter += new System.EventHandler(this.comboBoxFirms_Enter);
             // 
             // firmBindingSource
             // 
             this.firmBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.Firm);
             // 
-            // tabStat
+            // tabPageIncomes
             // 
-            this.tabStat.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabStat.Controls.Add(this.dataGridViewDocReceive);
-            this.tabStat.Controls.Add(this.panelReceivedDoc);
-            this.tabStat.Location = new System.Drawing.Point(4, 29);
-            this.tabStat.Name = "tabStat";
-            this.tabStat.Size = new System.Drawing.Size(1349, 373);
-            this.tabStat.TabIndex = 2;
-            this.tabStat.Text = "Статистика";
+            this.tabPageIncomes.Controls.Add(this.incomePanelStat);
+            this.tabPageIncomes.Controls.Add(this.incomeDataGridView);
+            this.tabPageIncomes.Controls.Add(this.incomePanel);
+            this.tabPageIncomes.Location = new System.Drawing.Point(4, 29);
+            this.tabPageIncomes.Name = "tabPageIncomes";
+            this.tabPageIncomes.Size = new System.Drawing.Size(1349, 373);
+            this.tabPageIncomes.TabIndex = 4;
+            this.tabPageIncomes.Text = "Доход";
+            this.tabPageIncomes.UseVisualStyleBackColor = true;
+            // 
+            // incomeDataGridView
+            // 
+            this.incomeDataGridView.AllowUserToAddRows = false;
+            this.incomeDataGridView.AllowUserToDeleteRows = false;
+            this.incomeDataGridView.AllowUserToResizeColumns = false;
+            this.incomeDataGridView.AllowUserToResizeRows = false;
+            this.incomeDataGridView.AutoGenerateColumns = false;
+            this.incomeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.incomeDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.incomeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.incomeDataGridView.ColumnHeadersHeight = 40;
+            this.incomeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.incomeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewComboBoxColumn1,
+            this.dataGridViewComboBoxColumn2,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.incomeDataGridView.DataSource = this.reportPosBindingSource;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.incomeDataGridView.DefaultCellStyle = dataGridViewCellStyle16;
+            this.incomeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.incomeDataGridView.EnableHeadersVisualStyles = false;
+            this.incomeDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.incomeDataGridView.Location = new System.Drawing.Point(0, 92);
+            this.incomeDataGridView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.incomeDataGridView.Name = "incomeDataGridView";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.incomeDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.incomeDataGridView.RowHeadersVisible = false;
+            this.incomeDataGridView.RowHeadersWidth = 40;
+            this.incomeDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.incomeDataGridView.RowTemplate.Height = 40;
+            this.incomeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.incomeDataGridView.Size = new System.Drawing.Size(1349, 281);
+            this.incomeDataGridView.TabIndex = 11;
+            this.incomeDataGridView.TabStop = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Date";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Дата";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Firm";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Организация";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewComboBoxColumn1
+            // 
+            this.dataGridViewComboBoxColumn1.DataPropertyName = "MailType";
+            this.dataGridViewComboBoxColumn1.DataSource = this.mailTypeBindingSource;
+            this.dataGridViewComboBoxColumn1.DisplayMember = "ShortName";
+            this.dataGridViewComboBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dataGridViewComboBoxColumn1.HeaderText = "Тип";
+            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
+            this.dataGridViewComboBoxColumn1.ReadOnly = true;
+            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewComboBoxColumn1.ValueMember = "Code";
+            // 
+            // dataGridViewComboBoxColumn2
+            // 
+            this.dataGridViewComboBoxColumn2.DataPropertyName = "MailCategory";
+            this.dataGridViewComboBoxColumn2.DataSource = this.mailCategoryBindingSource;
+            this.dataGridViewComboBoxColumn2.DisplayMember = "ShortName";
+            this.dataGridViewComboBoxColumn2.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dataGridViewComboBoxColumn2.HeaderText = "Категория";
+            this.dataGridViewComboBoxColumn2.Name = "dataGridViewComboBoxColumn2";
+            this.dataGridViewComboBoxColumn2.ReadOnly = true;
+            this.dataGridViewComboBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewComboBoxColumn2.ValueMember = "Code";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "TransCategory";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Класс";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Count";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Количество";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Pay";
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Плата";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "TransType";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Пересылка";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // incomePanel
+            // 
+            this.incomePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.incomePanel.Controls.Add(this.flowLayoutPanel1);
+            this.incomePanel.Controls.Add(this.flowLayoutPanel2);
+            this.incomePanel.Controls.Add(this.wcButton1);
+            this.incomePanel.Controls.Add(this.incomeComboBoxFirms);
+            this.incomePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.incomePanel.Location = new System.Drawing.Point(0, 0);
+            this.incomePanel.Name = "incomePanel";
+            this.incomePanel.Size = new System.Drawing.Size(1349, 92);
+            this.incomePanel.TabIndex = 4;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Controls.Add(this.incomeLabelInfoMailType);
+            this.flowLayoutPanel1.Controls.Add(this.incomeComboBoxMailType);
+            this.flowLayoutPanel1.Controls.Add(this.incomeLabelInfoMailCategory);
+            this.flowLayoutPanel1.Controls.Add(this.incomeComboBoxMailCategory);
+            this.flowLayoutPanel1.Controls.Add(this.incomeLabelInfoTransCategory);
+            this.flowLayoutPanel1.Controls.Add(this.incomeComboBoxTransCategory);
+            this.flowLayoutPanel1.Controls.Add(this.incomeLabelInfoTransType);
+            this.flowLayoutPanel1.Controls.Add(this.incomeComboBoxTransType);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 48);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1333, 34);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // incomeLabelInfoMailType
+            // 
+            this.incomeLabelInfoMailType.AutoSize = true;
+            this.incomeLabelInfoMailType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incomeLabelInfoMailType.ForeColor = System.Drawing.Color.Gainsboro;
+            this.incomeLabelInfoMailType.Location = new System.Drawing.Point(0, 6);
+            this.incomeLabelInfoMailType.Margin = new System.Windows.Forms.Padding(0, 6, 2, 0);
+            this.incomeLabelInfoMailType.Name = "incomeLabelInfoMailType";
+            this.incomeLabelInfoMailType.Size = new System.Drawing.Size(38, 20);
+            this.incomeLabelInfoMailType.TabIndex = 30;
+            this.incomeLabelInfoMailType.Text = "Тип:";
+            // 
+            // incomeComboBoxMailType
+            // 
+            this.incomeComboBoxMailType.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeComboBoxMailType.DataSource = this.acitveMailTypeBindingSource;
+            this.incomeComboBoxMailType.DisplayMember = "ShortName";
+            this.incomeComboBoxMailType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.incomeComboBoxMailType.FormattingEnabled = true;
+            this.incomeComboBoxMailType.Location = new System.Drawing.Point(43, 3);
+            this.incomeComboBoxMailType.Name = "incomeComboBoxMailType";
+            this.incomeComboBoxMailType.Size = new System.Drawing.Size(257, 28);
+            this.incomeComboBoxMailType.TabIndex = 31;
+            this.incomeComboBoxMailType.ValueMember = "Code";
+            // 
+            // incomeLabelInfoMailCategory
+            // 
+            this.incomeLabelInfoMailCategory.AutoSize = true;
+            this.incomeLabelInfoMailCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incomeLabelInfoMailCategory.ForeColor = System.Drawing.Color.Gainsboro;
+            this.incomeLabelInfoMailCategory.Location = new System.Drawing.Point(308, 6);
+            this.incomeLabelInfoMailCategory.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
+            this.incomeLabelInfoMailCategory.Name = "incomeLabelInfoMailCategory";
+            this.incomeLabelInfoMailCategory.Size = new System.Drawing.Size(85, 20);
+            this.incomeLabelInfoMailCategory.TabIndex = 30;
+            this.incomeLabelInfoMailCategory.Text = "Категория:";
+            // 
+            // incomeComboBoxMailCategory
+            // 
+            this.incomeComboBoxMailCategory.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeComboBoxMailCategory.DataSource = this.activeMailCategoryBindingSource;
+            this.incomeComboBoxMailCategory.DisplayMember = "ShortName";
+            this.incomeComboBoxMailCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.incomeComboBoxMailCategory.FormattingEnabled = true;
+            this.incomeComboBoxMailCategory.Location = new System.Drawing.Point(398, 3);
+            this.incomeComboBoxMailCategory.Name = "incomeComboBoxMailCategory";
+            this.incomeComboBoxMailCategory.Size = new System.Drawing.Size(215, 28);
+            this.incomeComboBoxMailCategory.TabIndex = 31;
+            this.incomeComboBoxMailCategory.ValueMember = "Code";
+            // 
+            // incomeLabelInfoTransCategory
+            // 
+            this.incomeLabelInfoTransCategory.AutoSize = true;
+            this.incomeLabelInfoTransCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incomeLabelInfoTransCategory.ForeColor = System.Drawing.Color.Gainsboro;
+            this.incomeLabelInfoTransCategory.Location = new System.Drawing.Point(621, 6);
+            this.incomeLabelInfoTransCategory.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
+            this.incomeLabelInfoTransCategory.Name = "incomeLabelInfoTransCategory";
+            this.incomeLabelInfoTransCategory.Size = new System.Drawing.Size(53, 20);
+            this.incomeLabelInfoTransCategory.TabIndex = 34;
+            this.incomeLabelInfoTransCategory.Text = "Класс:";
+            // 
+            // incomeComboBoxTransCategory
+            // 
+            this.incomeComboBoxTransCategory.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeComboBoxTransCategory.DataSource = this.activeMailCategoryBindingSource;
+            this.incomeComboBoxTransCategory.DisplayMember = "ShortName";
+            this.incomeComboBoxTransCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.incomeComboBoxTransCategory.FormattingEnabled = true;
+            this.incomeComboBoxTransCategory.Location = new System.Drawing.Point(679, 3);
+            this.incomeComboBoxTransCategory.Name = "incomeComboBoxTransCategory";
+            this.incomeComboBoxTransCategory.Size = new System.Drawing.Size(180, 28);
+            this.incomeComboBoxTransCategory.TabIndex = 35;
+            this.incomeComboBoxTransCategory.ValueMember = "Code";
+            // 
+            // incomeLabelInfoTransType
+            // 
+            this.incomeLabelInfoTransType.AutoSize = true;
+            this.incomeLabelInfoTransType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incomeLabelInfoTransType.ForeColor = System.Drawing.Color.Gainsboro;
+            this.incomeLabelInfoTransType.Location = new System.Drawing.Point(867, 6);
+            this.incomeLabelInfoTransType.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
+            this.incomeLabelInfoTransType.Name = "incomeLabelInfoTransType";
+            this.incomeLabelInfoTransType.Size = new System.Drawing.Size(91, 20);
+            this.incomeLabelInfoTransType.TabIndex = 32;
+            this.incomeLabelInfoTransType.Text = "Пересылка:";
+            // 
+            // incomeComboBoxTransType
+            // 
+            this.incomeComboBoxTransType.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeComboBoxTransType.DataSource = this.activeMailCategoryBindingSource;
+            this.incomeComboBoxTransType.DisplayMember = "ShortName";
+            this.incomeComboBoxTransType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.incomeComboBoxTransType.FormattingEnabled = true;
+            this.incomeComboBoxTransType.Location = new System.Drawing.Point(963, 3);
+            this.incomeComboBoxTransType.Name = "incomeComboBoxTransType";
+            this.incomeComboBoxTransType.Size = new System.Drawing.Size(180, 28);
+            this.incomeComboBoxTransType.TabIndex = 33;
+            this.incomeComboBoxTransType.ValueMember = "Code";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel2.Controls.Add(this.incomeToggleButtonCalendar);
+            this.flowLayoutPanel2.Controls.Add(this.incomeDateTimePickerStart);
+            this.flowLayoutPanel2.Controls.Add(this.incomeDateTimePickerEnd);
+            this.flowLayoutPanel2.Controls.Add(this.incomeDateTimeCalendar);
+            this.flowLayoutPanel2.Controls.Add(this.incomeLabelInfoGroup);
+            this.flowLayoutPanel2.Controls.Add(this.incomeToggleButtonGroup);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(417, 8);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(878, 34);
+            this.flowLayoutPanel2.TabIndex = 29;
+            // 
+            // incomeToggleButtonCalendar
+            // 
+            this.incomeToggleButtonCalendar.AutoSize = true;
+            this.incomeToggleButtonCalendar.Checked = true;
+            this.incomeToggleButtonCalendar.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.incomeToggleButtonCalendar.DisableBackColor = System.Drawing.Color.DimGray;
+            this.incomeToggleButtonCalendar.DisableToggleColor = System.Drawing.Color.Gray;
+            this.incomeToggleButtonCalendar.Location = new System.Drawing.Point(3, 6);
+            this.incomeToggleButtonCalendar.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.incomeToggleButtonCalendar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.incomeToggleButtonCalendar.Name = "incomeToggleButtonCalendar";
+            this.incomeToggleButtonCalendar.OffBackColor = System.Drawing.Color.DimGray;
+            this.incomeToggleButtonCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.incomeToggleButtonCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.incomeToggleButtonCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeToggleButtonCalendar.Size = new System.Drawing.Size(45, 22);
+            this.incomeToggleButtonCalendar.TabIndex = 28;
+            this.incomeToggleButtonCalendar.UseVisualStyleBackColor = true;
+            // 
+            // incomeDateTimePickerStart
+            // 
+            this.incomeDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.incomeDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.incomeDateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeDateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeDateTimePickerStart.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.incomeDateTimePickerStart.Location = new System.Drawing.Point(54, 3);
+            this.incomeDateTimePickerStart.Name = "incomeDateTimePickerStart";
+            this.incomeDateTimePickerStart.Size = new System.Drawing.Size(220, 27);
+            this.incomeDateTimePickerStart.TabIndex = 22;
+            this.incomeDateTimePickerStart.Visible = false;
+            // 
+            // incomeDateTimePickerEnd
+            // 
+            this.incomeDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.incomeDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.incomeDateTimePickerEnd.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeDateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeDateTimePickerEnd.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.incomeDateTimePickerEnd.Location = new System.Drawing.Point(280, 3);
+            this.incomeDateTimePickerEnd.Name = "incomeDateTimePickerEnd";
+            this.incomeDateTimePickerEnd.Size = new System.Drawing.Size(200, 27);
+            this.incomeDateTimePickerEnd.TabIndex = 23;
+            this.incomeDateTimePickerEnd.Visible = false;
+            // 
+            // incomeDateTimeCalendar
+            // 
+            this.incomeDateTimeCalendar.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.incomeDateTimeCalendar.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.incomeDateTimeCalendar.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeDateTimeCalendar.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeDateTimeCalendar.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.incomeDateTimeCalendar.CustomFormat = "MMMM yyyy";
+            this.incomeDateTimeCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.incomeDateTimeCalendar.Location = new System.Drawing.Point(486, 3);
+            this.incomeDateTimeCalendar.Name = "incomeDateTimeCalendar";
+            this.incomeDateTimeCalendar.ShowUpDown = true;
+            this.incomeDateTimeCalendar.Size = new System.Drawing.Size(200, 27);
+            this.incomeDateTimeCalendar.TabIndex = 27;
+            // 
+            // wcButton1
+            // 
+            this.wcButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.wcButton1.BackColor = System.Drawing.Color.DarkOrange;
+            this.wcButton1.BorderColor = System.Drawing.Color.Silver;
+            this.wcButton1.BorderRadius = 6F;
+            this.wcButton1.BorderSize = 0;
+            this.wcButton1.DisableBackColor = System.Drawing.Color.DimGray;
+            this.wcButton1.DisableBorderColor = System.Drawing.Color.Silver;
+            this.wcButton1.FlatAppearance.BorderSize = 0;
+            this.wcButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.wcButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.wcButton1.ForeColor = System.Drawing.Color.White;
+            this.wcButton1.Image = global::WorldStat.Properties.Resources.sinchronize_24;
+            this.wcButton1.Location = new System.Drawing.Point(1301, 4);
+            this.wcButton1.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.wcButton1.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.wcButton1.Name = "wcButton1";
+            this.wcButton1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.wcButton1.Size = new System.Drawing.Size(40, 40);
+            this.wcButton1.TabIndex = 26;
+            this.wcButton1.TextColor = System.Drawing.Color.White;
+            this.wcButton1.UseVisualStyleBackColor = false;
+            // 
+            // incomeComboBoxFirms
+            // 
+            this.incomeComboBoxFirms.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.incomeComboBoxFirms.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.incomeComboBoxFirms.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeComboBoxFirms.DataSource = this.firmBindingSource;
+            this.incomeComboBoxFirms.DisplayMember = "ShortName";
+            this.incomeComboBoxFirms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.incomeComboBoxFirms.FormattingEnabled = true;
+            this.incomeComboBoxFirms.Location = new System.Drawing.Point(8, 10);
+            this.incomeComboBoxFirms.Name = "incomeComboBoxFirms";
+            this.incomeComboBoxFirms.Size = new System.Drawing.Size(403, 28);
+            this.incomeComboBoxFirms.TabIndex = 24;
+            this.incomeComboBoxFirms.ValueMember = "Id";
+            // 
+            // tabStats
+            // 
+            this.tabStats.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabStats.Controls.Add(this.dataGridViewDocReceive);
+            this.tabStats.Controls.Add(this.panelReceivedDoc);
+            this.tabStats.Location = new System.Drawing.Point(4, 29);
+            this.tabStats.Name = "tabStats";
+            this.tabStats.Size = new System.Drawing.Size(1349, 373);
+            this.tabStats.TabIndex = 2;
+            this.tabStats.Text = "Статистика";
             // 
             // dataGridViewDocReceive
             // 
@@ -1268,37 +1729,37 @@ namespace WorldStat.Core.Forms
             this.dataGridViewDocReceive.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDocReceive.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewDocReceive.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDocReceive.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDocReceive.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewDocReceive.ColumnHeadersHeight = 40;
             this.dataGridViewDocReceive.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewDocReceive.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewDocReceive.DefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridViewDocReceive.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDocReceive.EnableHeadersVisualStyles = false;
             this.dataGridViewDocReceive.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.dataGridViewDocReceive.Location = new System.Drawing.Point(0, 48);
             this.dataGridViewDocReceive.Name = "dataGridViewDocReceive";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDocReceive.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDocReceive.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewDocReceive.RowHeadersVisible = false;
             this.dataGridViewDocReceive.RowHeadersWidth = 40;
             this.dataGridViewDocReceive.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1353,16 +1814,16 @@ namespace WorldStat.Core.Forms
             this.receiveDateTimePickerStart.Size = new System.Drawing.Size(200, 27);
             this.receiveDateTimePickerStart.TabIndex = 3;
             // 
-            // tabChart
+            // tabCharts
             // 
-            this.tabChart.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabChart.Controls.Add(this.dataGridViewUserOnline);
-            this.tabChart.Controls.Add(this.panelActive);
-            this.tabChart.Location = new System.Drawing.Point(4, 29);
-            this.tabChart.Name = "tabChart";
-            this.tabChart.Size = new System.Drawing.Size(1349, 373);
-            this.tabChart.TabIndex = 3;
-            this.tabChart.Text = "Инфографика";
+            this.tabCharts.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabCharts.Controls.Add(this.dataGridViewUserOnline);
+            this.tabCharts.Controls.Add(this.panelActive);
+            this.tabCharts.Location = new System.Drawing.Point(4, 29);
+            this.tabCharts.Name = "tabCharts";
+            this.tabCharts.Size = new System.Drawing.Size(1349, 373);
+            this.tabCharts.TabIndex = 3;
+            this.tabCharts.Text = "Инфографика";
             // 
             // dataGridViewUserOnline
             // 
@@ -1372,39 +1833,39 @@ namespace WorldStat.Core.Forms
             this.dataGridViewUserOnline.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewUserOnline.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewUserOnline.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewUserOnline.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewUserOnline.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridViewUserOnline.ColumnHeadersHeight = 40;
             this.dataGridViewUserOnline.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewUserOnline.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.adminStatusDataGridViewTextBoxColumn});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewUserOnline.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewUserOnline.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewUserOnline.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewUserOnline.EnableHeadersVisualStyles = false;
             this.dataGridViewUserOnline.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.dataGridViewUserOnline.Location = new System.Drawing.Point(0, 48);
             this.dataGridViewUserOnline.Name = "dataGridViewUserOnline";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewUserOnline.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewUserOnline.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewUserOnline.RowHeadersVisible = false;
             this.dataGridViewUserOnline.RowHeadersWidth = 40;
             this.dataGridViewUserOnline.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1417,9 +1878,9 @@ namespace WorldStat.Core.Forms
             // adminStatusDataGridViewTextBoxColumn
             // 
             this.adminStatusDataGridViewTextBoxColumn.DataPropertyName = "AdminStatus";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.NullValue = "НЕТ";
-            this.adminStatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.NullValue = "НЕТ";
+            this.adminStatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
             this.adminStatusDataGridViewTextBoxColumn.HeaderText = "  Админ";
             this.adminStatusDataGridViewTextBoxColumn.Name = "adminStatusDataGridViewTextBoxColumn";
             this.adminStatusDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1457,6 +1918,111 @@ namespace WorldStat.Core.Forms
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 472;
             // 
+            // incomePanelStat
+            // 
+            this.incomePanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.incomePanelStat.Controls.Add(this.incomeLabelPosCount);
+            this.incomePanelStat.Controls.Add(this.incomeLabelInfoPosCount);
+            this.incomePanelStat.Controls.Add(this.incomeLabelPay);
+            this.incomePanelStat.Controls.Add(this.incomeLabelCount);
+            this.incomePanelStat.Controls.Add(this.incomeLabelInfoPay);
+            this.incomePanelStat.Controls.Add(this.incomeLabelInfoCount);
+            this.incomePanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.incomePanelStat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.incomePanelStat.Location = new System.Drawing.Point(0, 343);
+            this.incomePanelStat.Name = "incomePanelStat";
+            this.incomePanelStat.Size = new System.Drawing.Size(1349, 30);
+            this.incomePanelStat.TabIndex = 12;
+            // 
+            // incomeLabelPosCount
+            // 
+            this.incomeLabelPosCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incomeLabelPosCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.incomeLabelPosCount.Location = new System.Drawing.Point(731, 5);
+            this.incomeLabelPosCount.Name = "incomeLabelPosCount";
+            this.incomeLabelPosCount.Size = new System.Drawing.Size(140, 20);
+            this.incomeLabelPosCount.TabIndex = 3;
+            this.incomeLabelPosCount.Text = "0";
+            // 
+            // incomeLabelInfoPosCount
+            // 
+            this.incomeLabelInfoPosCount.AutoSize = true;
+            this.incomeLabelInfoPosCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incomeLabelInfoPosCount.Location = new System.Drawing.Point(649, 5);
+            this.incomeLabelInfoPosCount.Name = "incomeLabelInfoPosCount";
+            this.incomeLabelInfoPosCount.Size = new System.Drawing.Size(76, 20);
+            this.incomeLabelInfoPosCount.TabIndex = 2;
+            this.incomeLabelInfoPosCount.Text = "Позиций:";
+            // 
+            // incomeLabelPay
+            // 
+            this.incomeLabelPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incomeLabelPay.ForeColor = System.Drawing.Color.DarkOrange;
+            this.incomeLabelPay.Location = new System.Drawing.Point(461, 5);
+            this.incomeLabelPay.Name = "incomeLabelPay";
+            this.incomeLabelPay.Size = new System.Drawing.Size(140, 20);
+            this.incomeLabelPay.TabIndex = 1;
+            this.incomeLabelPay.Text = "0,00 ₽";
+            // 
+            // incomeLabelCount
+            // 
+            this.incomeLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incomeLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.incomeLabelCount.Location = new System.Drawing.Point(122, 5);
+            this.incomeLabelCount.Name = "incomeLabelCount";
+            this.incomeLabelCount.Size = new System.Drawing.Size(140, 20);
+            this.incomeLabelCount.TabIndex = 0;
+            this.incomeLabelCount.Text = "0";
+            // 
+            // incomeLabelInfoPay
+            // 
+            this.incomeLabelInfoPay.AutoSize = true;
+            this.incomeLabelInfoPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incomeLabelInfoPay.Location = new System.Drawing.Point(395, 5);
+            this.incomeLabelInfoPay.Name = "incomeLabelInfoPay";
+            this.incomeLabelInfoPay.Size = new System.Drawing.Size(60, 20);
+            this.incomeLabelInfoPay.TabIndex = 0;
+            this.incomeLabelInfoPay.Text = "Сумма:";
+            // 
+            // incomeLabelInfoCount
+            // 
+            this.incomeLabelInfoCount.AutoSize = true;
+            this.incomeLabelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incomeLabelInfoCount.Location = new System.Drawing.Point(21, 5);
+            this.incomeLabelInfoCount.Name = "incomeLabelInfoCount";
+            this.incomeLabelInfoCount.Size = new System.Drawing.Size(95, 20);
+            this.incomeLabelInfoCount.TabIndex = 0;
+            this.incomeLabelInfoCount.Text = "Количество:";
+            // 
+            // incomeToggleButtonGroup
+            // 
+            this.incomeToggleButtonGroup.AutoSize = true;
+            this.incomeToggleButtonGroup.DisableBackColor = System.Drawing.Color.DimGray;
+            this.incomeToggleButtonGroup.DisableToggleColor = System.Drawing.Color.Gray;
+            this.incomeToggleButtonGroup.Location = new System.Drawing.Point(804, 6);
+            this.incomeToggleButtonGroup.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.incomeToggleButtonGroup.MinimumSize = new System.Drawing.Size(45, 22);
+            this.incomeToggleButtonGroup.Name = "incomeToggleButtonGroup";
+            this.incomeToggleButtonGroup.OffBackColor = System.Drawing.Color.Firebrick;
+            this.incomeToggleButtonGroup.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.incomeToggleButtonGroup.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.incomeToggleButtonGroup.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.incomeToggleButtonGroup.Size = new System.Drawing.Size(45, 22);
+            this.incomeToggleButtonGroup.TabIndex = 34;
+            this.incomeToggleButtonGroup.UseVisualStyleBackColor = true;
+            // 
+            // incomeLabelInfoGroup
+            // 
+            this.incomeLabelInfoGroup.AutoSize = true;
+            this.incomeLabelInfoGroup.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incomeLabelInfoGroup.ForeColor = System.Drawing.Color.Gainsboro;
+            this.incomeLabelInfoGroup.Location = new System.Drawing.Point(694, 6);
+            this.incomeLabelInfoGroup.Margin = new System.Windows.Forms.Padding(5, 6, 2, 0);
+            this.incomeLabelInfoGroup.Name = "incomeLabelInfoGroup";
+            this.incomeLabelInfoGroup.Size = new System.Drawing.Size(105, 20);
+            this.incomeLabelInfoGroup.TabIndex = 33;
+            this.incomeLabelInfoGroup.Text = "Группировка:";
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1480,23 +2046,23 @@ namespace WorldStat.Core.Forms
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
             this.tabsControl.ResumeLayout(false);
-            this.tabAll.ResumeLayout(false);
-            this.panelStat.ResumeLayout(false);
-            this.panelStat.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport)).EndInit();
+            this.tabReports.ResumeLayout(false);
+            this.reportPanelStat.ResumeLayout(false);
+            this.reportPanelStat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportBindingSource)).EndInit();
-            this.panelReceived.ResumeLayout(false);
+            this.reportPanel.ResumeLayout(false);
             this.flowLayoutPanelReport.ResumeLayout(false);
             this.flowLayoutPanelReport.PerformLayout();
-            this.tabOrg.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFirms)).EndInit();
+            this.tabOrgs.ResumeLayout(false);
+            this.orgPanelStat.ResumeLayout(false);
+            this.orgPanelStat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orgDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailCategoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportPosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocOrg)).EndInit();
-            this.panelOrgDoc.ResumeLayout(false);
+            this.orgPanel.ResumeLayout(false);
             this.flowLayoutPanelOrgFilter.ResumeLayout(false);
             this.flowLayoutPanelOrgFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acitveMailTypeBindingSource)).EndInit();
@@ -1504,12 +2070,21 @@ namespace WorldStat.Core.Forms
             this.flowLayoutPanelOrgBase.ResumeLayout(false);
             this.flowLayoutPanelOrgBase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.firmBindingSource)).EndInit();
-            this.tabStat.ResumeLayout(false);
+            this.tabPageIncomes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.incomeDataGridView)).EndInit();
+            this.incomePanel.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            this.tabStats.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocReceive)).EndInit();
             this.panelReceivedDoc.ResumeLayout(false);
-            this.tabChart.ResumeLayout(false);
+            this.tabCharts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserOnline)).EndInit();
             this.panelActive.ResumeLayout(false);
+            this.incomePanelStat.ResumeLayout(false);
+            this.incomePanelStat.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1531,89 +2106,127 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.ToolStripStatusLabel statusAuthor;
         private System.Windows.Forms.Timer timerStatus;
         private System.Windows.Forms.TabControl tabsControl;
-        private System.Windows.Forms.TabPage tabAll;
-        private System.Windows.Forms.DataGridView dataGridViewReport;
-        private System.Windows.Forms.Panel panelReceived;
-        private System.Windows.Forms.TabPage tabStat;
+        private System.Windows.Forms.TabPage tabReports;
+        private System.Windows.Forms.DataGridView reportDataGridView;
+        private System.Windows.Forms.Panel reportPanel;
+        private System.Windows.Forms.TabPage tabStats;
         private System.Windows.Forms.DataGridView dataGridViewDocReceive;
         private System.Windows.Forms.Panel panelReceivedDoc;
         private System.Windows.Forms.Button btnReceiveDocLoad;
         private System.Windows.Forms.DateTimePicker receiveDateTimePickerEnd;
         private System.Windows.Forms.DateTimePicker receiveDateTimePickerStart;
-        private System.Windows.Forms.TabPage tabOrg;
+        private System.Windows.Forms.TabPage tabOrgs;
         private System.Windows.Forms.DataGridView dataGridViewDocOrg;
-        private System.Windows.Forms.Panel panelOrgDoc;
+        private System.Windows.Forms.Panel orgPanel;
         private System.Windows.Forms.DateTimePicker orgDateTimePickerEnd;
         private System.Windows.Forms.DateTimePicker orgDateTimePickerStart;
-        private System.Windows.Forms.TabPage tabChart;
+        private System.Windows.Forms.TabPage tabCharts;
         private System.Windows.Forms.DataGridView dataGridViewUserOnline;
         private System.Windows.Forms.DataGridViewTextBoxColumn adminStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel panelActive;
         private System.Windows.Forms.Button btnActiveUserLoad;
         private System.Windows.Forms.DateTimePicker reportDateTimePickerCalendar;
         private System.Windows.Forms.BindingSource reportBindingSource;
-        private Wc32Api.Widgets.WcButton btnLoadReport;
-        private System.Windows.Forms.Panel panelStat;
-        private System.Windows.Forms.Label labelInfoCount;
-        private System.Windows.Forms.Label labelInfoPay;
-        private System.Windows.Forms.Label labelPay;
-        private System.Windows.Forms.Label labelCount;
+        private Wc32Api.Widgets.WcButton btnLoadReports;
+        private System.Windows.Forms.Panel reportPanelStat;
+        private System.Windows.Forms.Label reportLabelInfoCount;
+        private System.Windows.Forms.Label reportLabelInfoPay;
+        private System.Windows.Forms.Label reportLabelPay;
+        private System.Windows.Forms.Label reportLabelCount;
         private System.Windows.Forms.ToolStripMenuItem importCalendarMenuItem;
-        private System.Windows.Forms.Label labelCalendar;
-        private System.Windows.Forms.ComboBox comboBoxCalendar;
+        private System.Windows.Forms.Label reportLabelInfoTeam;
+        private System.Windows.Forms.ComboBox reportComboBoxTeam;
         private System.Windows.Forms.ToolStripMenuItem firmsMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.ToolStripMenuItem mailCategoryMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mailTypeMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mailCodeMenuItem;
-        private System.Windows.Forms.Label labelDaysCount;
-        private System.Windows.Forms.Label labelInfoDays;
-        private System.Windows.Forms.ComboBox comboBoxFirms;
+        private System.Windows.Forms.Label reportLabelDaysCount;
+        private System.Windows.Forms.Label reportLabelInfoDays;
+        private System.Windows.Forms.ComboBox orgComboBoxFirms;
         private System.Windows.Forms.BindingSource firmBindingSource;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelFirmPay;
-        private System.Windows.Forms.Label labelFirmCount;
-        private System.Windows.Forms.Label labelFirmInfoPay;
-        private System.Windows.Forms.Label labelFirmInfoCount;
-        private System.Windows.Forms.DataGridView dataGridViewFirms;
-        private Wc32Api.Widgets.WcButton btnLoadReportFirms;
+        private System.Windows.Forms.Panel orgPanelStat;
+        private System.Windows.Forms.Label orgLabelPay;
+        private System.Windows.Forms.Label orgLabelCount;
+        private System.Windows.Forms.Label orgLabelInfoPay;
+        private System.Windows.Forms.Label orgLabelInfoCount;
+        private System.Windows.Forms.DataGridView orgDataGridView;
+        private Wc32Api.Widgets.WcButton btnLoadFirms;
         private System.Windows.Forms.BindingSource reportPosBindingSource;
         private System.Windows.Forms.BindingSource mailTypeBindingSource;
         private System.Windows.Forms.BindingSource mailCategoryBindingSource;
         private System.Windows.Forms.DateTimePicker orgDateTimePickerCalendar;
         private Wc32Api.Widgets.WcToggleButton orgToggleButtonCalendar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelOrgBase;
-        private System.Windows.Forms.ComboBox comboBoxFirmsMailCategory;
-        private System.Windows.Forms.ComboBox comboBoxFirmsMailType;
-        private System.Windows.Forms.Label labelFirmInfoMailCategory;
-        private System.Windows.Forms.Label labelFirmInfoMailType;
+        private System.Windows.Forms.ComboBox orgComboBoxMailCategory;
+        private System.Windows.Forms.ComboBox orgComboBoxMailType;
+        private System.Windows.Forms.Label orgLabelInfoMailCategory;
+        private System.Windows.Forms.Label orgLabelInfoMailType;
         private System.Windows.Forms.BindingSource acitveMailTypeBindingSource;
         private System.Windows.Forms.BindingSource activeMailCategoryBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reportDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reportDayNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reportTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reportCountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reportPaytDataGridViewTextBoxColumn;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelReport;
         private System.Windows.Forms.DateTimePicker reportDateTimePickerStart;
         private System.Windows.Forms.DateTimePicker reportDateTimePickerEnd;
         private Wc32Api.Widgets.WcToggleButton reportToggleButton;
-        private System.Windows.Forms.Label labelFirmInfoTransType;
-        private System.Windows.Forms.ComboBox comboBoxFirmsTransType;
-        private System.Windows.Forms.ComboBox comboBoxFirmsTransCategory;
-        private System.Windows.Forms.Label labelFirmInfoTransCategory;
+        private System.Windows.Forms.Label orgLabelInfoTransType;
+        private System.Windows.Forms.ComboBox orgComboBoxTransType;
+        private System.Windows.Forms.ComboBox orgComboBoxTransCategory;
+        private System.Windows.Forms.Label orgLabelInfoTransCategory;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelOrgFilter;
         private Wc32Api.Widgets.WcButton btnTest;
-        private System.Windows.Forms.Label labelFirmInfoGroup;
+        private System.Windows.Forms.Label orgLabelInfoGroup;
         private Wc32Api.Widgets.WcToggleButton orgToggleButtonGroup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firmDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firmNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn firmMailTypeDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn firmMailCategoryDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firmTransCategoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firmCountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firmPayDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firmTransTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage tabPageIncomes;
+        private System.Windows.Forms.DataGridView incomeDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Panel incomePanel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label incomeLabelInfoMailType;
+        private System.Windows.Forms.ComboBox incomeComboBoxMailType;
+        private System.Windows.Forms.Label incomeLabelInfoMailCategory;
+        private System.Windows.Forms.ComboBox incomeComboBoxMailCategory;
+        private System.Windows.Forms.Label incomeLabelInfoTransCategory;
+        private System.Windows.Forms.ComboBox incomeComboBoxTransCategory;
+        private System.Windows.Forms.Label incomeLabelInfoTransType;
+        private System.Windows.Forms.ComboBox incomeComboBoxTransType;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private Wc32Api.Widgets.WcToggleButton incomeToggleButtonCalendar;
+        private System.Windows.Forms.DateTimePicker incomeDateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker incomeDateTimePickerEnd;
+        private System.Windows.Forms.DateTimePicker incomeDateTimeCalendar;
+        private Wc32Api.Widgets.WcButton wcButton1;
+        private System.Windows.Forms.ComboBox incomeComboBoxFirms;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportColumnDayName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportColumnType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportColumnCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportColumnPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn orgColumnMailType;
+        private System.Windows.Forms.DataGridViewComboBoxColumn orgColumnMailCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnTransCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnTransType;
+        private System.Windows.Forms.Label orgLabelPosCount;
+        private System.Windows.Forms.Label orgLabelInfoPosCount;
+        private System.Windows.Forms.Panel incomePanelStat;
+        private System.Windows.Forms.Label incomeLabelPosCount;
+        private System.Windows.Forms.Label incomeLabelInfoPosCount;
+        private System.Windows.Forms.Label incomeLabelPay;
+        private System.Windows.Forms.Label incomeLabelCount;
+        private System.Windows.Forms.Label incomeLabelInfoPay;
+        private System.Windows.Forms.Label incomeLabelInfoCount;
+        private System.Windows.Forms.Label incomeLabelInfoGroup;
+        private Wc32Api.Widgets.WcToggleButton incomeToggleButtonGroup;
     }
 }
 
