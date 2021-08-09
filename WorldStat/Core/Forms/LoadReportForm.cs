@@ -10,6 +10,7 @@ using WorldStat.Core.Database.Contexts;
 using WorldStat.Core.Database.Models;
 using WorldStat.Core.Parsers;
 using WorldStat.Core.Parsers.Models;
+using WorldStat.Core.Storage;
 
 
 namespace WorldStat.Core.Forms
@@ -117,14 +118,13 @@ namespace WorldStat.Core.Forms
             });
         }
 
-        private void ParseReport(string path, WorldStatContext db)
+        private async void ParseReport(string path, WorldStatContext db)
         {
             FrankHierarchyReportParser parser = new FrankHierarchyReportParser(path);
             parser.Parse();
 
             if (parser.IsValid())
             {
-
                 Report report = db.Reports.FirstOrDefault(r => r.Date == parser.ReportDate);
                 if (report != null)
                 {
@@ -192,6 +192,8 @@ namespace WorldStat.Core.Forms
                 db.SaveChanges();
             }
 
+            await CopyReport(parser.GetPath(), parser.GetExt(), parser.ReportDate);
+
             parser = null;
         }
 
@@ -207,6 +209,21 @@ namespace WorldStat.Core.Forms
             }
 
             return mailCodes;
+        }
+
+        private async Task CopyReport(string reportPath, string ext, DateTime reportDate)
+        {
+            string newReportDir = Path.Combine(PathManager.ReserveReportsDir, $"{reportDate:MM}.{reportDate:yyyy}");
+
+            if (!Directory.Exists(newReportDir))
+                Directory.CreateDirectory(newReportDir);
+
+            string newPath = Path.Combine(newReportDir, $"{reportDate.ToShortDateString()}{ext}");
+
+            await Task.Run(() =>
+            {
+                File.Copy(reportPath, newPath);
+            });
         }
 
         private void LoadReportForm_FormClosing(object sender, FormClosingEventArgs e)

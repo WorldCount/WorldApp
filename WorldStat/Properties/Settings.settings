@@ -17,5 +17,14 @@
     <Setting Name="LoggingMode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="ReserveReportsDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ReserveReports</Value>
+    </Setting>
+    <Setting Name="UnloadReportsDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\1\</Value>
+    </Setting>
+    <Setting Name="TempReportsDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TempReports</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

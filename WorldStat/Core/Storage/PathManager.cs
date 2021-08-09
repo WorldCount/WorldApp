@@ -7,6 +7,10 @@ namespace WorldStat.Core.Storage
     {
         // Папки
         public static readonly string DataDir = Path.Combine(Application.StartupPath, Properties.Settings.Default.DataDir);
+        // Папка с резервными отчетами
+        public static readonly string ReserveReportsDir = Path.Combine(DataDir, Properties.Settings.Default.ReserveReportsDir);
+        // Папка с временными отчетами
+        public static readonly string TempReportsDir = Path.Combine(DataDir, Properties.Settings.Default.TempReportsDir);
 
         // Путь к БД
         public static readonly string DatabasePath = Path.Combine(DataDir, "database.db");
@@ -19,6 +23,12 @@ namespace WorldStat.Core.Storage
         {
             if (!File.Exists(DataDir))
                 Directory.CreateDirectory(DataDir);
+
+            if (!File.Exists(ReserveReportsDir))
+                Directory.CreateDirectory(ReserveReportsDir);
+
+            if (!File.Exists(TempReportsDir))
+                Directory.CreateDirectory(TempReportsDir);
         }
     }
 }

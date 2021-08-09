@@ -82,5 +82,41 @@ namespace WorldStat.Properties {
                 this["LoggingMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ReserveReports")]
+        public string ReserveReportsDir {
+            get {
+                return ((string)(this["ReserveReportsDir"]));
+            }
+            set {
+                this["ReserveReportsDir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\1\\")]
+        public string UnloadReportsDir {
+            get {
+                return ((string)(this["UnloadReportsDir"]));
+            }
+            set {
+                this["UnloadReportsDir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("TempReports")]
+        public string TempReportsDir {
+            get {
+                return ((string)(this["TempReportsDir"]));
+            }
+            set {
+                this["TempReportsDir"] = value;
+            }
+        }
     }
 }

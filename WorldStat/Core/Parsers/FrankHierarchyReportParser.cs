@@ -16,6 +16,7 @@ namespace WorldStat.Core.Parsers
         private readonly string _path;
         private readonly List<HierarchyFrankReport> _frankReports;
         private bool _isValid;
+        private string _ext;
 
         #endregion
 
@@ -151,6 +152,11 @@ namespace WorldStat.Core.Parsers
             return _isValid;
         }
 
+        public string GetExt()
+        {
+            return _ext;
+        }
+
         #endregion
 
 
@@ -208,9 +214,9 @@ namespace WorldStat.Core.Parsers
                 return null;
 
             FileInfo fileInfo = new FileInfo(_path);
-            string ext = fileInfo.Extension;
+            string _ext = fileInfo.Extension;
 
-            if ((ext != ".xls") && (ext != ".xlsx"))
+            if ((_ext != ".xls") && (_ext != ".xlsx"))
                 return null;
 
             try
@@ -219,7 +225,7 @@ namespace WorldStat.Core.Parsers
 
                 using (FileStream fileStream = new FileStream(_path, FileMode.Open, FileAccess.Read))
                 {
-                    if (ext == ".xlsx")
+                    if (_ext == ".xlsx")
                         workbook = new XSSFWorkbook(fileStream);
                     else
                         workbook = new HSSFWorkbook(fileStream);

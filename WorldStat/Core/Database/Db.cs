@@ -348,6 +348,19 @@ namespace WorldStat.Core.Database
         {
             return await Task.Run(() => LoadDispathReportPoses(start, end, firmId));
         }
+
+        public static List<ReportPos> GetReportPosesByReportId(int reportId)
+        {
+            using (WorldStatContext db = new WorldStatContext())
+            {
+                return db.ReportPoses.Where(p => p.ReportId == reportId).ToList();
+            }
+        }
+
+        public static async Task<List<ReportPos>> GetReportPosesByReportIdAsync(int reportId)
+        {
+            return await Task.Run(() => GetReportPosesByReportId(reportId));
+        }
         #endregion
     }
 }

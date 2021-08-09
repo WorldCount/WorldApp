@@ -67,6 +67,7 @@ namespace WorldStat.Core.Forms
         private void LoadSettings()
         {
             FillComboBoxes();
+            reportTextBoxUnloadDir.Texts = Properties.Settings.Default.UnloadReportsDir;
         }
 
         // Сохранение настроек
@@ -239,6 +240,10 @@ namespace WorldStat.Core.Forms
         private void SetDoubleBuffered()
         {
             #region Tables
+
+            Wc32Api.DrawingControl.SetDoubleBuffered(orgComboBoxFirms);
+            Wc32Api.DrawingControl.SetDoubleBuffered(statComboBoxFirms);
+            Wc32Api.DrawingControl.SetDoubleBuffered(incomeComboBoxFirms);
 
             Wc32Api.DrawingControl.SetDoubleBuffered(reportDataGridView);
             Wc32Api.DrawingControl.SetDoubleBuffered(orgDataGridView);
@@ -520,6 +525,21 @@ namespace WorldStat.Core.Forms
             }
         }
 
+        private void btnOpenUnloadDir_Click(object sender, EventArgs e)
+        {
+            string dir = reportTextBoxUnloadDir.Texts;
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            if (!string.IsNullOrEmpty(dir))
+                folderBrowserDialog.SelectedPath = dir;
+
+            if (folderBrowserDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                Properties.Settings.Default.UnloadReportsDir = folderBrowserDialog.SelectedPath;
+                reportTextBoxUnloadDir.Texts = folderBrowserDialog.SelectedPath;
+                Properties.Settings.Default.Save();
+            }
+        }
+
         #endregion
 
         #region DateTime Pickers Events
@@ -679,6 +699,38 @@ namespace WorldStat.Core.Forms
             }
         }
 
+        private void reportDataGridView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int currentMouseOverRow = reportDataGridView.HitTest(e.X, e.Y).RowIndex;
+                int currentMouseOverCol = reportDataGridView.HitTest(e.X, e.Y).ColumnIndex;
+
+                if (currentMouseOverRow >= 0 && currentMouseOverCol >= 0)
+                {
+                    reportDataGridView.ClearSelection();
+                    reportDataGridView.Rows[currentMouseOverRow].Cells[currentMouseOverCol].Selected = true;
+
+                    Report report = GetReportByRowIndex(currentMouseOverRow);
+
+                    if (report != null)
+                    {
+                        reportContextMenuUnload.Text = $"Выгрузить отчет за '{report.Date.ToShortDateString()}'";
+                        reportContextMenuUnload.Enabled = true;
+                        reportContextMenuUnload.Tag = report;
+                    }
+                    else
+                    {
+                        reportContextMenuUnload.Text = "Выгрузить отчет";
+                        reportContextMenuUnload.Enabled = false;
+                        reportContextMenuUnload.Tag = null;
+                    }
+
+                    reportContextMenu.Show(reportDataGridView, new Point(e.X, e.Y));
+                }
+            }
+        }
+
         #endregion
 
         #endregion
@@ -802,6 +854,25 @@ namespace WorldStat.Core.Forms
             loadReportForm.ShowDialog(this);
         }
 
+        private Report GetReportByRowIndex(int rowIndex)
+        {
+            try
+            {
+                List<Report> reports = ((SortableBindingList<Report>)reportBindingSource.DataSource).ToList();
+
+                if (reports.Count > 0)
+                {
+                    return reports[rowIndex];
+                }
+            }
+            catch
+            {
+                return null;
+            }
+
+            return null;
+        }
+
         #endregion
 
         #region Datas
@@ -917,13 +988,51 @@ namespace WorldStat.Core.Forms
                 List<ReportPos> reportPoses = await Db.LoadDispathReportPosesAsync(start, end, firm.Id);
                 DispathReportRepository repository = new DispathReportRepository(reportPoses);
 
-                string reportName;
-                if (start == end)
-                    reportName = start.ToShortDateString();
-                else
-                    reportName = $"{start.ToShortDateString()} - {end.ToShortDateString()}";
+                var reportName = start == end ? start.ToShortDateString() : $"{start.ToShortDateString()} - {end.ToShortDateString()}";
 
                 repository.SaveToFile(@"C:\1\report.txt", reportName);
+            }
+        }
+
+        private async void reportContextMenuUnload_Click(object sender, EventArgs e)
+        {
+            Report report = (Report) reportContextMenuUnload.Tag;
+            if (report != null)
+            {
+                List<ReportPos> reportPoses = await Db.GetReportPosesByReportIdAsync(report.Id);
+                DispathReportRepository repository = new DispathReportRepository(reportPoses);
+
+                await Task.Run(() =>
+                {
+                    repository.SaveToFile(Path.Combine(reportTextBoxUnloadDir.Texts, $"{report.Date.ToShortDateString()}.txt"), report.Date.ToShortDateString());
+                });
+                
+                SuccessMessage("Готово!");
+            }
+        }
+
+        private async void reportContextMenuUnloadAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Report> reports = ((SortableBindingList<Report>)reportBindingSource.DataSource).ToList();
+
+                foreach (Report report in reports)
+                {
+                    List<ReportPos> reportPoses = await Db.GetReportPosesByReportIdAsync(report.Id);
+                    DispathReportRepository repository = new DispathReportRepository(reportPoses);
+
+                    await Task.Run(() =>
+                    {
+                        repository.SaveToFile(Path.Combine(reportTextBoxUnloadDir.Texts, $"{report.Date.ToShortDateString()}.txt"), report.Date.ToShortDateString());
+                    });
+                }
+
+                SuccessMessage("Готово!");
+            }
+            catch
+            {
+                //
             }
         }
     }
