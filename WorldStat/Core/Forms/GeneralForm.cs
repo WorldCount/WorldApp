@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Wc32Api.Extensions.Bindings;
 using WcApi.Keyboard;
@@ -333,7 +331,8 @@ namespace WorldStat.Core.Forms
                 {
                     try
                     {
-                        var entity = db.MailCodes.Last();
+                        // ReSharper disable once AssignmentIsFullyDiscarded
+                        _ = db.MailCodes.Last();
                     }
                     catch
                     {
@@ -708,8 +707,6 @@ namespace WorldStat.Core.Forms
 
                 ParseReports();
             }
-
-            openFileDialog = null;
         }
 
         private void exitMenuItem_Click(object sender, EventArgs e)
@@ -744,12 +741,8 @@ namespace WorldStat.Core.Forms
 
                     LoadCalendarForm loadCalendarForm = new LoadCalendarForm(calendars);
                     loadCalendarForm.ShowDialog(this);
-
-                    loadCalendarForm = null;
                 }
             }
-
-            openFileDialog = null;
         }
 
         private async void firmsMenuItem_Click(object sender, EventArgs e)
@@ -759,8 +752,6 @@ namespace WorldStat.Core.Forms
 
             _firms = await Db.LoadAllFirmsAsync();
             UpdateFirms();
-
-            firmsForm = null;
         }
 
         private async void createDbMenuItem_Click(object sender, EventArgs e)
@@ -770,8 +761,6 @@ namespace WorldStat.Core.Forms
 
             await LoadDataAsync();
             UpdateData();
-
-            createDbForm = null;
         }
 
         private async void mailCategoryMenuItem_Click(object sender, EventArgs e)
@@ -781,8 +770,6 @@ namespace WorldStat.Core.Forms
 
             _activeMailCategories = await Db.LoadActiveMailCategoriesAsync();
             UpdateActiveMailCategories();
-
-            mailCategoryForm = null;
         }
 
         private async void mailTypeMenuItem_Click(object sender, EventArgs e)
@@ -792,16 +779,12 @@ namespace WorldStat.Core.Forms
 
             _activeMailTypes = await Db.LoadActiveMailTypesAsync();
             UpdateActiveMailTypes();
-
-            mailTypeForm = null;
         }
 
         private void mailCodeMenuItem_Click(object sender, EventArgs e)
         {
             MailCodeForm mailCodeForm = new MailCodeForm();
             mailCodeForm.ShowDialog(this);
-
-            mailCodeForm = null;
         }
 
         #endregion
@@ -812,8 +795,6 @@ namespace WorldStat.Core.Forms
         {
             LoadReportForm loadReportForm = new LoadReportForm(_reportsPaths);
             loadReportForm.ShowDialog(this);
-
-            loadReportForm = null;
         }
 
         #endregion
@@ -914,7 +895,6 @@ namespace WorldStat.Core.Forms
             MailType mailType = (MailType)orgComboBoxMailType.SelectedItem;
             MailCategory mailCategory = (MailCategory)orgComboBoxMailCategory.SelectedItem;
             TransCategory transCategory = (TransCategory)orgComboBoxTransCategory.SelectedItem;
-            TransType transType = (TransType)orgComboBoxTransType.SelectedItem;
 
             long type = 9999;
             long category = 9999;

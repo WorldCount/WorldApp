@@ -437,6 +437,7 @@ namespace WorldStat.Core.Forms
             // timerStatus
             // 
             this.timerStatus.Interval = 3000;
+            this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
             // 
             // tabsControl
             // 
