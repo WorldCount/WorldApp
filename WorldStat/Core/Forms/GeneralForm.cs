@@ -816,11 +816,6 @@ namespace WorldStat.Core.Forms
             loadReportForm = null;
         }
 
-        private void ColorDataGrid()
-        {
-
-        }
-
         #endregion
 
         #region Datas
