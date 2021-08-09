@@ -1958,6 +1958,7 @@ namespace WorldStat.Core.Forms
             this.statDateTimePickerStart.Size = new System.Drawing.Size(220, 27);
             this.statDateTimePickerStart.TabIndex = 22;
             this.statDateTimePickerStart.Visible = false;
+            this.statDateTimePickerStart.ValueChanged += new System.EventHandler(this.statDateTimePickerStart_ValueChanged);
             // 
             // statDateTimePickerEnd
             // 

@@ -539,6 +539,11 @@ namespace WorldStat.Core.Forms
             incomeDateTimePickerEnd.Value = incomeDateTimePickerStart.Value;
         }
 
+        private void statDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            statDateTimePickerEnd.Value = statDateTimePickerStart.Value;
+        }
+
         #endregion
 
         #region Toggle Buttons Events
@@ -891,47 +896,34 @@ namespace WorldStat.Core.Forms
 
         private async void btnTest_Click(object sender, EventArgs e)
         {
-            Firm firm = (Firm)orgComboBoxFirms.SelectedItem;
-            MailType mailType = (MailType)orgComboBoxMailType.SelectedItem;
-            MailCategory mailCategory = (MailCategory)orgComboBoxMailCategory.SelectedItem;
-            TransCategory transCategory = (TransCategory)orgComboBoxTransCategory.SelectedItem;
-
-            long type = 9999;
-            long category = 9999;
-
+            Firm firm = (Firm)statComboBoxFirms.SelectedItem;
             if (firm != null)
             {
                 DateTime start;
                 DateTime end;
 
-                if (orgDateTimePickerCalendar.Visible)
+                if (statDateTimePickerCalendar.Visible)
                 {
-                    DateTime date = orgDateTimePickerCalendar.Value;
+                    DateTime date = statDateTimePickerCalendar.Value;
                     start = WcApi.Date.DateUtils.CropDate(date, day: 1);
                     end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
                 }
                 else
                 {
-                    start = WcApi.Date.DateUtils.CropTime(orgDateTimePickerStart.Value);
-                    end = WcApi.Date.DateUtils.CropTime(orgDateTimePickerEnd.Value);
+                    start = WcApi.Date.DateUtils.CropTime(statDateTimePickerStart.Value);
+                    end = WcApi.Date.DateUtils.CropTime(statDateTimePickerEnd.Value);
                 }
 
-                if (mailCategory != null)
-                    category = mailCategory.Code;
+                List<ReportPos> reportPoses = await Db.LoadDispathReportPosesAsync(start, end, firm.Id);
+                DispathReportRepository repository = new DispathReportRepository(reportPoses);
 
-                if (mailType != null)
-                    type = mailType.Code;
+                string reportName;
+                if (start == end)
+                    reportName = start.ToShortDateString();
+                else
+                    reportName = $"{start.ToShortDateString()} - {end.ToShortDateString()}";
 
-                _orgReportPoses = await Db.LoadGroupReportPosesAsync(start, end, firm.Id, type, category, transCategory);
-                UpdateOrgReportPoses();
-
-                orgLabelCount.Text = _orgReportPoses.Sum(r => r.Count).ToString();
-
-                string count = _orgReportPoses.Sum(r => r.Count).ToString("### ###");
-                string sum = _orgReportPoses.Sum(r => r.Pay).ToString("C");
-
-                orgLabelCount.Text = string.IsNullOrWhiteSpace(count) ? "0" : count;
-                orgLabelPay.Text = sum;
+                repository.SaveToFile(@"C:\1\report.txt", reportName);
             }
         }
     }
