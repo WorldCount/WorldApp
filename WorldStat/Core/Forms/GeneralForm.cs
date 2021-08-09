@@ -17,6 +17,7 @@ using WorldStat.Core.Database.Contexts;
 using WorldStat.Core.Database.Models;
 using WorldStat.Core.Forms.DataForms;
 using WorldStat.Core.Forms.TypeForms;
+using WorldStat.Core.Reports.Models;
 using WorldStat.Core.Storage;
 using WorldStat.Core.Types;
 
@@ -35,6 +36,7 @@ namespace WorldStat.Core.Forms
         private List<MailType> _mailTypes;
         private List<MailCategory> _activeMailCategories;
         private List<MailType> _activeMailTypes;
+        private List<DispathReport> _dispathReports;
 
         #endregion
 
@@ -243,6 +245,7 @@ namespace WorldStat.Core.Forms
             Wc32Api.DrawingControl.SetDoubleBuffered(reportDataGridView);
             Wc32Api.DrawingControl.SetDoubleBuffered(orgDataGridView);
             Wc32Api.DrawingControl.SetDoubleBuffered(incomeDataGridView);
+            Wc32Api.DrawingControl.SetDoubleBuffered(statDataGridView);
 
             Wc32Api.DrawingControl.SetDoubleBuffered(incomePanel);
 
@@ -309,6 +312,12 @@ namespace WorldStat.Core.Forms
 
             incomeColumnCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             incomeColumnCount.Width = 120;
+
+            #endregion
+
+            #region Stat
+
+            // Таблица со статистикой
 
             #endregion
         }
@@ -484,6 +493,34 @@ namespace WorldStat.Core.Forms
             }
         }
 
+        private async void btnLoadStat_Click(object sender, EventArgs e)
+        {
+            Firm firm = (Firm)statComboBoxFirms.SelectedItem;
+            if (firm != null)
+            {
+                DateTime start;
+                DateTime end;
+
+                if (statDateTimePickerCalendar.Visible)
+                {
+                    DateTime date = statDateTimePickerCalendar.Value;
+                    start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+                    end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+                }
+                else
+                {
+                    start = WcApi.Date.DateUtils.CropTime(statDateTimePickerStart.Value);
+                    end = WcApi.Date.DateUtils.CropTime(statDateTimePickerEnd.Value);
+                }
+
+                List<ReportPos> reportPoses = await Db.LoadDispathReportPosesAsync(start, end, firm.Id);
+                DispathReportRepository repository = new DispathReportRepository(reportPoses);
+                _dispathReports = repository.ToDispathReports();
+
+                UpdateDispathReports();
+            }
+        }
+
         #endregion
 
         #region DateTime Pickers Events
@@ -567,6 +604,22 @@ namespace WorldStat.Core.Forms
             incomeColumnDate.Visible = !incomeColumnDate.Visible;
         }
 
+        private void statToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (statToggleButtonCalendar.Checked)
+            {
+                statDateTimePickerStart.Visible = false;
+                statDateTimePickerEnd.Visible = false;
+                statDateTimePickerCalendar.Visible = true;
+            }
+            else
+            {
+                statDateTimePickerStart.Visible = true;
+                statDateTimePickerEnd.Visible = true;
+                statDateTimePickerCalendar.Visible = false;
+            }
+        }
+
         #endregion
 
         #region Others Events
@@ -599,6 +652,26 @@ namespace WorldStat.Core.Forms
                 }
 
                 e.Handled = true;
+            }
+        }
+        private void statDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex > 0)
+            {
+                DispathReport report = ((List<DispathReport>)dispathReportBindingSource.DataSource)[e.RowIndex];
+                if (report != null)
+                {
+                    if (report.IsHeader)
+                    {
+                        statDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.DimGray;
+                        statDataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+                    }
+                    else if (report.IsSubheader)
+                    {
+                        statDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Gray;
+                        statDataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+                    }
+                }
             }
         }
 
@@ -743,6 +816,11 @@ namespace WorldStat.Core.Forms
             loadReportForm = null;
         }
 
+        private void ColorDataGrid()
+        {
+
+        }
+
         #endregion
 
         #region Datas
@@ -807,6 +885,9 @@ namespace WorldStat.Core.Forms
 
             incomeFirmBindingSource.DataSource = null;
             incomeFirmBindingSource.DataSource = _firms;
+
+            statFirmBindingSource.DataSource = null;
+            statFirmBindingSource.DataSource = _firms;
         }
 
         private void UpdateOrgReportPoses()
@@ -819,6 +900,12 @@ namespace WorldStat.Core.Forms
         {
             incomeReportPosBindingSource.DataSource = null;
             incomeReportPosBindingSource.DataSource = _incomeReportPoses.ToSortableBindingList();
+        }
+
+        private void UpdateDispathReports()
+        {
+            dispathReportBindingSource.DataSource = null;
+            dispathReportBindingSource.DataSource = _dispathReports;
         }
 
 

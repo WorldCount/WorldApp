@@ -47,6 +47,9 @@ namespace WorldStat.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -172,8 +175,21 @@ namespace WorldStat.Core.Forms
             this.incomeComboBoxFirms = new System.Windows.Forms.ComboBox();
             this.incomeFirmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabStats = new System.Windows.Forms.TabPage();
-            this.panelReceivedDoc = new System.Windows.Forms.Panel();
-            this.btnReceiveDocLoad = new System.Windows.Forms.Button();
+            this.statDataGridView = new System.Windows.Forms.DataGridView();
+            this.statColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statColumnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dispathReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panelStat = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.statToggleButtonCalendar = new Wc32Api.Widgets.WcToggleButton();
+            this.statDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.statDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.statDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
+            this.btnLoadStat = new Wc32Api.Widgets.WcButton();
+            this.statComboBoxFirms = new System.Windows.Forms.ComboBox();
+            this.statFirmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabCharts = new System.Windows.Forms.TabPage();
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
@@ -212,7 +228,11 @@ namespace WorldStat.Core.Forms
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incomeFirmBindingSource)).BeginInit();
             this.tabStats.SuspendLayout();
-            this.panelReceivedDoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dispathReportBindingSource)).BeginInit();
+            this.panelStat.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statFirmBindingSource)).BeginInit();
             this.tabCharts.SuspendLayout();
             this.panelActive.SuspendLayout();
             this.SuspendLayout();
@@ -1782,37 +1802,234 @@ namespace WorldStat.Core.Forms
             // tabStats
             // 
             this.tabStats.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabStats.Controls.Add(this.panelReceivedDoc);
+            this.tabStats.Controls.Add(this.statDataGridView);
+            this.tabStats.Controls.Add(this.panelStat);
             this.tabStats.Location = new System.Drawing.Point(4, 29);
             this.tabStats.Name = "tabStats";
             this.tabStats.Size = new System.Drawing.Size(1349, 373);
             this.tabStats.TabIndex = 2;
             this.tabStats.Text = "Статистика";
             // 
-            // panelReceivedDoc
+            // statDataGridView
             // 
-            this.panelReceivedDoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelReceivedDoc.Controls.Add(this.btnReceiveDocLoad);
-            this.panelReceivedDoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReceivedDoc.Location = new System.Drawing.Point(0, 0);
-            this.panelReceivedDoc.Name = "panelReceivedDoc";
-            this.panelReceivedDoc.Size = new System.Drawing.Size(1349, 48);
-            this.panelReceivedDoc.TabIndex = 3;
+            this.statDataGridView.AllowUserToAddRows = false;
+            this.statDataGridView.AllowUserToDeleteRows = false;
+            this.statDataGridView.AllowUserToResizeColumns = false;
+            this.statDataGridView.AllowUserToResizeRows = false;
+            this.statDataGridView.AutoGenerateColumns = false;
+            this.statDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.statDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.statDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.statDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            this.statDataGridView.ColumnHeadersHeight = 40;
+            this.statDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.statDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.statColumnName,
+            this.statColumnDescription,
+            this.statColumnCount,
+            this.statColumnPay});
+            this.statDataGridView.DataSource = this.dispathReportBindingSource;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.statDataGridView.DefaultCellStyle = dataGridViewCellStyle19;
+            this.statDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statDataGridView.EnableHeadersVisualStyles = false;
+            this.statDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.statDataGridView.Location = new System.Drawing.Point(0, 54);
+            this.statDataGridView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.statDataGridView.Name = "statDataGridView";
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.statDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.statDataGridView.RowHeadersVisible = false;
+            this.statDataGridView.RowHeadersWidth = 40;
+            this.statDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.statDataGridView.RowTemplate.Height = 40;
+            this.statDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.statDataGridView.Size = new System.Drawing.Size(1349, 319);
+            this.statDataGridView.TabIndex = 12;
+            this.statDataGridView.TabStop = false;
+            this.statDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.statDataGridView_CellFormatting);
             // 
-            // btnReceiveDocLoad
+            // statColumnName
             // 
-            this.btnReceiveDocLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReceiveDocLoad.BackColor = System.Drawing.Color.Brown;
-            this.btnReceiveDocLoad.FlatAppearance.BorderSize = 0;
-            this.btnReceiveDocLoad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.btnReceiveDocLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReceiveDocLoad.ForeColor = System.Drawing.Color.White;
-            this.btnReceiveDocLoad.Location = new System.Drawing.Point(1305, 6);
-            this.btnReceiveDocLoad.Name = "btnReceiveDocLoad";
-            this.btnReceiveDocLoad.Size = new System.Drawing.Size(36, 36);
-            this.btnReceiveDocLoad.TabIndex = 21;
-            this.btnReceiveDocLoad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReceiveDocLoad.UseVisualStyleBackColor = false;
+            this.statColumnName.DataPropertyName = "Name";
+            this.statColumnName.HeaderText = "Название";
+            this.statColumnName.Name = "statColumnName";
+            this.statColumnName.ReadOnly = true;
+            // 
+            // statColumnDescription
+            // 
+            this.statColumnDescription.DataPropertyName = "Description";
+            this.statColumnDescription.HeaderText = "Описание";
+            this.statColumnDescription.Name = "statColumnDescription";
+            this.statColumnDescription.ReadOnly = true;
+            // 
+            // statColumnCount
+            // 
+            this.statColumnCount.DataPropertyName = "CountText";
+            this.statColumnCount.HeaderText = "Количество";
+            this.statColumnCount.Name = "statColumnCount";
+            this.statColumnCount.ReadOnly = true;
+            // 
+            // statColumnPay
+            // 
+            this.statColumnPay.DataPropertyName = "PayText";
+            this.statColumnPay.HeaderText = "Плата";
+            this.statColumnPay.Name = "statColumnPay";
+            this.statColumnPay.ReadOnly = true;
+            // 
+            // dispathReportBindingSource
+            // 
+            this.dispathReportBindingSource.DataSource = typeof(WorldStat.Core.Reports.Models.DispathReport);
+            // 
+            // panelStat
+            // 
+            this.panelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelStat.Controls.Add(this.flowLayoutPanel4);
+            this.panelStat.Controls.Add(this.btnLoadStat);
+            this.panelStat.Controls.Add(this.statComboBoxFirms);
+            this.panelStat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStat.Location = new System.Drawing.Point(0, 0);
+            this.panelStat.Name = "panelStat";
+            this.panelStat.Size = new System.Drawing.Size(1349, 54);
+            this.panelStat.TabIndex = 5;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel4.Controls.Add(this.statToggleButtonCalendar);
+            this.flowLayoutPanel4.Controls.Add(this.statDateTimePickerStart);
+            this.flowLayoutPanel4.Controls.Add(this.statDateTimePickerEnd);
+            this.flowLayoutPanel4.Controls.Add(this.statDateTimePickerCalendar);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(417, 8);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(878, 34);
+            this.flowLayoutPanel4.TabIndex = 29;
+            // 
+            // statToggleButtonCalendar
+            // 
+            this.statToggleButtonCalendar.AutoSize = true;
+            this.statToggleButtonCalendar.Checked = true;
+            this.statToggleButtonCalendar.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.statToggleButtonCalendar.DisableBackColor = System.Drawing.Color.DimGray;
+            this.statToggleButtonCalendar.DisableToggleColor = System.Drawing.Color.Gray;
+            this.statToggleButtonCalendar.Location = new System.Drawing.Point(3, 6);
+            this.statToggleButtonCalendar.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.statToggleButtonCalendar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.statToggleButtonCalendar.Name = "statToggleButtonCalendar";
+            this.statToggleButtonCalendar.OffBackColor = System.Drawing.Color.DimGray;
+            this.statToggleButtonCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.statToggleButtonCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.statToggleButtonCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.statToggleButtonCalendar.Size = new System.Drawing.Size(45, 22);
+            this.statToggleButtonCalendar.TabIndex = 28;
+            this.statToggleButtonCalendar.UseVisualStyleBackColor = true;
+            this.statToggleButtonCalendar.CheckedChanged += new System.EventHandler(this.statToggleButtonCalendar_CheckedChanged);
+            // 
+            // statDateTimePickerStart
+            // 
+            this.statDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.statDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.statDateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.statDateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.statDateTimePickerStart.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.statDateTimePickerStart.Location = new System.Drawing.Point(54, 3);
+            this.statDateTimePickerStart.Name = "statDateTimePickerStart";
+            this.statDateTimePickerStart.Size = new System.Drawing.Size(220, 27);
+            this.statDateTimePickerStart.TabIndex = 22;
+            this.statDateTimePickerStart.Visible = false;
+            // 
+            // statDateTimePickerEnd
+            // 
+            this.statDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.statDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.statDateTimePickerEnd.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.statDateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.statDateTimePickerEnd.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.statDateTimePickerEnd.Location = new System.Drawing.Point(280, 3);
+            this.statDateTimePickerEnd.Name = "statDateTimePickerEnd";
+            this.statDateTimePickerEnd.Size = new System.Drawing.Size(200, 27);
+            this.statDateTimePickerEnd.TabIndex = 23;
+            this.statDateTimePickerEnd.Visible = false;
+            // 
+            // statDateTimePickerCalendar
+            // 
+            this.statDateTimePickerCalendar.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.statDateTimePickerCalendar.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.statDateTimePickerCalendar.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.statDateTimePickerCalendar.CalendarTitleForeColor = System.Drawing.Color.WhiteSmoke;
+            this.statDateTimePickerCalendar.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.statDateTimePickerCalendar.CustomFormat = "MMMM yyyy";
+            this.statDateTimePickerCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.statDateTimePickerCalendar.Location = new System.Drawing.Point(486, 3);
+            this.statDateTimePickerCalendar.Name = "statDateTimePickerCalendar";
+            this.statDateTimePickerCalendar.ShowUpDown = true;
+            this.statDateTimePickerCalendar.Size = new System.Drawing.Size(200, 27);
+            this.statDateTimePickerCalendar.TabIndex = 27;
+            // 
+            // btnLoadStat
+            // 
+            this.btnLoadStat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadStat.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadStat.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadStat.BorderRadius = 6F;
+            this.btnLoadStat.BorderSize = 0;
+            this.btnLoadStat.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadStat.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadStat.FlatAppearance.BorderSize = 0;
+            this.btnLoadStat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadStat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadStat.ForeColor = System.Drawing.Color.White;
+            this.btnLoadStat.Image = global::WorldStat.Properties.Resources.sinchronize_24;
+            this.btnLoadStat.Location = new System.Drawing.Point(1301, 4);
+            this.btnLoadStat.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadStat.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnLoadStat.Name = "btnLoadStat";
+            this.btnLoadStat.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadStat.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadStat.TabIndex = 26;
+            this.btnLoadStat.TextColor = System.Drawing.Color.White;
+            this.btnLoadStat.UseVisualStyleBackColor = false;
+            this.btnLoadStat.Click += new System.EventHandler(this.btnLoadStat_Click);
+            // 
+            // statComboBoxFirms
+            // 
+            this.statComboBoxFirms.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.statComboBoxFirms.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.statComboBoxFirms.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.statComboBoxFirms.DataSource = this.statFirmBindingSource;
+            this.statComboBoxFirms.DisplayMember = "ShortName";
+            this.statComboBoxFirms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.statComboBoxFirms.FormattingEnabled = true;
+            this.statComboBoxFirms.Location = new System.Drawing.Point(8, 10);
+            this.statComboBoxFirms.Name = "statComboBoxFirms";
+            this.statComboBoxFirms.Size = new System.Drawing.Size(403, 28);
+            this.statComboBoxFirms.TabIndex = 24;
+            this.statComboBoxFirms.ValueMember = "Id";
+            this.statComboBoxFirms.Enter += new System.EventHandler(this.comboBoxFirms_Enter);
+            // 
+            // statFirmBindingSource
+            // 
+            this.statFirmBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.Firm);
             // 
             // tabCharts
             // 
@@ -1918,7 +2135,12 @@ namespace WorldStat.Core.Forms
             this.flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incomeFirmBindingSource)).EndInit();
             this.tabStats.ResumeLayout(false);
-            this.panelReceivedDoc.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.statDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dispathReportBindingSource)).EndInit();
+            this.panelStat.ResumeLayout(false);
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statFirmBindingSource)).EndInit();
             this.tabCharts.ResumeLayout(false);
             this.panelActive.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1946,8 +2168,6 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.DataGridView reportDataGridView;
         private System.Windows.Forms.Panel reportPanel;
         private System.Windows.Forms.TabPage tabStats;
-        private System.Windows.Forms.Panel panelReceivedDoc;
-        private System.Windows.Forms.Button btnReceiveDocLoad;
         private System.Windows.Forms.TabPage tabOrgs;
         private System.Windows.Forms.DataGridView dataGridViewDocOrg;
         private System.Windows.Forms.Panel orgPanel;
@@ -2058,6 +2278,21 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnPay;
+        private System.Windows.Forms.Panel panelStat;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private Wc32Api.Widgets.WcToggleButton statToggleButtonCalendar;
+        private System.Windows.Forms.DateTimePicker statDateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker statDateTimePickerEnd;
+        private System.Windows.Forms.DateTimePicker statDateTimePickerCalendar;
+        private Wc32Api.Widgets.WcButton btnLoadStat;
+        private System.Windows.Forms.ComboBox statComboBoxFirms;
+        private System.Windows.Forms.DataGridView statDataGridView;
+        private System.Windows.Forms.BindingSource statFirmBindingSource;
+        private System.Windows.Forms.BindingSource dispathReportBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statColumnDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statColumnCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statColumnPay;
     }
 }
 

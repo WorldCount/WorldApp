@@ -268,6 +268,9 @@
     <Compile Include="Core\Parsers\Models\FrankMail.cs" />
     <Compile Include="Core\Parsers\Models\FrankRow.cs" />
     <Compile Include="Core\Parsers\Models\HierarchyFrankReport.cs" />
+    <Compile Include="Core\Reports\Models\DispathReport.cs" />
+    <Compile Include="Core\Reports\Models\DispathReportRepository.cs" />
+    <Compile Include="Core\Reports\Models\DispathReportStat.cs" />
     <Compile Include="Core\Storage\PathManager.cs" />
     <Compile Include="Core\Types\CalendarType.cs" />
     <Compile Include="Program.cs" />
@@ -279,6 +282,7 @@
     <None Include="Properties\DataSources\WorldStat.Core.Database.Models.MailCode.datasource" />
     <None Include="Properties\DataSources\WorldStat.Core.Database.Models.MailType.datasource" />
     <None Include="Properties\DataSources\WorldStat.Core.Database.Models.ReportPos.datasource" />
+    <None Include="Properties\DataSources\WorldStat.Core.Reports.Models.DispathReport.datasource" />
     <None Include="Resources\gray-trash-24.png" />
     <None Include="Resources\gray-unchecked-32.png" />
     <None Include="Resources\gray_checked-32.png" />
@@ -348,6 +352,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Core\Reports\Types\" />
     <Folder Include="Core\Storage\Manager\" />
   </ItemGroup>
   <ItemGroup>

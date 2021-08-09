@@ -14,7 +14,7 @@ namespace WorldStat.Core.Database.Models
 
         public CalendarType Type { get; set; } = CalendarType.Все;
 
-        public string DayName { get => Date.ToString("ddd");}
+        public string DayName => Date.ToString("ddd");
 
         public List<ReportPos> ReportPoses { get; set; } = new List<ReportPos>();
 

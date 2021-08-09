@@ -120,11 +120,22 @@ namespace WorldStat.Core.Database
 
         #region Report Poses
 
+        /// <summary>
+        /// Группированный отчет по доходам
+        /// </summary>
+        /// <param name="start">Начальная дата</param>
+        /// <param name="end">Конечная дата</param>
+        /// <param name="firmId">Id организации</param>
+        /// <param name="mailType">Тип отправления</param>
+        /// <param name="mailCategory">Категория отправления</param>
+        /// <param name="transCategory">Класс отправления</param>
+        /// <param name="group">Групировать данные</param>
+        /// <returns>Список позиций</returns>
         public static List<ReportPos> LoadGroupIncomeReportPoses(DateTime start, DateTime end, int firmId = 0,
             long mailType = 9999, long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ, bool group = false)
         {
             StringBuilder sb = new StringBuilder();
-            //sb.Append("select r.Id, r.FirmId, r.Date, f.ShortName, Sum(Count) as Count, Sum(Pay) as Pay");
+
             sb.Append("select r.Id, r.Date, r.FirmId, r.MailCategory, r.MailType, r.TransCategory, r.TransType, Sum(Count) as Count, Sum(Pay) as Pay, r.ReportId");
             sb.Append(" from ReportPoses r");
             sb.Append(" inner join Firms f on r.FirmId = f.Id");
@@ -164,12 +175,33 @@ namespace WorldStat.Core.Database
             }
         }
 
+        /// <summary>
+        /// Группированный отчет по доходам
+        /// </summary>
+        /// <param name="start">Начальная дата</param>
+        /// <param name="end">Конечная дата</param>
+        /// <param name="firmId">Id организации</param>
+        /// <param name="mailType">Тип отправления</param>
+        /// <param name="mailCategory">Категория отправления</param>
+        /// <param name="transCategory">Класс отправления</param>
+        /// <param name="group">Групировать данные</param>
+        /// <returns>Список позиций</returns>
         public static async Task<List<ReportPos>> LoadGroupIncomeReportPosesAsync(DateTime start, DateTime end,
             int firmId = 0, long mailType = 9999, long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ, bool group = false)
         {
             return await Task.Run(() => LoadGroupIncomeReportPoses(start, end, firmId, mailType, mailCategory, transCategory, group));
         }
 
+        /// <summary>
+        /// Группированный отчет по позициям
+        /// </summary>
+        /// <param name="start">Начальная дата</param>
+        /// <param name="end">Конечная дата</param>
+        /// <param name="firmId">Id организации</param>
+        /// <param name="mailType">Тип отправления</param>
+        /// <param name="mailCategory">Категория отправления</param>
+        /// <param name="transCategory">Класс отправления</param>
+        /// <returns>Список позиций</returns>
         public static List<ReportPos> LoadGroupReportPoses(DateTime start, DateTime end, int firmId = 0, long mailType = 9999,
             long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ)
         {
@@ -212,6 +244,16 @@ namespace WorldStat.Core.Database
             }
         }
 
+        /// <summary>
+        /// Группированный отчет по позициям
+        /// </summary>
+        /// <param name="start">Начальная дата</param>
+        /// <param name="end">Конечная дата</param>
+        /// <param name="firmId">Id организации</param>
+        /// <param name="mailType">Тип отправления</param>
+        /// <param name="mailCategory">Категория отправления</param>
+        /// <param name="transCategory">Класс отправления</param>
+        /// <returns>Список позиций</returns>
         public static async Task<List<ReportPos>> LoadGroupReportPosesAsync(DateTime start, DateTime end,
             int firmId = 0, long mailType = 9999,
             long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ)
@@ -219,6 +261,17 @@ namespace WorldStat.Core.Database
             return await Task.Run(() => LoadGroupReportPoses(start, end, firmId, mailType, mailCategory, transCategory));
         }
 
+        /// <summary>
+        /// Отчет по позициям
+        /// </summary>
+        /// <param name="start">Начальная дата</param>
+        /// <param name="end">Конечная дата</param>
+        /// <param name="firmId">Id организации</param>
+        /// <param name="mailType">Тип отправления</param>
+        /// <param name="mailCategory">Категория отправления</param>
+        /// <param name="transType">Тип пересылки</param>
+        /// <param name="transCategory">Класс отправления</param>
+        /// <returns>Список позиций</returns>
         public static List<ReportPos> LoadReportPoses(DateTime start, DateTime end, int firmId = 0, long mailType = 9999, 
             long mailCategory = 9999, TransType transType = TransType.ВСЕ, TransCategory transCategory = TransCategory.ВСЕ)
         {
@@ -248,12 +301,53 @@ namespace WorldStat.Core.Database
             }
         }
 
+        /// <summary>
+        /// Отчет по позициям
+        /// </summary>
+        /// <param name="start">Начальная дата</param>
+        /// <param name="end">Конечная дата</param>
+        /// <param name="firmId">Id организации</param>
+        /// <param name="mailType">Тип отправления</param>
+        /// <param name="mailCategory">Категория отправления</param>
+        /// <param name="transType">Тип пересылки</param>
+        /// <param name="transCategory">Класс отправления</param>
+        /// <returns>Список позиций</returns>
         public static async Task<List<ReportPos>> LoadReportPosesAsync(DateTime start, DateTime end, int firmId = 0, long mailType = 9999, 
             long mailCategory = 9999, TransType transType = TransType.ВСЕ, TransCategory transCategory = TransCategory.ВСЕ)
         {
             return await Task.Run(() => LoadReportPoses(start, end, firmId, mailType, mailCategory, transType, transCategory));
         }
 
+
+        public static List<ReportPos> LoadDispathReportPoses(DateTime start, DateTime end, int firmId = 0)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("select Id, Date, FirmId, MailCategory, MailType, TransCategory, TransType, Sum(Count) as Count, Sum(Pay) as Pay, ReportId");
+            sb.Append(" from ReportPoses");
+            sb.Append($" where date >= '{start:yyyy-MM-dd}' and date <= '{end.AddDays(1):yyyy-MM-dd}'");
+
+            if (firmId > 0)
+                sb.Append($" and FirmId = {firmId} ");
+
+            sb.Append(" group by MailCategory, MailType, TransCategory");
+
+            using (WorldStatContext db = new WorldStatContext())
+            {
+                var q = db.ReportPoses.FromSql(sb.ToString());
+
+                q = q.Include(r => r.Firm).OrderBy(p => p.Date);
+
+                var data = q.ToList();
+
+                return data;
+            }
+        }
+
+        public static async Task<List<ReportPos>> LoadDispathReportPosesAsync(DateTime start, DateTime end, int firmId = 0)
+        {
+            return await Task.Run(() => LoadDispathReportPoses(start, end, firmId));
+        }
         #endregion
     }
 }
