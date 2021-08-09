@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using WcPostApi.Types;
 using WorldStat.Core.Database.Models;
 
@@ -432,6 +434,118 @@ namespace WorldStat.Core.Reports.Models
             }
 
             return dispathReports;
+        }
+
+        public void SaveToFile(string path, string reportName)
+        {
+            if (AllCount > 0)
+            {
+                string report = GetFileReportData(reportName);
+                if(string.IsNullOrEmpty(report))
+                    return;
+
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
+                        sw.Write(report);
+                }
+                catch
+                {
+                    //
+                }
+            }
+        }
+
+        private string FormatPay(double pay)
+        {
+            return $"{pay:F} р".Replace(',', '.');
+        }
+
+        private string GetFileReportData(string reportName)
+        {
+            string headerLine = "================================================";
+            string footerLine = "------------------------------------------------";
+
+            if (AllCount > 0)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("");
+                sb.AppendLine($"[ОТЧЕТ: {reportName}]");
+                sb.AppendLine("");
+
+                sb.AppendLine("Общие данные:");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"Всего отправлений: {AllCount} шт = {FormatPay(AllPay)}");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"\tБандеролей: {AllParcelCount} шт = {FormatPay(AllParcelPay)}");
+                sb.AppendLine($"\tПисем: {AllMailCount} шт = {FormatPay(AllMailPay)}");
+                sb.AppendLine(footerLine);
+                sb.AppendLine($"\tФранкировка: {Frank} шт");
+                sb.AppendLine($"\tСтикеры: {Stickers} шт");
+                sb.AppendLine(footerLine);
+                sb.AppendLine("");
+
+                sb.AppendLine("Из них простой:");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"Всего отправлений: {SimpleCount} шт = {FormatPay(SimplePay)}");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"\tБандеролей: {SimpleParcelCount} шт = {FormatPay(SimpleParcelPay)}");
+                sb.AppendLine($"\tПисем: {SimpleMailCount} шт = {FormatPay(SimpleMailPay)}");
+                sb.AppendLine(footerLine);
+                sb.AppendLine("");
+
+                sb.AppendLine("Из них заказной:");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"Всего отправлений: {CustomCount} шт = {FormatPay(CustomPay)}");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"\tБандеролей: {CustomParcelCount} шт = {FormatPay(CustomParcelPay)}");
+                sb.AppendLine($"\tПисем: {CustomMailCount} шт = {FormatPay(CustomMailPay)}");
+                sb.AppendLine(footerLine);
+                sb.AppendLine("");
+
+                sb.AppendLine("");
+                sb.AppendLine("*** ПО ВИДАМ ОТПРАВЛЕНИЙ ***");
+                sb.AppendLine("");
+
+                sb.AppendLine("1 класс:");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"Всего отправлений: {FirstCount} шт = {FormatPay(FirstPay)}");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"\tБандеролей: {FirstParcelCount} шт = {FormatPay(FirstParcelPay)}");
+                sb.AppendLine($"\tПисем: {FirstMailCount} шт = {FormatPay(FirstMailPay)}");
+                sb.AppendLine(footerLine);
+                sb.AppendLine("");
+
+                sb.AppendLine("Международные:");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"Всего отправлений: {InterCount} шт = {FormatPay(InterPay)}");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"\tБандеролей: {InterParcelCount} шт = {FormatPay(InterParcelPay)}");
+                sb.AppendLine($"\t\t- простых: {InterSimpleParcelCount} шт = {FormatPay(InterSimpleParcelPay)}");
+                sb.AppendLine($"\t\t- заказных: {InterCustomParcelCount} шт = {FormatPay(InterCustomParcelPay)}");
+                sb.AppendLine($"\tПисем: {InterMailCount} шт = {FormatPay(InterMailPay)}");
+                sb.AppendLine($"\t\t- простых: {InterSimpleMailCount} шт = {FormatPay(InterSimpleMailPay)}");
+                sb.AppendLine($"\t\t- заказных: {InterCustomMailCount} шт = {FormatPay(InterCustomMailPay)}");
+                sb.AppendLine(footerLine);
+                sb.AppendLine("");
+
+                sb.AppendLine("Внутренние:");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"Всего отправлений: {InsideCount} шт = {FormatPay(InsidePay)}");
+                sb.AppendLine(headerLine);
+                sb.AppendLine($"\tБандеролей: {InsideParcelCount} шт = {FormatPay(InsideParcelPay)}");
+                sb.AppendLine($"\t\t- простых: {InsideSimpleParcelCount} шт = {FormatPay(InsideSimpleParcelPay)}");
+                sb.AppendLine($"\t\t- заказных: {InsideCustomParcelCount} шт = {FormatPay(InsideCustomParcelPay)}");
+                sb.AppendLine($"\tПисем: {InsideMailCount} шт = {FormatPay(InsideMailPay)}");
+                sb.AppendLine($"\t\t- простых: {InsideSimpleMailCount} шт = {FormatPay(InsideSimpleMailPay)}");
+                sb.AppendLine($"\t\t- заказных: {InsideCustomMailCount} шт = {FormatPay(InsideCustomMailPay)}");
+                sb.AppendLine(footerLine);
+                sb.AppendLine("");
+
+                return sb.ToString();
+            }
+
+            return null;
         }
     }
 }
