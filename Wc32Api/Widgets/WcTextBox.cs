@@ -173,6 +173,13 @@ namespace Wc32Api.Widgets
             set => _disableBorderColor = value;
         }
 
+        [Category("WcTextBox - Appearance Disable")]
+        public bool ReadOnly
+        {
+            get => textBox.ReadOnly;
+            set => textBox.ReadOnly = value;
+        }
+
         [Category("WcTextBox - Appearance Format")]
         public CharacterCasing CharacterCasing
         {
