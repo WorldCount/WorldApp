@@ -214,7 +214,7 @@ namespace WorldStat.Core.Parsers
                 return null;
 
             FileInfo fileInfo = new FileInfo(_path);
-            string _ext = fileInfo.Extension;
+            _ext = fileInfo.Extension;
 
             if ((_ext != ".xls") && (_ext != ".xlsx"))
                 return null;
