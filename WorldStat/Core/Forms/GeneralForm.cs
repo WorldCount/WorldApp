@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Disk.SDK;
 using Newtonsoft.Json;
 using Wc32Api.Extensions.Bindings;
 using WcApi.Keyboard;
@@ -16,6 +15,8 @@ using WorldStat.Core.Database.Contexts;
 using WorldStat.Core.Database.Models;
 using WorldStat.Core.Forms.DataForms;
 using WorldStat.Core.Forms.TypeForms;
+using WorldStat.Core.Libs;
+using WorldStat.Core.Libs.Models;
 using WorldStat.Core.Reports.Models;
 using WorldStat.Core.Storage;
 using WorldStat.Core.Types;
@@ -26,6 +27,10 @@ namespace WorldStat.Core.Forms
     {
 
         #region Private Field
+
+        private string _yaToken = "AQAAAAAHBmbXAAdOm4JmlzWwwUHuh9B14NYevJI";
+        private string _yaReportFmDir;
+        private string _yaReportOrigDir ;
 
         private string[] _reportsPaths;
         private List<Firm> _firms;
@@ -976,31 +981,7 @@ namespace WorldStat.Core.Forms
 
         private async void btnTest_Click(object sender, EventArgs e)
         {
-            Firm firm = (Firm)statComboBoxFirms.SelectedItem;
-            if (firm != null)
-            {
-                DateTime start;
-                DateTime end;
 
-                if (statDateTimePickerCalendar.Visible)
-                {
-                    DateTime date = statDateTimePickerCalendar.Value;
-                    start = WcApi.Date.DateUtils.CropDate(date, day: 1);
-                    end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
-                }
-                else
-                {
-                    start = WcApi.Date.DateUtils.CropTime(statDateTimePickerStart.Value);
-                    end = WcApi.Date.DateUtils.CropTime(statDateTimePickerEnd.Value);
-                }
-
-                List<ReportPos> reportPoses = await Db.LoadDispathReportPosesAsync(start, end, firm.Id);
-                DispathReportRepository repository = new DispathReportRepository(reportPoses);
-
-                var reportName = start == end ? start.ToShortDateString() : $"{start.ToShortDateString()} - {end.ToShortDateString()}";
-
-                repository.SaveToFile(@"C:\1\report.txt", reportName);
-            }
         }
 
         private async void reportContextMenuUnload_Click(object sender, EventArgs e)
@@ -1053,45 +1034,33 @@ namespace WorldStat.Core.Forms
 
             if (report != null)
             {
-                string token = "AQAAAAAHBmbXAAdOm4JmlzWwwUHuh9B14NYevJI";
-
                 List<ReportPos> reportPoses = await Db.GetReportPosesByReportIdAsync(report.Id);
                 DispathReportRepository repository = new DispathReportRepository(reportPoses);
 
-                string path = Path.Combine(PathManager.TempReportsDir, $"{report.Date.ToShortDateString()}.txt");
-                string reportDir = $"Почта/Отчеты/{WcApi.Date.DateUtils.GetMonthName(report.Date)} {report.Date.Year}";
-                string uploadDir = $"{reportDir}/ОТЧЕТ ПО ФМ";
-                string uploadPath = $"{uploadDir}/{report.Date.ToShortDateString()}.txt";
+                string tempReportPath = Path.Combine(PathManager.TempReportsDir, $"{report.Date.ToShortDateString()}.txt");
+                string reserveReportPath = Path.Combine(PathManager.ReserveReportsDir, $"{report.Date:MM}.{report.Date:yyyy}", $"{report.Date.ToShortDateString()}.xls");
 
+                string reportDir = $"{WcApi.Date.DateUtils.GetMonthName(report.Date)} {report.Date.Year}";
 
-                //sdk.MakeDirectoryAsync(uploadDir);
+                YaDiskClient client = new YaDiskClient(_yaToken);
 
-                //YandexDiskRest disk = new YandexDiskRest(token);
+                if(string.IsNullOrEmpty(_yaReportFmDir))
+                    _yaReportFmDir = await client.CreateReportDir(reportDir, "ОТЧЕТ ПО ФМ");
 
-                //await Task.Run(() =>
-                //{
-                //    repository.SaveToFile(path, report.Date.ToShortDateString());
-                //});
+                if (string.IsNullOrEmpty(_yaReportOrigDir))
+                    _yaReportOrigDir = await client.CreateReportDir(reportDir, "ОРИГИНАЛ");
 
-                //await Task.Run(() =>
-                //{
-                //    disk.CreateFolder(reportDir);
-                //    disk.CreateFolder(uploadDir);
-                //});
+                await Task.Run(() =>
+                {
+                    repository.SaveToFile(tempReportPath, report.Date.ToShortDateString());
+                });
 
-                //try
-                //{
-                //    await disk.UploadResourceAsync(uploadPath, path, true);
-                //}
-                //catch (Exception err)
-                //{
-                //    ErrorMessage("Файл не загружен!");
-                //    Console.WriteLine(err.Message);
-                //    reportContextMenuUploadYandexDisk.Tag = null;
-                //    return;
-                //}
+                if(await client.UploadFile(tempReportPath, $"{_yaReportFmDir}/{report.Date.ToShortDateString()}.txt"))
+                    SuccessMessage("Выгрузка отчета завершена!");
 
-                SuccessMessage("Готово!");
+                if(File.Exists(reserveReportPath))
+                    if (await client.UploadFile(reserveReportPath, $"{_yaReportOrigDir}/{report.Date.ToShortDateString()}.xls"))
+                        SuccessMessage("Выгрузка оригинального отчета завершена!");
             }
 
             reportContextMenuUploadYandexDisk.Tag = null;

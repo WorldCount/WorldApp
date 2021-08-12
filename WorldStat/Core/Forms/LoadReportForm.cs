@@ -222,7 +222,7 @@ namespace WorldStat.Core.Forms
 
             await Task.Run(() =>
             {
-                File.Copy(reportPath, newPath);
+                File.Copy(reportPath, newPath, true);
             });
         }
 
