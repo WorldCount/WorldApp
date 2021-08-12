@@ -12,8 +12,6 @@ namespace WorldStat.Core.Forms.TypeForms
     public partial class MailCodeForm : Form
     {
         private List<MailCode> _mailCodes;
-        private List<MailCategory> _mailCategories;
-        private List<MailType> _mailTypes;
 
         public MailCodeForm()
         {
@@ -77,7 +75,7 @@ namespace WorldStat.Core.Forms.TypeForms
             }
         }
 
-        private async void SaveData()
+        private void SaveData()
         {
             //await Task.Run(() =>
             //{
