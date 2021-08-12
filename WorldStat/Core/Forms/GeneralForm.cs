@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Disk.SDK;
 using Newtonsoft.Json;
 using Wc32Api.Extensions.Bindings;
 using WcApi.Keyboard;
@@ -718,12 +719,20 @@ namespace WorldStat.Core.Forms
                         reportContextMenuUnload.Text = $"Выгрузить отчет за '{report.Date.ToShortDateString()}'";
                         reportContextMenuUnload.Enabled = true;
                         reportContextMenuUnload.Tag = report;
+
+                        reportContextMenuUploadYandexDisk.Text = $"Выгрузить отчет за '{report.Date.ToShortDateString()}' на Яндекс";
+                        reportContextMenuUploadYandexDisk.Enabled = true;
+                        reportContextMenuUploadYandexDisk.Tag = report;
                     }
                     else
                     {
                         reportContextMenuUnload.Text = "Выгрузить отчет";
                         reportContextMenuUnload.Enabled = false;
                         reportContextMenuUnload.Tag = null;
+
+                        reportContextMenuUploadYandexDisk.Text = "Выгрузить отчет на Яндекс";
+                        reportContextMenuUploadYandexDisk.Enabled = false;
+                        reportContextMenuUploadYandexDisk.Tag = null;
                     }
 
                     reportContextMenu.Show(reportDataGridView, new Point(e.X, e.Y));
@@ -1009,6 +1018,8 @@ namespace WorldStat.Core.Forms
                 
                 SuccessMessage("Готово!");
             }
+
+            reportContextMenuUnload.Tag = null;
         }
 
         private async void reportContextMenuUnloadAll_Click(object sender, EventArgs e)
@@ -1034,6 +1045,56 @@ namespace WorldStat.Core.Forms
             {
                 //
             }
+        }
+
+        private async void reportContextMenuUploadYandexDisk_Click(object sender, EventArgs e)
+        {
+            Report report = (Report)reportContextMenuUploadYandexDisk.Tag;
+
+            if (report != null)
+            {
+                string token = "AQAAAAAHBmbXAAdOm4JmlzWwwUHuh9B14NYevJI";
+
+                List<ReportPos> reportPoses = await Db.GetReportPosesByReportIdAsync(report.Id);
+                DispathReportRepository repository = new DispathReportRepository(reportPoses);
+
+                string path = Path.Combine(PathManager.TempReportsDir, $"{report.Date.ToShortDateString()}.txt");
+                string reportDir = $"Почта/Отчеты/{WcApi.Date.DateUtils.GetMonthName(report.Date)} {report.Date.Year}";
+                string uploadDir = $"{reportDir}/ОТЧЕТ ПО ФМ";
+                string uploadPath = $"{uploadDir}/{report.Date.ToShortDateString()}.txt";
+
+
+                //sdk.MakeDirectoryAsync(uploadDir);
+
+                //YandexDiskRest disk = new YandexDiskRest(token);
+
+                //await Task.Run(() =>
+                //{
+                //    repository.SaveToFile(path, report.Date.ToShortDateString());
+                //});
+
+                //await Task.Run(() =>
+                //{
+                //    disk.CreateFolder(reportDir);
+                //    disk.CreateFolder(uploadDir);
+                //});
+
+                //try
+                //{
+                //    await disk.UploadResourceAsync(uploadPath, path, true);
+                //}
+                //catch (Exception err)
+                //{
+                //    ErrorMessage("Файл не загружен!");
+                //    Console.WriteLine(err.Message);
+                //    reportContextMenuUploadYandexDisk.Tag = null;
+                //    return;
+                //}
+
+                SuccessMessage("Готово!");
+            }
+
+            reportContextMenuUploadYandexDisk.Tag = null;
         }
     }
 }
