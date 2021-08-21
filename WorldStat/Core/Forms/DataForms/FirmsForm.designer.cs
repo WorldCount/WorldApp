@@ -259,7 +259,7 @@
             this.tbFilter.PasswordChar = '\0';
             this.tbFilter.Size = new System.Drawing.Size(310, 40);
             this.tbFilter.TabIndex = 30;
-            this.tbFilter.Texts = "";
+            this.tbFilter.Text = "";
             this.tbFilter.UnderlinedStyle = true;
             this.tbFilter.UsePasswordChar = false;
             this.tbFilter._TextChanged += new System.EventHandler(this.tbFilter_TextChanged);

@@ -73,7 +73,7 @@ namespace WorldStat.Core.Forms
         private void LoadSettings()
         {
             FillComboBoxes();
-            reportTextBoxUnloadDir.Texts = Properties.Settings.Default.UnloadReportsDir;
+            reportTextBoxUnloadDir.Text = Properties.Settings.Default.UnloadReportsDir;
         }
 
         // Сохранение настроек
@@ -533,7 +533,7 @@ namespace WorldStat.Core.Forms
 
         private void btnOpenUnloadDir_Click(object sender, EventArgs e)
         {
-            string dir = reportTextBoxUnloadDir.Texts;
+            string dir = reportTextBoxUnloadDir.Text;
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             if (!string.IsNullOrEmpty(dir))
                 folderBrowserDialog.SelectedPath = dir;
@@ -541,7 +541,7 @@ namespace WorldStat.Core.Forms
             if (folderBrowserDialog.ShowDialog(this) == DialogResult.OK)
             {
                 Properties.Settings.Default.UnloadReportsDir = folderBrowserDialog.SelectedPath;
-                reportTextBoxUnloadDir.Texts = folderBrowserDialog.SelectedPath;
+                reportTextBoxUnloadDir.Text = folderBrowserDialog.SelectedPath;
                 Properties.Settings.Default.Save();
             }
         }
@@ -994,7 +994,7 @@ namespace WorldStat.Core.Forms
 
                 await Task.Run(() =>
                 {
-                    repository.SaveToFile(Path.Combine(reportTextBoxUnloadDir.Texts, $"{report.Date.ToShortDateString()}.txt"), report.Date.ToShortDateString());
+                    repository.SaveToFile(Path.Combine(reportTextBoxUnloadDir.Text, $"{report.Date.ToShortDateString()}.txt"), report.Date.ToShortDateString());
                 });
                 
                 SuccessMessage("Готово!");
@@ -1016,7 +1016,7 @@ namespace WorldStat.Core.Forms
 
                     await Task.Run(() =>
                     {
-                        repository.SaveToFile(Path.Combine(reportTextBoxUnloadDir.Texts, $"{report.Date.ToShortDateString()}.txt"), report.Date.ToShortDateString());
+                        repository.SaveToFile(Path.Combine(reportTextBoxUnloadDir.Text, $"{report.Date.ToShortDateString()}.txt"), report.Date.ToShortDateString());
                     });
                 }
 

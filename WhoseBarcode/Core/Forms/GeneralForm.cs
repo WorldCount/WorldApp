@@ -196,7 +196,7 @@ namespace WhoseBarcode.Core.Forms
 
             if (e.KeyCode == Keys.Enter)
             {
-                string barcode = barcodeTextBoxBarcode.Texts.Trim();
+                string barcode = barcodeTextBoxBarcode.Text.Trim();
 
                 if (barcode.Length >= 13)
                 {

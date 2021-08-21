@@ -426,7 +426,7 @@ namespace WorldStat.Core.Forms
             this.reportTextBoxUnloadDir.ReadOnly = true;
             this.reportTextBoxUnloadDir.Size = new System.Drawing.Size(538, 31);
             this.reportTextBoxUnloadDir.TabIndex = 28;
-            this.reportTextBoxUnloadDir.Texts = "";
+            this.reportTextBoxUnloadDir.Text = "";
             this.reportTextBoxUnloadDir.UnderlinedStyle = false;
             this.reportTextBoxUnloadDir.UsePasswordChar = false;
             // 

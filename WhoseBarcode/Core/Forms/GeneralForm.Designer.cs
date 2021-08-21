@@ -375,7 +375,7 @@ namespace WhoseBarcode.Core.Forms
             this.barcodeTextBoxBarcode.ReadOnly = false;
             this.barcodeTextBoxBarcode.Size = new System.Drawing.Size(210, 35);
             this.barcodeTextBoxBarcode.TabIndex = 27;
-            this.barcodeTextBoxBarcode.Texts = "";
+            this.barcodeTextBoxBarcode.Text = "";
             this.barcodeTextBoxBarcode.UnderlinedStyle = false;
             this.barcodeTextBoxBarcode.UsePasswordChar = false;
             this.barcodeTextBoxBarcode.Enter += new System.EventHandler(this.barcodeTextBoxBarcode_Enter);

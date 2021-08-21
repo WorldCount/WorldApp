@@ -174,7 +174,7 @@ namespace WorldStat.Core.Forms.TypeForms
 
         private void tbFilter_TextChanged(object sender, EventArgs e)
         {
-            string q = tbFilter.Texts.ToUpper();
+            string q = tbFilter.Text.ToUpper();
 
             if (!string.IsNullOrEmpty(q))
             {
