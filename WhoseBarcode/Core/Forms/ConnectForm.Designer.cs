@@ -188,7 +188,7 @@
             this.tbPort.PasswordChar = '\0';
             this.tbPort.Size = new System.Drawing.Size(76, 35);
             this.tbPort.TabIndex = 6;
-            this.tbPort.Texts = "";
+            this.tbPort.Text = "";
             this.tbPort.UnderlinedStyle = false;
             this.tbPort.UsePasswordChar = false;
             this.tbPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPort_KeyPress);
@@ -215,7 +215,7 @@
             this.tbPass.ReadOnly = true;
             this.tbPass.Size = new System.Drawing.Size(255, 38);
             this.tbPass.TabIndex = 4;
-            this.tbPass.Texts = "";
+            this.tbPass.Text = "";
             this.tbPass.UnderlinedStyle = false;
             this.tbPass.UsePasswordChar = false;
             // 
@@ -242,7 +242,7 @@
             this.tbStatus.Size = new System.Drawing.Size(255, 35);
             this.tbStatus.TabIndex = 0;
             this.tbStatus.TabStop = false;
-            this.tbStatus.Texts = "";
+            this.tbStatus.Text = "";
             this.tbStatus.UnderlinedStyle = false;
             this.tbStatus.UsePasswordChar = false;
             this.tbStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbStatus_KeyPress);
@@ -269,7 +269,7 @@
             this.tbUser.ReadOnly = true;
             this.tbUser.Size = new System.Drawing.Size(255, 38);
             this.tbUser.TabIndex = 3;
-            this.tbUser.Texts = "";
+            this.tbUser.Text = "";
             this.tbUser.UnderlinedStyle = false;
             this.tbUser.UsePasswordChar = false;
             // 
@@ -297,7 +297,7 @@
             this.tbPath.ReadOnly = true;
             this.tbPath.Size = new System.Drawing.Size(451, 38);
             this.tbPath.TabIndex = 2;
-            this.tbPath.Texts = "";
+            this.tbPath.Text = "";
             this.tbPath.UnderlinedStyle = false;
             this.tbPath.UsePasswordChar = false;
             // 
@@ -325,7 +325,7 @@
             this.tbHost.ReadOnly = false;
             this.tbHost.Size = new System.Drawing.Size(451, 38);
             this.tbHost.TabIndex = 1;
-            this.tbHost.Texts = "";
+            this.tbHost.Text = "";
             this.tbHost.UnderlinedStyle = false;
             this.tbHost.UsePasswordChar = false;
             // 

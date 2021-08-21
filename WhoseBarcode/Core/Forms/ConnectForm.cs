@@ -77,18 +77,18 @@ namespace WhoseBarcode.Core.Forms
         private async void btnCheck_Click(object sender, EventArgs e)
         {
             tbStatus.ForeColor = Color.DimGray;
-            tbStatus.Texts = "";
+            tbStatus.Text = "";
 
             bool status = await _connect.TestConnectAsync();
             if (status)
             {
                 tbStatus.ForeColor = Color.SeaGreen;
-                tbStatus.Texts = "Подключено";
+                tbStatus.Text = "Подключено";
             }
             else
             {
                 tbStatus.ForeColor = Color.Firebrick;
-                tbStatus.Texts = "Не подключено";
+                tbStatus.Text = "Не подключено";
             }
         }
 
