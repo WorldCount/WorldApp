@@ -152,6 +152,13 @@ namespace Wc32Api.Widgets
             set => textBox.Text = value;
         }
 
+        [Category("WcTextBox - Data")]
+        public int MaxLength
+        {
+            get => textBox.MaxLength;
+            set => textBox.MaxLength = value;
+        }
+
         [Category("WcTextBox - Appearance Disable")]
         public Color DisableForeColor
         {
