@@ -42,7 +42,15 @@ namespace Wc32Api.Widgets
         #region Public Properties
 
         [Browsable(false)]
-        public override string Text { get; set; }
+        public new ControlBindingsCollection DataBindings => textBox.DataBindings;
+
+        [Browsable(true)]
+        [Category("WcTextBox - Data")]
+        public override string Text
+        {
+            get => textBox.Text;
+            set => textBox.Text = value;
+        }
 
         [Category("WcTextBox - Appearance")]
         public Color BorderColor
