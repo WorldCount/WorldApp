@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApps\TestApp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldStat", "WorldStat\WorldStat.csproj", "{FC4B04F2-5FCF-468C-A33F-B7E5F9A1C80C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhoseBarcode", "WhoseBarcode\WhoseBarcode.csproj", "{B3E24DFF-ED95-4C8B-9651-6A201DEA7321}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{FC4B04F2-5FCF-468C-A33F-B7E5F9A1C80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC4B04F2-5FCF-468C-A33F-B7E5F9A1C80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC4B04F2-5FCF-468C-A33F-B7E5F9A1C80C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E24DFF-ED95-4C8B-9651-6A201DEA7321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E24DFF-ED95-4C8B-9651-6A201DEA7321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E24DFF-ED95-4C8B-9651-6A201DEA7321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E24DFF-ED95-4C8B-9651-6A201DEA7321}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
