@@ -257,9 +257,9 @@ namespace WcPostApi.Barcodes
         public override string ToString()
         {
             if (Type == PostBarcodeType.Внутренний)
-                return BarcodeGenerator.GetInternalBarcode(this);
+                return PostBarcodeGenerator.GetInternalBarcode(this);
             if (Type == PostBarcodeType.Внешний)
-                return BarcodeGenerator.GetExternalBarcode(this);
+                return PostBarcodeGenerator.GetExternalBarcode(this);
             return "";
         }
 
