@@ -30,7 +30,8 @@ namespace WhoseBarcode.Core.Database.Queryes
         public DbBarcode Run()
         {
             string query = GetQuery();
-            Logger.Debug($"Запрос в БД:\n{query}");
+            if(DebugMode)
+                Logger.Debug($"Запрос в БД:\n{query}");
 
             FbConnection fbConnection = null;
             FbDataReader reader = null;
