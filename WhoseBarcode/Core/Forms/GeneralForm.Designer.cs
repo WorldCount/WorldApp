@@ -38,8 +38,11 @@ namespace WhoseBarcode.Core.Forms
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
+            this.lblInfoDebug = new System.Windows.Forms.Label();
+            this.btnDebug = new Wc32Api.Widgets.WcToggleButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
@@ -51,14 +54,6 @@ namespace WhoseBarcode.Core.Forms
             this.barcodeLabelCount = new System.Windows.Forms.Label();
             this.barcodeLabelInfoCount = new System.Windows.Forms.Label();
             this.barcodeDataGridView = new System.Windows.Forms.DataGridView();
-            this.reportPanel = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelReport = new System.Windows.Forms.FlowLayoutPanel();
-            this.barcodeLabelInfoBarcode = new System.Windows.Forms.Label();
-            this.barcodeLabelError = new System.Windows.Forms.Label();
-            this.tabRanges = new System.Windows.Forms.TabPage();
-            this.barcodeTextBoxBarcode = new Wc32Api.Widgets.WcTextBox();
-            this.btnLoadBarcode = new Wc32Api.Widgets.WcButton();
-            this.dbBarcodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.barcodeColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcodeColumnBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcodeColumnMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,16 +61,24 @@ namespace WhoseBarcode.Core.Forms
             this.barcodeColumnNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcodeColumnFirmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcodeColumnState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.connectItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dbBarcodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportPanel = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelReport = new System.Windows.Forms.FlowLayoutPanel();
+            this.barcodeLabelInfoBarcode = new System.Windows.Forms.Label();
+            this.barcodeTextBoxBarcode = new Wc32Api.Widgets.WcTextBox();
+            this.barcodeLabelError = new System.Windows.Forms.Label();
+            this.btnLoadBarcode = new Wc32Api.Widgets.WcButton();
+            this.tabRanges = new System.Windows.Forms.TabPage();
             this.menuBar.SuspendLayout();
+            this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabBarcodes.SuspendLayout();
             this.reportPanelStat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barcodeDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbBarcodeBindingSource)).BeginInit();
             this.reportPanel.SuspendLayout();
             this.flowLayoutPanelReport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dbBarcodeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBar
@@ -107,7 +110,7 @@ namespace WhoseBarcode.Core.Forms
             // 
             this.exitMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.exitMenuItem.Size = new System.Drawing.Size(122, 24);
             this.exitMenuItem.Text = "Выход";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -119,6 +122,14 @@ namespace WhoseBarcode.Core.Forms
             this.settingsMenuItem.Size = new System.Drawing.Size(96, 36);
             this.settingsMenuItem.Text = "Настройки";
             // 
+            // connectItem
+            // 
+            this.connectItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.connectItem.Name = "connectItem";
+            this.connectItem.Size = new System.Drawing.Size(209, 24);
+            this.connectItem.Text = "Подключение к БД";
+            this.connectItem.Click += new System.EventHandler(this.connectItem_Click);
+            // 
             // infosMenuItem
             // 
             this.infosMenuItem.Name = "infosMenuItem";
@@ -128,12 +139,45 @@ namespace WhoseBarcode.Core.Forms
             // panelGeneral
             // 
             this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelGeneral.Controls.Add(this.lblInfoDebug);
+            this.panelGeneral.Controls.Add(this.btnDebug);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelGeneral.ForeColor = System.Drawing.Color.Gainsboro;
             this.panelGeneral.Location = new System.Drawing.Point(0, 40);
             this.panelGeneral.Name = "panelGeneral";
             this.panelGeneral.Size = new System.Drawing.Size(800, 58);
             this.panelGeneral.TabIndex = 5;
+            // 
+            // lblInfoDebug
+            // 
+            this.lblInfoDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblInfoDebug.AutoSize = true;
+            this.lblInfoDebug.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoDebug.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblInfoDebug.Location = new System.Drawing.Point(663, 17);
+            this.lblInfoDebug.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.lblInfoDebug.Name = "lblInfoDebug";
+            this.lblInfoDebug.Size = new System.Drawing.Size(71, 20);
+            this.lblInfoDebug.TabIndex = 27;
+            this.lblInfoDebug.Text = "Отладка:";
+            // 
+            // btnDebug
+            // 
+            this.btnDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDebug.AutoSize = true;
+            this.btnDebug.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnDebug.DisableToggleColor = System.Drawing.Color.Gray;
+            this.btnDebug.Location = new System.Drawing.Point(740, 17);
+            this.btnDebug.MinimumSize = new System.Drawing.Size(45, 22);
+            this.btnDebug.Name = "btnDebug";
+            this.btnDebug.OffBackColor = System.Drawing.Color.Firebrick;
+            this.btnDebug.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.btnDebug.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.btnDebug.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDebug.Size = new System.Drawing.Size(45, 22);
+            this.btnDebug.TabIndex = 0;
+            this.btnDebug.UseVisualStyleBackColor = true;
+            this.btnDebug.CheckedChanged += new System.EventHandler(this.btnDebug_CheckedChanged);
             // 
             // statusBar
             // 
@@ -292,124 +336,6 @@ namespace WhoseBarcode.Core.Forms
             this.barcodeDataGridView.TabIndex = 6;
             this.barcodeDataGridView.TabStop = false;
             // 
-            // reportPanel
-            // 
-            this.reportPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.reportPanel.Controls.Add(this.flowLayoutPanelReport);
-            this.reportPanel.Controls.Add(this.btnLoadBarcode);
-            this.reportPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.reportPanel.Location = new System.Drawing.Point(3, 3);
-            this.reportPanel.Name = "reportPanel";
-            this.reportPanel.Size = new System.Drawing.Size(786, 48);
-            this.reportPanel.TabIndex = 5;
-            // 
-            // flowLayoutPanelReport
-            // 
-            this.flowLayoutPanelReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelReport.Controls.Add(this.barcodeLabelInfoBarcode);
-            this.flowLayoutPanelReport.Controls.Add(this.barcodeTextBoxBarcode);
-            this.flowLayoutPanelReport.Controls.Add(this.barcodeLabelError);
-            this.flowLayoutPanelReport.Location = new System.Drawing.Point(3, 4);
-            this.flowLayoutPanelReport.Name = "flowLayoutPanelReport";
-            this.flowLayoutPanelReport.Size = new System.Drawing.Size(729, 41);
-            this.flowLayoutPanelReport.TabIndex = 27;
-            this.flowLayoutPanelReport.WrapContents = false;
-            // 
-            // barcodeLabelInfoBarcode
-            // 
-            this.barcodeLabelInfoBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.barcodeLabelInfoBarcode.AutoSize = true;
-            this.barcodeLabelInfoBarcode.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeLabelInfoBarcode.ForeColor = System.Drawing.Color.Gainsboro;
-            this.barcodeLabelInfoBarcode.Location = new System.Drawing.Point(6, 10);
-            this.barcodeLabelInfoBarcode.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
-            this.barcodeLabelInfoBarcode.Name = "barcodeLabelInfoBarcode";
-            this.barcodeLabelInfoBarcode.Size = new System.Drawing.Size(51, 20);
-            this.barcodeLabelInfoBarcode.TabIndex = 26;
-            this.barcodeLabelInfoBarcode.Text = "ШПИ:";
-            // 
-            // barcodeLabelError
-            // 
-            this.barcodeLabelError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.barcodeLabelError.AutoSize = true;
-            this.barcodeLabelError.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeLabelError.ForeColor = System.Drawing.Color.DarkOrange;
-            this.barcodeLabelError.Location = new System.Drawing.Point(284, 12);
-            this.barcodeLabelError.Margin = new System.Windows.Forms.Padding(6, 12, 3, 0);
-            this.barcodeLabelError.Name = "barcodeLabelError";
-            this.barcodeLabelError.Size = new System.Drawing.Size(59, 17);
-            this.barcodeLabelError.TabIndex = 28;
-            this.barcodeLabelError.Text = "Ошибка";
-            this.barcodeLabelError.Visible = false;
-            // 
-            // tabRanges
-            // 
-            this.tabRanges.Location = new System.Drawing.Point(4, 36);
-            this.tabRanges.Name = "tabRanges";
-            this.tabRanges.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRanges.Size = new System.Drawing.Size(792, 290);
-            this.tabRanges.TabIndex = 1;
-            this.tabRanges.Text = "Диапазоны";
-            this.tabRanges.UseVisualStyleBackColor = true;
-            // 
-            // barcodeTextBoxBarcode
-            // 
-            this.barcodeTextBoxBarcode.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.barcodeTextBoxBarcode.BorderColor = System.Drawing.Color.DimGray;
-            this.barcodeTextBoxBarcode.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.barcodeTextBoxBarcode.BorderSize = 2;
-            this.barcodeTextBoxBarcode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.barcodeTextBoxBarcode.DisableBackColor = System.Drawing.Color.DarkGray;
-            this.barcodeTextBoxBarcode.DisableBorderColor = System.Drawing.Color.DimGray;
-            this.barcodeTextBoxBarcode.DisableForeColor = System.Drawing.Color.DimGray;
-            this.barcodeTextBoxBarcode.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeTextBoxBarcode.ForeColor = System.Drawing.Color.DimGray;
-            this.barcodeTextBoxBarcode.Location = new System.Drawing.Point(64, 3);
-            this.barcodeTextBoxBarcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 4);
-            this.barcodeTextBoxBarcode.MaxLength = 14;
-            this.barcodeTextBoxBarcode.Multiline = false;
-            this.barcodeTextBoxBarcode.Name = "barcodeTextBoxBarcode";
-            this.barcodeTextBoxBarcode.Padding = new System.Windows.Forms.Padding(7);
-            this.barcodeTextBoxBarcode.PasswordChar = '\0';
-            this.barcodeTextBoxBarcode.ReadOnly = false;
-            this.barcodeTextBoxBarcode.Size = new System.Drawing.Size(210, 35);
-            this.barcodeTextBoxBarcode.TabIndex = 27;
-            this.barcodeTextBoxBarcode.Text = "";
-            this.barcodeTextBoxBarcode.UnderlinedStyle = false;
-            this.barcodeTextBoxBarcode.UsePasswordChar = false;
-            this.barcodeTextBoxBarcode.Enter += new System.EventHandler(this.barcodeTextBoxBarcode_Enter);
-            this.barcodeTextBoxBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.barcodeTextBoxBarcode_KeyDown);
-            // 
-            // btnLoadBarcode
-            // 
-            this.btnLoadBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoadBarcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnLoadBarcode.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadBarcode.BorderRadius = 6F;
-            this.btnLoadBarcode.BorderSize = 0;
-            this.btnLoadBarcode.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadBarcode.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadBarcode.FlatAppearance.BorderSize = 0;
-            this.btnLoadBarcode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
-            this.btnLoadBarcode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
-            this.btnLoadBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadBarcode.ForeColor = System.Drawing.Color.White;
-            this.btnLoadBarcode.Image = global::WhoseBarcode.Properties.Resources.sinchronize_24;
-            this.btnLoadBarcode.Location = new System.Drawing.Point(738, 4);
-            this.btnLoadBarcode.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
-            this.btnLoadBarcode.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
-            this.btnLoadBarcode.Name = "btnLoadBarcode";
-            this.btnLoadBarcode.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadBarcode.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadBarcode.TabIndex = 24;
-            this.btnLoadBarcode.TextColor = System.Drawing.Color.White;
-            this.btnLoadBarcode.UseVisualStyleBackColor = false;
-            // 
-            // dbBarcodeBindingSource
-            // 
-            this.dbBarcodeBindingSource.DataSource = typeof(WhoseBarcode.Core.Database.Models.DbBarcode);
-            // 
             // barcodeColumnDate
             // 
             this.barcodeColumnDate.DataPropertyName = "Date";
@@ -452,13 +378,124 @@ namespace WhoseBarcode.Core.Forms
             this.barcodeColumnState.HeaderText = "Статус";
             this.barcodeColumnState.Name = "barcodeColumnState";
             // 
-            // connectItem
+            // dbBarcodeBindingSource
             // 
-            this.connectItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.connectItem.Name = "connectItem";
-            this.connectItem.Size = new System.Drawing.Size(209, 24);
-            this.connectItem.Text = "Подключение к БД";
-            this.connectItem.Click += new System.EventHandler(this.connectItem_Click);
+            this.dbBarcodeBindingSource.DataSource = typeof(WhoseBarcode.Core.Database.Models.DbBarcode);
+            // 
+            // reportPanel
+            // 
+            this.reportPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.reportPanel.Controls.Add(this.flowLayoutPanelReport);
+            this.reportPanel.Controls.Add(this.btnLoadBarcode);
+            this.reportPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.reportPanel.Location = new System.Drawing.Point(3, 3);
+            this.reportPanel.Name = "reportPanel";
+            this.reportPanel.Size = new System.Drawing.Size(786, 48);
+            this.reportPanel.TabIndex = 5;
+            // 
+            // flowLayoutPanelReport
+            // 
+            this.flowLayoutPanelReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelReport.Controls.Add(this.barcodeLabelInfoBarcode);
+            this.flowLayoutPanelReport.Controls.Add(this.barcodeTextBoxBarcode);
+            this.flowLayoutPanelReport.Controls.Add(this.barcodeLabelError);
+            this.flowLayoutPanelReport.Location = new System.Drawing.Point(3, 4);
+            this.flowLayoutPanelReport.Name = "flowLayoutPanelReport";
+            this.flowLayoutPanelReport.Size = new System.Drawing.Size(729, 41);
+            this.flowLayoutPanelReport.TabIndex = 27;
+            this.flowLayoutPanelReport.WrapContents = false;
+            // 
+            // barcodeLabelInfoBarcode
+            // 
+            this.barcodeLabelInfoBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.barcodeLabelInfoBarcode.AutoSize = true;
+            this.barcodeLabelInfoBarcode.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.barcodeLabelInfoBarcode.ForeColor = System.Drawing.Color.Gainsboro;
+            this.barcodeLabelInfoBarcode.Location = new System.Drawing.Point(6, 10);
+            this.barcodeLabelInfoBarcode.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.barcodeLabelInfoBarcode.Name = "barcodeLabelInfoBarcode";
+            this.barcodeLabelInfoBarcode.Size = new System.Drawing.Size(51, 20);
+            this.barcodeLabelInfoBarcode.TabIndex = 26;
+            this.barcodeLabelInfoBarcode.Text = "ШПИ:";
+            // 
+            // barcodeTextBoxBarcode
+            // 
+            this.barcodeTextBoxBarcode.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.barcodeTextBoxBarcode.BorderColor = System.Drawing.Color.DimGray;
+            this.barcodeTextBoxBarcode.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.barcodeTextBoxBarcode.BorderSize = 2;
+            this.barcodeTextBoxBarcode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.barcodeTextBoxBarcode.DisableBackColor = System.Drawing.Color.DarkGray;
+            this.barcodeTextBoxBarcode.DisableBorderColor = System.Drawing.Color.DimGray;
+            this.barcodeTextBoxBarcode.DisableForeColor = System.Drawing.Color.DimGray;
+            this.barcodeTextBoxBarcode.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.barcodeTextBoxBarcode.ForeColor = System.Drawing.Color.DimGray;
+            this.barcodeTextBoxBarcode.Location = new System.Drawing.Point(64, 3);
+            this.barcodeTextBoxBarcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 4);
+            this.barcodeTextBoxBarcode.MaxLength = 14;
+            this.barcodeTextBoxBarcode.Multiline = false;
+            this.barcodeTextBoxBarcode.Name = "barcodeTextBoxBarcode";
+            this.barcodeTextBoxBarcode.Padding = new System.Windows.Forms.Padding(7);
+            this.barcodeTextBoxBarcode.PasswordChar = '\0';
+            this.barcodeTextBoxBarcode.ReadOnly = false;
+            this.barcodeTextBoxBarcode.Size = new System.Drawing.Size(210, 35);
+            this.barcodeTextBoxBarcode.TabIndex = 27;
+            this.barcodeTextBoxBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.barcodeTextBoxBarcode.UnderlinedStyle = false;
+            this.barcodeTextBoxBarcode.UsePasswordChar = false;
+            this.barcodeTextBoxBarcode.Enter += new System.EventHandler(this.barcodeTextBoxBarcode_Enter);
+            this.barcodeTextBoxBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.barcodeTextBoxBarcode_KeyDown);
+            // 
+            // barcodeLabelError
+            // 
+            this.barcodeLabelError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.barcodeLabelError.AutoSize = true;
+            this.barcodeLabelError.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.barcodeLabelError.ForeColor = System.Drawing.Color.DarkOrange;
+            this.barcodeLabelError.Location = new System.Drawing.Point(284, 12);
+            this.barcodeLabelError.Margin = new System.Windows.Forms.Padding(6, 12, 3, 0);
+            this.barcodeLabelError.Name = "barcodeLabelError";
+            this.barcodeLabelError.Size = new System.Drawing.Size(59, 17);
+            this.barcodeLabelError.TabIndex = 28;
+            this.barcodeLabelError.Text = "Ошибка";
+            this.barcodeLabelError.Visible = false;
+            // 
+            // btnLoadBarcode
+            // 
+            this.btnLoadBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadBarcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnLoadBarcode.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadBarcode.BorderRadius = 6F;
+            this.btnLoadBarcode.BorderSize = 0;
+            this.btnLoadBarcode.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadBarcode.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadBarcode.FlatAppearance.BorderSize = 0;
+            this.btnLoadBarcode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
+            this.btnLoadBarcode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
+            this.btnLoadBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadBarcode.ForeColor = System.Drawing.Color.White;
+            this.btnLoadBarcode.Image = global::WhoseBarcode.Properties.Resources.sinchronize_24;
+            this.btnLoadBarcode.Location = new System.Drawing.Point(738, 4);
+            this.btnLoadBarcode.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
+            this.btnLoadBarcode.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
+            this.btnLoadBarcode.Name = "btnLoadBarcode";
+            this.btnLoadBarcode.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadBarcode.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadBarcode.TabIndex = 24;
+            this.btnLoadBarcode.TextColor = System.Drawing.Color.White;
+            this.btnLoadBarcode.UseVisualStyleBackColor = false;
+            this.btnLoadBarcode.Click += new System.EventHandler(this.btnLoadBarcode_Click);
+            // 
+            // tabRanges
+            // 
+            this.tabRanges.Location = new System.Drawing.Point(4, 36);
+            this.tabRanges.Name = "tabRanges";
+            this.tabRanges.Padding = new System.Windows.Forms.Padding(3);
+            this.tabRanges.Size = new System.Drawing.Size(792, 290);
+            this.tabRanges.TabIndex = 1;
+            this.tabRanges.Text = "Диапазоны";
+            this.tabRanges.UseVisualStyleBackColor = true;
             // 
             // GeneralForm
             // 
@@ -481,6 +518,8 @@ namespace WhoseBarcode.Core.Forms
             this.Load += new System.EventHandler(this.GeneralForm_Load);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
+            this.panelGeneral.ResumeLayout(false);
+            this.panelGeneral.PerformLayout();
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
             this.tabControl.ResumeLayout(false);
@@ -488,10 +527,10 @@ namespace WhoseBarcode.Core.Forms
             this.reportPanelStat.ResumeLayout(false);
             this.reportPanelStat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barcodeDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbBarcodeBindingSource)).EndInit();
             this.reportPanel.ResumeLayout(false);
             this.flowLayoutPanelReport.ResumeLayout(false);
             this.flowLayoutPanelReport.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dbBarcodeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -532,6 +571,8 @@ namespace WhoseBarcode.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn barcodeColumnFirmName;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcodeColumnState;
         private System.Windows.Forms.ToolStripMenuItem connectItem;
+        private System.Windows.Forms.Label lblInfoDebug;
+        private Wc32Api.Widgets.WcToggleButton btnDebug;
     }
 }
 
