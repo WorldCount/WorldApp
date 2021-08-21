@@ -6,7 +6,10 @@ namespace WhoseBarcode.Core.Storage
     public static class PathManager
     {
         // Папки
-        public static readonly string DataDir = Path.Combine(Application.StartupPath, Properties.Settings.Default.DataDir);
+        private static readonly string DataDir = Path.Combine(Application.StartupPath, Properties.Settings.Default.DataDir);
+
+        // Файлы
+        public static readonly string ConnectFile = Path.Combine(DataDir, Properties.Settings.Default.ConnectFile);
 
 
         static PathManager()

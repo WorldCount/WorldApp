@@ -154,13 +154,6 @@ namespace Wc32Api.Widgets
         }
 
         [Category("WcTextBox - Data")]
-        public string Texts
-        {
-            get => textBox.Text; 
-            set => textBox.Text = value;
-        }
-
-        [Category("WcTextBox - Data")]
         public int MaxLength
         {
             get => textBox.MaxLength;

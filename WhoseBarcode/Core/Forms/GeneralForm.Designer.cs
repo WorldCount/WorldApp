@@ -47,27 +47,35 @@ namespace WhoseBarcode.Core.Forms
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabBarcodes = new System.Windows.Forms.TabPage();
-            this.tabRanges = new System.Windows.Forms.TabPage();
-            this.reportPanel = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelReport = new System.Windows.Forms.FlowLayoutPanel();
-            this.barcodeLabelInfoBarcode = new System.Windows.Forms.Label();
-            this.barcodeDataGridView = new System.Windows.Forms.DataGridView();
-            this.reportColumnDayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reportColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportPanelStat = new System.Windows.Forms.Panel();
             this.barcodeLabelCount = new System.Windows.Forms.Label();
             this.barcodeLabelInfoCount = new System.Windows.Forms.Label();
+            this.barcodeDataGridView = new System.Windows.Forms.DataGridView();
+            this.reportPanel = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelReport = new System.Windows.Forms.FlowLayoutPanel();
+            this.barcodeLabelInfoBarcode = new System.Windows.Forms.Label();
+            this.barcodeLabelError = new System.Windows.Forms.Label();
+            this.tabRanges = new System.Windows.Forms.TabPage();
             this.barcodeTextBoxBarcode = new Wc32Api.Widgets.WcTextBox();
             this.btnLoadBarcode = new Wc32Api.Widgets.WcButton();
-            this.barcodeLabelError = new System.Windows.Forms.Label();
+            this.dbBarcodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.barcodeColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeColumnBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeColumnMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeColumnSeria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeColumnNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeColumnFirmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeColumnState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabBarcodes.SuspendLayout();
+            this.reportPanelStat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barcodeDataGridView)).BeginInit();
             this.reportPanel.SuspendLayout();
             this.flowLayoutPanelReport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barcodeDataGridView)).BeginInit();
-            this.reportPanelStat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbBarcodeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBar
@@ -97,13 +105,16 @@ namespace WhoseBarcode.Core.Forms
             // 
             // exitMenuItem
             // 
+            this.exitMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.exitMenuItem.Size = new System.Drawing.Size(180, 24);
             this.exitMenuItem.Text = "Выход";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // settingsMenuItem
             // 
+            this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectItem});
             this.settingsMenuItem.Name = "settingsMenuItem";
             this.settingsMenuItem.Size = new System.Drawing.Size(96, 36);
             this.settingsMenuItem.Text = "Настройки";
@@ -190,15 +201,96 @@ namespace WhoseBarcode.Core.Forms
             this.tabBarcodes.Text = "ШПИ";
             this.tabBarcodes.UseVisualStyleBackColor = true;
             // 
-            // tabRanges
+            // reportPanelStat
             // 
-            this.tabRanges.Location = new System.Drawing.Point(4, 36);
-            this.tabRanges.Name = "tabRanges";
-            this.tabRanges.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRanges.Size = new System.Drawing.Size(792, 290);
-            this.tabRanges.TabIndex = 1;
-            this.tabRanges.Text = "Диапазоны";
-            this.tabRanges.UseVisualStyleBackColor = true;
+            this.reportPanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.reportPanelStat.Controls.Add(this.barcodeLabelCount);
+            this.reportPanelStat.Controls.Add(this.barcodeLabelInfoCount);
+            this.reportPanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.reportPanelStat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.reportPanelStat.Location = new System.Drawing.Point(3, 257);
+            this.reportPanelStat.Name = "reportPanelStat";
+            this.reportPanelStat.Size = new System.Drawing.Size(786, 30);
+            this.reportPanelStat.TabIndex = 7;
+            // 
+            // barcodeLabelCount
+            // 
+            this.barcodeLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.barcodeLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.barcodeLabelCount.Location = new System.Drawing.Point(122, 5);
+            this.barcodeLabelCount.Name = "barcodeLabelCount";
+            this.barcodeLabelCount.Size = new System.Drawing.Size(140, 20);
+            this.barcodeLabelCount.TabIndex = 0;
+            this.barcodeLabelCount.Text = "0";
+            // 
+            // barcodeLabelInfoCount
+            // 
+            this.barcodeLabelInfoCount.AutoSize = true;
+            this.barcodeLabelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.barcodeLabelInfoCount.Location = new System.Drawing.Point(21, 5);
+            this.barcodeLabelInfoCount.Name = "barcodeLabelInfoCount";
+            this.barcodeLabelInfoCount.Size = new System.Drawing.Size(95, 20);
+            this.barcodeLabelInfoCount.TabIndex = 0;
+            this.barcodeLabelInfoCount.Text = "Количество:";
+            // 
+            // barcodeDataGridView
+            // 
+            this.barcodeDataGridView.AllowUserToAddRows = false;
+            this.barcodeDataGridView.AllowUserToDeleteRows = false;
+            this.barcodeDataGridView.AllowUserToResizeColumns = false;
+            this.barcodeDataGridView.AllowUserToResizeRows = false;
+            this.barcodeDataGridView.AutoGenerateColumns = false;
+            this.barcodeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.barcodeDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.barcodeDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.barcodeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.barcodeDataGridView.ColumnHeadersHeight = 40;
+            this.barcodeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.barcodeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.barcodeColumnDate,
+            this.barcodeColumnBarcode,
+            this.barcodeColumnMonth,
+            this.barcodeColumnSeria,
+            this.barcodeColumnNum,
+            this.barcodeColumnFirmName,
+            this.barcodeColumnState});
+            this.barcodeDataGridView.DataSource = this.dbBarcodeBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.barcodeDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.barcodeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.barcodeDataGridView.EnableHeadersVisualStyles = false;
+            this.barcodeDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.barcodeDataGridView.Location = new System.Drawing.Point(3, 51);
+            this.barcodeDataGridView.Name = "barcodeDataGridView";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.barcodeDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.barcodeDataGridView.RowHeadersVisible = false;
+            this.barcodeDataGridView.RowHeadersWidth = 40;
+            this.barcodeDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.barcodeDataGridView.RowTemplate.Height = 40;
+            this.barcodeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.barcodeDataGridView.Size = new System.Drawing.Size(786, 236);
+            this.barcodeDataGridView.TabIndex = 6;
+            this.barcodeDataGridView.TabStop = false;
             // 
             // reportPanel
             // 
@@ -237,103 +329,29 @@ namespace WhoseBarcode.Core.Forms
             this.barcodeLabelInfoBarcode.TabIndex = 26;
             this.barcodeLabelInfoBarcode.Text = "ШПИ:";
             // 
-            // barcodeDataGridView
+            // barcodeLabelError
             // 
-            this.barcodeDataGridView.AllowUserToAddRows = false;
-            this.barcodeDataGridView.AllowUserToDeleteRows = false;
-            this.barcodeDataGridView.AllowUserToResizeColumns = false;
-            this.barcodeDataGridView.AllowUserToResizeRows = false;
-            this.barcodeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.barcodeDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.barcodeDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.barcodeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.barcodeDataGridView.ColumnHeadersHeight = 40;
-            this.barcodeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.barcodeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.reportColumnDayName,
-            this.reportColumnType});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.barcodeDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.barcodeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.barcodeDataGridView.EnableHeadersVisualStyles = false;
-            this.barcodeDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.barcodeDataGridView.Location = new System.Drawing.Point(3, 51);
-            this.barcodeDataGridView.Name = "barcodeDataGridView";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.barcodeDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.barcodeDataGridView.RowHeadersVisible = false;
-            this.barcodeDataGridView.RowHeadersWidth = 40;
-            this.barcodeDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.barcodeDataGridView.RowTemplate.Height = 40;
-            this.barcodeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.barcodeDataGridView.Size = new System.Drawing.Size(786, 236);
-            this.barcodeDataGridView.TabIndex = 6;
-            this.barcodeDataGridView.TabStop = false;
+            this.barcodeLabelError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.barcodeLabelError.AutoSize = true;
+            this.barcodeLabelError.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.barcodeLabelError.ForeColor = System.Drawing.Color.DarkOrange;
+            this.barcodeLabelError.Location = new System.Drawing.Point(284, 12);
+            this.barcodeLabelError.Margin = new System.Windows.Forms.Padding(6, 12, 3, 0);
+            this.barcodeLabelError.Name = "barcodeLabelError";
+            this.barcodeLabelError.Size = new System.Drawing.Size(59, 17);
+            this.barcodeLabelError.TabIndex = 28;
+            this.barcodeLabelError.Text = "Ошибка";
+            this.barcodeLabelError.Visible = false;
             // 
-            // reportColumnDayName
+            // tabRanges
             // 
-            this.reportColumnDayName.DataPropertyName = "DayName";
-            this.reportColumnDayName.HeaderText = "День";
-            this.reportColumnDayName.Name = "reportColumnDayName";
-            this.reportColumnDayName.ReadOnly = true;
-            // 
-            // reportColumnType
-            // 
-            this.reportColumnType.DataPropertyName = "Type";
-            this.reportColumnType.HeaderText = "Смена";
-            this.reportColumnType.Name = "reportColumnType";
-            this.reportColumnType.ReadOnly = true;
-            // 
-            // reportPanelStat
-            // 
-            this.reportPanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.reportPanelStat.Controls.Add(this.barcodeLabelCount);
-            this.reportPanelStat.Controls.Add(this.barcodeLabelInfoCount);
-            this.reportPanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.reportPanelStat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.reportPanelStat.Location = new System.Drawing.Point(3, 257);
-            this.reportPanelStat.Name = "reportPanelStat";
-            this.reportPanelStat.Size = new System.Drawing.Size(786, 30);
-            this.reportPanelStat.TabIndex = 7;
-            // 
-            // barcodeLabelCount
-            // 
-            this.barcodeLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
-            this.barcodeLabelCount.Location = new System.Drawing.Point(122, 5);
-            this.barcodeLabelCount.Name = "barcodeLabelCount";
-            this.barcodeLabelCount.Size = new System.Drawing.Size(140, 20);
-            this.barcodeLabelCount.TabIndex = 0;
-            this.barcodeLabelCount.Text = "0";
-            // 
-            // barcodeLabelInfoCount
-            // 
-            this.barcodeLabelInfoCount.AutoSize = true;
-            this.barcodeLabelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeLabelInfoCount.Location = new System.Drawing.Point(21, 5);
-            this.barcodeLabelInfoCount.Name = "barcodeLabelInfoCount";
-            this.barcodeLabelInfoCount.Size = new System.Drawing.Size(95, 20);
-            this.barcodeLabelInfoCount.TabIndex = 0;
-            this.barcodeLabelInfoCount.Text = "Количество:";
+            this.tabRanges.Location = new System.Drawing.Point(4, 36);
+            this.tabRanges.Name = "tabRanges";
+            this.tabRanges.Padding = new System.Windows.Forms.Padding(3);
+            this.tabRanges.Size = new System.Drawing.Size(792, 290);
+            this.tabRanges.TabIndex = 1;
+            this.tabRanges.Text = "Диапазоны";
+            this.tabRanges.UseVisualStyleBackColor = true;
             // 
             // barcodeTextBoxBarcode
             // 
@@ -388,19 +406,59 @@ namespace WhoseBarcode.Core.Forms
             this.btnLoadBarcode.TextColor = System.Drawing.Color.White;
             this.btnLoadBarcode.UseVisualStyleBackColor = false;
             // 
-            // barcodeLabelError
+            // dbBarcodeBindingSource
             // 
-            this.barcodeLabelError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.barcodeLabelError.AutoSize = true;
-            this.barcodeLabelError.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeLabelError.ForeColor = System.Drawing.Color.DarkOrange;
-            this.barcodeLabelError.Location = new System.Drawing.Point(284, 12);
-            this.barcodeLabelError.Margin = new System.Windows.Forms.Padding(6, 12, 3, 0);
-            this.barcodeLabelError.Name = "barcodeLabelError";
-            this.barcodeLabelError.Size = new System.Drawing.Size(59, 17);
-            this.barcodeLabelError.TabIndex = 28;
-            this.barcodeLabelError.Text = "Ошибка";
-            this.barcodeLabelError.Visible = false;
+            this.dbBarcodeBindingSource.DataSource = typeof(WhoseBarcode.Core.Database.Models.DbBarcode);
+            // 
+            // barcodeColumnDate
+            // 
+            this.barcodeColumnDate.DataPropertyName = "Date";
+            this.barcodeColumnDate.HeaderText = "Дата";
+            this.barcodeColumnDate.Name = "barcodeColumnDate";
+            // 
+            // barcodeColumnBarcode
+            // 
+            this.barcodeColumnBarcode.DataPropertyName = "Barcode";
+            this.barcodeColumnBarcode.HeaderText = "ШПИ";
+            this.barcodeColumnBarcode.Name = "barcodeColumnBarcode";
+            // 
+            // barcodeColumnMonth
+            // 
+            this.barcodeColumnMonth.DataPropertyName = "Month";
+            this.barcodeColumnMonth.HeaderText = "Месяц";
+            this.barcodeColumnMonth.Name = "barcodeColumnMonth";
+            // 
+            // barcodeColumnSeria
+            // 
+            this.barcodeColumnSeria.DataPropertyName = "Seria";
+            this.barcodeColumnSeria.HeaderText = "Серия";
+            this.barcodeColumnSeria.Name = "barcodeColumnSeria";
+            // 
+            // barcodeColumnNum
+            // 
+            this.barcodeColumnNum.DataPropertyName = "Num";
+            this.barcodeColumnNum.HeaderText = "Номер";
+            this.barcodeColumnNum.Name = "barcodeColumnNum";
+            // 
+            // barcodeColumnFirmName
+            // 
+            this.barcodeColumnFirmName.DataPropertyName = "FirmName";
+            this.barcodeColumnFirmName.HeaderText = "Организация";
+            this.barcodeColumnFirmName.Name = "barcodeColumnFirmName";
+            // 
+            // barcodeColumnState
+            // 
+            this.barcodeColumnState.DataPropertyName = "State";
+            this.barcodeColumnState.HeaderText = "Статус";
+            this.barcodeColumnState.Name = "barcodeColumnState";
+            // 
+            // connectItem
+            // 
+            this.connectItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.connectItem.Name = "connectItem";
+            this.connectItem.Size = new System.Drawing.Size(209, 24);
+            this.connectItem.Text = "Подключение к БД";
+            this.connectItem.Click += new System.EventHandler(this.connectItem_Click);
             // 
             // GeneralForm
             // 
@@ -427,12 +485,13 @@ namespace WhoseBarcode.Core.Forms
             this.statusBar.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabBarcodes.ResumeLayout(false);
+            this.reportPanelStat.ResumeLayout(false);
+            this.reportPanelStat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barcodeDataGridView)).EndInit();
             this.reportPanel.ResumeLayout(false);
             this.flowLayoutPanelReport.ResumeLayout(false);
             this.flowLayoutPanelReport.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barcodeDataGridView)).EndInit();
-            this.reportPanelStat.ResumeLayout(false);
-            this.reportPanelStat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbBarcodeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,12 +519,19 @@ namespace WhoseBarcode.Core.Forms
         private Wc32Api.Widgets.WcButton btnLoadBarcode;
         private Wc32Api.Widgets.WcTextBox barcodeTextBoxBarcode;
         private System.Windows.Forms.DataGridView barcodeDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reportColumnDayName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reportColumnType;
         private System.Windows.Forms.Panel reportPanelStat;
         private System.Windows.Forms.Label barcodeLabelCount;
         private System.Windows.Forms.Label barcodeLabelInfoCount;
         private System.Windows.Forms.Label barcodeLabelError;
+        private System.Windows.Forms.BindingSource dbBarcodeBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeColumnBarcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeColumnMonth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeColumnSeria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeColumnNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeColumnFirmName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeColumnState;
+        private System.Windows.Forms.ToolStripMenuItem connectItem;
     }
 }
 

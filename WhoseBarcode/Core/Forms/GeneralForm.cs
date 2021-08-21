@@ -176,6 +176,15 @@ namespace WhoseBarcode.Core.Forms
             Close();
         }
 
+        private void connectItem_Click(object sender, EventArgs e)
+        {
+            ConnectForm connectForm = new ConnectForm();
+            if (connectForm.ShowDialog(this) == DialogResult.OK)
+            {
+
+            }
+        }
+
         #endregion
 
         #region TextBox Events
@@ -211,8 +220,7 @@ namespace WhoseBarcode.Core.Forms
             WcApi.Keyboard.Keyboard.SetEnglishLanguage();
         }
 
+
         #endregion
-
-
     }
 }
