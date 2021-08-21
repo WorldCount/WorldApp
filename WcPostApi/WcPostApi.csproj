@@ -42,6 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Barcodes\Const.cs" />
+    <Compile Include="Barcodes\Interfaces\IPostBarcode.cs" />
+    <Compile Include="Barcodes\PostBarcode.cs" />
+    <Compile Include="Barcodes\PostBarcodeGenerator.cs" />
+    <Compile Include="Barcodes\PostBarcodeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\PostTypes\Interface\IPostType.cs" />
     <Compile Include="Types\PostTypes\MailCategory.cs" />
