@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using WcPostApi.Barcodes;
 
 namespace WhoseBarcode.Core.Forms
 {
@@ -181,12 +182,27 @@ namespace WhoseBarcode.Core.Forms
 
         private void barcodeTextBoxBarcode_KeyDown(object sender, KeyEventArgs e)
         {
-            if (barcodeLabelError.Visible)
-                barcodeLabelError.Visible = false;
+            //if (barcodeLabelError.Visible)
+            //    barcodeLabelError.Visible = false;
 
-            if (e.KeyCode == Keys.Enter && barcodeTextBoxBarcode.Texts.Trim().Length >= 13)
+            if (e.KeyCode == Keys.Enter)
             {
+                string barcode = barcodeTextBoxBarcode.Texts.Trim();
 
+                if (barcode.Length >= 13)
+                {
+
+                    if (!PostBarcodeGenerator.IsValid(barcode))
+                    {
+                        barcodeLabelError.Text = $"Невалидный ШПИ. Контрольный разряд должен быть - [{PostBarcodeGenerator.GenControlRank(barcode)}]";
+                        barcodeLabelError.Visible = true;
+                    }
+                }
+                else
+                {
+                    barcodeLabelError.Text = $"Неверная длина ШПИ. Длина должна быть 13 или 14 символов. Сейчас - [{barcode.Length}]";
+                    barcodeLabelError.Visible = true;
+                }
             }
         }
 

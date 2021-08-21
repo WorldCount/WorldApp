@@ -127,6 +127,10 @@
       <Project>{d02e0c73-a5a1-404c-add8-3115b15594f3}</Project>
       <Name>WcApi</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WcPostApi\WcPostApi.csproj">
+      <Project>{ffa06998-2a11-4dd9-aea9-4c02bd082cd6}</Project>
+      <Name>WcPostApi</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Database\" />

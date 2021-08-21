@@ -222,6 +222,7 @@ namespace WhoseBarcode.Core.Forms
             this.flowLayoutPanelReport.Name = "flowLayoutPanelReport";
             this.flowLayoutPanelReport.Size = new System.Drawing.Size(729, 41);
             this.flowLayoutPanelReport.TabIndex = 27;
+            this.flowLayoutPanelReport.WrapContents = false;
             // 
             // barcodeLabelInfoBarcode
             // 
@@ -317,7 +318,7 @@ namespace WhoseBarcode.Core.Forms
             // barcodeLabelCount
             // 
             this.barcodeLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeLabelCount.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.barcodeLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
             this.barcodeLabelCount.Location = new System.Drawing.Point(122, 5);
             this.barcodeLabelCount.Name = "barcodeLabelCount";
             this.barcodeLabelCount.Size = new System.Drawing.Size(140, 20);
@@ -391,12 +392,12 @@ namespace WhoseBarcode.Core.Forms
             // 
             this.barcodeLabelError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.barcodeLabelError.AutoSize = true;
-            this.barcodeLabelError.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeLabelError.ForeColor = System.Drawing.Color.Firebrick;
-            this.barcodeLabelError.Location = new System.Drawing.Point(284, 10);
-            this.barcodeLabelError.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.barcodeLabelError.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.barcodeLabelError.ForeColor = System.Drawing.Color.DarkOrange;
+            this.barcodeLabelError.Location = new System.Drawing.Point(284, 12);
+            this.barcodeLabelError.Margin = new System.Windows.Forms.Padding(6, 12, 3, 0);
             this.barcodeLabelError.Name = "barcodeLabelError";
-            this.barcodeLabelError.Size = new System.Drawing.Size(66, 20);
+            this.barcodeLabelError.Size = new System.Drawing.Size(59, 17);
             this.barcodeLabelError.TabIndex = 28;
             this.barcodeLabelError.Text = "Ошибка";
             this.barcodeLabelError.Visible = false;
