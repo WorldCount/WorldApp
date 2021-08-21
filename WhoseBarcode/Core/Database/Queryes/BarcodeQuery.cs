@@ -18,11 +18,11 @@ namespace WhoseBarcode.Core.Database.Queryes
         public override string GetQuery()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("select select first 1 r.barcode, r.num_month, r.num_seria, r.num_parcel, r.id_range_ei, re.date_info, f.firm_name, f.inn,  f.depcode, f.kpp, s.id, s.name from range r");
-            sb.Append("left join range_ei re on r.id_range_ei = re.id");
-            sb.Append("left join firms f on r.id_inn = f.id_inn");
-            sb.Append("left join range_state s on r.state = s.id");
-            sb.Append($"where barcode = '{_barcode}'");
+            sb.Append("select first 1 r.barcode, r.num_month, r.num_seria, r.num_parcel, r.id_range_ei, re.date_info, f.firm_name, f.inn,  f.depcode, f.kpp, s.id, s.name from range r");
+            sb.Append(" left join range_ei re on r.id_range_ei = re.id");
+            sb.Append(" left join firms f on r.id_inn = f.id_inn");
+            sb.Append(" left join range_state s on r.state = s.id");
+            sb.Append($" where barcode = '{_barcode}'");
 
             return sb.ToString();
         }
@@ -30,7 +30,7 @@ namespace WhoseBarcode.Core.Database.Queryes
         public DbBarcode Run()
         {
             string query = GetQuery();
-            Logger.Debug($"Запрос в БД: {query}");
+            Logger.Debug($"Запрос в БД:\n{query}");
 
             FbConnection fbConnection = null;
             FbDataReader reader = null;
