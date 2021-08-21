@@ -341,5 +341,10 @@ namespace Wc32Api.Widgets
                 BackColor = _disableBackColor;
             }
         }
+
+        public void SelectAll()
+        {
+            textBox.SelectAll();
+        }
     }
 }
