@@ -51,14 +51,14 @@ namespace WhoseBarcode.Core.Forms
             this.reportPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelReport = new System.Windows.Forms.FlowLayoutPanel();
             this.barcodeLabelInfoBarcode = new System.Windows.Forms.Label();
-            this.btnLoadBarcode = new Wc32Api.Widgets.WcButton();
-            this.barcodeTextBoxBarcode = new Wc32Api.Widgets.WcTextBox();
             this.barcodeDataGridView = new System.Windows.Forms.DataGridView();
             this.reportColumnDayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportPanelStat = new System.Windows.Forms.Panel();
             this.barcodeLabelCount = new System.Windows.Forms.Label();
             this.barcodeLabelInfoCount = new System.Windows.Forms.Label();
+            this.barcodeTextBoxBarcode = new Wc32Api.Widgets.WcTextBox();
+            this.btnLoadBarcode = new Wc32Api.Widgets.WcButton();
             this.menuBar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -97,7 +97,7 @@ namespace WhoseBarcode.Core.Forms
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.exitMenuItem.Size = new System.Drawing.Size(122, 24);
             this.exitMenuItem.Text = "Выход";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -234,56 +234,6 @@ namespace WhoseBarcode.Core.Forms
             this.barcodeLabelInfoBarcode.TabIndex = 26;
             this.barcodeLabelInfoBarcode.Text = "ШПИ:";
             // 
-            // btnLoadBarcode
-            // 
-            this.btnLoadBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoadBarcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnLoadBarcode.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadBarcode.BorderRadius = 6F;
-            this.btnLoadBarcode.BorderSize = 0;
-            this.btnLoadBarcode.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadBarcode.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadBarcode.FlatAppearance.BorderSize = 0;
-            this.btnLoadBarcode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
-            this.btnLoadBarcode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
-            this.btnLoadBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadBarcode.ForeColor = System.Drawing.Color.White;
-            this.btnLoadBarcode.Image = global::WhoseBarcode.Properties.Resources.sinchronize_24;
-            this.btnLoadBarcode.Location = new System.Drawing.Point(738, 4);
-            this.btnLoadBarcode.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
-            this.btnLoadBarcode.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
-            this.btnLoadBarcode.Name = "btnLoadBarcode";
-            this.btnLoadBarcode.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadBarcode.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadBarcode.TabIndex = 24;
-            this.btnLoadBarcode.TextColor = System.Drawing.Color.White;
-            this.btnLoadBarcode.UseVisualStyleBackColor = false;
-            // 
-            // barcodeTextBoxBarcode
-            // 
-            this.barcodeTextBoxBarcode.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.barcodeTextBoxBarcode.BorderColor = System.Drawing.Color.Silver;
-            this.barcodeTextBoxBarcode.BorderFocusColor = System.Drawing.Color.Firebrick;
-            this.barcodeTextBoxBarcode.BorderSize = 1;
-            this.barcodeTextBoxBarcode.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.barcodeTextBoxBarcode.DisableBackColor = System.Drawing.Color.DarkGray;
-            this.barcodeTextBoxBarcode.DisableBorderColor = System.Drawing.Color.DimGray;
-            this.barcodeTextBoxBarcode.DisableForeColor = System.Drawing.Color.DimGray;
-            this.barcodeTextBoxBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeTextBoxBarcode.ForeColor = System.Drawing.Color.DimGray;
-            this.barcodeTextBoxBarcode.Location = new System.Drawing.Point(64, 5);
-            this.barcodeTextBoxBarcode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 4);
-            this.barcodeTextBoxBarcode.Multiline = false;
-            this.barcodeTextBoxBarcode.Name = "barcodeTextBoxBarcode";
-            this.barcodeTextBoxBarcode.Padding = new System.Windows.Forms.Padding(7);
-            this.barcodeTextBoxBarcode.PasswordChar = '\0';
-            this.barcodeTextBoxBarcode.ReadOnly = false;
-            this.barcodeTextBoxBarcode.Size = new System.Drawing.Size(250, 31);
-            this.barcodeTextBoxBarcode.TabIndex = 27;
-            this.barcodeTextBoxBarcode.Texts = "";
-            this.barcodeTextBoxBarcode.UnderlinedStyle = false;
-            this.barcodeTextBoxBarcode.UsePasswordChar = false;
-            // 
             // barcodeDataGridView
             // 
             this.barcodeDataGridView.AllowUserToAddRows = false;
@@ -381,6 +331,57 @@ namespace WhoseBarcode.Core.Forms
             this.barcodeLabelInfoCount.Size = new System.Drawing.Size(95, 20);
             this.barcodeLabelInfoCount.TabIndex = 0;
             this.barcodeLabelInfoCount.Text = "Количество:";
+            // 
+            // barcodeTextBoxBarcode
+            // 
+            this.barcodeTextBoxBarcode.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.barcodeTextBoxBarcode.BorderColor = System.Drawing.Color.DimGray;
+            this.barcodeTextBoxBarcode.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.barcodeTextBoxBarcode.BorderSize = 2;
+            this.barcodeTextBoxBarcode.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.barcodeTextBoxBarcode.DisableBackColor = System.Drawing.Color.DarkGray;
+            this.barcodeTextBoxBarcode.DisableBorderColor = System.Drawing.Color.DimGray;
+            this.barcodeTextBoxBarcode.DisableForeColor = System.Drawing.Color.DimGray;
+            this.barcodeTextBoxBarcode.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.barcodeTextBoxBarcode.ForeColor = System.Drawing.Color.DimGray;
+            this.barcodeTextBoxBarcode.Location = new System.Drawing.Point(64, 3);
+            this.barcodeTextBoxBarcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 4);
+            this.barcodeTextBoxBarcode.MaxLength = 14;
+            this.barcodeTextBoxBarcode.Multiline = false;
+            this.barcodeTextBoxBarcode.Name = "barcodeTextBoxBarcode";
+            this.barcodeTextBoxBarcode.Padding = new System.Windows.Forms.Padding(7);
+            this.barcodeTextBoxBarcode.PasswordChar = '\0';
+            this.barcodeTextBoxBarcode.ReadOnly = false;
+            this.barcodeTextBoxBarcode.Size = new System.Drawing.Size(210, 35);
+            this.barcodeTextBoxBarcode.TabIndex = 27;
+            this.barcodeTextBoxBarcode.Texts = "";
+            this.barcodeTextBoxBarcode.UnderlinedStyle = false;
+            this.barcodeTextBoxBarcode.UsePasswordChar = false;
+            // 
+            // btnLoadBarcode
+            // 
+            this.btnLoadBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadBarcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnLoadBarcode.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadBarcode.BorderRadius = 6F;
+            this.btnLoadBarcode.BorderSize = 0;
+            this.btnLoadBarcode.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadBarcode.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadBarcode.FlatAppearance.BorderSize = 0;
+            this.btnLoadBarcode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
+            this.btnLoadBarcode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
+            this.btnLoadBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadBarcode.ForeColor = System.Drawing.Color.White;
+            this.btnLoadBarcode.Image = global::WhoseBarcode.Properties.Resources.sinchronize_24;
+            this.btnLoadBarcode.Location = new System.Drawing.Point(738, 4);
+            this.btnLoadBarcode.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
+            this.btnLoadBarcode.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
+            this.btnLoadBarcode.Name = "btnLoadBarcode";
+            this.btnLoadBarcode.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadBarcode.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadBarcode.TabIndex = 24;
+            this.btnLoadBarcode.TextColor = System.Drawing.Color.White;
+            this.btnLoadBarcode.UseVisualStyleBackColor = false;
             // 
             // GeneralForm
             // 

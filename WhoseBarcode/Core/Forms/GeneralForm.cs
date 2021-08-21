@@ -99,7 +99,7 @@ namespace WhoseBarcode.Core.Forms
                 CenterToScreen();
         }
 
-        private async void GeneralForm_Load(object sender, EventArgs e)
+        private void GeneralForm_Load(object sender, EventArgs e)
         {
 
             LoadPos();
