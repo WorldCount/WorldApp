@@ -177,5 +177,26 @@ namespace WhoseBarcode.Core.Forms
 
         #endregion
 
+        #region TextBox Events
+
+        private void barcodeTextBoxBarcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (barcodeLabelError.Visible)
+                barcodeLabelError.Visible = false;
+
+            if (e.KeyCode == Keys.Enter && barcodeTextBoxBarcode.Texts.Trim().Length >= 13)
+            {
+
+            }
+        }
+
+        private void barcodeTextBoxBarcode_Enter(object sender, EventArgs e)
+        {
+            WcApi.Keyboard.Keyboard.SetEnglishLanguage();
+        }
+
+        #endregion
+
+
     }
 }

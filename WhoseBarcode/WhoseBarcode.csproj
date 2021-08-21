@@ -123,6 +123,13 @@
       <Project>{456cfab9-3ccd-4da7-b73a-9e7cf57225bd}</Project>
       <Name>Wc32Api</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WcApi\WcApi.csproj">
+      <Project>{d02e0c73-a5a1-404c-add8-3115b15594f3}</Project>
+      <Name>WcApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Database\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
