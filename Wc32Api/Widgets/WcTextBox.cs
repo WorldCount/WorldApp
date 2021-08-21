@@ -195,6 +195,13 @@ namespace Wc32Api.Widgets
             set => textBox.CharacterCasing = value;
         }
 
+        [Category("WcTextBox - Appearance Format")]
+        public HorizontalAlignment TextAlign
+        {
+            get => textBox.TextAlign;
+            set => textBox.TextAlign = value;
+        }
+
         #endregion
 
         #region Overidden Methods
