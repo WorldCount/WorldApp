@@ -58,6 +58,9 @@ namespace WhoseBarcode.Core.Forms
             barcodeColumnBarcode.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             barcodeColumnBarcode.Width = 160;
 
+            barcodeColumnOps.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            barcodeColumnOps.Width = 80;
+
             barcodeColumnMonth.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             barcodeColumnMonth.Width = 80;
 
@@ -71,6 +74,28 @@ namespace WhoseBarcode.Core.Forms
             barcodeColumnState.Width = 140;
 
             barcodeColumnFirmName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            // Таблица с диапазонами
+
+            rangeColumnId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnId.Width = 60;
+
+            rangeColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnDate.Width = 140;
+
+            rangeColumnOps.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnOps.Width = 80;
+
+            rangeColumnMonth.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnMonth.Width = 80;
+
+            rangeColumnSeria.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnSeria.Width = 80;
+
+            rangeColumnCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnCount.Width = 140;
+   
+            rangeColumnFirmName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         // Сохранение настроек
@@ -268,7 +293,7 @@ namespace WhoseBarcode.Core.Forms
 
         #region Private Methods
 
-        private void LoadBarcode()
+        private async void LoadBarcode()
         {
             if (barcodeLabelError.Visible)
                 barcodeLabelError.Visible = false;
@@ -286,7 +311,7 @@ namespace WhoseBarcode.Core.Forms
                 else
                 {
                     dbBarcodeBindingSource.DataSource = null;
-                    _barcodes = _dataBase.GetBarcodes(barcode);
+                    _barcodes = await _dataBase.GetBarcodesAsync(barcode);
                     barcodeLabelCount.Text = _barcodes.Count.ToString();
                     dbBarcodeBindingSource.DataSource = _barcodes;
                 }
