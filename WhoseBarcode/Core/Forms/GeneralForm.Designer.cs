@@ -88,6 +88,9 @@ namespace WhoseBarcode.Core.Forms
             this.rangeColumnSeria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rangeColumnFirmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rangeColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toRangeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFromRangeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -103,6 +106,7 @@ namespace WhoseBarcode.Core.Forms
             this.rangePanelStat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbBarcodeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbRangeBindingSource)).BeginInit();
+            this.barcodeContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuBar
@@ -729,6 +733,31 @@ namespace WhoseBarcode.Core.Forms
             this.rangeColumnCount.Name = "rangeColumnCount";
             this.rangeColumnCount.ReadOnly = true;
             // 
+            // barcodeContextMenu
+            // 
+            this.barcodeContextMenu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.barcodeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toRangeMenuItem,
+            this.loadFromRangeMenuItem});
+            this.barcodeContextMenu.Name = "barcodeContextMenu";
+            this.barcodeContextMenu.Size = new System.Drawing.Size(233, 78);
+            // 
+            // toRangeMenuItem
+            // 
+            this.toRangeMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toRangeMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.toRangeMenuItem.Name = "toRangeMenuItem";
+            this.toRangeMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.toRangeMenuItem.Text = "Перейти к диапазону";
+            // 
+            // loadFromRangeMenuItem
+            // 
+            this.loadFromRangeMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loadFromRangeMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.loadFromRangeMenuItem.Name = "loadFromRangeMenuItem";
+            this.loadFromRangeMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.loadFromRangeMenuItem.Text = "Загрузить все ШПИ";
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -769,6 +798,7 @@ namespace WhoseBarcode.Core.Forms
             this.rangePanelStat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbBarcodeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbRangeBindingSource)).EndInit();
+            this.barcodeContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -827,6 +857,9 @@ namespace WhoseBarcode.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnSeria;
         private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnFirmName;
         private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnCount;
+        private System.Windows.Forms.ContextMenuStrip barcodeContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem toRangeMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadFromRangeMenuItem;
     }
 }
 
