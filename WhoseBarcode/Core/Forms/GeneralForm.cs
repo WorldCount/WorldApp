@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using NLog;
 using WcPostApi.Barcodes;
 using WhoseBarcode.Core.Database;
 using WhoseBarcode.Core.Database.Models;
@@ -17,6 +18,8 @@ namespace WhoseBarcode.Core.Forms
         private DataBase _dataBase;
         private bool _debugMode;
         private List<DbBarcode> _barcodes;
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private DbBarcode _selectBarcode;
 
         #endregion
 
@@ -291,6 +294,15 @@ namespace WhoseBarcode.Core.Forms
 
         #endregion
 
+        #region DataGrid Event
+
+        private void barcodeDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+        }
+
+        #endregion
+
         #region Private Methods
 
         private async void LoadBarcode()
@@ -302,18 +314,30 @@ namespace WhoseBarcode.Core.Forms
 
             if (barcode.Length >= 13)
             {
-
-                if (!PostBarcodeGenerator.IsValid(barcode))
+                try
                 {
-                    barcodeLabelError.Text = $"Невалидный ШПИ. Контрольный разряд должен быть - [{PostBarcodeGenerator.GenControlRank(barcode)}]";
-                    barcodeLabelError.Visible = true;
+                    if (!PostBarcodeGenerator.IsValid(barcode))
+                    {
+                        barcodeLabelError.Text = $"Невалидный ШПИ. Контрольный разряд должен быть - [{PostBarcodeGenerator.GenControlRank(barcode)}]";
+                        barcodeLabelError.Visible = true;
+                    }
+                    else
+                    {
+                        dbBarcodeBindingSource.DataSource = null;
+                        _barcodes = await _dataBase.GetBarcodesAsync(barcode);
+                        barcodeLabelCount.Text = _barcodes.Count.ToString();
+                        dbBarcodeBindingSource.DataSource = _barcodes;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    dbBarcodeBindingSource.DataSource = null;
-                    _barcodes = await _dataBase.GetBarcodesAsync(barcode);
-                    barcodeLabelCount.Text = _barcodes.Count.ToString();
-                    dbBarcodeBindingSource.DataSource = _barcodes;
+                    if (_debugMode)
+                    {
+                        Logger.Error($"Ошибка получения [DbBarcode] - '{barcode}'");
+                        Logger.Error(e);
+                    }
+
+                    ErrorMessage("Неверный ШПИ.");
                 }
             }
             else
@@ -322,6 +346,56 @@ namespace WhoseBarcode.Core.Forms
                 barcodeLabelError.Visible = true;
             }
         }
+
+        private DbBarcode GetDbBarcodeByRowIndex(int rowIndex)
+        {
+            try
+            {
+                List<DbBarcode> barcodes = (List<DbBarcode>) dbBarcodeBindingSource.DataSource;
+                if (barcodes.Count > 0)
+                    return barcodes[rowIndex];
+            }
+            catch (Exception e)
+            {
+                if (_debugMode)
+                {
+                    Logger.Error("Ошибка получения [DbBarcode]");
+                    Logger.Error(e);
+                }
+
+                ErrorMessage("Ошибка получения данных по индексу строки");
+
+                return null;
+            }
+
+            return null;
+        }
+
+        #endregion
+
+        #region ContextMenu Event
+
+        private async void toRangeMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void loadFromRangeMenuItem_Click(object sender, EventArgs e)
+        {
+            if (barcodeDataGridView.CurrentRow != null)
+            {
+                int index = barcodeDataGridView.CurrentRow.Index;
+            }
+
+            if (_selectBarcode != null)
+            {
+
+            }
+
+            return;
+        }
+
 
         #endregion
     }
