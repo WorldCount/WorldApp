@@ -77,7 +77,6 @@ namespace WhoseBarcode.Core.Database.Queryes
                 {
                     Logger.Error($"Ошибка при запросе: {query}");
                     Logger.Error(e);
-                    Logger.Error(e.Message);
                 }
 
                 fbTransaction?.Rollback();

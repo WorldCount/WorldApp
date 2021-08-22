@@ -13,9 +13,9 @@ namespace WhoseBarcode.Core.Database.Queryes
         public static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         // ReSharper disable once ConvertToAutoProperty
-        public Connect Connect => _connect;
+        protected Connect Connect => _connect;
         // ReSharper disable once ConvertToAutoProperty
-        public bool DebugMode => _debugMode;
+        protected bool DebugMode => _debugMode;
 
         protected Query(Connect connect, bool debugMode = false)
         {
