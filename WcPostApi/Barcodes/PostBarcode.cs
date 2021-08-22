@@ -81,7 +81,7 @@ namespace WcPostApi.Barcodes
                     Land = barcodeString.Substring(11, 2);
                 }
             }
-            catch (IndexOutOfRangeException)
+            catch
             {
                 return false;
             }
