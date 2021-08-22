@@ -6,31 +6,31 @@ using WhoseBarcode.Core.Database.Models;
 
 namespace WhoseBarcode.Core.Database.Queryes
 {
-    public class BarcodeQuery : Query
+    public class RangeQuery : Query
     {
-        private readonly string _barcode;
+        private readonly int _rangeId;
 
-        public BarcodeQuery(Connect connect, string barcode, bool debugMode = false) : base(connect, debugMode)
+        public RangeQuery(Connect connect, int rangeId, bool debugMode = false) : base(connect, debugMode)
         {
-            _barcode = barcode;
+            _rangeId = rangeId;
         }
 
         public override string GetQuery()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("select first 1 r.barcode, r.index_from, r.num_month, r.num_seria, r.num_parcel, r.id_range_ei, re.date_info, f.firm_name, f.inn,  f.depcode, f.kpp, s.id, s.name from range r");
-            sb.Append(" left join range_ei re on r.id_range_ei = re.id");
+            sb.Append("select re.id, re.date_info, re.is_external, r.index_from, r.num_month, r.num_seria, f.firm_name, f.inn,  f.depcode, f.kpp, count(*) from range_ei re");
+            sb.Append(" left join range r on re.id = r.id_range_ei");
             sb.Append(" left join firms f on r.id_inn = f.id_inn");
-            sb.Append(" left join range_state s on r.state = s.id");
-            sb.Append($" where barcode = '{_barcode}'");
+            sb.Append($" where re.id = {_rangeId}");
+            sb.Append(" group by re.id, re.date_info, re.is_external, r.index_from, r.num_month, r.num_seria, f.firm_name, f.inn,  f.depcode, f.kpp");
 
             return sb.ToString();
         }
 
-        public DbBarcode Run()
+        public DbRange Run()
         {
             string query = GetQuery();
-            if(DebugMode)
+            if (DebugMode)
                 Logger.Debug($"Запрос в БД:\n{query}");
 
             FbConnection fbConnection = null;
@@ -50,28 +50,26 @@ namespace WhoseBarcode.Core.Database.Queryes
 
                 reader.Read();
 
-                DbBarcode barcode = new DbBarcode
+                DbRange range = new DbRange
                 {
-                    Barcode = reader.GetString(0),
-                    Ops = reader.GetString(1),
-                    Month = reader.GetInt32(2),
-                    Seria = reader.GetInt32(3),
-                    Num = reader.GetString(4),
-                    RangeId = reader.GetInt32(5),
-                    Date = reader.GetDateTime(6),
-                    FirmName = reader.GetString(7),
-                    FirmInn = reader.GetString(8),
-                    FirmDepcode = reader.GetString(9),
-                    FirmKpp = reader.GetString(10),
-                    StateId = reader.GetInt32(11),
-                    State = reader.GetString(12)
+                    Id = reader.GetInt32(0),
+                    Date = reader.GetDateTime(1),
+                    IsExternal = reader.GetChar(2) == 'T',
+                    Ops = reader.GetString(3),
+                    Month = reader.GetInt32(4),
+                    Seria = reader.GetInt32(5),
+                    FirmName = reader.GetString(6),
+                    FirmInn = reader.GetString(7),
+                    FirmDepcode = reader.GetString(8),
+                    FirmKpp = reader.GetString(9),
+                    Count = reader.GetInt32(10)
                 };
 
                 reader.Close();
                 selectCommand.Dispose();
                 fbTransaction.Commit();
 
-                return barcode;
+                return range;
             }
             catch (Exception e)
             {
