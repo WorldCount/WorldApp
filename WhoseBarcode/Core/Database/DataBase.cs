@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using WhoseBarcode.Core.Database.Models;
 using WhoseBarcode.Core.Database.Queryes;
+using WhoseBarcode.Core.Database.Requests;
 
 namespace WhoseBarcode.Core.Database
 {
@@ -38,23 +39,28 @@ namespace WhoseBarcode.Core.Database
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
-        public List<DbRange> GetRanges(int rangeId)
+        public List<DbRange> GetRanges(RangeRequest request)
         {
-            List<DbRange> ranges = new List<DbRange>();
-
-            RangeQuery query = new RangeQuery(_connect, rangeId, _debugMode);
-            DbRange dbRange = query.Run();
-
-            if(dbRange != null)
-                ranges.Add(dbRange);
-
-            return ranges;
+            RangeQuery query = new RangeQuery(_connect, request, _debugMode);
+            return query.Run();
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
-        public async Task<List<DbRange>> GetRangesAsync(int rangeId)
+        public async Task<List<DbRange>> GetRangesAsync(RangeRequest request)
         {
-            return await Task.Run(() => GetRanges(rangeId));
+            return await Task.Run(() => GetRanges(request));
+        }
+
+        // ReSharper disable once MemberCanBePrivate.Global
+        public List<DbFirm> GetFirms()
+        {
+            FirmQuery query = new FirmQuery(_connect, _debugMode);
+            return query.Run();
+        }
+
+        public async Task<List<DbFirm>> GetFirmsAsync()
+        {
+            return await Task.Run(GetFirms);
         }
 
     }

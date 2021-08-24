@@ -64,10 +64,13 @@
     <Compile Include="Core\Database\DataBase.cs" />
     <Compile Include="Core\Database\Interfaces\IQueryable.cs" />
     <Compile Include="Core\Database\Models\DbBarcode.cs" />
+    <Compile Include="Core\Database\Models\DbFirm.cs" />
     <Compile Include="Core\Database\Models\DbRange.cs" />
     <Compile Include="Core\Database\Queryes\BarcodeQuery.cs" />
+    <Compile Include="Core\Database\Queryes\FirmQuery.cs" />
     <Compile Include="Core\Database\Queryes\Query.cs" />
     <Compile Include="Core\Database\Queryes\RangeQuery.cs" />
+    <Compile Include="Core\Database\Requests\RangeRequest.cs" />
     <Compile Include="Core\Forms\ConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +92,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\DataSources\WhoseBarcode.Core.Database.Models.DbBarcode.datasource" />
+    <None Include="Properties\DataSources\WhoseBarcode.Core.Database.Models.DbFirm.datasource" />
     <None Include="Properties\DataSources\WhoseBarcode.Core.Database.Models.DbRange.datasource" />
     <None Include="Resources\checked-32.png" />
     <None Include="Resources\close-window-24.png" />

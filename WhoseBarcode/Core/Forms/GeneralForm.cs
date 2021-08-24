@@ -7,6 +7,7 @@ using NLog;
 using WcPostApi.Barcodes;
 using WhoseBarcode.Core.Database;
 using WhoseBarcode.Core.Database.Models;
+using WhoseBarcode.Core.Database.Requests;
 
 namespace WhoseBarcode.Core.Forms
 {
@@ -87,8 +88,8 @@ namespace WhoseBarcode.Core.Forms
 
             // Таблица с диапазонами
 
-            rangeColumnId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            rangeColumnId.Width = 60;
+            rangeColumnExternal.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnExternal.Width = 110;
 
             rangeColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             rangeColumnDate.Width = 140;
@@ -104,7 +105,16 @@ namespace WhoseBarcode.Core.Forms
 
             rangeColumnCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             rangeColumnCount.Width = 140;
-   
+
+            rangeColumnFreeCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnFreeCount.Width = 100;
+
+            rangeColumnBusyCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnBusyCount.Width = 100;
+
+            rangeColumnCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnCount.Width = 140;
+
             rangeColumnFirmName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
@@ -186,6 +196,7 @@ namespace WhoseBarcode.Core.Forms
             CheckArgs();
 
             TestDbConnection();
+            LoadFirms();
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -302,6 +313,16 @@ namespace WhoseBarcode.Core.Forms
            barcodeTextBoxBarcode.SelectAll();
         }
 
+        private void btnLoadRange_Click(object sender, EventArgs e)
+        {
+            DbFirm firm = (DbFirm) rangeComboBoxFirm.SelectedItem;
+            if (firm != null)
+            {
+                RangeRequest request = new RangeRequest { Firm = firm };
+                LoadRanges(request);
+            }
+        }
+
         #endregion
 
         #region DataGrid Event
@@ -356,6 +377,38 @@ namespace WhoseBarcode.Core.Forms
                 else
                     SuccessMessage("Подключение к БД - Ok.");
             }
+            else
+                ErrorMessage("Пустое подключение к БД.");
+        }
+
+        private async void LoadFirms()
+        {
+            if (_dataBase != null)
+            {
+                dbFirmBindingSource.DataSource = null;
+                List<DbFirm> firms = await _dataBase.GetFirmsAsync();
+                firms?.Insert(0, new DbFirm { InnId = 0, Name = "ВСЕ" });
+                dbFirmBindingSource.DataSource = firms;
+                SuccessMessage("Список организаций загружен.");
+            }
+            else
+                ErrorMessage("Пустое подключение к БД.");
+        }
+
+        private async void LoadRanges(RangeRequest request)
+        {
+            _ranges = await _dataBase.GetRangesAsync(request);
+
+            if (_ranges != null)
+            {
+                rangeLabelRangeCount.Text = _ranges.Count.ToString();
+                rangeLabelBarcodeCount.Text = _ranges.Sum(r => r.Count).ToString();
+                rangeLabelBarcodeFree.Text = _ranges.Sum(r => r.FreeCount).ToString();
+                rangeLabelBarcodeBusy.Text = _ranges.Sum(r => r.BusyCount).ToString();
+
+            }
+
+            dbRangeBindingSource.DataSource = _ranges;
         }
 
         private async void LoadBarcode()
@@ -442,11 +495,8 @@ namespace WhoseBarcode.Core.Forms
 
             try
             {
-                _ranges = await _dataBase.GetRangesAsync(_selectBarcode.RangeId);
-
-                rangeLabelCount.Text = _ranges.Count.ToString();
-                dbRangeBindingSource.DataSource = _ranges;
-
+                RangeRequest request = new RangeRequest { RangeId = _selectBarcode.RangeId };
+                LoadRanges(request);
                 tabControl.SelectedTab = tabRanges;
             }
             catch (Exception exception)
@@ -468,8 +518,16 @@ namespace WhoseBarcode.Core.Forms
         }
 
 
+
         #endregion
 
-        
+        #region Other Wodgets Events
+
+        private void rangeComboBoxFirm_Enter(object sender, EventArgs e)
+        {
+            WcApi.Keyboard.Keyboard.SetRussianLanguage();
+        }
+
+        #endregion
     }
 }

@@ -9,9 +9,8 @@ namespace WhoseBarcode.Core.Database.Models
         public bool IsExternal { get; set; }
 
         public string Ops { get; set; }
-        public int Month { get; set; }
-        public int Seria { get; set; }
-        
+        public string Month { get; set; }
+        public string Seria { get; set; }
 
         public string FirmName { get; set; }
         public string FirmInn { get; set; }
@@ -19,5 +18,9 @@ namespace WhoseBarcode.Core.Database.Models
         public string FirmKpp { get; set; }
 
         public int Count { get; set; }
+        public int FreeCount { get; set; }
+        public int BusyCount { get; set; }
+
+        public string ExtName => IsExternal ? "Внешний" : "Внутренний";
     }
 }
