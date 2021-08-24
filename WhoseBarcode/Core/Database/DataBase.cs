@@ -20,16 +20,8 @@ namespace WhoseIsBarcode.Core.Database
         // ReSharper disable once MemberCanBePrivate.Global
         public List<DbBarcode> GetBarcodes(string barcode)
         {
-            List<DbBarcode> barcodes = new List<DbBarcode>();
-
             BarcodeQuery query = new BarcodeQuery(_connect, barcode, _debugMode);
-
-            DbBarcode dbBarcode = query.Run();
-
-            if(dbBarcode != null)
-                barcodes.Add(dbBarcode);
-
-            return barcodes;
+            return query.Run();
         }
 
         // ReSharper disable once MemberCanBePrivate.Global

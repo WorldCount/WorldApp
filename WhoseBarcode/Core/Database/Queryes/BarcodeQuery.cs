@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using FirebirdSql.Data.FirebirdClient;
@@ -27,7 +28,7 @@ namespace WhoseIsBarcode.Core.Database.Queryes
             return sb.ToString();
         }
 
-        public DbBarcode Run()
+        public List<DbBarcode> Run()
         {
             string query = GetQuery();
             if(DebugMode)
@@ -36,6 +37,8 @@ namespace WhoseIsBarcode.Core.Database.Queryes
             FbConnection fbConnection = null;
             FbDataReader reader = null;
             FbTransaction fbTransaction = null;
+
+            List<DbBarcode> barcodes = new List<DbBarcode>();
 
             try
             {
@@ -48,30 +51,33 @@ namespace WhoseIsBarcode.Core.Database.Queryes
                 FbCommand selectCommand = new FbCommand(query, fbConnection) { Transaction = fbTransaction };
                 reader = selectCommand.ExecuteReader();
 
-                reader.Read();
-
-                DbBarcode barcode = new DbBarcode
+                while (reader.Read())
                 {
-                    Barcode = reader.GetString(0),
-                    Ops = reader.GetString(1),
-                    Month = reader.GetInt32(2),
-                    Seria = reader.GetInt32(3),
-                    Num = reader.GetString(4),
-                    RangeId = reader.GetInt32(5),
-                    Date = reader.GetDateTime(6),
-                    FirmName = reader.GetString(7),
-                    FirmInn = reader.GetString(8),
-                    FirmDepcode = reader.GetString(9),
-                    FirmKpp = reader.GetString(10),
-                    StateId = reader.GetInt32(11),
-                    State = reader.GetString(12)
-                };
+                    DbBarcode barcode = new DbBarcode
+                    {
+                        Barcode = reader.GetString(0),
+                        Ops = reader.GetString(1),
+                        Month = reader.GetInt32(2),
+                        Seria = reader.GetInt32(3),
+                        Num = reader.GetString(4),
+                        RangeId = reader.GetInt32(5),
+                        Date = reader.GetDateTime(6),
+                        FirmName = reader.GetString(7),
+                        FirmInn = reader.GetString(8),
+                        FirmDepcode = reader.GetString(9),
+                        FirmKpp = reader.GetString(10),
+                        StateId = reader.GetInt32(11),
+                        State = reader.GetString(12)
+                    };
+
+                    barcodes.Add(barcode);
+                }
 
                 reader.Close();
                 selectCommand.Dispose();
                 fbTransaction.Commit();
 
-                return barcode;
+                return barcodes;
             }
             catch (Exception e)
             {

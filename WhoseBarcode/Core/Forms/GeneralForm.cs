@@ -435,9 +435,12 @@ namespace WhoseIsBarcode.Core.Forms
                         dbBarcodeBindingSource.DataSource = null;
                         _barcodes = await _dataBase.GetBarcodesAsync(barcode);
 
-                        barcodeLabelCount.Text = _barcodes.Count.ToString();
-                        barcodeLabelFreeCount.Text = _barcodes.Count(b => b.StateId == 1).ToString();
-                        barcodeLabelBusyCount.Text = _barcodes.Count(b => b.StateId == 2).ToString();
+                        if (_barcodes != null)
+                        {
+                            barcodeLabelCount.Text = _barcodes.Count.ToString();
+                            barcodeLabelFreeCount.Text = _barcodes.Count(b => b.StateId == 1).ToString();
+                            barcodeLabelBusyCount.Text = _barcodes.Count(b => b.StateId == 2).ToString();
+                        }
 
                         dbBarcodeBindingSource.DataSource = _barcodes;
                     }
