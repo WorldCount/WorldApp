@@ -17,9 +17,13 @@ namespace WhoseBarcode.Core.Forms
 
         private DataBase _dataBase;
         private bool _debugMode;
+
         private List<DbBarcode> _barcodes;
+        private List<DbRange> _ranges;
+
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private DbBarcode _selectBarcode;
+        private DbRange _selectRange;
 
         #endregion
 
@@ -50,6 +54,9 @@ namespace WhoseBarcode.Core.Forms
             _debugMode = Properties.Settings.Default.DebugMode;
             btnDebug.Checked = Properties.Settings.Default.DebugMode;
             _dataBase = new DataBase(Connect.GetConnect(), _debugMode);
+
+            int lastTabsIndex = Properties.Settings.Default.LastTabIndex;
+            tabControl.SelectedIndex = lastTabsIndex >= tabControl.TabCount ? 0 : Properties.Settings.Default.LastTabIndex;
         }
 
         private void InitTables()
@@ -104,7 +111,8 @@ namespace WhoseBarcode.Core.Forms
         // Сохранение настроек
         private void SaveSettings()
         {
-
+            Properties.Settings.Default.LastTabIndex = tabControl.SelectedIndex;
+            Properties.Settings.Default.Save();
         }
 
         // Перенос настроек предыдущей сборки в новую
@@ -176,6 +184,8 @@ namespace WhoseBarcode.Core.Forms
 
             // Чтение аргументов
             CheckArgs();
+
+            TestDbConnection();
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -296,14 +306,57 @@ namespace WhoseBarcode.Core.Forms
 
         #region DataGrid Event
 
-        private void barcodeDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void barcodeDataGridView_MouseClick(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Right)
+            {
+                int currentMouseOverRow = barcodeDataGridView.HitTest(e.X, e.Y).RowIndex;
+                int currentMouseOverCol = barcodeDataGridView.HitTest(e.X, e.Y).ColumnIndex;
 
+                if (currentMouseOverRow >= 0 && currentMouseOverCol >= 0)
+                {
+                    barcodeDataGridView.ClearSelection();
+                    barcodeDataGridView.Rows[currentMouseOverRow].Cells[currentMouseOverCol].Selected = true;
+
+                    _selectBarcode = GetDbBarcodeByRowIndex(currentMouseOverRow);
+
+                    if (_selectBarcode != null)
+                    {
+                        toRangeMenuItem.Enabled = true;
+                        loadFromRangeMenuItem.Enabled = true;
+                    }
+                    else
+                    {
+                        toRangeMenuItem.Enabled = false;
+                        loadFromRangeMenuItem.Enabled = false;
+                    }
+
+                    barcodeContextMenu.Show(barcodeDataGridView, new Point(e.X, e.Y));
+                }
+            }
         }
 
         #endregion
 
         #region Private Methods
+
+        private async void TestDbConnection()
+        {
+            if (_dataBase != null)
+            {
+                bool connect = await Connect.GetConnect().TestConnectAsync();
+                if (!connect)
+                {
+                    ConnectForm connectForm = new ConnectForm();
+                    if (connectForm.ShowDialog(this) == DialogResult.OK)
+                    {
+                        _dataBase = new DataBase(Connect.GetConnect(), _debugMode);
+                    }
+                }
+                else
+                    SuccessMessage("Подключение к БД - Ok.");
+            }
+        }
 
         private async void LoadBarcode()
         {
@@ -325,7 +378,11 @@ namespace WhoseBarcode.Core.Forms
                     {
                         dbBarcodeBindingSource.DataSource = null;
                         _barcodes = await _dataBase.GetBarcodesAsync(barcode);
+
                         barcodeLabelCount.Text = _barcodes.Count.ToString();
+                        barcodeLabelFreeCount.Text = _barcodes.Count(b => b.StateId == 1).ToString();
+                        barcodeLabelBusyCount.Text = _barcodes.Count(b => b.StateId == 2).ToString();
+
                         dbBarcodeBindingSource.DataSource = _barcodes;
                     }
                 }
@@ -377,26 +434,42 @@ namespace WhoseBarcode.Core.Forms
 
         private async void toRangeMenuItem_Click(object sender, EventArgs e)
         {
+            if(_selectBarcode == null)
+                return;
 
+
+            dbRangeBindingSource.DataSource = null;
+
+            try
+            {
+                _ranges = await _dataBase.GetRangesAsync(_selectBarcode.RangeId);
+
+                rangeLabelCount.Text = _ranges.Count.ToString();
+                dbRangeBindingSource.DataSource = _ranges;
+
+                tabControl.SelectedTab = tabRanges;
+            }
+            catch (Exception exception)
+            {
+                if (_debugMode)
+                {
+                    Logger.Error($"Ошибка получения [DbRanges] - Id: {_selectBarcode.RangeId}");
+                    Logger.Error(exception);
+                }
+
+                ErrorMessage("Ошибка получения данных по Id диапазона");
+            }
         }
 
 
         private void loadFromRangeMenuItem_Click(object sender, EventArgs e)
         {
-            if (barcodeDataGridView.CurrentRow != null)
-            {
-                int index = barcodeDataGridView.CurrentRow.Index;
-            }
-
-            if (_selectBarcode != null)
-            {
-
-            }
-
-            return;
+            
         }
 
 
         #endregion
+
+        
     }
 }
