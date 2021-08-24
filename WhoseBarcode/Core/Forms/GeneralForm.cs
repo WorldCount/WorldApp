@@ -90,7 +90,7 @@ namespace WhoseIsBarcode.Core.Forms
             // Таблица с диапазонами
 
             rangeColumnExternal.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            rangeColumnExternal.Width = 110;
+            rangeColumnExternal.Width = 80;
 
             rangeColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             rangeColumnDate.Width = 140;

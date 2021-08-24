@@ -29,7 +29,9 @@ namespace WhoseIsBarcode.Core.Database.Queryes
             sb.Append(" re.id, re.date_info, re.is_external, r.index_from, r.num_month, r.num_seria, f.firm_name, f.inn,  f.depcode, f.kpp,");
             sb.Append(" (select count(*) from range where range.id_range_ei = re.id) as count_all,");
             sb.Append(" (select count(*) from range where range.id_range_ei = re.id and range.state = 1) as count_free,");
-            sb.Append(" (select count(*) from range where range.id_range_ei = re.id and range.state = 2) as count_busy");
+            sb.Append(" (select count(*) from range where range.id_range_ei = re.id and range.state = 2) as count_busy,");
+            sb.Append(" (select first 1 num_parcel from range where range.id_range_ei = re.id order by num_parcel) as first_num,");
+            sb.Append(" (select first 1 num_parcel from range where range.id_range_ei = re.id order by num_parcel desc) as last_num");
             sb.Append(" from range_ei re");
             sb.Append(" left join range r on re.id = r.id_range_ei");
             sb.Append(" left join firms f on r.id_inn = f.id_inn");
@@ -89,7 +91,9 @@ namespace WhoseIsBarcode.Core.Database.Queryes
                         FirmKpp = reader.GetString(9),
                         Count = reader.GetInt32(10),
                         FreeCount = reader.GetInt32(11),
-                        BusyCount = reader.GetInt32(12)
+                        BusyCount = reader.GetInt32(12),
+                        FirstNum = reader.GetString(13),
+                        LastNum = reader.GetString(14)
                     };
 
                     //int state = reader.GetInt32(11);
