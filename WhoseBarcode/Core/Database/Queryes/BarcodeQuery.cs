@@ -2,9 +2,9 @@
 using System.Data;
 using System.Text;
 using FirebirdSql.Data.FirebirdClient;
-using WhoseBarcode.Core.Database.Models;
+using WhoseIsBarcode.Core.Database.Models;
 
-namespace WhoseBarcode.Core.Database.Queryes
+namespace WhoseIsBarcode.Core.Database.Queryes
 {
     public class BarcodeQuery : Query
     {

@@ -1,9 +1,9 @@
-﻿using NLog;
-using System;
+﻿using System;
 using System.Windows.Forms;
-using WhoseBarcode.Core.Forms;
+using NLog;
+using WhoseIsBarcode.Core.Forms;
 
-namespace WhoseBarcode
+namespace WhoseIsBarcode
 {
     static class Program
     {

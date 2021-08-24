@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using WhoseBarcode.Core.Database.Models;
-using WhoseBarcode.Core.Database.Queryes;
-using WhoseBarcode.Core.Database.Requests;
+using WhoseIsBarcode.Core.Database.Models;
+using WhoseIsBarcode.Core.Database.Queryes;
+using WhoseIsBarcode.Core.Database.Requests;
 
-namespace WhoseBarcode.Core.Database
+namespace WhoseIsBarcode.Core.Database
 {
     public class DataBase
     {

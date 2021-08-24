@@ -3,9 +3,9 @@ using System.IO;
 using System.Threading.Tasks;
 using FirebirdSql.Data.FirebirdClient;
 using WcApi.Xml;
-using WhoseBarcode.Core.Storage;
+using WhoseIsBarcode.Core.Storage;
 
-namespace WhoseBarcode.Core.Database
+namespace WhoseIsBarcode.Core.Database
 {
     public class Connect
     {

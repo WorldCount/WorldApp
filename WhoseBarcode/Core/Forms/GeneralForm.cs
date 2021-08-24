@@ -5,11 +5,12 @@ using System.Linq;
 using System.Windows.Forms;
 using NLog;
 using WcPostApi.Barcodes;
-using WhoseBarcode.Core.Database;
-using WhoseBarcode.Core.Database.Models;
-using WhoseBarcode.Core.Database.Requests;
+using WhoseIsBarcode.Core.Database;
+using WhoseIsBarcode.Core.Database.Models;
+using WhoseIsBarcode.Core.Database.Requests;
+using WhoseIsBarcode.Core.Forms;
 
-namespace WhoseBarcode.Core.Forms
+namespace WhoseIsBarcode.Core.Forms
 {
     public partial class GeneralForm : Form
     {
@@ -397,6 +398,8 @@ namespace WhoseBarcode.Core.Forms
 
         private async void LoadRanges(RangeRequest request)
         {
+            dbRangeBindingSource.DataSource = null;
+
             _ranges = await _dataBase.GetRangesAsync(request);
 
             if (_ranges != null)

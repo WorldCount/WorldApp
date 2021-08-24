@@ -1,12 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WhoseBarcode.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WhoseIsBarcode.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="NeedUpgrade" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="AppName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">WhoseBarcode</Value>
+      <Value Profile="(Default)">WhoseIsBarcode</Value>
     </Setting>
     <Setting Name="DataDir" Type="System.String" Scope="User">
       <Value Profile="(Default)">DATA</Value>

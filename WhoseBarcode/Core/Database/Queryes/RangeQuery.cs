@@ -4,10 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using FirebirdSql.Data.FirebirdClient;
-using WhoseBarcode.Core.Database.Models;
-using WhoseBarcode.Core.Database.Requests;
+using WhoseIsBarcode.Core.Database.Models;
+using WhoseIsBarcode.Core.Database.Requests;
 
-namespace WhoseBarcode.Core.Database.Queryes
+namespace WhoseIsBarcode.Core.Database.Queryes
 {
     public class RangeQuery : Query
     {
@@ -100,6 +100,9 @@ namespace WhoseBarcode.Core.Database.Queryes
                         oldRange.Count += range.Count;
                     }
                 }
+
+                if (DebugMode)
+                    Logger.Debug($"Запрос вернул записей: {ranges.Count}");
 
                 reader.Close();
                 selectCommand.Dispose();

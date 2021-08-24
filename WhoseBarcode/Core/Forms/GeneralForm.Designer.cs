@@ -1,5 +1,7 @@
 ﻿
-namespace WhoseBarcode.Core.Forms
+using WhoseIsBarcode.Core.Database.Models;
+
+namespace WhoseIsBarcode.Core.Forms
 {
     partial class GeneralForm
     {
@@ -502,7 +504,7 @@ namespace WhoseBarcode.Core.Forms
             // 
             // dbBarcodeBindingSource
             // 
-            this.dbBarcodeBindingSource.DataSource = typeof(WhoseBarcode.Core.Database.Models.DbBarcode);
+            this.dbBarcodeBindingSource.DataSource = typeof(DbBarcode);
             // 
             // barcodePanel
             // 
@@ -597,7 +599,7 @@ namespace WhoseBarcode.Core.Forms
             this.btnLoadBarcode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
             this.btnLoadBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadBarcode.ForeColor = System.Drawing.Color.White;
-            this.btnLoadBarcode.Image = global::WhoseBarcode.Properties.Resources.sinchronize_24;
+            this.btnLoadBarcode.Image = global::WhoseIsBarcode.Properties.Resources.sinchronize_24;
             this.btnLoadBarcode.Location = new System.Drawing.Point(738, 4);
             this.btnLoadBarcode.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
             this.btnLoadBarcode.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
@@ -802,7 +804,7 @@ namespace WhoseBarcode.Core.Forms
             // 
             // dbRangeBindingSource
             // 
-            this.dbRangeBindingSource.DataSource = typeof(WhoseBarcode.Core.Database.Models.DbRange);
+            this.dbRangeBindingSource.DataSource = typeof(DbRange);
             // 
             // rangePanel
             // 
@@ -858,7 +860,7 @@ namespace WhoseBarcode.Core.Forms
             // 
             // dbFirmBindingSource
             // 
-            this.dbFirmBindingSource.DataSource = typeof(WhoseBarcode.Core.Database.Models.DbFirm);
+            this.dbFirmBindingSource.DataSource = typeof(DbFirm);
             // 
             // btnLoadRange
             // 
@@ -874,7 +876,7 @@ namespace WhoseBarcode.Core.Forms
             this.btnLoadRange.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
             this.btnLoadRange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadRange.ForeColor = System.Drawing.Color.White;
-            this.btnLoadRange.Image = global::WhoseBarcode.Properties.Resources.sinchronize_24;
+            this.btnLoadRange.Image = global::WhoseIsBarcode.Properties.Resources.sinchronize_24;
             this.btnLoadRange.Location = new System.Drawing.Point(738, 4);
             this.btnLoadRange.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
             this.btnLoadRange.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));

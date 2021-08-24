@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WhoseBarcode.Properties {
+namespace WhoseIsBarcode.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -37,7 +37,7 @@ namespace WhoseBarcode.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("WhoseBarcode")]
+        [global::System.Configuration.DefaultSettingValueAttribute("WhoseIsBarcode")]
         public string AppName {
             get {
                 return ((string)(this["AppName"]));

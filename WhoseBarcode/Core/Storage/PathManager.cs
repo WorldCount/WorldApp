@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Windows.Forms;
 
-namespace WhoseBarcode.Core.Storage
+namespace WhoseIsBarcode.Core.Storage
 {
     public static class PathManager
     {

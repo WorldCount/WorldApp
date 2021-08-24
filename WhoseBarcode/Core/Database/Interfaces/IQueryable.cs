@@ -1,5 +1,4 @@
-﻿
-namespace WhoseBarcode.Core.Database.Interfaces
+﻿namespace WhoseIsBarcode.Core.Database.Interfaces
 {
     public interface IQueryable
     {

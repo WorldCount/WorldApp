@@ -1,7 +1,6 @@
-﻿
-using WhoseBarcode.Core.Database.Models;
+﻿using WhoseIsBarcode.Core.Database.Models;
 
-namespace WhoseBarcode.Core.Database.Requests
+namespace WhoseIsBarcode.Core.Database.Requests
 {
     public class RangeRequest
     {

@@ -1,4 +1,4 @@
-﻿namespace WhoseBarcode.Core.Database.Models
+﻿namespace WhoseIsBarcode.Core.Database.Models
 {
     public class DbFirm
     {

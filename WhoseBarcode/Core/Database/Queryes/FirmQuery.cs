@@ -1,10 +1,10 @@
-﻿using FirebirdSql.Data.FirebirdClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using WhoseBarcode.Core.Database.Models;
+using FirebirdSql.Data.FirebirdClient;
+using WhoseIsBarcode.Core.Database.Models;
 
-namespace WhoseBarcode.Core.Database.Queryes
+namespace WhoseIsBarcode.Core.Database.Queryes
 {
     public class FirmQuery : Query
     {
@@ -58,6 +58,9 @@ namespace WhoseBarcode.Core.Database.Queryes
                 reader.Close();
                 selectCommand.Dispose();
                 fbTransaction.Commit();
+
+                if (DebugMode)
+                    Logger.Debug($"Запрос вернул записей: {firms.Count}");
 
                 return firms;
             }

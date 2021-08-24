@@ -5,9 +5,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
-using WhoseBarcode.Core.Database;
+using WhoseIsBarcode.Core.Database;
 
-namespace WhoseBarcode.Core.Forms
+namespace WhoseIsBarcode.Core.Forms
 {
     public partial class ConnectForm : Form
     {

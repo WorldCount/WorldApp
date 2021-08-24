@@ -1,8 +1,8 @@
 ﻿using System;
 using NLog;
-using WhoseBarcode.Core.Database.Interfaces;
+using WhoseIsBarcode.Core.Database.Interfaces;
 
-namespace WhoseBarcode.Core.Database.Queryes
+namespace WhoseIsBarcode.Core.Database.Queryes
 {
     public abstract class Query : IQueryable
     {

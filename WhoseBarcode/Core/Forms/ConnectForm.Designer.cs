@@ -1,4 +1,4 @@
-﻿namespace WhoseBarcode.Core.Forms
+﻿namespace WhoseIsBarcode.Core.Forms
 {
     partial class ConnectForm
     {
@@ -152,7 +152,7 @@
             this.btnCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheck.ForeColor = System.Drawing.Color.White;
-            this.btnCheck.Image = global::WhoseBarcode.Properties.Resources.sinchronize_24;
+            this.btnCheck.Image = global::WhoseIsBarcode.Properties.Resources.sinchronize_24;
             this.btnCheck.Location = new System.Drawing.Point(278, 304);
             this.btnCheck.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnCheck.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
@@ -180,7 +180,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Image = global::WhoseBarcode.Properties.Resources.close_window_24;
+            this.btnCancel.Image = global::WhoseIsBarcode.Properties.Resources.close_window_24;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(16, 374);
             this.btnCancel.MouseDownBackColor = System.Drawing.Color.Empty;
@@ -210,7 +210,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Image = global::WhoseBarcode.Properties.Resources.save_24;
+            this.btnSave.Image = global::WhoseIsBarcode.Properties.Resources.save_24;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(412, 374);
             this.btnSave.MouseDownBackColor = System.Drawing.Color.Empty;
@@ -239,7 +239,7 @@
             this.btnChoose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnChoose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChoose.ForeColor = System.Drawing.Color.White;
-            this.btnChoose.Image = global::WhoseBarcode.Properties.Resources.white_folder_24;
+            this.btnChoose.Image = global::WhoseIsBarcode.Properties.Resources.white_folder_24;
             this.btnChoose.Location = new System.Drawing.Point(474, 101);
             this.btnChoose.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnChoose.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
