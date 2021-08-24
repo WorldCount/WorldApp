@@ -101,19 +101,19 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeColumnBusyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbRangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rangePanel = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelRangeCalendar = new System.Windows.Forms.FlowLayoutPanel();
+            this.rangeToggleCalendar = new Wc32Api.Widgets.WcToggleButton();
             this.flowLayoutPanelRange = new System.Windows.Forms.FlowLayoutPanel();
             this.rangeLabelInfoFirm = new System.Windows.Forms.Label();
             this.rangeComboBoxFirm = new System.Windows.Forms.ComboBox();
             this.dbFirmBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rangeLabelInfoLimit = new System.Windows.Forms.Label();
+            this.rangeToggleLimit = new Wc32Api.Widgets.WcToggleButton();
+            this.rangeLimitNum = new System.Windows.Forms.NumericUpDown();
             this.btnLoadRange = new Wc32Api.Widgets.WcButton();
             this.barcodeContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toRangeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFromRangeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rangeToggleCalendar = new Wc32Api.Widgets.WcToggleButton();
-            this.flowLayoutPanelRangeCalendar = new System.Windows.Forms.FlowLayoutPanel();
-            this.rangeToggleLimit = new Wc32Api.Widgets.WcToggleButton();
-            this.rangeLimitNum = new System.Windows.Forms.NumericUpDown();
-            this.rangeLabelInfoLimit = new System.Windows.Forms.Label();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -131,11 +131,11 @@ namespace WhoseIsBarcode.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.rangeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbRangeBindingSource)).BeginInit();
             this.rangePanel.SuspendLayout();
+            this.flowLayoutPanelRangeCalendar.SuspendLayout();
             this.flowLayoutPanelRange.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbFirmBindingSource)).BeginInit();
-            this.barcodeContextMenu.SuspendLayout();
-            this.flowLayoutPanelRangeCalendar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rangeLimitNum)).BeginInit();
+            this.barcodeContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuBar
@@ -888,6 +888,34 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangePanel.Size = new System.Drawing.Size(870, 93);
             this.rangePanel.TabIndex = 6;
             // 
+            // flowLayoutPanelRangeCalendar
+            // 
+            this.flowLayoutPanelRangeCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelRangeCalendar.Controls.Add(this.rangeToggleCalendar);
+            this.flowLayoutPanelRangeCalendar.Location = new System.Drawing.Point(3, 47);
+            this.flowLayoutPanelRangeCalendar.Name = "flowLayoutPanelRangeCalendar";
+            this.flowLayoutPanelRangeCalendar.Size = new System.Drawing.Size(859, 40);
+            this.flowLayoutPanelRangeCalendar.TabIndex = 28;
+            this.flowLayoutPanelRangeCalendar.WrapContents = false;
+            // 
+            // rangeToggleCalendar
+            // 
+            this.rangeToggleCalendar.AutoSize = true;
+            this.rangeToggleCalendar.DisableBackColor = System.Drawing.Color.DimGray;
+            this.rangeToggleCalendar.DisableToggleColor = System.Drawing.Color.Gray;
+            this.rangeToggleCalendar.Location = new System.Drawing.Point(3, 10);
+            this.rangeToggleCalendar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.rangeToggleCalendar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rangeToggleCalendar.Name = "rangeToggleCalendar";
+            this.rangeToggleCalendar.OffBackColor = System.Drawing.Color.Firebrick;
+            this.rangeToggleCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rangeToggleCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.rangeToggleCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rangeToggleCalendar.Size = new System.Drawing.Size(45, 22);
+            this.rangeToggleCalendar.TabIndex = 28;
+            this.rangeToggleCalendar.UseVisualStyleBackColor = true;
+            // 
             // flowLayoutPanelRange
             // 
             this.flowLayoutPanelRange.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -935,6 +963,52 @@ namespace WhoseIsBarcode.Core.Forms
             // dbFirmBindingSource
             // 
             this.dbFirmBindingSource.DataSource = typeof(WhoseIsBarcode.Core.Database.Models.DbFirm);
+            // 
+            // rangeLabelInfoLimit
+            // 
+            this.rangeLabelInfoLimit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rangeLabelInfoLimit.AutoSize = true;
+            this.rangeLabelInfoLimit.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rangeLabelInfoLimit.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rangeLabelInfoLimit.Location = new System.Drawing.Point(445, 10);
+            this.rangeLabelInfoLimit.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.rangeLabelInfoLimit.Name = "rangeLabelInfoLimit";
+            this.rangeLabelInfoLimit.Size = new System.Drawing.Size(58, 20);
+            this.rangeLabelInfoLimit.TabIndex = 27;
+            this.rangeLabelInfoLimit.Text = "Лимит:";
+            // 
+            // rangeToggleLimit
+            // 
+            this.rangeToggleLimit.AutoSize = true;
+            this.rangeToggleLimit.Checked = true;
+            this.rangeToggleLimit.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.rangeToggleLimit.DisableBackColor = System.Drawing.Color.DimGray;
+            this.rangeToggleLimit.DisableToggleColor = System.Drawing.Color.Gray;
+            this.rangeToggleLimit.Location = new System.Drawing.Point(509, 10);
+            this.rangeToggleLimit.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.rangeToggleLimit.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rangeToggleLimit.Name = "rangeToggleLimit";
+            this.rangeToggleLimit.OffBackColor = System.Drawing.Color.Firebrick;
+            this.rangeToggleLimit.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rangeToggleLimit.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.rangeToggleLimit.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rangeToggleLimit.Size = new System.Drawing.Size(45, 22);
+            this.rangeToggleLimit.TabIndex = 28;
+            this.rangeToggleLimit.UseVisualStyleBackColor = true;
+            this.rangeToggleLimit.CheckedChanged += new System.EventHandler(this.rangeToggleLimit_CheckedChanged);
+            // 
+            // rangeLimitNum
+            // 
+            this.rangeLimitNum.Location = new System.Drawing.Point(560, 6);
+            this.rangeLimitNum.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.rangeLimitNum.Name = "rangeLimitNum";
+            this.rangeLimitNum.Size = new System.Drawing.Size(66, 29);
+            this.rangeLimitNum.TabIndex = 29;
+            this.rangeLimitNum.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // btnLoadRange
             // 
@@ -989,79 +1063,6 @@ namespace WhoseIsBarcode.Core.Forms
             this.loadFromRangeMenuItem.Text = "Загрузить все ШПИ";
             this.loadFromRangeMenuItem.Click += new System.EventHandler(this.loadFromRangeMenuItem_Click);
             // 
-            // rangeToggleCalendar
-            // 
-            this.rangeToggleCalendar.AutoSize = true;
-            this.rangeToggleCalendar.DisableBackColor = System.Drawing.Color.DimGray;
-            this.rangeToggleCalendar.DisableToggleColor = System.Drawing.Color.Gray;
-            this.rangeToggleCalendar.Location = new System.Drawing.Point(3, 10);
-            this.rangeToggleCalendar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.rangeToggleCalendar.MinimumSize = new System.Drawing.Size(45, 22);
-            this.rangeToggleCalendar.Name = "rangeToggleCalendar";
-            this.rangeToggleCalendar.OffBackColor = System.Drawing.Color.Firebrick;
-            this.rangeToggleCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rangeToggleCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
-            this.rangeToggleCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rangeToggleCalendar.Size = new System.Drawing.Size(45, 22);
-            this.rangeToggleCalendar.TabIndex = 28;
-            this.rangeToggleCalendar.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanelRangeCalendar
-            // 
-            this.flowLayoutPanelRangeCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelRangeCalendar.Controls.Add(this.rangeToggleCalendar);
-            this.flowLayoutPanelRangeCalendar.Location = new System.Drawing.Point(3, 47);
-            this.flowLayoutPanelRangeCalendar.Name = "flowLayoutPanelRangeCalendar";
-            this.flowLayoutPanelRangeCalendar.Size = new System.Drawing.Size(859, 40);
-            this.flowLayoutPanelRangeCalendar.TabIndex = 28;
-            this.flowLayoutPanelRangeCalendar.WrapContents = false;
-            // 
-            // rangeToggleLimit
-            // 
-            this.rangeToggleLimit.AutoSize = true;
-            this.rangeToggleLimit.Checked = true;
-            this.rangeToggleLimit.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.rangeToggleLimit.DisableBackColor = System.Drawing.Color.DimGray;
-            this.rangeToggleLimit.DisableToggleColor = System.Drawing.Color.Gray;
-            this.rangeToggleLimit.Location = new System.Drawing.Point(509, 10);
-            this.rangeToggleLimit.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.rangeToggleLimit.MinimumSize = new System.Drawing.Size(45, 22);
-            this.rangeToggleLimit.Name = "rangeToggleLimit";
-            this.rangeToggleLimit.OffBackColor = System.Drawing.Color.Firebrick;
-            this.rangeToggleLimit.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rangeToggleLimit.OnBackColor = System.Drawing.Color.SeaGreen;
-            this.rangeToggleLimit.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rangeToggleLimit.Size = new System.Drawing.Size(45, 22);
-            this.rangeToggleLimit.TabIndex = 28;
-            this.rangeToggleLimit.UseVisualStyleBackColor = true;
-            // 
-            // rangeLimitNum
-            // 
-            this.rangeLimitNum.Location = new System.Drawing.Point(560, 6);
-            this.rangeLimitNum.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.rangeLimitNum.Name = "rangeLimitNum";
-            this.rangeLimitNum.Size = new System.Drawing.Size(66, 29);
-            this.rangeLimitNum.TabIndex = 29;
-            this.rangeLimitNum.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // rangeLabelInfoLimit
-            // 
-            this.rangeLabelInfoLimit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rangeLabelInfoLimit.AutoSize = true;
-            this.rangeLabelInfoLimit.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rangeLabelInfoLimit.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rangeLabelInfoLimit.Location = new System.Drawing.Point(445, 10);
-            this.rangeLabelInfoLimit.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
-            this.rangeLabelInfoLimit.Name = "rangeLabelInfoLimit";
-            this.rangeLabelInfoLimit.Size = new System.Drawing.Size(58, 20);
-            this.rangeLabelInfoLimit.TabIndex = 27;
-            this.rangeLabelInfoLimit.Text = "Лимит:";
-            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1104,13 +1105,13 @@ namespace WhoseIsBarcode.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.rangeDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbRangeBindingSource)).EndInit();
             this.rangePanel.ResumeLayout(false);
+            this.flowLayoutPanelRangeCalendar.ResumeLayout(false);
+            this.flowLayoutPanelRangeCalendar.PerformLayout();
             this.flowLayoutPanelRange.ResumeLayout(false);
             this.flowLayoutPanelRange.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbFirmBindingSource)).EndInit();
-            this.barcodeContextMenu.ResumeLayout(false);
-            this.flowLayoutPanelRangeCalendar.ResumeLayout(false);
-            this.flowLayoutPanelRangeCalendar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rangeLimitNum)).EndInit();
+            this.barcodeContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

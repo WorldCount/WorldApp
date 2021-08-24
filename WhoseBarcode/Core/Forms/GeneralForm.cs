@@ -328,6 +328,11 @@ namespace WhoseIsBarcode.Core.Forms
             }
         }
 
+        private void rangeToggleLimit_CheckedChanged(object sender, EventArgs e)
+        {
+            rangeLimitNum.Visible = rangeToggleLimit.Checked;
+        }
+
         #endregion
 
         #region DataGrid Event
@@ -499,7 +504,7 @@ namespace WhoseIsBarcode.Core.Forms
 
         #region ContextMenu Event
 
-        private async void toRangeMenuItem_Click(object sender, EventArgs e)
+        private void toRangeMenuItem_Click(object sender, EventArgs e)
         {
             if(_selectBarcode == null)
                 return;
@@ -530,8 +535,6 @@ namespace WhoseIsBarcode.Core.Forms
         {
             
         }
-
-
 
         #endregion
 
