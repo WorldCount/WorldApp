@@ -1,4 +1,6 @@
 ﻿using System;
+using WhoseIsBarcode.Core.Database.Queryes;
+using WhoseIsBarcode.Core.Database.Response;
 
 namespace WhoseIsBarcode.Core.Database.Models
 {
@@ -19,10 +21,24 @@ namespace WhoseIsBarcode.Core.Database.Models
         public string FirmDepcode { get; set; }
         public string FirmKpp { get; set; }
 
-        public int Count { get; set; }
-        public int FreeCount { get; set; }
-        public int BusyCount { get; set; }
+        public int Count { get; private set; }
+        public int FreeCount { get; private set; }
+        public int BusyCount { get; private set; }
 
         public string ExtName => IsExternal ? "МЖД" : "Внут";
+
+        public void SetData(RangeData data)
+        {
+            if (data != null)
+            {
+                Month = data.Month;
+                Seria = data.Seria;
+                FirstNum = data.FirstNum;
+                LastNum = data.LastNum;
+                Count = data.Count;
+                FreeCount = data.FreeCount;
+                BusyCount = data.BusyCount;
+            }
+        }
     }
 }

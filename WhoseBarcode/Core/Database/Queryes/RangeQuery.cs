@@ -6,6 +6,7 @@ using System.Text;
 using FirebirdSql.Data.FirebirdClient;
 using WhoseIsBarcode.Core.Database.Models;
 using WhoseIsBarcode.Core.Database.Requests;
+using WhoseIsBarcode.Core.Database.Response;
 
 namespace WhoseIsBarcode.Core.Database.Queryes
 {
@@ -26,16 +27,10 @@ namespace WhoseIsBarcode.Core.Database.Queryes
             if (_request != null && _request.Limit > 0)
                 sb.Append($" first {_request.Limit}");
 
-            sb.Append(" re.id, re.date_info, re.is_external, r.index_from, r.num_month, r.num_seria, f.firm_name, f.inn,  f.depcode, f.kpp,");
-            sb.Append(" (select count(*) from range where range.id_range_ei = re.id) as count_all,");
-            sb.Append(" (select count(*) from range where range.id_range_ei = re.id and range.state = 1) as count_free,");
-            sb.Append(" (select count(*) from range where range.id_range_ei = re.id and range.state = 2) as count_busy,");
-            sb.Append(" (select first 1 num_parcel from range where range.id_range_ei = re.id order by num_parcel) as first_num,");
-            sb.Append(" (select first 1 num_parcel from range where range.id_range_ei = re.id order by num_parcel desc) as last_num");
+            sb.Append(" re.id, re.date_info, re.is_external, re.index_from, f.firm_name, f.inn,  f.depcode, f.kpp");
             sb.Append(" from range_ei re");
-            sb.Append(" left join range r on re.id = r.id_range_ei");
-            sb.Append(" left join firms f on r.id_inn = f.id_inn");
-            sb.Append(" where r.index_from is not null");
+            sb.Append(" left join firms f on re.inn = f.inn and re.kpp = f.kpp and re.depcode = f.depcode");
+            sb.Append(" where re.index_from is not null");
 
             if (_request != null)
             {
@@ -46,7 +41,7 @@ namespace WhoseIsBarcode.Core.Database.Queryes
                     sb.Append($" and re.inn = '{_request.Firm.Inn}' and re.kpp = '{_request.Firm.Kpp}' and re.depcode = '{_request.Firm.Depcode}'");
             }
 
-            sb.Append(" group by re.id, re.date_info, re.is_external, r.index_from, r.num_month, r.num_seria, f.firm_name, f.inn,  f.depcode, f.kpp");
+            sb.Append(" group by re.id, re.date_info, re.is_external, re.index_from, f.firm_name, f.inn,  f.depcode, f.kpp");
             sb.Append(" order by re.date_info desc");
 
             return sb.ToString();
@@ -83,40 +78,15 @@ namespace WhoseIsBarcode.Core.Database.Queryes
                         Date = reader.GetDateTime(1),
                         IsExternal = reader.GetChar(2) == 'T',
                         Ops = reader.GetString(3),
-                        Month = reader.GetString(4),
-                        Seria = reader.GetString(5),
-                        FirmName = reader.GetString(6),
-                        FirmInn = reader.GetString(7),
-                        FirmDepcode = reader.GetString(8),
-                        FirmKpp = reader.GetString(9),
-                        Count = reader.GetInt32(10),
-                        FreeCount = reader.GetInt32(11),
-                        BusyCount = reader.GetInt32(12),
-                        FirstNum = reader.GetString(13),
-                        LastNum = reader.GetString(14)
+                        FirmName = reader.GetString(4),
+                        FirmInn = reader.GetString(5),
+                        FirmDepcode = reader.GetString(6),
+                        FirmKpp = reader.GetString(7)
                     };
 
-                    //int state = reader.GetInt32(11);
-
-                    //DbRange oldRange = ranges.FirstOrDefault(r => r.Id == range.Id);
-                    //if (oldRange == null)
-                    //{
-                    //    if (state == 1)
-                    //        range.FreeCount = range.Count;
-                    //    else
-                    //        range.BusyCount = range.Count;
-
-                    //    ranges.Add(range);
-                    //}
-                    //else
-                    //{
-                    //    if (state == 1)
-                    //        oldRange.FreeCount = range.Count;
-                    //    else
-                    //        oldRange.BusyCount = range.Count;
-
-                    //    oldRange.Count += range.Count;
-                    //}
+                    RangeDataQuery subQuery = new RangeDataQuery(Connect, range.Id, DebugMode);
+                    RangeData rangeData = subQuery.Run();
+                    range.SetData(rangeData);
 
                     ranges.Add(range);
                 }
