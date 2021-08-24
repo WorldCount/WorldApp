@@ -102,7 +102,12 @@ namespace WhoseIsBarcode.Core.Forms
             this.dbRangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rangePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelRangeCalendar = new System.Windows.Forms.FlowLayoutPanel();
+            this.rangeLabelInfoDate = new System.Windows.Forms.Label();
             this.rangeToggleCalendar = new Wc32Api.Widgets.WcToggleButton();
+            this.rangeDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
+            this.rangeDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.rangeDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.rangeToggleDateFormat = new Wc32Api.Widgets.WcToggleButton();
             this.flowLayoutPanelRange = new System.Windows.Forms.FlowLayoutPanel();
             this.rangeLabelInfoFirm = new System.Windows.Forms.Label();
             this.rangeComboBoxFirm = new System.Windows.Forms.ComboBox();
@@ -892,19 +897,35 @@ namespace WhoseIsBarcode.Core.Forms
             // 
             this.flowLayoutPanelRangeCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelRangeCalendar.Controls.Add(this.rangeToggleCalendar);
+            this.flowLayoutPanelRangeCalendar.Controls.Add(this.rangeToggleDateFormat);
+            this.flowLayoutPanelRangeCalendar.Controls.Add(this.rangeDateTimePickerCalendar);
+            this.flowLayoutPanelRangeCalendar.Controls.Add(this.rangeDateTimePickerStart);
+            this.flowLayoutPanelRangeCalendar.Controls.Add(this.rangeDateTimePickerEnd);
             this.flowLayoutPanelRangeCalendar.Location = new System.Drawing.Point(3, 47);
             this.flowLayoutPanelRangeCalendar.Name = "flowLayoutPanelRangeCalendar";
             this.flowLayoutPanelRangeCalendar.Size = new System.Drawing.Size(859, 40);
             this.flowLayoutPanelRangeCalendar.TabIndex = 28;
             this.flowLayoutPanelRangeCalendar.WrapContents = false;
             // 
+            // rangeLabelInfoDate
+            // 
+            this.rangeLabelInfoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rangeLabelInfoDate.AutoSize = true;
+            this.rangeLabelInfoDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rangeLabelInfoDate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rangeLabelInfoDate.Location = new System.Drawing.Point(635, 10);
+            this.rangeLabelInfoDate.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.rangeLabelInfoDate.Name = "rangeLabelInfoDate";
+            this.rangeLabelInfoDate.Size = new System.Drawing.Size(46, 20);
+            this.rangeLabelInfoDate.TabIndex = 33;
+            this.rangeLabelInfoDate.Text = "Дата:";
+            // 
             // rangeToggleCalendar
             // 
             this.rangeToggleCalendar.AutoSize = true;
             this.rangeToggleCalendar.DisableBackColor = System.Drawing.Color.DimGray;
             this.rangeToggleCalendar.DisableToggleColor = System.Drawing.Color.Gray;
-            this.rangeToggleCalendar.Location = new System.Drawing.Point(3, 10);
+            this.rangeToggleCalendar.Location = new System.Drawing.Point(687, 10);
             this.rangeToggleCalendar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.rangeToggleCalendar.MinimumSize = new System.Drawing.Size(45, 22);
             this.rangeToggleCalendar.Name = "rangeToggleCalendar";
@@ -915,6 +936,72 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeToggleCalendar.Size = new System.Drawing.Size(45, 22);
             this.rangeToggleCalendar.TabIndex = 28;
             this.rangeToggleCalendar.UseVisualStyleBackColor = true;
+            this.rangeToggleCalendar.CheckedChanged += new System.EventHandler(this.rangeToggleCalendar_CheckedChanged);
+            // 
+            // rangeDateTimePickerCalendar
+            // 
+            this.rangeDateTimePickerCalendar.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.rangeDateTimePickerCalendar.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.rangeDateTimePickerCalendar.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.rangeDateTimePickerCalendar.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.rangeDateTimePickerCalendar.CustomFormat = "MMMM yyyy";
+            this.rangeDateTimePickerCalendar.Enabled = false;
+            this.rangeDateTimePickerCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.rangeDateTimePickerCalendar.Location = new System.Drawing.Point(54, 6);
+            this.rangeDateTimePickerCalendar.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.rangeDateTimePickerCalendar.Name = "rangeDateTimePickerCalendar";
+            this.rangeDateTimePickerCalendar.ShowUpDown = true;
+            this.rangeDateTimePickerCalendar.Size = new System.Drawing.Size(200, 29);
+            this.rangeDateTimePickerCalendar.TabIndex = 30;
+            // 
+            // rangeDateTimePickerStart
+            // 
+            this.rangeDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.rangeDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.rangeDateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.rangeDateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.rangeDateTimePickerStart.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.rangeDateTimePickerStart.Enabled = false;
+            this.rangeDateTimePickerStart.Location = new System.Drawing.Point(260, 6);
+            this.rangeDateTimePickerStart.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.rangeDateTimePickerStart.Name = "rangeDateTimePickerStart";
+            this.rangeDateTimePickerStart.Size = new System.Drawing.Size(220, 29);
+            this.rangeDateTimePickerStart.TabIndex = 31;
+            this.rangeDateTimePickerStart.Visible = false;
+            this.rangeDateTimePickerStart.ValueChanged += new System.EventHandler(this.rangeDateTimePickerStart_ValueChanged);
+            // 
+            // rangeDateTimePickerEnd
+            // 
+            this.rangeDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.rangeDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.rangeDateTimePickerEnd.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.rangeDateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.rangeDateTimePickerEnd.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.rangeDateTimePickerEnd.Enabled = false;
+            this.rangeDateTimePickerEnd.Location = new System.Drawing.Point(486, 6);
+            this.rangeDateTimePickerEnd.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.rangeDateTimePickerEnd.Name = "rangeDateTimePickerEnd";
+            this.rangeDateTimePickerEnd.Size = new System.Drawing.Size(200, 29);
+            this.rangeDateTimePickerEnd.TabIndex = 32;
+            this.rangeDateTimePickerEnd.Visible = false;
+            // 
+            // rangeToggleDateFormat
+            // 
+            this.rangeToggleDateFormat.AutoSize = true;
+            this.rangeToggleDateFormat.DisableBackColor = System.Drawing.Color.DimGray;
+            this.rangeToggleDateFormat.DisableToggleColor = System.Drawing.Color.Gray;
+            this.rangeToggleDateFormat.Location = new System.Drawing.Point(3, 10);
+            this.rangeToggleDateFormat.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.rangeToggleDateFormat.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rangeToggleDateFormat.Name = "rangeToggleDateFormat";
+            this.rangeToggleDateFormat.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.rangeToggleDateFormat.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rangeToggleDateFormat.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.rangeToggleDateFormat.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rangeToggleDateFormat.Size = new System.Drawing.Size(45, 22);
+            this.rangeToggleDateFormat.TabIndex = 34;
+            this.rangeToggleDateFormat.UseVisualStyleBackColor = true;
+            this.rangeToggleDateFormat.CheckedChanged += new System.EventHandler(this.rangeToggleDateFormat_CheckedChanged);
             // 
             // flowLayoutPanelRange
             // 
@@ -925,6 +1012,8 @@ namespace WhoseIsBarcode.Core.Forms
             this.flowLayoutPanelRange.Controls.Add(this.rangeLabelInfoLimit);
             this.flowLayoutPanelRange.Controls.Add(this.rangeToggleLimit);
             this.flowLayoutPanelRange.Controls.Add(this.rangeLimitNum);
+            this.flowLayoutPanelRange.Controls.Add(this.rangeLabelInfoDate);
+            this.flowLayoutPanelRange.Controls.Add(this.rangeToggleCalendar);
             this.flowLayoutPanelRange.Location = new System.Drawing.Point(3, 4);
             this.flowLayoutPanelRange.Name = "flowLayoutPanelRange";
             this.flowLayoutPanelRange.Size = new System.Drawing.Size(813, 40);
@@ -1193,6 +1282,11 @@ namespace WhoseIsBarcode.Core.Forms
         private Wc32Api.Widgets.WcToggleButton rangeToggleLimit;
         private System.Windows.Forms.Label rangeLabelInfoLimit;
         private System.Windows.Forms.NumericUpDown rangeLimitNum;
+        private System.Windows.Forms.DateTimePicker rangeDateTimePickerCalendar;
+        private System.Windows.Forms.DateTimePicker rangeDateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker rangeDateTimePickerEnd;
+        private System.Windows.Forms.Label rangeLabelInfoDate;
+        private Wc32Api.Widgets.WcToggleButton rangeToggleDateFormat;
     }
 }
 

@@ -324,6 +324,28 @@ namespace WhoseIsBarcode.Core.Forms
                 if (rangeToggleLimit.Checked)
                     request.Limit = (int) rangeLimitNum.Value;
 
+                if (rangeToggleCalendar.Checked)
+                {
+                    DateTime start;
+                    DateTime end;
+
+                    if (rangeDateTimePickerCalendar.Visible)
+                    {
+                        DateTime date = rangeDateTimePickerCalendar.Value;
+                        start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+                        end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+                    }
+                    else
+                    {
+                        start = WcApi.Date.DateUtils.CropTime(rangeDateTimePickerStart.Value);
+                        end = WcApi.Date.DateUtils.CropTime(rangeDateTimePickerEnd.Value);
+                    }
+
+                    request.ByDate = rangeToggleCalendar.Checked;
+                    request.StartDate = start;
+                    request.EndDate = end;
+                }
+
                 LoadRanges(request);
             }
         }
@@ -331,6 +353,38 @@ namespace WhoseIsBarcode.Core.Forms
         private void rangeToggleLimit_CheckedChanged(object sender, EventArgs e)
         {
             rangeLimitNum.Visible = rangeToggleLimit.Checked;
+        }
+
+        private void rangeToggleCalendar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rangeToggleCalendar.Checked)
+            {
+                rangeDateTimePickerStart.Enabled = true;
+                rangeDateTimePickerEnd.Enabled = true;
+                rangeDateTimePickerCalendar.Enabled = true;
+            }
+            else
+            {
+                rangeDateTimePickerStart.Enabled = false;
+                rangeDateTimePickerEnd.Enabled = false;
+                rangeDateTimePickerCalendar.Enabled = false;
+            }
+        }
+
+        private void rangeToggleDateFormat_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rangeToggleDateFormat.Checked)
+            {
+                rangeDateTimePickerCalendar.Visible = false;
+                rangeDateTimePickerStart.Visible = true;
+                rangeDateTimePickerEnd.Visible = true;
+            }
+            else
+            {
+                rangeDateTimePickerCalendar.Visible = true;
+                rangeDateTimePickerStart.Visible = false;
+                rangeDateTimePickerEnd.Visible = false;
+            }
         }
 
         #endregion
@@ -543,6 +597,11 @@ namespace WhoseIsBarcode.Core.Forms
         private void rangeComboBoxFirm_Enter(object sender, EventArgs e)
         {
             WcApi.Keyboard.Keyboard.SetRussianLanguage();
+        }
+
+        private void rangeDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            rangeDateTimePickerEnd.Value = rangeDateTimePickerStart.Value;
         }
 
         #endregion
