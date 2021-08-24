@@ -320,6 +320,10 @@ namespace WhoseIsBarcode.Core.Forms
             if (firm != null)
             {
                 RangeRequest request = new RangeRequest { Firm = firm };
+
+                if (rangeToggleLimit.Checked)
+                    request.Limit = (int) rangeLimitNum.Value;
+
                 LoadRanges(request);
             }
         }
@@ -399,6 +403,10 @@ namespace WhoseIsBarcode.Core.Forms
         private async void LoadRanges(RangeRequest request)
         {
             dbRangeBindingSource.DataSource = null;
+            rangeLabelRangeCount.Text = "0";
+            rangeLabelBarcodeCount.Text = "0";
+            rangeLabelBarcodeFree.Text = "0";
+            rangeLabelBarcodeBusy.Text = "0";
 
             _ranges = await _dataBase.GetRangesAsync(request);
 

@@ -90,6 +90,15 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeLabelInfoBarcodeBusy = new System.Windows.Forms.Label();
             this.rangeLabelBarcodeBusy = new System.Windows.Forms.Label();
             this.rangeDataGridView = new System.Windows.Forms.DataGridView();
+            this.rangeColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnExternal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnOps = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnSeria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnFirmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnFreeCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnBusyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbRangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rangePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelRange = new System.Windows.Forms.FlowLayoutPanel();
@@ -100,15 +109,11 @@ namespace WhoseIsBarcode.Core.Forms
             this.barcodeContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toRangeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFromRangeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rangeColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnExternal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnOps = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnSeria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnFirmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnFreeCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnBusyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeToggleCalendar = new Wc32Api.Widgets.WcToggleButton();
+            this.flowLayoutPanelRangeCalendar = new System.Windows.Forms.FlowLayoutPanel();
+            this.rangeToggleLimit = new Wc32Api.Widgets.WcToggleButton();
+            this.rangeLimitNum = new System.Windows.Forms.NumericUpDown();
+            this.rangeLabelInfoLimit = new System.Windows.Forms.Label();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -129,6 +134,8 @@ namespace WhoseIsBarcode.Core.Forms
             this.flowLayoutPanelRange.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbFirmBindingSource)).BeginInit();
             this.barcodeContextMenu.SuspendLayout();
+            this.flowLayoutPanelRangeCalendar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rangeLimitNum)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBar
@@ -145,7 +152,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
             this.menuBar.Padding = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuBar.Size = new System.Drawing.Size(800, 40);
+            this.menuBar.Size = new System.Drawing.Size(884, 40);
             this.menuBar.TabIndex = 3;
             // 
             // fileMenuItem
@@ -195,7 +202,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.panelGeneral.ForeColor = System.Drawing.Color.Gainsboro;
             this.panelGeneral.Location = new System.Drawing.Point(0, 40);
             this.panelGeneral.Name = "panelGeneral";
-            this.panelGeneral.Size = new System.Drawing.Size(800, 58);
+            this.panelGeneral.Size = new System.Drawing.Size(884, 58);
             this.panelGeneral.TabIndex = 5;
             // 
             // lblInfoDebug
@@ -204,7 +211,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.lblInfoDebug.AutoSize = true;
             this.lblInfoDebug.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblInfoDebug.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblInfoDebug.Location = new System.Drawing.Point(663, 17);
+            this.lblInfoDebug.Location = new System.Drawing.Point(747, 17);
             this.lblInfoDebug.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
             this.lblInfoDebug.Name = "lblInfoDebug";
             this.lblInfoDebug.Size = new System.Drawing.Size(71, 20);
@@ -217,7 +224,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.btnDebug.AutoSize = true;
             this.btnDebug.DisableBackColor = System.Drawing.Color.DimGray;
             this.btnDebug.DisableToggleColor = System.Drawing.Color.Gray;
-            this.btnDebug.Location = new System.Drawing.Point(740, 17);
+            this.btnDebug.Location = new System.Drawing.Point(824, 17);
             this.btnDebug.MinimumSize = new System.Drawing.Size(45, 22);
             this.btnDebug.Name = "btnDebug";
             this.btnDebug.OffBackColor = System.Drawing.Color.Firebrick;
@@ -237,9 +244,9 @@ namespace WhoseIsBarcode.Core.Forms
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusText,
             this.statusAuthor});
-            this.statusBar.Location = new System.Drawing.Point(0, 426);
+            this.statusBar.Location = new System.Drawing.Point(0, 577);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(800, 24);
+            this.statusBar.Size = new System.Drawing.Size(884, 24);
             this.statusBar.TabIndex = 6;
             // 
             // statusText
@@ -248,7 +255,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.statusText.BackColor = System.Drawing.Color.WhiteSmoke;
             this.statusText.Margin = new System.Windows.Forms.Padding(0, 2, 0, 3);
             this.statusText.Name = "statusText";
-            this.statusText.Size = new System.Drawing.Size(671, 19);
+            this.statusText.Size = new System.Drawing.Size(755, 19);
             this.statusText.Spring = true;
             // 
             // statusAuthor
@@ -275,7 +282,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.tabControl.Name = "tabControl";
             this.tabControl.Padding = new System.Drawing.Point(60, 6);
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(800, 328);
+            this.tabControl.Size = new System.Drawing.Size(884, 479);
             this.tabControl.TabIndex = 8;
             // 
             // tabBarcodes
@@ -287,7 +294,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.tabBarcodes.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.tabBarcodes.Name = "tabBarcodes";
             this.tabBarcodes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBarcodes.Size = new System.Drawing.Size(792, 288);
+            this.tabBarcodes.Size = new System.Drawing.Size(876, 439);
             this.tabBarcodes.TabIndex = 0;
             this.tabBarcodes.Text = "ШПИ";
             this.tabBarcodes.UseVisualStyleBackColor = true;
@@ -298,9 +305,9 @@ namespace WhoseIsBarcode.Core.Forms
             this.barcodePanelStat.Controls.Add(this.flowLayoutPanelBarcodeStat);
             this.barcodePanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barcodePanelStat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.barcodePanelStat.Location = new System.Drawing.Point(3, 255);
+            this.barcodePanelStat.Location = new System.Drawing.Point(3, 406);
             this.barcodePanelStat.Name = "barcodePanelStat";
-            this.barcodePanelStat.Size = new System.Drawing.Size(786, 30);
+            this.barcodePanelStat.Size = new System.Drawing.Size(870, 30);
             this.barcodePanelStat.TabIndex = 7;
             // 
             // flowLayoutPanelBarcodeStat
@@ -315,7 +322,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.flowLayoutPanelBarcodeStat.Controls.Add(this.barcodeLabelBusyCount);
             this.flowLayoutPanelBarcodeStat.Location = new System.Drawing.Point(0, 3);
             this.flowLayoutPanelBarcodeStat.Name = "flowLayoutPanelBarcodeStat";
-            this.flowLayoutPanelBarcodeStat.Size = new System.Drawing.Size(783, 26);
+            this.flowLayoutPanelBarcodeStat.Size = new System.Drawing.Size(867, 26);
             this.flowLayoutPanelBarcodeStat.TabIndex = 1;
             this.flowLayoutPanelBarcodeStat.WrapContents = false;
             // 
@@ -441,7 +448,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.barcodeDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.barcodeDataGridView.RowTemplate.Height = 40;
             this.barcodeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.barcodeDataGridView.Size = new System.Drawing.Size(786, 234);
+            this.barcodeDataGridView.Size = new System.Drawing.Size(870, 385);
             this.barcodeDataGridView.TabIndex = 6;
             this.barcodeDataGridView.TabStop = false;
             this.barcodeDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.barcodeDataGridView_MouseClick);
@@ -504,7 +511,7 @@ namespace WhoseIsBarcode.Core.Forms
             // 
             // dbBarcodeBindingSource
             // 
-            this.dbBarcodeBindingSource.DataSource = typeof(DbBarcode);
+            this.dbBarcodeBindingSource.DataSource = typeof(WhoseIsBarcode.Core.Database.Models.DbBarcode);
             // 
             // barcodePanel
             // 
@@ -514,7 +521,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.barcodePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.barcodePanel.Location = new System.Drawing.Point(3, 3);
             this.barcodePanel.Name = "barcodePanel";
-            this.barcodePanel.Size = new System.Drawing.Size(786, 48);
+            this.barcodePanel.Size = new System.Drawing.Size(870, 48);
             this.barcodePanel.TabIndex = 5;
             // 
             // flowLayoutPanelBarcode
@@ -526,7 +533,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.flowLayoutPanelBarcode.Controls.Add(this.barcodeLabelError);
             this.flowLayoutPanelBarcode.Location = new System.Drawing.Point(3, 4);
             this.flowLayoutPanelBarcode.Name = "flowLayoutPanelBarcode";
-            this.flowLayoutPanelBarcode.Size = new System.Drawing.Size(729, 41);
+            this.flowLayoutPanelBarcode.Size = new System.Drawing.Size(813, 40);
             this.flowLayoutPanelBarcode.TabIndex = 27;
             this.flowLayoutPanelBarcode.WrapContents = false;
             // 
@@ -600,7 +607,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.btnLoadBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadBarcode.ForeColor = System.Drawing.Color.White;
             this.btnLoadBarcode.Image = global::WhoseIsBarcode.Properties.Resources.sinchronize_24;
-            this.btnLoadBarcode.Location = new System.Drawing.Point(738, 4);
+            this.btnLoadBarcode.Location = new System.Drawing.Point(822, 3);
             this.btnLoadBarcode.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
             this.btnLoadBarcode.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
             this.btnLoadBarcode.Name = "btnLoadBarcode";
@@ -619,7 +626,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.tabRanges.Location = new System.Drawing.Point(4, 36);
             this.tabRanges.Name = "tabRanges";
             this.tabRanges.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRanges.Size = new System.Drawing.Size(792, 288);
+            this.tabRanges.Size = new System.Drawing.Size(876, 439);
             this.tabRanges.TabIndex = 1;
             this.tabRanges.Text = "Диапазоны";
             this.tabRanges.UseVisualStyleBackColor = true;
@@ -630,9 +637,9 @@ namespace WhoseIsBarcode.Core.Forms
             this.panelRangeStat.Controls.Add(this.flowLayoutPanelRangeStat);
             this.panelRangeStat.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelRangeStat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.panelRangeStat.Location = new System.Drawing.Point(3, 255);
+            this.panelRangeStat.Location = new System.Drawing.Point(3, 406);
             this.panelRangeStat.Name = "panelRangeStat";
-            this.panelRangeStat.Size = new System.Drawing.Size(786, 30);
+            this.panelRangeStat.Size = new System.Drawing.Size(870, 30);
             this.panelRangeStat.TabIndex = 8;
             // 
             // flowLayoutPanelRangeStat
@@ -649,7 +656,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.flowLayoutPanelRangeStat.Controls.Add(this.rangeLabelBarcodeBusy);
             this.flowLayoutPanelRangeStat.Location = new System.Drawing.Point(0, 3);
             this.flowLayoutPanelRangeStat.Name = "flowLayoutPanelRangeStat";
-            this.flowLayoutPanelRangeStat.Size = new System.Drawing.Size(783, 26);
+            this.flowLayoutPanelRangeStat.Size = new System.Drawing.Size(867, 26);
             this.flowLayoutPanelRangeStat.TabIndex = 1;
             this.flowLayoutPanelRangeStat.WrapContents = false;
             // 
@@ -783,7 +790,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rangeDataGridView.EnableHeadersVisualStyles = false;
             this.rangeDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.rangeDataGridView.Location = new System.Drawing.Point(3, 51);
+            this.rangeDataGridView.Location = new System.Drawing.Point(3, 96);
             this.rangeDataGridView.Name = "rangeDataGridView";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
@@ -798,122 +805,9 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.rangeDataGridView.RowTemplate.Height = 40;
             this.rangeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.rangeDataGridView.Size = new System.Drawing.Size(786, 234);
+            this.rangeDataGridView.Size = new System.Drawing.Size(870, 340);
             this.rangeDataGridView.TabIndex = 7;
             this.rangeDataGridView.TabStop = false;
-            // 
-            // dbRangeBindingSource
-            // 
-            this.dbRangeBindingSource.DataSource = typeof(DbRange);
-            // 
-            // rangePanel
-            // 
-            this.rangePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.rangePanel.Controls.Add(this.flowLayoutPanelRange);
-            this.rangePanel.Controls.Add(this.btnLoadRange);
-            this.rangePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rangePanel.Location = new System.Drawing.Point(3, 3);
-            this.rangePanel.Name = "rangePanel";
-            this.rangePanel.Size = new System.Drawing.Size(786, 48);
-            this.rangePanel.TabIndex = 6;
-            // 
-            // flowLayoutPanelRange
-            // 
-            this.flowLayoutPanelRange.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelRange.Controls.Add(this.rangeLabelInfoFirm);
-            this.flowLayoutPanelRange.Controls.Add(this.rangeComboBoxFirm);
-            this.flowLayoutPanelRange.Location = new System.Drawing.Point(3, 4);
-            this.flowLayoutPanelRange.Name = "flowLayoutPanelRange";
-            this.flowLayoutPanelRange.Size = new System.Drawing.Size(729, 41);
-            this.flowLayoutPanelRange.TabIndex = 27;
-            this.flowLayoutPanelRange.WrapContents = false;
-            // 
-            // rangeLabelInfoFirm
-            // 
-            this.rangeLabelInfoFirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rangeLabelInfoFirm.AutoSize = true;
-            this.rangeLabelInfoFirm.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rangeLabelInfoFirm.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rangeLabelInfoFirm.Location = new System.Drawing.Point(6, 10);
-            this.rangeLabelInfoFirm.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
-            this.rangeLabelInfoFirm.Name = "rangeLabelInfoFirm";
-            this.rangeLabelInfoFirm.Size = new System.Drawing.Size(106, 20);
-            this.rangeLabelInfoFirm.TabIndex = 27;
-            this.rangeLabelInfoFirm.Text = "Организация:";
-            // 
-            // rangeComboBoxFirm
-            // 
-            this.rangeComboBoxFirm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.rangeComboBoxFirm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.rangeComboBoxFirm.DataSource = this.dbFirmBindingSource;
-            this.rangeComboBoxFirm.DisplayMember = "Name";
-            this.rangeComboBoxFirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.rangeComboBoxFirm.FormattingEnabled = true;
-            this.rangeComboBoxFirm.Location = new System.Drawing.Point(118, 6);
-            this.rangeComboBoxFirm.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.rangeComboBoxFirm.Name = "rangeComboBoxFirm";
-            this.rangeComboBoxFirm.Size = new System.Drawing.Size(318, 29);
-            this.rangeComboBoxFirm.TabIndex = 0;
-            this.rangeComboBoxFirm.ValueMember = "InnId";
-            this.rangeComboBoxFirm.Enter += new System.EventHandler(this.rangeComboBoxFirm_Enter);
-            // 
-            // dbFirmBindingSource
-            // 
-            this.dbFirmBindingSource.DataSource = typeof(DbFirm);
-            // 
-            // btnLoadRange
-            // 
-            this.btnLoadRange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoadRange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnLoadRange.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadRange.BorderRadius = 6F;
-            this.btnLoadRange.BorderSize = 0;
-            this.btnLoadRange.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadRange.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadRange.FlatAppearance.BorderSize = 0;
-            this.btnLoadRange.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
-            this.btnLoadRange.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
-            this.btnLoadRange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadRange.ForeColor = System.Drawing.Color.White;
-            this.btnLoadRange.Image = global::WhoseIsBarcode.Properties.Resources.sinchronize_24;
-            this.btnLoadRange.Location = new System.Drawing.Point(738, 4);
-            this.btnLoadRange.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
-            this.btnLoadRange.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
-            this.btnLoadRange.Name = "btnLoadRange";
-            this.btnLoadRange.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadRange.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadRange.TabIndex = 24;
-            this.btnLoadRange.TextColor = System.Drawing.Color.White;
-            this.btnLoadRange.UseVisualStyleBackColor = false;
-            this.btnLoadRange.Click += new System.EventHandler(this.btnLoadRange_Click);
-            // 
-            // barcodeContextMenu
-            // 
-            this.barcodeContextMenu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toRangeMenuItem,
-            this.loadFromRangeMenuItem});
-            this.barcodeContextMenu.Name = "barcodeContextMenu";
-            this.barcodeContextMenu.Size = new System.Drawing.Size(233, 56);
-            // 
-            // toRangeMenuItem
-            // 
-            this.toRangeMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.toRangeMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.toRangeMenuItem.Name = "toRangeMenuItem";
-            this.toRangeMenuItem.Size = new System.Drawing.Size(232, 26);
-            this.toRangeMenuItem.Text = "Перейти к диапазону";
-            this.toRangeMenuItem.Click += new System.EventHandler(this.toRangeMenuItem_Click);
-            // 
-            // loadFromRangeMenuItem
-            // 
-            this.loadFromRangeMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loadFromRangeMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.loadFromRangeMenuItem.Name = "loadFromRangeMenuItem";
-            this.loadFromRangeMenuItem.Size = new System.Drawing.Size(232, 26);
-            this.loadFromRangeMenuItem.Text = "Загрузить все ШПИ";
-            this.loadFromRangeMenuItem.Click += new System.EventHandler(this.loadFromRangeMenuItem_Click);
             // 
             // rangeColumnDate
             // 
@@ -978,11 +872,201 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeColumnBusyCount.Name = "rangeColumnBusyCount";
             this.rangeColumnBusyCount.ReadOnly = true;
             // 
+            // dbRangeBindingSource
+            // 
+            this.dbRangeBindingSource.DataSource = typeof(WhoseIsBarcode.Core.Database.Models.DbRange);
+            // 
+            // rangePanel
+            // 
+            this.rangePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.rangePanel.Controls.Add(this.flowLayoutPanelRangeCalendar);
+            this.rangePanel.Controls.Add(this.flowLayoutPanelRange);
+            this.rangePanel.Controls.Add(this.btnLoadRange);
+            this.rangePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rangePanel.Location = new System.Drawing.Point(3, 3);
+            this.rangePanel.Name = "rangePanel";
+            this.rangePanel.Size = new System.Drawing.Size(870, 93);
+            this.rangePanel.TabIndex = 6;
+            // 
+            // flowLayoutPanelRange
+            // 
+            this.flowLayoutPanelRange.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelRange.Controls.Add(this.rangeLabelInfoFirm);
+            this.flowLayoutPanelRange.Controls.Add(this.rangeComboBoxFirm);
+            this.flowLayoutPanelRange.Controls.Add(this.rangeLabelInfoLimit);
+            this.flowLayoutPanelRange.Controls.Add(this.rangeToggleLimit);
+            this.flowLayoutPanelRange.Controls.Add(this.rangeLimitNum);
+            this.flowLayoutPanelRange.Location = new System.Drawing.Point(3, 4);
+            this.flowLayoutPanelRange.Name = "flowLayoutPanelRange";
+            this.flowLayoutPanelRange.Size = new System.Drawing.Size(813, 40);
+            this.flowLayoutPanelRange.TabIndex = 27;
+            this.flowLayoutPanelRange.WrapContents = false;
+            // 
+            // rangeLabelInfoFirm
+            // 
+            this.rangeLabelInfoFirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rangeLabelInfoFirm.AutoSize = true;
+            this.rangeLabelInfoFirm.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rangeLabelInfoFirm.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rangeLabelInfoFirm.Location = new System.Drawing.Point(6, 10);
+            this.rangeLabelInfoFirm.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.rangeLabelInfoFirm.Name = "rangeLabelInfoFirm";
+            this.rangeLabelInfoFirm.Size = new System.Drawing.Size(106, 20);
+            this.rangeLabelInfoFirm.TabIndex = 27;
+            this.rangeLabelInfoFirm.Text = "Организация:";
+            // 
+            // rangeComboBoxFirm
+            // 
+            this.rangeComboBoxFirm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.rangeComboBoxFirm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.rangeComboBoxFirm.DataSource = this.dbFirmBindingSource;
+            this.rangeComboBoxFirm.DisplayMember = "Name";
+            this.rangeComboBoxFirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.rangeComboBoxFirm.FormattingEnabled = true;
+            this.rangeComboBoxFirm.Location = new System.Drawing.Point(118, 6);
+            this.rangeComboBoxFirm.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.rangeComboBoxFirm.Name = "rangeComboBoxFirm";
+            this.rangeComboBoxFirm.Size = new System.Drawing.Size(318, 29);
+            this.rangeComboBoxFirm.TabIndex = 0;
+            this.rangeComboBoxFirm.ValueMember = "InnId";
+            this.rangeComboBoxFirm.Enter += new System.EventHandler(this.rangeComboBoxFirm_Enter);
+            // 
+            // dbFirmBindingSource
+            // 
+            this.dbFirmBindingSource.DataSource = typeof(WhoseIsBarcode.Core.Database.Models.DbFirm);
+            // 
+            // btnLoadRange
+            // 
+            this.btnLoadRange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadRange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnLoadRange.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadRange.BorderRadius = 6F;
+            this.btnLoadRange.BorderSize = 0;
+            this.btnLoadRange.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadRange.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadRange.FlatAppearance.BorderSize = 0;
+            this.btnLoadRange.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
+            this.btnLoadRange.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
+            this.btnLoadRange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadRange.ForeColor = System.Drawing.Color.White;
+            this.btnLoadRange.Image = global::WhoseIsBarcode.Properties.Resources.sinchronize_24;
+            this.btnLoadRange.Location = new System.Drawing.Point(822, 3);
+            this.btnLoadRange.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(71)))), ((int)(((byte)(136)))));
+            this.btnLoadRange.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(119)))), ((int)(((byte)(190)))));
+            this.btnLoadRange.Name = "btnLoadRange";
+            this.btnLoadRange.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadRange.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadRange.TabIndex = 24;
+            this.btnLoadRange.TextColor = System.Drawing.Color.White;
+            this.btnLoadRange.UseVisualStyleBackColor = false;
+            this.btnLoadRange.Click += new System.EventHandler(this.btnLoadRange_Click);
+            // 
+            // barcodeContextMenu
+            // 
+            this.barcodeContextMenu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.barcodeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toRangeMenuItem,
+            this.loadFromRangeMenuItem});
+            this.barcodeContextMenu.Name = "barcodeContextMenu";
+            this.barcodeContextMenu.Size = new System.Drawing.Size(233, 56);
+            // 
+            // toRangeMenuItem
+            // 
+            this.toRangeMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toRangeMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.toRangeMenuItem.Name = "toRangeMenuItem";
+            this.toRangeMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.toRangeMenuItem.Text = "Перейти к диапазону";
+            this.toRangeMenuItem.Click += new System.EventHandler(this.toRangeMenuItem_Click);
+            // 
+            // loadFromRangeMenuItem
+            // 
+            this.loadFromRangeMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loadFromRangeMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.loadFromRangeMenuItem.Name = "loadFromRangeMenuItem";
+            this.loadFromRangeMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.loadFromRangeMenuItem.Text = "Загрузить все ШПИ";
+            this.loadFromRangeMenuItem.Click += new System.EventHandler(this.loadFromRangeMenuItem_Click);
+            // 
+            // rangeToggleCalendar
+            // 
+            this.rangeToggleCalendar.AutoSize = true;
+            this.rangeToggleCalendar.DisableBackColor = System.Drawing.Color.DimGray;
+            this.rangeToggleCalendar.DisableToggleColor = System.Drawing.Color.Gray;
+            this.rangeToggleCalendar.Location = new System.Drawing.Point(3, 10);
+            this.rangeToggleCalendar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.rangeToggleCalendar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rangeToggleCalendar.Name = "rangeToggleCalendar";
+            this.rangeToggleCalendar.OffBackColor = System.Drawing.Color.Firebrick;
+            this.rangeToggleCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rangeToggleCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.rangeToggleCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rangeToggleCalendar.Size = new System.Drawing.Size(45, 22);
+            this.rangeToggleCalendar.TabIndex = 28;
+            this.rangeToggleCalendar.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanelRangeCalendar
+            // 
+            this.flowLayoutPanelRangeCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelRangeCalendar.Controls.Add(this.rangeToggleCalendar);
+            this.flowLayoutPanelRangeCalendar.Location = new System.Drawing.Point(3, 47);
+            this.flowLayoutPanelRangeCalendar.Name = "flowLayoutPanelRangeCalendar";
+            this.flowLayoutPanelRangeCalendar.Size = new System.Drawing.Size(859, 40);
+            this.flowLayoutPanelRangeCalendar.TabIndex = 28;
+            this.flowLayoutPanelRangeCalendar.WrapContents = false;
+            // 
+            // rangeToggleLimit
+            // 
+            this.rangeToggleLimit.AutoSize = true;
+            this.rangeToggleLimit.Checked = true;
+            this.rangeToggleLimit.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.rangeToggleLimit.DisableBackColor = System.Drawing.Color.DimGray;
+            this.rangeToggleLimit.DisableToggleColor = System.Drawing.Color.Gray;
+            this.rangeToggleLimit.Location = new System.Drawing.Point(509, 10);
+            this.rangeToggleLimit.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.rangeToggleLimit.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rangeToggleLimit.Name = "rangeToggleLimit";
+            this.rangeToggleLimit.OffBackColor = System.Drawing.Color.Firebrick;
+            this.rangeToggleLimit.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rangeToggleLimit.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.rangeToggleLimit.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rangeToggleLimit.Size = new System.Drawing.Size(45, 22);
+            this.rangeToggleLimit.TabIndex = 28;
+            this.rangeToggleLimit.UseVisualStyleBackColor = true;
+            // 
+            // rangeLimitNum
+            // 
+            this.rangeLimitNum.Location = new System.Drawing.Point(560, 6);
+            this.rangeLimitNum.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.rangeLimitNum.Name = "rangeLimitNum";
+            this.rangeLimitNum.Size = new System.Drawing.Size(66, 29);
+            this.rangeLimitNum.TabIndex = 29;
+            this.rangeLimitNum.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // rangeLabelInfoLimit
+            // 
+            this.rangeLabelInfoLimit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rangeLabelInfoLimit.AutoSize = true;
+            this.rangeLabelInfoLimit.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rangeLabelInfoLimit.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rangeLabelInfoLimit.Location = new System.Drawing.Point(445, 10);
+            this.rangeLabelInfoLimit.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.rangeLabelInfoLimit.Name = "rangeLabelInfoLimit";
+            this.rangeLabelInfoLimit.Size = new System.Drawing.Size(58, 20);
+            this.rangeLabelInfoLimit.TabIndex = 27;
+            this.rangeLabelInfoLimit.Text = "Лимит:";
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(884, 601);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.panelGeneral);
@@ -1024,6 +1108,9 @@ namespace WhoseIsBarcode.Core.Forms
             this.flowLayoutPanelRange.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbFirmBindingSource)).EndInit();
             this.barcodeContextMenu.ResumeLayout(false);
+            this.flowLayoutPanelRangeCalendar.ResumeLayout(false);
+            this.flowLayoutPanelRangeCalendar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rangeLimitNum)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1100,6 +1187,11 @@ namespace WhoseIsBarcode.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnFreeCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnBusyCount;
+        private Wc32Api.Widgets.WcToggleButton rangeToggleCalendar;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelRangeCalendar;
+        private Wc32Api.Widgets.WcToggleButton rangeToggleLimit;
+        private System.Windows.Forms.Label rangeLabelInfoLimit;
+        private System.Windows.Forms.NumericUpDown rangeLimitNum;
     }
 }
 
