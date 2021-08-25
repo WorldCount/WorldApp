@@ -26,6 +26,10 @@ namespace WhoseIsBarcode.Core.Database.Models
         public int BusyCount { get; private set; }
 
         public string ExtName => IsExternal ? "МЖД" : "Внут";
+        public string MonthName => string.IsNullOrEmpty(Month) ? "-" : Month;
+        public string SeriaName => string.IsNullOrEmpty(Seria) ? "-" : Seria;
+        public string FreeCountName => FreeCount == 0 ? "-" : FreeCount.ToString();
+        public string BusyCountName => BusyCount == 0 ? "-" : BusyCount.ToString();
 
         public void SetData(RangeData data)
         {

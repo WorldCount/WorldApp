@@ -90,24 +90,13 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeLabelInfoBarcodeBusy = new System.Windows.Forms.Label();
             this.rangeLabelBarcodeBusy = new System.Windows.Forms.Label();
             this.rangeDataGridView = new System.Windows.Forms.DataGridView();
-            this.rangeColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnExternal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnOps = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnSeria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnFirmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnFreeCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeColumnBusyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbRangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rangePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelRangeCalendar = new System.Windows.Forms.FlowLayoutPanel();
-            this.rangeLabelInfoDate = new System.Windows.Forms.Label();
-            this.rangeToggleCalendar = new Wc32Api.Widgets.WcToggleButton();
+            this.rangeToggleDateFormat = new Wc32Api.Widgets.WcToggleButton();
             this.rangeDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.rangeDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.rangeDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
-            this.rangeToggleDateFormat = new Wc32Api.Widgets.WcToggleButton();
             this.flowLayoutPanelRange = new System.Windows.Forms.FlowLayoutPanel();
             this.rangeLabelInfoFirm = new System.Windows.Forms.Label();
             this.rangeComboBoxFirm = new System.Windows.Forms.ComboBox();
@@ -115,10 +104,23 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeLabelInfoLimit = new System.Windows.Forms.Label();
             this.rangeToggleLimit = new Wc32Api.Widgets.WcToggleButton();
             this.rangeLimitNum = new System.Windows.Forms.NumericUpDown();
+            this.rangeLabelInfoDate = new System.Windows.Forms.Label();
+            this.rangeToggleCalendar = new Wc32Api.Widgets.WcToggleButton();
             this.btnLoadRange = new Wc32Api.Widgets.WcButton();
             this.barcodeContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toRangeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFromRangeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rangeColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnExternal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnOps = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnSeria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnFirstNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnLastNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnFirmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnFreeCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeColumnBusyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -776,9 +778,11 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rangeColumnDate,
             this.rangeColumnExternal,
-            this.rangeColumnOps,
             this.rangeColumnMonth,
+            this.rangeColumnOps,
             this.rangeColumnSeria,
+            this.rangeColumnFirstNum,
+            this.rangeColumnLastNum,
             this.rangeColumnFirmName,
             this.rangeColumnCount,
             this.rangeColumnFreeCount,
@@ -814,69 +818,6 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeDataGridView.TabIndex = 7;
             this.rangeDataGridView.TabStop = false;
             // 
-            // rangeColumnDate
-            // 
-            this.rangeColumnDate.DataPropertyName = "Date";
-            this.rangeColumnDate.HeaderText = "   Дата";
-            this.rangeColumnDate.Name = "rangeColumnDate";
-            this.rangeColumnDate.ReadOnly = true;
-            // 
-            // rangeColumnExternal
-            // 
-            this.rangeColumnExternal.DataPropertyName = "ExtName";
-            this.rangeColumnExternal.HeaderText = "  Класс";
-            this.rangeColumnExternal.Name = "rangeColumnExternal";
-            this.rangeColumnExternal.ReadOnly = true;
-            // 
-            // rangeColumnOps
-            // 
-            this.rangeColumnOps.DataPropertyName = "Ops";
-            this.rangeColumnOps.HeaderText = "   ОПС";
-            this.rangeColumnOps.Name = "rangeColumnOps";
-            this.rangeColumnOps.ReadOnly = true;
-            // 
-            // rangeColumnMonth
-            // 
-            this.rangeColumnMonth.DataPropertyName = "Month";
-            this.rangeColumnMonth.HeaderText = " Месяц";
-            this.rangeColumnMonth.Name = "rangeColumnMonth";
-            this.rangeColumnMonth.ReadOnly = true;
-            // 
-            // rangeColumnSeria
-            // 
-            this.rangeColumnSeria.DataPropertyName = "Seria";
-            this.rangeColumnSeria.HeaderText = " Серия";
-            this.rangeColumnSeria.Name = "rangeColumnSeria";
-            this.rangeColumnSeria.ReadOnly = true;
-            // 
-            // rangeColumnFirmName
-            // 
-            this.rangeColumnFirmName.DataPropertyName = "FirmName";
-            this.rangeColumnFirmName.HeaderText = "Организация";
-            this.rangeColumnFirmName.Name = "rangeColumnFirmName";
-            this.rangeColumnFirmName.ReadOnly = true;
-            // 
-            // rangeColumnCount
-            // 
-            this.rangeColumnCount.DataPropertyName = "Count";
-            this.rangeColumnCount.HeaderText = "   Кол-во";
-            this.rangeColumnCount.Name = "rangeColumnCount";
-            this.rangeColumnCount.ReadOnly = true;
-            // 
-            // rangeColumnFreeCount
-            // 
-            this.rangeColumnFreeCount.DataPropertyName = "FreeCount";
-            this.rangeColumnFreeCount.HeaderText = "Свободно";
-            this.rangeColumnFreeCount.Name = "rangeColumnFreeCount";
-            this.rangeColumnFreeCount.ReadOnly = true;
-            // 
-            // rangeColumnBusyCount
-            // 
-            this.rangeColumnBusyCount.DataPropertyName = "BusyCount";
-            this.rangeColumnBusyCount.HeaderText = "  Занято";
-            this.rangeColumnBusyCount.Name = "rangeColumnBusyCount";
-            this.rangeColumnBusyCount.ReadOnly = true;
-            // 
             // dbRangeBindingSource
             // 
             this.dbRangeBindingSource.DataSource = typeof(WhoseIsBarcode.Core.Database.Models.DbRange);
@@ -907,36 +848,23 @@ namespace WhoseIsBarcode.Core.Forms
             this.flowLayoutPanelRangeCalendar.TabIndex = 28;
             this.flowLayoutPanelRangeCalendar.WrapContents = false;
             // 
-            // rangeLabelInfoDate
+            // rangeToggleDateFormat
             // 
-            this.rangeLabelInfoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rangeLabelInfoDate.AutoSize = true;
-            this.rangeLabelInfoDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rangeLabelInfoDate.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rangeLabelInfoDate.Location = new System.Drawing.Point(635, 10);
-            this.rangeLabelInfoDate.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
-            this.rangeLabelInfoDate.Name = "rangeLabelInfoDate";
-            this.rangeLabelInfoDate.Size = new System.Drawing.Size(46, 20);
-            this.rangeLabelInfoDate.TabIndex = 33;
-            this.rangeLabelInfoDate.Text = "Дата:";
-            // 
-            // rangeToggleCalendar
-            // 
-            this.rangeToggleCalendar.AutoSize = true;
-            this.rangeToggleCalendar.DisableBackColor = System.Drawing.Color.DimGray;
-            this.rangeToggleCalendar.DisableToggleColor = System.Drawing.Color.Gray;
-            this.rangeToggleCalendar.Location = new System.Drawing.Point(687, 10);
-            this.rangeToggleCalendar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.rangeToggleCalendar.MinimumSize = new System.Drawing.Size(45, 22);
-            this.rangeToggleCalendar.Name = "rangeToggleCalendar";
-            this.rangeToggleCalendar.OffBackColor = System.Drawing.Color.Firebrick;
-            this.rangeToggleCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rangeToggleCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
-            this.rangeToggleCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rangeToggleCalendar.Size = new System.Drawing.Size(45, 22);
-            this.rangeToggleCalendar.TabIndex = 28;
-            this.rangeToggleCalendar.UseVisualStyleBackColor = true;
-            this.rangeToggleCalendar.CheckedChanged += new System.EventHandler(this.rangeToggleCalendar_CheckedChanged);
+            this.rangeToggleDateFormat.AutoSize = true;
+            this.rangeToggleDateFormat.DisableBackColor = System.Drawing.Color.DimGray;
+            this.rangeToggleDateFormat.DisableToggleColor = System.Drawing.Color.Gray;
+            this.rangeToggleDateFormat.Location = new System.Drawing.Point(3, 10);
+            this.rangeToggleDateFormat.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.rangeToggleDateFormat.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rangeToggleDateFormat.Name = "rangeToggleDateFormat";
+            this.rangeToggleDateFormat.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.rangeToggleDateFormat.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rangeToggleDateFormat.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.rangeToggleDateFormat.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rangeToggleDateFormat.Size = new System.Drawing.Size(45, 22);
+            this.rangeToggleDateFormat.TabIndex = 34;
+            this.rangeToggleDateFormat.UseVisualStyleBackColor = true;
+            this.rangeToggleDateFormat.CheckedChanged += new System.EventHandler(this.rangeToggleDateFormat_CheckedChanged);
             // 
             // rangeDateTimePickerCalendar
             // 
@@ -984,24 +912,6 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeDateTimePickerEnd.Size = new System.Drawing.Size(200, 29);
             this.rangeDateTimePickerEnd.TabIndex = 32;
             this.rangeDateTimePickerEnd.Visible = false;
-            // 
-            // rangeToggleDateFormat
-            // 
-            this.rangeToggleDateFormat.AutoSize = true;
-            this.rangeToggleDateFormat.DisableBackColor = System.Drawing.Color.DimGray;
-            this.rangeToggleDateFormat.DisableToggleColor = System.Drawing.Color.Gray;
-            this.rangeToggleDateFormat.Location = new System.Drawing.Point(3, 10);
-            this.rangeToggleDateFormat.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.rangeToggleDateFormat.MinimumSize = new System.Drawing.Size(45, 22);
-            this.rangeToggleDateFormat.Name = "rangeToggleDateFormat";
-            this.rangeToggleDateFormat.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.rangeToggleDateFormat.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rangeToggleDateFormat.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.rangeToggleDateFormat.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rangeToggleDateFormat.Size = new System.Drawing.Size(45, 22);
-            this.rangeToggleDateFormat.TabIndex = 34;
-            this.rangeToggleDateFormat.UseVisualStyleBackColor = true;
-            this.rangeToggleDateFormat.CheckedChanged += new System.EventHandler(this.rangeToggleDateFormat_CheckedChanged);
             // 
             // flowLayoutPanelRange
             // 
@@ -1099,6 +1009,37 @@ namespace WhoseIsBarcode.Core.Forms
             0,
             0});
             // 
+            // rangeLabelInfoDate
+            // 
+            this.rangeLabelInfoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rangeLabelInfoDate.AutoSize = true;
+            this.rangeLabelInfoDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rangeLabelInfoDate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rangeLabelInfoDate.Location = new System.Drawing.Point(635, 10);
+            this.rangeLabelInfoDate.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.rangeLabelInfoDate.Name = "rangeLabelInfoDate";
+            this.rangeLabelInfoDate.Size = new System.Drawing.Size(46, 20);
+            this.rangeLabelInfoDate.TabIndex = 33;
+            this.rangeLabelInfoDate.Text = "Дата:";
+            // 
+            // rangeToggleCalendar
+            // 
+            this.rangeToggleCalendar.AutoSize = true;
+            this.rangeToggleCalendar.DisableBackColor = System.Drawing.Color.DimGray;
+            this.rangeToggleCalendar.DisableToggleColor = System.Drawing.Color.Gray;
+            this.rangeToggleCalendar.Location = new System.Drawing.Point(687, 10);
+            this.rangeToggleCalendar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.rangeToggleCalendar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rangeToggleCalendar.Name = "rangeToggleCalendar";
+            this.rangeToggleCalendar.OffBackColor = System.Drawing.Color.Firebrick;
+            this.rangeToggleCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rangeToggleCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.rangeToggleCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rangeToggleCalendar.Size = new System.Drawing.Size(45, 22);
+            this.rangeToggleCalendar.TabIndex = 28;
+            this.rangeToggleCalendar.UseVisualStyleBackColor = true;
+            this.rangeToggleCalendar.CheckedChanged += new System.EventHandler(this.rangeToggleCalendar_CheckedChanged);
+            // 
             // btnLoadRange
             // 
             this.btnLoadRange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1151,6 +1092,83 @@ namespace WhoseIsBarcode.Core.Forms
             this.loadFromRangeMenuItem.Size = new System.Drawing.Size(232, 26);
             this.loadFromRangeMenuItem.Text = "Загрузить все ШПИ";
             this.loadFromRangeMenuItem.Click += new System.EventHandler(this.loadFromRangeMenuItem_Click);
+            // 
+            // rangeColumnDate
+            // 
+            this.rangeColumnDate.DataPropertyName = "Date";
+            this.rangeColumnDate.HeaderText = "   Дата";
+            this.rangeColumnDate.Name = "rangeColumnDate";
+            this.rangeColumnDate.ReadOnly = true;
+            // 
+            // rangeColumnExternal
+            // 
+            this.rangeColumnExternal.DataPropertyName = "ExtName";
+            this.rangeColumnExternal.HeaderText = "Класс";
+            this.rangeColumnExternal.Name = "rangeColumnExternal";
+            this.rangeColumnExternal.ReadOnly = true;
+            // 
+            // rangeColumnMonth
+            // 
+            this.rangeColumnMonth.DataPropertyName = "MonthName";
+            this.rangeColumnMonth.HeaderText = "Месяц";
+            this.rangeColumnMonth.Name = "rangeColumnMonth";
+            this.rangeColumnMonth.ReadOnly = true;
+            // 
+            // rangeColumnOps
+            // 
+            this.rangeColumnOps.DataPropertyName = "Ops";
+            this.rangeColumnOps.HeaderText = "  ОПС";
+            this.rangeColumnOps.Name = "rangeColumnOps";
+            this.rangeColumnOps.ReadOnly = true;
+            // 
+            // rangeColumnSeria
+            // 
+            this.rangeColumnSeria.DataPropertyName = "SeriaName";
+            this.rangeColumnSeria.HeaderText = "Серия";
+            this.rangeColumnSeria.Name = "rangeColumnSeria";
+            this.rangeColumnSeria.ReadOnly = true;
+            // 
+            // rangeColumnFirstNum
+            // 
+            this.rangeColumnFirstNum.DataPropertyName = "FirstNum";
+            this.rangeColumnFirstNum.HeaderText = "  Нач.";
+            this.rangeColumnFirstNum.Name = "rangeColumnFirstNum";
+            this.rangeColumnFirstNum.ReadOnly = true;
+            // 
+            // rangeColumnLastNum
+            // 
+            this.rangeColumnLastNum.DataPropertyName = "LastNum";
+            this.rangeColumnLastNum.HeaderText = "  Кон.";
+            this.rangeColumnLastNum.Name = "rangeColumnLastNum";
+            this.rangeColumnLastNum.ReadOnly = true;
+            // 
+            // rangeColumnFirmName
+            // 
+            this.rangeColumnFirmName.DataPropertyName = "FirmName";
+            this.rangeColumnFirmName.HeaderText = "Организация";
+            this.rangeColumnFirmName.Name = "rangeColumnFirmName";
+            this.rangeColumnFirmName.ReadOnly = true;
+            // 
+            // rangeColumnCount
+            // 
+            this.rangeColumnCount.DataPropertyName = "Count";
+            this.rangeColumnCount.HeaderText = "  Кол.";
+            this.rangeColumnCount.Name = "rangeColumnCount";
+            this.rangeColumnCount.ReadOnly = true;
+            // 
+            // rangeColumnFreeCount
+            // 
+            this.rangeColumnFreeCount.DataPropertyName = "FreeCountName";
+            this.rangeColumnFreeCount.HeaderText = "  Своб.";
+            this.rangeColumnFreeCount.Name = "rangeColumnFreeCount";
+            this.rangeColumnFreeCount.ReadOnly = true;
+            // 
+            // rangeColumnBusyCount
+            // 
+            this.rangeColumnBusyCount.DataPropertyName = "BusyCountName";
+            this.rangeColumnBusyCount.HeaderText = "  Зан.";
+            this.rangeColumnBusyCount.Name = "rangeColumnBusyCount";
+            this.rangeColumnBusyCount.ReadOnly = true;
             // 
             // GeneralForm
             // 
@@ -1268,15 +1286,6 @@ namespace WhoseIsBarcode.Core.Forms
         private System.Windows.Forms.Label rangeLabelBarcodeFree;
         private System.Windows.Forms.Label rangeLabelInfoBarcodeBusy;
         private System.Windows.Forms.Label rangeLabelBarcodeBusy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnExternal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnOps;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnMonth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnSeria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnFirmName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnFreeCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnBusyCount;
         private Wc32Api.Widgets.WcToggleButton rangeToggleCalendar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelRangeCalendar;
         private Wc32Api.Widgets.WcToggleButton rangeToggleLimit;
@@ -1287,6 +1296,17 @@ namespace WhoseIsBarcode.Core.Forms
         private System.Windows.Forms.DateTimePicker rangeDateTimePickerEnd;
         private System.Windows.Forms.Label rangeLabelInfoDate;
         private Wc32Api.Widgets.WcToggleButton rangeToggleDateFormat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnExternal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnMonth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnOps;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnSeria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnFirstNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnLastNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnFirmName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnFreeCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnBusyCount;
     }
 }
 

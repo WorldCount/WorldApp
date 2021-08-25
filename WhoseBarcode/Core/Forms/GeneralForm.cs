@@ -88,33 +88,35 @@ namespace WhoseIsBarcode.Core.Forms
             barcodeColumnFirmName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             // Таблица с диапазонами
-
-            rangeColumnExternal.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            rangeColumnExternal.Width = 80;
-
             rangeColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             rangeColumnDate.Width = 140;
+
+            rangeColumnExternal.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnExternal.Width = 60;
 
             rangeColumnOps.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             rangeColumnOps.Width = 80;
 
             rangeColumnMonth.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            rangeColumnMonth.Width = 80;
+            rangeColumnMonth.Width = 60;
 
             rangeColumnSeria.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            rangeColumnSeria.Width = 80;
+            rangeColumnSeria.Width = 60;
+
+            rangeColumnFirstNum.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnFirstNum.Width = 90;
+
+            rangeColumnLastNum.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            rangeColumnLastNum.Width = 90;
 
             rangeColumnCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            rangeColumnCount.Width = 140;
+            rangeColumnCount.Width = 70;
 
             rangeColumnFreeCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            rangeColumnFreeCount.Width = 100;
+            rangeColumnFreeCount.Width = 70;
 
             rangeColumnBusyCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            rangeColumnBusyCount.Width = 100;
-
-            rangeColumnCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            rangeColumnCount.Width = 140;
+            rangeColumnBusyCount.Width = 70;
 
             rangeColumnFirmName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
