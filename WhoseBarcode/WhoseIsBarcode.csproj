@@ -109,6 +109,11 @@
     <None Include="Resources\trash-2-24.png" />
     <None Include="Resources\unchecked-32.png" />
     <None Include="Resources\white-folder-24.png" />
+    <None Include="Resources\Button-Close.png" />
+    <None Include="Resources\Server.png" />
+    <None Include="Resources\Folder.png" />
+    <None Include="Resources\Folder-Settings.png" />
+    <None Include="Resources\Folder-Heart.png" />
     <Content Include="WB.ico" />
     <EmbeddedResource Include="Core\Forms\ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
