@@ -96,6 +96,8 @@ namespace WhoseIsBarcode.Core.Forms
             this.dbRangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rangePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelRangeCalendar = new System.Windows.Forms.FlowLayoutPanel();
+            this.rangeLabelInfoDate = new System.Windows.Forms.Label();
+            this.rangeToggleCalendar = new Wc32Api.Widgets.WcToggleButton();
             this.rangeToggleDateFormat = new Wc32Api.Widgets.WcToggleButton();
             this.rangeDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.rangeDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
@@ -110,8 +112,6 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeLabelInfoType = new System.Windows.Forms.Label();
             this.rangeComboBoxType = new System.Windows.Forms.ComboBox();
             this.externalTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rangeLabelInfoDate = new System.Windows.Forms.Label();
-            this.rangeToggleCalendar = new Wc32Api.Widgets.WcToggleButton();
             this.btnLoadRange = new Wc32Api.Widgets.WcButton();
             this.panelRangeStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelRangeStat = new System.Windows.Forms.FlowLayoutPanel();
@@ -872,6 +872,37 @@ namespace WhoseIsBarcode.Core.Forms
             this.flowLayoutPanelRangeCalendar.TabIndex = 28;
             this.flowLayoutPanelRangeCalendar.WrapContents = false;
             // 
+            // rangeLabelInfoDate
+            // 
+            this.rangeLabelInfoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rangeLabelInfoDate.AutoSize = true;
+            this.rangeLabelInfoDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rangeLabelInfoDate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rangeLabelInfoDate.Location = new System.Drawing.Point(6, 10);
+            this.rangeLabelInfoDate.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.rangeLabelInfoDate.Name = "rangeLabelInfoDate";
+            this.rangeLabelInfoDate.Size = new System.Drawing.Size(46, 20);
+            this.rangeLabelInfoDate.TabIndex = 33;
+            this.rangeLabelInfoDate.Text = "Дата:";
+            // 
+            // rangeToggleCalendar
+            // 
+            this.rangeToggleCalendar.AutoSize = true;
+            this.rangeToggleCalendar.DisableBackColor = System.Drawing.Color.DimGray;
+            this.rangeToggleCalendar.DisableToggleColor = System.Drawing.Color.Gray;
+            this.rangeToggleCalendar.Location = new System.Drawing.Point(58, 10);
+            this.rangeToggleCalendar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.rangeToggleCalendar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rangeToggleCalendar.Name = "rangeToggleCalendar";
+            this.rangeToggleCalendar.OffBackColor = System.Drawing.Color.Firebrick;
+            this.rangeToggleCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rangeToggleCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.rangeToggleCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rangeToggleCalendar.Size = new System.Drawing.Size(45, 22);
+            this.rangeToggleCalendar.TabIndex = 28;
+            this.rangeToggleCalendar.UseVisualStyleBackColor = true;
+            this.rangeToggleCalendar.CheckedChanged += new System.EventHandler(this.rangeToggleCalendar_CheckedChanged);
+            // 
             // rangeToggleDateFormat
             // 
             this.rangeToggleDateFormat.AutoSize = true;
@@ -1064,37 +1095,6 @@ namespace WhoseIsBarcode.Core.Forms
             // externalTypeBindingSource
             // 
             this.externalTypeBindingSource.DataSource = typeof(WhoseIsBarcode.Core.Filters.ExternalType);
-            // 
-            // rangeLabelInfoDate
-            // 
-            this.rangeLabelInfoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rangeLabelInfoDate.AutoSize = true;
-            this.rangeLabelInfoDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rangeLabelInfoDate.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rangeLabelInfoDate.Location = new System.Drawing.Point(6, 10);
-            this.rangeLabelInfoDate.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
-            this.rangeLabelInfoDate.Name = "rangeLabelInfoDate";
-            this.rangeLabelInfoDate.Size = new System.Drawing.Size(46, 20);
-            this.rangeLabelInfoDate.TabIndex = 33;
-            this.rangeLabelInfoDate.Text = "Дата:";
-            // 
-            // rangeToggleCalendar
-            // 
-            this.rangeToggleCalendar.AutoSize = true;
-            this.rangeToggleCalendar.DisableBackColor = System.Drawing.Color.DimGray;
-            this.rangeToggleCalendar.DisableToggleColor = System.Drawing.Color.Gray;
-            this.rangeToggleCalendar.Location = new System.Drawing.Point(58, 10);
-            this.rangeToggleCalendar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.rangeToggleCalendar.MinimumSize = new System.Drawing.Size(45, 22);
-            this.rangeToggleCalendar.Name = "rangeToggleCalendar";
-            this.rangeToggleCalendar.OffBackColor = System.Drawing.Color.Firebrick;
-            this.rangeToggleCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rangeToggleCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
-            this.rangeToggleCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rangeToggleCalendar.Size = new System.Drawing.Size(45, 22);
-            this.rangeToggleCalendar.TabIndex = 28;
-            this.rangeToggleCalendar.UseVisualStyleBackColor = true;
-            this.rangeToggleCalendar.CheckedChanged += new System.EventHandler(this.rangeToggleCalendar_CheckedChanged);
             // 
             // btnLoadRange
             // 
@@ -1303,6 +1303,7 @@ namespace WhoseIsBarcode.Core.Forms
             this.Text = "GeneralForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GeneralForm_FormClosing);
             this.Load += new System.EventHandler(this.GeneralForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GeneralForm_KeyDown);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             this.panelGeneral.ResumeLayout(false);

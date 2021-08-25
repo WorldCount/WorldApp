@@ -792,6 +792,43 @@ namespace WhoseIsBarcode.Core.Forms
             rangeDateTimePickerEnd.Value = rangeDateTimePickerStart.Value;
         }
 
+        private void GeneralForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Нажатие Ctrl + Shift + Q
+            if (e.KeyCode == Keys.Q && e.Control && e.Shift)
+                exitMenuItem.PerformClick();
+
+            // Нажатие Ctrl + Q
+            if (e.KeyCode == Keys.Q && e.Control)
+            {
+                if(tabControl.SelectedTab == tabBarcodes)
+                    btnLoadBarcode.PerformClick();
+
+                if(tabControl.SelectedTab == tabRanges)
+                    btnLoadRange.PerformClick();
+            }
+
+            // Нажатие Ctrl + F
+            if (e.KeyCode == Keys.F && e.Control)
+            {
+                tbFilter.Focus();
+                tbFilter.SelectAll();
+            }
+
+            // Нажатие Ctrl + B
+            if (e.KeyCode == Keys.B && e.Control)
+            {
+                tabControl.SelectedTab = tabBarcodes;
+                barcodeTextBoxBarcode.Focus();
+                barcodeTextBoxBarcode.SelectAll();
+            }
+
+            // Нажатие Ctrl + D
+            if (e.KeyCode == Keys.D && e.Control)
+                tabControl.SelectedTab = tabRanges;
+        }
+
         #endregion
+
     }
 }
