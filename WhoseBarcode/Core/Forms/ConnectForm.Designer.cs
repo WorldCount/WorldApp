@@ -141,7 +141,7 @@
             // 
             // btnCheck
             // 
-            this.btnCheck.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.btnCheck.BorderColor = System.Drawing.Color.Silver;
             this.btnCheck.BorderRadius = 6F;
             this.btnCheck.BorderSize = 0;
@@ -326,7 +326,7 @@
             this.tbPass.Name = "tbPass";
             this.tbPass.Padding = new System.Windows.Forms.Padding(7);
             this.tbPass.PasswordChar = '●';
-            this.tbPass.ReadOnly = true;
+            this.tbPass.ReadOnly = false;
             this.tbPass.Size = new System.Drawing.Size(255, 38);
             this.tbPass.TabIndex = 4;
             this.tbPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -380,7 +380,7 @@
             this.tbUser.Name = "tbUser";
             this.tbUser.Padding = new System.Windows.Forms.Padding(7);
             this.tbUser.PasswordChar = '\0';
-            this.tbUser.ReadOnly = true;
+            this.tbUser.ReadOnly = false;
             this.tbUser.Size = new System.Drawing.Size(255, 38);
             this.tbUser.TabIndex = 3;
             this.tbUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -408,7 +408,7 @@
             this.tbPath.Name = "tbPath";
             this.tbPath.Padding = new System.Windows.Forms.Padding(7);
             this.tbPath.PasswordChar = '\0';
-            this.tbPath.ReadOnly = true;
+            this.tbPath.ReadOnly = false;
             this.tbPath.Size = new System.Drawing.Size(451, 38);
             this.tbPath.TabIndex = 2;
             this.tbPath.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
