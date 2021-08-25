@@ -72,8 +72,8 @@ namespace WhoseIsBarcode.Core.Database.Queryes
                     {
                         Barcode = reader.GetString(0),
                         Ops = reader.GetString(1),
-                        Month = reader.GetInt32(2),
-                        Seria = reader.GetInt32(3),
+                        Month = reader.GetString(2),
+                        Seria = reader.GetString(3),
                         Num = reader.GetString(4),
                         RangeId = reader.GetInt32(5),
                         Date = reader.GetDateTime(6),

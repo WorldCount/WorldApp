@@ -9,8 +9,8 @@ namespace WhoseIsBarcode.Core.Database.Models
         public string Barcode { get; set; }
 
         public string Ops { get; set; }
-        public int Month { get; set; }
-        public int Seria { get; set; }
+        public string Month { get; set; }
+        public string Seria { get; set; }
         public string Num { get; set; }
 
         public int RangeId { get; set; }
@@ -22,5 +22,8 @@ namespace WhoseIsBarcode.Core.Database.Models
 
         public int StateId { get; set; }
         public string State { get; set; }
+
+        public string MonthName => string.IsNullOrEmpty(Month) ? "-" : Month;
+        public string SeriaName => string.IsNullOrEmpty(Seria) ? Barcode.Substring(0, 2) : Seria;
     }
 }

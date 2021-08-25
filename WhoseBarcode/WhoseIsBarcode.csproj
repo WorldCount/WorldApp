@@ -74,6 +74,7 @@
     <Compile Include="Core\Database\Requests\BarcodeRequest.cs" />
     <Compile Include="Core\Database\Requests\RangeRequest.cs" />
     <Compile Include="Core\Database\Response\RangeData.cs" />
+    <Compile Include="Core\Filters\ExternalType.cs" />
     <Compile Include="Core\Forms\ConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +98,7 @@
     <None Include="Properties\DataSources\WhoseBarcode.Core.Database.Models.DbBarcode.datasource" />
     <None Include="Properties\DataSources\WhoseBarcode.Core.Database.Models.DbFirm.datasource" />
     <None Include="Properties\DataSources\WhoseBarcode.Core.Database.Models.DbRange.datasource" />
+    <None Include="Properties\DataSources\WhoseIsBarcode.Core.Filters.ExternalType.datasource" />
     <None Include="Resources\checked-32.png" />
     <None Include="Resources\close-window-24.png" />
     <None Include="Resources\gray_checked-32.png" />

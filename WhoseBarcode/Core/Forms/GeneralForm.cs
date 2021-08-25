@@ -8,6 +8,7 @@ using WcPostApi.Barcodes;
 using WhoseIsBarcode.Core.Database;
 using WhoseIsBarcode.Core.Database.Models;
 using WhoseIsBarcode.Core.Database.Requests;
+using WhoseIsBarcode.Core.Filters;
 using WhoseIsBarcode.Core.Forms;
 
 namespace WhoseIsBarcode.Core.Forms
@@ -77,13 +78,13 @@ namespace WhoseIsBarcode.Core.Forms
             barcodeColumnOps.Width = 80;
 
             barcodeColumnMonth.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            barcodeColumnMonth.Width = 80;
+            barcodeColumnMonth.Width = 60;
 
             barcodeColumnNum.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            barcodeColumnNum.Width = 80;
+            barcodeColumnNum.Width = 90;
 
             barcodeColumnSeria.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            barcodeColumnSeria.Width = 80;
+            barcodeColumnSeria.Width = 60;
 
             barcodeColumnState.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             barcodeColumnState.Width = 140;
@@ -202,6 +203,9 @@ namespace WhoseIsBarcode.Core.Forms
             CheckArgs();
 
             TestDbConnection();
+
+            FillTypeBox();
+
             LoadFirms();
         }
 
@@ -372,6 +376,10 @@ namespace WhoseIsBarcode.Core.Forms
                 if (rangeToggleLimit.Checked)
                     request.Limit = (int) rangeLimitNum.Value;
 
+                ExternalType type = (ExternalType) rangeComboBoxType.SelectedItem;
+                if (type != null)
+                    request.External = type.Value;
+
                 if (rangeToggleCalendar.Checked)
                 {
                     DateTime start;
@@ -469,9 +477,49 @@ namespace WhoseIsBarcode.Core.Forms
             }
         }
 
+        private void rangeDataGridView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int currentMouseOverRow = rangeDataGridView.HitTest(e.X, e.Y).RowIndex;
+                int currentMouseOverCol = rangeDataGridView.HitTest(e.X, e.Y).ColumnIndex;
+
+                if (currentMouseOverRow >= 0 && currentMouseOverCol >= 0)
+                {
+                    rangeDataGridView.ClearSelection();
+                    rangeDataGridView.Rows[currentMouseOverRow].Cells[currentMouseOverCol].Selected = true;
+
+                    _selectRange = GetDbRangeByRowIndex(currentMouseOverRow);
+
+                    if (_selectRange != null)
+                    {
+                        allbarcodesMenuItem.Enabled = true;
+                    }
+                    else
+                    {
+                        allbarcodesMenuItem.Enabled = false;
+                    }
+
+                    rangeContextMenu.Show(rangeDataGridView, new Point(e.X, e.Y));
+                }
+            }
+        }
+
         #endregion
 
         #region Private Methods
+
+        private void FillTypeBox()
+        {
+            List<ExternalType> types = new List<ExternalType>
+            {
+                new ExternalType {Name = "ВСЕ", Value = 'A'},
+                new ExternalType {Name = "Внутренние", Value = 'F'},
+                new ExternalType {Name = "МЖД", Value = 'T'}
+            };
+
+            externalTypeBindingSource.DataSource = types;
+        }
 
         private async void TestDbConnection()
         {
@@ -534,6 +582,7 @@ namespace WhoseIsBarcode.Core.Forms
             barcodeLabelCount.Text = "0";
             barcodeLabelFreeCount.Text = "0";
             barcodeLabelBusyCount.Text = "0";
+            tbFilter.Text = "";
         }
 
         private void ClearRangesInfo()
@@ -542,6 +591,7 @@ namespace WhoseIsBarcode.Core.Forms
             rangeLabelBarcodeCount.Text = "0";
             rangeLabelBarcodeFree.Text = "0";
             rangeLabelBarcodeBusy.Text = "0";
+            tbFilter.Text = "";
         }
 
         private void UpdateBarcodesInfo(List<DbBarcode> barcodes)
@@ -629,6 +679,30 @@ namespace WhoseIsBarcode.Core.Forms
             return null;
         }
 
+        private DbRange GetDbRangeByRowIndex(int rowIndex)
+        {
+            try
+            {
+                List<DbRange> ranges = (List<DbRange>) dbRangeBindingSource.DataSource;
+                if (ranges.Count > 0)
+                    return ranges[rowIndex];
+            }
+            catch (Exception e)
+            {
+                if (_debugMode)
+                {
+                    Logger.Error("Ошибка получения [DbRange]");
+                    Logger.Error(e);
+                }
+
+                ErrorMessage("Ошибка получения данных по индексу строки");
+
+                return null;
+            }
+
+            return null;
+        }
+
         #endregion
 
         #region ContextMenu Event
@@ -658,7 +732,6 @@ namespace WhoseIsBarcode.Core.Forms
             }
         }
 
-
         private void loadFromRangeMenuItem_Click(object sender, EventArgs e)
         {
             if (_selectBarcode == null)
@@ -673,7 +746,31 @@ namespace WhoseIsBarcode.Core.Forms
             {
                 if (_debugMode)
                 {
-                    Logger.Error($"Ошибка получения [DbBarcode] - RangeId: {_selectBarcode.RangeId}");
+                    Logger.Error($"Ошибка получения [List<DbBarcode>] - RangeId: {_selectBarcode.RangeId}");
+                    Logger.Error(exception);
+                }
+
+                ErrorMessage("Ошибка получения данных по Id диапазона");
+            }
+        }
+
+        private void allbarcodesMenuItem_Click(object sender, EventArgs e)
+        {
+            if(_selectRange == null)
+                return;
+
+            try
+            {
+                ClearBarcodesInfo();
+                BarcodeRequest request = new BarcodeRequest { RangeId = _selectRange.Id };
+                LoadBarcodes(request);
+                tabControl.SelectedTab = tabBarcodes;
+            }
+            catch (Exception exception)
+            {
+                if (_debugMode)
+                {
+                    Logger.Error($"Ошибка получения [List<DbBarcode>] - RangeId: {_selectBarcode.RangeId}");
                     Logger.Error(exception);
                 }
 

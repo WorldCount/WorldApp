@@ -10,5 +10,6 @@ namespace WhoseIsBarcode.Core.Database.Response
         public string Seria { get; set; }
         public string FirstNum { get; set; }
         public string LastNum { get; set; }
+        public string Barcode { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using FirebirdSql.Data.FirebirdClient;
 using WhoseIsBarcode.Core.Database.Models;
 using WhoseIsBarcode.Core.Database.Requests;
 using WhoseIsBarcode.Core.Database.Response;
+using WhoseIsBarcode.Core.Filters;
 
 namespace WhoseIsBarcode.Core.Database.Queryes
 {
@@ -34,6 +35,9 @@ namespace WhoseIsBarcode.Core.Database.Queryes
 
             if (_request != null)
             {
+                if (_request.External != 'A')
+                    sb.Append($" and re.is_external = '{_request.External}'");
+
                 if (_request.ByDate)
                     sb.Append($" and re.date_info >= '{_request.StartDate:yyyy-MM-dd}' and re.date_info <= '{_request.EndDate.AddDays(1):yyyy-MM-dd}'");
 

@@ -23,8 +23,9 @@ namespace WhoseIsBarcode.Core.Database.Queryes
             sb.Append(" (select count(*) from range where range.id_range_ei = r.id and range.state = 2),");
             sb.Append(" (select first 1 num_parcel from range where range.id_range_ei = r.id order by num_parcel),");
             sb.Append(" (select first 1 num_parcel from range where range.id_range_ei= r.id order by num_parcel desc),");
-            sb.Append(" (select first 1 num_month from range where range.id_range_ei= r.id) as num_month,");
-            sb.Append(" (select first 1 num_seria from range where range.id_range_ei= r.id) as num_seria");
+            sb.Append(" (select first 1 num_month from range where range.id_range_ei= r.id),");
+            sb.Append(" (select first 1 num_seria from range where range.id_range_ei= r.id),");
+            sb.Append(" (select first 1 barcode from range where range.id_range_ei= r.id)");
             sb.Append($" from range_ei r where id = {_rangeId}");
 
             return sb.ToString();
@@ -61,7 +62,8 @@ namespace WhoseIsBarcode.Core.Database.Queryes
                     FirstNum = reader.GetString(3),
                     LastNum = reader.GetString(4),
                     Month = reader.GetString(5),
-                    Seria = reader.GetString(6)
+                    Seria = reader.GetString(6),
+                    Barcode = reader.GetString(7)
                 };
 
                 reader.Close();

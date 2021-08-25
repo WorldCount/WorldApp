@@ -12,5 +12,7 @@ namespace WhoseIsBarcode.Core.Database.Requests
         public bool ByDate { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+
+        public char External { get; set; }
     }
 }

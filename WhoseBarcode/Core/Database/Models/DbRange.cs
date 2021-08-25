@@ -42,6 +42,9 @@ namespace WhoseIsBarcode.Core.Database.Models
                 Count = data.Count;
                 FreeCount = data.FreeCount;
                 BusyCount = data.BusyCount;
+
+                if (IsExternal)
+                    Seria = data.Barcode.Substring(0, 2);
             }
         }
     }
