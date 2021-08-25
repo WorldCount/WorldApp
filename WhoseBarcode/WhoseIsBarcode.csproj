@@ -71,6 +71,7 @@
     <Compile Include="Core\Database\Queryes\RangeDataQuery.cs" />
     <Compile Include="Core\Database\Queryes\Query.cs" />
     <Compile Include="Core\Database\Queryes\RangeQuery.cs" />
+    <Compile Include="Core\Database\Requests\BarcodeRequest.cs" />
     <Compile Include="Core\Database\Requests\RangeRequest.cs" />
     <Compile Include="Core\Database\Response\RangeData.cs" />
     <Compile Include="Core\Forms\ConnectForm.cs">

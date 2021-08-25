@@ -19,16 +19,16 @@ namespace WhoseIsBarcode.Core.Database
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
-        public List<DbBarcode> GetBarcodes(string barcode)
+        public List<DbBarcode> GetBarcodes(BarcodeRequest request)
         {
-            BarcodeQuery query = new BarcodeQuery(_connect, barcode, _debugMode);
+            BarcodeQuery query = new BarcodeQuery(_connect, request, _debugMode);
             return query.Run();
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
-        public async Task<List<DbBarcode>> GetBarcodesAsync(string barcode)
+        public async Task<List<DbBarcode>> GetBarcodesAsync(BarcodeRequest request)
         {
-            return await Task.Run(() => GetBarcodes(barcode));
+            return await Task.Run(() => GetBarcodes(request));
         }
 
         // ReSharper disable once MemberCanBePrivate.Global

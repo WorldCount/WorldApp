@@ -63,6 +63,9 @@ namespace WhoseIsBarcode.Core.Forms
 
         private void InitTables()
         {
+            Wc32Api.DrawingControl.SetDoubleBuffered(barcodeDataGridView);
+            Wc32Api.DrawingControl.SetDoubleBuffered(rangeDataGridView);
+
             // Таблица со ШПИ
             barcodeColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             barcodeColumnDate.Width = 140;
@@ -286,7 +289,7 @@ namespace WhoseIsBarcode.Core.Forms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                LoadBarcode();
+                FindBarcode();
                 barcodeTextBoxBarcode.SelectAll();
             }
         }
@@ -296,6 +299,49 @@ namespace WhoseIsBarcode.Core.Forms
             WcApi.Keyboard.Keyboard.SetEnglishLanguage();
         }
 
+        private void tbFilter__TextChanged(object sender, EventArgs e)
+        {
+            string q = tbFilter.Text.ToUpper();
+
+            if (tabControl.SelectedTab == tabBarcodes)
+            {
+                if (!string.IsNullOrEmpty(q) && _barcodes != null)
+                {
+                    List<DbBarcode> filtered = _barcodes.Where(f => f.Barcode.Contains(q) 
+                                                                    || f.State.ToUpper().Contains(q)).ToList();
+                    dbBarcodeBindingSource.DataSource = filtered;
+                    UpdateBarcodesInfo(filtered);
+                }
+                else
+                {
+                    dbBarcodeBindingSource.DataSource = _barcodes;
+                    UpdateBarcodesInfo(_barcodes);
+                }
+            }
+
+            if (tabControl.SelectedTab == tabRanges)
+            {
+                if (!string.IsNullOrEmpty(q) && _ranges != null)
+                {
+                    List<DbRange> filtered = _ranges.Where(f => f.ExtName.ToUpper().Contains(q) 
+                                                                || f.Ops.Contains(q) || f.MonthName.Contains(q) 
+                                                                || f.SeriaName.Contains(q) || f.FirstNum.Contains(q) 
+                                                                || f.LastNum.Contains(q) || f.FirmName.Contains(q)).ToList();
+                    dbRangeBindingSource.DataSource = filtered;
+                    UpdateRangesInfo(filtered);
+                }
+                else
+                {
+                    dbRangeBindingSource.DataSource = _ranges;
+                    UpdateRangesInfo(_ranges);
+                }
+            }
+        }
+
+        private void tbFilter_Enter(object sender, EventArgs e)
+        {
+            WcApi.Keyboard.Keyboard.SetRussianLanguage();
+        }
 
         #endregion
 
@@ -311,7 +357,7 @@ namespace WhoseIsBarcode.Core.Forms
 
         private void btnLoadBarcode_Click(object sender, EventArgs e)
         {
-           LoadBarcode();
+           FindBarcode();
            barcodeTextBoxBarcode.Focus();
            barcodeTextBoxBarcode.SelectAll();
         }
@@ -464,26 +510,62 @@ namespace WhoseIsBarcode.Core.Forms
         private async void LoadRanges(RangeRequest request)
         {
             dbRangeBindingSource.DataSource = null;
+            ClearRangesInfo();
+
+            _ranges = await _dataBase.GetRangesAsync(request);
+
+            UpdateRangesInfo(_ranges);
+            dbRangeBindingSource.DataSource = _ranges;
+        }
+
+        private async void LoadBarcodes(BarcodeRequest request)
+        {
+            dbBarcodeBindingSource.DataSource = null;
+            ClearBarcodesInfo();
+
+            _barcodes = await _dataBase.GetBarcodesAsync(request);
+
+            UpdateBarcodesInfo(_barcodes);
+            dbBarcodeBindingSource.DataSource = _barcodes;
+        }
+
+        private void ClearBarcodesInfo()
+        {
+            barcodeLabelCount.Text = "0";
+            barcodeLabelFreeCount.Text = "0";
+            barcodeLabelBusyCount.Text = "0";
+        }
+
+        private void ClearRangesInfo()
+        {
             rangeLabelRangeCount.Text = "0";
             rangeLabelBarcodeCount.Text = "0";
             rangeLabelBarcodeFree.Text = "0";
             rangeLabelBarcodeBusy.Text = "0";
-
-            _ranges = await _dataBase.GetRangesAsync(request);
-
-            if (_ranges != null)
-            {
-                rangeLabelRangeCount.Text = _ranges.Count.ToString();
-                rangeLabelBarcodeCount.Text = _ranges.Sum(r => r.Count).ToString();
-                rangeLabelBarcodeFree.Text = _ranges.Sum(r => r.FreeCount).ToString();
-                rangeLabelBarcodeBusy.Text = _ranges.Sum(r => r.BusyCount).ToString();
-
-            }
-
-            dbRangeBindingSource.DataSource = _ranges;
         }
 
-        private async void LoadBarcode()
+        private void UpdateBarcodesInfo(List<DbBarcode> barcodes)
+        {
+            if (barcodes != null)
+            {
+                barcodeLabelCount.Text = barcodes.Count.ToString();
+                barcodeLabelFreeCount.Text = barcodes.Count(b => b.StateId == 1).ToString();
+                barcodeLabelBusyCount.Text = barcodes.Count(b => b.StateId == 2).ToString();
+            }
+        }
+
+        private void UpdateRangesInfo(List<DbRange> ranges)
+        {
+            if (ranges != null)
+            {
+                rangeLabelRangeCount.Text = ranges.Count.ToString();
+                rangeLabelBarcodeCount.Text = ranges.Sum(r => r.Count).ToString();
+                rangeLabelBarcodeFree.Text = ranges.Sum(r => r.FreeCount).ToString();
+                rangeLabelBarcodeBusy.Text = ranges.Sum(r => r.BusyCount).ToString();
+            }
+        }
+
+        private void FindBarcode()
         {
             if (barcodeLabelError.Visible)
                 barcodeLabelError.Visible = false;
@@ -501,17 +583,8 @@ namespace WhoseIsBarcode.Core.Forms
                     }
                     else
                     {
-                        dbBarcodeBindingSource.DataSource = null;
-                        _barcodes = await _dataBase.GetBarcodesAsync(barcode);
-
-                        if (_barcodes != null)
-                        {
-                            barcodeLabelCount.Text = _barcodes.Count.ToString();
-                            barcodeLabelFreeCount.Text = _barcodes.Count(b => b.StateId == 1).ToString();
-                            barcodeLabelBusyCount.Text = _barcodes.Count(b => b.StateId == 2).ToString();
-                        }
-
-                        dbBarcodeBindingSource.DataSource = _barcodes;
+                        BarcodeRequest request = new BarcodeRequest { Barcode = barcode };
+                        LoadBarcodes(request);
                     }
                 }
                 catch (Exception e)
@@ -565,7 +638,6 @@ namespace WhoseIsBarcode.Core.Forms
             if(_selectBarcode == null)
                 return;
 
-
             dbRangeBindingSource.DataSource = null;
 
             try
@@ -589,12 +661,29 @@ namespace WhoseIsBarcode.Core.Forms
 
         private void loadFromRangeMenuItem_Click(object sender, EventArgs e)
         {
-            
+            if (_selectBarcode == null)
+                return;
+
+            try
+            {
+                BarcodeRequest request = new BarcodeRequest { RangeId = _selectBarcode.RangeId };
+                LoadBarcodes(request);
+            }
+            catch (Exception exception)
+            {
+                if (_debugMode)
+                {
+                    Logger.Error($"Ошибка получения [DbBarcode] - RangeId: {_selectBarcode.RangeId}");
+                    Logger.Error(exception);
+                }
+
+                ErrorMessage("Ошибка получения данных по Id диапазона");
+            }
         }
 
         #endregion
 
-        #region Other Wodgets Events
+        #region Other Widgets Events
 
         private void rangeComboBoxFirm_Enter(object sender, EventArgs e)
         {

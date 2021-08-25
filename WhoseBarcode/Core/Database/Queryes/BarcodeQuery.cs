@@ -4,26 +4,41 @@ using System.Data;
 using System.Text;
 using FirebirdSql.Data.FirebirdClient;
 using WhoseIsBarcode.Core.Database.Models;
+using WhoseIsBarcode.Core.Database.Requests;
 
 namespace WhoseIsBarcode.Core.Database.Queryes
 {
     public class BarcodeQuery : Query
     {
-        private readonly string _barcode;
+        private readonly BarcodeRequest _request;
 
-        public BarcodeQuery(Connect connect, string barcode, bool debugMode = false) : base(connect, debugMode)
+        public BarcodeQuery(Connect connect, BarcodeRequest request, bool debugMode = false) : base(connect, debugMode)
         {
-            _barcode = barcode;
+            _request = request;
         }
 
         public override string GetQuery()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("select first 1 r.barcode, r.index_from, r.num_month, r.num_seria, r.num_parcel, r.id_range_ei, re.date_info, f.firm_name, f.inn,  f.depcode, f.kpp, s.id, s.name from range r");
+
+            sb.Append("select");
+
+            if (_request != null && _request.Limit != 0)
+                sb.Append($" first {_request.Limit}");
+
+            sb.Append(" r.barcode, r.index_from, r.num_month, r.num_seria, r.num_parcel, r.id_range_ei, re.date_info, f.firm_name, f.inn,  f.depcode, f.kpp, s.id, s.name from range r");
             sb.Append(" left join range_ei re on r.id_range_ei = re.id");
             sb.Append(" left join firms f on r.id_inn = f.id_inn");
             sb.Append(" left join range_state s on r.state = s.id");
-            sb.Append($" where barcode = '{_barcode}'");
+
+            if (_request != null)
+            {
+                if(!string.IsNullOrEmpty(_request.Barcode))
+                    sb.Append($" where barcode = '{_request.Barcode}'");
+
+                if (_request.RangeId != 0)
+                    sb.Append($" where r.id_range_ei = {_request.RangeId}");
+            }
 
             return sb.ToString();
         }
