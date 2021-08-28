@@ -6,10 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DiffPather.Core.Database;
+using DiffPather.Core.Database.Contexts;
 using DiffPather.Core.Database.Models;
 using DiffPather.Core.Forms.AppsForms;
 using DiffPather.Core.Storage;
-using WcApi.Cryptography;
 
 namespace DiffPather.Core.Forms
 {
@@ -17,7 +18,7 @@ namespace DiffPather.Core.Forms
     {
         #region Private Fields
 
-        
+        private List<AppInfo> _appInfos;
 
         #endregion
 
@@ -122,6 +123,8 @@ namespace DiffPather.Core.Forms
 
             // Создание БД
             CreateDb();
+
+            FirstQuery();
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -186,6 +189,26 @@ namespace DiffPather.Core.Forms
 
         #region Private Methods
 
+        #region Database
+
+        private async void FirstQuery()
+        {
+            await Task.Run(() =>
+            {
+                using (DiffPatherContext db = new DiffPatherContext())
+                {
+                    try
+                    {
+                        _ = db.AppInfos.Last();
+                    }
+                    catch
+                    {
+                        //
+                    }
+                }
+            });
+        }
+
         private void CreateDb()
         {
             if (!File.Exists(PathManager.DatabasePath))
@@ -195,6 +218,44 @@ namespace DiffPather.Core.Forms
             }
         }
 
+        private async void LoadApps()
+        {
+            _appInfos = await Db.GetAppInfosAsync();
+            UpdateApps();
+        }
+
+        private void UpdateApps()
+        {
+            appInfoBindingSource.DataSource = null;
+            appInfoBindingSource.DataSource = _appInfos;
+
+            if (_appInfos != null)
+                appsLabelCount.Text = _appInfos.Count.ToString();
+            else
+                appsLabelCount.Text = "0";
+        }
+        private AppInfo GetAppInfoByIndex(int index)
+        {
+            try
+            {
+                List<AppInfo> appInfos = (List<AppInfo>)appInfoBindingSource.DataSource;
+                if (appInfos != null && appInfos.Count > 0)
+                {
+                    return appInfos[index];
+                }
+
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+            
+        }
+
+        #endregion
+
+
         #endregion
 
         #region Menu Event
@@ -203,6 +264,11 @@ namespace DiffPather.Core.Forms
         {
             CreateDbForm createDbForm = new CreateDbForm();
             createDbForm.ShowDialog(this);
+        }
+
+        private void exitMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         #endregion
@@ -230,11 +296,73 @@ namespace DiffPather.Core.Forms
                 AddAppForm addAppForm = new AddAppForm(appInfo);
                 if (addAppForm.ShowDialog(this) == DialogResult.OK)
                 {
+                    LoadApps();
+                }
+            }
+        }
 
+        private void btnUpdateApps_Click(object sender, EventArgs e)
+        {
+            LoadApps();
+        }
+
+        #endregion
+
+        #region DataGrid Events
+
+        private async void appsDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (await Db.UpdateAppInfosAsync(_appInfos))
+                SuccessMessage("Данные обновленны.");
+            else
+                ErrorMessage("Не удалось обновить данные.");
+        }
+
+        private void appsDataGridView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int currentMouseOverRow = appsDataGridView.HitTest(e.X, e.Y).RowIndex;
+                int currentMouseOverCol = appsDataGridView.HitTest(e.X, e.Y).ColumnIndex;
+
+                if (currentMouseOverRow >= 0 && currentMouseOverCol >= 0)
+                {
+                    appsDataGridView.ClearSelection();
+                    appsDataGridView.Rows[currentMouseOverRow].Cells[currentMouseOverCol].Selected = true;
+
+                    AppInfo appInfo = GetAppInfoByIndex(currentMouseOverRow);
+
+                    if (appInfo != null)
+                    {
+                        appsEditContexMenuItem.Enabled = true;
+                        appsRemoveContexMenuItem.Enabled = true;
+                    }
+                    else
+                    {
+                        appsEditContexMenuItem.Enabled = false;
+                        appsRemoveContexMenuItem.Enabled = false;
+                    }
+
+                    appsContextMenu.Show(appsDataGridView, new Point(e.X, e.Y));
                 }
             }
         }
 
         #endregion
+
+        #region ContextMenu Events
+
+        private void appsEditContexMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appsRemoveContexMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+        
     }
 }

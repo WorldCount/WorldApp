@@ -30,27 +30,19 @@ namespace DiffPather.Core.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuBar = new System.Windows.Forms.MenuStrip();
-            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadFrankReportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importCalendarMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelButton = new System.Windows.Forms.FlowLayoutPanel();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
-            this.flowLayoutPanelButton = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAdd = new Wc32Api.Widgets.WcButton();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabApps = new System.Windows.Forms.TabPage();
             this.appsDataGridView = new System.Windows.Forms.DataGridView();
@@ -58,8 +50,8 @@ namespace DiffPather.Core.Forms
             this.flowLayoutPanelApps = new System.Windows.Forms.FlowLayoutPanel();
             this.barcodePanelStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelBarcodeStat = new System.Windows.Forms.FlowLayoutPanel();
-            this.barcodeLabelInfoCount = new System.Windows.Forms.Label();
-            this.barcodeLabelCount = new System.Windows.Forms.Label();
+            this.appsLabelInfoCount = new System.Windows.Forms.Label();
+            this.appsLabelCount = new System.Windows.Forms.Label();
             this.tabFiles = new System.Windows.Forms.TabPage();
             this.rangeDataGridView = new System.Windows.Forms.DataGridView();
             this.rangeColumnExternal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,15 +64,28 @@ namespace DiffPather.Core.Forms
             this.flowLayoutPanelRangeStat = new System.Windows.Forms.FlowLayoutPanel();
             this.rangeLabelInfoRangeCount = new System.Windows.Forms.Label();
             this.rangeLabelRangeCount = new System.Windows.Forms.Label();
-            this.appInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnUpdateApps = new Wc32Api.Widgets.WcButton();
+            this.btnAdd = new Wc32Api.Widgets.WcButton();
+            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addAppMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.appsColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appsColumnCurrentVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appsColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appsColumnDirectoryLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.appsRemoveContexMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.appsEditContexMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
-            this.statusBar.SuspendLayout();
             this.flowLayoutPanelButton.SuspendLayout();
+            this.statusBar.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabApps.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appsDataGridView)).BeginInit();
@@ -92,6 +97,7 @@ namespace DiffPather.Core.Forms
             this.panelRangeStat.SuspendLayout();
             this.flowLayoutPanelRangeStat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appInfoBindingSource)).BeginInit();
+            this.appsContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuBar
@@ -111,55 +117,6 @@ namespace DiffPather.Core.Forms
             this.menuBar.Size = new System.Drawing.Size(800, 40);
             this.menuBar.TabIndex = 3;
             // 
-            // fileMenuItem
-            // 
-            this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadFrankReportMenuItem,
-            this.importCalendarMenuItem,
-            this.exitMenuItem});
-            this.fileMenuItem.Name = "fileMenuItem";
-            this.fileMenuItem.Size = new System.Drawing.Size(57, 36);
-            this.fileMenuItem.Text = "Файл";
-            // 
-            // loadFrankReportMenuItem
-            // 
-            this.loadFrankReportMenuItem.Name = "loadFrankReportMenuItem";
-            this.loadFrankReportMenuItem.Size = new System.Drawing.Size(263, 24);
-            this.loadFrankReportMenuItem.Text = "Загрузить отчет по франку";
-            // 
-            // importCalendarMenuItem
-            // 
-            this.importCalendarMenuItem.Name = "importCalendarMenuItem";
-            this.importCalendarMenuItem.Size = new System.Drawing.Size(263, 24);
-            this.importCalendarMenuItem.Text = "Импорт календаря";
-            // 
-            // exitMenuItem
-            // 
-            this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(263, 24);
-            this.exitMenuItem.Text = "Выход";
-            // 
-            // settingsMenuItem
-            // 
-            this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createDbMenuItem});
-            this.settingsMenuItem.Name = "settingsMenuItem";
-            this.settingsMenuItem.Size = new System.Drawing.Size(96, 36);
-            this.settingsMenuItem.Text = "Настройки";
-            // 
-            // createDbMenuItem
-            // 
-            this.createDbMenuItem.Name = "createDbMenuItem";
-            this.createDbMenuItem.Size = new System.Drawing.Size(205, 24);
-            this.createDbMenuItem.Text = "Создать новую БД";
-            this.createDbMenuItem.Click += new System.EventHandler(this.createDbMenuItem_Click);
-            // 
-            // infosMenuItem
-            // 
-            this.infosMenuItem.Name = "infosMenuItem";
-            this.infosMenuItem.Size = new System.Drawing.Size(60, 36);
-            this.infosMenuItem.Text = "Инфо";
-            // 
             // panelGeneral
             // 
             this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
@@ -170,6 +127,14 @@ namespace DiffPather.Core.Forms
             this.panelGeneral.Name = "panelGeneral";
             this.panelGeneral.Size = new System.Drawing.Size(800, 58);
             this.panelGeneral.TabIndex = 5;
+            // 
+            // flowLayoutPanelButton
+            // 
+            this.flowLayoutPanelButton.Controls.Add(this.btnAdd);
+            this.flowLayoutPanelButton.Location = new System.Drawing.Point(12, 3);
+            this.flowLayoutPanelButton.Name = "flowLayoutPanelButton";
+            this.flowLayoutPanelButton.Size = new System.Drawing.Size(578, 52);
+            this.flowLayoutPanelButton.TabIndex = 0;
             // 
             // statusBar
             // 
@@ -203,39 +168,6 @@ namespace DiffPather.Core.Forms
             // 
             this.timerStatus.Interval = 3000;
             this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
-            // 
-            // flowLayoutPanelButton
-            // 
-            this.flowLayoutPanelButton.Controls.Add(this.btnAdd);
-            this.flowLayoutPanelButton.Location = new System.Drawing.Point(12, 3);
-            this.flowLayoutPanelButton.Name = "flowLayoutPanelButton";
-            this.flowLayoutPanelButton.Size = new System.Drawing.Size(578, 52);
-            this.flowLayoutPanelButton.TabIndex = 0;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAdd.BorderColor = System.Drawing.Color.Silver;
-            this.btnAdd.BorderRadius = 6F;
-            this.btnAdd.BorderSize = 0;
-            this.btnAdd.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnAdd.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Image = global::DiffPather.Properties.Resources.add_24;
-            this.btnAdd.Location = new System.Drawing.Point(3, 5);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.btnAdd.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnAdd.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnAdd.Size = new System.Drawing.Size(40, 40);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.TextColor = System.Drawing.Color.White;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tabControl
             // 
@@ -274,14 +206,14 @@ namespace DiffPather.Core.Forms
             this.appsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.appsDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.appsDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.appsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.appsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.appsDataGridView.ColumnHeadersHeight = 40;
             this.appsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.appsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -290,27 +222,27 @@ namespace DiffPather.Core.Forms
             this.appsColumnDescription,
             this.appsColumnDirectoryLocation});
             this.appsDataGridView.DataSource = this.appInfoBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.appsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.appsDataGridView.DefaultCellStyle = dataGridViewCellStyle20;
             this.appsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.appsDataGridView.EnableHeadersVisualStyles = false;
             this.appsDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.appsDataGridView.Location = new System.Drawing.Point(3, 51);
             this.appsDataGridView.Name = "appsDataGridView";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.appsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.appsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.appsDataGridView.RowHeadersVisible = false;
             this.appsDataGridView.RowHeadersWidth = 40;
             this.appsDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -319,10 +251,13 @@ namespace DiffPather.Core.Forms
             this.appsDataGridView.Size = new System.Drawing.Size(786, 206);
             this.appsDataGridView.TabIndex = 6;
             this.appsDataGridView.TabStop = false;
+            this.appsDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.appsDataGridView_CellEndEdit);
+            this.appsDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.appsDataGridView_MouseClick);
             // 
             // appsPanel
             // 
             this.appsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.appsPanel.Controls.Add(this.btnUpdateApps);
             this.appsPanel.Controls.Add(this.flowLayoutPanelApps);
             this.appsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.appsPanel.Location = new System.Drawing.Point(3, 3);
@@ -355,35 +290,35 @@ namespace DiffPather.Core.Forms
             // 
             this.flowLayoutPanelBarcodeStat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelBarcodeStat.Controls.Add(this.barcodeLabelInfoCount);
-            this.flowLayoutPanelBarcodeStat.Controls.Add(this.barcodeLabelCount);
+            this.flowLayoutPanelBarcodeStat.Controls.Add(this.appsLabelInfoCount);
+            this.flowLayoutPanelBarcodeStat.Controls.Add(this.appsLabelCount);
             this.flowLayoutPanelBarcodeStat.Location = new System.Drawing.Point(0, 3);
             this.flowLayoutPanelBarcodeStat.Name = "flowLayoutPanelBarcodeStat";
             this.flowLayoutPanelBarcodeStat.Size = new System.Drawing.Size(783, 26);
             this.flowLayoutPanelBarcodeStat.TabIndex = 1;
             this.flowLayoutPanelBarcodeStat.WrapContents = false;
             // 
-            // barcodeLabelInfoCount
+            // appsLabelInfoCount
             // 
-            this.barcodeLabelInfoCount.AutoSize = true;
-            this.barcodeLabelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeLabelInfoCount.Location = new System.Drawing.Point(8, 2);
-            this.barcodeLabelInfoCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
-            this.barcodeLabelInfoCount.Name = "barcodeLabelInfoCount";
-            this.barcodeLabelInfoCount.Size = new System.Drawing.Size(52, 20);
-            this.barcodeLabelInfoCount.TabIndex = 0;
-            this.barcodeLabelInfoCount.Text = "Всего:";
+            this.appsLabelInfoCount.AutoSize = true;
+            this.appsLabelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.appsLabelInfoCount.Location = new System.Drawing.Point(8, 2);
+            this.appsLabelInfoCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.appsLabelInfoCount.Name = "appsLabelInfoCount";
+            this.appsLabelInfoCount.Size = new System.Drawing.Size(52, 20);
+            this.appsLabelInfoCount.TabIndex = 0;
+            this.appsLabelInfoCount.Text = "Всего:";
             // 
-            // barcodeLabelCount
+            // appsLabelCount
             // 
-            this.barcodeLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.barcodeLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
-            this.barcodeLabelCount.Location = new System.Drawing.Point(66, 2);
-            this.barcodeLabelCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.barcodeLabelCount.Name = "barcodeLabelCount";
-            this.barcodeLabelCount.Size = new System.Drawing.Size(90, 22);
-            this.barcodeLabelCount.TabIndex = 0;
-            this.barcodeLabelCount.Text = "0";
+            this.appsLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.appsLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.appsLabelCount.Location = new System.Drawing.Point(66, 2);
+            this.appsLabelCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.appsLabelCount.Name = "appsLabelCount";
+            this.appsLabelCount.Size = new System.Drawing.Size(90, 22);
+            this.appsLabelCount.TabIndex = 0;
+            this.appsLabelCount.Text = "0";
             // 
             // tabFiles
             // 
@@ -407,14 +342,14 @@ namespace DiffPather.Core.Forms
             this.rangeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.rangeDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.rangeDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.rangeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rangeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.rangeDataGridView.ColumnHeadersHeight = 40;
             this.rangeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.rangeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -423,27 +358,27 @@ namespace DiffPather.Core.Forms
             this.rangeColumnLastNum,
             this.rangeColumnFreeCount,
             this.rangeColumnBusyCount});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.rangeDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.rangeDataGridView.DefaultCellStyle = dataGridViewCellStyle23;
             this.rangeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rangeDataGridView.EnableHeadersVisualStyles = false;
             this.rangeDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.rangeDataGridView.Location = new System.Drawing.Point(3, 49);
             this.rangeDataGridView.Name = "rangeDataGridView";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.rangeDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rangeDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.rangeDataGridView.RowHeadersVisible = false;
             this.rangeDataGridView.RowHeadersWidth = 40;
             this.rangeDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -542,9 +477,112 @@ namespace DiffPather.Core.Forms
             this.rangeLabelRangeCount.TabIndex = 0;
             this.rangeLabelRangeCount.Text = "0";
             // 
-            // appInfoBindingSource
+            // btnUpdateApps
             // 
-            this.appInfoBindingSource.DataSource = typeof(DiffPather.Core.Database.Models.AppInfo);
+            this.btnUpdateApps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdateApps.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnUpdateApps.BorderColor = System.Drawing.Color.Silver;
+            this.btnUpdateApps.BorderRadius = 6F;
+            this.btnUpdateApps.BorderSize = 0;
+            this.btnUpdateApps.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnUpdateApps.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnUpdateApps.FlatAppearance.BorderSize = 0;
+            this.btnUpdateApps.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnUpdateApps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateApps.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateApps.Image = global::DiffPather.Properties.Resources.synchronize_24;
+            this.btnUpdateApps.Location = new System.Drawing.Point(738, 4);
+            this.btnUpdateApps.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnUpdateApps.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnUpdateApps.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnUpdateApps.Name = "btnUpdateApps";
+            this.btnUpdateApps.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnUpdateApps.Size = new System.Drawing.Size(40, 40);
+            this.btnUpdateApps.TabIndex = 0;
+            this.btnUpdateApps.TextColor = System.Drawing.Color.White;
+            this.btnUpdateApps.UseVisualStyleBackColor = false;
+            this.btnUpdateApps.Click += new System.EventHandler(this.btnUpdateApps_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAdd.BorderColor = System.Drawing.Color.Silver;
+            this.btnAdd.BorderRadius = 6F;
+            this.btnAdd.BorderSize = 0;
+            this.btnAdd.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnAdd.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = global::DiffPather.Properties.Resources.add_24;
+            this.btnAdd.Location = new System.Drawing.Point(3, 5);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnAdd.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnAdd.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnAdd.Size = new System.Drawing.Size(40, 40);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.TextColor = System.Drawing.Color.White;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // fileMenuItem
+            // 
+            this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addAppMenuItem,
+            this.toolStripSeparator1,
+            this.exitMenuItem});
+            this.fileMenuItem.Image = global::DiffPather.Properties.Resources.Folder;
+            this.fileMenuItem.Name = "fileMenuItem";
+            this.fileMenuItem.Size = new System.Drawing.Size(81, 36);
+            this.fileMenuItem.Text = "Файл";
+            // 
+            // addAppMenuItem
+            // 
+            this.addAppMenuItem.Image = global::DiffPather.Properties.Resources.Folder_Plus;
+            this.addAppMenuItem.Name = "addAppMenuItem";
+            this.addAppMenuItem.Size = new System.Drawing.Size(246, 30);
+            this.addAppMenuItem.Text = "Добавить приложение";
+            this.addAppMenuItem.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(243, 6);
+            // 
+            // exitMenuItem
+            // 
+            this.exitMenuItem.Image = global::DiffPather.Properties.Resources.Button_Close;
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(246, 30);
+            this.exitMenuItem.Text = "Выход";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
+            // 
+            // settingsMenuItem
+            // 
+            this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createDbMenuItem});
+            this.settingsMenuItem.Image = global::DiffPather.Properties.Resources.Folder_Settings;
+            this.settingsMenuItem.Name = "settingsMenuItem";
+            this.settingsMenuItem.Size = new System.Drawing.Size(120, 36);
+            this.settingsMenuItem.Text = "Настройки";
+            // 
+            // createDbMenuItem
+            // 
+            this.createDbMenuItem.Image = global::DiffPather.Properties.Resources.Server;
+            this.createDbMenuItem.Name = "createDbMenuItem";
+            this.createDbMenuItem.Size = new System.Drawing.Size(213, 30);
+            this.createDbMenuItem.Text = "Создать новую БД";
+            this.createDbMenuItem.Click += new System.EventHandler(this.createDbMenuItem_Click);
+            // 
+            // infosMenuItem
+            // 
+            this.infosMenuItem.Image = global::DiffPather.Properties.Resources.Folder_Heart;
+            this.infosMenuItem.Name = "infosMenuItem";
+            this.infosMenuItem.Size = new System.Drawing.Size(84, 36);
+            this.infosMenuItem.Text = "Инфо";
             // 
             // appsColumnName
             // 
@@ -573,6 +611,42 @@ namespace DiffPather.Core.Forms
             this.appsColumnDirectoryLocation.Name = "appsColumnDirectoryLocation";
             this.appsColumnDirectoryLocation.ReadOnly = true;
             // 
+            // appInfoBindingSource
+            // 
+            this.appInfoBindingSource.DataSource = typeof(DiffPather.Core.Database.Models.AppInfo);
+            // 
+            // appsContextMenu
+            // 
+            this.appsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.appsEditContexMenuItem,
+            this.toolStripSeparator2,
+            this.appsRemoveContexMenuItem});
+            this.appsContextMenu.Name = "appsContextMenu";
+            this.appsContextMenu.Size = new System.Drawing.Size(185, 84);
+            // 
+            // appsRemoveContexMenuItem
+            // 
+            this.appsRemoveContexMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.appsRemoveContexMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.appsRemoveContexMenuItem.Name = "appsRemoveContexMenuItem";
+            this.appsRemoveContexMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.appsRemoveContexMenuItem.Text = "Удалить";
+            this.appsRemoveContexMenuItem.Click += new System.EventHandler(this.appsRemoveContexMenuItem_Click);
+            // 
+            // appsEditContexMenuItem
+            // 
+            this.appsEditContexMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.appsEditContexMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.appsEditContexMenuItem.Name = "appsEditContexMenuItem";
+            this.appsEditContexMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.appsEditContexMenuItem.Text = "Редактировать";
+            this.appsEditContexMenuItem.Click += new System.EventHandler(this.appsEditContexMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -594,9 +668,9 @@ namespace DiffPather.Core.Forms
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             this.panelGeneral.ResumeLayout(false);
+            this.flowLayoutPanelButton.ResumeLayout(false);
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
-            this.flowLayoutPanelButton.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabApps.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.appsDataGridView)).EndInit();
@@ -610,6 +684,7 @@ namespace DiffPather.Core.Forms
             this.flowLayoutPanelRangeStat.ResumeLayout(false);
             this.flowLayoutPanelRangeStat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appInfoBindingSource)).EndInit();
+            this.appsContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -619,8 +694,6 @@ namespace DiffPather.Core.Forms
 
         private System.Windows.Forms.MenuStrip menuBar;
         private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadFrankReportMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importCalendarMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createDbMenuItem;
@@ -639,8 +712,8 @@ namespace DiffPather.Core.Forms
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelApps;
         private System.Windows.Forms.Panel barcodePanelStat;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelBarcodeStat;
-        private System.Windows.Forms.Label barcodeLabelInfoCount;
-        private System.Windows.Forms.Label barcodeLabelCount;
+        private System.Windows.Forms.Label appsLabelInfoCount;
+        private System.Windows.Forms.Label appsLabelCount;
         private System.Windows.Forms.TabPage tabFiles;
         private System.Windows.Forms.DataGridView rangeDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn rangeColumnExternal;
@@ -658,6 +731,13 @@ namespace DiffPather.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn appsColumnCurrentVersion;
         private System.Windows.Forms.DataGridViewTextBoxColumn appsColumnDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn appsColumnDirectoryLocation;
+        private Wc32Api.Widgets.WcButton btnUpdateApps;
+        private System.Windows.Forms.ToolStripMenuItem addAppMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ContextMenuStrip appsContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem appsEditContexMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem appsRemoveContexMenuItem;
     }
 }
 

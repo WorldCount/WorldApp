@@ -208,6 +208,14 @@
     <Compile Include="Core\Storage\PathManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\trash-2-24.png" />
+    <None Include="Resources\Server.png" />
+    <None Include="Resources\Folder-Heart.png" />
+    <None Include="Resources\Folder-Settings.png" />
+    <None Include="Resources\Folder.png" />
+    <None Include="Resources\Folder-Plus.png" />
+    <None Include="Resources\Button-Close.png" />
+    <None Include="Resources\sinchronize-24.png" />
     <None Include="Resources\close-window-24.png" />
     <None Include="Properties\DataSources\DiffPather.Core.Database.Models.AppFile.datasource" />
     <None Include="Resources\gray-unchecked-32.png" />
