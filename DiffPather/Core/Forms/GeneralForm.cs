@@ -11,6 +11,7 @@ using DiffPather.Core.Database.Contexts;
 using DiffPather.Core.Database.Models;
 using DiffPather.Core.Forms.AppsForms;
 using DiffPather.Core.Storage;
+using NLog;
 
 namespace DiffPather.Core.Forms
 {
@@ -19,6 +20,8 @@ namespace DiffPather.Core.Forms
         #region Private Fields
 
         private List<AppInfo> _appInfos;
+        private bool _debugMode;
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         #endregion
 
@@ -43,7 +46,8 @@ namespace DiffPather.Core.Forms
         // Загрузка настроек
         private void LoadSettings()
         {
-
+            _debugMode = Properties.Settings.Default.DebugMode;
+            toggleButtonDebug.Checked = _debugMode;
         }
 
         // Сохранение настроек
@@ -213,7 +217,7 @@ namespace DiffPather.Core.Forms
         {
             if (!File.Exists(PathManager.DatabasePath))
             {
-                CreateDbForm createDbForm = new CreateDbForm();
+                CreateDbForm createDbForm = new CreateDbForm(true);
                 createDbForm.ShowDialog(this);
             }
         }
@@ -229,10 +233,7 @@ namespace DiffPather.Core.Forms
             appInfoBindingSource.DataSource = null;
             appInfoBindingSource.DataSource = _appInfos;
 
-            if (_appInfos != null)
-                appsLabelCount.Text = _appInfos.Count.ToString();
-            else
-                appsLabelCount.Text = "0";
+            appsLabelCount.Text = _appInfos != null ? _appInfos.Count.ToString() : "0";
         }
         private AppInfo GetAppInfoByIndex(int index)
         {
@@ -262,7 +263,7 @@ namespace DiffPather.Core.Forms
 
         private void createDbMenuItem_Click(object sender, EventArgs e)
         {
-            CreateDbForm createDbForm = new CreateDbForm();
+            CreateDbForm createDbForm = new CreateDbForm(_debugMode);
             createDbForm.ShowDialog(this);
         }
 
@@ -306,6 +307,13 @@ namespace DiffPather.Core.Forms
             LoadApps();
         }
 
+        private void toggleButtonDebug_CheckedChanged(object sender, EventArgs e)
+        {
+            _debugMode = toggleButtonDebug.Checked;
+            Properties.Settings.Default.DebugMode = _debugMode;
+            Properties.Settings.Default.Save();
+        }
+
         #endregion
 
         #region DataGrid Events
@@ -335,12 +343,19 @@ namespace DiffPather.Core.Forms
                     if (appInfo != null)
                     {
                         appsEditContexMenuItem.Enabled = true;
+                        appsEditContexMenuItem.Tag = appInfo;
+
                         appsRemoveContexMenuItem.Enabled = true;
+                        appsRemoveContexMenuItem.Tag = appInfo;
                     }
                     else
                     {
                         appsEditContexMenuItem.Enabled = false;
+                        appsEditContexMenuItem.Tag = null;
+
                         appsRemoveContexMenuItem.Enabled = false;
+                        appsRemoveContexMenuItem.Tag = null;
+
                     }
 
                     appsContextMenu.Show(appsDataGridView, new Point(e.X, e.Y));
@@ -352,15 +367,45 @@ namespace DiffPather.Core.Forms
 
         #region ContextMenu Events
 
-        private void appsEditContexMenuItem_Click(object sender, EventArgs e)
+        private async void appsEditContexMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void appsRemoveContexMenuItem_Click(object sender, EventArgs e)
+        private async void appsRemoveContexMenuItem_Click(object sender, EventArgs e)
         {
+            AppInfo appInfo = (AppInfo)((ToolStripMenuItem)sender).Tag;
 
+            if (appInfo != null)
+            {
+                try
+                {
+                    if (MessageBox.Show($"Вы действительно хотите удалить приложение '{appInfo.Name}'?",
+                            $"Удаление '{appInfo.Name}'", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                        DialogResult.Yes)
+                    {
+                        await Db.DeleteAppInfoAsync(appInfo);
+                        LoadApps();
+                        SuccessMessage($"Приложение '{appInfo.Name}' удалено!");
+                    }
+                    else
+                        InfoMessage($"Отмена удаления '{appInfo.Name}'.");
+                }
+                catch (Exception exception)
+                {
+                    if (_debugMode)
+                        Logger.Error(exception);
+
+                    ErrorMessage($"Немогу удалить приложение '{appInfo.Name}'.");
+                }
+            }
+            else
+                ErrorMessage("Немогу определить приложение для удаления.");
         }
+
+        #endregion
+
+        #region Other Events
 
         #endregion
         

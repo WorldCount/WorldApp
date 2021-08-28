@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DiffPather.Core.Database;
 using NLog;
-using DiffPather.Core.Database.Contexts;
-using DiffPather.Core.Database.Models;
 using DiffPather.Core.Storage;
 
 
@@ -21,27 +19,20 @@ namespace DiffPather.Core.Forms
         #region Private Fields
 
         private int _count;
-
-        private string _error;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        private readonly bool _loggingMode = Properties.Settings.Default.LoggingMode;
-
+        private bool _debugMode;
         private readonly Color _windowBorderColor = Color.FromArgb(57, 57, 57);
         public int WindowBorderWidth { get; set; } = 2;
         public ButtonBorderStyle WindowsBorderStyle { get; set; } = ButtonBorderStyle.Dashed;
 
         #endregion
 
-        #region Properties
 
-        public string Error => _error;
-
-        #endregion
-
-
-        public CreateDbForm()
+        public CreateDbForm(bool debugMode = false)
         {
             InitializeComponent();
+
+            _debugMode = debugMode;
 
             labelDate.Text = $"Создаю новую БД";
 
@@ -95,11 +86,12 @@ namespace DiffPather.Core.Forms
                     await Db.CreateDbAsync();
                     SetInfo("Создаю новую БД ... Ok", 4, _count);
                 }
-                catch (InvalidOperationException e)
+                catch (Exception e)
                 {
-                    MessageBox.Show(e.Message, @"Ошибка создания БД", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    _error = e.Message;
+                    MessageBox.Show(e.Message, @"Ошибка создания БД", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                    if(_debugMode)
+                        Logger.Error(e);
                 }
             }
             else
@@ -113,11 +105,13 @@ namespace DiffPather.Core.Forms
                     await Db.CreateDbAsync();
                     SetInfo("Создаю новую БД ... Ok", 2, _count);
                 }
-                catch (InvalidOperationException e)
+                catch (Exception e)
                 {
                     MessageBox.Show(e.Message, @"Ошибка создания БД", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
-                    _error = e.Message;
+                    
+                    if (_debugMode)
+                        Logger.Error(e);
                 }
             }
 

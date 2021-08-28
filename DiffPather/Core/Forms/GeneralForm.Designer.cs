@@ -29,20 +29,19 @@ namespace DiffPather.Core.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.flowLayoutPanelButton = new System.Windows.Forms.FlowLayoutPanel();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timerStatus = new System.Windows.Forms.Timer(this.components);
+            this.timerStatus = new System.Windows.Forms.Timer();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabApps = new System.Windows.Forms.TabPage();
             this.appsDataGridView = new System.Windows.Forms.DataGridView();
@@ -73,15 +72,17 @@ namespace DiffPather.Core.Forms
             this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.appsContextMenu = new System.Windows.Forms.ContextMenuStrip();
+            this.appsRemoveContexMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.appsEditContexMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.appsColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appsColumnCurrentVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appsColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appsColumnDirectoryLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.appsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.appsRemoveContexMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.appsEditContexMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.appInfoBindingSource = new System.Windows.Forms.BindingSource();
+            this.labelInfoDebug = new System.Windows.Forms.Label();
+            this.toggleButtonDebug = new Wc32Api.Widgets.WcToggleButton();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.flowLayoutPanelButton.SuspendLayout();
@@ -96,8 +97,8 @@ namespace DiffPather.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.rangeDataGridView)).BeginInit();
             this.panelRangeStat.SuspendLayout();
             this.flowLayoutPanelRangeStat.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.appInfoBindingSource)).BeginInit();
             this.appsContextMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appInfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBar
@@ -120,6 +121,8 @@ namespace DiffPather.Core.Forms
             // panelGeneral
             // 
             this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelGeneral.Controls.Add(this.toggleButtonDebug);
+            this.panelGeneral.Controls.Add(this.labelInfoDebug);
             this.panelGeneral.Controls.Add(this.flowLayoutPanelButton);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelGeneral.ForeColor = System.Drawing.Color.Gainsboro;
@@ -206,14 +209,14 @@ namespace DiffPather.Core.Forms
             this.appsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.appsDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.appsDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.appsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.appsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.appsDataGridView.ColumnHeadersHeight = 40;
             this.appsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.appsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -222,27 +225,27 @@ namespace DiffPather.Core.Forms
             this.appsColumnDescription,
             this.appsColumnDirectoryLocation});
             this.appsDataGridView.DataSource = this.appInfoBindingSource;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.appsDataGridView.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.appsDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.appsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.appsDataGridView.EnableHeadersVisualStyles = false;
             this.appsDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.appsDataGridView.Location = new System.Drawing.Point(3, 51);
             this.appsDataGridView.Name = "appsDataGridView";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.appsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.appsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.appsDataGridView.RowHeadersVisible = false;
             this.appsDataGridView.RowHeadersWidth = 40;
             this.appsDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -342,14 +345,14 @@ namespace DiffPather.Core.Forms
             this.rangeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.rangeDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.rangeDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.rangeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rangeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.rangeDataGridView.ColumnHeadersHeight = 40;
             this.rangeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.rangeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -358,27 +361,27 @@ namespace DiffPather.Core.Forms
             this.rangeColumnLastNum,
             this.rangeColumnFreeCount,
             this.rangeColumnBusyCount});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.rangeDataGridView.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.rangeDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
             this.rangeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rangeDataGridView.EnableHeadersVisualStyles = false;
             this.rangeDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.rangeDataGridView.Location = new System.Drawing.Point(3, 49);
             this.rangeDataGridView.Name = "rangeDataGridView";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.rangeDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rangeDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.rangeDataGridView.RowHeadersVisible = false;
             this.rangeDataGridView.RowHeadersWidth = 40;
             this.rangeDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -584,6 +587,38 @@ namespace DiffPather.Core.Forms
             this.infosMenuItem.Size = new System.Drawing.Size(84, 36);
             this.infosMenuItem.Text = "Инфо";
             // 
+            // appsContextMenu
+            // 
+            this.appsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.appsEditContexMenuItem,
+            this.toolStripSeparator2,
+            this.appsRemoveContexMenuItem});
+            this.appsContextMenu.Name = "appsContextMenu";
+            this.appsContextMenu.Size = new System.Drawing.Size(185, 62);
+            // 
+            // appsRemoveContexMenuItem
+            // 
+            this.appsRemoveContexMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.appsRemoveContexMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.appsRemoveContexMenuItem.Name = "appsRemoveContexMenuItem";
+            this.appsRemoveContexMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.appsRemoveContexMenuItem.Text = "Удалить";
+            this.appsRemoveContexMenuItem.Click += new System.EventHandler(this.appsRemoveContexMenuItem_Click);
+            // 
+            // appsEditContexMenuItem
+            // 
+            this.appsEditContexMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.appsEditContexMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.appsEditContexMenuItem.Name = "appsEditContexMenuItem";
+            this.appsEditContexMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.appsEditContexMenuItem.Text = "Редактировать";
+            this.appsEditContexMenuItem.Click += new System.EventHandler(this.appsEditContexMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(181, 6);
+            // 
             // appsColumnName
             // 
             this.appsColumnName.DataPropertyName = "Name";
@@ -615,37 +650,36 @@ namespace DiffPather.Core.Forms
             // 
             this.appInfoBindingSource.DataSource = typeof(DiffPather.Core.Database.Models.AppInfo);
             // 
-            // appsContextMenu
+            // labelInfoDebug
             // 
-            this.appsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.appsEditContexMenuItem,
-            this.toolStripSeparator2,
-            this.appsRemoveContexMenuItem});
-            this.appsContextMenu.Name = "appsContextMenu";
-            this.appsContextMenu.Size = new System.Drawing.Size(185, 84);
+            this.labelInfoDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelInfoDebug.AutoSize = true;
+            this.labelInfoDebug.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInfoDebug.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelInfoDebug.Location = new System.Drawing.Point(668, 19);
+            this.labelInfoDebug.Margin = new System.Windows.Forms.Padding(0, 6, 2, 0);
+            this.labelInfoDebug.Name = "labelInfoDebug";
+            this.labelInfoDebug.Size = new System.Drawing.Size(71, 20);
+            this.labelInfoDebug.TabIndex = 31;
+            this.labelInfoDebug.Text = "Отладка:";
             // 
-            // appsRemoveContexMenuItem
+            // toggleButtonDebug
             // 
-            this.appsRemoveContexMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.appsRemoveContexMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.appsRemoveContexMenuItem.Name = "appsRemoveContexMenuItem";
-            this.appsRemoveContexMenuItem.Size = new System.Drawing.Size(184, 26);
-            this.appsRemoveContexMenuItem.Text = "Удалить";
-            this.appsRemoveContexMenuItem.Click += new System.EventHandler(this.appsRemoveContexMenuItem_Click);
-            // 
-            // appsEditContexMenuItem
-            // 
-            this.appsEditContexMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.appsEditContexMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.appsEditContexMenuItem.Name = "appsEditContexMenuItem";
-            this.appsEditContexMenuItem.Size = new System.Drawing.Size(184, 26);
-            this.appsEditContexMenuItem.Text = "Редактировать";
-            this.appsEditContexMenuItem.Click += new System.EventHandler(this.appsEditContexMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toggleButtonDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.toggleButtonDebug.AutoSize = true;
+            this.toggleButtonDebug.DisableBackColor = System.Drawing.Color.DimGray;
+            this.toggleButtonDebug.DisableToggleColor = System.Drawing.Color.Gray;
+            this.toggleButtonDebug.Location = new System.Drawing.Point(745, 18);
+            this.toggleButtonDebug.MinimumSize = new System.Drawing.Size(45, 22);
+            this.toggleButtonDebug.Name = "toggleButtonDebug";
+            this.toggleButtonDebug.OffBackColor = System.Drawing.Color.Firebrick;
+            this.toggleButtonDebug.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.toggleButtonDebug.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.toggleButtonDebug.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.toggleButtonDebug.Size = new System.Drawing.Size(45, 22);
+            this.toggleButtonDebug.TabIndex = 32;
+            this.toggleButtonDebug.UseVisualStyleBackColor = true;
+            this.toggleButtonDebug.CheckedChanged += new System.EventHandler(this.toggleButtonDebug_CheckedChanged);
             // 
             // GeneralForm
             // 
@@ -668,6 +702,7 @@ namespace DiffPather.Core.Forms
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             this.panelGeneral.ResumeLayout(false);
+            this.panelGeneral.PerformLayout();
             this.flowLayoutPanelButton.ResumeLayout(false);
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
@@ -683,8 +718,8 @@ namespace DiffPather.Core.Forms
             this.panelRangeStat.ResumeLayout(false);
             this.flowLayoutPanelRangeStat.ResumeLayout(false);
             this.flowLayoutPanelRangeStat.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.appInfoBindingSource)).EndInit();
             this.appsContextMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.appInfoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -738,6 +773,8 @@ namespace DiffPather.Core.Forms
         private System.Windows.Forms.ToolStripMenuItem appsEditContexMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem appsRemoveContexMenuItem;
+        private System.Windows.Forms.Label labelInfoDebug;
+        private Wc32Api.Widgets.WcToggleButton toggleButtonDebug;
     }
 }
 

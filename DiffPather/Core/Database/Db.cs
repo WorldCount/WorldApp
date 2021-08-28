@@ -84,6 +84,22 @@ namespace DiffPather.Core.Database
             return await Task.Run(() => UpdateAppInfos(appInfos));
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
+        /// <summary>Удаление приложения</summary>
+        public static void DeleteAppInfo(AppInfo appInfo)
+        {
+            using (DiffPatherContext db = new DiffPatherContext())
+            {
+                db.Remove(appInfo);
+                db.SaveChanges();
+            }
+        }
+
+        /// <summary>Удаление приложения</summary>
+        public static async Task DeleteAppInfoAsync(AppInfo appInfo)
+        {
+            await Task.Run(() => DeleteAppInfo(appInfo));
+        }
         #endregion
 
     }
