@@ -14,5 +14,11 @@
     <Setting Name="DebugMode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="Repository" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Repo</Value>
+    </Setting>
+    <Setting Name="LoggingMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

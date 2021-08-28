@@ -6,8 +6,12 @@ namespace DiffPather.Core.Storage
     public static class PathManager
     {
         // Папки
-        public static readonly string DataDir = Path.Combine(Application.StartupPath, Properties.Settings.Default.DataDir);
+        private static readonly string DataDir = Path.Combine(Application.StartupPath, Properties.Settings.Default.DataDir);
+        // Путь к репозиторию
+        public static readonly string RepoDir = Path.Combine(DataDir, Properties.Settings.Default.Repository);
 
+        // Путь к БД
+        public static readonly string DatabasePath = Path.Combine(DataDir, "database.db");
 
         static PathManager()
         {

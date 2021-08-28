@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using DiffPather.Core.Storage;
 
 namespace DiffPather.Core.Forms
 {
@@ -105,13 +108,15 @@ namespace DiffPather.Core.Forms
                 CenterToScreen();
         }
 
-        private async void GeneralForm_Load(object sender, EventArgs e)
+        private void GeneralForm_Load(object sender, EventArgs e)
         {
-
             LoadPos();
 
             // Чтение аргументов
             CheckArgs();
+
+            // Создание БД
+            CreateDb();
         }
 
         private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -174,5 +179,23 @@ namespace DiffPather.Core.Forms
 
         #endregion
 
+        #region Private Methods
+
+        private void CreateDb()
+        {
+            if (!File.Exists(PathManager.DatabasePath))
+            {
+                CreateDbForm createDbForm = new CreateDbForm();
+                createDbForm.ShowDialog(this);
+            }
+        }
+
+        #endregion
+
+        private void createDbMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateDbForm createDbForm = new CreateDbForm();
+            createDbForm.ShowDialog(this);
+        }
     }
 }

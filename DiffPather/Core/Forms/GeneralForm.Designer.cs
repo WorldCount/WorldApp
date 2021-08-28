@@ -105,6 +105,7 @@ namespace DiffPather.Core.Forms
             this.createDbMenuItem.Name = "createDbMenuItem";
             this.createDbMenuItem.Size = new System.Drawing.Size(205, 24);
             this.createDbMenuItem.Text = "Создать новую БД";
+            this.createDbMenuItem.Click += new System.EventHandler(this.createDbMenuItem_Click);
             // 
             // infosMenuItem
             // 
