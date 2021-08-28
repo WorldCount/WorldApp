@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DiffPather.Core.Database.Models
 {
@@ -12,5 +13,18 @@ namespace DiffPather.Core.Database.Models
         public string Description { get; set; }
 
         public List<AppVersion> Versions { get; set; }
+
+        [NotMapped]
+        public Version Version
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(CurrentVersion))
+                    return new Version(CurrentVersion);
+                return new Version();
+            }
+
+            set => CurrentVersion = value.ToString();
+        }
     }
 }

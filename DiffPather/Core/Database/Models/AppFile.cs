@@ -6,6 +6,7 @@ namespace DiffPather.Core.Database.Models
         public int Id { get; set; }
         public string Location { get; set; }
         public string Name { get; set; }
+        public string Extension { get; set; }
         public string Hash { get; set; }
 
         #region Parent
@@ -15,5 +16,9 @@ namespace DiffPather.Core.Database.Models
         
         #endregion
 
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

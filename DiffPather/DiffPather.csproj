@@ -182,6 +182,12 @@
     <Compile Include="Core\Database\Models\AppInfo.cs" />
     <Compile Include="Core\Database\Models\AppVersion.cs" />
     <Compile Include="Core\Database\Models\AppDescription.cs" />
+    <Compile Include="Core\Forms\AppsForms\AddAppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\AppsForms\AddAppForm.designer.cs">
+      <DependentUpon>AddAppForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Forms\CreateDbForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,15 @@
     <Compile Include="Core\Storage\PathManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\close-window-24.png" />
+    <None Include="Properties\DataSources\DiffPather.Core.Database.Models.AppFile.datasource" />
+    <None Include="Resources\gray-unchecked-32.png" />
+    <None Include="Resources\gray_checked-32.png" />
+    <None Include="Properties\DataSources\DiffPather.Core.Database.Models.AppInfo.datasource" />
+    <None Include="Resources\add-24.png" />
+    <EmbeddedResource Include="Core\Forms\AppsForms\AddAppForm.resx">
+      <DependentUpon>AddAppForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\CreateDbForm.resx">
       <DependentUpon>CreateDbForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +231,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Core\Forms\Settings\FormsPosition.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -248,6 +264,10 @@
     <ProjectReference Include="..\Wc32Api\Wc32Api.csproj">
       <Project>{456cfab9-3ccd-4da7-b73a-9e7cf57225bd}</Project>
       <Name>Wc32Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcApi\WcApi.csproj">
+      <Project>{d02e0c73-a5a1-404c-add8-3115b15594f3}</Project>
+      <Name>WcApi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

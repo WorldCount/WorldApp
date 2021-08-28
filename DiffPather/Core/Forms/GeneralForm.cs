@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DiffPather.Core.Database.Models;
+using DiffPather.Core.Forms.AppsForms;
 using DiffPather.Core.Storage;
+using WcApi.Cryptography;
 
 namespace DiffPather.Core.Forms
 {
@@ -192,10 +197,44 @@ namespace DiffPather.Core.Forms
 
         #endregion
 
+        #region Menu Event
+
         private void createDbMenuItem_Click(object sender, EventArgs e)
         {
             CreateDbForm createDbForm = new CreateDbForm();
             createDbForm.ShowDialog(this);
         }
+
+        #endregion
+
+        #region Button Event
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog {
+                Filter = @"Приложение (*.exe)|*.exe", Multiselect = false, RestoreDirectory = false };
+
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                FileInfo fileInfo = new FileInfo(openFileDialog.FileName);
+                FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(fileInfo.FullName);
+
+                AppInfo appInfo = new AppInfo
+                {
+                    DirectoryLocation = fileInfo.DirectoryName, 
+                    Name = fileInfo.Name.Replace(".exe", ""),
+                    CurrentVersion = versionInfo.FileVersion,
+                    Description = versionInfo.FileDescription
+                };
+
+                AddAppForm addAppForm = new AddAppForm(appInfo);
+                if (addAppForm.ShowDialog(this) == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        #endregion
     }
 }
