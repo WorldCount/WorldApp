@@ -14,7 +14,7 @@ namespace DiffPather.Core.Forms.AppsForms
     {
         #region Private Fields
 
-        private AppInfo _appInfo;
+        private readonly AppInfo _appInfo;
         private AppVersion _version;
         private List<AppFile> _files;
 
@@ -109,10 +109,6 @@ namespace DiffPather.Core.Forms.AppsForms
             }
         }
 
-        private void UpdateData()
-        {
-        }
-
         #endregion
 
         #region Form Event
@@ -127,13 +123,13 @@ namespace DiffPather.Core.Forms.AppsForms
 
         private void AddAppForm_KeyDown(object sender, KeyEventArgs e)
         {
-            //// Нажатие Ctrl + S
-            //if (e.KeyCode == Keys.S && e.Control)
-            //    btnSave.PerformClick();
+            // Нажатие Ctrl + S
+            if (e.KeyCode == Keys.S && e.Control)
+                btnAdd.PerformClick();
 
-            //// Esc
-            //if (e.KeyCode == Keys.Escape)
-            //    btnCancel.PerformClick();
+            // Esc
+            if (e.KeyCode == Keys.Escape)
+                btnCancel.PerformClick();
         }
 
         private void AddAppForm_Paint(object sender, PaintEventArgs e)
