@@ -52,6 +52,7 @@
     <Compile Include="Date\DateUtils.cs" />
     <Compile Include="Ext\ListExt.cs" />
     <Compile Include="Ext\TextExt.cs" />
+    <Compile Include="Files\FindFiles.cs" />
     <Compile Include="Keyboard\Keyboard.cs" />
     <Compile Include="Net\Host.cs" />
     <Compile Include="Net\Ping.cs" />
