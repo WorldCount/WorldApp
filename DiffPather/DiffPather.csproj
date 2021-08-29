@@ -177,9 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Database\Contexts\DatabaseContext.cs" />
-    <Compile Include="Core\Database\Contexts\RepositoryContext.cs" />
     <Compile Include="Core\Database\Db.cs" />
-    <Compile Include="Core\Database\DbRepository.cs" />
     <Compile Include="Core\Database\Models\AppFile.cs" />
     <Compile Include="Core\Database\Models\AppInfo.cs" />
     <Compile Include="Core\Database\Models\AppVersion.cs" />
@@ -212,6 +210,7 @@
       <DependentUpon>FormsPosition.settings</DependentUpon>
     </Compile>
     <Compile Include="Core\Storage\PathManager.cs" />
+    <Compile Include="Core\Storage\RepositoryManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Resources\trash-2-24.png" />

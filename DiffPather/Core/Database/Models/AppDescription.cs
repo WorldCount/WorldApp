@@ -12,6 +12,5 @@ namespace DiffPather.Core.Database.Models
         public AppVersion AppVersion { get; set; }
 
         #endregion
-
     }
 }

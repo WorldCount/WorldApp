@@ -70,6 +70,8 @@ namespace DiffPather.Core.Forms
 
         private async void Work()
         {
+            #region Основная БД
+
             if (File.Exists(PathManager.DatabasePath))
             {
                 try
@@ -98,7 +100,7 @@ namespace DiffPather.Core.Forms
             {
                 try
                 {
-                    _count = 2;
+                    _count = 4;
 
                     SetInfo("Создаю новую БД", 1, _count);
                     await Task.Delay(100);
@@ -114,6 +116,8 @@ namespace DiffPather.Core.Forms
                         Logger.Error(e);
                 }
             }
+
+            #endregion
 
             Close();
         }

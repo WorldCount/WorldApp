@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DiffPather.Core.Database.Contexts;
 using DiffPather.Core.Database.Models;
+using DiffPather.Core.Database.Models.Repository;
+using DiffPather.Core.Storage;
 using WcApi.Cryptography;
 
 namespace DiffPather.Core.Forms.AppsForms
@@ -85,7 +87,7 @@ namespace DiffPather.Core.Forms.AppsForms
                     AppFile appFile = new AppFile
                     {
                         Name = fileInfo.Name,
-                        Location = file.Replace(_appInfo.DirectoryLocation, ""),
+                        Location = file.Replace(_appInfo.DirectoryLocation, "").TrimStart('\\'),
                         Extension = fileInfo.Extension.Replace(".", ""),
                         Hash = Hasher.HashFile(file, HashType.MD5)
                     };
@@ -120,12 +122,14 @@ namespace DiffPather.Core.Forms.AppsForms
             using (DatabaseContext db = new DatabaseContext())
             {
                 await db.AddAsync(_appInfo);
-                await db.SaveChangesAsync();
-            }
 
-            if (toggleRepository.Checked)
-            {
-                //TODO: Сделать копиривание в репозиторий и смену пути
+                if (toggleRepository.Checked)
+                {
+                    RepoAppInfo repoAppInfo = RepositoryManager.CopyInRepository(version);
+                    await db.AddAsync(repoAppInfo);
+                }
+
+                await db.SaveChangesAsync();
             }
         }
 
@@ -175,6 +179,13 @@ namespace DiffPather.Core.Forms.AppsForms
             // Нажатие Ctrl + S
             if (e.KeyCode == Keys.S && e.Control)
                 btnAdd.PerformClick();
+
+            // Нажатие Ctrl + F
+            if (e.KeyCode == Keys.F && e.Control)
+            {
+                tbFilter.Focus();
+                tbFilter.SelectAll();
+            }
 
             // Esc
             if (e.KeyCode == Keys.Escape)

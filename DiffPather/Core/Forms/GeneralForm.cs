@@ -222,6 +222,10 @@ namespace DiffPather.Core.Forms
             }
         }
 
+        #endregion
+
+        #region Datas
+
         private async void LoadApps()
         {
             _appInfos = await Db.GetAppInfosAsync();
@@ -251,11 +255,10 @@ namespace DiffPather.Core.Forms
             {
                 return null;
             }
-            
+
         }
 
         #endregion
-
 
         #endregion
 
