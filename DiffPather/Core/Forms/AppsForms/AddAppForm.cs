@@ -102,7 +102,7 @@ namespace DiffPather.Core.Forms.AppsForms
             AppVersion version = new AppVersion { Version = _appInfo.CurrentVersion, Files = _files };
             _appInfo.Versions = new List<AppVersion> { version };
 
-            using (DiffPatherContext db = new DiffPatherContext())
+            using (DatabaseContext db = new DatabaseContext())
             {
                 await db.AddAsync(_appInfo);
                 await db.SaveChangesAsync();

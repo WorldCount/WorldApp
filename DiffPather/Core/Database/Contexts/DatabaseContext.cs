@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DiffPather.Core.Database.Contexts
 {
-    public class DiffPatherContext : DbContext
+    public class DatabaseContext : DbContext
     {
         public string DbPath { get; } = PathManager.DatabasePath;
 

@@ -40,6 +40,8 @@
             this.uncheckAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelInfo = new System.Windows.Forms.Panel();
             this.reportPanelStat = new System.Windows.Forms.Panel();
+            this.btnCancel = new Wc32Api.Widgets.WcButton();
+            this.btnAdd = new Wc32Api.Widgets.WcButton();
             this.panelAppInfo = new System.Windows.Forms.Panel();
             this.appLocationTextBox = new Wc32Api.Widgets.WcTextBox();
             this.appLocationInfo = new System.Windows.Forms.Label();
@@ -50,13 +52,13 @@
             this.appNameTextBox = new Wc32Api.Widgets.WcTextBox();
             this.appNameInfo = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.filesColumnExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCancel = new Wc32Api.Widgets.WcButton();
-            this.btnAdd = new Wc32Api.Widgets.WcButton();
             this.filesColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filesColumnExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.filesColumnHash = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.filesColumnLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toggleBtnRepository = new Wc32Api.Widgets.WcToggleButton();
+            this.labelInfoReporitory = new System.Windows.Forms.Label();
             this.contextMenu.SuspendLayout();
             this.panelInfo.SuspendLayout();
             this.reportPanelStat.SuspendLayout();
@@ -111,6 +113,8 @@
             // panelInfo
             // 
             this.panelInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelInfo.Controls.Add(this.labelInfoReporitory);
+            this.panelInfo.Controls.Add(this.toggleBtnRepository);
             this.panelInfo.Controls.Add(this.labelInfo);
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInfo.ForeColor = System.Drawing.Color.Orange;
@@ -130,6 +134,65 @@
             this.reportPanelStat.Name = "reportPanelStat";
             this.reportPanelStat.Size = new System.Drawing.Size(884, 59);
             this.reportPanelStat.TabIndex = 20;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.Firebrick;
+            this.btnCancel.BorderColor = System.Drawing.Color.Silver;
+            this.btnCancel.BorderRadius = 4F;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnCancel.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Image = global::DiffPather.Properties.Resources.close_window_24;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(626, 6);
+            this.btnCancel.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnCancel.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnCancel.Size = new System.Drawing.Size(120, 46);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Отменить";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAdd.BorderColor = System.Drawing.Color.Silver;
+            this.btnAdd.BorderRadius = 4F;
+            this.btnAdd.BorderSize = 0;
+            this.btnAdd.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnAdd.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = global::DiffPather.Properties.Resources.add_24;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(752, 6);
+            this.btnAdd.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnAdd.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnAdd.Size = new System.Drawing.Size(120, 46);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Добавить";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.TextColor = System.Drawing.Color.White;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panelAppInfo
             // 
@@ -363,78 +426,19 @@
             this.dataGridView.TabIndex = 0;
             this.dataGridView.TabStop = false;
             // 
-            // filesColumnExtension
-            // 
-            this.filesColumnExtension.DataPropertyName = "Extension";
-            this.filesColumnExtension.HeaderText = "Ext";
-            this.filesColumnExtension.Name = "filesColumnExtension";
-            this.filesColumnExtension.ReadOnly = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.Firebrick;
-            this.btnCancel.BorderColor = System.Drawing.Color.Silver;
-            this.btnCancel.BorderRadius = 4F;
-            this.btnCancel.BorderSize = 0;
-            this.btnCancel.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnCancel.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Image = global::DiffPather.Properties.Resources.close_window_24;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(626, 6);
-            this.btnCancel.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnCancel.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnCancel.Size = new System.Drawing.Size(120, 46);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Отменить";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.TextColor = System.Drawing.Color.White;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAdd.BorderColor = System.Drawing.Color.Silver;
-            this.btnAdd.BorderRadius = 4F;
-            this.btnAdd.BorderSize = 0;
-            this.btnAdd.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnAdd.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Image = global::DiffPather.Properties.Resources.add_24;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(752, 6);
-            this.btnAdd.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnAdd.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnAdd.Size = new System.Drawing.Size(120, 46);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Добавить";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.TextColor = System.Drawing.Color.White;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // filesColumnName
             // 
             this.filesColumnName.DataPropertyName = "Name";
             this.filesColumnName.HeaderText = "Имя";
             this.filesColumnName.Name = "filesColumnName";
             this.filesColumnName.ReadOnly = true;
+            // 
+            // filesColumnExtension
+            // 
+            this.filesColumnExtension.DataPropertyName = "Extension";
+            this.filesColumnExtension.HeaderText = "Ext";
+            this.filesColumnExtension.Name = "filesColumnExtension";
+            this.filesColumnExtension.ReadOnly = true;
             // 
             // filesColumnHash
             // 
@@ -453,6 +457,38 @@
             // appFileBindingSource
             // 
             this.appFileBindingSource.DataSource = typeof(DiffPather.Core.Database.Models.AppFile);
+            // 
+            // toggleBtnRepository
+            // 
+            this.toggleBtnRepository.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.toggleBtnRepository.AutoSize = true;
+            this.toggleBtnRepository.Checked = true;
+            this.toggleBtnRepository.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toggleBtnRepository.DisableBackColor = System.Drawing.Color.DimGray;
+            this.toggleBtnRepository.DisableToggleColor = System.Drawing.Color.Gray;
+            this.toggleBtnRepository.Location = new System.Drawing.Point(826, 15);
+            this.toggleBtnRepository.MinimumSize = new System.Drawing.Size(45, 22);
+            this.toggleBtnRepository.Name = "toggleBtnRepository";
+            this.toggleBtnRepository.OffBackColor = System.Drawing.Color.Firebrick;
+            this.toggleBtnRepository.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.toggleBtnRepository.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.toggleBtnRepository.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.toggleBtnRepository.Size = new System.Drawing.Size(45, 22);
+            this.toggleBtnRepository.TabIndex = 1;
+            this.toggleBtnRepository.UseVisualStyleBackColor = true;
+            // 
+            // labelInfoReporitory
+            // 
+            this.labelInfoReporitory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelInfoReporitory.AutoSize = true;
+            this.labelInfoReporitory.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInfoReporitory.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelInfoReporitory.Location = new System.Drawing.Point(702, 16);
+            this.labelInfoReporitory.Margin = new System.Windows.Forms.Padding(0, 6, 2, 0);
+            this.labelInfoReporitory.Name = "labelInfoReporitory";
+            this.labelInfoReporitory.Size = new System.Drawing.Size(119, 20);
+            this.labelInfoReporitory.TabIndex = 31;
+            this.labelInfoReporitory.Text = "В репозиторий:";
             // 
             // AddAppForm
             // 
@@ -513,5 +549,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn filesColumnExtension;
         private System.Windows.Forms.DataGridViewTextBoxColumn filesColumnHash;
         private System.Windows.Forms.DataGridViewTextBoxColumn filesColumnLocation;
+        private Wc32Api.Widgets.WcToggleButton toggleBtnRepository;
+        private System.Windows.Forms.Label labelInfoReporitory;
     }
 }

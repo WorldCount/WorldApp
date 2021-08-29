@@ -199,7 +199,7 @@ namespace DiffPather.Core.Forms
         {
             await Task.Run(() =>
             {
-                using (DiffPatherContext db = new DiffPatherContext())
+                using (DatabaseContext db = new DatabaseContext())
                 {
                     try
                     {

@@ -176,12 +176,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Database\Contexts\DiffPatherContext.cs" />
+    <Compile Include="Core\Database\Contexts\DatabaseContext.cs" />
+    <Compile Include="Core\Database\Contexts\RepositoryContext.cs" />
     <Compile Include="Core\Database\Db.cs" />
+    <Compile Include="Core\Database\DbRepository.cs" />
     <Compile Include="Core\Database\Models\AppFile.cs" />
     <Compile Include="Core\Database\Models\AppInfo.cs" />
     <Compile Include="Core\Database\Models\AppVersion.cs" />
     <Compile Include="Core\Database\Models\AppDescription.cs" />
+    <Compile Include="Core\Database\Models\Repository\RepoAppDescription.cs" />
+    <Compile Include="Core\Database\Models\Repository\RepoAppFile.cs" />
+    <Compile Include="Core\Database\Models\Repository\RepoAppInfo.cs" />
+    <Compile Include="Core\Database\Models\Repository\RepoAppVersion.cs" />
     <Compile Include="Core\Forms\AppsForms\AddAppForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,9 +271,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\Database\Models\Types\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Wc32Api\Wc32Api.csproj">
       <Project>{456cfab9-3ccd-4da7-b73a-9e7cf57225bd}</Project>

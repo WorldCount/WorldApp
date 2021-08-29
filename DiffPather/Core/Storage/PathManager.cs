@@ -12,11 +12,16 @@ namespace DiffPather.Core.Storage
 
         // Путь к БД
         public static readonly string DatabasePath = Path.Combine(DataDir, "database.db");
+        // Путь к БД репозитория
+        public static readonly string RepoDatabasePath = Path.Combine(DataDir, "repository.db");
 
         static PathManager()
         {
-            if (!File.Exists(DataDir))
+            if (!Directory.Exists(DataDir))
                 Directory.CreateDirectory(DataDir);
+
+            if (!Directory.Exists(RepoDir))
+                Directory.Exists(RepoDir);
         }
     }
 }

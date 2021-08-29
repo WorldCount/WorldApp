@@ -2,40 +2,39 @@
 using System.Linq;
 using System.Threading.Tasks;
 using DiffPather.Core.Database.Contexts;
-using DiffPather.Core.Database.Models;
+using DiffPather.Core.Database.Models.Repository;
 
 namespace DiffPather.Core.Database
 {
-    public static class Db
+    public static class DbRepository
     {
-
         #region Database
 
         /// <summary>Удаление БД</summary>
         public static bool DeleteDb()
         {
-            using (DatabaseContext db = new DatabaseContext())
+            using (RepositoryContext db = new RepositoryContext())
                 return db.Database.EnsureDeleted();
         }
 
         /// <summary>Удаление БД</summary>
         public static async Task<bool> DeleteDbAsync()
         {
-            using (DatabaseContext db = new DatabaseContext())
+            using (RepositoryContext db = new RepositoryContext())
                 return await db.Database.EnsureDeletedAsync();
         }
 
         /// <summary>Создание БД</summary>
         public static bool CreateDb()
         {
-            using (DatabaseContext db = new DatabaseContext())
+            using (RepositoryContext db = new RepositoryContext())
                 return db.Database.EnsureCreated();
         }
 
         /// <summary>Создание БД</summary>
         public static async Task<bool> CreateDbAsync()
         {
-            using (DatabaseContext db = new DatabaseContext())
+            using (RepositoryContext db = new RepositoryContext())
                 return await db.Database.EnsureCreatedAsync();
         }
 
@@ -45,25 +44,25 @@ namespace DiffPather.Core.Database
 
         // ReSharper disable once MemberCanBePrivate.Global
         /// <summary>Список всех приложений</summary>
-        public static List<AppInfo> GetAppInfos()
+        public static List<RepoAppInfo> GetAppInfos()
         {
-            using (DatabaseContext db = new DatabaseContext())
+            using (RepositoryContext db = new RepositoryContext())
                 return db.AppInfos.ToList();
         }
 
         /// <summary>Список всех приложений</summary>
-        public static async Task<List<AppInfo>> GetAppInfosAsync()
+        public static async Task<List<RepoAppInfo>> GetAppInfosAsync()
         {
             return await Task.Run(GetAppInfos);
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
         /// <summary>Обновляет данные о приложениях</summary>
-        public static bool UpdateAppInfos(List<AppInfo> appInfos)
+        public static bool UpdateAppInfos(List<RepoAppInfo> appInfos)
         {
             try
             {
-                using (DatabaseContext db = new DatabaseContext())
+                using (RepositoryContext db = new RepositoryContext())
                 {
                     db.UpdateRange(appInfos);
                     db.SaveChanges();
@@ -78,16 +77,16 @@ namespace DiffPather.Core.Database
         }
 
         /// <summary>Обновляет данные о приложениях</summary>
-        public static async Task<bool> UpdateAppInfosAsync(List<AppInfo> appInfos)
+        public static async Task<bool> UpdateAppInfosAsync(List<RepoAppInfo> appInfos)
         {
             return await Task.Run(() => UpdateAppInfos(appInfos));
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
         /// <summary>Удаление приложения</summary>
-        public static void DeleteAppInfo(AppInfo appInfo)
+        public static void DeleteAppInfo(RepoAppInfo appInfo)
         {
-            using (DatabaseContext db = new DatabaseContext())
+            using (RepositoryContext db = new RepositoryContext())
             {
                 db.Remove(appInfo);
                 db.SaveChanges();
@@ -95,11 +94,10 @@ namespace DiffPather.Core.Database
         }
 
         /// <summary>Удаление приложения</summary>
-        public static async Task DeleteAppInfoAsync(AppInfo appInfo)
+        public static async Task DeleteAppInfoAsync(RepoAppInfo appInfo)
         {
             await Task.Run(() => DeleteAppInfo(appInfo));
         }
         #endregion
-
     }
 }
