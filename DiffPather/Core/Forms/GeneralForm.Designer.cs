@@ -59,11 +59,6 @@ namespace DiffPather.Core.Forms
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabApps = new System.Windows.Forms.TabPage();
             this.appsDataGridView = new System.Windows.Forms.DataGridView();
-            this.appsColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appsColumnCurrentVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appsColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appsColumnDirectoryLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelApps = new System.Windows.Forms.Panel();
             this.btnUpdateApps = new Wc32Api.Widgets.WcButton();
             this.flowLayoutPanelApps = new System.Windows.Forms.FlowLayoutPanel();
@@ -92,6 +87,11 @@ namespace DiffPather.Core.Forms
             this.btnUpdateVersions = new Wc32Api.Widgets.WcButton();
             this.flowLayoutPanelVersions = new System.Windows.Forms.FlowLayoutPanel();
             this.versionsDataGridView = new System.Windows.Forms.DataGridView();
+            this.appsColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appsColumnCurrentVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appsColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appsColumnDirectoryLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.flowLayoutPanelButton.SuspendLayout();
@@ -99,7 +99,6 @@ namespace DiffPather.Core.Forms
             this.tabControl.SuspendLayout();
             this.tabApps.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appInfoBindingSource)).BeginInit();
             this.panelApps.SuspendLayout();
             this.barcodePanelStat.SuspendLayout();
             this.flowLayoutPanelBarcodeStat.SuspendLayout();
@@ -111,6 +110,7 @@ namespace DiffPather.Core.Forms
             this.tabVersions.SuspendLayout();
             this.panelVersions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.versionsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appInfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBar
@@ -381,37 +381,6 @@ namespace DiffPather.Core.Forms
             this.appsDataGridView.TabStop = false;
             this.appsDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.appsDataGridView_CellEndEdit);
             this.appsDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.appsDataGridView_MouseClick);
-            // 
-            // appsColumnName
-            // 
-            this.appsColumnName.DataPropertyName = "Name";
-            this.appsColumnName.HeaderText = "Название";
-            this.appsColumnName.Name = "appsColumnName";
-            this.appsColumnName.ReadOnly = true;
-            // 
-            // appsColumnCurrentVersion
-            // 
-            this.appsColumnCurrentVersion.DataPropertyName = "CurrentVersion";
-            this.appsColumnCurrentVersion.HeaderText = "Версия";
-            this.appsColumnCurrentVersion.Name = "appsColumnCurrentVersion";
-            this.appsColumnCurrentVersion.ReadOnly = true;
-            // 
-            // appsColumnDescription
-            // 
-            this.appsColumnDescription.DataPropertyName = "Description";
-            this.appsColumnDescription.HeaderText = "Описание";
-            this.appsColumnDescription.Name = "appsColumnDescription";
-            // 
-            // appsColumnDirectoryLocation
-            // 
-            this.appsColumnDirectoryLocation.DataPropertyName = "DirectoryLocation";
-            this.appsColumnDirectoryLocation.HeaderText = "Место";
-            this.appsColumnDirectoryLocation.Name = "appsColumnDirectoryLocation";
-            this.appsColumnDirectoryLocation.ReadOnly = true;
-            // 
-            // appInfoBindingSource
-            // 
-            this.appInfoBindingSource.DataSource = typeof(DiffPather.Core.Database.Models.AppInfo);
             // 
             // panelApps
             // 
@@ -800,6 +769,37 @@ namespace DiffPather.Core.Forms
             this.versionsDataGridView.TabIndex = 7;
             this.versionsDataGridView.TabStop = false;
             // 
+            // appsColumnName
+            // 
+            this.appsColumnName.DataPropertyName = "Name";
+            this.appsColumnName.HeaderText = "Название";
+            this.appsColumnName.Name = "appsColumnName";
+            this.appsColumnName.ReadOnly = true;
+            // 
+            // appsColumnCurrentVersion
+            // 
+            this.appsColumnCurrentVersion.DataPropertyName = "CurrentVersion";
+            this.appsColumnCurrentVersion.HeaderText = "Версия";
+            this.appsColumnCurrentVersion.Name = "appsColumnCurrentVersion";
+            this.appsColumnCurrentVersion.ReadOnly = true;
+            // 
+            // appsColumnDescription
+            // 
+            this.appsColumnDescription.DataPropertyName = "Description";
+            this.appsColumnDescription.HeaderText = "Описание";
+            this.appsColumnDescription.Name = "appsColumnDescription";
+            // 
+            // appsColumnDirectoryLocation
+            // 
+            this.appsColumnDirectoryLocation.DataPropertyName = "DirectoryLocation";
+            this.appsColumnDirectoryLocation.HeaderText = "Место";
+            this.appsColumnDirectoryLocation.Name = "appsColumnDirectoryLocation";
+            this.appsColumnDirectoryLocation.ReadOnly = true;
+            // 
+            // appInfoBindingSource
+            // 
+            this.appInfoBindingSource.DataSource = typeof(DiffPather.Core.Database.Models.AppInfo);
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -828,7 +828,6 @@ namespace DiffPather.Core.Forms
             this.tabControl.ResumeLayout(false);
             this.tabApps.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.appsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appInfoBindingSource)).EndInit();
             this.panelApps.ResumeLayout(false);
             this.barcodePanelStat.ResumeLayout(false);
             this.flowLayoutPanelBarcodeStat.ResumeLayout(false);
@@ -842,6 +841,7 @@ namespace DiffPather.Core.Forms
             this.tabVersions.ResumeLayout(false);
             this.panelVersions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.versionsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appInfoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DiffPather.Core.Database.Contexts;
@@ -15,8 +16,8 @@ namespace DiffPather.Core.Forms.AppsForms
         #region Private Fields
 
         private readonly AppInfo _appInfo;
-        private AppVersion _version;
         private List<AppFile> _files;
+        private bool _checkFlag = true;
 
         #endregion
 
@@ -39,6 +40,12 @@ namespace DiffPather.Core.Forms.AppsForms
 
         private void InitTable()
         {
+
+            filesColumnChecked.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            filesColumnChecked.Width = 40;
+            filesColumnChecked.CellTemplate.Style.BackColor = Color.FromArgb(53, 56, 58);
+            filesColumnChecked.CellTemplate.Style.SelectionBackColor = Color.FromArgb(53, 56, 58);
+
             filesColumnName.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             filesColumnName.Width = 300;
 
@@ -97,9 +104,17 @@ namespace DiffPather.Core.Forms.AppsForms
             return await Task.Run(LoadFiles);
         }
 
+        private void UpdateData()
+        {
+            appFileBindingSource.DataSource = null;
+            appFileBindingSource.DataSource = _files;
+            lblCount.Text = $"{_files.Count} шт";
+        }
+
         private async void SaveData()
         {
-            AppVersion version = new AppVersion { Version = _appInfo.CurrentVersion, Files = _files };
+            List<AppFile> files = _files.Where(f => f.Checked).ToList();
+            AppVersion version = new AppVersion { Version = _appInfo.CurrentVersion, Files = files };
             _appInfo.Versions = new List<AppVersion> { version };
 
             using (DatabaseContext db = new DatabaseContext())
@@ -107,6 +122,41 @@ namespace DiffPather.Core.Forms.AppsForms
                 await db.AddAsync(_appInfo);
                 await db.SaveChangesAsync();
             }
+
+            if (toggleRepository.Checked)
+            {
+                //TODO: Сделать копиривание в репозиторий и смену пути
+            }
+        }
+
+        private AppFile GetAppByRowIndex(int rowIndex)
+        {
+            List<AppFile> appFiles = (List<AppFile>) appFileBindingSource.DataSource;
+
+            try
+            {
+                if (appFiles != null && appFiles.Count > 0)
+                {
+                    return appFiles[rowIndex];
+                }
+            }
+            catch
+            {
+                return null;
+            }
+
+            return null;
+        }
+
+        private void CheckUncheckAllFiles(bool check)
+        {
+            if(_files == null)
+                return;
+
+            foreach (AppFile appFile in _files)
+                appFile.Checked = check;
+
+            _checkFlag = check;
         }
 
         #endregion
@@ -115,10 +165,9 @@ namespace DiffPather.Core.Forms.AppsForms
 
         private async void AddAppForm_Load(object sender, EventArgs e)
         {
-            _files = await LoadFilesAsync();
             BindingData();
-            appFileBindingSource.DataSource = null;
-            appFileBindingSource.DataSource = _files;
+            _files = await LoadFilesAsync();
+            UpdateData();
         }
 
         private void AddAppForm_KeyDown(object sender, KeyEventArgs e)
@@ -132,14 +181,9 @@ namespace DiffPather.Core.Forms.AppsForms
                 btnCancel.PerformClick();
         }
 
-        private void AddAppForm_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void AddAppForm_SizeChanged(object sender, EventArgs e)
         {
-            //tbFilter.Refresh();
+            tbFilter.Refresh();
         }
 
         #endregion
@@ -151,17 +195,17 @@ namespace DiffPather.Core.Forms.AppsForms
             var grid = (DataGridView)sender;
             var sortIconColor = Color.Gray;
 
-            //if (e.ColumnIndex == checkDataGridViewCheckBoxColumn.Index && e.RowIndex != -1)
-            //{
-            //    bool value = (bool)e.FormattedValue;
-            //    e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
-            //    Bitmap img = value ? Properties.Resources.gray_checked_32 : Properties.Resources.gray_unchecked_32;
-            //    Size size = img.Size;
-            //    Point loc = new Point((e.CellBounds.Width - size.Width) / 2, (e.CellBounds.Height - size.Height) / 2);
-            //    loc.Offset(e.CellBounds.Location);
-            //    e.Graphics.DrawImage(img, loc);
-            //    e.Handled = true;
-            //}
+            if (e.ColumnIndex == filesColumnChecked.Index && e.RowIndex != -1)
+            {
+                bool value = (bool)e.FormattedValue;
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
+                Bitmap img = value ? Properties.Resources.gray_checked_32 : Properties.Resources.gray_unchecked_32;
+                Size size = img.Size;
+                Point loc = new Point((e.CellBounds.Width - size.Width) / 2, (e.CellBounds.Height - size.Height) / 2);
+                loc.Offset(e.CellBounds.Location);
+                e.Graphics.DrawImage(img, loc);
+                e.Handled = true;
+            }
 
             // Отрисовка флага сортировки
             if (e.RowIndex == -1 && e.ColumnIndex > -1)
@@ -182,47 +226,46 @@ namespace DiffPather.Core.Forms.AppsForms
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.ColumnIndex == checkDataGridViewCheckBoxColumn.Index && e.RowIndex >= 0)
-            //{
-            //    Firm firm = GetFirmByRowIndex(e.RowIndex);
+            if (e.ColumnIndex == filesColumnChecked.Index && e.RowIndex >= 0)
+            {
+                AppFile appFile = GetAppByRowIndex(e.RowIndex);
 
-            //    if (firm != null)
-            //    {
-            //        firm.Check = !firm.Check;
-            //        UpdateDeleteButton();
-            //    }
-            //}
+                if (appFile != null)
+                {
+                    appFile.Checked = !appFile.Checked;
+                }
+            }
         }
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.ColumnIndex == checkDataGridViewCheckBoxColumn.Index && e.RowIndex != -1)
-            //{
-            //    Firm firm = GetFirmByRowIndex(e.RowIndex);
+            if (e.ColumnIndex == filesColumnChecked.Index && e.RowIndex >= 0)
+            {
+                AppFile appFile = GetAppByRowIndex(e.RowIndex);
 
-            //    if (firm != null)
-            //    {
-            //        firm.Check = !firm.Check;
-            //        UpdateDeleteButton();
-            //    }
-            //}
+                if (appFile != null)
+                {
+                    appFile.Checked = !appFile.Checked;
+                }
+            }
         }
 
         private void dataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //if (e.ColumnIndex == checkDataGridViewCheckBoxColumn.Index && e.RowIndex != -1)
-            //{
-            //    dataGridView.EndEdit();
-            //}
+            if (e.ColumnIndex == filesColumnChecked.Index && e.RowIndex != -1)
+            {
+                dataGridView.EndEdit();
+            }
         }
 
         private void dataGridView_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //if (e.ColumnIndex == checkDataGridViewCheckBoxColumn.Index)
-            //{
-            //    CheckReverse();
-            //    dataGridView.EndEdit();
-            //}
+            if (e.ColumnIndex == filesColumnChecked.Index)
+            {
+                CheckUncheckAllFiles(!_checkFlag);
+                dataGridView.EndEdit();
+                UpdateData();
+            }
         }
 
         #endregion
@@ -234,30 +277,37 @@ namespace DiffPather.Core.Forms.AppsForms
             WcApi.Keyboard.Keyboard.SetRussianLanguage();
         }
 
+        private void tbFilter__TextChanged(object sender, EventArgs e)
+        {
+            string q = tbFilter.Text.ToUpper();
+
+            if (!string.IsNullOrEmpty(q))
+            {
+                List<AppFile> filtered = _files.Where(f => f.Name.ToUpper().Contains(q) ||
+                                                           f.Extension.ToUpper().Contains(q) ||
+                                                           f.Location.ToUpper().Contains(q)).ToList();
+                appFileBindingSource.DataSource = filtered;
+                lblCount.Text = $"{filtered.Count} шт";
+            }
+            else
+            {
+                UpdateData();
+            }
+        }
         #endregion
 
         #region ContextMenu Event
 
         private void checkAllMenuItem_Click(object sender, EventArgs e)
         {
-            //foreach (Firm firm in _firms)
-            //{
-            //    firm.Check = true;
-            //}
-
-            //UpdateDeleteButton();
-            //UpdateData();
+            CheckUncheckAllFiles(true);
+            UpdateData();
         }
 
         private void uncheckAllMenuItem_Click(object sender, EventArgs e)
         {
-            //foreach (Firm firm in _firms)
-            //{
-            //    firm.Check = false;
-            //}
-
-            //UpdateDeleteButton();
-            //UpdateData();
+            CheckUncheckAllFiles(false);
+            UpdateData();
         }
 
         #endregion

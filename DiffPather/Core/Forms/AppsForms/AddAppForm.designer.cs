@@ -39,10 +39,17 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.uncheckAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelInfo = new System.Windows.Forms.Panel();
+            this.lblInfoReporitory = new System.Windows.Forms.Label();
+            this.toggleRepository = new Wc32Api.Widgets.WcToggleButton();
             this.reportPanelStat = new System.Windows.Forms.Panel();
+            this.lblInfoCount = new System.Windows.Forms.Label();
+            this.lblCount = new System.Windows.Forms.Label();
             this.btnCancel = new Wc32Api.Widgets.WcButton();
             this.btnAdd = new Wc32Api.Widgets.WcButton();
             this.panelAppInfo = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelFilter = new System.Windows.Forms.FlowLayoutPanel();
+            this.tbFilter = new Wc32Api.Widgets.WcTextBox();
+            this.lblFilter = new System.Windows.Forms.Label();
             this.appLocationTextBox = new Wc32Api.Widgets.WcTextBox();
             this.appLocationInfo = new System.Windows.Forms.Label();
             this.appDescriptionTextBox = new Wc32Api.Widgets.WcTextBox();
@@ -52,17 +59,17 @@
             this.appNameTextBox = new Wc32Api.Widgets.WcTextBox();
             this.appNameInfo = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.filesColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filesColumnChecked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.filesColumnExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filesColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.filesColumnHash = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.filesColumnLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toggleBtnRepository = new Wc32Api.Widgets.WcToggleButton();
-            this.labelInfoReporitory = new System.Windows.Forms.Label();
             this.contextMenu.SuspendLayout();
             this.panelInfo.SuspendLayout();
             this.reportPanelStat.SuspendLayout();
             this.panelAppInfo.SuspendLayout();
+            this.flowLayoutPanelFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appFileBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -113,8 +120,8 @@
             // panelInfo
             // 
             this.panelInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelInfo.Controls.Add(this.labelInfoReporitory);
-            this.panelInfo.Controls.Add(this.toggleBtnRepository);
+            this.panelInfo.Controls.Add(this.lblInfoReporitory);
+            this.panelInfo.Controls.Add(this.toggleRepository);
             this.panelInfo.Controls.Add(this.labelInfo);
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInfo.ForeColor = System.Drawing.Color.Orange;
@@ -123,9 +130,43 @@
             this.panelInfo.Size = new System.Drawing.Size(884, 52);
             this.panelInfo.TabIndex = 19;
             // 
+            // lblInfoReporitory
+            // 
+            this.lblInfoReporitory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblInfoReporitory.AutoSize = true;
+            this.lblInfoReporitory.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoReporitory.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblInfoReporitory.Location = new System.Drawing.Point(702, 16);
+            this.lblInfoReporitory.Margin = new System.Windows.Forms.Padding(0, 6, 2, 0);
+            this.lblInfoReporitory.Name = "lblInfoReporitory";
+            this.lblInfoReporitory.Size = new System.Drawing.Size(119, 20);
+            this.lblInfoReporitory.TabIndex = 31;
+            this.lblInfoReporitory.Text = "В репозиторий:";
+            // 
+            // toggleRepository
+            // 
+            this.toggleRepository.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.toggleRepository.AutoSize = true;
+            this.toggleRepository.Checked = true;
+            this.toggleRepository.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toggleRepository.DisableBackColor = System.Drawing.Color.DimGray;
+            this.toggleRepository.DisableToggleColor = System.Drawing.Color.Gray;
+            this.toggleRepository.Location = new System.Drawing.Point(826, 15);
+            this.toggleRepository.MinimumSize = new System.Drawing.Size(45, 22);
+            this.toggleRepository.Name = "toggleRepository";
+            this.toggleRepository.OffBackColor = System.Drawing.Color.Firebrick;
+            this.toggleRepository.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.toggleRepository.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.toggleRepository.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.toggleRepository.Size = new System.Drawing.Size(45, 22);
+            this.toggleRepository.TabIndex = 1;
+            this.toggleRepository.UseVisualStyleBackColor = true;
+            // 
             // reportPanelStat
             // 
             this.reportPanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.reportPanelStat.Controls.Add(this.lblInfoCount);
+            this.reportPanelStat.Controls.Add(this.lblCount);
             this.reportPanelStat.Controls.Add(this.btnCancel);
             this.reportPanelStat.Controls.Add(this.btnAdd);
             this.reportPanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -134,6 +175,28 @@
             this.reportPanelStat.Name = "reportPanelStat";
             this.reportPanelStat.Size = new System.Drawing.Size(884, 59);
             this.reportPanelStat.TabIndex = 20;
+            // 
+            // lblInfoCount
+            // 
+            this.lblInfoCount.AutoSize = true;
+            this.lblInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoCount.Location = new System.Drawing.Point(24, 19);
+            this.lblInfoCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.lblInfoCount.Name = "lblInfoCount";
+            this.lblInfoCount.Size = new System.Drawing.Size(52, 20);
+            this.lblInfoCount.TabIndex = 5;
+            this.lblInfoCount.Text = "Всего:";
+            // 
+            // lblCount
+            // 
+            this.lblCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblCount.Location = new System.Drawing.Point(82, 19);
+            this.lblCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(90, 22);
+            this.lblCount.TabIndex = 6;
+            this.lblCount.Text = "0";
             // 
             // btnCancel
             // 
@@ -197,6 +260,7 @@
             // panelAppInfo
             // 
             this.panelAppInfo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelAppInfo.Controls.Add(this.flowLayoutPanelFilter);
             this.panelAppInfo.Controls.Add(this.appLocationTextBox);
             this.panelAppInfo.Controls.Add(this.appLocationInfo);
             this.panelAppInfo.Controls.Add(this.appDescriptionTextBox);
@@ -208,8 +272,62 @@
             this.panelAppInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAppInfo.Location = new System.Drawing.Point(0, 52);
             this.panelAppInfo.Name = "panelAppInfo";
-            this.panelAppInfo.Size = new System.Drawing.Size(884, 150);
+            this.panelAppInfo.Size = new System.Drawing.Size(884, 193);
             this.panelAppInfo.TabIndex = 21;
+            // 
+            // flowLayoutPanelFilter
+            // 
+            this.flowLayoutPanelFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelFilter.Controls.Add(this.tbFilter);
+            this.flowLayoutPanelFilter.Controls.Add(this.lblFilter);
+            this.flowLayoutPanelFilter.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanelFilter.Location = new System.Drawing.Point(28, 136);
+            this.flowLayoutPanelFilter.Name = "flowLayoutPanelFilter";
+            this.flowLayoutPanelFilter.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.flowLayoutPanelFilter.Size = new System.Drawing.Size(843, 49);
+            this.flowLayoutPanelFilter.TabIndex = 35;
+            // 
+            // tbFilter
+            // 
+            this.tbFilter.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbFilter.BorderColor = System.Drawing.Color.SeaGreen;
+            this.tbFilter.BorderFocusColor = System.Drawing.Color.Firebrick;
+            this.tbFilter.BorderSize = 2;
+            this.tbFilter.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbFilter.DisableBackColor = System.Drawing.Color.DarkGray;
+            this.tbFilter.DisableBorderColor = System.Drawing.Color.DimGray;
+            this.tbFilter.DisableForeColor = System.Drawing.Color.DimGray;
+            this.tbFilter.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.tbFilter.Location = new System.Drawing.Point(529, 5);
+            this.tbFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 4);
+            this.tbFilter.MaxLength = 32767;
+            this.tbFilter.Multiline = false;
+            this.tbFilter.Name = "tbFilter";
+            this.tbFilter.Padding = new System.Windows.Forms.Padding(7);
+            this.tbFilter.PasswordChar = '\0';
+            this.tbFilter.ReadOnly = false;
+            this.tbFilter.Size = new System.Drawing.Size(310, 40);
+            this.tbFilter.TabIndex = 0;
+            this.tbFilter.TabStop = false;
+            this.tbFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbFilter.UnderlinedStyle = true;
+            this.tbFilter.UsePasswordChar = false;
+            this.tbFilter._TextChanged += new System.EventHandler(this.tbFilter__TextChanged);
+            this.tbFilter.Enter += new System.EventHandler(this.tbFilter_Enter);
+            // 
+            // lblFilter
+            // 
+            this.lblFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
+            this.lblFilter.Location = new System.Drawing.Point(452, 5);
+            this.lblFilter.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(70, 40);
+            this.lblFilter.TabIndex = 34;
+            this.lblFilter.Text = "Фильтр:";
+            this.lblFilter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // appLocationTextBox
             // 
@@ -390,10 +508,12 @@
             this.dataGridView.ColumnHeadersHeight = 40;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.filesColumnChecked,
             this.filesColumnName,
             this.filesColumnExtension,
             this.filesColumnHash,
             this.filesColumnLocation});
+            this.dataGridView.ContextMenuStrip = this.contextMenu;
             this.dataGridView.DataSource = this.appFileBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -406,7 +526,7 @@
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.dataGridView.Location = new System.Drawing.Point(0, 202);
+            this.dataGridView.Location = new System.Drawing.Point(0, 245);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.dataGridView.Name = "dataGridView";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -422,16 +542,21 @@
             this.dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView.RowTemplate.Height = 40;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView.Size = new System.Drawing.Size(884, 266);
+            this.dataGridView.Size = new System.Drawing.Size(884, 223);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.TabStop = false;
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            this.dataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseUp);
+            this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.dataGridView.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_ColumnHeaderMouseClick);
             // 
-            // filesColumnName
+            // filesColumnChecked
             // 
-            this.filesColumnName.DataPropertyName = "Name";
-            this.filesColumnName.HeaderText = "Имя";
-            this.filesColumnName.Name = "filesColumnName";
-            this.filesColumnName.ReadOnly = true;
+            this.filesColumnChecked.DataPropertyName = "Checked";
+            this.filesColumnChecked.HeaderText = "Отм";
+            this.filesColumnChecked.Name = "filesColumnChecked";
+            this.filesColumnChecked.ReadOnly = true;
             // 
             // filesColumnExtension
             // 
@@ -439,6 +564,13 @@
             this.filesColumnExtension.HeaderText = "Ext";
             this.filesColumnExtension.Name = "filesColumnExtension";
             this.filesColumnExtension.ReadOnly = true;
+            // 
+            // filesColumnName
+            // 
+            this.filesColumnName.DataPropertyName = "Name";
+            this.filesColumnName.HeaderText = "Имя";
+            this.filesColumnName.Name = "filesColumnName";
+            this.filesColumnName.ReadOnly = true;
             // 
             // filesColumnHash
             // 
@@ -457,38 +589,6 @@
             // appFileBindingSource
             // 
             this.appFileBindingSource.DataSource = typeof(DiffPather.Core.Database.Models.AppFile);
-            // 
-            // toggleBtnRepository
-            // 
-            this.toggleBtnRepository.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.toggleBtnRepository.AutoSize = true;
-            this.toggleBtnRepository.Checked = true;
-            this.toggleBtnRepository.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toggleBtnRepository.DisableBackColor = System.Drawing.Color.DimGray;
-            this.toggleBtnRepository.DisableToggleColor = System.Drawing.Color.Gray;
-            this.toggleBtnRepository.Location = new System.Drawing.Point(826, 15);
-            this.toggleBtnRepository.MinimumSize = new System.Drawing.Size(45, 22);
-            this.toggleBtnRepository.Name = "toggleBtnRepository";
-            this.toggleBtnRepository.OffBackColor = System.Drawing.Color.Firebrick;
-            this.toggleBtnRepository.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.toggleBtnRepository.OnBackColor = System.Drawing.Color.SeaGreen;
-            this.toggleBtnRepository.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.toggleBtnRepository.Size = new System.Drawing.Size(45, 22);
-            this.toggleBtnRepository.TabIndex = 1;
-            this.toggleBtnRepository.UseVisualStyleBackColor = true;
-            // 
-            // labelInfoReporitory
-            // 
-            this.labelInfoReporitory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelInfoReporitory.AutoSize = true;
-            this.labelInfoReporitory.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInfoReporitory.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelInfoReporitory.Location = new System.Drawing.Point(702, 16);
-            this.labelInfoReporitory.Margin = new System.Windows.Forms.Padding(0, 6, 2, 0);
-            this.labelInfoReporitory.Name = "labelInfoReporitory";
-            this.labelInfoReporitory.Size = new System.Drawing.Size(119, 20);
-            this.labelInfoReporitory.TabIndex = 31;
-            this.labelInfoReporitory.Text = "В репозиторий:";
             // 
             // AddAppForm
             // 
@@ -509,14 +609,15 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AddAppForm_Load);
             this.SizeChanged += new System.EventHandler(this.AddAppForm_SizeChanged);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.AddAppForm_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddAppForm_KeyDown);
             this.contextMenu.ResumeLayout(false);
             this.panelInfo.ResumeLayout(false);
             this.panelInfo.PerformLayout();
             this.reportPanelStat.ResumeLayout(false);
+            this.reportPanelStat.PerformLayout();
             this.panelAppInfo.ResumeLayout(false);
             this.panelAppInfo.PerformLayout();
+            this.flowLayoutPanelFilter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appFileBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -545,11 +646,17 @@
         private System.Windows.Forms.Label appLocationInfo;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.BindingSource appFileBindingSource;
+        private Wc32Api.Widgets.WcToggleButton toggleRepository;
+        private System.Windows.Forms.Label lblInfoReporitory;
+        private Wc32Api.Widgets.WcTextBox tbFilter;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFilter;
+        private System.Windows.Forms.Label lblFilter;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn filesColumnChecked;
         private System.Windows.Forms.DataGridViewTextBoxColumn filesColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn filesColumnExtension;
         private System.Windows.Forms.DataGridViewTextBoxColumn filesColumnHash;
         private System.Windows.Forms.DataGridViewTextBoxColumn filesColumnLocation;
-        private Wc32Api.Widgets.WcToggleButton toggleBtnRepository;
-        private System.Windows.Forms.Label labelInfoReporitory;
+        private System.Windows.Forms.Label lblInfoCount;
+        private System.Windows.Forms.Label lblCount;
     }
 }
