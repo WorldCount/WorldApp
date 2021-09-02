@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>web_hi_res_512.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=5.11.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
       <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.5.11.0\lib\net452\FirebirdSql.Data.FirebirdClient.dll</HintPath>
@@ -57,6 +60,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Database\Connects\FbConnect.cs" />
+    <Compile Include="Core\Database\Connects\PostItemConnect.cs" />
+    <Compile Include="Core\Database\Connects\PostUnitConnect.cs" />
+    <Compile Include="Core\Database\Interfaces\IFbQueryable.cs" />
+    <Compile Include="Core\Forms\ConnectForms\PostItemConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\ConnectForms\PostItemConnectForm.Designer.cs">
+      <DependentUpon>PostItemConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Forms\ConnectForms\PostUnitConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\ConnectForms\PostUnitConnectForm.Designer.cs">
+      <DependentUpon>PostUnitConnectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Forms\GeneralForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +90,28 @@
     <Compile Include="Core\Storage\PathManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="web_hi_res_512.ico" />
+    <None Include="Resources\Server.png" />
+    <None Include="Resources\unchecked-32.png" />
+    <None Include="Resources\checked-32.png" />
+    <None Include="Resources\save-24.png" />
+    <None Include="Resources\white-folder-24.png" />
+    <None Include="Resources\Button-Close.png" />
+    <None Include="Resources\add-24.png" />
+    <None Include="Resources\trash-2-24.png" />
+    <None Include="Resources\sinchronize-24.png" />
+    <None Include="Resources\gray-unchecked-32.png" />
+    <None Include="Resources\gray_checked-32.png" />
+    <None Include="Resources\Folder-Settings.png" />
+    <None Include="Resources\Folder-Heart.png" />
+    <None Include="Resources\Folder.png" />
+    <None Include="Resources\close-window-24.png" />
+    <EmbeddedResource Include="Core\Forms\ConnectForms\PostItemConnectForm.resx">
+      <DependentUpon>PostItemConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Forms\ConnectForms\PostUnitConnectForm.resx">
+      <DependentUpon>PostUnitConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\GeneralForm.resx">
       <DependentUpon>GeneralForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +123,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Core\Forms\Settings\FormsPosition.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -112,6 +154,16 @@
       <Project>{456cfab9-3ccd-4da7-b73a-9e7cf57225bd}</Project>
       <Name>Wc32Api</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WcApi\WcApi.csproj">
+      <Project>{d02e0c73-a5a1-404c-add8-3115b15594f3}</Project>
+      <Name>WcApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Database\Models\" />
+    <Folder Include="Core\Database\Queryes\" />
+    <Folder Include="Core\Database\Requests\" />
+    <Folder Include="Core\Database\Responses\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

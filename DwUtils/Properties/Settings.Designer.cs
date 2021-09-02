@@ -8,81 +8,78 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace DwUtils.Properties
-{
+namespace DwUtils.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool NeedUpgrade
-        {
-            get
-            {
+        public bool NeedUpgrade {
+            get {
                 return ((bool)(this["NeedUpgrade"]));
             }
-            set
-            {
+            set {
                 this["NeedUpgrade"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("DwUtils")]
-        public string AppName
-        {
-            get
-            {
+        public string AppName {
+            get {
                 return ((string)(this["AppName"]));
             }
-            set
-            {
+            set {
                 this["AppName"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("DATA")]
-        public string DataDir
-        {
-            get
-            {
+        public string DataDir {
+            get {
                 return ((string)(this["DataDir"]));
             }
-            set
-            {
+            set {
                 this["DataDir"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DebugMode
-        {
-            get
-            {
+        public bool DebugMode {
+            get {
                 return ((bool)(this["DebugMode"]));
             }
-            set
-            {
+            set {
                 this["DebugMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("connect.xml")]
+        public string ConnectFile {
+            get {
+                return ((string)(this["ConnectFile"]));
+            }
+            set {
+                this["ConnectFile"] = value;
             }
         }
     }
