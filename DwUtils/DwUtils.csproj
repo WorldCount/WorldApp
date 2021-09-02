@@ -63,7 +63,17 @@
     <Compile Include="Core\Database\Connects\FbConnect.cs" />
     <Compile Include="Core\Database\Connects\PostItemConnect.cs" />
     <Compile Include="Core\Database\Connects\PostUnitConnect.cs" />
+    <Compile Include="Core\Database\Db.cs" />
     <Compile Include="Core\Database\Interfaces\IFbQueryable.cs" />
+    <Compile Include="Core\Database\Queryes\PostUnit\GetLkApiQuery.cs" />
+    <Compile Include="Core\Database\Queryes\PostUnit\SetLkApiQuery.cs" />
+    <Compile Include="Core\Database\Queryes\Query.cs" />
+    <Compile Include="Core\Forms\ConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\ConfigForm.designer.cs">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Forms\ConnectForms\PostItemConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +100,7 @@
     <Compile Include="Core\Storage\PathManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\Button-Settings.png" />
     <Content Include="web_hi_res_512.ico" />
     <None Include="Resources\Server.png" />
     <None Include="Resources\unchecked-32.png" />
@@ -106,6 +117,9 @@
     <None Include="Resources\Folder-Heart.png" />
     <None Include="Resources\Folder.png" />
     <None Include="Resources\close-window-24.png" />
+    <EmbeddedResource Include="Core\Forms\ConfigForm.resx">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\ConnectForms\PostItemConnectForm.resx">
       <DependentUpon>PostItemConnectForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,7 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Database\Models\" />
-    <Folder Include="Core\Database\Queryes\" />
+    <Folder Include="Core\Database\Queryes\PostItem\" />
     <Folder Include="Core\Database\Requests\" />
     <Folder Include="Core\Database\Responses\" />
   </ItemGroup>

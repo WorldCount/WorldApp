@@ -40,8 +40,12 @@ namespace DwUtils.Core.Forms
             this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectPostUnitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectPostItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
+            this.lblInfoDebug = new System.Windows.Forms.Label();
+            this.btnDebug = new Wc32Api.Widgets.WcToggleButton();
             this.labelInfoLoadLk = new System.Windows.Forms.Label();
             this.toggleLoadLk = new Wc32Api.Widgets.WcToggleButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
@@ -100,7 +104,7 @@ namespace DwUtils.Core.Forms
             this.exitMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.exitMenuItem.Image = global::DwUtils.Properties.Resources.Button_Close;
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.exitMenuItem.Size = new System.Drawing.Size(130, 30);
             this.exitMenuItem.Text = "Выход";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -108,7 +112,9 @@ namespace DwUtils.Core.Forms
             // 
             this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectPostUnitMenuItem,
-            this.connectPostItemMenuItem});
+            this.connectPostItemMenuItem,
+            this.toolStripSeparator1,
+            this.configMenuItem});
             this.settingsMenuItem.Image = global::DwUtils.Properties.Resources.Folder_Settings;
             this.settingsMenuItem.Name = "settingsMenuItem";
             this.settingsMenuItem.Size = new System.Drawing.Size(120, 36);
@@ -132,6 +138,20 @@ namespace DwUtils.Core.Forms
             this.connectPostItemMenuItem.Text = "Подключение к PostItem";
             this.connectPostItemMenuItem.Click += new System.EventHandler(this.connectPostItemMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(252, 6);
+            // 
+            // configMenuItem
+            // 
+            this.configMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.configMenuItem.Image = global::DwUtils.Properties.Resources.Button_Settings;
+            this.configMenuItem.Name = "configMenuItem";
+            this.configMenuItem.Size = new System.Drawing.Size(255, 30);
+            this.configMenuItem.Text = "Настройки";
+            this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
+            // 
             // infosMenuItem
             // 
             this.infosMenuItem.Image = global::DwUtils.Properties.Resources.Folder_Heart;
@@ -142,6 +162,8 @@ namespace DwUtils.Core.Forms
             // panelGeneral
             // 
             this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelGeneral.Controls.Add(this.lblInfoDebug);
+            this.panelGeneral.Controls.Add(this.btnDebug);
             this.panelGeneral.Controls.Add(this.labelInfoLoadLk);
             this.panelGeneral.Controls.Add(this.toggleLoadLk);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Top;
@@ -150,6 +172,35 @@ namespace DwUtils.Core.Forms
             this.panelGeneral.Name = "panelGeneral";
             this.panelGeneral.Size = new System.Drawing.Size(800, 58);
             this.panelGeneral.TabIndex = 5;
+            // 
+            // lblInfoDebug
+            // 
+            this.lblInfoDebug.AutoSize = true;
+            this.lblInfoDebug.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoDebug.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblInfoDebug.Location = new System.Drawing.Point(15, 18);
+            this.lblInfoDebug.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.lblInfoDebug.Name = "lblInfoDebug";
+            this.lblInfoDebug.Size = new System.Drawing.Size(71, 20);
+            this.lblInfoDebug.TabIndex = 29;
+            this.lblInfoDebug.Text = "Отладка:";
+            // 
+            // btnDebug
+            // 
+            this.btnDebug.AutoSize = true;
+            this.btnDebug.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnDebug.DisableToggleColor = System.Drawing.Color.Gray;
+            this.btnDebug.Location = new System.Drawing.Point(92, 18);
+            this.btnDebug.MinimumSize = new System.Drawing.Size(45, 22);
+            this.btnDebug.Name = "btnDebug";
+            this.btnDebug.OffBackColor = System.Drawing.Color.Firebrick;
+            this.btnDebug.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.btnDebug.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.btnDebug.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDebug.Size = new System.Drawing.Size(45, 22);
+            this.btnDebug.TabIndex = 28;
+            this.btnDebug.UseVisualStyleBackColor = true;
+            this.btnDebug.CheckedChanged += new System.EventHandler(this.btnDebug_CheckedChanged);
             // 
             // labelInfoLoadLk
             // 
@@ -181,6 +232,7 @@ namespace DwUtils.Core.Forms
             this.toggleLoadLk.Size = new System.Drawing.Size(45, 22);
             this.toggleLoadLk.TabIndex = 0;
             this.toggleLoadLk.UseVisualStyleBackColor = true;
+            this.toggleLoadLk.CheckedChanged += new System.EventHandler(this.toggleLoadLk_CheckedChanged);
             // 
             // statusBar
             // 
@@ -444,6 +496,10 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.Label freeRpoLabelCount;
         private System.Windows.Forms.ToolStripMenuItem connectPostUnitMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectPostItemMenuItem;
+        private System.Windows.Forms.Label lblInfoDebug;
+        private Wc32Api.Widgets.WcToggleButton btnDebug;
+        private System.Windows.Forms.ToolStripMenuItem configMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

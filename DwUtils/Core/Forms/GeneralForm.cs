@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using DwUtils.Core.Database;
+using DwUtils.Core.Database.Connects;
 using DwUtils.Core.Forms.ConnectForms;
 
 namespace DwUtils.Core.Forms
@@ -10,7 +12,9 @@ namespace DwUtils.Core.Forms
     {
         #region Private Fields
 
-        
+        private bool _debugMode;
+        private Db _database;
+        private string _lkState;
 
         #endregion
 
@@ -35,13 +39,28 @@ namespace DwUtils.Core.Forms
         // Загрузка настроек
         private void LoadSettings()
         {
+            _debugMode = Properties.Settings.Default.DebugMode;
+            btnDebug.Checked = Properties.Settings.Default.DebugMode;
+            _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
 
+            int lastTabIndex = Properties.Settings.Default.LastTabIndex;
+            tabControl.SelectedIndex = lastTabIndex >= tabControl.TabCount ? 0 : lastTabIndex;
+
+            _lkState = Properties.Settings.Default.LkApiUrl;
+
+            CheckLkState();
         }
 
         // Сохранение настроек
         private void SaveSettings()
         {
+            Properties.Settings.Default.LastTabIndex = tabControl.SelectedIndex;
+            Properties.Settings.Default.Save();
 
+            if (_database != null && !string.IsNullOrEmpty(_lkState))
+            {
+                _database.SetLkApiUrl(_lkState);
+            }
         }
 
         // Перенос настроек предыдущей сборки в новую
@@ -106,7 +125,7 @@ namespace DwUtils.Core.Forms
                 CenterToScreen();
         }
 
-        private async void GeneralForm_Load(object sender, EventArgs e)
+        private void GeneralForm_Load(object sender, EventArgs e)
         {
 
             LoadPos();
@@ -175,6 +194,19 @@ namespace DwUtils.Core.Forms
 
         #endregion
 
+        #region Private Methods
+
+        private async void CheckLkState()
+        {
+            if (_database != null)
+            {
+                string state = await _database.GetLkApiUrlAsync();
+                toggleLoadLk.Checked = !string.IsNullOrEmpty(state);
+            }
+        }
+
+        #endregion
+
         #region Menu Events
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
@@ -183,22 +215,53 @@ namespace DwUtils.Core.Forms
         private void connectPostUnitMenuItem_Click(object sender, EventArgs e)
         {
             PostUnitConnectForm postUnitConnectForm = new PostUnitConnectForm();
-            if (postUnitConnectForm.ShowDialog(this) == DialogResult.OK)
-            {
 
-            }
+            if (postUnitConnectForm.ShowDialog(this) == DialogResult.OK)
+                _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
         }
 
         private void connectPostItemMenuItem_Click(object sender, EventArgs e)
         {
             PostItemConnectForm postItemConnectForm = new PostItemConnectForm();
-            if (postItemConnectForm.ShowDialog(this) == DialogResult.OK)
-            {
 
-            }
+            if (postItemConnectForm.ShowDialog(this) == DialogResult.OK)
+                _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
         }
+
+        private void configMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigForm configForm = new ConfigForm();
+            if (configForm.ShowDialog(this) == DialogResult.OK)
+                _lkState = Properties.Settings.Default.LkApiUrl;
+        }
+
         #endregion
 
+        #region Toggle Events
 
+        private void btnDebug_CheckedChanged(object sender, EventArgs e)
+        {
+            _debugMode = btnDebug.Checked;
+            Properties.Settings.Default.DebugMode = _debugMode;
+            _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
+            Properties.Settings.Default.Save();
+        }
+
+        private async void toggleLoadLk_CheckedChanged(object sender, EventArgs e)
+        {
+            bool res;
+
+            if (toggleLoadLk.Checked)
+                res = await _database.SetLkApiUrlAsync(_lkState);
+            else
+                res = await _database.SetLkApiUrlAsync("");
+
+            if(res)
+                SuccessMessage("Статус загрузки ЛК изменен.");
+            else
+                ErrorMessage("Ошибка изменения статуса ЛК.");
+        }
+
+        #endregion
     }
 }

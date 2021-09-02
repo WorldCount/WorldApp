@@ -82,5 +82,29 @@ namespace DwUtils.Properties {
                 this["ConnectFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int LastTabIndex {
+            get {
+                return ((int)(this["LastTabIndex"]));
+            }
+            set {
+                this["LastTabIndex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://cdb.tools.russianpost.ru/api/v2/topics/")]
+        public string LkApiUrl {
+            get {
+                return ((string)(this["LkApiUrl"]));
+            }
+            set {
+                this["LkApiUrl"] = value;
+            }
+        }
     }
 }
