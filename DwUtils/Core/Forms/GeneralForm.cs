@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using DwUtils.Core.Database;
 using DwUtils.Core.Database.Connects;
+using DwUtils.Core.Database.Models;
 using DwUtils.Core.Forms.ConnectForms;
 
 namespace DwUtils.Core.Forms
@@ -263,5 +265,17 @@ namespace DwUtils.Core.Forms
         }
 
         #endregion
+
+        private async void btnLoadFreeRpo_Click(object sender, EventArgs e)
+        {
+            freeRpoLabelCount.Text = "0";
+
+            List <FreeRpo> rpos = await _database.GetFreeRposAsync();
+            freeRpoBindingSource.DataSource = null;
+            freeRpoBindingSource.DataSource = rpos;
+
+            if (rpos != null)
+                freeRpoLabelCount.Text = rpos.Count.ToString();
+        }
     }
 }

@@ -65,6 +65,9 @@
     <Compile Include="Core\Database\Connects\PostUnitConnect.cs" />
     <Compile Include="Core\Database\Db.cs" />
     <Compile Include="Core\Database\Interfaces\IFbQueryable.cs" />
+    <Compile Include="Core\Database\Models\FreeRpo.cs" />
+    <Compile Include="Core\Database\Models\User.cs" />
+    <Compile Include="Core\Database\Queryes\PostItem\GetFreeRpoQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostUnit\GetLkApiQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostUnit\SetLkApiQuery.cs" />
     <Compile Include="Core\Database\Queryes\Query.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="Core\Storage\PathManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Properties\DataSources\DwUtils.Core.Database.Models.FreeRpo.datasource" />
     <None Include="Resources\Button-Settings.png" />
     <Content Include="web_hi_res_512.ico" />
     <None Include="Resources\Server.png" />
@@ -174,8 +178,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\Database\Models\" />
-    <Folder Include="Core\Database\Queryes\PostItem\" />
     <Folder Include="Core\Database\Requests\" />
     <Folder Include="Core\Database\Responses\" />
   </ItemGroup>
