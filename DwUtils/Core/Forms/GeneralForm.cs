@@ -2,11 +2,18 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using DwUtils.Core.Forms.ConnectForms;
 
 namespace DwUtils.Core.Forms
 {
     public partial class GeneralForm : Form
     {
+        #region Private Fields
+
+        
+
+        #endregion
+
         public GeneralForm()
         {
             InitializeComponent();
@@ -167,6 +174,31 @@ namespace DwUtils.Core.Forms
         }
 
         #endregion
+
+        #region Menu Events
+        private void exitMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        private void connectPostUnitMenuItem_Click(object sender, EventArgs e)
+        {
+            PostUnitConnectForm postUnitConnectForm = new PostUnitConnectForm();
+            if (postUnitConnectForm.ShowDialog(this) == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void connectPostItemMenuItem_Click(object sender, EventArgs e)
+        {
+            PostItemConnectForm postItemConnectForm = new PostItemConnectForm();
+            if (postItemConnectForm.ShowDialog(this) == DialogResult.OK)
+            {
+
+            }
+        }
+        #endregion
+
 
     }
 }
