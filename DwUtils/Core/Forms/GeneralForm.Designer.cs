@@ -35,10 +35,6 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            Wc32Api.Widgets.Menus.Default.DefaultMainMenuColor defaultMainMenuColor1 = new Wc32Api.Widgets.Menus.Default.DefaultMainMenuColor();
-            Wc32Api.Widgets.Menus.Default.DefaultMenuColor defaultMenuColor1 = new Wc32Api.Widgets.Menus.Default.DefaultMenuColor();
-            Wc32Api.Widgets.Menus.Default.DefaultMainMenuColor defaultMainMenuColor2 = new Wc32Api.Widgets.Menus.Default.DefaultMainMenuColor();
-            Wc32Api.Widgets.Menus.Default.DefaultMenuColor defaultMenuColor2 = new Wc32Api.Widgets.Menus.Default.DefaultMenuColor();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -803,14 +799,6 @@ namespace DwUtils.Core.Forms
             this.wcDropdownMenuFile.IsMainMenu = false;
             this.wcDropdownMenuFile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitMenuItem});
-            defaultMainMenuColor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(60)))));
-            defaultMainMenuColor1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(51)))));
-            defaultMainMenuColor1.LeftColumnColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(51)))));
-            this.wcDropdownMenuFile.MainMenuColor = defaultMainMenuColor1;
-            defaultMenuColor1.BackColor = System.Drawing.Color.White;
-            defaultMenuColor1.BorderColor = System.Drawing.Color.LightGray;
-            defaultMenuColor1.LeftColumnColor = System.Drawing.Color.LightGray;
-            this.wcDropdownMenuFile.MenuColor = defaultMenuColor1;
             this.wcDropdownMenuFile.MenuItemHeight = 25;
             this.wcDropdownMenuFile.MenuItemTextColor = System.Drawing.Color.DimGray;
             this.wcDropdownMenuFile.Name = "wcDropdownMenuFile";
@@ -834,14 +822,6 @@ namespace DwUtils.Core.Forms
             this.connectPostItemMenuItem,
             this.toolStripSeparator1,
             this.configMenuItem});
-            defaultMainMenuColor2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(60)))));
-            defaultMainMenuColor2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(51)))));
-            defaultMainMenuColor2.LeftColumnColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(51)))));
-            this.wcDropdownMenuSettings.MainMenuColor = defaultMainMenuColor2;
-            defaultMenuColor2.BackColor = System.Drawing.Color.White;
-            defaultMenuColor2.BorderColor = System.Drawing.Color.LightGray;
-            defaultMenuColor2.LeftColumnColor = System.Drawing.Color.LightGray;
-            this.wcDropdownMenuSettings.MenuColor = defaultMenuColor2;
             this.wcDropdownMenuSettings.MenuItemHeight = 25;
             this.wcDropdownMenuSettings.MenuItemTextColor = System.Drawing.Color.DimGray;
             this.wcDropdownMenuSettings.Name = "wcDropdownMenuSettings";
