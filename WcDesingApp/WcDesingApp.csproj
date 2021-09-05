@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E085BD5D-F188-48DA-AFAE-FA1566FA9BD6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WcDesingApp</RootNamespace>
+    <AssemblyName>WcDesingApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net45\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Forms\WcForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\WcForm.Designer.cs">
+      <DependentUpon>WcForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ConfigColors\AppMainMenuColor.cs" />
+    <Compile Include="Core\Widgets\Menu\IMenuColor.cs" />
+    <Compile Include="Core\ConfigColors\AppMenuColor.cs" />
+    <Compile Include="Core\Widgets\Menu\DefaultMainMenuColor.cs" />
+    <Compile Include="Core\Widgets\Menu\DefaultMenuColor.cs" />
+    <Compile Include="Core\Widgets\Menu\WcDropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\Widgets\Menu\WcMenuColorTable.cs" />
+    <Compile Include="Core\Widgets\Menu\WcMenuRenderer.cs" />
+    <Compile Include="Core\Widgets\Tabs\WcTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GeneralForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneralForm.Designer.cs">
+      <DependentUpon>GeneralForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Core\Forms\WcForm.resx">
+      <DependentUpon>WcForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneralForm.resx">
+      <DependentUpon>GeneralForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_hi_res_512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_hi_res_5121.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wc32Api\Wc32Api.csproj">
+      <Project>{456CFAB9-3CCD-4DA7-B73A-9E7CF57225BD}</Project>
+      <Name>Wc32Api</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file-4-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder-7-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings-4-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize-window-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-mark-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-mark-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expand-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fullscreen-10-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fullscreen-exit-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-203-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-2-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button-Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Server.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button-Settings.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
