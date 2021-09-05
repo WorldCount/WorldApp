@@ -35,6 +35,14 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.menuBar = new System.Windows.Forms.MenuStrip();
+            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectPostUnitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectPostItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.lblInfoDebug = new System.Windows.Forms.Label();
             this.btnDebug = new Wc32Api.Widgets.WcToggleButton();
@@ -47,39 +55,40 @@ namespace DwUtils.Core.Forms
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabFreeRpo = new System.Windows.Forms.TabPage();
             this.freeRpoDataGridView = new System.Windows.Forms.DataGridView();
+            this.freeRpoColumnCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.freeRpoColumnLoadDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.freeRpoColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.freeRpoColumnBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.freeRpoColumnIndexTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.freeRpoColumnPlaceId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.freeRpoColumnUserId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.freeRpoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelFreeRpo = new System.Windows.Forms.Panel();
+            this.btnEditFreeRpo = new Wc32Api.Widgets.WcButton();
+            this.btnDeleteFreeRpo = new Wc32Api.Widgets.WcButton();
+            this.btnLoadFreeRpo = new Wc32Api.Widgets.WcButton();
             this.flowLayoutPanelFreeRpo = new System.Windows.Forms.FlowLayoutPanel();
+            this.freeRpoLabelInfoUsers = new System.Windows.Forms.Label();
+            this.freeRpoComboBoxUsers = new System.Windows.Forms.ComboBox();
             this.barcodePanelStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFreeRpoStat = new System.Windows.Forms.FlowLayoutPanel();
             this.freeRpoLabelInfoCount = new System.Windows.Forms.Label();
             this.freeRpoLabelCount = new System.Windows.Forms.Label();
-            this.btnLoadFreeRpo = new Wc32Api.Widgets.WcButton();
-            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectPostUnitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectPostItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.freeRpoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.freeRpoColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.freeRpoColumnTypeCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.freeRpoColumnBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.freeRpoColumnIndexTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.freeRpoColumnLoadDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.freeRpoColumnPlaceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.freeRpoColumnUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabFreeRpo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.freeRpoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.freeRpoBindingSource)).BeginInit();
             this.panelFreeRpo.SuspendLayout();
+            this.flowLayoutPanelFreeRpo.SuspendLayout();
             this.barcodePanelStat.SuspendLayout();
             this.flowLayoutPanelFreeRpoStat.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.freeRpoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBar
@@ -98,6 +107,75 @@ namespace DwUtils.Core.Forms
             this.menuBar.Padding = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuBar.Size = new System.Drawing.Size(800, 40);
             this.menuBar.TabIndex = 3;
+            // 
+            // fileMenuItem
+            // 
+            this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitMenuItem});
+            this.fileMenuItem.Image = global::DwUtils.Properties.Resources.Folder;
+            this.fileMenuItem.Name = "fileMenuItem";
+            this.fileMenuItem.Size = new System.Drawing.Size(81, 36);
+            this.fileMenuItem.Text = "Файл";
+            // 
+            // exitMenuItem
+            // 
+            this.exitMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.exitMenuItem.Image = global::DwUtils.Properties.Resources.Button_Close;
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(130, 30);
+            this.exitMenuItem.Text = "Выход";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
+            // 
+            // settingsMenuItem
+            // 
+            this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectPostUnitMenuItem,
+            this.connectPostItemMenuItem,
+            this.toolStripSeparator1,
+            this.configMenuItem});
+            this.settingsMenuItem.Image = global::DwUtils.Properties.Resources.Folder_Settings;
+            this.settingsMenuItem.Name = "settingsMenuItem";
+            this.settingsMenuItem.Size = new System.Drawing.Size(120, 36);
+            this.settingsMenuItem.Text = "Настройки";
+            // 
+            // connectPostUnitMenuItem
+            // 
+            this.connectPostUnitMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.connectPostUnitMenuItem.Image = global::DwUtils.Properties.Resources.Server;
+            this.connectPostUnitMenuItem.Name = "connectPostUnitMenuItem";
+            this.connectPostUnitMenuItem.Size = new System.Drawing.Size(255, 30);
+            this.connectPostUnitMenuItem.Text = "Подключение к PostUnit";
+            this.connectPostUnitMenuItem.Click += new System.EventHandler(this.connectPostUnitMenuItem_Click);
+            // 
+            // connectPostItemMenuItem
+            // 
+            this.connectPostItemMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.connectPostItemMenuItem.Image = global::DwUtils.Properties.Resources.Server;
+            this.connectPostItemMenuItem.Name = "connectPostItemMenuItem";
+            this.connectPostItemMenuItem.Size = new System.Drawing.Size(255, 30);
+            this.connectPostItemMenuItem.Text = "Подключение к PostItem";
+            this.connectPostItemMenuItem.Click += new System.EventHandler(this.connectPostItemMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(252, 6);
+            // 
+            // configMenuItem
+            // 
+            this.configMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.configMenuItem.Image = global::DwUtils.Properties.Resources.Button_Settings;
+            this.configMenuItem.Name = "configMenuItem";
+            this.configMenuItem.Size = new System.Drawing.Size(255, 30);
+            this.configMenuItem.Text = "Настройки";
+            this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
+            // 
+            // infosMenuItem
+            // 
+            this.infosMenuItem.Image = global::DwUtils.Properties.Resources.Folder_Heart;
+            this.infosMenuItem.Name = "infosMenuItem";
+            this.infosMenuItem.Size = new System.Drawing.Size(84, 36);
+            this.infosMenuItem.Text = "Инфо";
             // 
             // panelGeneral
             // 
@@ -157,6 +235,7 @@ namespace DwUtils.Core.Forms
             // 
             // toggleLoadLk
             // 
+            this.toggleLoadLk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.toggleLoadLk.AutoSize = true;
             this.toggleLoadLk.Checked = true;
             this.toggleLoadLk.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -254,11 +333,11 @@ namespace DwUtils.Core.Forms
             this.freeRpoDataGridView.ColumnHeadersHeight = 40;
             this.freeRpoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.freeRpoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.freeRpoColumnCheck,
+            this.freeRpoColumnLoadDate,
             this.freeRpoColumnType,
-            this.freeRpoColumnTypeCategory,
             this.freeRpoColumnBarcode,
             this.freeRpoColumnIndexTo,
-            this.freeRpoColumnLoadDate,
             this.freeRpoColumnPlaceId,
             this.freeRpoColumnUserId});
             this.freeRpoDataGridView.DataSource = this.freeRpoBindingSource;
@@ -275,6 +354,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.freeRpoDataGridView.Location = new System.Drawing.Point(3, 51);
             this.freeRpoDataGridView.Name = "freeRpoDataGridView";
+            this.freeRpoDataGridView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -291,10 +371,95 @@ namespace DwUtils.Core.Forms
             this.freeRpoDataGridView.Size = new System.Drawing.Size(786, 206);
             this.freeRpoDataGridView.TabIndex = 6;
             this.freeRpoDataGridView.TabStop = false;
+            this.freeRpoDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.freeRpoDataGridView_CellClick);
+            this.freeRpoDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.freeRpoDataGridView_CellDoubleClick);
+            this.freeRpoDataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.freeRpoDataGridView_CellMouseUp);
+            this.freeRpoDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.freeRpoDataGridView_CellPainting);
+            this.freeRpoDataGridView.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.freeRpoDataGridView_ColumnHeaderMouseClick);
+            this.freeRpoDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.freeRpoDataGridView_DataError);
+            this.freeRpoDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.freeRpoDataGridView_MouseClick);
+            this.freeRpoDataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.freeRpoDataGridView_MouseDoubleClick);
+            // 
+            // freeRpoColumnCheck
+            // 
+            this.freeRpoColumnCheck.DataPropertyName = "Check";
+            this.freeRpoColumnCheck.HeaderText = "Отм";
+            this.freeRpoColumnCheck.Name = "freeRpoColumnCheck";
+            this.freeRpoColumnCheck.ReadOnly = true;
+            // 
+            // freeRpoColumnLoadDate
+            // 
+            this.freeRpoColumnLoadDate.DataPropertyName = "LoadDate";
+            this.freeRpoColumnLoadDate.HeaderText = "Загружено";
+            this.freeRpoColumnLoadDate.Name = "freeRpoColumnLoadDate";
+            this.freeRpoColumnLoadDate.ReadOnly = true;
+            // 
+            // freeRpoColumnType
+            // 
+            this.freeRpoColumnType.DataPropertyName = "Type";
+            this.freeRpoColumnType.HeaderText = "Тип";
+            this.freeRpoColumnType.Name = "freeRpoColumnType";
+            this.freeRpoColumnType.ReadOnly = true;
+            // 
+            // freeRpoColumnBarcode
+            // 
+            this.freeRpoColumnBarcode.DataPropertyName = "Barcode";
+            this.freeRpoColumnBarcode.HeaderText = "ШПИ";
+            this.freeRpoColumnBarcode.Name = "freeRpoColumnBarcode";
+            this.freeRpoColumnBarcode.ReadOnly = true;
+            // 
+            // freeRpoColumnIndexTo
+            // 
+            this.freeRpoColumnIndexTo.DataPropertyName = "IndexTo";
+            this.freeRpoColumnIndexTo.HeaderText = "Индекс";
+            this.freeRpoColumnIndexTo.Name = "freeRpoColumnIndexTo";
+            this.freeRpoColumnIndexTo.ReadOnly = true;
+            // 
+            // freeRpoColumnPlaceId
+            // 
+            this.freeRpoColumnPlaceId.DataPropertyName = "PlaceId";
+            this.freeRpoColumnPlaceId.DataSource = this.placeBindingSource;
+            this.freeRpoColumnPlaceId.DisplayMember = "Name";
+            this.freeRpoColumnPlaceId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.freeRpoColumnPlaceId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.freeRpoColumnPlaceId.HeaderText = "Место";
+            this.freeRpoColumnPlaceId.Name = "freeRpoColumnPlaceId";
+            this.freeRpoColumnPlaceId.ReadOnly = true;
+            this.freeRpoColumnPlaceId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.freeRpoColumnPlaceId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.freeRpoColumnPlaceId.ValueMember = "Id";
+            // 
+            // placeBindingSource
+            // 
+            this.placeBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.Place);
+            // 
+            // freeRpoColumnUserId
+            // 
+            this.freeRpoColumnUserId.DataPropertyName = "UserId";
+            this.freeRpoColumnUserId.DataSource = this.userBindingSource;
+            this.freeRpoColumnUserId.DisplayMember = "Name";
+            this.freeRpoColumnUserId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.freeRpoColumnUserId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.freeRpoColumnUserId.HeaderText = "Пользователь";
+            this.freeRpoColumnUserId.Name = "freeRpoColumnUserId";
+            this.freeRpoColumnUserId.ReadOnly = true;
+            this.freeRpoColumnUserId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.freeRpoColumnUserId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.freeRpoColumnUserId.ValueMember = "Id";
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.User);
+            // 
+            // freeRpoBindingSource
+            // 
+            this.freeRpoBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.FreeRpo);
             // 
             // panelFreeRpo
             // 
             this.panelFreeRpo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelFreeRpo.Controls.Add(this.btnEditFreeRpo);
+            this.panelFreeRpo.Controls.Add(this.btnDeleteFreeRpo);
             this.panelFreeRpo.Controls.Add(this.btnLoadFreeRpo);
             this.panelFreeRpo.Controls.Add(this.flowLayoutPanelFreeRpo);
             this.panelFreeRpo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -303,15 +468,121 @@ namespace DwUtils.Core.Forms
             this.panelFreeRpo.Size = new System.Drawing.Size(786, 48);
             this.panelFreeRpo.TabIndex = 5;
             // 
+            // btnEditFreeRpo
+            // 
+            this.btnEditFreeRpo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditFreeRpo.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnEditFreeRpo.BorderColor = System.Drawing.Color.Silver;
+            this.btnEditFreeRpo.BorderRadius = 6F;
+            this.btnEditFreeRpo.BorderSize = 0;
+            this.btnEditFreeRpo.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnEditFreeRpo.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnEditFreeRpo.FlatAppearance.BorderSize = 0;
+            this.btnEditFreeRpo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnEditFreeRpo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditFreeRpo.ForeColor = System.Drawing.Color.White;
+            this.btnEditFreeRpo.Image = global::DwUtils.Properties.Resources.edit_11_24;
+            this.btnEditFreeRpo.Location = new System.Drawing.Point(690, 4);
+            this.btnEditFreeRpo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnEditFreeRpo.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnEditFreeRpo.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnEditFreeRpo.Name = "btnEditFreeRpo";
+            this.btnEditFreeRpo.Padding = new System.Windows.Forms.Padding(5, 0, 3, 0);
+            this.btnEditFreeRpo.Size = new System.Drawing.Size(40, 40);
+            this.btnEditFreeRpo.TabIndex = 0;
+            this.btnEditFreeRpo.TextColor = System.Drawing.Color.White;
+            this.btnEditFreeRpo.UseVisualStyleBackColor = false;
+            this.btnEditFreeRpo.Click += new System.EventHandler(this.btnEditFreeRpo_Click);
+            // 
+            // btnDeleteFreeRpo
+            // 
+            this.btnDeleteFreeRpo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteFreeRpo.BackColor = System.Drawing.Color.Firebrick;
+            this.btnDeleteFreeRpo.BorderColor = System.Drawing.Color.Silver;
+            this.btnDeleteFreeRpo.BorderRadius = 6F;
+            this.btnDeleteFreeRpo.BorderSize = 0;
+            this.btnDeleteFreeRpo.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnDeleteFreeRpo.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnDeleteFreeRpo.FlatAppearance.BorderSize = 0;
+            this.btnDeleteFreeRpo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnDeleteFreeRpo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteFreeRpo.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteFreeRpo.Image = global::DwUtils.Properties.Resources.trash_2_24;
+            this.btnDeleteFreeRpo.Location = new System.Drawing.Point(644, 4);
+            this.btnDeleteFreeRpo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnDeleteFreeRpo.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnDeleteFreeRpo.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnDeleteFreeRpo.Name = "btnDeleteFreeRpo";
+            this.btnDeleteFreeRpo.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnDeleteFreeRpo.Size = new System.Drawing.Size(40, 40);
+            this.btnDeleteFreeRpo.TabIndex = 0;
+            this.btnDeleteFreeRpo.TextColor = System.Drawing.Color.White;
+            this.btnDeleteFreeRpo.UseVisualStyleBackColor = false;
+            this.btnDeleteFreeRpo.Click += new System.EventHandler(this.btnDeleteFreeRpo_Click);
+            // 
+            // btnLoadFreeRpo
+            // 
+            this.btnLoadFreeRpo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadFreeRpo.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadFreeRpo.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadFreeRpo.BorderRadius = 6F;
+            this.btnLoadFreeRpo.BorderSize = 0;
+            this.btnLoadFreeRpo.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadFreeRpo.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadFreeRpo.Enabled = false;
+            this.btnLoadFreeRpo.FlatAppearance.BorderSize = 0;
+            this.btnLoadFreeRpo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadFreeRpo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadFreeRpo.ForeColor = System.Drawing.Color.White;
+            this.btnLoadFreeRpo.Image = global::DwUtils.Properties.Resources.synchronize_24;
+            this.btnLoadFreeRpo.Location = new System.Drawing.Point(736, 4);
+            this.btnLoadFreeRpo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnLoadFreeRpo.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadFreeRpo.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadFreeRpo.Name = "btnLoadFreeRpo";
+            this.btnLoadFreeRpo.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadFreeRpo.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadFreeRpo.TabIndex = 0;
+            this.btnLoadFreeRpo.TextColor = System.Drawing.Color.White;
+            this.btnLoadFreeRpo.UseVisualStyleBackColor = false;
+            this.btnLoadFreeRpo.Click += new System.EventHandler(this.btnLoadFreeRpo_Click);
+            // 
             // flowLayoutPanelFreeRpo
             // 
             this.flowLayoutPanelFreeRpo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelFreeRpo.Controls.Add(this.freeRpoLabelInfoUsers);
+            this.flowLayoutPanelFreeRpo.Controls.Add(this.freeRpoComboBoxUsers);
             this.flowLayoutPanelFreeRpo.Location = new System.Drawing.Point(3, 4);
             this.flowLayoutPanelFreeRpo.Name = "flowLayoutPanelFreeRpo";
-            this.flowLayoutPanelFreeRpo.Size = new System.Drawing.Size(729, 40);
+            this.flowLayoutPanelFreeRpo.Size = new System.Drawing.Size(635, 40);
             this.flowLayoutPanelFreeRpo.TabIndex = 27;
             this.flowLayoutPanelFreeRpo.WrapContents = false;
+            // 
+            // freeRpoLabelInfoUsers
+            // 
+            this.freeRpoLabelInfoUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.freeRpoLabelInfoUsers.AutoSize = true;
+            this.freeRpoLabelInfoUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.freeRpoLabelInfoUsers.ForeColor = System.Drawing.Color.Gainsboro;
+            this.freeRpoLabelInfoUsers.Location = new System.Drawing.Point(6, 10);
+            this.freeRpoLabelInfoUsers.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.freeRpoLabelInfoUsers.Name = "freeRpoLabelInfoUsers";
+            this.freeRpoLabelInfoUsers.Size = new System.Drawing.Size(111, 20);
+            this.freeRpoLabelInfoUsers.TabIndex = 35;
+            this.freeRpoLabelInfoUsers.Text = "Пользователь:";
+            // 
+            // freeRpoComboBoxUsers
+            // 
+            this.freeRpoComboBoxUsers.DataSource = this.userBindingSource;
+            this.freeRpoComboBoxUsers.DisplayMember = "Name";
+            this.freeRpoComboBoxUsers.FormattingEnabled = true;
+            this.freeRpoComboBoxUsers.Location = new System.Drawing.Point(123, 6);
+            this.freeRpoComboBoxUsers.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.freeRpoComboBoxUsers.Name = "freeRpoComboBoxUsers";
+            this.freeRpoComboBoxUsers.Size = new System.Drawing.Size(209, 29);
+            this.freeRpoComboBoxUsers.TabIndex = 0;
+            this.freeRpoComboBoxUsers.ValueMember = "Id";
             // 
             // barcodePanelStat
             // 
@@ -358,154 +629,6 @@ namespace DwUtils.Core.Forms
             this.freeRpoLabelCount.TabIndex = 0;
             this.freeRpoLabelCount.Text = "0";
             // 
-            // btnLoadFreeRpo
-            // 
-            this.btnLoadFreeRpo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoadFreeRpo.BackColor = System.Drawing.Color.Crimson;
-            this.btnLoadFreeRpo.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadFreeRpo.BorderRadius = 6F;
-            this.btnLoadFreeRpo.BorderSize = 0;
-            this.btnLoadFreeRpo.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadFreeRpo.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadFreeRpo.FlatAppearance.BorderSize = 0;
-            this.btnLoadFreeRpo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnLoadFreeRpo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadFreeRpo.ForeColor = System.Drawing.Color.White;
-            this.btnLoadFreeRpo.Image = global::DwUtils.Properties.Resources.synchronize_24;
-            this.btnLoadFreeRpo.Location = new System.Drawing.Point(738, 4);
-            this.btnLoadFreeRpo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.btnLoadFreeRpo.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnLoadFreeRpo.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnLoadFreeRpo.Name = "btnLoadFreeRpo";
-            this.btnLoadFreeRpo.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadFreeRpo.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadFreeRpo.TabIndex = 0;
-            this.btnLoadFreeRpo.TextColor = System.Drawing.Color.White;
-            this.btnLoadFreeRpo.UseVisualStyleBackColor = false;
-            this.btnLoadFreeRpo.Click += new System.EventHandler(this.btnLoadFreeRpo_Click);
-            // 
-            // fileMenuItem
-            // 
-            this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitMenuItem});
-            this.fileMenuItem.Image = global::DwUtils.Properties.Resources.Folder;
-            this.fileMenuItem.Name = "fileMenuItem";
-            this.fileMenuItem.Size = new System.Drawing.Size(81, 36);
-            this.fileMenuItem.Text = "Файл";
-            // 
-            // exitMenuItem
-            // 
-            this.exitMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.exitMenuItem.Image = global::DwUtils.Properties.Resources.Button_Close;
-            this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(130, 30);
-            this.exitMenuItem.Text = "Выход";
-            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
-            // 
-            // settingsMenuItem
-            // 
-            this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connectPostUnitMenuItem,
-            this.connectPostItemMenuItem,
-            this.toolStripSeparator1,
-            this.configMenuItem});
-            this.settingsMenuItem.Image = global::DwUtils.Properties.Resources.Folder_Settings;
-            this.settingsMenuItem.Name = "settingsMenuItem";
-            this.settingsMenuItem.Size = new System.Drawing.Size(120, 36);
-            this.settingsMenuItem.Text = "Настройки";
-            // 
-            // connectPostUnitMenuItem
-            // 
-            this.connectPostUnitMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.connectPostUnitMenuItem.Image = global::DwUtils.Properties.Resources.Server;
-            this.connectPostUnitMenuItem.Name = "connectPostUnitMenuItem";
-            this.connectPostUnitMenuItem.Size = new System.Drawing.Size(255, 30);
-            this.connectPostUnitMenuItem.Text = "Подключение к PostUnit";
-            this.connectPostUnitMenuItem.Click += new System.EventHandler(this.connectPostUnitMenuItem_Click);
-            // 
-            // connectPostItemMenuItem
-            // 
-            this.connectPostItemMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.connectPostItemMenuItem.Image = global::DwUtils.Properties.Resources.Server;
-            this.connectPostItemMenuItem.Name = "connectPostItemMenuItem";
-            this.connectPostItemMenuItem.Size = new System.Drawing.Size(255, 30);
-            this.connectPostItemMenuItem.Text = "Подключение к PostItem";
-            this.connectPostItemMenuItem.Click += new System.EventHandler(this.connectPostItemMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(252, 6);
-            // 
-            // configMenuItem
-            // 
-            this.configMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.configMenuItem.Image = global::DwUtils.Properties.Resources.Button_Settings;
-            this.configMenuItem.Name = "configMenuItem";
-            this.configMenuItem.Size = new System.Drawing.Size(255, 30);
-            this.configMenuItem.Text = "Настройки";
-            this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
-            // 
-            // infosMenuItem
-            // 
-            this.infosMenuItem.Image = global::DwUtils.Properties.Resources.Folder_Heart;
-            this.infosMenuItem.Name = "infosMenuItem";
-            this.infosMenuItem.Size = new System.Drawing.Size(84, 36);
-            this.infosMenuItem.Text = "Инфо";
-            // 
-            // freeRpoBindingSource
-            // 
-            this.freeRpoBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.FreeRpo);
-            // 
-            // freeRpoColumnType
-            // 
-            this.freeRpoColumnType.DataPropertyName = "Type";
-            this.freeRpoColumnType.HeaderText = "Тип";
-            this.freeRpoColumnType.Name = "freeRpoColumnType";
-            this.freeRpoColumnType.ReadOnly = true;
-            // 
-            // freeRpoColumnTypeCategory
-            // 
-            this.freeRpoColumnTypeCategory.DataPropertyName = "TypeCategory";
-            this.freeRpoColumnTypeCategory.HeaderText = "Вид";
-            this.freeRpoColumnTypeCategory.Name = "freeRpoColumnTypeCategory";
-            this.freeRpoColumnTypeCategory.ReadOnly = true;
-            // 
-            // freeRpoColumnBarcode
-            // 
-            this.freeRpoColumnBarcode.DataPropertyName = "Barcode";
-            this.freeRpoColumnBarcode.HeaderText = "ШПИ";
-            this.freeRpoColumnBarcode.Name = "freeRpoColumnBarcode";
-            this.freeRpoColumnBarcode.ReadOnly = true;
-            // 
-            // freeRpoColumnIndexTo
-            // 
-            this.freeRpoColumnIndexTo.DataPropertyName = "IndexTo";
-            this.freeRpoColumnIndexTo.HeaderText = "Индекс";
-            this.freeRpoColumnIndexTo.Name = "freeRpoColumnIndexTo";
-            this.freeRpoColumnIndexTo.ReadOnly = true;
-            // 
-            // freeRpoColumnLoadDate
-            // 
-            this.freeRpoColumnLoadDate.DataPropertyName = "LoadDate";
-            this.freeRpoColumnLoadDate.HeaderText = "Загружено";
-            this.freeRpoColumnLoadDate.Name = "freeRpoColumnLoadDate";
-            this.freeRpoColumnLoadDate.ReadOnly = true;
-            // 
-            // freeRpoColumnPlaceId
-            // 
-            this.freeRpoColumnPlaceId.DataPropertyName = "PlaceId";
-            this.freeRpoColumnPlaceId.HeaderText = "Место";
-            this.freeRpoColumnPlaceId.Name = "freeRpoColumnPlaceId";
-            this.freeRpoColumnPlaceId.ReadOnly = true;
-            // 
-            // freeRpoColumnUserId
-            // 
-            this.freeRpoColumnUserId.DataPropertyName = "UserId";
-            this.freeRpoColumnUserId.HeaderText = "Пользователь";
-            this.freeRpoColumnUserId.Name = "freeRpoColumnUserId";
-            this.freeRpoColumnUserId.ReadOnly = true;
-            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -534,11 +657,15 @@ namespace DwUtils.Core.Forms
             this.tabControl.ResumeLayout(false);
             this.tabFreeRpo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.freeRpoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.freeRpoBindingSource)).EndInit();
             this.panelFreeRpo.ResumeLayout(false);
+            this.flowLayoutPanelFreeRpo.ResumeLayout(false);
+            this.flowLayoutPanelFreeRpo.PerformLayout();
             this.barcodePanelStat.ResumeLayout(false);
             this.flowLayoutPanelFreeRpoStat.ResumeLayout(false);
             this.flowLayoutPanelFreeRpoStat.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.freeRpoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -574,14 +701,20 @@ namespace DwUtils.Core.Forms
         private Wc32Api.Widgets.WcToggleButton btnDebug;
         private System.Windows.Forms.ToolStripMenuItem configMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.BindingSource freeRpoBindingSource;
+        private System.Windows.Forms.ComboBox freeRpoComboBoxUsers;
+        private System.Windows.Forms.Label freeRpoLabelInfoUsers;
+        private System.Windows.Forms.BindingSource userBindingSource;
+        private Wc32Api.Widgets.WcButton btnDeleteFreeRpo;
+        private System.Windows.Forms.BindingSource placeBindingSource;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn freeRpoColumnCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnLoadDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnTypeCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnIndexTo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnLoadDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnPlaceId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnUserId;
-        private System.Windows.Forms.BindingSource freeRpoBindingSource;
+        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnPlaceId;
+        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnUserId;
+        private Wc32Api.Widgets.WcButton btnEditFreeRpo;
     }
 }
 

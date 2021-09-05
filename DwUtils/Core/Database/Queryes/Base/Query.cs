@@ -1,12 +1,11 @@
 ﻿using System;
-using NLog;
 using DwUtils.Core.Database.Connects;
 using DwUtils.Core.Database.Interfaces;
+using NLog;
 
-
-namespace DwUtils.Core.Database.Queryes
+namespace DwUtils.Core.Database.Queryes.Base
 {
-    public abstract class Query : IFbQueryable
+    public abstract class Query : IFbQueryable, IDisposable
     {
         #region Private Fields
 

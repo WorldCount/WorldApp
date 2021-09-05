@@ -66,11 +66,20 @@
     <Compile Include="Core\Database\Db.cs" />
     <Compile Include="Core\Database\Interfaces\IFbQueryable.cs" />
     <Compile Include="Core\Database\Models\FreeRpo.cs" />
+    <Compile Include="Core\Database\Models\Place.cs" />
     <Compile Include="Core\Database\Models\User.cs" />
+    <Compile Include="Core\Database\Queryes\Base\PostItemSelectQuery.cs" />
+    <Compile Include="Core\Database\Queryes\Base\PostItemUpdateQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostItem\GetFreeRpoQuery.cs" />
+    <Compile Include="Core\Database\Queryes\Base\PostUnitSelectQuery.cs" />
+    <Compile Include="Core\Database\Queryes\Base\PostUnitUpdateQuery.cs" />
+    <Compile Include="Core\Database\Queryes\PostItem\DeleteFreeRposQuery.cs" />
+    <Compile Include="Core\Database\Queryes\PostItem\GetPlaceQuery.cs" />
+    <Compile Include="Core\Database\Queryes\PostItem\UpdateFreeRposPlaceQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostUnit\GetLkApiQuery.cs" />
+    <Compile Include="Core\Database\Queryes\PostUnit\GetUsersQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostUnit\SetLkApiQuery.cs" />
-    <Compile Include="Core\Database\Queryes\Query.cs" />
+    <Compile Include="Core\Database\Queryes\Base\Query.cs" />
     <Compile Include="Core\Forms\ConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +98,12 @@
     <Compile Include="Core\Forms\ConnectForms\PostUnitConnectForm.Designer.cs">
       <DependentUpon>PostUnitConnectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Forms\EditForms\EditPlaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\EditForms\EditPlaceForm.Designer.cs">
+      <DependentUpon>EditPlaceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Forms\GeneralForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,7 +119,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.FreeRpo.datasource" />
+    <None Include="Properties\DataSources\DwUtils.Core.Database.Models.Place.datasource" />
+    <None Include="Properties\DataSources\DwUtils.Core.Database.Models.User.datasource" />
     <None Include="Resources\Button-Settings.png" />
+    <None Include="Resources\edit-24.png" />
+    <None Include="Resources\edit-11-24.png" />
     <Content Include="web_hi_res_512.ico" />
     <None Include="Resources\Server.png" />
     <None Include="Resources\unchecked-32.png" />
@@ -129,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\ConnectForms\PostUnitConnectForm.resx">
       <DependentUpon>PostUnitConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Forms\EditForms\EditPlaceForm.resx">
+      <DependentUpon>EditPlaceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\GeneralForm.resx">
       <DependentUpon>GeneralForm.cs</DependentUpon>

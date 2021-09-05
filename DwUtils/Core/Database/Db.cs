@@ -59,5 +59,53 @@ namespace DwUtils.Core.Database
         {
             return await Task.Run(GetFreeRpos);
         }
+
+        // ReSharper disable once MemberCanBePrivate.Global
+        public List<User> GetUsers()
+        {
+            GetUsersQuery query = new GetUsersQuery(_postUnitConnect, _debugMode);
+            return query.Run();
+        }
+
+        public async Task<List<User>> GetUsersAsync()
+        {
+            return await Task.Run(GetUsers);
+        }
+
+        // ReSharper disable once MemberCanBePrivate.Global
+        public bool DeleteFreeRpos(List<FreeRpo> rpos)
+        {
+            DeleteFreeRposQuery query = new DeleteFreeRposQuery(_postItemConnect, rpos, _debugMode);
+            return query.Run();
+        }
+
+        public async Task<bool> DeleteFreeRposAsync(List<FreeRpo> rpos)
+        {
+            return await Task.Run(() => DeleteFreeRpos(rpos));
+        }
+
+        // ReSharper disable once MemberCanBePrivate.Global
+        public List<Place> GetPlaces()
+        {
+            GetPlaceQuery query = new GetPlaceQuery(_postItemConnect, _debugMode);
+            return query.Run();
+        }
+
+        public async Task<List<Place>> GetPlacesAsync()
+        {
+            return await Task.Run(GetPlaces);
+        }
+
+        // ReSharper disable once MemberCanBePrivate.Global
+        public bool UpdateFreeRposPlace(List<FreeRpo> rpos, int placeId)
+        {
+            UpdateFreeRposPlaceQuery query = new UpdateFreeRposPlaceQuery(_postItemConnect, rpos, placeId, _debugMode);
+            return query.Run();
+        }
+
+        public async Task<bool> UpdateFreeRposPlaceAsync(List<FreeRpo> rpos, int placeId)
+        {
+            return await Task.Run(() => UpdateFreeRposPlace(rpos, placeId));
+        }
     }
 }

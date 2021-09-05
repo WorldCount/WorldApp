@@ -30,7 +30,7 @@ namespace DwUtils.Core.Database.Connects
             return fbConnection.ToString();
         }
 
-        private bool TestConnect()
+        public bool TestConnect()
         {
             FbConnection fbConnection = null;
             bool status = WcApi.Net.Ping.GetPing(Host);

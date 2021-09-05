@@ -7,6 +7,7 @@ using DwUtils.Core.Database;
 using DwUtils.Core.Database.Connects;
 using DwUtils.Core.Database.Models;
 using DwUtils.Core.Forms.ConnectForms;
+using DwUtils.Core.Forms.EditForms;
 
 namespace DwUtils.Core.Forms
 {
@@ -17,6 +18,8 @@ namespace DwUtils.Core.Forms
         private bool _debugMode;
         private Db _database;
         private string _lkState;
+        private List<User> _users;
+        private List<Place> _places;
 
         #endregion
 
@@ -34,6 +37,9 @@ namespace DwUtils.Core.Forms
 
             // Загрузка настроек
             LoadSettings();
+
+            // Настройка таблиц
+            InitTables();
         }
 
         #region Form Config
@@ -50,6 +56,7 @@ namespace DwUtils.Core.Forms
 
             _lkState = Properties.Settings.Default.LkApiUrl;
 
+            LoadData();
             CheckLkState();
         }
 
@@ -198,6 +205,34 @@ namespace DwUtils.Core.Forms
 
         #region Private Methods
 
+        private void InitTables()
+        {
+            Wc32Api.DrawingControl.SetDoubleBuffered(freeRpoDataGridView);
+
+            // Free Rpo
+            freeRpoColumnCheck.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            freeRpoColumnCheck.Width = 60;
+            freeRpoColumnCheck.CellTemplate.Style.BackColor = Color.FromArgb(53, 56, 58);
+            freeRpoColumnCheck.CellTemplate.Style.SelectionBackColor = Color.FromArgb(53, 56, 58);
+
+            freeRpoColumnLoadDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            freeRpoColumnLoadDate.Width = 100;
+
+            freeRpoColumnType.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            freeRpoColumnType.Width = 60;
+
+            freeRpoColumnBarcode.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            freeRpoColumnBarcode.Width = 160;
+
+            freeRpoColumnIndexTo.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            freeRpoColumnIndexTo.Width = 80;
+
+            freeRpoColumnPlaceId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            freeRpoColumnUserId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            freeRpoColumnUserId.Width = 200;
+        }
+
         private async void CheckLkState()
         {
             if (_database != null)
@@ -205,6 +240,71 @@ namespace DwUtils.Core.Forms
                 string state = await _database.GetLkApiUrlAsync();
                 toggleLoadLk.Checked = !string.IsNullOrEmpty(state);
             }
+        }
+
+        private async void LoadData()
+        {
+            if (_database != null)
+            {
+                // Загрузка пользователей
+                _users = await _database.GetUsersAsync();
+                UpdateData(userBindingSource, _users);
+
+                // Загрузка мест
+                _places = await _database.GetPlacesAsync();
+                UpdateData(placeBindingSource, _places);
+            }
+
+            if(_users != null && _users.Count > 0)
+                btnLoadFreeRpo.Enabled = true;
+        }
+
+        private async void LoadFreeRpos()
+        {
+            freeRpoLabelCount.Text = "0";
+            freeRpoBindingSource.DataSource = null;
+
+            List<FreeRpo> rpos = await _database.GetFreeRposAsync();
+            
+            freeRpoBindingSource.DataSource = rpos;
+
+            if (rpos != null)
+                freeRpoLabelCount.Text = rpos.Count.ToString();
+        }
+
+        private void UpdateData<T>(BindingSource source, T data)
+        {
+            source.DataSource = null;
+            source.DataSource = data;
+        }
+
+        private FreeRpo GetFreeRpoByRowIndex(int rowIndex)
+        {
+            List<FreeRpo> rpos = (List<FreeRpo>) freeRpoBindingSource.DataSource;
+
+            try
+            {
+                if (rpos != null && rpos.Count > 0)
+                    return rpos[rowIndex];
+            }
+            catch
+            {
+                return null;
+            }
+
+            return null;
+        }
+
+        private void CheckFreeRpoReverse()
+        {
+            List<FreeRpo> rpos = (List<FreeRpo>) freeRpoBindingSource.DataSource;
+            if (rpos != null)
+            {
+                foreach (FreeRpo rpo in rpos)
+                    rpo.Check = !rpo.Check;
+            }
+
+            UpdateData(freeRpoBindingSource, rpos);
         }
 
         #endregion
@@ -266,16 +366,144 @@ namespace DwUtils.Core.Forms
 
         #endregion
 
-        private async void btnLoadFreeRpo_Click(object sender, EventArgs e)
+        #region Buttons Events
+
+        private void btnLoadFreeRpo_Click(object sender, EventArgs e)
         {
-            freeRpoLabelCount.Text = "0";
+            LoadFreeRpos();
+        }
 
-            List <FreeRpo> rpos = await _database.GetFreeRposAsync();
-            freeRpoBindingSource.DataSource = null;
-            freeRpoBindingSource.DataSource = rpos;
-
+        private async void btnDeleteFreeRpo_Click(object sender, EventArgs e)
+        {
+            List<FreeRpo> rpos = (List<FreeRpo>) freeRpoBindingSource.DataSource;
             if (rpos != null)
-                freeRpoLabelCount.Text = rpos.Count.ToString();
+            {
+                List<FreeRpo> checkedRpos = rpos.Where(r => r.Check).ToList();
+                if(checkedRpos.Count == 0)
+                    return;
+
+                if (MessageBox.Show($"Вы уверены что хотите удалить отправления: {checkedRpos.Count} шт?",
+                    "Удаление РПО", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    await _database.DeleteFreeRposAsync(checkedRpos);
+                    LoadFreeRpos();
+                }
+            }
+        }
+
+        #endregion
+
+        
+
+        #region DataGrid Events
+
+        private void freeRpoDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == freeRpoColumnCheck.Index && e.RowIndex != -1)
+            {
+                FreeRpo freeRpo = GetFreeRpoByRowIndex(e.RowIndex);
+
+                if (freeRpo != null)
+                    freeRpo.Check = !freeRpo.Check;
+            }
+        }
+
+        private void freeRpoDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == freeRpoColumnCheck.Index && e.RowIndex != -1)
+            {
+                FreeRpo freeRpo = GetFreeRpoByRowIndex(e.RowIndex);
+
+                if (freeRpo != null)
+                    freeRpo.Check = !freeRpo.Check;
+            }
+        }
+
+        private void freeRpoDataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == freeRpoColumnCheck.Index && e.RowIndex != -1)
+                freeRpoDataGridView.EndEdit();
+        }
+
+        private void freeRpoDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            var grid = (DataGridView) sender;
+            var sortIconColor = Color.Gray;
+
+            if (e.ColumnIndex == freeRpoColumnCheck.Index && e.RowIndex != -1)
+            {
+                bool value = (bool)e.FormattedValue;
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
+                Bitmap img = value ? Properties.Resources.gray_checked_32 : Properties.Resources.gray_unchecked_32;
+                Size size = img.Size;
+                Point loc = new Point((e.CellBounds.Width - size.Width) / 2, (e.CellBounds.Height - size.Height) / 2);
+                loc.Offset(e.CellBounds.Location);
+                e.Graphics.DrawImage(img, loc);
+                e.Handled = true;
+            }
+
+            // Отрисовка флага сортировки
+            if (e.RowIndex == -1 && e.ColumnIndex > -1)
+            {
+                e.PaintBackground(e.CellBounds, false);
+                TextRenderer.DrawText(e.Graphics, $"{e.FormattedValue}", e.CellStyle.Font, e.CellBounds, e.CellStyle.ForeColor,
+                    TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter);
+
+                if (grid.SortedColumn?.Index == e.ColumnIndex)
+                {
+                    var sortIcon = grid.SortOrder == SortOrder.Ascending ? "▲" : "▼";
+                    TextRenderer.DrawText(e.Graphics, sortIcon, e.CellStyle.Font, e.CellBounds, sortIconColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+                }
+
+                e.Handled = true;
+            }
+        }
+
+        private void freeRpoDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
+
+        private void freeRpoDataGridView_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == freeRpoColumnCheck.Index)
+            {
+                CheckFreeRpoReverse();
+                freeRpoDataGridView.EndEdit();
+            }
+        }
+
+        private void freeRpoDataGridView_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void freeRpoDataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        private async void btnEditFreeRpo_Click(object sender, EventArgs e)
+        {
+            List<FreeRpo> rpos = (List<FreeRpo>)freeRpoBindingSource.DataSource;
+            if (rpos != null)
+            {
+                List<FreeRpo> checkedRpos = rpos.Where(r => r.Check).ToList();
+                if (checkedRpos.Count == 0)
+                    return;
+
+                EditPlaceForm editPlaceForm = new EditPlaceForm(_places);
+                if (editPlaceForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    Place place = editPlaceForm.Place;
+
+                    await _database.UpdateFreeRposPlaceAsync(checkedRpos, place.Id);
+
+                    LoadFreeRpos();
+                }
+            }
         }
     }
 }
