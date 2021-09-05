@@ -700,8 +700,32 @@ namespace DwUtils.Core.Forms
 
         }
 
+
         #endregion
 
-        
+        #region Resize Events
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+            Color borderColor = Color.FromArgb(255, 100, 106, 111);
+            ButtonBorderStyle border = ButtonBorderStyle.Dashed;
+
+            base.OnPaint(e);
+
+            Rectangle rect = panelMenu.ClientRectangle;
+
+            ControlPaint.DrawBorder(e.Graphics, rect,
+                borderColor, 1, border,
+                borderColor, 1, border,
+                borderColor, 1, border,
+                borderColor, 1, border);
+        }
+
+        private void GeneralForm_SizeChanged(object sender, EventArgs e)
+        {
+            panelMenu.Refresh();
+        }
+
+        #endregion
     }
 }
