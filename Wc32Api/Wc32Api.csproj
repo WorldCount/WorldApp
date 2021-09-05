@@ -50,6 +50,14 @@
     <Compile Include="Widgets\Buttons\WcButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Widgets\Menus\Default\DefaultMainMenuColor.cs" />
+    <Compile Include="Widgets\Menus\Default\DefaultMenuColor.cs" />
+    <Compile Include="Widgets\Menus\IMenuColor.cs" />
+    <Compile Include="Widgets\Menus\WcDropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Widgets\Menus\WcMenuColorTable.cs" />
+    <Compile Include="Widgets\Menus\WcMenuRenderer.cs" />
     <Compile Include="Widgets\Texts\WcLabel.cs">
       <SubType>Component</SubType>
     </Compile>
