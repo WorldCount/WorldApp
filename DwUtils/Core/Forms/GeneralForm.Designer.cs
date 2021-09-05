@@ -707,8 +707,10 @@ namespace DwUtils.Core.Forms
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Padding = new System.Windows.Forms.Padding(1, 1, 0, 1);
             this.panelMenu.Size = new System.Drawing.Size(800, 42);
             this.panelMenu.TabIndex = 0;
+            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
             // infosMenuItem
             // 
@@ -725,12 +727,12 @@ namespace DwUtils.Core.Forms
             this.infosMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.infosMenuItem.Image = global::DwUtils.Properties.Resources.info_24;
             this.infosMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.infosMenuItem.Location = new System.Drawing.Point(234, 0);
+            this.infosMenuItem.Location = new System.Drawing.Point(235, 1);
             this.infosMenuItem.MouseDownBackColor = System.Drawing.Color.Empty;
             this.infosMenuItem.MouseOverBackColor = System.Drawing.Color.Empty;
             this.infosMenuItem.Name = "infosMenuItem";
             this.infosMenuItem.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.infosMenuItem.Size = new System.Drawing.Size(96, 42);
+            this.infosMenuItem.Size = new System.Drawing.Size(96, 40);
             this.infosMenuItem.TabIndex = 3;
             this.infosMenuItem.Text = "Инфо";
             this.infosMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -752,12 +754,12 @@ namespace DwUtils.Core.Forms
             this.settingsMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.settingsMenuItem.Image = global::DwUtils.Properties.Resources.settings_4_24;
             this.settingsMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsMenuItem.Location = new System.Drawing.Point(96, 0);
+            this.settingsMenuItem.Location = new System.Drawing.Point(97, 1);
             this.settingsMenuItem.MouseDownBackColor = System.Drawing.Color.Empty;
             this.settingsMenuItem.MouseOverBackColor = System.Drawing.Color.Empty;
             this.settingsMenuItem.Name = "settingsMenuItem";
             this.settingsMenuItem.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.settingsMenuItem.Size = new System.Drawing.Size(138, 42);
+            this.settingsMenuItem.Size = new System.Drawing.Size(138, 40);
             this.settingsMenuItem.TabIndex = 2;
             this.settingsMenuItem.Text = "Настройки";
             this.settingsMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -780,12 +782,12 @@ namespace DwUtils.Core.Forms
             this.fileMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.fileMenuItem.Image = global::DwUtils.Properties.Resources.folder_7_24;
             this.fileMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.fileMenuItem.Location = new System.Drawing.Point(0, 0);
+            this.fileMenuItem.Location = new System.Drawing.Point(1, 1);
             this.fileMenuItem.MouseDownBackColor = System.Drawing.Color.Empty;
             this.fileMenuItem.MouseOverBackColor = System.Drawing.Color.Empty;
             this.fileMenuItem.Name = "fileMenuItem";
             this.fileMenuItem.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.fileMenuItem.Size = new System.Drawing.Size(96, 42);
+            this.fileMenuItem.Size = new System.Drawing.Size(96, 40);
             this.fileMenuItem.TabIndex = 1;
             this.fileMenuItem.Text = "Файл";
             this.fileMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -875,6 +877,7 @@ namespace DwUtils.Core.Forms
             this.Text = "DWUtils: GeneralForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GeneralForm_FormClosing);
             this.Load += new System.EventHandler(this.GeneralForm_Load);
+            this.SizeChanged += new System.EventHandler(this.GeneralForm_SizeChanged);
             this.Resize += new System.EventHandler(this.form_Resize);
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
