@@ -1,4 +1,6 @@
 ﻿
+using Wc32Api.Widgets.Buttons;
+using Wc32Api.Widgets.Texts;
 using WhoseIsBarcode.Core.Database.Models;
 
 namespace WhoseIsBarcode.Core.Forms
@@ -47,9 +49,9 @@ namespace WhoseIsBarcode.Core.Forms
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.labelInfoFilter = new System.Windows.Forms.Label();
-            this.tbFilter = new Wc32Api.Widgets.WcTextBox();
+            this.tbFilter = new WcTextBox();
             this.lblInfoDebug = new System.Windows.Forms.Label();
-            this.btnDebug = new Wc32Api.Widgets.WcToggleButton();
+            this.btnDebug = new WcToggleButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
@@ -69,9 +71,9 @@ namespace WhoseIsBarcode.Core.Forms
             this.barcodePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelBarcode = new System.Windows.Forms.FlowLayoutPanel();
             this.barcodeLabelInfoBarcode = new System.Windows.Forms.Label();
-            this.barcodeTextBoxBarcode = new Wc32Api.Widgets.WcTextBox();
+            this.barcodeTextBoxBarcode = new WcTextBox();
             this.barcodeLabelError = new System.Windows.Forms.Label();
-            this.btnLoadBarcode = new Wc32Api.Widgets.WcButton();
+            this.btnLoadBarcode = new WcButton();
             this.barcodePanelStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelBarcodeStat = new System.Windows.Forms.FlowLayoutPanel();
             this.barcodeLabelInfoCount = new System.Windows.Forms.Label();
@@ -97,8 +99,8 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelRangeCalendar = new System.Windows.Forms.FlowLayoutPanel();
             this.rangeLabelInfoDate = new System.Windows.Forms.Label();
-            this.rangeToggleCalendar = new Wc32Api.Widgets.WcToggleButton();
-            this.rangeToggleDateFormat = new Wc32Api.Widgets.WcToggleButton();
+            this.rangeToggleCalendar = new WcToggleButton();
+            this.rangeToggleDateFormat = new WcToggleButton();
             this.rangeDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.rangeDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.rangeDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
@@ -107,12 +109,12 @@ namespace WhoseIsBarcode.Core.Forms
             this.rangeComboBoxFirm = new System.Windows.Forms.ComboBox();
             this.dbFirmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rangeLabelInfoLimit = new System.Windows.Forms.Label();
-            this.rangeToggleLimit = new Wc32Api.Widgets.WcToggleButton();
+            this.rangeToggleLimit = new WcToggleButton();
             this.rangeLimitNum = new System.Windows.Forms.NumericUpDown();
             this.rangeLabelInfoType = new System.Windows.Forms.Label();
             this.rangeComboBoxType = new System.Windows.Forms.ComboBox();
             this.externalTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnLoadRange = new Wc32Api.Widgets.WcButton();
+            this.btnLoadRange = new WcButton();
             this.panelRangeStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelRangeStat = new System.Windows.Forms.FlowLayoutPanel();
             this.rangeLabelInfoRangeCount = new System.Windows.Forms.Label();
@@ -1358,8 +1360,8 @@ namespace WhoseIsBarcode.Core.Forms
         private System.Windows.Forms.Panel barcodePanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelBarcode;
         private System.Windows.Forms.Label barcodeLabelInfoBarcode;
-        private Wc32Api.Widgets.WcButton btnLoadBarcode;
-        private Wc32Api.Widgets.WcTextBox barcodeTextBoxBarcode;
+        private WcButton btnLoadBarcode;
+        private WcTextBox barcodeTextBoxBarcode;
         private System.Windows.Forms.DataGridView barcodeDataGridView;
         private System.Windows.Forms.Panel barcodePanelStat;
         private System.Windows.Forms.Label barcodeLabelCount;
@@ -1368,10 +1370,10 @@ namespace WhoseIsBarcode.Core.Forms
         private System.Windows.Forms.BindingSource dbBarcodeBindingSource;
         private System.Windows.Forms.ToolStripMenuItem connectItem;
         private System.Windows.Forms.Label lblInfoDebug;
-        private Wc32Api.Widgets.WcToggleButton btnDebug;
+        private WcToggleButton btnDebug;
         private System.Windows.Forms.Panel rangePanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelRange;
-        private Wc32Api.Widgets.WcButton btnLoadRange;
+        private WcButton btnLoadRange;
         private System.Windows.Forms.DataGridView rangeDataGridView;
         private System.Windows.Forms.BindingSource dbRangeBindingSource;
         private System.Windows.Forms.ContextMenuStrip barcodeContextMenu;
@@ -1395,18 +1397,18 @@ namespace WhoseIsBarcode.Core.Forms
         private System.Windows.Forms.Label rangeLabelBarcodeFree;
         private System.Windows.Forms.Label rangeLabelInfoBarcodeBusy;
         private System.Windows.Forms.Label rangeLabelBarcodeBusy;
-        private Wc32Api.Widgets.WcToggleButton rangeToggleCalendar;
+        private WcToggleButton rangeToggleCalendar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelRangeCalendar;
-        private Wc32Api.Widgets.WcToggleButton rangeToggleLimit;
+        private WcToggleButton rangeToggleLimit;
         private System.Windows.Forms.Label rangeLabelInfoLimit;
         private System.Windows.Forms.NumericUpDown rangeLimitNum;
         private System.Windows.Forms.DateTimePicker rangeDateTimePickerCalendar;
         private System.Windows.Forms.DateTimePicker rangeDateTimePickerStart;
         private System.Windows.Forms.DateTimePicker rangeDateTimePickerEnd;
         private System.Windows.Forms.Label rangeLabelInfoDate;
-        private Wc32Api.Widgets.WcToggleButton rangeToggleDateFormat;
+        private WcToggleButton rangeToggleDateFormat;
         private System.Windows.Forms.Label labelInfoFilter;
-        private Wc32Api.Widgets.WcTextBox tbFilter;
+        private WcTextBox tbFilter;
         private System.Windows.Forms.ContextMenuStrip rangeContextMenu;
         private System.Windows.Forms.ToolStripMenuItem allbarcodesMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcodeColumnDate;

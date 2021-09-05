@@ -1,4 +1,7 @@
-﻿namespace DwUtils.Core.Forms
+﻿using Wc32Api.Widgets.Buttons;
+using Wc32Api.Widgets.Texts;
+
+namespace DwUtils.Core.Forms
 {
     partial class ConfigForm
     {
@@ -32,10 +35,10 @@
             this.panelButton = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabLk = new System.Windows.Forms.TabPage();
-            this.btnCancel = new Wc32Api.Widgets.WcButton();
-            this.btnSave = new Wc32Api.Widgets.WcButton();
+            this.btnCancel = new WcButton();
+            this.btnSave = new WcButton();
             this.labelInfoLkApi = new System.Windows.Forms.Label();
-            this.lkTbApiUrl = new Wc32Api.Widgets.WcTextBox();
+            this.lkTbApiUrl = new WcTextBox();
             this.panelButton.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabLk.SuspendLayout();
@@ -205,9 +208,9 @@
         private System.Windows.Forms.Panel panelButton;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabLk;
-        private Wc32Api.Widgets.WcButton btnCancel;
-        private Wc32Api.Widgets.WcButton btnSave;
+        private WcButton btnCancel;
+        private WcButton btnSave;
         private System.Windows.Forms.Label labelInfoLkApi;
-        private Wc32Api.Widgets.WcTextBox lkTbApiUrl;
+        private WcTextBox lkTbApiUrl;
     }
 }

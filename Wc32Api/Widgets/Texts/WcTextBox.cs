@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace Wc32Api.Widgets
+namespace Wc32Api.Widgets.Texts
 {
     [DefaultEvent("_TextChanged")]
     public partial class WcTextBox : UserControl
@@ -255,6 +255,28 @@ namespace Wc32Api.Widgets
             UpdateControlHeight();
         }
 
+        protected override void OnEnabledChanged(EventArgs e)
+        {
+            base.OnEnabledChanged(e);
+
+            if (!Enabled)
+            {
+                _enableForeColor = ForeColor;
+                _enableBackColor = BackColor;
+            }
+
+            if (Enabled)
+            {
+                ForeColor = _enableForeColor;
+                BackColor = _enableBackColor;
+            }
+            else
+            {
+                ForeColor = _disableBackColor;
+                BackColor = _disableBackColor;
+            }
+        }
+
         #endregion
 
         #region Private Methods
@@ -275,6 +297,7 @@ namespace Wc32Api.Widgets
         #endregion
 
         #region TextBox Event
+
         private void textBox_TextChanged(object sender, EventArgs e)
         {
             _TextChanged?.Invoke(sender, e);
@@ -319,28 +342,6 @@ namespace Wc32Api.Widgets
             Invalidate();
         }
         #endregion
-
-        protected override void OnEnabledChanged(EventArgs e)
-        {
-            base.OnEnabledChanged(e);
-
-            if (!Enabled)
-            {
-                _enableForeColor = ForeColor;
-                _enableBackColor = BackColor;
-            }
-
-            if (Enabled)
-            {
-                ForeColor = _enableForeColor;
-                BackColor = _enableBackColor;
-            }
-            else
-            {
-                ForeColor = _disableBackColor;
-                BackColor = _disableBackColor;
-            }
-        }
 
         public void SelectAll()
         {

@@ -1,5 +1,5 @@
 ﻿
-namespace Wc32Api.Widgets
+namespace Wc32Api.Widgets.Texts
 {
     partial class WcTextBox
     {

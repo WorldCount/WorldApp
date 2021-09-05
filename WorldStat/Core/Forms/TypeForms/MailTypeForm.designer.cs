@@ -1,4 +1,7 @@
-﻿namespace WorldStat.Core.Forms.TypeForms
+﻿using Wc32Api.Widgets.Buttons;
+using Wc32Api.Widgets.Texts;
+
+namespace WorldStat.Core.Forms.TypeForms
 {
     partial class MailTypeForm
     {
@@ -42,14 +45,14 @@
             this.uncheckAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.lblCount = new System.Windows.Forms.Label();
-            this.btnSave = new Wc32Api.Widgets.WcButton();
-            this.btnCancel = new Wc32Api.Widgets.WcButton();
-            this.btnUpdate = new Wc32Api.Widgets.WcButton();
+            this.btnSave = new WcButton();
+            this.btnCancel = new WcButton();
+            this.btnUpdate = new WcButton();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbFilter = new Wc32Api.Widgets.WcTextBox();
+            this.tbFilter = new WcTextBox();
             this.lblFilter = new System.Windows.Forms.Label();
             this.enableDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -410,9 +413,9 @@
 
         private System.Windows.Forms.Label labelInfo;
         public System.Windows.Forms.DataGridView dataGridView;
-        private Wc32Api.Widgets.WcButton btnUpdate;
-        private Wc32Api.Widgets.WcButton btnSave;
-        private Wc32Api.Widgets.WcButton btnCancel;
+        private WcButton btnUpdate;
+        private WcButton btnSave;
+        private WcButton btnCancel;
         private System.Windows.Forms.BindingSource mailTypeBindingSource;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -429,7 +432,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private Wc32Api.Widgets.WcTextBox tbFilter;
+        private WcTextBox tbFilter;
         private System.Windows.Forms.Label lblFilter;
     }
 }

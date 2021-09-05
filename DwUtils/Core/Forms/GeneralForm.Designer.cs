@@ -1,4 +1,6 @@
 ﻿
+using Wc32Api.Widgets.Buttons;
+
 namespace DwUtils.Core.Forms
 {
     partial class GeneralForm
@@ -45,9 +47,9 @@ namespace DwUtils.Core.Forms
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.lblInfoDebug = new System.Windows.Forms.Label();
-            this.btnDebug = new Wc32Api.Widgets.WcToggleButton();
+            this.btnDebug = new WcToggleButton();
             this.labelInfoLoadLk = new System.Windows.Forms.Label();
-            this.toggleLoadLk = new Wc32Api.Widgets.WcToggleButton();
+            this.toggleLoadLk = new WcToggleButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
@@ -66,9 +68,9 @@ namespace DwUtils.Core.Forms
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.freeRpoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelFreeRpo = new System.Windows.Forms.Panel();
-            this.btnEditFreeRpo = new Wc32Api.Widgets.WcButton();
-            this.btnDeleteFreeRpo = new Wc32Api.Widgets.WcButton();
-            this.btnLoadFreeRpo = new Wc32Api.Widgets.WcButton();
+            this.btnEditFreeRpo = new WcButton();
+            this.btnDeleteFreeRpo = new WcButton();
+            this.btnLoadFreeRpo = new WcButton();
             this.flowLayoutPanelFreeRpo = new System.Windows.Forms.FlowLayoutPanel();
             this.freeRpoLabelInfoUsers = new System.Windows.Forms.Label();
             this.freeRpoComboBoxUsers = new System.Windows.Forms.ComboBox();
@@ -683,13 +685,13 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.ToolStripStatusLabel statusText;
         private System.Windows.Forms.ToolStripStatusLabel statusAuthor;
         private System.Windows.Forms.Timer timerStatus;
-        private Wc32Api.Widgets.WcToggleButton toggleLoadLk;
+        private WcToggleButton toggleLoadLk;
         private System.Windows.Forms.Label labelInfoLoadLk;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabFreeRpo;
         private System.Windows.Forms.DataGridView freeRpoDataGridView;
         private System.Windows.Forms.Panel panelFreeRpo;
-        private Wc32Api.Widgets.WcButton btnLoadFreeRpo;
+        private WcButton btnLoadFreeRpo;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFreeRpo;
         private System.Windows.Forms.Panel barcodePanelStat;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFreeRpoStat;
@@ -698,14 +700,14 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.ToolStripMenuItem connectPostUnitMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectPostItemMenuItem;
         private System.Windows.Forms.Label lblInfoDebug;
-        private Wc32Api.Widgets.WcToggleButton btnDebug;
+        private WcToggleButton btnDebug;
         private System.Windows.Forms.ToolStripMenuItem configMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.BindingSource freeRpoBindingSource;
         private System.Windows.Forms.ComboBox freeRpoComboBoxUsers;
         private System.Windows.Forms.Label freeRpoLabelInfoUsers;
         private System.Windows.Forms.BindingSource userBindingSource;
-        private Wc32Api.Widgets.WcButton btnDeleteFreeRpo;
+        private WcButton btnDeleteFreeRpo;
         private System.Windows.Forms.BindingSource placeBindingSource;
         private System.Windows.Forms.DataGridViewCheckBoxColumn freeRpoColumnCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnLoadDate;
@@ -714,7 +716,7 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnIndexTo;
         private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnPlaceId;
         private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnUserId;
-        private Wc32Api.Widgets.WcButton btnEditFreeRpo;
+        private WcButton btnEditFreeRpo;
     }
 }
 

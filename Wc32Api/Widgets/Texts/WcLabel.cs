@@ -3,13 +3,19 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace Wc32Api.Widgets
+namespace Wc32Api.Widgets.Texts
 {
     public class WcLabel : Label
     {
 
+        #region Private Fields
+
         private int _borderRadius = 4;
         private float _borderThickness = 1;
+
+        #endregion
+
+        #region Public Properties
 
         [Category("Appearance")]
         public int BorderRadius
@@ -37,10 +43,14 @@ namespace Wc32Api.Widgets
             }
         }
 
+        #endregion
+        
         public WcLabel()
         {
             DoubleBuffered = true;
         }
+
+        #region Overriddes Methods
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -58,7 +68,11 @@ namespace Wc32Api.Widgets
             }
         }
 
-        GraphicsPath GetRoundPath(RectangleF rect, int radius)
+        #endregion
+
+        #region Private Methods
+
+        private GraphicsPath GetRoundPath(RectangleF rect, int radius)
         {
             float m = 2.75F;
             float r2 = radius / 2f;
@@ -76,5 +90,8 @@ namespace Wc32Api.Widgets
             graphPath.CloseFigure();
             return graphPath;
         }
+
+        #endregion
+        
     }
 }

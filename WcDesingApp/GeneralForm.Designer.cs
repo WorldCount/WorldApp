@@ -1,4 +1,6 @@
 ﻿
+using Wc32Api.Widgets.Buttons;
+
 namespace WcDesingApp
 {
     partial class GeneralForm
@@ -41,27 +43,27 @@ namespace WcDesingApp
             this.iconPicture = new System.Windows.Forms.PictureBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelButtonTitle = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnClose = new Wc32Api.Widgets.WcButton();
-            this.btnMaximize = new Wc32Api.Widgets.WcButton();
-            this.btnMinimize = new Wc32Api.Widgets.WcButton();
+            this.btnClose = new WcButton();
+            this.btnMaximize = new WcButton();
+            this.btnMinimize = new WcButton();
             this.panelWork = new System.Windows.Forms.Panel();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.lblInfoDebug = new System.Windows.Forms.Label();
-            this.btnDebug = new Wc32Api.Widgets.WcToggleButton();
+            this.btnDebug = new WcToggleButton();
             this.labelInfoLoadLk = new System.Windows.Forms.Label();
-            this.toggleLoadLk = new Wc32Api.Widgets.WcToggleButton();
+            this.toggleLoadLk = new WcToggleButton();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.infosMenuItem = new Wc32Api.Widgets.WcButton();
-            this.settingsMenuItem = new Wc32Api.Widgets.WcButton();
-            this.fileMenuItem = new Wc32Api.Widgets.WcButton();
+            this.infosMenuItem = new WcButton();
+            this.settingsMenuItem = new WcButton();
+            this.fileMenuItem = new WcButton();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabFreeRpo = new System.Windows.Forms.TabPage();
             this.freeRpoDataGridView = new System.Windows.Forms.DataGridView();
             this.freeRpoColumnCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panelFreeRpo = new System.Windows.Forms.Panel();
-            this.btnEditFreeRpo = new Wc32Api.Widgets.WcButton();
-            this.btnDeleteFreeRpo = new Wc32Api.Widgets.WcButton();
-            this.btnLoadFreeRpo = new Wc32Api.Widgets.WcButton();
+            this.btnEditFreeRpo = new WcButton();
+            this.btnDeleteFreeRpo = new WcButton();
+            this.btnLoadFreeRpo = new WcButton();
             this.flowLayoutPanelFreeRpo = new System.Windows.Forms.FlowLayoutPanel();
             this.freeRpoLabelInfoUsers = new System.Windows.Forms.Label();
             this.freeRpoComboBoxUsers = new System.Windows.Forms.ComboBox();
@@ -772,12 +774,12 @@ namespace WcDesingApp
         private System.Windows.Forms.FlowLayoutPanel panelButtonTitle;
         private System.Windows.Forms.Panel panelWork;
         private System.Windows.Forms.Panel panelMenu;
-        private Wc32Api.Widgets.WcButton fileMenuItem;
-        private Wc32Api.Widgets.WcButton infosMenuItem;
-        private Wc32Api.Widgets.WcButton settingsMenuItem;
-        private Wc32Api.Widgets.WcButton btnClose;
-        private Wc32Api.Widgets.WcButton btnMaximize;
-        private Wc32Api.Widgets.WcButton btnMinimize;
+        private WcButton fileMenuItem;
+        private WcButton infosMenuItem;
+        private WcButton settingsMenuItem;
+        private WcButton btnClose;
+        private WcButton btnMaximize;
+        private WcButton btnMinimize;
         private Core.Widgets.Menu.WcDropdownMenu wcDropdownMenuFile;
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
         private Core.Widgets.Menu.WcDropdownMenu wcDropdownMenuSettings;
@@ -787,17 +789,17 @@ namespace WcDesingApp
         private System.Windows.Forms.ToolStripMenuItem configMenuItem;
         private System.Windows.Forms.Panel panelGeneral;
         private System.Windows.Forms.Label lblInfoDebug;
-        private Wc32Api.Widgets.WcToggleButton btnDebug;
+        private WcToggleButton btnDebug;
         private System.Windows.Forms.Label labelInfoLoadLk;
-        private Wc32Api.Widgets.WcToggleButton toggleLoadLk;
+        private WcToggleButton toggleLoadLk;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabFreeRpo;
         private System.Windows.Forms.DataGridView freeRpoDataGridView;
         private System.Windows.Forms.DataGridViewCheckBoxColumn freeRpoColumnCheck;
         private System.Windows.Forms.Panel panelFreeRpo;
-        private Wc32Api.Widgets.WcButton btnEditFreeRpo;
-        private Wc32Api.Widgets.WcButton btnDeleteFreeRpo;
-        private Wc32Api.Widgets.WcButton btnLoadFreeRpo;
+        private WcButton btnEditFreeRpo;
+        private WcButton btnDeleteFreeRpo;
+        private WcButton btnLoadFreeRpo;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFreeRpo;
         private System.Windows.Forms.Label freeRpoLabelInfoUsers;
         private System.Windows.Forms.ComboBox freeRpoComboBoxUsers;

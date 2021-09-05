@@ -1,4 +1,7 @@
-﻿namespace WorldStat.Core.Forms.DataForms
+﻿using Wc32Api.Widgets.Buttons;
+using Wc32Api.Widgets.Texts;
+
+namespace WorldStat.Core.Forms.DataForms
 {
     partial class FirmsForm
     {
@@ -44,11 +47,11 @@
             this.uncheckAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCount = new System.Windows.Forms.Label();
             this.lblFilter = new System.Windows.Forms.Label();
-            this.btnDelete = new Wc32Api.Widgets.WcButton();
-            this.tbFilter = new Wc32Api.Widgets.WcTextBox();
-            this.btnSave = new Wc32Api.Widgets.WcButton();
-            this.btnCancel = new Wc32Api.Widgets.WcButton();
-            this.btnUpdate = new Wc32Api.Widgets.WcButton();
+            this.btnDelete = new WcButton();
+            this.tbFilter = new WcTextBox();
+            this.btnSave = new WcButton();
+            this.btnCancel = new WcButton();
+            this.btnUpdate = new WcButton();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shortNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firmBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -409,17 +412,17 @@
 
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.DataGridView dataGridView;
-        private Wc32Api.Widgets.WcButton btnUpdate;
-        private Wc32Api.Widgets.WcButton btnSave;
-        private Wc32Api.Widgets.WcButton btnCancel;
+        private WcButton btnUpdate;
+        private WcButton btnSave;
+        private WcButton btnCancel;
         private System.Windows.Forms.BindingSource firmBindingSource;
         private System.Windows.Forms.Label lblCount;
         private System.Windows.Forms.Label lblFilter;
-        private Wc32Api.Widgets.WcTextBox tbFilter;
+        private WcTextBox tbFilter;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem checkAllMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uncheckAllMenuItem;
-        private Wc32Api.Widgets.WcButton btnDelete;
+        private WcButton btnDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn checkDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;

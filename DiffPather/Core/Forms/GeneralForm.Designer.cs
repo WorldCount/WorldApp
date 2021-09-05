@@ -1,4 +1,6 @@
 ﻿
+using Wc32Api.Widgets.Buttons;
+
 namespace DiffPather.Core.Forms
 {
     partial class GeneralForm
@@ -48,10 +50,10 @@ namespace DiffPather.Core.Forms
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
-            this.toggleButtonDebug = new Wc32Api.Widgets.WcToggleButton();
+            this.toggleButtonDebug = new WcToggleButton();
             this.labelInfoDebug = new System.Windows.Forms.Label();
             this.flowLayoutPanelButton = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAdd = new Wc32Api.Widgets.WcButton();
+            this.btnAdd = new WcButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
@@ -60,7 +62,7 @@ namespace DiffPather.Core.Forms
             this.tabApps = new System.Windows.Forms.TabPage();
             this.appsDataGridView = new System.Windows.Forms.DataGridView();
             this.panelApps = new System.Windows.Forms.Panel();
-            this.btnUpdateApps = new Wc32Api.Widgets.WcButton();
+            this.btnUpdateApps = new WcButton();
             this.flowLayoutPanelApps = new System.Windows.Forms.FlowLayoutPanel();
             this.barcodePanelStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelBarcodeStat = new System.Windows.Forms.FlowLayoutPanel();
@@ -84,7 +86,7 @@ namespace DiffPather.Core.Forms
             this.appsRemoveContexMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabVersions = new System.Windows.Forms.TabPage();
             this.panelVersions = new System.Windows.Forms.Panel();
-            this.btnUpdateVersions = new Wc32Api.Widgets.WcButton();
+            this.btnUpdateVersions = new WcButton();
             this.flowLayoutPanelVersions = new System.Windows.Forms.FlowLayoutPanel();
             this.versionsDataGridView = new System.Windows.Forms.DataGridView();
             this.appsColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -861,7 +863,7 @@ namespace DiffPather.Core.Forms
         private System.Windows.Forms.ToolStripStatusLabel statusAuthor;
         private System.Windows.Forms.Timer timerStatus;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelButton;
-        private Wc32Api.Widgets.WcButton btnAdd;
+        private WcButton btnAdd;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabApps;
         private System.Windows.Forms.DataGridView appsDataGridView;
@@ -888,7 +890,7 @@ namespace DiffPather.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn appsColumnCurrentVersion;
         private System.Windows.Forms.DataGridViewTextBoxColumn appsColumnDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn appsColumnDirectoryLocation;
-        private Wc32Api.Widgets.WcButton btnUpdateApps;
+        private WcButton btnUpdateApps;
         private System.Windows.Forms.ToolStripMenuItem addAppMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ContextMenuStrip appsContextMenu;
@@ -896,10 +898,10 @@ namespace DiffPather.Core.Forms
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem appsRemoveContexMenuItem;
         private System.Windows.Forms.Label labelInfoDebug;
-        private Wc32Api.Widgets.WcToggleButton toggleButtonDebug;
+        private WcToggleButton toggleButtonDebug;
         private System.Windows.Forms.TabPage tabVersions;
         private System.Windows.Forms.Panel panelVersions;
-        private Wc32Api.Widgets.WcButton btnUpdateVersions;
+        private WcButton btnUpdateVersions;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelVersions;
         private System.Windows.Forms.DataGridView versionsDataGridView;
     }

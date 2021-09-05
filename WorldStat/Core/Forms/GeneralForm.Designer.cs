@@ -1,4 +1,7 @@
 ﻿
+using Wc32Api.Widgets.Buttons;
+using Wc32Api.Widgets.Texts;
+
 namespace WorldStat.Core.Forms
 {
     partial class GeneralForm
@@ -65,11 +68,11 @@ namespace WorldStat.Core.Forms
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
-            this.btnOpenUnloadDir = new Wc32Api.Widgets.WcButton();
+            this.btnOpenUnloadDir = new WcButton();
             this.reportLabelInfoUnloadDir = new System.Windows.Forms.Label();
-            this.reportTextBoxUnloadDir = new Wc32Api.Widgets.WcTextBox();
-            this.btnTest = new Wc32Api.Widgets.WcButton();
-            this.orgToggleButtonCalendar = new Wc32Api.Widgets.WcToggleButton();
+            this.reportTextBoxUnloadDir = new WcTextBox();
+            this.btnTest = new WcButton();
+            this.orgToggleButtonCalendar = new WcToggleButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
@@ -92,13 +95,13 @@ namespace WorldStat.Core.Forms
             this.reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelReport = new System.Windows.Forms.FlowLayoutPanel();
-            this.reportToggleButton = new Wc32Api.Widgets.WcToggleButton();
+            this.reportToggleButton = new WcToggleButton();
             this.reportDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.reportDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.reportDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.reportLabelInfoTeam = new System.Windows.Forms.Label();
             this.reportComboBoxTeam = new System.Windows.Forms.ComboBox();
-            this.btnLoadReports = new Wc32Api.Widgets.WcButton();
+            this.btnLoadReports = new WcButton();
             this.tabOrgs = new System.Windows.Forms.TabPage();
             this.orgPanelStat = new System.Windows.Forms.Panel();
             this.orgLabelPosCount = new System.Windows.Forms.Label();
@@ -137,8 +140,8 @@ namespace WorldStat.Core.Forms
             this.orgDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.orgDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.orgLabelInfoGroup = new System.Windows.Forms.Label();
-            this.orgToggleButtonGroup = new Wc32Api.Widgets.WcToggleButton();
-            this.btnLoadOrgs = new Wc32Api.Widgets.WcButton();
+            this.orgToggleButtonGroup = new WcToggleButton();
+            this.btnLoadOrgs = new WcButton();
             this.orgComboBoxFirms = new System.Windows.Forms.ComboBox();
             this.orgFirmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageIncomes = new System.Windows.Forms.TabPage();
@@ -168,13 +171,13 @@ namespace WorldStat.Core.Forms
             this.incomeLabelInfoTransType = new System.Windows.Forms.Label();
             this.incomeComboBoxTransType = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.incomeToggleButtonCalendar = new Wc32Api.Widgets.WcToggleButton();
+            this.incomeToggleButtonCalendar = new WcToggleButton();
             this.incomeDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.incomeDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.incomeDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.incomeLabelInfoGroup = new System.Windows.Forms.Label();
-            this.incomeToggleButtonGroup = new Wc32Api.Widgets.WcToggleButton();
-            this.btnLoadIncomes = new Wc32Api.Widgets.WcButton();
+            this.incomeToggleButtonGroup = new WcToggleButton();
+            this.btnLoadIncomes = new WcButton();
             this.incomeComboBoxFirms = new System.Windows.Forms.ComboBox();
             this.incomeFirmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabStats = new System.Windows.Forms.TabPage();
@@ -186,11 +189,11 @@ namespace WorldStat.Core.Forms
             this.dispathReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.statToggleButtonCalendar = new Wc32Api.Widgets.WcToggleButton();
+            this.statToggleButtonCalendar = new WcToggleButton();
             this.statDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.statDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.statDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
-            this.btnLoadStat = new Wc32Api.Widgets.WcButton();
+            this.btnLoadStat = new WcButton();
             this.statComboBoxFirms = new System.Windows.Forms.ComboBox();
             this.statFirmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabCharts = new System.Windows.Forms.TabPage();
@@ -2296,7 +2299,7 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.Button btnActiveUserLoad;
         private System.Windows.Forms.DateTimePicker reportDateTimePickerCalendar;
         private System.Windows.Forms.BindingSource reportBindingSource;
-        private Wc32Api.Widgets.WcButton btnLoadReports;
+        private WcButton btnLoadReports;
         private System.Windows.Forms.Panel reportPanelStat;
         private System.Windows.Forms.Label reportLabelInfoCount;
         private System.Windows.Forms.Label reportLabelInfoPay;
@@ -2320,13 +2323,13 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.Label orgLabelInfoPay;
         private System.Windows.Forms.Label orgLabelInfoCount;
         private System.Windows.Forms.DataGridView orgDataGridView;
-        private Wc32Api.Widgets.WcButton btnLoadOrgs;
+        private WcButton btnLoadOrgs;
         private System.Windows.Forms.BindingSource orgReportPosBindingSource;
         private System.Windows.Forms.BindingSource incomeReportPosBindingSource;
         private System.Windows.Forms.BindingSource mailTypeBindingSource;
         private System.Windows.Forms.BindingSource mailCategoryBindingSource;
         private System.Windows.Forms.DateTimePicker orgDateTimePickerCalendar;
-        private Wc32Api.Widgets.WcToggleButton orgToggleButtonCalendar;
+        private WcToggleButton orgToggleButtonCalendar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelOrgBase;
         private System.Windows.Forms.ComboBox orgComboBoxMailCategory;
         private System.Windows.Forms.ComboBox orgComboBoxMailType;
@@ -2337,15 +2340,15 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelReport;
         private System.Windows.Forms.DateTimePicker reportDateTimePickerStart;
         private System.Windows.Forms.DateTimePicker reportDateTimePickerEnd;
-        private Wc32Api.Widgets.WcToggleButton reportToggleButton;
+        private WcToggleButton reportToggleButton;
         private System.Windows.Forms.Label orgLabelInfoTransType;
         private System.Windows.Forms.ComboBox orgComboBoxTransType;
         private System.Windows.Forms.ComboBox orgComboBoxTransCategory;
         private System.Windows.Forms.Label orgLabelInfoTransCategory;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelOrgFilter;
-        private Wc32Api.Widgets.WcButton btnTest;
+        private WcButton btnTest;
         private System.Windows.Forms.Label orgLabelInfoGroup;
-        private Wc32Api.Widgets.WcToggleButton orgToggleButtonGroup;
+        private WcToggleButton orgToggleButtonGroup;
         private System.Windows.Forms.TabPage tabPageIncomes;
         private System.Windows.Forms.DataGridView incomeDataGridView;
         private System.Windows.Forms.Panel incomePanel;
@@ -2359,11 +2362,11 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.Label incomeLabelInfoTransType;
         private System.Windows.Forms.ComboBox incomeComboBoxTransType;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private Wc32Api.Widgets.WcToggleButton incomeToggleButtonCalendar;
+        private WcToggleButton incomeToggleButtonCalendar;
         private System.Windows.Forms.DateTimePicker incomeDateTimePickerStart;
         private System.Windows.Forms.DateTimePicker incomeDateTimePickerEnd;
         private System.Windows.Forms.DateTimePicker incomeDateTimePickerCalendar;
-        private Wc32Api.Widgets.WcButton btnLoadIncomes;
+        private WcButton btnLoadIncomes;
         private System.Windows.Forms.ComboBox incomeComboBoxFirms;
         private System.Windows.Forms.DataGridViewTextBoxColumn reportColumnDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn reportColumnDayName;
@@ -2380,7 +2383,7 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.Label incomeLabelInfoPay;
         private System.Windows.Forms.Label incomeLabelInfoCount;
         private System.Windows.Forms.Label incomeLabelInfoGroup;
-        private Wc32Api.Widgets.WcToggleButton incomeToggleButtonGroup;
+        private WcToggleButton incomeToggleButtonGroup;
         private System.Windows.Forms.BindingSource incomeFirmBindingSource;
         private System.Windows.Forms.BindingSource incomeAcitveMailTypeBindingSource;
         private System.Windows.Forms.BindingSource incomeActiveMailCategoryBindingSource;
@@ -2398,11 +2401,11 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnPay;
         private System.Windows.Forms.Panel panelStat;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private Wc32Api.Widgets.WcToggleButton statToggleButtonCalendar;
+        private WcToggleButton statToggleButtonCalendar;
         private System.Windows.Forms.DateTimePicker statDateTimePickerStart;
         private System.Windows.Forms.DateTimePicker statDateTimePickerEnd;
         private System.Windows.Forms.DateTimePicker statDateTimePickerCalendar;
-        private Wc32Api.Widgets.WcButton btnLoadStat;
+        private WcButton btnLoadStat;
         private System.Windows.Forms.ComboBox statComboBoxFirms;
         private System.Windows.Forms.DataGridView statDataGridView;
         private System.Windows.Forms.BindingSource statFirmBindingSource;
@@ -2415,8 +2418,8 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.ToolStripMenuItem reportContextMenuUnload;
         private System.Windows.Forms.ToolStripMenuItem reportContextMenuUnloadAll;
         private System.Windows.Forms.Label reportLabelInfoUnloadDir;
-        private Wc32Api.Widgets.WcTextBox reportTextBoxUnloadDir;
-        private Wc32Api.Widgets.WcButton btnOpenUnloadDir;
+        private WcTextBox reportTextBoxUnloadDir;
+        private WcButton btnOpenUnloadDir;
         private System.Windows.Forms.ToolStripMenuItem reportContextMenuUploadYandexDisk;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }

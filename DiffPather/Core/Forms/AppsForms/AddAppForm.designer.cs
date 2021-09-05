@@ -1,4 +1,7 @@
-﻿namespace DiffPather.Core.Forms.AppsForms
+﻿using Wc32Api.Widgets.Buttons;
+using Wc32Api.Widgets.Texts;
+
+namespace DiffPather.Core.Forms.AppsForms
 {
     partial class AddAppForm
     {
@@ -40,23 +43,23 @@
             this.uncheckAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelInfo = new System.Windows.Forms.Panel();
             this.lblInfoReporitory = new System.Windows.Forms.Label();
-            this.toggleRepository = new Wc32Api.Widgets.WcToggleButton();
+            this.toggleRepository = new WcToggleButton();
             this.reportPanelStat = new System.Windows.Forms.Panel();
             this.lblInfoCount = new System.Windows.Forms.Label();
             this.lblCount = new System.Windows.Forms.Label();
-            this.btnCancel = new Wc32Api.Widgets.WcButton();
-            this.btnAdd = new Wc32Api.Widgets.WcButton();
+            this.btnCancel = new WcButton();
+            this.btnAdd = new WcButton();
             this.panelAppInfo = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFilter = new System.Windows.Forms.FlowLayoutPanel();
-            this.tbFilter = new Wc32Api.Widgets.WcTextBox();
+            this.tbFilter = new WcTextBox();
             this.lblFilter = new System.Windows.Forms.Label();
-            this.appLocationTextBox = new Wc32Api.Widgets.WcTextBox();
+            this.appLocationTextBox = new WcTextBox();
             this.appLocationInfo = new System.Windows.Forms.Label();
-            this.appDescriptionTextBox = new Wc32Api.Widgets.WcTextBox();
+            this.appDescriptionTextBox = new WcTextBox();
             this.appDescriptionInfo = new System.Windows.Forms.Label();
             this.appVersionInfo = new System.Windows.Forms.Label();
-            this.appVersionTextBox = new Wc32Api.Widgets.WcTextBox();
-            this.appNameTextBox = new Wc32Api.Widgets.WcTextBox();
+            this.appVersionTextBox = new WcTextBox();
+            this.appNameTextBox = new WcTextBox();
             this.appNameInfo = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.filesColumnChecked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -633,22 +636,22 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.Panel panelInfo;
         private System.Windows.Forms.Panel reportPanelStat;
-        private Wc32Api.Widgets.WcButton btnAdd;
-        private Wc32Api.Widgets.WcButton btnCancel;
+        private WcButton btnAdd;
+        private WcButton btnCancel;
         private System.Windows.Forms.Panel panelAppInfo;
         private System.Windows.Forms.Label appNameInfo;
-        private Wc32Api.Widgets.WcTextBox appNameTextBox;
-        private Wc32Api.Widgets.WcTextBox appDescriptionTextBox;
+        private WcTextBox appNameTextBox;
+        private WcTextBox appDescriptionTextBox;
         private System.Windows.Forms.Label appDescriptionInfo;
         private System.Windows.Forms.Label appVersionInfo;
-        private Wc32Api.Widgets.WcTextBox appVersionTextBox;
-        private Wc32Api.Widgets.WcTextBox appLocationTextBox;
+        private WcTextBox appVersionTextBox;
+        private WcTextBox appLocationTextBox;
         private System.Windows.Forms.Label appLocationInfo;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.BindingSource appFileBindingSource;
-        private Wc32Api.Widgets.WcToggleButton toggleRepository;
+        private WcToggleButton toggleRepository;
         private System.Windows.Forms.Label lblInfoReporitory;
-        private Wc32Api.Widgets.WcTextBox tbFilter;
+        private WcTextBox tbFilter;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFilter;
         private System.Windows.Forms.Label lblFilter;
         private System.Windows.Forms.DataGridViewCheckBoxColumn filesColumnChecked;

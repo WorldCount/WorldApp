@@ -1,4 +1,6 @@
-﻿namespace WorldStat.Core.Forms
+﻿using Wc32Api.Widgets.Buttons;
+
+namespace WorldStat.Core.Forms
 {
     partial class LoadCalendarForm
     {
@@ -39,8 +41,8 @@
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.calendarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblCount = new System.Windows.Forms.Label();
-            this.btnSave = new Wc32Api.Widgets.WcButton();
-            this.btnCancel = new Wc32Api.Widgets.WcButton();
+            this.btnSave = new WcButton();
+            this.btnCancel = new WcButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calendarBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -231,8 +233,8 @@
 
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.DataGridView dataGridView;
-        private Wc32Api.Widgets.WcButton btnSave;
-        private Wc32Api.Widgets.WcButton btnCancel;
+        private WcButton btnSave;
+        private WcButton btnCancel;
         private System.Windows.Forms.Label lblCount;
         private System.Windows.Forms.BindingSource calendarBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;

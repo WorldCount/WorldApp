@@ -1,4 +1,6 @@
 ﻿
+using Wc32Api.Widgets.Progress;
+
 namespace DiffPather.Core.Forms
 {
     partial class CreateDbForm
@@ -30,7 +32,7 @@ namespace DiffPather.Core.Forms
         private void InitializeComponent()
         {
             this.labelDate = new System.Windows.Forms.Label();
-            this.coloredProgressBar = new Wc32Api.Widgets.WcProgressBar();
+            this.coloredProgressBar = new WcProgressBar();
             this.labelInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -89,7 +91,7 @@ namespace DiffPather.Core.Forms
 
         #endregion
         private System.Windows.Forms.Label labelDate;
-        private Wc32Api.Widgets.WcProgressBar coloredProgressBar;
+        private WcProgressBar coloredProgressBar;
         private System.Windows.Forms.Label labelInfo;
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Wc32Api.Widgets
+namespace Wc32Api.Widgets.Progress
 {
     public class WcProgressBar : ProgressBar
     {

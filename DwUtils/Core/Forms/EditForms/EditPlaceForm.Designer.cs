@@ -1,4 +1,6 @@
-﻿namespace DwUtils.Core.Forms.EditForms
+﻿using Wc32Api.Widgets.Buttons;
+
+namespace DwUtils.Core.Forms.EditForms
 {
     partial class EditPlaceForm
     {
@@ -32,8 +34,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditPlaceForm));
             this.cbPlace = new System.Windows.Forms.ComboBox();
             this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnCancel = new Wc32Api.Widgets.WcButton();
-            this.btnSave = new Wc32Api.Widgets.WcButton();
+            this.btnCancel = new WcButton();
+            this.btnSave = new WcButton();
             this.lblInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -159,8 +161,8 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cbPlace;
-        private Wc32Api.Widgets.WcButton btnCancel;
-        private Wc32Api.Widgets.WcButton btnSave;
+        private WcButton btnCancel;
+        private WcButton btnSave;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.BindingSource placeBindingSource;
     }

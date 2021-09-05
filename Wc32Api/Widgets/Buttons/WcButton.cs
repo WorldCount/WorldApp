@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace Wc32Api.Widgets
+namespace Wc32Api.Widgets.Buttons
 {
     public class WcButton : Button
     {

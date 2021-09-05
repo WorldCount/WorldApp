@@ -1,4 +1,7 @@
-﻿namespace WhoseIsBarcode.Core.Forms
+﻿using Wc32Api.Widgets.Buttons;
+using Wc32Api.Widgets.Texts;
+
+namespace WhoseIsBarcode.Core.Forms
 {
     partial class ConnectForm
     {
@@ -37,17 +40,17 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPath = new System.Windows.Forms.Label();
             this.lblHost = new System.Windows.Forms.Label();
-            this.btnCheck = new Wc32Api.Widgets.WcButton();
-            this.btnCancel = new Wc32Api.Widgets.WcButton();
-            this.btnSave = new Wc32Api.Widgets.WcButton();
-            this.btnChoose = new Wc32Api.Widgets.WcButton();
-            this.btnGetHost = new Wc32Api.Widgets.WcButton();
-            this.tbPort = new Wc32Api.Widgets.WcTextBox();
-            this.tbPass = new Wc32Api.Widgets.WcTextBox();
-            this.tbStatus = new Wc32Api.Widgets.WcTextBox();
-            this.tbUser = new Wc32Api.Widgets.WcTextBox();
-            this.tbPath = new Wc32Api.Widgets.WcTextBox();
-            this.tbHost = new Wc32Api.Widgets.WcTextBox();
+            this.btnCheck = new WcButton();
+            this.btnCancel = new WcButton();
+            this.btnSave = new WcButton();
+            this.btnChoose = new WcButton();
+            this.btnGetHost = new WcButton();
+            this.tbPort = new WcTextBox();
+            this.tbPass = new WcTextBox();
+            this.tbStatus = new WcTextBox();
+            this.tbUser = new WcTextBox();
+            this.tbPath = new WcTextBox();
+            this.tbHost = new WcTextBox();
             this.SuspendLayout();
             // 
             // cbType
@@ -483,11 +486,11 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cbType;
-        private Wc32Api.Widgets.WcButton btnCheck;
-        private Wc32Api.Widgets.WcButton btnCancel;
-        private Wc32Api.Widgets.WcButton btnSave;
-        private Wc32Api.Widgets.WcButton btnChoose;
-        private Wc32Api.Widgets.WcButton btnGetHost;
+        private WcButton btnCheck;
+        private WcButton btnCancel;
+        private WcButton btnSave;
+        private WcButton btnChoose;
+        private WcButton btnGetHost;
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.Label lblPort;
         private System.Windows.Forms.Label lblType;
@@ -495,11 +498,11 @@
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.Label lblHost;
-        private Wc32Api.Widgets.WcTextBox tbPort;
-        private Wc32Api.Widgets.WcTextBox tbPass;
-        private Wc32Api.Widgets.WcTextBox tbStatus;
-        private Wc32Api.Widgets.WcTextBox tbUser;
-        private Wc32Api.Widgets.WcTextBox tbPath;
-        private Wc32Api.Widgets.WcTextBox tbHost;
+        private WcTextBox tbPort;
+        private WcTextBox tbPass;
+        private WcTextBox tbStatus;
+        private WcTextBox tbUser;
+        private WcTextBox tbPath;
+        private WcTextBox tbHost;
     }
 }

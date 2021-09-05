@@ -1,4 +1,7 @@
 ﻿
+using Wc32Api.Widgets.Buttons;
+using Wc32Api.Widgets.Texts;
+
 namespace ARM.Core.Forms
 {
     partial class GeneralForm
@@ -83,8 +86,8 @@ namespace ARM.Core.Forms
             this.panelActive = new System.Windows.Forms.Panel();
             this.btnActiveUserLoad = new System.Windows.Forms.Button();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
-            this.lblInfo = new Wc32Api.Widgets.WcLabel();
-            this.btnSync = new Wc32Api.Widgets.WcButton();
+            this.lblInfo = new WcLabel();
+            this.btnSync = new WcButton();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -756,8 +759,8 @@ namespace ARM.Core.Forms
         private System.Windows.Forms.ToolStripMenuItem tarifsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFrankReportMenuItem;
         private System.Windows.Forms.ToolStripMenuItem firmsMenuItem;
-        private Wc32Api.Widgets.WcButton btnSync;
-        private Wc32Api.Widgets.WcLabel lblInfo;
+        private WcButton btnSync;
+        private WcLabel lblInfo;
     }
 }
 

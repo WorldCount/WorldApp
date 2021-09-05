@@ -1,4 +1,6 @@
 ﻿
+using Wc32Api.Widgets.Buttons;
+
 namespace ARM.Core.Forms.ConnectForms
 {
     partial class PartPostConnectForm
@@ -30,14 +32,14 @@ namespace ARM.Core.Forms.ConnectForms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartPostConnectForm));
-            this.btnCancel = new Wc32Api.Widgets.WcButton();
-            this.btnSave = new Wc32Api.Widgets.WcButton();
+            this.btnCancel = new WcButton();
+            this.btnSave = new WcButton();
             this.lblHost = new System.Windows.Forms.Label();
             this.tbHost = new System.Windows.Forms.TextBox();
-            this.btnAuto = new Wc32Api.Widgets.WcButton();
+            this.btnAuto = new WcButton();
             this.lblPath = new System.Windows.Forms.Label();
             this.tbPath = new System.Windows.Forms.TextBox();
-            this.btnOpen = new Wc32Api.Widgets.WcButton();
+            this.btnOpen = new WcButton();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
             this.tbUser = new System.Windows.Forms.TextBox();
@@ -48,7 +50,7 @@ namespace ARM.Core.Forms.ConnectForms
             this.tbPort = new System.Windows.Forms.TextBox();
             this.lblTestConnect = new System.Windows.Forms.Label();
             this.tbStatus = new System.Windows.Forms.TextBox();
-            this.btnCheck = new Wc32Api.Widgets.WcButton();
+            this.btnCheck = new WcButton();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -342,14 +344,14 @@ namespace ARM.Core.Forms.ConnectForms
 
         #endregion
 
-        private Wc32Api.Widgets.WcButton btnCancel;
-        private Wc32Api.Widgets.WcButton btnSave;
+        private WcButton btnCancel;
+        private WcButton btnSave;
         private System.Windows.Forms.Label lblHost;
         private System.Windows.Forms.TextBox tbHost;
-        private Wc32Api.Widgets.WcButton btnAuto;
+        private WcButton btnAuto;
         private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.TextBox tbPath;
-        private Wc32Api.Widgets.WcButton btnOpen;
+        private WcButton btnOpen;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.TextBox tbUser;
@@ -360,6 +362,6 @@ namespace ARM.Core.Forms.ConnectForms
         private System.Windows.Forms.TextBox tbPort;
         private System.Windows.Forms.Label lblTestConnect;
         private System.Windows.Forms.TextBox tbStatus;
-        private Wc32Api.Widgets.WcButton btnCheck;
+        private WcButton btnCheck;
     }
 }
