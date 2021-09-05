@@ -122,8 +122,14 @@
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.Place.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.User.datasource" />
     <None Include="Resources\Button-Settings.png" />
-    <None Include="Resources\edit-24.png" />
     <None Include="Resources\edit-11-24.png" />
+    <None Include="Resources\minus-2-16.png" />
+    <None Include="Resources\expand-16.png" />
+    <None Include="Resources\x-mark-16.png" />
+    <None Include="Resources\folder-7-24.png" />
+    <None Include="Resources\settings-4-24.png" />
+    <None Include="Resources\info-24.png" />
+    <None Include="Resources\web_hi_res_512.png" />
     <Content Include="web_hi_res_512.ico" />
     <None Include="Resources\Server.png" />
     <None Include="Resources\unchecked-32.png" />
@@ -136,9 +142,6 @@
     <None Include="Resources\sinchronize-24.png" />
     <None Include="Resources\gray-unchecked-32.png" />
     <None Include="Resources\gray_checked-32.png" />
-    <None Include="Resources\Folder-Settings.png" />
-    <None Include="Resources\Folder-Heart.png" />
-    <None Include="Resources\Folder.png" />
     <None Include="Resources\close-window-24.png" />
     <EmbeddedResource Include="Core\Forms\ConfigForm.resx">
       <DependentUpon>ConfigForm.cs</DependentUpon>
