@@ -88,6 +88,10 @@ namespace DwUtils.Core.Forms
             this.connectPostItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabReceived = new System.Windows.Forms.TabPage();
+            this.tabDelivery = new System.Windows.Forms.TabPage();
+            this.tabConnected = new System.Windows.Forms.TabPage();
+            this.tabLastVisit = new System.Windows.Forms.TabPage();
             this.statusBar.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPicture)).BeginInit();
@@ -286,12 +290,16 @@ namespace DwUtils.Core.Forms
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabFreeRpo);
+            this.tabControl.Controls.Add(this.tabReceived);
+            this.tabControl.Controls.Add(this.tabDelivery);
+            this.tabControl.Controls.Add(this.tabConnected);
+            this.tabControl.Controls.Add(this.tabLastVisit);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl.Location = new System.Drawing.Point(0, 100);
             this.tabControl.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl.Name = "tabControl";
-            this.tabControl.Padding = new System.Drawing.Point(60, 6);
+            this.tabControl.Padding = new System.Drawing.Point(30, 6);
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(800, 294);
             this.tabControl.TabIndex = 0;
@@ -871,6 +879,43 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
+            // tabReceived
+            // 
+            this.tabReceived.Location = new System.Drawing.Point(4, 36);
+            this.tabReceived.Name = "tabReceived";
+            this.tabReceived.Padding = new System.Windows.Forms.Padding(3);
+            this.tabReceived.Size = new System.Drawing.Size(792, 254);
+            this.tabReceived.TabIndex = 1;
+            this.tabReceived.Text = "На вручение";
+            this.tabReceived.UseVisualStyleBackColor = true;
+            // 
+            // tabDelivery
+            // 
+            this.tabDelivery.Location = new System.Drawing.Point(4, 36);
+            this.tabDelivery.Name = "tabDelivery";
+            this.tabDelivery.Size = new System.Drawing.Size(792, 254);
+            this.tabDelivery.TabIndex = 2;
+            this.tabDelivery.Text = "Вручено";
+            this.tabDelivery.UseVisualStyleBackColor = true;
+            // 
+            // tabConnected
+            // 
+            this.tabConnected.Location = new System.Drawing.Point(4, 36);
+            this.tabConnected.Name = "tabConnected";
+            this.tabConnected.Size = new System.Drawing.Size(792, 254);
+            this.tabConnected.TabIndex = 3;
+            this.tabConnected.Text = "Онлайн";
+            this.tabConnected.UseVisualStyleBackColor = true;
+            // 
+            // tabLastVisit
+            // 
+            this.tabLastVisit.Location = new System.Drawing.Point(4, 36);
+            this.tabLastVisit.Name = "tabLastVisit";
+            this.tabLastVisit.Size = new System.Drawing.Size(792, 254);
+            this.tabLastVisit.TabIndex = 4;
+            this.tabLastVisit.Text = "Заходили";
+            this.tabLastVisit.UseVisualStyleBackColor = true;
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -973,6 +1018,10 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnIndexTo;
         private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnPlaceId;
         private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnUserId;
+        private System.Windows.Forms.TabPage tabReceived;
+        private System.Windows.Forms.TabPage tabDelivery;
+        private System.Windows.Forms.TabPage tabConnected;
+        private System.Windows.Forms.TabPage tabLastVisit;
     }
 }
 
