@@ -40,6 +40,7 @@ namespace DwUtils.Core.Database.Queryes.PostUnit
 
             if(DebugMode)
                 Logger.Debug($"Запрос вернул записей: {data.Count}");
+
             return data;
         }
     }

@@ -35,6 +35,9 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -70,6 +73,7 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelFreeRpoL2 = new System.Windows.Forms.FlowLayoutPanel();
             this.freeRpoLabelInfoPlace = new System.Windows.Forms.Label();
             this.freeRpoComboBoxPlace = new System.Windows.Forms.ComboBox();
+            this.freeRpoLabelInfoDate = new System.Windows.Forms.Label();
             this.freeRpoToggleButtonCalendar = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.freeRpoDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.freeRpoDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
@@ -85,7 +89,21 @@ namespace DwUtils.Core.Forms
             this.tabReceived = new System.Windows.Forms.TabPage();
             this.tabDelivery = new System.Windows.Forms.TabPage();
             this.tabConnected = new System.Windows.Forms.TabPage();
-            this.tabLastVisit = new System.Windows.Forms.TabPage();
+            this.panelOnlineStat = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelOnlineStat = new System.Windows.Forms.FlowLayoutPanel();
+            this.onlineLabelInfoCount = new System.Windows.Forms.Label();
+            this.onlineLabelCount = new System.Windows.Forms.Label();
+            this.onlineDataGridView = new System.Windows.Forms.DataGridView();
+            this.onlineColumnUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.onlineColumnPlaceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.onlineColumnConnectDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.onlineColumnWorkDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.onlineColumnAdminStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectUserBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panelOnline = new System.Windows.Forms.Panel();
+            this.btnEditUser = new Wc32Api.Widgets.Buttons.WcButton();
+            this.btnLoadConnectedUser = new Wc32Api.Widgets.Buttons.WcButton();
+            this.flowLayoutPanelOnline = new System.Windows.Forms.FlowLayoutPanel();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.lblInfoDebug = new System.Windows.Forms.Label();
             this.toggleDebug = new Wc32Api.Widgets.Buttons.WcToggleButton();
@@ -102,7 +120,14 @@ namespace DwUtils.Core.Forms
             this.connectPostItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.freeRpoLabelInfoDate = new System.Windows.Forms.Label();
+            this.panelDeliveryL1 = new System.Windows.Forms.Panel();
+            this.btnPrintDelivery = new Wc32Api.Widgets.Buttons.WcButton();
+            this.btnLoadDelivery = new Wc32Api.Widgets.Buttons.WcButton();
+            this.flowLayoutPanelDeliveryL1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelReceivedL1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnLoadReceived = new Wc32Api.Widgets.Buttons.WcButton();
+            this.btnPrintReceived = new Wc32Api.Widgets.Buttons.WcButton();
+            this.panelReceivedL1 = new System.Windows.Forms.Panel();
             this.statusBar.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPicture)).BeginInit();
@@ -121,10 +146,20 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelFreeRpoL2.SuspendLayout();
             this.panelFreeRpoL1.SuspendLayout();
             this.flowLayoutPanelFreeRpoL1.SuspendLayout();
+            this.tabReceived.SuspendLayout();
+            this.tabDelivery.SuspendLayout();
+            this.tabConnected.SuspendLayout();
+            this.panelOnlineStat.SuspendLayout();
+            this.flowLayoutPanelOnlineStat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.onlineDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.connectUserBindingSource)).BeginInit();
+            this.panelOnline.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.wcDropdownMenuFile.SuspendLayout();
             this.wcDropdownMenuSettings.SuspendLayout();
+            this.panelDeliveryL1.SuspendLayout();
+            this.panelReceivedL1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusBar
@@ -307,7 +342,6 @@ namespace DwUtils.Core.Forms
             this.tabControl.Controls.Add(this.tabReceived);
             this.tabControl.Controls.Add(this.tabDelivery);
             this.tabControl.Controls.Add(this.tabConnected);
-            this.tabControl.Controls.Add(this.tabLastVisit);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl.Location = new System.Drawing.Point(0, 100);
@@ -404,7 +438,7 @@ namespace DwUtils.Core.Forms
             // freeRpoColumnCheck
             // 
             this.freeRpoColumnCheck.DataPropertyName = "Check";
-            this.freeRpoColumnCheck.HeaderText = "Отм";
+            this.freeRpoColumnCheck.HeaderText = "От";
             this.freeRpoColumnCheck.Name = "freeRpoColumnCheck";
             this.freeRpoColumnCheck.ReadOnly = true;
             // 
@@ -581,6 +615,19 @@ namespace DwUtils.Core.Forms
             this.freeRpoComboBoxPlace.Size = new System.Drawing.Size(147, 29);
             this.freeRpoComboBoxPlace.TabIndex = 2;
             this.freeRpoComboBoxPlace.ValueMember = "Id";
+            // 
+            // freeRpoLabelInfoDate
+            // 
+            this.freeRpoLabelInfoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.freeRpoLabelInfoDate.AutoSize = true;
+            this.freeRpoLabelInfoDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.freeRpoLabelInfoDate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.freeRpoLabelInfoDate.Location = new System.Drawing.Point(238, 6);
+            this.freeRpoLabelInfoDate.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.freeRpoLabelInfoDate.Name = "freeRpoLabelInfoDate";
+            this.freeRpoLabelInfoDate.Size = new System.Drawing.Size(46, 20);
+            this.freeRpoLabelInfoDate.TabIndex = 1;
+            this.freeRpoLabelInfoDate.Text = "Дата:";
             // 
             // freeRpoToggleButtonCalendar
             // 
@@ -785,9 +832,9 @@ namespace DwUtils.Core.Forms
             // 
             // tabReceived
             // 
+            this.tabReceived.Controls.Add(this.panelReceivedL1);
             this.tabReceived.Location = new System.Drawing.Point(4, 36);
             this.tabReceived.Name = "tabReceived";
-            this.tabReceived.Padding = new System.Windows.Forms.Padding(3);
             this.tabReceived.Size = new System.Drawing.Size(1002, 343);
             this.tabReceived.TabIndex = 1;
             this.tabReceived.Text = "На вручение";
@@ -795,6 +842,7 @@ namespace DwUtils.Core.Forms
             // 
             // tabDelivery
             // 
+            this.tabDelivery.Controls.Add(this.panelDeliveryL1);
             this.tabDelivery.Location = new System.Drawing.Point(4, 36);
             this.tabDelivery.Name = "tabDelivery";
             this.tabDelivery.Size = new System.Drawing.Size(1002, 343);
@@ -804,6 +852,9 @@ namespace DwUtils.Core.Forms
             // 
             // tabConnected
             // 
+            this.tabConnected.Controls.Add(this.panelOnlineStat);
+            this.tabConnected.Controls.Add(this.onlineDataGridView);
+            this.tabConnected.Controls.Add(this.panelOnline);
             this.tabConnected.Location = new System.Drawing.Point(4, 36);
             this.tabConnected.Name = "tabConnected";
             this.tabConnected.Size = new System.Drawing.Size(1002, 343);
@@ -811,14 +862,224 @@ namespace DwUtils.Core.Forms
             this.tabConnected.Text = "Онлайн";
             this.tabConnected.UseVisualStyleBackColor = true;
             // 
-            // tabLastVisit
+            // panelOnlineStat
             // 
-            this.tabLastVisit.Location = new System.Drawing.Point(4, 36);
-            this.tabLastVisit.Name = "tabLastVisit";
-            this.tabLastVisit.Size = new System.Drawing.Size(1002, 343);
-            this.tabLastVisit.TabIndex = 4;
-            this.tabLastVisit.Text = "Заходили";
-            this.tabLastVisit.UseVisualStyleBackColor = true;
+            this.panelOnlineStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelOnlineStat.Controls.Add(this.flowLayoutPanelOnlineStat);
+            this.panelOnlineStat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelOnlineStat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.panelOnlineStat.Location = new System.Drawing.Point(0, 313);
+            this.panelOnlineStat.Name = "panelOnlineStat";
+            this.panelOnlineStat.Size = new System.Drawing.Size(1002, 30);
+            this.panelOnlineStat.TabIndex = 8;
+            // 
+            // flowLayoutPanelOnlineStat
+            // 
+            this.flowLayoutPanelOnlineStat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelOnlineStat.Controls.Add(this.onlineLabelInfoCount);
+            this.flowLayoutPanelOnlineStat.Controls.Add(this.onlineLabelCount);
+            this.flowLayoutPanelOnlineStat.Location = new System.Drawing.Point(0, 3);
+            this.flowLayoutPanelOnlineStat.Name = "flowLayoutPanelOnlineStat";
+            this.flowLayoutPanelOnlineStat.Size = new System.Drawing.Size(999, 26);
+            this.flowLayoutPanelOnlineStat.TabIndex = 1;
+            this.flowLayoutPanelOnlineStat.WrapContents = false;
+            // 
+            // onlineLabelInfoCount
+            // 
+            this.onlineLabelInfoCount.AutoSize = true;
+            this.onlineLabelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.onlineLabelInfoCount.Location = new System.Drawing.Point(8, 2);
+            this.onlineLabelInfoCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.onlineLabelInfoCount.Name = "onlineLabelInfoCount";
+            this.onlineLabelInfoCount.Size = new System.Drawing.Size(52, 20);
+            this.onlineLabelInfoCount.TabIndex = 0;
+            this.onlineLabelInfoCount.Text = "Всего:";
+            // 
+            // onlineLabelCount
+            // 
+            this.onlineLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.onlineLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.onlineLabelCount.Location = new System.Drawing.Point(66, 2);
+            this.onlineLabelCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.onlineLabelCount.Name = "onlineLabelCount";
+            this.onlineLabelCount.Size = new System.Drawing.Size(90, 22);
+            this.onlineLabelCount.TabIndex = 0;
+            this.onlineLabelCount.Text = "0";
+            // 
+            // onlineDataGridView
+            // 
+            this.onlineDataGridView.AllowUserToAddRows = false;
+            this.onlineDataGridView.AllowUserToDeleteRows = false;
+            this.onlineDataGridView.AllowUserToResizeColumns = false;
+            this.onlineDataGridView.AllowUserToResizeRows = false;
+            this.onlineDataGridView.AutoGenerateColumns = false;
+            this.onlineDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.onlineDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.onlineDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.onlineDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.onlineDataGridView.ColumnHeadersHeight = 40;
+            this.onlineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.onlineDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.onlineColumnUserName,
+            this.onlineColumnPlaceName,
+            this.onlineColumnConnectDate,
+            this.onlineColumnWorkDate,
+            this.onlineColumnAdminStatus});
+            this.onlineDataGridView.DataSource = this.connectUserBindingSource;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.onlineDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.onlineDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.onlineDataGridView.EnableHeadersVisualStyles = false;
+            this.onlineDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.onlineDataGridView.Location = new System.Drawing.Point(0, 48);
+            this.onlineDataGridView.Margin = new System.Windows.Forms.Padding(1);
+            this.onlineDataGridView.Name = "onlineDataGridView";
+            this.onlineDataGridView.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.onlineDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.onlineDataGridView.RowHeadersVisible = false;
+            this.onlineDataGridView.RowHeadersWidth = 40;
+            this.onlineDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.onlineDataGridView.RowTemplate.Height = 40;
+            this.onlineDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.onlineDataGridView.Size = new System.Drawing.Size(1002, 295);
+            this.onlineDataGridView.TabIndex = 7;
+            this.onlineDataGridView.TabStop = false;
+            this.onlineDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.onlineDataGridView_DataError);
+            // 
+            // onlineColumnUserName
+            // 
+            this.onlineColumnUserName.DataPropertyName = "UserName";
+            this.onlineColumnUserName.HeaderText = "Пользователь";
+            this.onlineColumnUserName.Name = "onlineColumnUserName";
+            this.onlineColumnUserName.ReadOnly = true;
+            // 
+            // onlineColumnPlaceName
+            // 
+            this.onlineColumnPlaceName.DataPropertyName = "PlaceName";
+            this.onlineColumnPlaceName.HeaderText = "Место";
+            this.onlineColumnPlaceName.Name = "onlineColumnPlaceName";
+            this.onlineColumnPlaceName.ReadOnly = true;
+            // 
+            // onlineColumnConnectDate
+            // 
+            this.onlineColumnConnectDate.DataPropertyName = "ConnectDate";
+            this.onlineColumnConnectDate.HeaderText = "Подключился";
+            this.onlineColumnConnectDate.Name = "onlineColumnConnectDate";
+            this.onlineColumnConnectDate.ReadOnly = true;
+            // 
+            // onlineColumnWorkDate
+            // 
+            this.onlineColumnWorkDate.DataPropertyName = "WorkDate";
+            this.onlineColumnWorkDate.HeaderText = "Работает";
+            this.onlineColumnWorkDate.Name = "onlineColumnWorkDate";
+            this.onlineColumnWorkDate.ReadOnly = true;
+            // 
+            // onlineColumnAdminStatus
+            // 
+            this.onlineColumnAdminStatus.DataPropertyName = "AdminStatus";
+            this.onlineColumnAdminStatus.HeaderText = "Адм";
+            this.onlineColumnAdminStatus.Name = "onlineColumnAdminStatus";
+            this.onlineColumnAdminStatus.ReadOnly = true;
+            // 
+            // connectUserBindingSource
+            // 
+            this.connectUserBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.ConnectUser);
+            // 
+            // panelOnline
+            // 
+            this.panelOnline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelOnline.Controls.Add(this.btnEditUser);
+            this.panelOnline.Controls.Add(this.btnLoadConnectedUser);
+            this.panelOnline.Controls.Add(this.flowLayoutPanelOnline);
+            this.panelOnline.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelOnline.Location = new System.Drawing.Point(0, 0);
+            this.panelOnline.Name = "panelOnline";
+            this.panelOnline.Size = new System.Drawing.Size(1002, 48);
+            this.panelOnline.TabIndex = 6;
+            // 
+            // btnEditUser
+            // 
+            this.btnEditUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditUser.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnEditUser.BorderColor = System.Drawing.Color.Silver;
+            this.btnEditUser.BorderRadius = 6F;
+            this.btnEditUser.BorderSize = 0;
+            this.btnEditUser.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnEditUser.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnEditUser.FlatAppearance.BorderSize = 0;
+            this.btnEditUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnEditUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditUser.ForeColor = System.Drawing.Color.White;
+            this.btnEditUser.Image = global::DwUtils.Properties.Resources.edit_11_24;
+            this.btnEditUser.Location = new System.Drawing.Point(906, 4);
+            this.btnEditUser.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnEditUser.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnEditUser.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnEditUser.Name = "btnEditUser";
+            this.btnEditUser.Padding = new System.Windows.Forms.Padding(5, 0, 3, 0);
+            this.btnEditUser.Size = new System.Drawing.Size(40, 40);
+            this.btnEditUser.TabIndex = 0;
+            this.btnEditUser.TabStop = false;
+            this.btnEditUser.TextColor = System.Drawing.Color.White;
+            this.btnEditUser.UseVisualStyleBackColor = false;
+            // 
+            // btnLoadConnectedUser
+            // 
+            this.btnLoadConnectedUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadConnectedUser.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadConnectedUser.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadConnectedUser.BorderRadius = 6F;
+            this.btnLoadConnectedUser.BorderSize = 0;
+            this.btnLoadConnectedUser.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadConnectedUser.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadConnectedUser.FlatAppearance.BorderSize = 0;
+            this.btnLoadConnectedUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadConnectedUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadConnectedUser.ForeColor = System.Drawing.Color.White;
+            this.btnLoadConnectedUser.Image = global::DwUtils.Properties.Resources.synchronize_24;
+            this.btnLoadConnectedUser.Location = new System.Drawing.Point(952, 4);
+            this.btnLoadConnectedUser.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnLoadConnectedUser.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadConnectedUser.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadConnectedUser.Name = "btnLoadConnectedUser";
+            this.btnLoadConnectedUser.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadConnectedUser.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadConnectedUser.TabIndex = 0;
+            this.btnLoadConnectedUser.TabStop = false;
+            this.btnLoadConnectedUser.TextColor = System.Drawing.Color.White;
+            this.btnLoadConnectedUser.UseVisualStyleBackColor = false;
+            this.btnLoadConnectedUser.Click += new System.EventHandler(this.btnLoadConnectedUser_Click);
+            // 
+            // flowLayoutPanelOnline
+            // 
+            this.flowLayoutPanelOnline.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelOnline.Location = new System.Drawing.Point(3, 7);
+            this.flowLayoutPanelOnline.Name = "flowLayoutPanelOnline";
+            this.flowLayoutPanelOnline.Size = new System.Drawing.Size(897, 34);
+            this.flowLayoutPanelOnline.TabIndex = 27;
+            this.flowLayoutPanelOnline.WrapContents = false;
             // 
             // panelGeneral
             // 
@@ -1061,18 +1322,155 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
-            // freeRpoLabelInfoDate
+            // panelDeliveryL1
             // 
-            this.freeRpoLabelInfoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.freeRpoLabelInfoDate.AutoSize = true;
-            this.freeRpoLabelInfoDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.freeRpoLabelInfoDate.ForeColor = System.Drawing.Color.Gainsboro;
-            this.freeRpoLabelInfoDate.Location = new System.Drawing.Point(238, 6);
-            this.freeRpoLabelInfoDate.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
-            this.freeRpoLabelInfoDate.Name = "freeRpoLabelInfoDate";
-            this.freeRpoLabelInfoDate.Size = new System.Drawing.Size(46, 20);
-            this.freeRpoLabelInfoDate.TabIndex = 1;
-            this.freeRpoLabelInfoDate.Text = "Дата:";
+            this.panelDeliveryL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelDeliveryL1.Controls.Add(this.btnPrintDelivery);
+            this.panelDeliveryL1.Controls.Add(this.btnLoadDelivery);
+            this.panelDeliveryL1.Controls.Add(this.flowLayoutPanelDeliveryL1);
+            this.panelDeliveryL1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelDeliveryL1.Location = new System.Drawing.Point(0, 0);
+            this.panelDeliveryL1.Name = "panelDeliveryL1";
+            this.panelDeliveryL1.Size = new System.Drawing.Size(1002, 48);
+            this.panelDeliveryL1.TabIndex = 7;
+            // 
+            // btnPrintDelivery
+            // 
+            this.btnPrintDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintDelivery.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintDelivery.BorderColor = System.Drawing.Color.Silver;
+            this.btnPrintDelivery.BorderRadius = 6F;
+            this.btnPrintDelivery.BorderSize = 0;
+            this.btnPrintDelivery.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnPrintDelivery.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnPrintDelivery.FlatAppearance.BorderSize = 0;
+            this.btnPrintDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrintDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintDelivery.ForeColor = System.Drawing.Color.White;
+            this.btnPrintDelivery.Image = global::DwUtils.Properties.Resources.printer_3_24;
+            this.btnPrintDelivery.Location = new System.Drawing.Point(906, 4);
+            this.btnPrintDelivery.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnPrintDelivery.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnPrintDelivery.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrintDelivery.Name = "btnPrintDelivery";
+            this.btnPrintDelivery.Padding = new System.Windows.Forms.Padding(5, 0, 4, 0);
+            this.btnPrintDelivery.Size = new System.Drawing.Size(40, 40);
+            this.btnPrintDelivery.TabIndex = 0;
+            this.btnPrintDelivery.TabStop = false;
+            this.btnPrintDelivery.TextColor = System.Drawing.Color.White;
+            this.btnPrintDelivery.UseVisualStyleBackColor = false;
+            // 
+            // btnLoadDelivery
+            // 
+            this.btnLoadDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadDelivery.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadDelivery.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadDelivery.BorderRadius = 6F;
+            this.btnLoadDelivery.BorderSize = 0;
+            this.btnLoadDelivery.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadDelivery.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadDelivery.Enabled = false;
+            this.btnLoadDelivery.FlatAppearance.BorderSize = 0;
+            this.btnLoadDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadDelivery.ForeColor = System.Drawing.Color.White;
+            this.btnLoadDelivery.Image = global::DwUtils.Properties.Resources.synchronize_24;
+            this.btnLoadDelivery.Location = new System.Drawing.Point(952, 4);
+            this.btnLoadDelivery.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnLoadDelivery.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadDelivery.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadDelivery.Name = "btnLoadDelivery";
+            this.btnLoadDelivery.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadDelivery.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadDelivery.TabIndex = 0;
+            this.btnLoadDelivery.TabStop = false;
+            this.btnLoadDelivery.TextColor = System.Drawing.Color.White;
+            this.btnLoadDelivery.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanelDeliveryL1
+            // 
+            this.flowLayoutPanelDeliveryL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelDeliveryL1.Location = new System.Drawing.Point(3, 7);
+            this.flowLayoutPanelDeliveryL1.Name = "flowLayoutPanelDeliveryL1";
+            this.flowLayoutPanelDeliveryL1.Size = new System.Drawing.Size(897, 34);
+            this.flowLayoutPanelDeliveryL1.TabIndex = 27;
+            this.flowLayoutPanelDeliveryL1.WrapContents = false;
+            // 
+            // flowLayoutPanelReceivedL1
+            // 
+            this.flowLayoutPanelReceivedL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelReceivedL1.Location = new System.Drawing.Point(3, 7);
+            this.flowLayoutPanelReceivedL1.Name = "flowLayoutPanelReceivedL1";
+            this.flowLayoutPanelReceivedL1.Size = new System.Drawing.Size(897, 34);
+            this.flowLayoutPanelReceivedL1.TabIndex = 27;
+            this.flowLayoutPanelReceivedL1.WrapContents = false;
+            // 
+            // btnLoadReceived
+            // 
+            this.btnLoadReceived.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadReceived.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadReceived.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReceived.BorderRadius = 6F;
+            this.btnLoadReceived.BorderSize = 0;
+            this.btnLoadReceived.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadReceived.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReceived.Enabled = false;
+            this.btnLoadReceived.FlatAppearance.BorderSize = 0;
+            this.btnLoadReceived.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadReceived.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadReceived.ForeColor = System.Drawing.Color.White;
+            this.btnLoadReceived.Image = global::DwUtils.Properties.Resources.synchronize_24;
+            this.btnLoadReceived.Location = new System.Drawing.Point(952, 4);
+            this.btnLoadReceived.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnLoadReceived.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadReceived.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadReceived.Name = "btnLoadReceived";
+            this.btnLoadReceived.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadReceived.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadReceived.TabIndex = 0;
+            this.btnLoadReceived.TabStop = false;
+            this.btnLoadReceived.TextColor = System.Drawing.Color.White;
+            this.btnLoadReceived.UseVisualStyleBackColor = false;
+            // 
+            // btnPrintReceived
+            // 
+            this.btnPrintReceived.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintReceived.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintReceived.BorderColor = System.Drawing.Color.Silver;
+            this.btnPrintReceived.BorderRadius = 6F;
+            this.btnPrintReceived.BorderSize = 0;
+            this.btnPrintReceived.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnPrintReceived.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnPrintReceived.FlatAppearance.BorderSize = 0;
+            this.btnPrintReceived.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrintReceived.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintReceived.ForeColor = System.Drawing.Color.White;
+            this.btnPrintReceived.Image = global::DwUtils.Properties.Resources.printer_3_24;
+            this.btnPrintReceived.Location = new System.Drawing.Point(906, 4);
+            this.btnPrintReceived.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnPrintReceived.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnPrintReceived.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrintReceived.Name = "btnPrintReceived";
+            this.btnPrintReceived.Padding = new System.Windows.Forms.Padding(5, 0, 4, 0);
+            this.btnPrintReceived.Size = new System.Drawing.Size(40, 40);
+            this.btnPrintReceived.TabIndex = 0;
+            this.btnPrintReceived.TabStop = false;
+            this.btnPrintReceived.TextColor = System.Drawing.Color.White;
+            this.btnPrintReceived.UseVisualStyleBackColor = false;
+            // 
+            // panelReceivedL1
+            // 
+            this.panelReceivedL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelReceivedL1.Controls.Add(this.btnPrintReceived);
+            this.panelReceivedL1.Controls.Add(this.btnLoadReceived);
+            this.panelReceivedL1.Controls.Add(this.flowLayoutPanelReceivedL1);
+            this.panelReceivedL1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelReceivedL1.Location = new System.Drawing.Point(0, 0);
+            this.panelReceivedL1.Name = "panelReceivedL1";
+            this.panelReceivedL1.Size = new System.Drawing.Size(1002, 48);
+            this.panelReceivedL1.TabIndex = 6;
             // 
             // GeneralForm
             // 
@@ -1117,11 +1515,22 @@ namespace DwUtils.Core.Forms
             this.panelFreeRpoL1.ResumeLayout(false);
             this.flowLayoutPanelFreeRpoL1.ResumeLayout(false);
             this.flowLayoutPanelFreeRpoL1.PerformLayout();
+            this.tabReceived.ResumeLayout(false);
+            this.tabDelivery.ResumeLayout(false);
+            this.tabConnected.ResumeLayout(false);
+            this.panelOnlineStat.ResumeLayout(false);
+            this.flowLayoutPanelOnlineStat.ResumeLayout(false);
+            this.flowLayoutPanelOnlineStat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.onlineDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.connectUserBindingSource)).EndInit();
+            this.panelOnline.ResumeLayout(false);
             this.panelGeneral.ResumeLayout(false);
             this.panelGeneral.PerformLayout();
             this.panelMenu.ResumeLayout(false);
             this.wcDropdownMenuFile.ResumeLayout(false);
             this.wcDropdownMenuSettings.ResumeLayout(false);
+            this.panelDeliveryL1.ResumeLayout(false);
+            this.panelReceivedL1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1176,17 +1585,9 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.TabPage tabReceived;
         private System.Windows.Forms.TabPage tabDelivery;
         private System.Windows.Forms.TabPage tabConnected;
-        private System.Windows.Forms.TabPage tabLastVisit;
         private System.Windows.Forms.Label freeRpoLabelInfoType;
         private System.Windows.Forms.ComboBox freeRpoComboBoxRpoType;
         private System.Windows.Forms.BindingSource rpoTypeBindingSource;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn freeRpoColumnCheck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnLoadDate;
-        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnBarcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnIndexTo;
-        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnPlaceId;
-        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnUserId;
         private System.Windows.Forms.Label freeRpoLabelInfoPlace;
         private System.Windows.Forms.ComboBox freeRpoComboBoxPlace;
         private System.Windows.Forms.Panel panelFreeRpoL2;
@@ -1195,6 +1596,36 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.DateTimePicker freeRpoDateTimePickerStart;
         private System.Windows.Forms.DateTimePicker freeRpoDateTimePickerEnd;
         private System.Windows.Forms.Label freeRpoLabelInfoDate;
+        private System.Windows.Forms.DataGridView onlineDataGridView;
+        private System.Windows.Forms.Panel panelOnline;
+        private WcButton btnLoadConnectedUser;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelOnline;
+        private System.Windows.Forms.BindingSource connectUserBindingSource;
+        private System.Windows.Forms.Panel panelOnlineStat;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelOnlineStat;
+        private System.Windows.Forms.Label onlineLabelInfoCount;
+        private System.Windows.Forms.Label onlineLabelCount;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn freeRpoColumnCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnLoadDate;
+        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnBarcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnIndexTo;
+        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnPlaceId;
+        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnUserId;
+        private WcButton btnEditUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn onlineColumnUserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn onlineColumnPlaceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn onlineColumnConnectDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn onlineColumnWorkDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn onlineColumnAdminStatus;
+        private System.Windows.Forms.Panel panelDeliveryL1;
+        private WcButton btnPrintDelivery;
+        private WcButton btnLoadDelivery;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDeliveryL1;
+        private System.Windows.Forms.Panel panelReceivedL1;
+        private WcButton btnPrintReceived;
+        private WcButton btnLoadReceived;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelReceivedL1;
     }
 }
 

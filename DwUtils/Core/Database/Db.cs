@@ -74,6 +74,18 @@ namespace DwUtils.Core.Database
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
+        public List<ConnectUser> GetConnectUsers()
+        {
+            GetConnectUsersQuery query = new GetConnectUsersQuery(_postUnitConnect, _debugMode);
+            return query.Run();
+        }
+
+        public async Task<List<ConnectUser>> GetConnectUsersAsync()
+        {
+            return await Task.Run(GetConnectUsers);
+        }
+
+        // ReSharper disable once MemberCanBePrivate.Global
         public bool DeleteFreeRpos(List<FreeRpo> rpos)
         {
             DeleteFreeRposQuery query = new DeleteFreeRposQuery(_postItemConnect, rpos, _debugMode);
