@@ -49,6 +49,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Forms\ConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\ConfigForm.designer.cs">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Forms\ConnectForms\PostItemConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\ConnectForms\PostItemConnectForm.Designer.cs">
+      <DependentUpon>PostItemConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Forms\ConnectForms\PostUnitConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\ConnectForms\PostUnitConnectForm.Designer.cs">
+      <DependentUpon>PostUnitConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Forms\EditForms\EditPlaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\EditForms\EditPlaceForm.Designer.cs">
+      <DependentUpon>EditPlaceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Forms\WcForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +106,18 @@
     <Compile Include="TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Core\Forms\ConfigForm.resx">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Forms\ConnectForms\PostItemConnectForm.resx">
+      <DependentUpon>PostItemConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Forms\ConnectForms\PostUnitConnectForm.resx">
+      <DependentUpon>PostUnitConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Forms\EditForms\EditPlaceForm.resx">
+      <DependentUpon>EditPlaceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Core\Forms\WcForm.resx">
       <DependentUpon>WcForm.cs</DependentUpon>
     </EmbeddedResource>
