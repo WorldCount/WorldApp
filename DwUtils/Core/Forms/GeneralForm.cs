@@ -572,6 +572,12 @@ namespace DwUtils.Core.Forms
                 ErrorMessage("Ошибка изменения статуса ЛК.");
         }
 
+        private void freeRpoToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        {
+            freeRpoDateTimePickerStart.Enabled = freeRpoToggleButtonCalendar.Checked;
+            freeRpoDateTimePickerEnd.Enabled = freeRpoToggleButtonCalendar.Checked;
+        }
+
         #endregion
 
         #region Buttons Events
