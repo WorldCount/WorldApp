@@ -70,6 +70,9 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelFreeRpoL2 = new System.Windows.Forms.FlowLayoutPanel();
             this.freeRpoLabelInfoPlace = new System.Windows.Forms.Label();
             this.freeRpoComboBoxPlace = new System.Windows.Forms.ComboBox();
+            this.freeRpoToggleButtonCalendar = new Wc32Api.Widgets.Buttons.WcToggleButton();
+            this.freeRpoDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.freeRpoDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.panelFreeRpoL1 = new System.Windows.Forms.Panel();
             this.btnEditFreeRpo = new Wc32Api.Widgets.Buttons.WcButton();
             this.btnDeleteFreeRpo = new Wc32Api.Widgets.Buttons.WcButton();
@@ -99,6 +102,7 @@ namespace DwUtils.Core.Forms
             this.connectPostItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.freeRpoLabelInfoDate = new System.Windows.Forms.Label();
             this.statusBar.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPicture)).BeginInit();
@@ -370,7 +374,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.freeRpoDataGridView.EnableHeadersVisualStyles = false;
             this.freeRpoDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.freeRpoDataGridView.Location = new System.Drawing.Point(0, 96);
+            this.freeRpoDataGridView.Location = new System.Drawing.Point(0, 92);
             this.freeRpoDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.freeRpoDataGridView.Name = "freeRpoDataGridView";
             this.freeRpoDataGridView.ReadOnly = true;
@@ -387,7 +391,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.freeRpoDataGridView.RowTemplate.Height = 40;
             this.freeRpoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.freeRpoDataGridView.Size = new System.Drawing.Size(1002, 217);
+            this.freeRpoDataGridView.Size = new System.Drawing.Size(1002, 221);
             this.freeRpoDataGridView.TabIndex = 0;
             this.freeRpoDataGridView.TabStop = false;
             this.freeRpoDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.freeRpoDataGridView_CellClick);
@@ -535,7 +539,7 @@ namespace DwUtils.Core.Forms
             this.panelFreeRpoL2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelFreeRpoL2.Location = new System.Drawing.Point(0, 48);
             this.panelFreeRpoL2.Name = "panelFreeRpoL2";
-            this.panelFreeRpoL2.Size = new System.Drawing.Size(1002, 48);
+            this.panelFreeRpoL2.Size = new System.Drawing.Size(1002, 44);
             this.panelFreeRpoL2.TabIndex = 8;
             // 
             // flowLayoutPanelFreeRpoL2
@@ -544,9 +548,13 @@ namespace DwUtils.Core.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoLabelInfoPlace);
             this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoComboBoxPlace);
-            this.flowLayoutPanelFreeRpoL2.Location = new System.Drawing.Point(3, 4);
+            this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoLabelInfoDate);
+            this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoToggleButtonCalendar);
+            this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoDateTimePickerStart);
+            this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoDateTimePickerEnd);
+            this.flowLayoutPanelFreeRpoL2.Location = new System.Drawing.Point(3, 5);
             this.flowLayoutPanelFreeRpoL2.Name = "flowLayoutPanelFreeRpoL2";
-            this.flowLayoutPanelFreeRpoL2.Size = new System.Drawing.Size(989, 40);
+            this.flowLayoutPanelFreeRpoL2.Size = new System.Drawing.Size(989, 34);
             this.flowLayoutPanelFreeRpoL2.TabIndex = 27;
             this.flowLayoutPanelFreeRpoL2.WrapContents = false;
             // 
@@ -556,8 +564,8 @@ namespace DwUtils.Core.Forms
             this.freeRpoLabelInfoPlace.AutoSize = true;
             this.freeRpoLabelInfoPlace.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.freeRpoLabelInfoPlace.ForeColor = System.Drawing.Color.Gainsboro;
-            this.freeRpoLabelInfoPlace.Location = new System.Drawing.Point(6, 10);
-            this.freeRpoLabelInfoPlace.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.freeRpoLabelInfoPlace.Location = new System.Drawing.Point(6, 6);
+            this.freeRpoLabelInfoPlace.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
             this.freeRpoLabelInfoPlace.Name = "freeRpoLabelInfoPlace";
             this.freeRpoLabelInfoPlace.Size = new System.Drawing.Size(70, 20);
             this.freeRpoLabelInfoPlace.TabIndex = 1;
@@ -568,12 +576,55 @@ namespace DwUtils.Core.Forms
             this.freeRpoComboBoxPlace.DataSource = this.placeBindingSource;
             this.freeRpoComboBoxPlace.DisplayMember = "Name";
             this.freeRpoComboBoxPlace.FormattingEnabled = true;
-            this.freeRpoComboBoxPlace.Location = new System.Drawing.Point(82, 6);
-            this.freeRpoComboBoxPlace.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.freeRpoComboBoxPlace.Location = new System.Drawing.Point(82, 3);
             this.freeRpoComboBoxPlace.Name = "freeRpoComboBoxPlace";
             this.freeRpoComboBoxPlace.Size = new System.Drawing.Size(147, 29);
             this.freeRpoComboBoxPlace.TabIndex = 2;
             this.freeRpoComboBoxPlace.ValueMember = "Id";
+            // 
+            // freeRpoToggleButtonCalendar
+            // 
+            this.freeRpoToggleButtonCalendar.AutoSize = true;
+            this.freeRpoToggleButtonCalendar.DisableBackColor = System.Drawing.Color.DimGray;
+            this.freeRpoToggleButtonCalendar.DisableToggleColor = System.Drawing.Color.Gray;
+            this.freeRpoToggleButtonCalendar.Location = new System.Drawing.Point(290, 6);
+            this.freeRpoToggleButtonCalendar.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.freeRpoToggleButtonCalendar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.freeRpoToggleButtonCalendar.Name = "freeRpoToggleButtonCalendar";
+            this.freeRpoToggleButtonCalendar.OffBackColor = System.Drawing.Color.DimGray;
+            this.freeRpoToggleButtonCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.freeRpoToggleButtonCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.freeRpoToggleButtonCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.freeRpoToggleButtonCalendar.Size = new System.Drawing.Size(45, 22);
+            this.freeRpoToggleButtonCalendar.TabIndex = 34;
+            this.freeRpoToggleButtonCalendar.UseVisualStyleBackColor = true;
+            this.freeRpoToggleButtonCalendar.CheckedChanged += new System.EventHandler(this.freeRpoToggleButtonCalendar_CheckedChanged);
+            // 
+            // freeRpoDateTimePickerStart
+            // 
+            this.freeRpoDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.freeRpoDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.freeRpoDateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.freeRpoDateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.freeRpoDateTimePickerStart.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.freeRpoDateTimePickerStart.Enabled = false;
+            this.freeRpoDateTimePickerStart.Location = new System.Drawing.Point(341, 3);
+            this.freeRpoDateTimePickerStart.Name = "freeRpoDateTimePickerStart";
+            this.freeRpoDateTimePickerStart.Size = new System.Drawing.Size(220, 29);
+            this.freeRpoDateTimePickerStart.TabIndex = 32;
+            // 
+            // freeRpoDateTimePickerEnd
+            // 
+            this.freeRpoDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.freeRpoDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.freeRpoDateTimePickerEnd.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.freeRpoDateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.freeRpoDateTimePickerEnd.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.freeRpoDateTimePickerEnd.Enabled = false;
+            this.freeRpoDateTimePickerEnd.Location = new System.Drawing.Point(567, 3);
+            this.freeRpoDateTimePickerEnd.Name = "freeRpoDateTimePickerEnd";
+            this.freeRpoDateTimePickerEnd.Size = new System.Drawing.Size(200, 29);
+            this.freeRpoDateTimePickerEnd.TabIndex = 33;
             // 
             // panelFreeRpoL1
             // 
@@ -678,9 +729,9 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelFreeRpoL1.Controls.Add(this.freeRpoComboBoxUsers);
             this.flowLayoutPanelFreeRpoL1.Controls.Add(this.freeRpoLabelInfoType);
             this.flowLayoutPanelFreeRpoL1.Controls.Add(this.freeRpoComboBoxRpoType);
-            this.flowLayoutPanelFreeRpoL1.Location = new System.Drawing.Point(3, 4);
+            this.flowLayoutPanelFreeRpoL1.Location = new System.Drawing.Point(3, 7);
             this.flowLayoutPanelFreeRpoL1.Name = "flowLayoutPanelFreeRpoL1";
-            this.flowLayoutPanelFreeRpoL1.Size = new System.Drawing.Size(851, 40);
+            this.flowLayoutPanelFreeRpoL1.Size = new System.Drawing.Size(851, 34);
             this.flowLayoutPanelFreeRpoL1.TabIndex = 27;
             this.flowLayoutPanelFreeRpoL1.WrapContents = false;
             // 
@@ -690,8 +741,8 @@ namespace DwUtils.Core.Forms
             this.freeRpoLabelInfoUsers.AutoSize = true;
             this.freeRpoLabelInfoUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.freeRpoLabelInfoUsers.ForeColor = System.Drawing.Color.Gainsboro;
-            this.freeRpoLabelInfoUsers.Location = new System.Drawing.Point(6, 10);
-            this.freeRpoLabelInfoUsers.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.freeRpoLabelInfoUsers.Location = new System.Drawing.Point(6, 6);
+            this.freeRpoLabelInfoUsers.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
             this.freeRpoLabelInfoUsers.Name = "freeRpoLabelInfoUsers";
             this.freeRpoLabelInfoUsers.Size = new System.Drawing.Size(111, 20);
             this.freeRpoLabelInfoUsers.TabIndex = 0;
@@ -702,8 +753,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoComboBoxUsers.DataSource = this.userBindingSource;
             this.freeRpoComboBoxUsers.DisplayMember = "Name";
             this.freeRpoComboBoxUsers.FormattingEnabled = true;
-            this.freeRpoComboBoxUsers.Location = new System.Drawing.Point(123, 6);
-            this.freeRpoComboBoxUsers.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.freeRpoComboBoxUsers.Location = new System.Drawing.Point(123, 3);
             this.freeRpoComboBoxUsers.Name = "freeRpoComboBoxUsers";
             this.freeRpoComboBoxUsers.Size = new System.Drawing.Size(234, 29);
             this.freeRpoComboBoxUsers.TabIndex = 0;
@@ -715,8 +765,8 @@ namespace DwUtils.Core.Forms
             this.freeRpoLabelInfoType.AutoSize = true;
             this.freeRpoLabelInfoType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.freeRpoLabelInfoType.ForeColor = System.Drawing.Color.Gainsboro;
-            this.freeRpoLabelInfoType.Location = new System.Drawing.Point(366, 10);
-            this.freeRpoLabelInfoType.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.freeRpoLabelInfoType.Location = new System.Drawing.Point(366, 6);
+            this.freeRpoLabelInfoType.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
             this.freeRpoLabelInfoType.Name = "freeRpoLabelInfoType";
             this.freeRpoLabelInfoType.Size = new System.Drawing.Size(38, 20);
             this.freeRpoLabelInfoType.TabIndex = 0;
@@ -727,8 +777,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoComboBoxRpoType.DataSource = this.rpoTypeBindingSource;
             this.freeRpoComboBoxRpoType.DisplayMember = "Name";
             this.freeRpoComboBoxRpoType.FormattingEnabled = true;
-            this.freeRpoComboBoxRpoType.Location = new System.Drawing.Point(410, 6);
-            this.freeRpoComboBoxRpoType.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.freeRpoComboBoxRpoType.Location = new System.Drawing.Point(410, 3);
             this.freeRpoComboBoxRpoType.Name = "freeRpoComboBoxRpoType";
             this.freeRpoComboBoxRpoType.Size = new System.Drawing.Size(92, 29);
             this.freeRpoComboBoxRpoType.TabIndex = 0;
@@ -1012,6 +1061,19 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
+            // freeRpoLabelInfoDate
+            // 
+            this.freeRpoLabelInfoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.freeRpoLabelInfoDate.AutoSize = true;
+            this.freeRpoLabelInfoDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.freeRpoLabelInfoDate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.freeRpoLabelInfoDate.Location = new System.Drawing.Point(238, 6);
+            this.freeRpoLabelInfoDate.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.freeRpoLabelInfoDate.Name = "freeRpoLabelInfoDate";
+            this.freeRpoLabelInfoDate.Size = new System.Drawing.Size(46, 20);
+            this.freeRpoLabelInfoDate.TabIndex = 1;
+            this.freeRpoLabelInfoDate.Text = "Дата:";
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1129,6 +1191,10 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.ComboBox freeRpoComboBoxPlace;
         private System.Windows.Forms.Panel panelFreeRpoL2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFreeRpoL2;
+        private WcToggleButton freeRpoToggleButtonCalendar;
+        private System.Windows.Forms.DateTimePicker freeRpoDateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker freeRpoDateTimePickerEnd;
+        private System.Windows.Forms.Label freeRpoLabelInfoDate;
     }
 }
 
