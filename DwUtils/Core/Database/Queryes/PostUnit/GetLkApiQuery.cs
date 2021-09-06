@@ -18,6 +18,9 @@ namespace DwUtils.Core.Database.Queryes.PostUnit
 
         protected override string ParseResponse(FbDataReader reader)
         {
+            if (DebugMode)
+                Logger.Debug($"Запрос в БД:\n{GetQuery()}");
+
             reader.Read();
             string response = reader.GetString(0);
 

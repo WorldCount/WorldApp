@@ -18,8 +18,6 @@ namespace DwUtils.Core.Database.Queryes.Base
         public T Run()
         {
             string query = GetQuery();
-            if (DebugMode)
-                Logger.Debug($"Запрос в БД:\n{query}");
 
             FbConnection fbConnection = null;
             FbDataReader reader = null;

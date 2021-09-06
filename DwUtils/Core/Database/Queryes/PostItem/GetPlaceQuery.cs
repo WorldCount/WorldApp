@@ -20,6 +20,9 @@ namespace DwUtils.Core.Database.Queryes.PostItem
 
         protected override List<Place> ParseResponse(FbDataReader reader)
         {
+            if (DebugMode)
+                Logger.Debug($"Запрос в БД:\n{GetQuery()}");
+
             List<Place> data = new List<Place>();
 
             while (reader.Read())

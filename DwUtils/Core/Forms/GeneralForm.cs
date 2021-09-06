@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using DwUtils.Core.Database;
 using DwUtils.Core.Database.Connects;
@@ -43,11 +44,11 @@ namespace DwUtils.Core.Forms
             // Border Color
             BackColor = Color.FromArgb(100, 106, 111);
 
-            // Загрузка настроек
-            LoadSettings();
-
             // Настройка таблиц
             InitTables();
+
+            // Загрузка настроек
+            LoadSettings();
         }
 
         #region Form Config
@@ -229,7 +230,7 @@ namespace DwUtils.Core.Forms
             _lkState = Properties.Settings.Default.LkApiUrl;
 
             LoadData();
-            CheckLkState();
+            //CheckLkState();
         }
 
         // Сохранение настроек
@@ -404,30 +405,29 @@ namespace DwUtils.Core.Forms
             freeRpoColumnUserId.Width = 200;
         }
 
-        private async void CheckLkState()
-        {
-            if (_database != null)
-            {
-                string state = await _database.GetLkApiUrlAsync();
-                toggleLoadLk.Checked = !string.IsNullOrEmpty(state);
-            }
-        }
-
         private async void LoadData()
         {
             if (_database != null)
             {
-                // Загрузка пользователей
-                _users = await _database.GetUsersAsync();
+                string state = "";
+                await Task.Run(() =>
+                {
+                    // Загрузка пользователей
+                    _users = _database.GetUsers();
+                    // Загрузка мест
+                    _places = _database.GetPlaces();
+
+                    state = _database.GetLkApiUrl();
+                });
+
+
+                toggleLoadLk.Checked = !string.IsNullOrEmpty(state);
                 UpdateData(userBindingSource, _users);
-
-                // Загрузка мест
-                _places = await _database.GetPlacesAsync();
                 UpdateData(placeBindingSource, _places);
-            }
 
-            if(_users != null && _users.Count > 0)
-                btnLoadFreeRpo.Enabled = true;
+                if (_users != null && _users.Count > 0)
+                    btnLoadFreeRpo.Enabled = true;
+            }
         }
 
         private async void LoadFreeRpos()

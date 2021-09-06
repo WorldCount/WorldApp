@@ -18,8 +18,6 @@ namespace DwUtils.Core.Database.Queryes.Base
         public T Run()
         {
             string query = GetQuery();
-            if (DebugMode)
-                Logger.Debug($"Запрос в БД:\n{query}");
 
             FbConnection fbConnection = null;
             FbTransaction fbTransaction = null;
@@ -39,9 +37,6 @@ namespace DwUtils.Core.Database.Queryes.Base
 
                 updateCommand.Dispose();
                 fbTransaction.Commit();
-
-                if (DebugMode)
-                    Logger.Debug($"Запрос обновил строк: {count}");
 
                 return data;
             }
