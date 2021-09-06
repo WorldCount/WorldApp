@@ -183,6 +183,26 @@ namespace DwUtils.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap printer_3_24 {
+            get {
+                object obj = ResourceManager.GetObject("printer-3-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printer_5_24 {
+            get {
+                object obj = ResourceManager.GetObject("printer-5-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap save_24 {
             get {
                 object obj = ResourceManager.GetObject("save_24", resourceCulture);
@@ -236,6 +256,16 @@ namespace DwUtils.Properties {
         internal static System.Drawing.Bitmap unchecked_32 {
             get {
                 object obj = ResourceManager.GetObject("unchecked_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usb_disconnected_24 {
+            get {
+                object obj = ResourceManager.GetObject("usb-disconnected-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

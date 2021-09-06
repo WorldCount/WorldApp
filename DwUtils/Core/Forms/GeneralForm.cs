@@ -386,10 +386,11 @@ namespace DwUtils.Core.Forms
         private void InitTables()
         {
             Wc32Api.DrawingControl.SetDoubleBuffered(freeRpoDataGridView);
+            Wc32Api.DrawingControl.SetDoubleBuffered(onlineDataGridView);
 
             // Free Rpo
             freeRpoColumnCheck.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            freeRpoColumnCheck.Width = 60;
+            freeRpoColumnCheck.Width = 40;
             freeRpoColumnCheck.CellTemplate.Style.BackColor = Color.FromArgb(53, 56, 58);
             freeRpoColumnCheck.CellTemplate.Style.SelectionBackColor = Color.FromArgb(53, 56, 58);
 
@@ -409,21 +410,31 @@ namespace DwUtils.Core.Forms
 
             freeRpoColumnUserId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             freeRpoColumnUserId.Width = 200;
+
+            // Online
+            onlineColumnPlaceName.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            onlineColumnPlaceName.Width = 300;
+
+            onlineColumnConnectDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            onlineColumnConnectDate.Width = 140;
+
+            onlineColumnWorkDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            onlineColumnWorkDate.Width = 140;
+
+            onlineColumnAdminStatus.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            onlineColumnAdminStatus.Width = 60;
         }
 
         private async void LoadData()
         {
             if (_database != null)
             {
-                string state = "";
                 await Task.Run(() =>
                 {
                     // Загрузка пользователей
                     _users = _database.GetUsers();
                     // Загрузка мест
                     _places = _database.GetPlaces();
-
-                    state = _database.GetLkApiUrl();
                 });
 
                 _places?.Insert(0, new Place { Id = 0, Name = "ВСЕ" });
@@ -436,7 +447,6 @@ namespace DwUtils.Core.Forms
                     _users.Insert(0, new User { Id = 0, Name = "ВСЕ" });
                 }
 
-                toggleLoadLk.Checked = !string.IsNullOrEmpty(state);
                 UpdateData(userBindingSource, _users);
                 UpdateData(placeBindingSource, _places);
             }
@@ -458,11 +468,22 @@ namespace DwUtils.Core.Forms
             };
 
             List<FreeRpo> rpos = await _database.GetFreeRposAsync(response);
-            
             freeRpoBindingSource.DataSource = rpos;
 
             if (rpos != null)
                 freeRpoLabelCount.Text = rpos.Count.ToString();
+        }
+
+        private async void LoadConnectUsers()
+        {
+            onlineLabelCount.Text = "0";
+            connectUserBindingSource.DataSource = null;
+
+            List<ConnectUser> connectUsers = await _database.GetConnectUsersAsync();
+            connectUserBindingSource.DataSource = connectUsers;
+
+            if (connectUsers != null)
+                onlineLabelCount.Text = connectUsers.Count.ToString();
         }
 
         private void UpdateData<T>(BindingSource source, T data)
@@ -488,6 +509,23 @@ namespace DwUtils.Core.Forms
             return null;
         }
 
+        private ConnectUser GetConnectUserByRowIndex(int rowIndex)
+        {
+            List<ConnectUser> connectUsers = (List<ConnectUser>)connectUserBindingSource.DataSource;
+
+            try
+            {
+                if (connectUsers != null && connectUsers.Count > 0)
+                    return connectUsers[rowIndex];
+            }
+            catch
+            {
+                return null;
+            }
+
+            return null;
+        }
+
         private void CheckFreeRpoReverse()
         {
             List<FreeRpo> rpos = (List<FreeRpo>) freeRpoBindingSource.DataSource;
@@ -498,6 +536,19 @@ namespace DwUtils.Core.Forms
             }
 
             UpdateData(freeRpoBindingSource, rpos);
+        }
+
+        private void CheckConnectUsersReverse()
+        {
+            List<ConnectUser> connectUsers = (List<ConnectUser>)connectUserBindingSource.DataSource;
+
+            if (connectUsers != null)
+            {
+                foreach (ConnectUser connectUser in connectUsers)
+                    connectUser.Check = !connectUser.Check;
+            }
+
+            UpdateData(connectUserBindingSource, connectUsers);
         }
 
         private void OpenDropdownMenu(WcDropdownMenu dropdownMenu, object sender)
@@ -600,6 +651,11 @@ namespace DwUtils.Core.Forms
             LoadFreeRpos();
         }
 
+        private void btnLoadConnectedUser_Click(object sender, EventArgs e)
+        {
+            LoadConnectUsers();
+        }
+
         private async void btnDeleteFreeRpo_Click(object sender, EventArgs e)
         {
             List<FreeRpo> rpos = (List<FreeRpo>) freeRpoBindingSource.DataSource;
@@ -652,6 +708,8 @@ namespace DwUtils.Core.Forms
 
         #region DataGrid Events
 
+        #region FreeRpo
+
         private void freeRpoDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == freeRpoColumnCheck.Index && e.RowIndex != -1)
@@ -682,7 +740,7 @@ namespace DwUtils.Core.Forms
 
         private void freeRpoDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            var grid = (DataGridView) sender;
+            var grid = (DataGridView)sender;
             var sortIconColor = Color.Gray;
 
             if (e.ColumnIndex == freeRpoColumnCheck.Index && e.RowIndex != -1)
@@ -737,6 +795,18 @@ namespace DwUtils.Core.Forms
         {
 
         }
+
+        #endregion
+
+        #region Online
+
+        private void onlineDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
+
+        #endregion
+
 
 
         #endregion
