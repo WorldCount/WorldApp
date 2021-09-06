@@ -40,7 +40,7 @@ namespace DwUtils.Core.Forms
 
             Padding = new Padding(BorderSize);
             // Border Color
-            BackColor = Color.FromArgb(53, 56, 58);
+            BackColor = Color.FromArgb(100, 106, 111);
 
             // Загрузка настроек
             LoadSettings();
@@ -219,7 +219,7 @@ namespace DwUtils.Core.Forms
         private void LoadSettings()
         {
             _debugMode = Properties.Settings.Default.DebugMode;
-            btnDebug.Checked = Properties.Settings.Default.DebugMode;
+            toggleDebug.Checked = Properties.Settings.Default.DebugMode;
             _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
 
             int lastTabIndex = Properties.Settings.Default.LastTabIndex;
@@ -305,7 +305,7 @@ namespace DwUtils.Core.Forms
                 CenterToScreen();
         }
 
-        private void GeneralForm_Load(object sender, EventArgs e)
+        private void form_Load(object sender, EventArgs e)
         {
             LoadPos();
 
@@ -313,7 +313,7 @@ namespace DwUtils.Core.Forms
             CheckArgs();
         }
 
-        private void GeneralForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveSettings();
             SavePos();
@@ -480,7 +480,7 @@ namespace DwUtils.Core.Forms
         private void OpenDropdownMenu(WcDropdownMenu dropdownMenu, object sender)
         {
             Control control = (Control)sender;
-            dropdownMenu.VisibleChanged += (s, ev) => DropdownMenu_VisibleChanged(s, ev, control);
+            dropdownMenu.VisibleChanged += (s, ev) => dropdownMenu_VisibleChanged(s, ev, control);
             dropdownMenu.Show(control, control.Top, control.Height);
         }
 
@@ -488,7 +488,7 @@ namespace DwUtils.Core.Forms
 
         #region Menu Events
 
-        private void DropdownMenu_VisibleChanged(object sender, EventArgs e, Control ctrl)
+        private void dropdownMenu_VisibleChanged(object sender, EventArgs e, Control ctrl)
         {
             WcDropdownMenu dropdownMenu = (WcDropdownMenu)sender;
             if (!DesignMode)
@@ -539,9 +539,9 @@ namespace DwUtils.Core.Forms
 
         #region Toggle Events
 
-        private void btnDebug_CheckedChanged(object sender, EventArgs e)
+        private void toggleDebug_CheckedChanged(object sender, EventArgs e)
         {
-            _debugMode = btnDebug.Checked;
+            _debugMode = toggleDebug.Checked;
             Properties.Settings.Default.DebugMode = _debugMode;
             _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
             Properties.Settings.Default.Save();
@@ -705,23 +705,7 @@ namespace DwUtils.Core.Forms
 
         #region Resize Events
 
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-            Color borderColor = Color.FromArgb(255, 100, 106, 111);
-            ButtonBorderStyle border = ButtonBorderStyle.Dashed;
-
-            base.OnPaint(e);
-
-            Rectangle rect = panelMenu.ClientRectangle;
-
-            ControlPaint.DrawBorder(e.Graphics, rect,
-                borderColor, 1, border,
-                borderColor, 1, border,
-                borderColor, 1, border,
-                borderColor, 1, border);
-        }
-
-        private void GeneralForm_SizeChanged(object sender, EventArgs e)
+        private void form_SizeChanged(object sender, EventArgs e)
         {
             panelMenu.Refresh();
         }

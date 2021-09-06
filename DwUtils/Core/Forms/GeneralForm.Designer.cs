@@ -74,7 +74,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoLabelCount = new System.Windows.Forms.Label();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.lblInfoDebug = new System.Windows.Forms.Label();
-            this.btnDebug = new Wc32Api.Widgets.Buttons.WcToggleButton();
+            this.toggleDebug = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.labelInfoLoadLk = new System.Windows.Forms.Label();
             this.toggleLoadLk = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.panelMenu = new System.Windows.Forms.Panel();
@@ -144,7 +144,7 @@ namespace DwUtils.Core.Forms
             // 
             // panelTitleBar
             // 
-            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.panelTitleBar.Controls.Add(this.iconPicture);
             this.panelTitleBar.Controls.Add(this.labelTitle);
             this.panelTitleBar.Controls.Add(this.panelButtonTitle);
@@ -628,7 +628,7 @@ namespace DwUtils.Core.Forms
             // 
             this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.panelGeneral.Controls.Add(this.lblInfoDebug);
-            this.panelGeneral.Controls.Add(this.btnDebug);
+            this.panelGeneral.Controls.Add(this.toggleDebug);
             this.panelGeneral.Controls.Add(this.labelInfoLoadLk);
             this.panelGeneral.Controls.Add(this.toggleLoadLk);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Top;
@@ -650,21 +650,22 @@ namespace DwUtils.Core.Forms
             this.lblInfoDebug.TabIndex = 29;
             this.lblInfoDebug.Text = "Отладка:";
             // 
-            // btnDebug
+            // toggleDebug
             // 
-            this.btnDebug.AutoSize = true;
-            this.btnDebug.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnDebug.DisableToggleColor = System.Drawing.Color.Gray;
-            this.btnDebug.Location = new System.Drawing.Point(92, 18);
-            this.btnDebug.MinimumSize = new System.Drawing.Size(45, 22);
-            this.btnDebug.Name = "btnDebug";
-            this.btnDebug.OffBackColor = System.Drawing.Color.Firebrick;
-            this.btnDebug.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.btnDebug.OnBackColor = System.Drawing.Color.SeaGreen;
-            this.btnDebug.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDebug.Size = new System.Drawing.Size(45, 22);
-            this.btnDebug.TabIndex = 28;
-            this.btnDebug.UseVisualStyleBackColor = true;
+            this.toggleDebug.AutoSize = true;
+            this.toggleDebug.DisableBackColor = System.Drawing.Color.DimGray;
+            this.toggleDebug.DisableToggleColor = System.Drawing.Color.Gray;
+            this.toggleDebug.Location = new System.Drawing.Point(92, 18);
+            this.toggleDebug.MinimumSize = new System.Drawing.Size(45, 22);
+            this.toggleDebug.Name = "toggleDebug";
+            this.toggleDebug.OffBackColor = System.Drawing.Color.Firebrick;
+            this.toggleDebug.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.toggleDebug.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.toggleDebug.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.toggleDebug.Size = new System.Drawing.Size(45, 22);
+            this.toggleDebug.TabIndex = 28;
+            this.toggleDebug.UseVisualStyleBackColor = true;
+            this.toggleDebug.CheckedChanged += new System.EventHandler(this.toggleDebug_CheckedChanged);
             // 
             // labelInfoLoadLk
             // 
@@ -697,6 +698,7 @@ namespace DwUtils.Core.Forms
             this.toggleLoadLk.Size = new System.Drawing.Size(45, 22);
             this.toggleLoadLk.TabIndex = 0;
             this.toggleLoadLk.UseVisualStyleBackColor = true;
+            this.toggleLoadLk.CheckedChanged += new System.EventHandler(this.toggleLoadLk_CheckedChanged);
             // 
             // panelMenu
             // 
@@ -707,10 +709,9 @@ namespace DwUtils.Core.Forms
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Padding = new System.Windows.Forms.Padding(1, 1, 0, 1);
+            this.panelMenu.Padding = new System.Windows.Forms.Padding(1);
             this.panelMenu.Size = new System.Drawing.Size(800, 42);
             this.panelMenu.TabIndex = 0;
-            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
             // infosMenuItem
             // 
@@ -875,9 +876,9 @@ namespace DwUtils.Core.Forms
             this.Name = "GeneralForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DWUtils: GeneralForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GeneralForm_FormClosing);
-            this.Load += new System.EventHandler(this.GeneralForm_Load);
-            this.SizeChanged += new System.EventHandler(this.GeneralForm_SizeChanged);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_FormClosing);
+            this.Load += new System.EventHandler(this.form_Load);
+            this.SizeChanged += new System.EventHandler(this.form_SizeChanged);
             this.Resize += new System.EventHandler(this.form_Resize);
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
@@ -940,7 +941,7 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.Label freeRpoLabelCount;
         private System.Windows.Forms.Panel panelGeneral;
         private System.Windows.Forms.Label lblInfoDebug;
-        private WcToggleButton btnDebug;
+        private WcToggleButton toggleDebug;
         private System.Windows.Forms.Label labelInfoLoadLk;
         private WcToggleButton toggleLoadLk;
         private System.Windows.Forms.Panel panelMenu;
