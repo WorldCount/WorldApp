@@ -10,6 +10,7 @@ using DwUtils.Core.Database.Models;
 using DwUtils.Core.Forms.ConnectForms;
 using DwUtils.Core.Forms.EditForms;
 using Wc32Api.Widgets.Menus;
+using WcApi.Ext;
 
 namespace DwUtils.Core.Forms
 {
@@ -583,7 +584,11 @@ namespace DwUtils.Core.Forms
                 if (MessageBox.Show($"Вы уверены что хотите удалить отправления: {checkedRpos.Count} шт?",
                     "Удаление РПО", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    await _database.DeleteFreeRposAsync(checkedRpos);
+                    // Разбиваем данные по 1000
+                    var data = checkedRpos.Chunk(1000);
+                    foreach (IEnumerable<FreeRpo> freeRpos in data)
+                        await _database.DeleteFreeRposAsync(freeRpos.ToList());
+
                     LoadFreeRpos();
                 }
             }
@@ -603,7 +608,12 @@ namespace DwUtils.Core.Forms
                 {
                     Place place = editPlaceForm.Place;
 
-                    await _database.UpdateFreeRposPlaceAsync(checkedRpos, place.Id);
+                    // Разбиваем данные по 1000
+                    var data = checkedRpos.Chunk(1000);
+                    foreach (IEnumerable<FreeRpo> freeRpos in data)
+                    {
+                        await _database.UpdateFreeRposPlaceAsync(freeRpos.ToList(), place.Id);
+                    }
 
                     LoadFreeRpos();
                 }
