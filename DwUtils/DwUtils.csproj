@@ -80,6 +80,7 @@
     <Compile Include="Core\Database\Queryes\PostUnit\GetUsersQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostUnit\SetLkApiQuery.cs" />
     <Compile Include="Core\Database\Queryes\Base\Query.cs" />
+    <Compile Include="Core\Database\Requests\FreeRpoResponse.cs" />
     <Compile Include="Core\Forms\ConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,7 +206,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\Database\Requests\" />
     <Folder Include="Core\Database\Responses\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
