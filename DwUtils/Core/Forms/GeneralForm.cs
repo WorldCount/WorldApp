@@ -10,6 +10,7 @@ using DwUtils.Core.Database.Connects;
 using DwUtils.Core.Database.Models;
 using DwUtils.Core.Forms.ConnectForms;
 using DwUtils.Core.Forms.EditForms;
+using DwUtils.Core.Types;
 using Wc32Api.Widgets.Menus;
 using WcApi.Ext;
 
@@ -229,6 +230,8 @@ namespace DwUtils.Core.Forms
 
             _lkState = Properties.Settings.Default.LkApiUrl;
 
+            rpoTypeBindingSource.DataSource = RpoType.GetRpoTypes();
+
             LoadData();
             //CheckLkState();
         }
@@ -420,13 +423,19 @@ namespace DwUtils.Core.Forms
                     state = _database.GetLkApiUrl();
                 });
 
+                _places?.Insert(0, new Place { Id = 0, Name = "ВСЕ" });
+
+                if (_users != null)
+                {
+                    if (_users.Count > 0)
+                        btnLoadFreeRpo.Enabled = true;
+
+                    _users.Insert(0, new User { Id = 0, Name = "ВСЕ" });
+                }
 
                 toggleLoadLk.Checked = !string.IsNullOrEmpty(state);
                 UpdateData(userBindingSource, _users);
                 UpdateData(placeBindingSource, _places);
-
-                if (_users != null && _users.Count > 0)
-                    btnLoadFreeRpo.Enabled = true;
             }
         }
 
