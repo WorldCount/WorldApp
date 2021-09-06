@@ -53,7 +53,8 @@ namespace DwUtils.Core.Forms
             this.freeRpoDataGridView = new System.Windows.Forms.DataGridView();
             this.freeRpoColumnCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.freeRpoColumnLoadDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.freeRpoColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.freeRpoColumnType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.rpoTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.freeRpoColumnBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.freeRpoColumnIndexTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.freeRpoColumnPlaceId = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -61,17 +62,27 @@ namespace DwUtils.Core.Forms
             this.freeRpoColumnUserId = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.freeRpoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panelFreeRpo = new System.Windows.Forms.Panel();
-            this.btnEditFreeRpo = new Wc32Api.Widgets.Buttons.WcButton();
-            this.btnDeleteFreeRpo = new Wc32Api.Widgets.Buttons.WcButton();
-            this.btnLoadFreeRpo = new Wc32Api.Widgets.Buttons.WcButton();
-            this.flowLayoutPanelFreeRpo = new System.Windows.Forms.FlowLayoutPanel();
-            this.freeRpoLabelInfoUsers = new System.Windows.Forms.Label();
-            this.freeRpoComboBoxUsers = new System.Windows.Forms.ComboBox();
             this.barcodePanelStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFreeRpoStat = new System.Windows.Forms.FlowLayoutPanel();
             this.freeRpoLabelInfoCount = new System.Windows.Forms.Label();
             this.freeRpoLabelCount = new System.Windows.Forms.Label();
+            this.panelFreeRpoL2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelFreeRpoL2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.freeRpoLabelInfoPlace = new System.Windows.Forms.Label();
+            this.freeRpoComboBoxPlace = new System.Windows.Forms.ComboBox();
+            this.panelFreeRpoL1 = new System.Windows.Forms.Panel();
+            this.btnEditFreeRpo = new Wc32Api.Widgets.Buttons.WcButton();
+            this.btnDeleteFreeRpo = new Wc32Api.Widgets.Buttons.WcButton();
+            this.btnLoadFreeRpo = new Wc32Api.Widgets.Buttons.WcButton();
+            this.flowLayoutPanelFreeRpoL1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.freeRpoLabelInfoUsers = new System.Windows.Forms.Label();
+            this.freeRpoComboBoxUsers = new System.Windows.Forms.ComboBox();
+            this.freeRpoLabelInfoType = new System.Windows.Forms.Label();
+            this.freeRpoComboBoxRpoType = new System.Windows.Forms.ComboBox();
+            this.tabReceived = new System.Windows.Forms.TabPage();
+            this.tabDelivery = new System.Windows.Forms.TabPage();
+            this.tabConnected = new System.Windows.Forms.TabPage();
+            this.tabLastVisit = new System.Windows.Forms.TabPage();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.lblInfoDebug = new System.Windows.Forms.Label();
             this.toggleDebug = new Wc32Api.Widgets.Buttons.WcToggleButton();
@@ -88,10 +99,6 @@ namespace DwUtils.Core.Forms
             this.connectPostItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabReceived = new System.Windows.Forms.TabPage();
-            this.tabDelivery = new System.Windows.Forms.TabPage();
-            this.tabConnected = new System.Windows.Forms.TabPage();
-            this.tabLastVisit = new System.Windows.Forms.TabPage();
             this.statusBar.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPicture)).BeginInit();
@@ -100,13 +107,16 @@ namespace DwUtils.Core.Forms
             this.tabControl.SuspendLayout();
             this.tabFreeRpo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.freeRpoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpoTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.freeRpoBindingSource)).BeginInit();
-            this.panelFreeRpo.SuspendLayout();
-            this.flowLayoutPanelFreeRpo.SuspendLayout();
             this.barcodePanelStat.SuspendLayout();
             this.flowLayoutPanelFreeRpoStat.SuspendLayout();
+            this.panelFreeRpoL2.SuspendLayout();
+            this.flowLayoutPanelFreeRpoL2.SuspendLayout();
+            this.panelFreeRpoL1.SuspendLayout();
+            this.flowLayoutPanelFreeRpoL1.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.wcDropdownMenuFile.SuspendLayout();
@@ -120,9 +130,9 @@ namespace DwUtils.Core.Forms
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusText,
             this.statusAuthor});
-            this.statusBar.Location = new System.Drawing.Point(0, 428);
+            this.statusBar.Location = new System.Drawing.Point(0, 517);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(800, 22);
+            this.statusBar.Size = new System.Drawing.Size(1010, 22);
             this.statusBar.TabIndex = 6;
             this.statusBar.Text = "statusStrip1";
             // 
@@ -130,7 +140,7 @@ namespace DwUtils.Core.Forms
             // 
             this.statusText.BackColor = System.Drawing.Color.WhiteSmoke;
             this.statusText.Name = "statusText";
-            this.statusText.Size = new System.Drawing.Size(671, 17);
+            this.statusText.Size = new System.Drawing.Size(881, 17);
             this.statusText.Spring = true;
             // 
             // statusAuthor
@@ -156,7 +166,7 @@ namespace DwUtils.Core.Forms
             this.panelTitleBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(800, 34);
+            this.panelTitleBar.Size = new System.Drawing.Size(1010, 34);
             this.panelTitleBar.TabIndex = 0;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -190,7 +200,7 @@ namespace DwUtils.Core.Forms
             this.panelButtonTitle.Controls.Add(this.btnMinimize);
             this.panelButtonTitle.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelButtonTitle.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panelButtonTitle.Location = new System.Drawing.Point(707, 0);
+            this.panelButtonTitle.Location = new System.Drawing.Point(917, 0);
             this.panelButtonTitle.Name = "panelButtonTitle";
             this.panelButtonTitle.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.panelButtonTitle.Size = new System.Drawing.Size(93, 34);
@@ -284,7 +294,7 @@ namespace DwUtils.Core.Forms
             this.panelWork.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelWork.Location = new System.Drawing.Point(0, 34);
             this.panelWork.Name = "panelWork";
-            this.panelWork.Size = new System.Drawing.Size(800, 394);
+            this.panelWork.Size = new System.Drawing.Size(1010, 483);
             this.panelWork.TabIndex = 8;
             // 
             // tabControl
@@ -301,20 +311,21 @@ namespace DwUtils.Core.Forms
             this.tabControl.Name = "tabControl";
             this.tabControl.Padding = new System.Drawing.Point(30, 6);
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(800, 294);
+            this.tabControl.Size = new System.Drawing.Size(1010, 383);
             this.tabControl.TabIndex = 0;
             this.tabControl.TabStop = false;
             // 
             // tabFreeRpo
             // 
             this.tabFreeRpo.Controls.Add(this.freeRpoDataGridView);
-            this.tabFreeRpo.Controls.Add(this.panelFreeRpo);
             this.tabFreeRpo.Controls.Add(this.barcodePanelStat);
+            this.tabFreeRpo.Controls.Add(this.panelFreeRpoL2);
+            this.tabFreeRpo.Controls.Add(this.panelFreeRpoL1);
             this.tabFreeRpo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.tabFreeRpo.Location = new System.Drawing.Point(4, 36);
             this.tabFreeRpo.Margin = new System.Windows.Forms.Padding(0);
             this.tabFreeRpo.Name = "tabFreeRpo";
-            this.tabFreeRpo.Size = new System.Drawing.Size(792, 254);
+            this.tabFreeRpo.Size = new System.Drawing.Size(1002, 343);
             this.tabFreeRpo.TabIndex = 0;
             this.tabFreeRpo.Text = "Сводобные РПО";
             this.tabFreeRpo.UseVisualStyleBackColor = true;
@@ -359,7 +370,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.freeRpoDataGridView.EnableHeadersVisualStyles = false;
             this.freeRpoDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.freeRpoDataGridView.Location = new System.Drawing.Point(0, 48);
+            this.freeRpoDataGridView.Location = new System.Drawing.Point(0, 96);
             this.freeRpoDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.freeRpoDataGridView.Name = "freeRpoDataGridView";
             this.freeRpoDataGridView.ReadOnly = true;
@@ -376,7 +387,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.freeRpoDataGridView.RowTemplate.Height = 40;
             this.freeRpoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.freeRpoDataGridView.Size = new System.Drawing.Size(792, 176);
+            this.freeRpoDataGridView.Size = new System.Drawing.Size(1002, 217);
             this.freeRpoDataGridView.TabIndex = 0;
             this.freeRpoDataGridView.TabStop = false;
             this.freeRpoDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.freeRpoDataGridView_CellClick);
@@ -403,9 +414,20 @@ namespace DwUtils.Core.Forms
             // freeRpoColumnType
             // 
             this.freeRpoColumnType.DataPropertyName = "Type";
+            this.freeRpoColumnType.DataSource = this.rpoTypeBindingSource;
+            this.freeRpoColumnType.DisplayMember = "Name";
+            this.freeRpoColumnType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.freeRpoColumnType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.freeRpoColumnType.HeaderText = "Тип";
             this.freeRpoColumnType.Name = "freeRpoColumnType";
             this.freeRpoColumnType.ReadOnly = true;
+            this.freeRpoColumnType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.freeRpoColumnType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.freeRpoColumnType.ValueMember = "Id";
+            // 
+            // rpoTypeBindingSource
+            // 
+            this.rpoTypeBindingSource.DataSource = typeof(DwUtils.Core.Types.RpoType);
             // 
             // freeRpoColumnBarcode
             // 
@@ -461,18 +483,110 @@ namespace DwUtils.Core.Forms
             // 
             this.freeRpoBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.FreeRpo);
             // 
-            // panelFreeRpo
+            // barcodePanelStat
             // 
-            this.panelFreeRpo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelFreeRpo.Controls.Add(this.btnEditFreeRpo);
-            this.panelFreeRpo.Controls.Add(this.btnDeleteFreeRpo);
-            this.panelFreeRpo.Controls.Add(this.btnLoadFreeRpo);
-            this.panelFreeRpo.Controls.Add(this.flowLayoutPanelFreeRpo);
-            this.panelFreeRpo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelFreeRpo.Location = new System.Drawing.Point(0, 0);
-            this.panelFreeRpo.Name = "panelFreeRpo";
-            this.panelFreeRpo.Size = new System.Drawing.Size(792, 48);
-            this.panelFreeRpo.TabIndex = 5;
+            this.barcodePanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.barcodePanelStat.Controls.Add(this.flowLayoutPanelFreeRpoStat);
+            this.barcodePanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barcodePanelStat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.barcodePanelStat.Location = new System.Drawing.Point(0, 313);
+            this.barcodePanelStat.Name = "barcodePanelStat";
+            this.barcodePanelStat.Size = new System.Drawing.Size(1002, 30);
+            this.barcodePanelStat.TabIndex = 7;
+            // 
+            // flowLayoutPanelFreeRpoStat
+            // 
+            this.flowLayoutPanelFreeRpoStat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelFreeRpoStat.Controls.Add(this.freeRpoLabelInfoCount);
+            this.flowLayoutPanelFreeRpoStat.Controls.Add(this.freeRpoLabelCount);
+            this.flowLayoutPanelFreeRpoStat.Location = new System.Drawing.Point(0, 3);
+            this.flowLayoutPanelFreeRpoStat.Name = "flowLayoutPanelFreeRpoStat";
+            this.flowLayoutPanelFreeRpoStat.Size = new System.Drawing.Size(999, 26);
+            this.flowLayoutPanelFreeRpoStat.TabIndex = 1;
+            this.flowLayoutPanelFreeRpoStat.WrapContents = false;
+            // 
+            // freeRpoLabelInfoCount
+            // 
+            this.freeRpoLabelInfoCount.AutoSize = true;
+            this.freeRpoLabelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.freeRpoLabelInfoCount.Location = new System.Drawing.Point(8, 2);
+            this.freeRpoLabelInfoCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.freeRpoLabelInfoCount.Name = "freeRpoLabelInfoCount";
+            this.freeRpoLabelInfoCount.Size = new System.Drawing.Size(52, 20);
+            this.freeRpoLabelInfoCount.TabIndex = 0;
+            this.freeRpoLabelInfoCount.Text = "Всего:";
+            // 
+            // freeRpoLabelCount
+            // 
+            this.freeRpoLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.freeRpoLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.freeRpoLabelCount.Location = new System.Drawing.Point(66, 2);
+            this.freeRpoLabelCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.freeRpoLabelCount.Name = "freeRpoLabelCount";
+            this.freeRpoLabelCount.Size = new System.Drawing.Size(90, 22);
+            this.freeRpoLabelCount.TabIndex = 0;
+            this.freeRpoLabelCount.Text = "0";
+            // 
+            // panelFreeRpoL2
+            // 
+            this.panelFreeRpoL2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelFreeRpoL2.Controls.Add(this.flowLayoutPanelFreeRpoL2);
+            this.panelFreeRpoL2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelFreeRpoL2.Location = new System.Drawing.Point(0, 48);
+            this.panelFreeRpoL2.Name = "panelFreeRpoL2";
+            this.panelFreeRpoL2.Size = new System.Drawing.Size(1002, 48);
+            this.panelFreeRpoL2.TabIndex = 8;
+            // 
+            // flowLayoutPanelFreeRpoL2
+            // 
+            this.flowLayoutPanelFreeRpoL2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoLabelInfoPlace);
+            this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoComboBoxPlace);
+            this.flowLayoutPanelFreeRpoL2.Location = new System.Drawing.Point(3, 4);
+            this.flowLayoutPanelFreeRpoL2.Name = "flowLayoutPanelFreeRpoL2";
+            this.flowLayoutPanelFreeRpoL2.Size = new System.Drawing.Size(989, 40);
+            this.flowLayoutPanelFreeRpoL2.TabIndex = 27;
+            this.flowLayoutPanelFreeRpoL2.WrapContents = false;
+            // 
+            // freeRpoLabelInfoPlace
+            // 
+            this.freeRpoLabelInfoPlace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.freeRpoLabelInfoPlace.AutoSize = true;
+            this.freeRpoLabelInfoPlace.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.freeRpoLabelInfoPlace.ForeColor = System.Drawing.Color.Gainsboro;
+            this.freeRpoLabelInfoPlace.Location = new System.Drawing.Point(6, 10);
+            this.freeRpoLabelInfoPlace.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.freeRpoLabelInfoPlace.Name = "freeRpoLabelInfoPlace";
+            this.freeRpoLabelInfoPlace.Size = new System.Drawing.Size(70, 20);
+            this.freeRpoLabelInfoPlace.TabIndex = 1;
+            this.freeRpoLabelInfoPlace.Text = "Участок:";
+            // 
+            // freeRpoComboBoxPlace
+            // 
+            this.freeRpoComboBoxPlace.DataSource = this.placeBindingSource;
+            this.freeRpoComboBoxPlace.DisplayMember = "Name";
+            this.freeRpoComboBoxPlace.FormattingEnabled = true;
+            this.freeRpoComboBoxPlace.Location = new System.Drawing.Point(82, 6);
+            this.freeRpoComboBoxPlace.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.freeRpoComboBoxPlace.Name = "freeRpoComboBoxPlace";
+            this.freeRpoComboBoxPlace.Size = new System.Drawing.Size(147, 29);
+            this.freeRpoComboBoxPlace.TabIndex = 2;
+            this.freeRpoComboBoxPlace.ValueMember = "Id";
+            // 
+            // panelFreeRpoL1
+            // 
+            this.panelFreeRpoL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelFreeRpoL1.Controls.Add(this.btnEditFreeRpo);
+            this.panelFreeRpoL1.Controls.Add(this.btnDeleteFreeRpo);
+            this.panelFreeRpoL1.Controls.Add(this.btnLoadFreeRpo);
+            this.panelFreeRpoL1.Controls.Add(this.flowLayoutPanelFreeRpoL1);
+            this.panelFreeRpoL1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelFreeRpoL1.Location = new System.Drawing.Point(0, 0);
+            this.panelFreeRpoL1.Name = "panelFreeRpoL1";
+            this.panelFreeRpoL1.Size = new System.Drawing.Size(1002, 48);
+            this.panelFreeRpoL1.TabIndex = 5;
             // 
             // btnEditFreeRpo
             // 
@@ -488,7 +602,7 @@ namespace DwUtils.Core.Forms
             this.btnEditFreeRpo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditFreeRpo.ForeColor = System.Drawing.Color.White;
             this.btnEditFreeRpo.Image = global::DwUtils.Properties.Resources.edit_11_24;
-            this.btnEditFreeRpo.Location = new System.Drawing.Point(696, 4);
+            this.btnEditFreeRpo.Location = new System.Drawing.Point(906, 4);
             this.btnEditFreeRpo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnEditFreeRpo.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnEditFreeRpo.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
@@ -515,7 +629,7 @@ namespace DwUtils.Core.Forms
             this.btnDeleteFreeRpo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteFreeRpo.ForeColor = System.Drawing.Color.White;
             this.btnDeleteFreeRpo.Image = global::DwUtils.Properties.Resources.trash_2_24;
-            this.btnDeleteFreeRpo.Location = new System.Drawing.Point(650, 4);
+            this.btnDeleteFreeRpo.Location = new System.Drawing.Point(860, 4);
             this.btnDeleteFreeRpo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnDeleteFreeRpo.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnDeleteFreeRpo.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
@@ -543,7 +657,7 @@ namespace DwUtils.Core.Forms
             this.btnLoadFreeRpo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadFreeRpo.ForeColor = System.Drawing.Color.White;
             this.btnLoadFreeRpo.Image = global::DwUtils.Properties.Resources.synchronize_24;
-            this.btnLoadFreeRpo.Location = new System.Drawing.Point(742, 4);
+            this.btnLoadFreeRpo.Location = new System.Drawing.Point(952, 4);
             this.btnLoadFreeRpo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnLoadFreeRpo.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnLoadFreeRpo.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
@@ -556,17 +670,19 @@ namespace DwUtils.Core.Forms
             this.btnLoadFreeRpo.UseVisualStyleBackColor = false;
             this.btnLoadFreeRpo.Click += new System.EventHandler(this.btnLoadFreeRpo_Click);
             // 
-            // flowLayoutPanelFreeRpo
+            // flowLayoutPanelFreeRpoL1
             // 
-            this.flowLayoutPanelFreeRpo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.flowLayoutPanelFreeRpoL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelFreeRpo.Controls.Add(this.freeRpoLabelInfoUsers);
-            this.flowLayoutPanelFreeRpo.Controls.Add(this.freeRpoComboBoxUsers);
-            this.flowLayoutPanelFreeRpo.Location = new System.Drawing.Point(3, 4);
-            this.flowLayoutPanelFreeRpo.Name = "flowLayoutPanelFreeRpo";
-            this.flowLayoutPanelFreeRpo.Size = new System.Drawing.Size(641, 40);
-            this.flowLayoutPanelFreeRpo.TabIndex = 27;
-            this.flowLayoutPanelFreeRpo.WrapContents = false;
+            this.flowLayoutPanelFreeRpoL1.Controls.Add(this.freeRpoLabelInfoUsers);
+            this.flowLayoutPanelFreeRpoL1.Controls.Add(this.freeRpoComboBoxUsers);
+            this.flowLayoutPanelFreeRpoL1.Controls.Add(this.freeRpoLabelInfoType);
+            this.flowLayoutPanelFreeRpoL1.Controls.Add(this.freeRpoComboBoxRpoType);
+            this.flowLayoutPanelFreeRpoL1.Location = new System.Drawing.Point(3, 4);
+            this.flowLayoutPanelFreeRpoL1.Name = "flowLayoutPanelFreeRpoL1";
+            this.flowLayoutPanelFreeRpoL1.Size = new System.Drawing.Size(851, 40);
+            this.flowLayoutPanelFreeRpoL1.TabIndex = 27;
+            this.flowLayoutPanelFreeRpoL1.WrapContents = false;
             // 
             // freeRpoLabelInfoUsers
             // 
@@ -589,54 +705,71 @@ namespace DwUtils.Core.Forms
             this.freeRpoComboBoxUsers.Location = new System.Drawing.Point(123, 6);
             this.freeRpoComboBoxUsers.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.freeRpoComboBoxUsers.Name = "freeRpoComboBoxUsers";
-            this.freeRpoComboBoxUsers.Size = new System.Drawing.Size(209, 29);
+            this.freeRpoComboBoxUsers.Size = new System.Drawing.Size(234, 29);
             this.freeRpoComboBoxUsers.TabIndex = 0;
             this.freeRpoComboBoxUsers.ValueMember = "Id";
             // 
-            // barcodePanelStat
+            // freeRpoLabelInfoType
             // 
-            this.barcodePanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.barcodePanelStat.Controls.Add(this.flowLayoutPanelFreeRpoStat);
-            this.barcodePanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barcodePanelStat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.barcodePanelStat.Location = new System.Drawing.Point(0, 224);
-            this.barcodePanelStat.Name = "barcodePanelStat";
-            this.barcodePanelStat.Size = new System.Drawing.Size(792, 30);
-            this.barcodePanelStat.TabIndex = 7;
+            this.freeRpoLabelInfoType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.freeRpoLabelInfoType.AutoSize = true;
+            this.freeRpoLabelInfoType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.freeRpoLabelInfoType.ForeColor = System.Drawing.Color.Gainsboro;
+            this.freeRpoLabelInfoType.Location = new System.Drawing.Point(366, 10);
+            this.freeRpoLabelInfoType.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.freeRpoLabelInfoType.Name = "freeRpoLabelInfoType";
+            this.freeRpoLabelInfoType.Size = new System.Drawing.Size(38, 20);
+            this.freeRpoLabelInfoType.TabIndex = 0;
+            this.freeRpoLabelInfoType.Text = "Тип:";
             // 
-            // flowLayoutPanelFreeRpoStat
+            // freeRpoComboBoxRpoType
             // 
-            this.flowLayoutPanelFreeRpoStat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelFreeRpoStat.Controls.Add(this.freeRpoLabelInfoCount);
-            this.flowLayoutPanelFreeRpoStat.Controls.Add(this.freeRpoLabelCount);
-            this.flowLayoutPanelFreeRpoStat.Location = new System.Drawing.Point(0, 3);
-            this.flowLayoutPanelFreeRpoStat.Name = "flowLayoutPanelFreeRpoStat";
-            this.flowLayoutPanelFreeRpoStat.Size = new System.Drawing.Size(789, 26);
-            this.flowLayoutPanelFreeRpoStat.TabIndex = 1;
-            this.flowLayoutPanelFreeRpoStat.WrapContents = false;
+            this.freeRpoComboBoxRpoType.DataSource = this.rpoTypeBindingSource;
+            this.freeRpoComboBoxRpoType.DisplayMember = "Name";
+            this.freeRpoComboBoxRpoType.FormattingEnabled = true;
+            this.freeRpoComboBoxRpoType.Location = new System.Drawing.Point(410, 6);
+            this.freeRpoComboBoxRpoType.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.freeRpoComboBoxRpoType.Name = "freeRpoComboBoxRpoType";
+            this.freeRpoComboBoxRpoType.Size = new System.Drawing.Size(92, 29);
+            this.freeRpoComboBoxRpoType.TabIndex = 0;
+            this.freeRpoComboBoxRpoType.ValueMember = "Id";
             // 
-            // freeRpoLabelInfoCount
+            // tabReceived
             // 
-            this.freeRpoLabelInfoCount.AutoSize = true;
-            this.freeRpoLabelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.freeRpoLabelInfoCount.Location = new System.Drawing.Point(8, 2);
-            this.freeRpoLabelInfoCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
-            this.freeRpoLabelInfoCount.Name = "freeRpoLabelInfoCount";
-            this.freeRpoLabelInfoCount.Size = new System.Drawing.Size(52, 20);
-            this.freeRpoLabelInfoCount.TabIndex = 0;
-            this.freeRpoLabelInfoCount.Text = "Всего:";
+            this.tabReceived.Location = new System.Drawing.Point(4, 36);
+            this.tabReceived.Name = "tabReceived";
+            this.tabReceived.Padding = new System.Windows.Forms.Padding(3);
+            this.tabReceived.Size = new System.Drawing.Size(1002, 343);
+            this.tabReceived.TabIndex = 1;
+            this.tabReceived.Text = "На вручение";
+            this.tabReceived.UseVisualStyleBackColor = true;
             // 
-            // freeRpoLabelCount
+            // tabDelivery
             // 
-            this.freeRpoLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.freeRpoLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
-            this.freeRpoLabelCount.Location = new System.Drawing.Point(66, 2);
-            this.freeRpoLabelCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.freeRpoLabelCount.Name = "freeRpoLabelCount";
-            this.freeRpoLabelCount.Size = new System.Drawing.Size(90, 22);
-            this.freeRpoLabelCount.TabIndex = 0;
-            this.freeRpoLabelCount.Text = "0";
+            this.tabDelivery.Location = new System.Drawing.Point(4, 36);
+            this.tabDelivery.Name = "tabDelivery";
+            this.tabDelivery.Size = new System.Drawing.Size(1002, 343);
+            this.tabDelivery.TabIndex = 2;
+            this.tabDelivery.Text = "Вручено";
+            this.tabDelivery.UseVisualStyleBackColor = true;
+            // 
+            // tabConnected
+            // 
+            this.tabConnected.Location = new System.Drawing.Point(4, 36);
+            this.tabConnected.Name = "tabConnected";
+            this.tabConnected.Size = new System.Drawing.Size(1002, 343);
+            this.tabConnected.TabIndex = 3;
+            this.tabConnected.Text = "Онлайн";
+            this.tabConnected.UseVisualStyleBackColor = true;
+            // 
+            // tabLastVisit
+            // 
+            this.tabLastVisit.Location = new System.Drawing.Point(4, 36);
+            this.tabLastVisit.Name = "tabLastVisit";
+            this.tabLastVisit.Size = new System.Drawing.Size(1002, 343);
+            this.tabLastVisit.TabIndex = 4;
+            this.tabLastVisit.Text = "Заходили";
+            this.tabLastVisit.UseVisualStyleBackColor = true;
             // 
             // panelGeneral
             // 
@@ -649,7 +782,7 @@ namespace DwUtils.Core.Forms
             this.panelGeneral.ForeColor = System.Drawing.Color.Gainsboro;
             this.panelGeneral.Location = new System.Drawing.Point(0, 42);
             this.panelGeneral.Name = "panelGeneral";
-            this.panelGeneral.Size = new System.Drawing.Size(800, 58);
+            this.panelGeneral.Size = new System.Drawing.Size(1010, 58);
             this.panelGeneral.TabIndex = 0;
             // 
             // lblInfoDebug
@@ -688,7 +821,7 @@ namespace DwUtils.Core.Forms
             this.labelInfoLoadLk.AutoSize = true;
             this.labelInfoLoadLk.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelInfoLoadLk.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelInfoLoadLk.Location = new System.Drawing.Point(639, 19);
+            this.labelInfoLoadLk.Location = new System.Drawing.Point(849, 19);
             this.labelInfoLoadLk.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
             this.labelInfoLoadLk.Name = "labelInfoLoadLk";
             this.labelInfoLoadLk.Size = new System.Drawing.Size(98, 20);
@@ -703,7 +836,7 @@ namespace DwUtils.Core.Forms
             this.toggleLoadLk.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toggleLoadLk.DisableBackColor = System.Drawing.Color.DimGray;
             this.toggleLoadLk.DisableToggleColor = System.Drawing.Color.Gray;
-            this.toggleLoadLk.Location = new System.Drawing.Point(743, 18);
+            this.toggleLoadLk.Location = new System.Drawing.Point(953, 18);
             this.toggleLoadLk.MinimumSize = new System.Drawing.Size(45, 22);
             this.toggleLoadLk.Name = "toggleLoadLk";
             this.toggleLoadLk.OffBackColor = System.Drawing.Color.Firebrick;
@@ -726,7 +859,7 @@ namespace DwUtils.Core.Forms
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Padding = new System.Windows.Forms.Padding(1);
-            this.panelMenu.Size = new System.Drawing.Size(800, 42);
+            this.panelMenu.Size = new System.Drawing.Size(1010, 42);
             this.panelMenu.TabIndex = 0;
             // 
             // infosMenuItem
@@ -879,48 +1012,11 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
-            // tabReceived
-            // 
-            this.tabReceived.Location = new System.Drawing.Point(4, 36);
-            this.tabReceived.Name = "tabReceived";
-            this.tabReceived.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReceived.Size = new System.Drawing.Size(792, 254);
-            this.tabReceived.TabIndex = 1;
-            this.tabReceived.Text = "На вручение";
-            this.tabReceived.UseVisualStyleBackColor = true;
-            // 
-            // tabDelivery
-            // 
-            this.tabDelivery.Location = new System.Drawing.Point(4, 36);
-            this.tabDelivery.Name = "tabDelivery";
-            this.tabDelivery.Size = new System.Drawing.Size(792, 254);
-            this.tabDelivery.TabIndex = 2;
-            this.tabDelivery.Text = "Вручено";
-            this.tabDelivery.UseVisualStyleBackColor = true;
-            // 
-            // tabConnected
-            // 
-            this.tabConnected.Location = new System.Drawing.Point(4, 36);
-            this.tabConnected.Name = "tabConnected";
-            this.tabConnected.Size = new System.Drawing.Size(792, 254);
-            this.tabConnected.TabIndex = 3;
-            this.tabConnected.Text = "Онлайн";
-            this.tabConnected.UseVisualStyleBackColor = true;
-            // 
-            // tabLastVisit
-            // 
-            this.tabLastVisit.Location = new System.Drawing.Point(4, 36);
-            this.tabLastVisit.Name = "tabLastVisit";
-            this.tabLastVisit.Size = new System.Drawing.Size(792, 254);
-            this.tabLastVisit.TabIndex = 4;
-            this.tabLastVisit.Text = "Заходили";
-            this.tabLastVisit.UseVisualStyleBackColor = true;
-            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1010, 539);
             this.Controls.Add(this.panelWork);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.statusBar);
@@ -946,15 +1042,19 @@ namespace DwUtils.Core.Forms
             this.tabControl.ResumeLayout(false);
             this.tabFreeRpo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.freeRpoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpoTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.freeRpoBindingSource)).EndInit();
-            this.panelFreeRpo.ResumeLayout(false);
-            this.flowLayoutPanelFreeRpo.ResumeLayout(false);
-            this.flowLayoutPanelFreeRpo.PerformLayout();
             this.barcodePanelStat.ResumeLayout(false);
             this.flowLayoutPanelFreeRpoStat.ResumeLayout(false);
             this.flowLayoutPanelFreeRpoStat.PerformLayout();
+            this.panelFreeRpoL2.ResumeLayout(false);
+            this.flowLayoutPanelFreeRpoL2.ResumeLayout(false);
+            this.flowLayoutPanelFreeRpoL2.PerformLayout();
+            this.panelFreeRpoL1.ResumeLayout(false);
+            this.flowLayoutPanelFreeRpoL1.ResumeLayout(false);
+            this.flowLayoutPanelFreeRpoL1.PerformLayout();
             this.panelGeneral.ResumeLayout(false);
             this.panelGeneral.PerformLayout();
             this.panelMenu.ResumeLayout(false);
@@ -984,11 +1084,11 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabFreeRpo;
         private System.Windows.Forms.DataGridView freeRpoDataGridView;
-        private System.Windows.Forms.Panel panelFreeRpo;
+        private System.Windows.Forms.Panel panelFreeRpoL1;
         private WcButton btnEditFreeRpo;
         private WcButton btnDeleteFreeRpo;
         private WcButton btnLoadFreeRpo;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFreeRpo;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFreeRpoL1;
         private System.Windows.Forms.Label freeRpoLabelInfoUsers;
         private System.Windows.Forms.ComboBox freeRpoComboBoxUsers;
         private System.Windows.Forms.Panel barcodePanelStat;
@@ -1011,17 +1111,24 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.ToolStripMenuItem connectPostItemMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem configMenuItem;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn freeRpoColumnCheck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnLoadDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnBarcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnIndexTo;
-        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnPlaceId;
-        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnUserId;
         private System.Windows.Forms.TabPage tabReceived;
         private System.Windows.Forms.TabPage tabDelivery;
         private System.Windows.Forms.TabPage tabConnected;
         private System.Windows.Forms.TabPage tabLastVisit;
+        private System.Windows.Forms.Label freeRpoLabelInfoType;
+        private System.Windows.Forms.ComboBox freeRpoComboBoxRpoType;
+        private System.Windows.Forms.BindingSource rpoTypeBindingSource;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn freeRpoColumnCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnLoadDate;
+        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnBarcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn freeRpoColumnIndexTo;
+        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnPlaceId;
+        private System.Windows.Forms.DataGridViewComboBoxColumn freeRpoColumnUserId;
+        private System.Windows.Forms.Label freeRpoLabelInfoPlace;
+        private System.Windows.Forms.ComboBox freeRpoComboBoxPlace;
+        private System.Windows.Forms.Panel panelFreeRpoL2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFreeRpoL2;
     }
 }
 

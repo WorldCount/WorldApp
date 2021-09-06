@@ -116,11 +116,13 @@
       <DependentUpon>FormsPosition.settings</DependentUpon>
     </Compile>
     <Compile Include="Core\Storage\PathManager.cs" />
+    <Compile Include="Core\Types\RpoType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.FreeRpo.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.Place.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.User.datasource" />
+    <None Include="Properties\DataSources\DwUtils.Core.Types.RpoType.datasource" />
     <None Include="Resources\Button-Settings.png" />
     <None Include="Resources\edit-11-24.png" />
     <None Include="Resources\minus-2-16.png" />
