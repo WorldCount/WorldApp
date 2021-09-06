@@ -153,7 +153,7 @@ namespace DwUtils.Core.Forms
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(800, 34);
-            this.panelTitleBar.TabIndex = 7;
+            this.panelTitleBar.TabIndex = 0;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
             // iconPicture
@@ -175,7 +175,7 @@ namespace DwUtils.Core.Forms
             this.labelTitle.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(114, 18);
-            this.labelTitle.TabIndex = 2;
+            this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "GeneralForm";
             this.labelTitle.DoubleClick += new System.EventHandler(this.labelTitle_DoubleClick);
             // 
@@ -213,7 +213,8 @@ namespace DwUtils.Core.Forms
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(2, 0, 3, 0);
             this.btnClose.Size = new System.Drawing.Size(28, 28);
-            this.btnClose.TabIndex = 1;
+            this.btnClose.TabIndex = 0;
+            this.btnClose.TabStop = false;
             this.btnClose.TextColor = System.Drawing.Color.White;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -238,7 +239,8 @@ namespace DwUtils.Core.Forms
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnMaximize.Size = new System.Drawing.Size(28, 28);
-            this.btnMaximize.TabIndex = 1;
+            this.btnMaximize.TabIndex = 0;
+            this.btnMaximize.TabStop = false;
             this.btnMaximize.TextColor = System.Drawing.Color.White;
             this.btnMaximize.UseVisualStyleBackColor = false;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
@@ -263,7 +265,8 @@ namespace DwUtils.Core.Forms
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Padding = new System.Windows.Forms.Padding(2, 6, 0, 0);
             this.btnMinimize.Size = new System.Drawing.Size(28, 28);
-            this.btnMinimize.TabIndex = 1;
+            this.btnMinimize.TabIndex = 0;
+            this.btnMinimize.TabStop = false;
             this.btnMinimize.TextColor = System.Drawing.Color.White;
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
@@ -366,7 +369,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoDataGridView.RowTemplate.Height = 40;
             this.freeRpoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.freeRpoDataGridView.Size = new System.Drawing.Size(792, 176);
-            this.freeRpoDataGridView.TabIndex = 6;
+            this.freeRpoDataGridView.TabIndex = 0;
             this.freeRpoDataGridView.TabStop = false;
             this.freeRpoDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.freeRpoDataGridView_CellClick);
             this.freeRpoDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.freeRpoDataGridView_CellDoubleClick);
@@ -485,6 +488,7 @@ namespace DwUtils.Core.Forms
             this.btnEditFreeRpo.Padding = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.btnEditFreeRpo.Size = new System.Drawing.Size(40, 40);
             this.btnEditFreeRpo.TabIndex = 0;
+            this.btnEditFreeRpo.TabStop = false;
             this.btnEditFreeRpo.TextColor = System.Drawing.Color.White;
             this.btnEditFreeRpo.UseVisualStyleBackColor = false;
             this.btnEditFreeRpo.Click += new System.EventHandler(this.btnEditFreeRpo_Click);
@@ -511,6 +515,7 @@ namespace DwUtils.Core.Forms
             this.btnDeleteFreeRpo.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.btnDeleteFreeRpo.Size = new System.Drawing.Size(40, 40);
             this.btnDeleteFreeRpo.TabIndex = 0;
+            this.btnDeleteFreeRpo.TabStop = false;
             this.btnDeleteFreeRpo.TextColor = System.Drawing.Color.White;
             this.btnDeleteFreeRpo.UseVisualStyleBackColor = false;
             this.btnDeleteFreeRpo.Click += new System.EventHandler(this.btnDeleteFreeRpo_Click);
@@ -538,6 +543,7 @@ namespace DwUtils.Core.Forms
             this.btnLoadFreeRpo.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.btnLoadFreeRpo.Size = new System.Drawing.Size(40, 40);
             this.btnLoadFreeRpo.TabIndex = 0;
+            this.btnLoadFreeRpo.TabStop = false;
             this.btnLoadFreeRpo.TextColor = System.Drawing.Color.White;
             this.btnLoadFreeRpo.UseVisualStyleBackColor = false;
             this.btnLoadFreeRpo.Click += new System.EventHandler(this.btnLoadFreeRpo_Click);
@@ -564,7 +570,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoLabelInfoUsers.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
             this.freeRpoLabelInfoUsers.Name = "freeRpoLabelInfoUsers";
             this.freeRpoLabelInfoUsers.Size = new System.Drawing.Size(111, 20);
-            this.freeRpoLabelInfoUsers.TabIndex = 35;
+            this.freeRpoLabelInfoUsers.TabIndex = 0;
             this.freeRpoLabelInfoUsers.Text = "Пользователь:";
             // 
             // freeRpoComboBoxUsers
@@ -636,7 +642,7 @@ namespace DwUtils.Core.Forms
             this.panelGeneral.Location = new System.Drawing.Point(0, 42);
             this.panelGeneral.Name = "panelGeneral";
             this.panelGeneral.Size = new System.Drawing.Size(800, 58);
-            this.panelGeneral.TabIndex = 6;
+            this.panelGeneral.TabIndex = 0;
             // 
             // lblInfoDebug
             // 
@@ -647,7 +653,7 @@ namespace DwUtils.Core.Forms
             this.lblInfoDebug.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
             this.lblInfoDebug.Name = "lblInfoDebug";
             this.lblInfoDebug.Size = new System.Drawing.Size(71, 20);
-            this.lblInfoDebug.TabIndex = 29;
+            this.lblInfoDebug.TabIndex = 0;
             this.lblInfoDebug.Text = "Отладка:";
             // 
             // toggleDebug
@@ -663,7 +669,8 @@ namespace DwUtils.Core.Forms
             this.toggleDebug.OnBackColor = System.Drawing.Color.SeaGreen;
             this.toggleDebug.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.toggleDebug.Size = new System.Drawing.Size(45, 22);
-            this.toggleDebug.TabIndex = 28;
+            this.toggleDebug.TabIndex = 0;
+            this.toggleDebug.TabStop = false;
             this.toggleDebug.UseVisualStyleBackColor = true;
             this.toggleDebug.CheckedChanged += new System.EventHandler(this.toggleDebug_CheckedChanged);
             // 
@@ -677,7 +684,7 @@ namespace DwUtils.Core.Forms
             this.labelInfoLoadLk.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
             this.labelInfoLoadLk.Name = "labelInfoLoadLk";
             this.labelInfoLoadLk.Size = new System.Drawing.Size(98, 20);
-            this.labelInfoLoadLk.TabIndex = 27;
+            this.labelInfoLoadLk.TabIndex = 0;
             this.labelInfoLoadLk.Text = "Загрузка ЛК:";
             // 
             // toggleLoadLk
@@ -697,6 +704,7 @@ namespace DwUtils.Core.Forms
             this.toggleLoadLk.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.toggleLoadLk.Size = new System.Drawing.Size(45, 22);
             this.toggleLoadLk.TabIndex = 0;
+            this.toggleLoadLk.TabStop = false;
             this.toggleLoadLk.UseVisualStyleBackColor = true;
             this.toggleLoadLk.CheckedChanged += new System.EventHandler(this.toggleLoadLk_CheckedChanged);
             // 
@@ -734,7 +742,8 @@ namespace DwUtils.Core.Forms
             this.infosMenuItem.Name = "infosMenuItem";
             this.infosMenuItem.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.infosMenuItem.Size = new System.Drawing.Size(96, 40);
-            this.infosMenuItem.TabIndex = 3;
+            this.infosMenuItem.TabIndex = 0;
+            this.infosMenuItem.TabStop = false;
             this.infosMenuItem.Text = "Инфо";
             this.infosMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.infosMenuItem.TextColor = System.Drawing.Color.Gainsboro;
@@ -761,7 +770,8 @@ namespace DwUtils.Core.Forms
             this.settingsMenuItem.Name = "settingsMenuItem";
             this.settingsMenuItem.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.settingsMenuItem.Size = new System.Drawing.Size(138, 40);
-            this.settingsMenuItem.TabIndex = 2;
+            this.settingsMenuItem.TabIndex = 0;
+            this.settingsMenuItem.TabStop = false;
             this.settingsMenuItem.Text = "Настройки";
             this.settingsMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.settingsMenuItem.TextColor = System.Drawing.Color.Gainsboro;
@@ -789,7 +799,8 @@ namespace DwUtils.Core.Forms
             this.fileMenuItem.Name = "fileMenuItem";
             this.fileMenuItem.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.fileMenuItem.Size = new System.Drawing.Size(96, 40);
-            this.fileMenuItem.TabIndex = 1;
+            this.fileMenuItem.TabIndex = 0;
+            this.fileMenuItem.TabStop = false;
             this.fileMenuItem.Text = "Файл";
             this.fileMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.fileMenuItem.TextColor = System.Drawing.Color.Gainsboro;
