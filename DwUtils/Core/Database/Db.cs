@@ -4,6 +4,7 @@ using DwUtils.Core.Database.Connects;
 using DwUtils.Core.Database.Models;
 using DwUtils.Core.Database.Queryes.PostItem;
 using DwUtils.Core.Database.Queryes.PostUnit;
+using DwUtils.Core.Database.Requests;
 
 namespace DwUtils.Core.Database
 {
@@ -49,15 +50,15 @@ namespace DwUtils.Core.Database
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
-        public List<FreeRpo> GetFreeRpos()
+        public List<FreeRpo> GetFreeRpos(FreeRpoResponse response)
         {
-            GetFreeRpoQuery query = new GetFreeRpoQuery(_postItemConnect, _debugMode);
+            GetFreeRpoQuery query = new GetFreeRpoQuery(_postItemConnect, response, _debugMode);
             return query.Run();
         }
 
-        public async Task<List<FreeRpo>> GetFreeRposAsync()
+        public async Task<List<FreeRpo>> GetFreeRposAsync(FreeRpoResponse response)
         {
-            return await Task.Run(GetFreeRpos);
+            return await Task.Run(() => GetFreeRpos(response));
         }
 
         // ReSharper disable once MemberCanBePrivate.Global

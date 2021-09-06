@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DwUtils.Core.Database;
 using DwUtils.Core.Database.Connects;
 using DwUtils.Core.Database.Models;
+using DwUtils.Core.Database.Requests;
 using DwUtils.Core.Forms.ConnectForms;
 using DwUtils.Core.Forms.EditForms;
 using DwUtils.Core.Types;
@@ -40,6 +41,8 @@ namespace DwUtils.Core.Forms
             // ReSharper disable once VirtualMemberCallInConstructor
             // ReSharper disable once LocalizableElement
             Text = $"{Properties.Settings.Default.AppName} {Application.ProductVersion}";
+
+            Wc32Api.DrawingControl.SetDoubleBuffered(panelWork);
 
             Padding = new Padding(BorderSize);
             // Border Color
@@ -444,7 +447,17 @@ namespace DwUtils.Core.Forms
             freeRpoLabelCount.Text = "0";
             freeRpoBindingSource.DataSource = null;
 
-            List<FreeRpo> rpos = await _database.GetFreeRposAsync();
+            FreeRpoResponse response = new FreeRpoResponse
+            {
+                StartDate = freeRpoDateTimePickerStart.Value,
+                EndDate = freeRpoDateTimePickerEnd.Value,
+                FilterDate = freeRpoToggleButtonCalendar.Checked,
+                PlaceId = ((Place) freeRpoComboBoxPlace.SelectedItem).Id,
+                TypeId = ((RpoType) freeRpoComboBoxRpoType.SelectedItem).Id,
+                UserId = ((User) freeRpoComboBoxUsers.SelectedItem).Id
+            };
+
+            List<FreeRpo> rpos = await _database.GetFreeRposAsync(response);
             
             freeRpoBindingSource.DataSource = rpos;
 

@@ -4,13 +4,17 @@ using FirebirdSql.Data.FirebirdClient;
 using DwUtils.Core.Database.Connects;
 using DwUtils.Core.Database.Models;
 using DwUtils.Core.Database.Queryes.Base;
+using DwUtils.Core.Database.Requests;
 
 namespace DwUtils.Core.Database.Queryes.PostItem
 {
     public class GetFreeRpoQuery : PostItemSelectQuery<List<FreeRpo>>
     {
-        public GetFreeRpoQuery(PostItemConnect connect, bool debugMode = false) : base(connect, debugMode)
+        private readonly FreeRpoResponse _response;
+
+        public GetFreeRpoQuery(PostItemConnect connect, FreeRpoResponse response, bool debugMode = false) : base(connect, debugMode)
         {
+            _response = response;
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
@@ -19,7 +23,25 @@ namespace DwUtils.Core.Database.Queryes.PostItem
             StringBuilder sb = new StringBuilder();
             sb.Append("select d.docid, d.doctypeid, d.pstypecategoryid, d.extcode, d.postofficeret, d.docdate, v.placeid, v.createuserid from doc d");
             sb.Append(" left join docval v on d.docid = v.docid");
-            sb.Append(" where lastdocvalid = 1 and (clienttypeid is null or clienttypeid = 2) order by d.docdate");
+            sb.Append(" left join place p on v.placeid = p.placeid");
+            sb.Append(" where lastdocvalid = 1 and (clienttypeid is null or clienttypeid = 2)");
+
+            if (_response != null)
+            {
+                if (_response.PlaceId != 0)
+                    sb.Append($" and placeid = {_response.PlaceId}");
+
+                if(_response.UserId != 0)
+                    sb.Append($" and createuserid = {_response.UserId}");
+
+                if(_response.TypeId != 0)
+                    sb.Append($" and doctypeid = {_response.TypeId}");
+
+                if (_response.FilterDate)
+                    sb.Append($" and docdate >= '{_response.StartDate:dd.MM.yyyy}' and docdate < '{_response.EndDate.AddDays(1):dd.MM.yyyy}'");
+            }
+
+            sb.Append(" order by docdate");
 
             return sb.ToString();
         }
