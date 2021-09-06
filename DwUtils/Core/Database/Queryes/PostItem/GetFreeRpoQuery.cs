@@ -26,6 +26,9 @@ namespace DwUtils.Core.Database.Queryes.PostItem
 
         protected override List<FreeRpo> ParseResponse(FbDataReader reader)
         {
+            if (DebugMode)
+                Logger.Debug($"Запрос в БД:\n{GetQuery()}");
+
             List<FreeRpo> data = new List<FreeRpo>();
 
             while (reader.Read())
@@ -47,6 +50,7 @@ namespace DwUtils.Core.Database.Queryes.PostItem
 
             if (DebugMode)
                 Logger.Debug($"Запрос вернул записей: {data.Count}");
+
             return data;
         }
     }
