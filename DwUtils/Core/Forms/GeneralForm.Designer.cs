@@ -154,20 +154,22 @@ namespace DwUtils.Core.Forms
             // 
             // statusBar
             // 
+            this.statusBar.AutoSize = false;
             this.statusBar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.statusBar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusText,
             this.statusAuthor});
-            this.statusBar.Location = new System.Drawing.Point(0, 517);
+            this.statusBar.Location = new System.Drawing.Point(0, 513);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(1010, 22);
-            this.statusBar.TabIndex = 6;
-            this.statusBar.Text = "statusStrip1";
+            this.statusBar.Size = new System.Drawing.Size(1010, 26);
+            this.statusBar.TabIndex = 0;
             // 
             // statusText
             // 
+            this.statusText.AutoSize = false;
             this.statusText.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.statusText.Margin = new System.Windows.Forms.Padding(0, 3, 0, 6);
             this.statusText.Name = "statusText";
             this.statusText.Size = new System.Drawing.Size(881, 17);
             this.statusText.Spring = true;
@@ -176,6 +178,7 @@ namespace DwUtils.Core.Forms
             // 
             this.statusAuthor.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.statusAuthor.ForeColor = System.Drawing.Color.Gray;
+            this.statusAuthor.Margin = new System.Windows.Forms.Padding(0, 3, 0, 6);
             this.statusAuthor.Name = "statusAuthor";
             this.statusAuthor.Size = new System.Drawing.Size(114, 17);
             this.statusAuthor.Text = "WorldCount, 2021 ©";
@@ -194,7 +197,7 @@ namespace DwUtils.Core.Forms
             this.panelWork.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelWork.Location = new System.Drawing.Point(0, 0);
             this.panelWork.Name = "panelWork";
-            this.panelWork.Size = new System.Drawing.Size(1010, 517);
+            this.panelWork.Size = new System.Drawing.Size(1010, 513);
             this.panelWork.TabIndex = 8;
             // 
             // tabControl
@@ -210,7 +213,7 @@ namespace DwUtils.Core.Forms
             this.tabControl.Name = "tabControl";
             this.tabControl.Padding = new System.Drawing.Point(30, 6);
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1010, 417);
+            this.tabControl.Size = new System.Drawing.Size(1010, 413);
             this.tabControl.TabIndex = 0;
             this.tabControl.TabStop = false;
             // 
@@ -224,7 +227,7 @@ namespace DwUtils.Core.Forms
             this.tabFreeRpo.Location = new System.Drawing.Point(4, 36);
             this.tabFreeRpo.Margin = new System.Windows.Forms.Padding(0);
             this.tabFreeRpo.Name = "tabFreeRpo";
-            this.tabFreeRpo.Size = new System.Drawing.Size(1002, 377);
+            this.tabFreeRpo.Size = new System.Drawing.Size(1002, 373);
             this.tabFreeRpo.TabIndex = 0;
             this.tabFreeRpo.Text = "Сводобные РПО";
             this.tabFreeRpo.UseVisualStyleBackColor = true;
@@ -286,7 +289,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.freeRpoDataGridView.RowTemplate.Height = 40;
             this.freeRpoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.freeRpoDataGridView.Size = new System.Drawing.Size(1002, 255);
+            this.freeRpoDataGridView.Size = new System.Drawing.Size(1002, 251);
             this.freeRpoDataGridView.TabIndex = 0;
             this.freeRpoDataGridView.TabStop = false;
             this.freeRpoDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.freeRpoDataGridView_CellClick);
@@ -388,7 +391,7 @@ namespace DwUtils.Core.Forms
             this.barcodePanelStat.Controls.Add(this.flowLayoutPanelFreeRpoStat);
             this.barcodePanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barcodePanelStat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.barcodePanelStat.Location = new System.Drawing.Point(0, 347);
+            this.barcodePanelStat.Location = new System.Drawing.Point(0, 343);
             this.barcodePanelStat.Name = "barcodePanelStat";
             this.barcodePanelStat.Size = new System.Drawing.Size(1002, 30);
             this.barcodePanelStat.TabIndex = 7;
@@ -696,7 +699,7 @@ namespace DwUtils.Core.Forms
             this.tabReceived.Controls.Add(this.panelReceivedL1);
             this.tabReceived.Location = new System.Drawing.Point(4, 36);
             this.tabReceived.Name = "tabReceived";
-            this.tabReceived.Size = new System.Drawing.Size(1002, 377);
+            this.tabReceived.Size = new System.Drawing.Size(1002, 373);
             this.tabReceived.TabIndex = 1;
             this.tabReceived.Text = "На вручение";
             this.tabReceived.UseVisualStyleBackColor = true;
@@ -781,7 +784,7 @@ namespace DwUtils.Core.Forms
             this.tabDelivery.Controls.Add(this.panelDeliveryL1);
             this.tabDelivery.Location = new System.Drawing.Point(4, 36);
             this.tabDelivery.Name = "tabDelivery";
-            this.tabDelivery.Size = new System.Drawing.Size(1002, 377);
+            this.tabDelivery.Size = new System.Drawing.Size(1002, 373);
             this.tabDelivery.TabIndex = 2;
             this.tabDelivery.Text = "Вручено";
             this.tabDelivery.UseVisualStyleBackColor = true;
@@ -868,7 +871,7 @@ namespace DwUtils.Core.Forms
             this.tabConnected.Controls.Add(this.panelOnline);
             this.tabConnected.Location = new System.Drawing.Point(4, 36);
             this.tabConnected.Name = "tabConnected";
-            this.tabConnected.Size = new System.Drawing.Size(1002, 377);
+            this.tabConnected.Size = new System.Drawing.Size(1002, 373);
             this.tabConnected.TabIndex = 3;
             this.tabConnected.Text = "Онлайн";
             this.tabConnected.UseVisualStyleBackColor = true;
@@ -879,7 +882,7 @@ namespace DwUtils.Core.Forms
             this.panelOnlineStat.Controls.Add(this.flowLayoutPanelOnlineStat);
             this.panelOnlineStat.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelOnlineStat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.panelOnlineStat.Location = new System.Drawing.Point(0, 347);
+            this.panelOnlineStat.Location = new System.Drawing.Point(0, 343);
             this.panelOnlineStat.Name = "panelOnlineStat";
             this.panelOnlineStat.Size = new System.Drawing.Size(1002, 30);
             this.panelOnlineStat.TabIndex = 8;
@@ -973,7 +976,7 @@ namespace DwUtils.Core.Forms
             this.onlineDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.onlineDataGridView.RowTemplate.Height = 40;
             this.onlineDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.onlineDataGridView.Size = new System.Drawing.Size(1002, 329);
+            this.onlineDataGridView.Size = new System.Drawing.Size(1002, 325);
             this.onlineDataGridView.TabIndex = 7;
             this.onlineDataGridView.TabStop = false;
             this.onlineDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.onlineDataGridView_DataError);
@@ -1388,7 +1391,6 @@ namespace DwUtils.Core.Forms
             this.wcDropdownMenuFile.ResumeLayout(false);
             this.wcDropdownMenuSettings.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
