@@ -24,7 +24,7 @@ namespace DwUtils.Core.Database.Queryes.PostItem
             sb.Append("select d.docid, d.doctypeid, d.pstypecategoryid, d.extcode, d.postofficeret, d.docdate, v.placeid, v.createuserid from doc d");
             sb.Append(" left join docval v on d.docid = v.docid");
             sb.Append(" left join place p on v.placeid = p.placeid");
-            sb.Append(" where lastdocvalid = 1 and clienttypeid is null");
+            sb.Append(" where lastdocvalid = 1 and reestrid is null");
 
             if (_response != null)
             {
