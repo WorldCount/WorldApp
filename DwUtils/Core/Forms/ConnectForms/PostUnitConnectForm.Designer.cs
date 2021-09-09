@@ -32,11 +32,6 @@ namespace DwUtils.Core.Forms.ConnectForms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PostUnitConnectForm));
-            this.panelTitleBar = new System.Windows.Forms.Panel();
-            this.iconPicture = new System.Windows.Forms.PictureBox();
-            this.labelTitle = new System.Windows.Forms.Label();
-            this.panelButtonTitle = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnClose = new Wc32Api.Widgets.Buttons.WcButton();
             this.lblInfo = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.btnCheck = new Wc32Api.Widgets.Buttons.WcButton();
@@ -58,93 +53,15 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.tbHost = new Wc32Api.Widgets.Texts.WcTextBox();
             this.lblPath = new System.Windows.Forms.Label();
             this.panelWork = new System.Windows.Forms.Panel();
-            this.panelTitleBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPicture)).BeginInit();
-            this.panelButtonTitle.SuspendLayout();
             this.panelWork.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelTitleBar
-            // 
-            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.panelTitleBar.Controls.Add(this.iconPicture);
-            this.panelTitleBar.Controls.Add(this.labelTitle);
-            this.panelTitleBar.Controls.Add(this.panelButtonTitle);
-            this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitleBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
-            this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(544, 34);
-            this.panelTitleBar.TabIndex = 3;
-            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
-            // 
-            // iconPicture
-            // 
-            this.iconPicture.Image = global::DwUtils.Properties.Resources.web_hi_res_512;
-            this.iconPicture.Location = new System.Drawing.Point(6, 2);
-            this.iconPicture.Name = "iconPicture";
-            this.iconPicture.Size = new System.Drawing.Size(28, 28);
-            this.iconPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPicture.TabIndex = 3;
-            this.iconPicture.TabStop = false;
-            // 
-            // labelTitle
-            // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTitle.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelTitle.Location = new System.Drawing.Point(43, 7);
-            this.labelTitle.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(222, 18);
-            this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "DwUtils: PostUnit Connect";
-            this.labelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTitle_MouseDown);
-            // 
-            // panelButtonTitle
-            // 
-            this.panelButtonTitle.Controls.Add(this.btnClose);
-            this.panelButtonTitle.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelButtonTitle.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panelButtonTitle.Location = new System.Drawing.Point(451, 0);
-            this.panelButtonTitle.Name = "panelButtonTitle";
-            this.panelButtonTitle.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.panelButtonTitle.Size = new System.Drawing.Size(93, 34);
-            this.panelButtonTitle.TabIndex = 0;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Firebrick;
-            this.btnClose.BorderColor = System.Drawing.Color.Silver;
-            this.btnClose.BorderRadius = 3F;
-            this.btnClose.BorderSize = 0;
-            this.btnClose.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnClose.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(74)))), ((int)(((byte)(84)))));
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::DwUtils.Properties.Resources.x_mark_16;
-            this.btnClose.Location = new System.Drawing.Point(62, 1);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(1, 1, 0, 2);
-            this.btnClose.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnClose.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(74)))), ((int)(((byte)(84)))));
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Padding = new System.Windows.Forms.Padding(2, 0, 3, 0);
-            this.btnClose.Size = new System.Drawing.Size(28, 28);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.TabStop = false;
-            this.btnClose.TextColor = System.Drawing.Color.White;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(74)))), ((int)(((byte)(84)))));
-            this.lblInfo.Location = new System.Drawing.Point(15, 27);
+            this.lblInfo.Location = new System.Drawing.Point(15, 19);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(242, 25);
@@ -158,7 +75,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.cbType.Font = new System.Drawing.Font("Consolas", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cbType.ForeColor = System.Drawing.Color.DimGray;
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(16, 299);
+            this.cbType.Location = new System.Drawing.Point(16, 291);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(270, 27);
             this.cbType.TabIndex = 5;
@@ -177,7 +94,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheck.ForeColor = System.Drawing.Color.White;
             this.btnCheck.Image = global::DwUtils.Properties.Resources.synchronize_24;
-            this.btnCheck.Location = new System.Drawing.Point(278, 364);
+            this.btnCheck.Location = new System.Drawing.Point(278, 356);
             this.btnCheck.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnCheck.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnCheck.Name = "btnCheck";
@@ -206,7 +123,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Image = global::DwUtils.Properties.Resources.close_window_24;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(16, 409);
+            this.btnCancel.Location = new System.Drawing.Point(16, 443);
             this.btnCancel.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnCancel.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnCancel.Name = "btnCancel";
@@ -236,7 +153,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = global::DwUtils.Properties.Resources.save_24;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(411, 409);
+            this.btnSave.Location = new System.Drawing.Point(411, 443);
             this.btnSave.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnSave.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnSave.Name = "btnSave";
@@ -264,7 +181,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.btnChoose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChoose.ForeColor = System.Drawing.Color.White;
             this.btnChoose.Image = global::DwUtils.Properties.Resources.folder_7_24;
-            this.btnChoose.Location = new System.Drawing.Point(469, 161);
+            this.btnChoose.Location = new System.Drawing.Point(469, 153);
             this.btnChoose.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnChoose.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnChoose.Name = "btnChoose";
@@ -291,7 +208,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.btnGetHost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGetHost.Font = new System.Drawing.Font("Segoe UI", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnGetHost.ForeColor = System.Drawing.Color.White;
-            this.btnGetHost.Location = new System.Drawing.Point(469, 94);
+            this.btnGetHost.Location = new System.Drawing.Point(469, 86);
             this.btnGetHost.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnGetHost.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnGetHost.Name = "btnGetHost";
@@ -309,7 +226,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.lblPass.AutoSize = true;
             this.lblPass.Font = new System.Drawing.Font("Segoe UI", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblPass.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPass.Location = new System.Drawing.Point(290, 205);
+            this.lblPass.Location = new System.Drawing.Point(290, 197);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(65, 20);
             this.lblPass.TabIndex = 0;
@@ -320,7 +237,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.lblPort.AutoSize = true;
             this.lblPort.Font = new System.Drawing.Font("Segoe UI", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblPort.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPort.Location = new System.Drawing.Point(290, 270);
+            this.lblPort.Location = new System.Drawing.Point(290, 262);
             this.lblPort.Name = "lblPort";
             this.lblPort.Size = new System.Drawing.Size(47, 20);
             this.lblPort.TabIndex = 0;
@@ -331,7 +248,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.lblType.AutoSize = true;
             this.lblType.Font = new System.Drawing.Font("Segoe UI", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblType.ForeColor = System.Drawing.Color.DimGray;
-            this.lblType.Location = new System.Drawing.Point(12, 270);
+            this.lblType.Location = new System.Drawing.Point(12, 262);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(99, 20);
             this.lblType.TabIndex = 0;
@@ -342,7 +259,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.lblTestConnect.AutoSize = true;
             this.lblTestConnect.Font = new System.Drawing.Font("Segoe UI", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblTestConnect.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTestConnect.Location = new System.Drawing.Point(12, 340);
+            this.lblTestConnect.Location = new System.Drawing.Point(12, 332);
             this.lblTestConnect.Name = "lblTestConnect";
             this.lblTestConnect.Size = new System.Drawing.Size(180, 20);
             this.lblTestConnect.TabIndex = 39;
@@ -353,7 +270,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Segoe UI", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblUser.ForeColor = System.Drawing.Color.DimGray;
-            this.lblUser.Location = new System.Drawing.Point(12, 205);
+            this.lblUser.Location = new System.Drawing.Point(12, 197);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(110, 20);
             this.lblUser.TabIndex = 0;
@@ -364,7 +281,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.lblHost.AutoSize = true;
             this.lblHost.Font = new System.Drawing.Font("Segoe UI", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblHost.ForeColor = System.Drawing.Color.DimGray;
-            this.lblHost.Location = new System.Drawing.Point(12, 70);
+            this.lblHost.Location = new System.Drawing.Point(12, 62);
             this.lblHost.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lblHost.Name = "lblHost";
             this.lblHost.Size = new System.Drawing.Size(43, 20);
@@ -383,7 +300,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.tbPort.DisableForeColor = System.Drawing.Color.DimGray;
             this.tbPort.Font = new System.Drawing.Font("Consolas", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbPort.ForeColor = System.Drawing.Color.DimGray;
-            this.tbPort.Location = new System.Drawing.Point(294, 294);
+            this.tbPort.Location = new System.Drawing.Point(294, 286);
             this.tbPort.Margin = new System.Windows.Forms.Padding(4);
             this.tbPort.MaxLength = 32767;
             this.tbPort.Multiline = false;
@@ -410,7 +327,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.tbPass.DisableForeColor = System.Drawing.Color.DimGray;
             this.tbPass.Font = new System.Drawing.Font("Segoe UI", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbPass.ForeColor = System.Drawing.Color.DimGray;
-            this.tbPass.Location = new System.Drawing.Point(294, 228);
+            this.tbPass.Location = new System.Drawing.Point(294, 220);
             this.tbPass.Margin = new System.Windows.Forms.Padding(4);
             this.tbPass.MaxLength = 32767;
             this.tbPass.Multiline = false;
@@ -436,7 +353,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.tbStatus.DisableForeColor = System.Drawing.Color.DimGray;
             this.tbStatus.Font = new System.Drawing.Font("Consolas", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbStatus.ForeColor = System.Drawing.Color.DimGray;
-            this.tbStatus.Location = new System.Drawing.Point(16, 364);
+            this.tbStatus.Location = new System.Drawing.Point(16, 356);
             this.tbStatus.Margin = new System.Windows.Forms.Padding(4);
             this.tbStatus.MaxLength = 32767;
             this.tbStatus.Multiline = false;
@@ -464,7 +381,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.tbUser.DisableForeColor = System.Drawing.Color.DimGray;
             this.tbUser.Font = new System.Drawing.Font("Segoe UI", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbUser.ForeColor = System.Drawing.Color.DimGray;
-            this.tbUser.Location = new System.Drawing.Point(16, 229);
+            this.tbUser.Location = new System.Drawing.Point(16, 221);
             this.tbUser.Margin = new System.Windows.Forms.Padding(4);
             this.tbUser.MaxLength = 32767;
             this.tbUser.Multiline = false;
@@ -492,7 +409,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.tbPath.DisableForeColor = System.Drawing.Color.DimGray;
             this.tbPath.Font = new System.Drawing.Font("Segoe UI", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbPath.ForeColor = System.Drawing.Color.DimGray;
-            this.tbPath.Location = new System.Drawing.Point(16, 161);
+            this.tbPath.Location = new System.Drawing.Point(16, 153);
             this.tbPath.Margin = new System.Windows.Forms.Padding(4);
             this.tbPath.MaxLength = 32767;
             this.tbPath.Multiline = false;
@@ -520,7 +437,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.tbHost.DisableForeColor = System.Drawing.Color.DimGray;
             this.tbHost.Font = new System.Drawing.Font("Segoe UI", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbHost.ForeColor = System.Drawing.Color.DimGray;
-            this.tbHost.Location = new System.Drawing.Point(16, 94);
+            this.tbHost.Location = new System.Drawing.Point(16, 86);
             this.tbHost.Margin = new System.Windows.Forms.Padding(4);
             this.tbHost.MaxLength = 32767;
             this.tbHost.Multiline = false;
@@ -539,7 +456,7 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.lblPath.AutoSize = true;
             this.lblPath.Font = new System.Drawing.Font("Segoe UI", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblPath.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPath.Location = new System.Drawing.Point(12, 137);
+            this.lblPath.Location = new System.Drawing.Point(12, 129);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(78, 20);
             this.lblPath.TabIndex = 0;
@@ -569,9 +486,9 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.panelWork.Controls.Add(this.lblPort);
             this.panelWork.Controls.Add(this.lblType);
             this.panelWork.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelWork.Location = new System.Drawing.Point(0, 34);
+            this.panelWork.Location = new System.Drawing.Point(0, 0);
             this.panelWork.Name = "panelWork";
-            this.panelWork.Size = new System.Drawing.Size(544, 467);
+            this.panelWork.Size = new System.Drawing.Size(544, 501);
             this.panelWork.TabIndex = 40;
             // 
             // PostUnitConnectForm
@@ -580,7 +497,6 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(544, 501);
             this.Controls.Add(this.panelWork);
-            this.Controls.Add(this.panelTitleBar);
             this.Font = new System.Drawing.Font("Segoe UI", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -592,10 +508,6 @@ namespace DwUtils.Core.Forms.ConnectForms
             this.Load += new System.EventHandler(this.form_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.form_KeyDown);
             this.Resize += new System.EventHandler(this.form_Resize);
-            this.panelTitleBar.ResumeLayout(false);
-            this.panelTitleBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPicture)).EndInit();
-            this.panelButtonTitle.ResumeLayout(false);
             this.panelWork.ResumeLayout(false);
             this.panelWork.PerformLayout();
             this.ResumeLayout(false);
@@ -603,11 +515,6 @@ namespace DwUtils.Core.Forms.ConnectForms
         }
 
         #endregion
-        private System.Windows.Forms.Panel panelTitleBar;
-        private System.Windows.Forms.PictureBox iconPicture;
-        private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.FlowLayoutPanel panelButtonTitle;
-        private WcButton btnClose;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.ComboBox cbType;
         private WcButton btnCheck;
