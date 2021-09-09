@@ -87,7 +87,15 @@ namespace DwUtils.Core.Forms
             this.freeRpoLabelInfoType = new System.Windows.Forms.Label();
             this.freeRpoComboBoxRpoType = new System.Windows.Forms.ComboBox();
             this.tabReceived = new System.Windows.Forms.TabPage();
+            this.panelReceivedL1 = new System.Windows.Forms.Panel();
+            this.btnPrintReceived = new Wc32Api.Widgets.Buttons.WcButton();
+            this.btnLoadReceived = new Wc32Api.Widgets.Buttons.WcButton();
+            this.flowLayoutPanelReceivedL1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabDelivery = new System.Windows.Forms.TabPage();
+            this.panelDeliveryL1 = new System.Windows.Forms.Panel();
+            this.btnPrintDelivery = new Wc32Api.Widgets.Buttons.WcButton();
+            this.btnLoadDelivery = new Wc32Api.Widgets.Buttons.WcButton();
+            this.flowLayoutPanelDeliveryL1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabConnected = new System.Windows.Forms.TabPage();
             this.panelOnlineStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelOnlineStat = new System.Windows.Forms.FlowLayoutPanel();
@@ -120,14 +128,6 @@ namespace DwUtils.Core.Forms
             this.connectPostItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelDeliveryL1 = new System.Windows.Forms.Panel();
-            this.btnPrintDelivery = new Wc32Api.Widgets.Buttons.WcButton();
-            this.btnLoadDelivery = new Wc32Api.Widgets.Buttons.WcButton();
-            this.flowLayoutPanelDeliveryL1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanelReceivedL1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnLoadReceived = new Wc32Api.Widgets.Buttons.WcButton();
-            this.btnPrintReceived = new Wc32Api.Widgets.Buttons.WcButton();
-            this.panelReceivedL1 = new System.Windows.Forms.Panel();
             this.statusBar.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPicture)).BeginInit();
@@ -147,7 +147,9 @@ namespace DwUtils.Core.Forms
             this.panelFreeRpoL1.SuspendLayout();
             this.flowLayoutPanelFreeRpoL1.SuspendLayout();
             this.tabReceived.SuspendLayout();
+            this.panelReceivedL1.SuspendLayout();
             this.tabDelivery.SuspendLayout();
+            this.panelDeliveryL1.SuspendLayout();
             this.tabConnected.SuspendLayout();
             this.panelOnlineStat.SuspendLayout();
             this.flowLayoutPanelOnlineStat.SuspendLayout();
@@ -158,8 +160,6 @@ namespace DwUtils.Core.Forms
             this.panelMenu.SuspendLayout();
             this.wcDropdownMenuFile.SuspendLayout();
             this.wcDropdownMenuSettings.SuspendLayout();
-            this.panelDeliveryL1.SuspendLayout();
-            this.panelReceivedL1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusBar
@@ -840,6 +840,81 @@ namespace DwUtils.Core.Forms
             this.tabReceived.Text = "На вручение";
             this.tabReceived.UseVisualStyleBackColor = true;
             // 
+            // panelReceivedL1
+            // 
+            this.panelReceivedL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelReceivedL1.Controls.Add(this.btnPrintReceived);
+            this.panelReceivedL1.Controls.Add(this.btnLoadReceived);
+            this.panelReceivedL1.Controls.Add(this.flowLayoutPanelReceivedL1);
+            this.panelReceivedL1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelReceivedL1.Location = new System.Drawing.Point(0, 0);
+            this.panelReceivedL1.Name = "panelReceivedL1";
+            this.panelReceivedL1.Size = new System.Drawing.Size(1002, 48);
+            this.panelReceivedL1.TabIndex = 6;
+            // 
+            // btnPrintReceived
+            // 
+            this.btnPrintReceived.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintReceived.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintReceived.BorderColor = System.Drawing.Color.Silver;
+            this.btnPrintReceived.BorderRadius = 6F;
+            this.btnPrintReceived.BorderSize = 0;
+            this.btnPrintReceived.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnPrintReceived.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnPrintReceived.FlatAppearance.BorderSize = 0;
+            this.btnPrintReceived.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrintReceived.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintReceived.ForeColor = System.Drawing.Color.White;
+            this.btnPrintReceived.Image = global::DwUtils.Properties.Resources.printer_3_24;
+            this.btnPrintReceived.Location = new System.Drawing.Point(906, 4);
+            this.btnPrintReceived.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnPrintReceived.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnPrintReceived.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrintReceived.Name = "btnPrintReceived";
+            this.btnPrintReceived.Padding = new System.Windows.Forms.Padding(5, 0, 4, 0);
+            this.btnPrintReceived.Size = new System.Drawing.Size(40, 40);
+            this.btnPrintReceived.TabIndex = 0;
+            this.btnPrintReceived.TabStop = false;
+            this.btnPrintReceived.TextColor = System.Drawing.Color.White;
+            this.btnPrintReceived.UseVisualStyleBackColor = false;
+            // 
+            // btnLoadReceived
+            // 
+            this.btnLoadReceived.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadReceived.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadReceived.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReceived.BorderRadius = 6F;
+            this.btnLoadReceived.BorderSize = 0;
+            this.btnLoadReceived.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadReceived.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadReceived.Enabled = false;
+            this.btnLoadReceived.FlatAppearance.BorderSize = 0;
+            this.btnLoadReceived.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadReceived.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadReceived.ForeColor = System.Drawing.Color.White;
+            this.btnLoadReceived.Image = global::DwUtils.Properties.Resources.synchronize_24;
+            this.btnLoadReceived.Location = new System.Drawing.Point(952, 4);
+            this.btnLoadReceived.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnLoadReceived.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadReceived.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadReceived.Name = "btnLoadReceived";
+            this.btnLoadReceived.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadReceived.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadReceived.TabIndex = 0;
+            this.btnLoadReceived.TabStop = false;
+            this.btnLoadReceived.TextColor = System.Drawing.Color.White;
+            this.btnLoadReceived.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanelReceivedL1
+            // 
+            this.flowLayoutPanelReceivedL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelReceivedL1.Location = new System.Drawing.Point(3, 7);
+            this.flowLayoutPanelReceivedL1.Name = "flowLayoutPanelReceivedL1";
+            this.flowLayoutPanelReceivedL1.Size = new System.Drawing.Size(897, 34);
+            this.flowLayoutPanelReceivedL1.TabIndex = 27;
+            this.flowLayoutPanelReceivedL1.WrapContents = false;
+            // 
             // tabDelivery
             // 
             this.tabDelivery.Controls.Add(this.panelDeliveryL1);
@@ -849,6 +924,81 @@ namespace DwUtils.Core.Forms
             this.tabDelivery.TabIndex = 2;
             this.tabDelivery.Text = "Вручено";
             this.tabDelivery.UseVisualStyleBackColor = true;
+            // 
+            // panelDeliveryL1
+            // 
+            this.panelDeliveryL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelDeliveryL1.Controls.Add(this.btnPrintDelivery);
+            this.panelDeliveryL1.Controls.Add(this.btnLoadDelivery);
+            this.panelDeliveryL1.Controls.Add(this.flowLayoutPanelDeliveryL1);
+            this.panelDeliveryL1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelDeliveryL1.Location = new System.Drawing.Point(0, 0);
+            this.panelDeliveryL1.Name = "panelDeliveryL1";
+            this.panelDeliveryL1.Size = new System.Drawing.Size(1002, 48);
+            this.panelDeliveryL1.TabIndex = 7;
+            // 
+            // btnPrintDelivery
+            // 
+            this.btnPrintDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintDelivery.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintDelivery.BorderColor = System.Drawing.Color.Silver;
+            this.btnPrintDelivery.BorderRadius = 6F;
+            this.btnPrintDelivery.BorderSize = 0;
+            this.btnPrintDelivery.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnPrintDelivery.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnPrintDelivery.FlatAppearance.BorderSize = 0;
+            this.btnPrintDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrintDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintDelivery.ForeColor = System.Drawing.Color.White;
+            this.btnPrintDelivery.Image = global::DwUtils.Properties.Resources.printer_3_24;
+            this.btnPrintDelivery.Location = new System.Drawing.Point(906, 4);
+            this.btnPrintDelivery.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnPrintDelivery.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnPrintDelivery.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrintDelivery.Name = "btnPrintDelivery";
+            this.btnPrintDelivery.Padding = new System.Windows.Forms.Padding(5, 0, 4, 0);
+            this.btnPrintDelivery.Size = new System.Drawing.Size(40, 40);
+            this.btnPrintDelivery.TabIndex = 0;
+            this.btnPrintDelivery.TabStop = false;
+            this.btnPrintDelivery.TextColor = System.Drawing.Color.White;
+            this.btnPrintDelivery.UseVisualStyleBackColor = false;
+            // 
+            // btnLoadDelivery
+            // 
+            this.btnLoadDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadDelivery.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadDelivery.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadDelivery.BorderRadius = 6F;
+            this.btnLoadDelivery.BorderSize = 0;
+            this.btnLoadDelivery.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadDelivery.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadDelivery.Enabled = false;
+            this.btnLoadDelivery.FlatAppearance.BorderSize = 0;
+            this.btnLoadDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadDelivery.ForeColor = System.Drawing.Color.White;
+            this.btnLoadDelivery.Image = global::DwUtils.Properties.Resources.synchronize_24;
+            this.btnLoadDelivery.Location = new System.Drawing.Point(952, 4);
+            this.btnLoadDelivery.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnLoadDelivery.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadDelivery.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadDelivery.Name = "btnLoadDelivery";
+            this.btnLoadDelivery.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadDelivery.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadDelivery.TabIndex = 0;
+            this.btnLoadDelivery.TabStop = false;
+            this.btnLoadDelivery.TextColor = System.Drawing.Color.White;
+            this.btnLoadDelivery.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanelDeliveryL1
+            // 
+            this.flowLayoutPanelDeliveryL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelDeliveryL1.Location = new System.Drawing.Point(3, 7);
+            this.flowLayoutPanelDeliveryL1.Name = "flowLayoutPanelDeliveryL1";
+            this.flowLayoutPanelDeliveryL1.Size = new System.Drawing.Size(897, 34);
+            this.flowLayoutPanelDeliveryL1.TabIndex = 27;
+            this.flowLayoutPanelDeliveryL1.WrapContents = false;
             // 
             // tabConnected
             // 
@@ -1322,161 +1472,12 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
-            // panelDeliveryL1
-            // 
-            this.panelDeliveryL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelDeliveryL1.Controls.Add(this.btnPrintDelivery);
-            this.panelDeliveryL1.Controls.Add(this.btnLoadDelivery);
-            this.panelDeliveryL1.Controls.Add(this.flowLayoutPanelDeliveryL1);
-            this.panelDeliveryL1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelDeliveryL1.Location = new System.Drawing.Point(0, 0);
-            this.panelDeliveryL1.Name = "panelDeliveryL1";
-            this.panelDeliveryL1.Size = new System.Drawing.Size(1002, 48);
-            this.panelDeliveryL1.TabIndex = 7;
-            // 
-            // btnPrintDelivery
-            // 
-            this.btnPrintDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintDelivery.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnPrintDelivery.BorderColor = System.Drawing.Color.Silver;
-            this.btnPrintDelivery.BorderRadius = 6F;
-            this.btnPrintDelivery.BorderSize = 0;
-            this.btnPrintDelivery.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnPrintDelivery.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnPrintDelivery.FlatAppearance.BorderSize = 0;
-            this.btnPrintDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnPrintDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintDelivery.ForeColor = System.Drawing.Color.White;
-            this.btnPrintDelivery.Image = global::DwUtils.Properties.Resources.printer_3_24;
-            this.btnPrintDelivery.Location = new System.Drawing.Point(906, 4);
-            this.btnPrintDelivery.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.btnPrintDelivery.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnPrintDelivery.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnPrintDelivery.Name = "btnPrintDelivery";
-            this.btnPrintDelivery.Padding = new System.Windows.Forms.Padding(5, 0, 4, 0);
-            this.btnPrintDelivery.Size = new System.Drawing.Size(40, 40);
-            this.btnPrintDelivery.TabIndex = 0;
-            this.btnPrintDelivery.TabStop = false;
-            this.btnPrintDelivery.TextColor = System.Drawing.Color.White;
-            this.btnPrintDelivery.UseVisualStyleBackColor = false;
-            // 
-            // btnLoadDelivery
-            // 
-            this.btnLoadDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoadDelivery.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLoadDelivery.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadDelivery.BorderRadius = 6F;
-            this.btnLoadDelivery.BorderSize = 0;
-            this.btnLoadDelivery.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadDelivery.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadDelivery.Enabled = false;
-            this.btnLoadDelivery.FlatAppearance.BorderSize = 0;
-            this.btnLoadDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnLoadDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadDelivery.ForeColor = System.Drawing.Color.White;
-            this.btnLoadDelivery.Image = global::DwUtils.Properties.Resources.synchronize_24;
-            this.btnLoadDelivery.Location = new System.Drawing.Point(952, 4);
-            this.btnLoadDelivery.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.btnLoadDelivery.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnLoadDelivery.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnLoadDelivery.Name = "btnLoadDelivery";
-            this.btnLoadDelivery.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadDelivery.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadDelivery.TabIndex = 0;
-            this.btnLoadDelivery.TabStop = false;
-            this.btnLoadDelivery.TextColor = System.Drawing.Color.White;
-            this.btnLoadDelivery.UseVisualStyleBackColor = false;
-            // 
-            // flowLayoutPanelDeliveryL1
-            // 
-            this.flowLayoutPanelDeliveryL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelDeliveryL1.Location = new System.Drawing.Point(3, 7);
-            this.flowLayoutPanelDeliveryL1.Name = "flowLayoutPanelDeliveryL1";
-            this.flowLayoutPanelDeliveryL1.Size = new System.Drawing.Size(897, 34);
-            this.flowLayoutPanelDeliveryL1.TabIndex = 27;
-            this.flowLayoutPanelDeliveryL1.WrapContents = false;
-            // 
-            // flowLayoutPanelReceivedL1
-            // 
-            this.flowLayoutPanelReceivedL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelReceivedL1.Location = new System.Drawing.Point(3, 7);
-            this.flowLayoutPanelReceivedL1.Name = "flowLayoutPanelReceivedL1";
-            this.flowLayoutPanelReceivedL1.Size = new System.Drawing.Size(897, 34);
-            this.flowLayoutPanelReceivedL1.TabIndex = 27;
-            this.flowLayoutPanelReceivedL1.WrapContents = false;
-            // 
-            // btnLoadReceived
-            // 
-            this.btnLoadReceived.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoadReceived.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLoadReceived.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReceived.BorderRadius = 6F;
-            this.btnLoadReceived.BorderSize = 0;
-            this.btnLoadReceived.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadReceived.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReceived.Enabled = false;
-            this.btnLoadReceived.FlatAppearance.BorderSize = 0;
-            this.btnLoadReceived.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnLoadReceived.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadReceived.ForeColor = System.Drawing.Color.White;
-            this.btnLoadReceived.Image = global::DwUtils.Properties.Resources.synchronize_24;
-            this.btnLoadReceived.Location = new System.Drawing.Point(952, 4);
-            this.btnLoadReceived.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.btnLoadReceived.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnLoadReceived.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnLoadReceived.Name = "btnLoadReceived";
-            this.btnLoadReceived.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadReceived.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadReceived.TabIndex = 0;
-            this.btnLoadReceived.TabStop = false;
-            this.btnLoadReceived.TextColor = System.Drawing.Color.White;
-            this.btnLoadReceived.UseVisualStyleBackColor = false;
-            // 
-            // btnPrintReceived
-            // 
-            this.btnPrintReceived.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintReceived.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnPrintReceived.BorderColor = System.Drawing.Color.Silver;
-            this.btnPrintReceived.BorderRadius = 6F;
-            this.btnPrintReceived.BorderSize = 0;
-            this.btnPrintReceived.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnPrintReceived.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnPrintReceived.FlatAppearance.BorderSize = 0;
-            this.btnPrintReceived.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnPrintReceived.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintReceived.ForeColor = System.Drawing.Color.White;
-            this.btnPrintReceived.Image = global::DwUtils.Properties.Resources.printer_3_24;
-            this.btnPrintReceived.Location = new System.Drawing.Point(906, 4);
-            this.btnPrintReceived.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.btnPrintReceived.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnPrintReceived.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnPrintReceived.Name = "btnPrintReceived";
-            this.btnPrintReceived.Padding = new System.Windows.Forms.Padding(5, 0, 4, 0);
-            this.btnPrintReceived.Size = new System.Drawing.Size(40, 40);
-            this.btnPrintReceived.TabIndex = 0;
-            this.btnPrintReceived.TabStop = false;
-            this.btnPrintReceived.TextColor = System.Drawing.Color.White;
-            this.btnPrintReceived.UseVisualStyleBackColor = false;
-            // 
-            // panelReceivedL1
-            // 
-            this.panelReceivedL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelReceivedL1.Controls.Add(this.btnPrintReceived);
-            this.panelReceivedL1.Controls.Add(this.btnLoadReceived);
-            this.panelReceivedL1.Controls.Add(this.flowLayoutPanelReceivedL1);
-            this.panelReceivedL1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReceivedL1.Location = new System.Drawing.Point(0, 0);
-            this.panelReceivedL1.Name = "panelReceivedL1";
-            this.panelReceivedL1.Size = new System.Drawing.Size(1002, 48);
-            this.panelReceivedL1.TabIndex = 6;
-            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1010, 539);
+            this.ControlBox = false;
             this.Controls.Add(this.panelWork);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.statusBar);
@@ -1486,6 +1487,7 @@ namespace DwUtils.Core.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "GeneralForm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DWUtils: GeneralForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_FormClosing);
@@ -1516,7 +1518,9 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelFreeRpoL1.ResumeLayout(false);
             this.flowLayoutPanelFreeRpoL1.PerformLayout();
             this.tabReceived.ResumeLayout(false);
+            this.panelReceivedL1.ResumeLayout(false);
             this.tabDelivery.ResumeLayout(false);
+            this.panelDeliveryL1.ResumeLayout(false);
             this.tabConnected.ResumeLayout(false);
             this.panelOnlineStat.ResumeLayout(false);
             this.flowLayoutPanelOnlineStat.ResumeLayout(false);
@@ -1529,8 +1533,6 @@ namespace DwUtils.Core.Forms
             this.panelMenu.ResumeLayout(false);
             this.wcDropdownMenuFile.ResumeLayout(false);
             this.wcDropdownMenuSettings.ResumeLayout(false);
-            this.panelDeliveryL1.ResumeLayout(false);
-            this.panelReceivedL1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

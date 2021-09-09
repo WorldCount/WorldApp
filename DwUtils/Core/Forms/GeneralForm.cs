@@ -471,7 +471,10 @@ namespace DwUtils.Core.Forms
             freeRpoBindingSource.DataSource = rpos;
 
             if (rpos != null)
+            {
                 freeRpoLabelCount.Text = rpos.Count.ToString();
+                SuccessMessage("РПО загружены!");
+            }
         }
 
         private async void LoadConnectUsers()
@@ -509,23 +512,6 @@ namespace DwUtils.Core.Forms
             return null;
         }
 
-        private ConnectUser GetConnectUserByRowIndex(int rowIndex)
-        {
-            List<ConnectUser> connectUsers = (List<ConnectUser>)connectUserBindingSource.DataSource;
-
-            try
-            {
-                if (connectUsers != null && connectUsers.Count > 0)
-                    return connectUsers[rowIndex];
-            }
-            catch
-            {
-                return null;
-            }
-
-            return null;
-        }
-
         private void CheckFreeRpoReverse()
         {
             List<FreeRpo> rpos = (List<FreeRpo>) freeRpoBindingSource.DataSource;
@@ -536,19 +522,6 @@ namespace DwUtils.Core.Forms
             }
 
             UpdateData(freeRpoBindingSource, rpos);
-        }
-
-        private void CheckConnectUsersReverse()
-        {
-            List<ConnectUser> connectUsers = (List<ConnectUser>)connectUserBindingSource.DataSource;
-
-            if (connectUsers != null)
-            {
-                foreach (ConnectUser connectUser in connectUsers)
-                    connectUser.Check = !connectUser.Check;
-            }
-
-            UpdateData(connectUserBindingSource, connectUsers);
         }
 
         private void OpenDropdownMenu(WcDropdownMenu dropdownMenu, object sender)
@@ -582,6 +555,8 @@ namespace DwUtils.Core.Forms
 
             if (postUnitConnectForm.ShowDialog(this) == DialogResult.OK)
                 _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
+
+            panelTitleBar.Refresh();
         }
 
         private void connectPostItemMenuItem_Click(object sender, EventArgs e)
@@ -590,6 +565,8 @@ namespace DwUtils.Core.Forms
 
             if (postItemConnectForm.ShowDialog(this) == DialogResult.OK)
                 _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
+
+            panelTitleBar.Refresh();
         }
 
         private void configMenuItem_Click(object sender, EventArgs e)
@@ -597,6 +574,8 @@ namespace DwUtils.Core.Forms
             ConfigForm configForm = new ConfigForm();
             if (configForm.ShowDialog(this) == DialogResult.OK)
                 _lkState = Properties.Settings.Default.LkApiUrl;
+
+            panelTitleBar.Refresh();
         }
 
         private void fileMenuItem_Click(object sender, EventArgs e)
@@ -807,8 +786,6 @@ namespace DwUtils.Core.Forms
 
         #endregion
 
-
-
         #endregion
 
         #region Resize Events
@@ -817,6 +794,10 @@ namespace DwUtils.Core.Forms
         {
             panelMenu.Refresh();
         }
+
+        #endregion
+
+        #region TabControl Events
 
         #endregion
     }
