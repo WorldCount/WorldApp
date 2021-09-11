@@ -625,5 +625,10 @@ namespace DwUtils.Core.Forms
         #region TabControl Events
 
         #endregion
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(_database.GenDocumentNum(101, 12), "Номер накладной");
+        }
     }
 }

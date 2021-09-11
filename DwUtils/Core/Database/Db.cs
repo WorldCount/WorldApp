@@ -120,5 +120,17 @@ namespace DwUtils.Core.Database
         {
             return await Task.Run(() => UpdateFreeRposPlace(rpos, placeId));
         }
+
+        // ReSharper disable once MemberCanBePrivate.Global
+        public string GenDocumentNum(int placeId, int reestrTypeId = 12)
+        {
+            GenDocumentNumQuery query = new GenDocumentNumQuery(_postItemConnect, placeId, reestrTypeId, _debugMode);
+            return query.Run();
+        }
+
+        public async Task<string> GenDocumentNumAsync(int placeId, int reestrTypeId = 12)
+        {
+            return await Task.Run(() => GenDocumentNum(placeId, reestrTypeId));
+        }
     }
 }

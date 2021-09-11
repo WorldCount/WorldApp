@@ -71,6 +71,7 @@
     <Compile Include="Core\Database\Models\User.cs" />
     <Compile Include="Core\Database\Queryes\Base\PostItemSelectQuery.cs" />
     <Compile Include="Core\Database\Queryes\Base\PostItemUpdateQuery.cs" />
+    <Compile Include="Core\Database\Queryes\PostItem\GenDocumentNumQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostItem\GetFreeRpoQuery.cs" />
     <Compile Include="Core\Database\Queryes\Base\PostUnitSelectQuery.cs" />
     <Compile Include="Core\Database\Queryes\Base\PostUnitUpdateQuery.cs" />
