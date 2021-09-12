@@ -38,6 +38,7 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,7 +46,6 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -89,6 +89,11 @@ namespace DwUtils.Core.Forms
             this.freeRpoComboBoxRpoType = new System.Windows.Forms.ComboBox();
             this.tabReceived = new System.Windows.Forms.TabPage();
             this.receivedDataGridView = new System.Windows.Forms.DataGridView();
+            this.receivedColumnClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnAllCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnReceivedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnReturnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnReturnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.receivedRpoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.receivedPanelStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelReceivedStat = new System.Windows.Forms.FlowLayoutPanel();
@@ -181,11 +186,6 @@ namespace DwUtils.Core.Forms
             this.connectPostUnitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.receivedColumnClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedColumnAllCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedColumnReceivedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedColumnReturnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedColumnReturnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusBar.SuspendLayout();
             this.panelWork.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -855,6 +855,46 @@ namespace DwUtils.Core.Forms
             this.receivedDataGridView.Size = new System.Drawing.Size(1002, 251);
             this.receivedDataGridView.TabIndex = 10;
             this.receivedDataGridView.TabStop = false;
+            this.receivedDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.receivedDataGridView_CellFormatting);
+            this.receivedDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            // 
+            // receivedColumnClientName
+            // 
+            this.receivedColumnClientName.DataPropertyName = "ClientName";
+            this.receivedColumnClientName.HeaderText = "Организация";
+            this.receivedColumnClientName.Name = "receivedColumnClientName";
+            this.receivedColumnClientName.ReadOnly = true;
+            // 
+            // receivedColumnAllCount
+            // 
+            this.receivedColumnAllCount.DataPropertyName = "AllCount";
+            this.receivedColumnAllCount.HeaderText = "Прибыло";
+            this.receivedColumnAllCount.Name = "receivedColumnAllCount";
+            this.receivedColumnAllCount.ReadOnly = true;
+            // 
+            // receivedColumnReceivedCount
+            // 
+            this.receivedColumnReceivedCount.DataPropertyName = "ReceivedCount";
+            this.receivedColumnReceivedCount.HeaderText = "Получателю";
+            this.receivedColumnReceivedCount.Name = "receivedColumnReceivedCount";
+            this.receivedColumnReceivedCount.ReadOnly = true;
+            // 
+            // receivedColumnReturnCount
+            // 
+            this.receivedColumnReturnCount.DataPropertyName = "ReturnCount";
+            this.receivedColumnReturnCount.HeaderText = "Возврат";
+            this.receivedColumnReturnCount.Name = "receivedColumnReturnCount";
+            this.receivedColumnReturnCount.ReadOnly = true;
+            // 
+            // receivedColumnReturnPay
+            // 
+            this.receivedColumnReturnPay.DataPropertyName = "ReturnPay";
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.receivedColumnReturnPay.DefaultCellStyle = dataGridViewCellStyle5;
+            this.receivedColumnReturnPay.HeaderText = "Плата за возврат";
+            this.receivedColumnReturnPay.Name = "receivedColumnReturnPay";
+            this.receivedColumnReturnPay.ReadOnly = true;
             // 
             // receivedRpoBindingSource
             // 
@@ -2177,44 +2217,6 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Size = new System.Drawing.Size(247, 24);
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
-            // 
-            // receivedColumnClientName
-            // 
-            this.receivedColumnClientName.DataPropertyName = "ClientName";
-            this.receivedColumnClientName.HeaderText = "Организация";
-            this.receivedColumnClientName.Name = "receivedColumnClientName";
-            this.receivedColumnClientName.ReadOnly = true;
-            // 
-            // receivedColumnAllCount
-            // 
-            this.receivedColumnAllCount.DataPropertyName = "AllCount";
-            this.receivedColumnAllCount.HeaderText = "Прибыло";
-            this.receivedColumnAllCount.Name = "receivedColumnAllCount";
-            this.receivedColumnAllCount.ReadOnly = true;
-            // 
-            // receivedColumnReceivedCount
-            // 
-            this.receivedColumnReceivedCount.DataPropertyName = "ReceivedCountName";
-            this.receivedColumnReceivedCount.HeaderText = "Получателю";
-            this.receivedColumnReceivedCount.Name = "receivedColumnReceivedCount";
-            this.receivedColumnReceivedCount.ReadOnly = true;
-            // 
-            // receivedColumnReturnCount
-            // 
-            this.receivedColumnReturnCount.DataPropertyName = "ReturnCountName";
-            this.receivedColumnReturnCount.HeaderText = "Возврат";
-            this.receivedColumnReturnCount.Name = "receivedColumnReturnCount";
-            this.receivedColumnReturnCount.ReadOnly = true;
-            // 
-            // receivedColumnReturnPay
-            // 
-            this.receivedColumnReturnPay.DataPropertyName = "ReturnPayName";
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.receivedColumnReturnPay.DefaultCellStyle = dataGridViewCellStyle5;
-            this.receivedColumnReturnPay.HeaderText = "Плата за возврат";
-            this.receivedColumnReturnPay.Name = "receivedColumnReturnPay";
-            this.receivedColumnReturnPay.ReadOnly = true;
             // 
             // GeneralForm
             // 
