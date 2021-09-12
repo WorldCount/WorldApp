@@ -1,10 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using DwUtils.Core.Database.Connects;
-using DwUtils.Core.Database.Models;
-using DwUtils.Core.Database.Queryes.PostItem;
-using DwUtils.Core.Database.Queryes.PostUnit;
-using DwUtils.Core.Database.Requests;
+﻿using DwUtils.Core.Database.Connects;
+using DwUtils.Core.Database.Repositories;
 
 namespace DwUtils.Core.Database
 {
@@ -12,125 +7,62 @@ namespace DwUtils.Core.Database
     {
         #region Private Fields
 
-        private readonly PostUnitConnect _postUnitConnect;
-        private readonly PostItemConnect _postItemConnect;
-        private readonly bool _debugMode;
+        private PostUnitConnect _postUnitConnect;
+        private PostItemConnect _postItemConnect;
+        private bool _debugMode;
 
         #endregion
 
-        public Db(PostItemConnect postItemConnect, PostUnitConnect postUnitConnect, bool debugMode = false)
+        #region Public Fields
+
+        public SettingRepository Settings;
+        public RpoRepository Rpos;
+        public UserRepository Users;
+        public PlaceRepository Places;
+        public DocumentRepository Documents;
+
+        #endregion
+
+        public Db(bool debugMode = false)
         {
-            _postItemConnect = postItemConnect;
-            _postUnitConnect = postUnitConnect;
+            LoadConnects();
+            SetDebug(debugMode);
+            InitRepositories();
+        }
+
+        #region Private Methods
+
+        private void LoadConnects()
+        {
+            _postItemConnect = PostItemConnect.GetConnect();
+            _postUnitConnect = PostUnitConnect.GetConnect();
+        }
+
+        private void InitRepositories()
+        {
+            Settings = new SettingRepository(_postUnitConnect, _debugMode);
+            Rpos = new RpoRepository(_postItemConnect, _debugMode);
+            Users = new UserRepository(_postUnitConnect, _debugMode);
+            Places = new PlaceRepository(_postItemConnect, _debugMode);
+            Documents = new DocumentRepository(_postItemConnect, _debugMode);
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        public void Refresh()
+        {
+            LoadConnects();
+            InitRepositories();
+        }
+
+        public void SetDebug(bool debugMode)
+        {
             _debugMode = debugMode;
+            InitRepositories();
         }
 
-        // ReSharper disable once MemberCanBePrivate.Global
-        public string GetLkApiUrl()
-        {
-            GetLkApiQuery query = new GetLkApiQuery(_postUnitConnect, _debugMode);
-            return query.Run();
-        }
-
-        public async Task<string> GetLkApiUrlAsync()
-        {
-            return await Task.Run(GetLkApiUrl);
-        }
-
-        // ReSharper disable once MemberCanBePrivate.Global
-        public bool SetLkApiUrl(string value)
-        {
-            SetLkApiQuery query = new SetLkApiQuery(_postUnitConnect, value, _debugMode);
-            return query.Run();
-        }
-
-        public async Task<bool> SetLkApiUrlAsync(string value)
-        {
-            return await Task.Run(() => SetLkApiUrl(value));
-        }
-
-        // ReSharper disable once MemberCanBePrivate.Global
-        public List<FreeRpo> GetFreeRpos(FreeRpoResponse response)
-        {
-            GetFreeRpoQuery query = new GetFreeRpoQuery(_postItemConnect, response, _debugMode);
-            return query.Run();
-        }
-
-        public async Task<List<FreeRpo>> GetFreeRposAsync(FreeRpoResponse response)
-        {
-            return await Task.Run(() => GetFreeRpos(response));
-        }
-
-        // ReSharper disable once MemberCanBePrivate.Global
-        public List<User> GetUsers()
-        {
-            GetUsersQuery query = new GetUsersQuery(_postUnitConnect, _debugMode);
-            return query.Run();
-        }
-
-        public async Task<List<User>> GetUsersAsync()
-        {
-            return await Task.Run(GetUsers);
-        }
-
-        // ReSharper disable once MemberCanBePrivate.Global
-        public List<ConnectUser> GetConnectUsers()
-        {
-            GetConnectUsersQuery query = new GetConnectUsersQuery(_postUnitConnect, _debugMode);
-            return query.Run();
-        }
-
-        public async Task<List<ConnectUser>> GetConnectUsersAsync()
-        {
-            return await Task.Run(GetConnectUsers);
-        }
-
-        // ReSharper disable once MemberCanBePrivate.Global
-        public bool DeleteFreeRpos(List<FreeRpo> rpos)
-        {
-            DeleteFreeRposQuery query = new DeleteFreeRposQuery(_postItemConnect, rpos, _debugMode);
-            return query.Run();
-        }
-
-        public async Task<bool> DeleteFreeRposAsync(List<FreeRpo> rpos)
-        {
-            return await Task.Run(() => DeleteFreeRpos(rpos));
-        }
-
-        // ReSharper disable once MemberCanBePrivate.Global
-        public List<Place> GetPlaces()
-        {
-            GetPlaceQuery query = new GetPlaceQuery(_postItemConnect, _debugMode);
-            return query.Run();
-        }
-
-        public async Task<List<Place>> GetPlacesAsync()
-        {
-            return await Task.Run(GetPlaces);
-        }
-
-        // ReSharper disable once MemberCanBePrivate.Global
-        public bool UpdateFreeRposPlace(List<FreeRpo> rpos, int placeId)
-        {
-            UpdateFreeRposPlaceQuery query = new UpdateFreeRposPlaceQuery(_postItemConnect, rpos, placeId, _debugMode);
-            return query.Run();
-        }
-
-        public async Task<bool> UpdateFreeRposPlaceAsync(List<FreeRpo> rpos, int placeId)
-        {
-            return await Task.Run(() => UpdateFreeRposPlace(rpos, placeId));
-        }
-
-        // ReSharper disable once MemberCanBePrivate.Global
-        public string GenDocumentNum(int placeId, int reestrTypeId = 12)
-        {
-            GenDocumentNumQuery query = new GenDocumentNumQuery(_postItemConnect, placeId, reestrTypeId, _debugMode);
-            return query.Run();
-        }
-
-        public async Task<string> GenDocumentNumAsync(int placeId, int reestrTypeId = 12)
-        {
-            return await Task.Run(() => GenDocumentNum(placeId, reestrTypeId));
-        }
+        #endregion
     }
 }
