@@ -626,6 +626,15 @@ namespace DwUtils.Core.Forms
 
         #endregion
 
+        #region DatePicker Events
+
+        private void freeRpoDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            freeRpoDateTimePickerEnd.Value = freeRpoDateTimePickerStart.Value;
+        }
+
+        #endregion
+
         private void btnTest_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_database.GenDocumentNum(101, 12), "Номер накладной");

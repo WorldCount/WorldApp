@@ -106,6 +106,7 @@ namespace DwUtils.Core.Forms
             this.btnLoadConnectedUser = new Wc32Api.Widgets.Buttons.WcButton();
             this.flowLayoutPanelOnline = new System.Windows.Forms.FlowLayoutPanel();
             this.panelGeneral = new System.Windows.Forms.Panel();
+            this.btnTest = new Wc32Api.Widgets.Buttons.WcButton();
             this.lblInfoDebug = new System.Windows.Forms.Label();
             this.toggleDebug = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.labelInfoLoadLk = new System.Windows.Forms.Label();
@@ -121,7 +122,7 @@ namespace DwUtils.Core.Forms
             this.connectPostItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnTest = new Wc32Api.Widgets.Buttons.WcButton();
+            this.tabFiles = new System.Windows.Forms.TabPage();
             this.statusBar.SuspendLayout();
             this.panelWork.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -206,6 +207,7 @@ namespace DwUtils.Core.Forms
             this.tabControl.Controls.Add(this.tabFreeRpo);
             this.tabControl.Controls.Add(this.tabReceived);
             this.tabControl.Controls.Add(this.tabDelivery);
+            this.tabControl.Controls.Add(this.tabFiles);
             this.tabControl.Controls.Add(this.tabConnected);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -524,6 +526,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoDateTimePickerStart.Name = "freeRpoDateTimePickerStart";
             this.freeRpoDateTimePickerStart.Size = new System.Drawing.Size(220, 29);
             this.freeRpoDateTimePickerStart.TabIndex = 32;
+            this.freeRpoDateTimePickerStart.ValueChanged += new System.EventHandler(this.freeRpoDateTimePickerStart_ValueChanged);
             // 
             // freeRpoDateTimePickerEnd
             // 
@@ -1111,6 +1114,30 @@ namespace DwUtils.Core.Forms
             this.panelGeneral.Size = new System.Drawing.Size(1010, 58);
             this.panelGeneral.TabIndex = 0;
             // 
+            // btnTest
+            // 
+            this.btnTest.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnTest.BorderColor = System.Drawing.Color.Silver;
+            this.btnTest.BorderRadius = 6F;
+            this.btnTest.BorderSize = 0;
+            this.btnTest.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnTest.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnTest.FlatAppearance.BorderSize = 0;
+            this.btnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTest.ForeColor = System.Drawing.Color.White;
+            this.btnTest.Location = new System.Drawing.Point(235, 9);
+            this.btnTest.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnTest.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnTest.Size = new System.Drawing.Size(70, 40);
+            this.btnTest.TabIndex = 1;
+            this.btnTest.Text = "Test";
+            this.btnTest.TextColor = System.Drawing.Color.White;
+            this.btnTest.UseVisualStyleBackColor = false;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // lblInfoDebug
             // 
             this.lblInfoDebug.AutoSize = true;
@@ -1338,29 +1365,14 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
-            // btnTest
+            // tabFiles
             // 
-            this.btnTest.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnTest.BorderColor = System.Drawing.Color.Silver;
-            this.btnTest.BorderRadius = 6F;
-            this.btnTest.BorderSize = 0;
-            this.btnTest.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnTest.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnTest.FlatAppearance.BorderSize = 0;
-            this.btnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTest.ForeColor = System.Drawing.Color.White;
-            this.btnTest.Location = new System.Drawing.Point(235, 9);
-            this.btnTest.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnTest.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnTest.Size = new System.Drawing.Size(70, 40);
-            this.btnTest.TabIndex = 1;
-            this.btnTest.Text = "Test";
-            this.btnTest.TextColor = System.Drawing.Color.White;
-            this.btnTest.UseVisualStyleBackColor = false;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            this.tabFiles.Location = new System.Drawing.Point(4, 36);
+            this.tabFiles.Name = "tabFiles";
+            this.tabFiles.Size = new System.Drawing.Size(1002, 373);
+            this.tabFiles.TabIndex = 4;
+            this.tabFiles.Text = "Файлы";
+            this.tabFiles.UseVisualStyleBackColor = true;
             // 
             // GeneralForm
             // 
@@ -1504,6 +1516,7 @@ namespace DwUtils.Core.Forms
         private WcButton btnLoadReceived;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelReceivedL1;
         private WcButton btnTest;
+        private System.Windows.Forms.TabPage tabFiles;
     }
 }
 
