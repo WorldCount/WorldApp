@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using DwUtils.Core.Database.Requests;
 using DwUtils.Core.Forms.ConnectForms;
 using DwUtils.Core.Forms.EditForms;
 using DwUtils.Core.Types;
+using Wc32Api.Extensions.Bindings;
 using Wc32Api.Widgets.Menus;
 using WcApi.Ext;
 
@@ -619,7 +621,9 @@ namespace DwUtils.Core.Forms
             };
 
             List<ReceivedRpo> rpos = await _database.Rpos.GetReceivedRposAsync(request);
-            receivedRpoBindingSource.DataSource = rpos;
+            receivedRpoBindingSource.DataSource = rpos.ToSortableBindingList();
+
+            receivedDataGridView.Sort(receivedColumnClientName, ListSortDirection.Ascending);
 
             if (rpos != null)
             {
@@ -636,6 +640,32 @@ namespace DwUtils.Core.Forms
         #endregion
 
         #region DataGrid Events
+
+        #region All
+
+        private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            var grid = (DataGridView) sender;
+            var sortIconColor = Color.Gray;
+
+            // Отрисовка флага сортировки
+            if (e.RowIndex == -1 && e.ColumnIndex > -1)
+            {
+                e.PaintBackground(e.CellBounds, false);
+                TextRenderer.DrawText(e.Graphics, $"{e.FormattedValue}", e.CellStyle.Font, e.CellBounds, e.CellStyle.ForeColor,
+                    TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter);
+
+                if (grid.SortedColumn?.Index == e.ColumnIndex)
+                {
+                    var sortIcon = grid.SortOrder == SortOrder.Ascending ? "▲" : "▼";
+                    TextRenderer.DrawText(e.Graphics, sortIcon, e.CellStyle.Font, e.CellBounds, sortIconColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+                }
+
+                e.Handled = true;
+            }
+        }
+
+        #endregion
 
         #region FreeRpo
 
@@ -723,6 +753,30 @@ namespace DwUtils.Core.Forms
         private void freeRpoDataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
+        }
+
+        #endregion
+
+        #region Received
+
+        private void receivedDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (receivedDataGridView.Columns[e.ColumnIndex] == receivedColumnReturnCount ||
+                receivedDataGridView.Columns[e.ColumnIndex] == receivedColumnReceivedCount)
+            {
+                int value = (int)e.Value;
+                if (value == 0)
+                    e.Value = "-";
+            }
+
+            if (receivedDataGridView.Columns[e.ColumnIndex] == receivedColumnReturnPay)
+            {
+                double value = (double)e.Value;
+
+                // ReSharper disable once CompareOfFloatsByEqualityOperator
+                if (value == 0)
+                    e.Value = "-";
+            }
         }
 
         #endregion
