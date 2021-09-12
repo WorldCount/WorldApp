@@ -89,6 +89,18 @@ namespace DwUtils.Core.Forms
             this.btnPrintDelivery = new Wc32Api.Widgets.Buttons.WcButton();
             this.btnLoadDelivery = new Wc32Api.Widgets.Buttons.WcButton();
             this.flowLayoutPanelDeliveryL1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabFiles = new System.Windows.Forms.TabPage();
+            this.panelFilesL2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelFilesL2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.filesLabelInfoDate = new System.Windows.Forms.Label();
+            this.filesToggleButtonCalendar = new Wc32Api.Widgets.Buttons.WcToggleButton();
+            this.filesDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.filesDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.panelFilesL1 = new System.Windows.Forms.Panel();
+            this.btnLoadFiles = new Wc32Api.Widgets.Buttons.WcButton();
+            this.flowLayoutPanelFilesL1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.filesLabelInfoUsers = new System.Windows.Forms.Label();
+            this.filesComboBoxUsers = new System.Windows.Forms.ComboBox();
             this.tabConnected = new System.Windows.Forms.TabPage();
             this.panelOnlineStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelOnlineStat = new System.Windows.Forms.FlowLayoutPanel();
@@ -122,7 +134,6 @@ namespace DwUtils.Core.Forms
             this.connectPostItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabFiles = new System.Windows.Forms.TabPage();
             this.statusBar.SuspendLayout();
             this.panelWork.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -142,6 +153,11 @@ namespace DwUtils.Core.Forms
             this.panelReceivedL1.SuspendLayout();
             this.tabDelivery.SuspendLayout();
             this.panelDeliveryL1.SuspendLayout();
+            this.tabFiles.SuspendLayout();
+            this.panelFilesL2.SuspendLayout();
+            this.flowLayoutPanelFilesL2.SuspendLayout();
+            this.panelFilesL1.SuspendLayout();
+            this.flowLayoutPanelFilesL1.SuspendLayout();
             this.tabConnected.SuspendLayout();
             this.panelOnlineStat.SuspendLayout();
             this.flowLayoutPanelOnlineStat.SuspendLayout();
@@ -868,6 +884,172 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelDeliveryL1.TabIndex = 27;
             this.flowLayoutPanelDeliveryL1.WrapContents = false;
             // 
+            // tabFiles
+            // 
+            this.tabFiles.Controls.Add(this.panelFilesL2);
+            this.tabFiles.Controls.Add(this.panelFilesL1);
+            this.tabFiles.Location = new System.Drawing.Point(4, 36);
+            this.tabFiles.Name = "tabFiles";
+            this.tabFiles.Size = new System.Drawing.Size(1002, 373);
+            this.tabFiles.TabIndex = 4;
+            this.tabFiles.Text = "Файлы";
+            this.tabFiles.UseVisualStyleBackColor = true;
+            // 
+            // panelFilesL2
+            // 
+            this.panelFilesL2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelFilesL2.Controls.Add(this.flowLayoutPanelFilesL2);
+            this.panelFilesL2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelFilesL2.Location = new System.Drawing.Point(0, 48);
+            this.panelFilesL2.Name = "panelFilesL2";
+            this.panelFilesL2.Size = new System.Drawing.Size(1002, 44);
+            this.panelFilesL2.TabIndex = 9;
+            // 
+            // flowLayoutPanelFilesL2
+            // 
+            this.flowLayoutPanelFilesL2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelFilesL2.Controls.Add(this.filesLabelInfoDate);
+            this.flowLayoutPanelFilesL2.Controls.Add(this.filesToggleButtonCalendar);
+            this.flowLayoutPanelFilesL2.Controls.Add(this.filesDateTimePickerStart);
+            this.flowLayoutPanelFilesL2.Controls.Add(this.filesDateTimePickerEnd);
+            this.flowLayoutPanelFilesL2.Location = new System.Drawing.Point(3, 5);
+            this.flowLayoutPanelFilesL2.Name = "flowLayoutPanelFilesL2";
+            this.flowLayoutPanelFilesL2.Size = new System.Drawing.Size(989, 34);
+            this.flowLayoutPanelFilesL2.TabIndex = 27;
+            this.flowLayoutPanelFilesL2.WrapContents = false;
+            // 
+            // filesLabelInfoDate
+            // 
+            this.filesLabelInfoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.filesLabelInfoDate.AutoSize = true;
+            this.filesLabelInfoDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filesLabelInfoDate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.filesLabelInfoDate.Location = new System.Drawing.Point(6, 6);
+            this.filesLabelInfoDate.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.filesLabelInfoDate.Name = "filesLabelInfoDate";
+            this.filesLabelInfoDate.Size = new System.Drawing.Size(46, 20);
+            this.filesLabelInfoDate.TabIndex = 1;
+            this.filesLabelInfoDate.Text = "Дата:";
+            // 
+            // filesToggleButtonCalendar
+            // 
+            this.filesToggleButtonCalendar.AutoSize = true;
+            this.filesToggleButtonCalendar.DisableBackColor = System.Drawing.Color.DimGray;
+            this.filesToggleButtonCalendar.DisableToggleColor = System.Drawing.Color.Gray;
+            this.filesToggleButtonCalendar.Location = new System.Drawing.Point(58, 6);
+            this.filesToggleButtonCalendar.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.filesToggleButtonCalendar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.filesToggleButtonCalendar.Name = "filesToggleButtonCalendar";
+            this.filesToggleButtonCalendar.OffBackColor = System.Drawing.Color.DimGray;
+            this.filesToggleButtonCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.filesToggleButtonCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.filesToggleButtonCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.filesToggleButtonCalendar.Size = new System.Drawing.Size(45, 22);
+            this.filesToggleButtonCalendar.TabIndex = 34;
+            this.filesToggleButtonCalendar.UseVisualStyleBackColor = true;
+            // 
+            // filesDateTimePickerStart
+            // 
+            this.filesDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.filesDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.filesDateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.filesDateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.filesDateTimePickerStart.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.filesDateTimePickerStart.Enabled = false;
+            this.filesDateTimePickerStart.Location = new System.Drawing.Point(109, 3);
+            this.filesDateTimePickerStart.Name = "filesDateTimePickerStart";
+            this.filesDateTimePickerStart.Size = new System.Drawing.Size(220, 29);
+            this.filesDateTimePickerStart.TabIndex = 32;
+            this.filesDateTimePickerStart.ValueChanged += new System.EventHandler(this.filesDateTimePickerStart_ValueChanged);
+            // 
+            // filesDateTimePickerEnd
+            // 
+            this.filesDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.filesDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.filesDateTimePickerEnd.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.filesDateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.filesDateTimePickerEnd.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.filesDateTimePickerEnd.Enabled = false;
+            this.filesDateTimePickerEnd.Location = new System.Drawing.Point(335, 3);
+            this.filesDateTimePickerEnd.Name = "filesDateTimePickerEnd";
+            this.filesDateTimePickerEnd.Size = new System.Drawing.Size(200, 29);
+            this.filesDateTimePickerEnd.TabIndex = 33;
+            // 
+            // panelFilesL1
+            // 
+            this.panelFilesL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelFilesL1.Controls.Add(this.btnLoadFiles);
+            this.panelFilesL1.Controls.Add(this.flowLayoutPanelFilesL1);
+            this.panelFilesL1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelFilesL1.Location = new System.Drawing.Point(0, 0);
+            this.panelFilesL1.Name = "panelFilesL1";
+            this.panelFilesL1.Size = new System.Drawing.Size(1002, 48);
+            this.panelFilesL1.TabIndex = 6;
+            // 
+            // btnLoadFiles
+            // 
+            this.btnLoadFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadFiles.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadFiles.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadFiles.BorderRadius = 6F;
+            this.btnLoadFiles.BorderSize = 0;
+            this.btnLoadFiles.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadFiles.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadFiles.Enabled = false;
+            this.btnLoadFiles.FlatAppearance.BorderSize = 0;
+            this.btnLoadFiles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadFiles.ForeColor = System.Drawing.Color.White;
+            this.btnLoadFiles.Image = global::DwUtils.Properties.Resources.synchronize_24;
+            this.btnLoadFiles.Location = new System.Drawing.Point(952, 4);
+            this.btnLoadFiles.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnLoadFiles.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadFiles.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadFiles.Name = "btnLoadFiles";
+            this.btnLoadFiles.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadFiles.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadFiles.TabIndex = 0;
+            this.btnLoadFiles.TabStop = false;
+            this.btnLoadFiles.TextColor = System.Drawing.Color.White;
+            this.btnLoadFiles.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanelFilesL1
+            // 
+            this.flowLayoutPanelFilesL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelFilesL1.Controls.Add(this.filesLabelInfoUsers);
+            this.flowLayoutPanelFilesL1.Controls.Add(this.filesComboBoxUsers);
+            this.flowLayoutPanelFilesL1.Location = new System.Drawing.Point(3, 7);
+            this.flowLayoutPanelFilesL1.Name = "flowLayoutPanelFilesL1";
+            this.flowLayoutPanelFilesL1.Size = new System.Drawing.Size(943, 34);
+            this.flowLayoutPanelFilesL1.TabIndex = 27;
+            this.flowLayoutPanelFilesL1.WrapContents = false;
+            // 
+            // filesLabelInfoUsers
+            // 
+            this.filesLabelInfoUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.filesLabelInfoUsers.AutoSize = true;
+            this.filesLabelInfoUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filesLabelInfoUsers.ForeColor = System.Drawing.Color.Gainsboro;
+            this.filesLabelInfoUsers.Location = new System.Drawing.Point(6, 6);
+            this.filesLabelInfoUsers.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.filesLabelInfoUsers.Name = "filesLabelInfoUsers";
+            this.filesLabelInfoUsers.Size = new System.Drawing.Size(111, 20);
+            this.filesLabelInfoUsers.TabIndex = 0;
+            this.filesLabelInfoUsers.Text = "Пользователь:";
+            // 
+            // filesComboBoxUsers
+            // 
+            this.filesComboBoxUsers.DataSource = this.userBindingSource;
+            this.filesComboBoxUsers.DisplayMember = "Name";
+            this.filesComboBoxUsers.FormattingEnabled = true;
+            this.filesComboBoxUsers.Location = new System.Drawing.Point(123, 3);
+            this.filesComboBoxUsers.Name = "filesComboBoxUsers";
+            this.filesComboBoxUsers.Size = new System.Drawing.Size(234, 29);
+            this.filesComboBoxUsers.TabIndex = 0;
+            this.filesComboBoxUsers.ValueMember = "Id";
+            // 
             // tabConnected
             // 
             this.tabConnected.Controls.Add(this.panelOnlineStat);
@@ -1326,8 +1508,8 @@ namespace DwUtils.Core.Forms
             this.wcDropdownMenuSettings.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.wcDropdownMenuSettings.IsMainMenu = false;
             this.wcDropdownMenuSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connectPostUnitMenuItem,
             this.connectPostItemMenuItem,
+            this.connectPostUnitMenuItem,
             this.toolStripSeparator1,
             this.configMenuItem});
             this.wcDropdownMenuSettings.MenuItemHeight = 25;
@@ -1364,15 +1546,6 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Size = new System.Drawing.Size(247, 24);
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
-            // 
-            // tabFiles
-            // 
-            this.tabFiles.Location = new System.Drawing.Point(4, 36);
-            this.tabFiles.Name = "tabFiles";
-            this.tabFiles.Size = new System.Drawing.Size(1002, 373);
-            this.tabFiles.TabIndex = 4;
-            this.tabFiles.Text = "Файлы";
-            this.tabFiles.UseVisualStyleBackColor = true;
             // 
             // GeneralForm
             // 
@@ -1416,6 +1589,13 @@ namespace DwUtils.Core.Forms
             this.panelReceivedL1.ResumeLayout(false);
             this.tabDelivery.ResumeLayout(false);
             this.panelDeliveryL1.ResumeLayout(false);
+            this.tabFiles.ResumeLayout(false);
+            this.panelFilesL2.ResumeLayout(false);
+            this.flowLayoutPanelFilesL2.ResumeLayout(false);
+            this.flowLayoutPanelFilesL2.PerformLayout();
+            this.panelFilesL1.ResumeLayout(false);
+            this.flowLayoutPanelFilesL1.ResumeLayout(false);
+            this.flowLayoutPanelFilesL1.PerformLayout();
             this.tabConnected.ResumeLayout(false);
             this.panelOnlineStat.ResumeLayout(false);
             this.flowLayoutPanelOnlineStat.ResumeLayout(false);
@@ -1517,6 +1697,17 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelReceivedL1;
         private WcButton btnTest;
         private System.Windows.Forms.TabPage tabFiles;
+        private System.Windows.Forms.Panel panelFilesL1;
+        private WcButton btnLoadFiles;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFilesL1;
+        private System.Windows.Forms.Label filesLabelInfoUsers;
+        private System.Windows.Forms.ComboBox filesComboBoxUsers;
+        private System.Windows.Forms.Panel panelFilesL2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFilesL2;
+        private System.Windows.Forms.Label filesLabelInfoDate;
+        private WcToggleButton filesToggleButtonCalendar;
+        private System.Windows.Forms.DateTimePicker filesDateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker filesDateTimePickerEnd;
     }
 }
 
