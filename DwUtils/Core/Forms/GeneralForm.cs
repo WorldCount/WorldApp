@@ -216,6 +216,8 @@ namespace DwUtils.Core.Forms
         {
             Wc32Api.DrawingControl.SetDoubleBuffered(freeRpoDataGridView);
             Wc32Api.DrawingControl.SetDoubleBuffered(onlineDataGridView);
+            Wc32Api.DrawingControl.SetDoubleBuffered(filesDataGridView);
+            Wc32Api.DrawingControl.SetDoubleBuffered(receivedDataGridView);
 
             // Free Rpo
             freeRpoColumnCheck.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -252,6 +254,21 @@ namespace DwUtils.Core.Forms
 
             onlineColumnAdminStatus.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             onlineColumnAdminStatus.Width = 60;
+
+            // Received
+            receivedColumnClientName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            receivedColumnAllCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            receivedColumnAllCount.Width = 120;
+
+            receivedColumnReceivedCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            receivedColumnReceivedCount.Width = 120;
+
+            receivedColumnReturnCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            receivedColumnReturnCount.Width = 120;
+
+            receivedColumnReturnPay.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            receivedColumnReturnPay.Width = 200;
         }
 
         private async void LoadData()
@@ -290,7 +307,7 @@ namespace DwUtils.Core.Forms
             {
                 StartDate = freeRpoDateTimePickerStart.Value,
                 EndDate = freeRpoDateTimePickerEnd.Value,
-                FilterDate = freeRpoToggleButtonCalendar.Checked,
+                FilterDate = freeRpoToggleButtonDate.Checked,
                 PlaceId = ((Place) freeRpoComboBoxPlace.SelectedItem).Id,
                 TypeId = ((RpoType) freeRpoComboBoxRpoType.SelectedItem).Id,
                 UserId = ((User) freeRpoComboBoxUsers.SelectedItem).Id
@@ -445,21 +462,28 @@ namespace DwUtils.Core.Forms
                 ErrorMessage("Ошибка изменения статуса ЛК.");
         }
 
-        private void freeRpoToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        private void freeRpoToggleButtonDate_CheckedChanged(object sender, EventArgs e)
         {
-            freeRpoDateTimePickerStart.Enabled = freeRpoToggleButtonCalendar.Checked;
-            freeRpoDateTimePickerEnd.Enabled = freeRpoToggleButtonCalendar.Checked;
+            freeRpoDateTimePickerStart.Enabled = freeRpoToggleButtonDate.Checked;
+            freeRpoDateTimePickerEnd.Enabled = freeRpoToggleButtonDate.Checked;
         }
 
-        private void filesToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        private void filesToggleButtonDate_CheckedChanged(object sender, EventArgs e)
         {
-            filesDateTimePickerStart.Enabled = filesToggleButtonCalendar.Checked;
-            filesDateTimePickerEnd.Enabled = filesToggleButtonCalendar.Checked;
+            filesDateTimePickerStart.Enabled = filesToggleButtonDate.Checked;
+            filesDateTimePickerEnd.Enabled = filesToggleButtonDate.Checked;
         }
 
         private void filesToggleButtonLimit_CheckedChanged(object sender, EventArgs e)
         {
             filesLimit.Enabled = filesToggleButtonLimit.Checked;
+        }
+
+        private void receivedToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        {
+            receivedDateTimePickerStart.Visible = !receivedToggleButtonCalendar.Checked;
+            receivedDateTimePickerEnd.Visible = !receivedToggleButtonCalendar.Checked;
+            receivedDateTimePickerMonth.Visible = receivedToggleButtonCalendar.Checked;
         }
 
         #endregion
@@ -545,8 +569,8 @@ namespace DwUtils.Core.Forms
             {
                 StartDate = filesDateTimePickerStart.Value,
                 EndDate = filesDateTimePickerEnd.Value,
-                FilterDate = filesToggleButtonCalendar.Checked,
-                UserId = ((User) freeRpoComboBoxUsers.SelectedItem).Id
+                FilterDate = filesToggleButtonDate.Checked,
+                UserId = ((User) filesComboBoxUsers.SelectedItem).Id
             };
 
             if (filesLimit.Enabled)
@@ -559,7 +583,53 @@ namespace DwUtils.Core.Forms
             {
                 filesLabelCount.Text = files.Count.ToString();
                 filesLabelRpoCount.Text = files.Sum(f => f.Count).ToString();
-                SuccessMessage("Файлы загружены!");
+                SuccessMessage("Файлы - загружены!");
+            }
+        }
+
+        private async void btnLoadReceived_Click(object sender, EventArgs e)
+        {
+            receivedLabelPosCount.Text = "0";
+            receivedLabelAllCount.Text = "0";
+            receivedLabelReceiveCount.Text = "0";
+            receivedLabelReturnCount.Text = "0";
+            receivedLabelReturnPay.Text = "0,00 ₽";
+            receivedRpoBindingSource.DataSource = null;
+
+            DateTime start;
+            DateTime end;
+
+            if (receivedDateTimePickerMonth.Visible)
+            {
+                DateTime date = receivedDateTimePickerMonth.Value;
+                start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+                end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+            }
+            else
+            {
+                start = WcApi.Date.DateUtils.CropTime(receivedDateTimePickerStart.Value);
+                end = WcApi.Date.DateUtils.CropTime(receivedDateTimePickerEnd.Value);
+            }
+
+            ReceivedRpoRequest request = new ReceivedRpoRequest
+            {
+                UserId = ((User)receivedComboBoxUsers.SelectedItem).Id,
+                StartDate = start,
+                EndDate = end
+            };
+
+            List<ReceivedRpo> rpos = await _database.Rpos.GetReceivedRposAsync(request);
+            receivedRpoBindingSource.DataSource = rpos;
+
+            if (rpos != null)
+            {
+                receivedLabelPosCount.Text = rpos.Count.ToString();
+                receivedLabelAllCount.Text = rpos.Sum(r => r.AllCount).ToString();
+                receivedLabelReceiveCount.Text = rpos.Sum(r => r.ReceivedCount).ToString();
+                receivedLabelReturnCount.Text = rpos.Sum(r => r.ReturnCount).ToString();
+                receivedLabelReturnPay.Text = rpos.Sum(r => r.ReturnPay).ToString("C");
+
+                SuccessMessage("РПО на доставку - загружены!");
             }
         }
 
@@ -691,6 +761,11 @@ namespace DwUtils.Core.Forms
         private void filesDateTimePickerStart_ValueChanged(object sender, EventArgs e)
         {
             filesDateTimePickerEnd.Value = filesDateTimePickerStart.Value;
+        }
+
+        private void receivedDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            receivedDateTimePickerEnd.Value = receivedDateTimePickerStart.Value;
         }
 
         #endregion
