@@ -38,10 +38,14 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -71,7 +75,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoLabelInfoPlace = new System.Windows.Forms.Label();
             this.freeRpoComboBoxPlace = new System.Windows.Forms.ComboBox();
             this.freeRpoLabelInfoDate = new System.Windows.Forms.Label();
-            this.freeRpoToggleButtonCalendar = new Wc32Api.Widgets.Buttons.WcToggleButton();
+            this.freeRpoToggleButtonDate = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.freeRpoDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.freeRpoDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.panelFreeRpoL1 = new System.Windows.Forms.Panel();
@@ -84,10 +88,33 @@ namespace DwUtils.Core.Forms
             this.freeRpoLabelInfoType = new System.Windows.Forms.Label();
             this.freeRpoComboBoxRpoType = new System.Windows.Forms.ComboBox();
             this.tabReceived = new System.Windows.Forms.TabPage();
+            this.receivedDataGridView = new System.Windows.Forms.DataGridView();
+            this.receivedRpoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.receivedPanelStat = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelReceivedStat = new System.Windows.Forms.FlowLayoutPanel();
+            this.receivedLabelInfoPosCount = new System.Windows.Forms.Label();
+            this.receivedLabelPosCount = new System.Windows.Forms.Label();
+            this.receivedLabelInfoAllCount = new System.Windows.Forms.Label();
+            this.receivedLabelAllCount = new System.Windows.Forms.Label();
+            this.receivedLabelInfoReceiveCount = new System.Windows.Forms.Label();
+            this.receivedLabelReceiveCount = new System.Windows.Forms.Label();
+            this.receivedLabelInfoReturnCount = new System.Windows.Forms.Label();
+            this.receivedLabelReturnCount = new System.Windows.Forms.Label();
+            this.receivedLabelInfoReturnPay = new System.Windows.Forms.Label();
+            this.receivedLabelReturnPay = new System.Windows.Forms.Label();
+            this.panelReceivedL2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelReceivedL2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.receivedLabelInfoDate = new System.Windows.Forms.Label();
+            this.receivedToggleButtonCalendar = new Wc32Api.Widgets.Buttons.WcToggleButton();
+            this.receivedDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.receivedDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.receivedDateTimePickerMonth = new System.Windows.Forms.DateTimePicker();
             this.panelReceivedL1 = new System.Windows.Forms.Panel();
             this.btnPrintReceived = new Wc32Api.Widgets.Buttons.WcButton();
             this.btnLoadReceived = new Wc32Api.Widgets.Buttons.WcButton();
             this.flowLayoutPanelReceivedL1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.receivedLabelInfoUsers = new System.Windows.Forms.Label();
+            this.receivedComboBoxUsers = new System.Windows.Forms.ComboBox();
             this.tabDelivery = new System.Windows.Forms.TabPage();
             this.panelDeliveryL1 = new System.Windows.Forms.Panel();
             this.btnPrintDelivery = new Wc32Api.Widgets.Buttons.WcButton();
@@ -110,7 +137,7 @@ namespace DwUtils.Core.Forms
             this.panelFilesL2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFilesL2 = new System.Windows.Forms.FlowLayoutPanel();
             this.filesLabelInfoDate = new System.Windows.Forms.Label();
-            this.filesToggleButtonCalendar = new Wc32Api.Widgets.Buttons.WcToggleButton();
+            this.filesToggleButtonDate = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.filesDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.filesDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.panelFilesL1 = new System.Windows.Forms.Panel();
@@ -154,6 +181,11 @@ namespace DwUtils.Core.Forms
             this.connectPostUnitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.receivedColumnClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnAllCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnReceivedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnReturnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnReturnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusBar.SuspendLayout();
             this.panelWork.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -170,7 +202,14 @@ namespace DwUtils.Core.Forms
             this.panelFreeRpoL1.SuspendLayout();
             this.flowLayoutPanelFreeRpoL1.SuspendLayout();
             this.tabReceived.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.receivedDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receivedRpoBindingSource)).BeginInit();
+            this.receivedPanelStat.SuspendLayout();
+            this.flowLayoutPanelReceivedStat.SuspendLayout();
+            this.panelReceivedL2.SuspendLayout();
+            this.flowLayoutPanelReceivedL2.SuspendLayout();
             this.panelReceivedL1.SuspendLayout();
+            this.flowLayoutPanelReceivedL1.SuspendLayout();
             this.tabDelivery.SuspendLayout();
             this.panelDeliveryL1.SuspendLayout();
             this.tabFiles.SuspendLayout();
@@ -491,7 +530,7 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoLabelInfoPlace);
             this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoComboBoxPlace);
             this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoLabelInfoDate);
-            this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoToggleButtonCalendar);
+            this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoToggleButtonDate);
             this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoDateTimePickerStart);
             this.flowLayoutPanelFreeRpoL2.Controls.Add(this.freeRpoDateTimePickerEnd);
             this.flowLayoutPanelFreeRpoL2.Location = new System.Drawing.Point(3, 5);
@@ -539,23 +578,23 @@ namespace DwUtils.Core.Forms
             this.freeRpoLabelInfoDate.TabIndex = 1;
             this.freeRpoLabelInfoDate.Text = "Дата:";
             // 
-            // freeRpoToggleButtonCalendar
+            // freeRpoToggleButtonDate
             // 
-            this.freeRpoToggleButtonCalendar.AutoSize = true;
-            this.freeRpoToggleButtonCalendar.DisableBackColor = System.Drawing.Color.DimGray;
-            this.freeRpoToggleButtonCalendar.DisableToggleColor = System.Drawing.Color.Gray;
-            this.freeRpoToggleButtonCalendar.Location = new System.Drawing.Point(290, 6);
-            this.freeRpoToggleButtonCalendar.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.freeRpoToggleButtonCalendar.MinimumSize = new System.Drawing.Size(45, 22);
-            this.freeRpoToggleButtonCalendar.Name = "freeRpoToggleButtonCalendar";
-            this.freeRpoToggleButtonCalendar.OffBackColor = System.Drawing.Color.DimGray;
-            this.freeRpoToggleButtonCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.freeRpoToggleButtonCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
-            this.freeRpoToggleButtonCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.freeRpoToggleButtonCalendar.Size = new System.Drawing.Size(45, 22);
-            this.freeRpoToggleButtonCalendar.TabIndex = 34;
-            this.freeRpoToggleButtonCalendar.UseVisualStyleBackColor = true;
-            this.freeRpoToggleButtonCalendar.CheckedChanged += new System.EventHandler(this.freeRpoToggleButtonCalendar_CheckedChanged);
+            this.freeRpoToggleButtonDate.AutoSize = true;
+            this.freeRpoToggleButtonDate.DisableBackColor = System.Drawing.Color.DimGray;
+            this.freeRpoToggleButtonDate.DisableToggleColor = System.Drawing.Color.Gray;
+            this.freeRpoToggleButtonDate.Location = new System.Drawing.Point(290, 6);
+            this.freeRpoToggleButtonDate.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.freeRpoToggleButtonDate.MinimumSize = new System.Drawing.Size(45, 22);
+            this.freeRpoToggleButtonDate.Name = "freeRpoToggleButtonDate";
+            this.freeRpoToggleButtonDate.OffBackColor = System.Drawing.Color.DimGray;
+            this.freeRpoToggleButtonDate.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.freeRpoToggleButtonDate.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.freeRpoToggleButtonDate.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.freeRpoToggleButtonDate.Size = new System.Drawing.Size(45, 22);
+            this.freeRpoToggleButtonDate.TabIndex = 34;
+            this.freeRpoToggleButtonDate.UseVisualStyleBackColor = true;
+            this.freeRpoToggleButtonDate.CheckedChanged += new System.EventHandler(this.freeRpoToggleButtonDate_CheckedChanged);
             // 
             // freeRpoDateTimePickerStart
             // 
@@ -747,6 +786,9 @@ namespace DwUtils.Core.Forms
             // 
             // tabReceived
             // 
+            this.tabReceived.Controls.Add(this.receivedDataGridView);
+            this.tabReceived.Controls.Add(this.receivedPanelStat);
+            this.tabReceived.Controls.Add(this.panelReceivedL2);
             this.tabReceived.Controls.Add(this.panelReceivedL1);
             this.tabReceived.Location = new System.Drawing.Point(4, 36);
             this.tabReceived.Name = "tabReceived";
@@ -754,6 +796,306 @@ namespace DwUtils.Core.Forms
             this.tabReceived.TabIndex = 1;
             this.tabReceived.Text = "На вручение";
             this.tabReceived.UseVisualStyleBackColor = true;
+            // 
+            // receivedDataGridView
+            // 
+            this.receivedDataGridView.AllowUserToAddRows = false;
+            this.receivedDataGridView.AllowUserToDeleteRows = false;
+            this.receivedDataGridView.AllowUserToResizeColumns = false;
+            this.receivedDataGridView.AllowUserToResizeRows = false;
+            this.receivedDataGridView.AutoGenerateColumns = false;
+            this.receivedDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.receivedDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.receivedDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.receivedDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.receivedDataGridView.ColumnHeadersHeight = 40;
+            this.receivedDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.receivedDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.receivedColumnClientName,
+            this.receivedColumnAllCount,
+            this.receivedColumnReceivedCount,
+            this.receivedColumnReturnCount,
+            this.receivedColumnReturnPay});
+            this.receivedDataGridView.DataSource = this.receivedRpoBindingSource;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.receivedDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            this.receivedDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.receivedDataGridView.EnableHeadersVisualStyles = false;
+            this.receivedDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.receivedDataGridView.Location = new System.Drawing.Point(0, 92);
+            this.receivedDataGridView.Margin = new System.Windows.Forms.Padding(1);
+            this.receivedDataGridView.Name = "receivedDataGridView";
+            this.receivedDataGridView.ReadOnly = true;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.receivedDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.receivedDataGridView.RowHeadersVisible = false;
+            this.receivedDataGridView.RowHeadersWidth = 40;
+            this.receivedDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.receivedDataGridView.RowTemplate.Height = 40;
+            this.receivedDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.receivedDataGridView.Size = new System.Drawing.Size(1002, 251);
+            this.receivedDataGridView.TabIndex = 10;
+            this.receivedDataGridView.TabStop = false;
+            // 
+            // receivedRpoBindingSource
+            // 
+            this.receivedRpoBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.ReceivedRpo);
+            // 
+            // receivedPanelStat
+            // 
+            this.receivedPanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.receivedPanelStat.Controls.Add(this.flowLayoutPanelReceivedStat);
+            this.receivedPanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.receivedPanelStat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.receivedPanelStat.Location = new System.Drawing.Point(0, 343);
+            this.receivedPanelStat.Name = "receivedPanelStat";
+            this.receivedPanelStat.Size = new System.Drawing.Size(1002, 30);
+            this.receivedPanelStat.TabIndex = 11;
+            // 
+            // flowLayoutPanelReceivedStat
+            // 
+            this.flowLayoutPanelReceivedStat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelReceivedStat.Controls.Add(this.receivedLabelInfoPosCount);
+            this.flowLayoutPanelReceivedStat.Controls.Add(this.receivedLabelPosCount);
+            this.flowLayoutPanelReceivedStat.Controls.Add(this.receivedLabelInfoAllCount);
+            this.flowLayoutPanelReceivedStat.Controls.Add(this.receivedLabelAllCount);
+            this.flowLayoutPanelReceivedStat.Controls.Add(this.receivedLabelInfoReceiveCount);
+            this.flowLayoutPanelReceivedStat.Controls.Add(this.receivedLabelReceiveCount);
+            this.flowLayoutPanelReceivedStat.Controls.Add(this.receivedLabelInfoReturnCount);
+            this.flowLayoutPanelReceivedStat.Controls.Add(this.receivedLabelReturnCount);
+            this.flowLayoutPanelReceivedStat.Controls.Add(this.receivedLabelInfoReturnPay);
+            this.flowLayoutPanelReceivedStat.Controls.Add(this.receivedLabelReturnPay);
+            this.flowLayoutPanelReceivedStat.Location = new System.Drawing.Point(0, 3);
+            this.flowLayoutPanelReceivedStat.Name = "flowLayoutPanelReceivedStat";
+            this.flowLayoutPanelReceivedStat.Size = new System.Drawing.Size(999, 26);
+            this.flowLayoutPanelReceivedStat.TabIndex = 1;
+            this.flowLayoutPanelReceivedStat.WrapContents = false;
+            // 
+            // receivedLabelInfoPosCount
+            // 
+            this.receivedLabelInfoPosCount.AutoSize = true;
+            this.receivedLabelInfoPosCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelInfoPosCount.Location = new System.Drawing.Point(8, 2);
+            this.receivedLabelInfoPosCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.receivedLabelInfoPosCount.Name = "receivedLabelInfoPosCount";
+            this.receivedLabelInfoPosCount.Size = new System.Drawing.Size(76, 20);
+            this.receivedLabelInfoPosCount.TabIndex = 0;
+            this.receivedLabelInfoPosCount.Text = "Позиций:";
+            // 
+            // receivedLabelPosCount
+            // 
+            this.receivedLabelPosCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelPosCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.receivedLabelPosCount.Location = new System.Drawing.Point(90, 2);
+            this.receivedLabelPosCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.receivedLabelPosCount.Name = "receivedLabelPosCount";
+            this.receivedLabelPosCount.Size = new System.Drawing.Size(90, 22);
+            this.receivedLabelPosCount.TabIndex = 0;
+            this.receivedLabelPosCount.Text = "0";
+            // 
+            // receivedLabelInfoAllCount
+            // 
+            this.receivedLabelInfoAllCount.AutoSize = true;
+            this.receivedLabelInfoAllCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelInfoAllCount.Location = new System.Drawing.Point(191, 2);
+            this.receivedLabelInfoAllCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.receivedLabelInfoAllCount.Name = "receivedLabelInfoAllCount";
+            this.receivedLabelInfoAllCount.Size = new System.Drawing.Size(79, 20);
+            this.receivedLabelInfoAllCount.TabIndex = 1;
+            this.receivedLabelInfoAllCount.Text = "Прибыло:";
+            // 
+            // receivedLabelAllCount
+            // 
+            this.receivedLabelAllCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelAllCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.receivedLabelAllCount.Location = new System.Drawing.Point(276, 2);
+            this.receivedLabelAllCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.receivedLabelAllCount.Name = "receivedLabelAllCount";
+            this.receivedLabelAllCount.Size = new System.Drawing.Size(90, 22);
+            this.receivedLabelAllCount.TabIndex = 2;
+            this.receivedLabelAllCount.Text = "0";
+            // 
+            // receivedLabelInfoReceiveCount
+            // 
+            this.receivedLabelInfoReceiveCount.AutoSize = true;
+            this.receivedLabelInfoReceiveCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelInfoReceiveCount.Location = new System.Drawing.Point(377, 2);
+            this.receivedLabelInfoReceiveCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.receivedLabelInfoReceiveCount.Name = "receivedLabelInfoReceiveCount";
+            this.receivedLabelInfoReceiveCount.Size = new System.Drawing.Size(101, 20);
+            this.receivedLabelInfoReceiveCount.TabIndex = 3;
+            this.receivedLabelInfoReceiveCount.Text = "Получателю:";
+            // 
+            // receivedLabelReceiveCount
+            // 
+            this.receivedLabelReceiveCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelReceiveCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.receivedLabelReceiveCount.Location = new System.Drawing.Point(484, 2);
+            this.receivedLabelReceiveCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.receivedLabelReceiveCount.Name = "receivedLabelReceiveCount";
+            this.receivedLabelReceiveCount.Size = new System.Drawing.Size(90, 22);
+            this.receivedLabelReceiveCount.TabIndex = 4;
+            this.receivedLabelReceiveCount.Text = "0";
+            // 
+            // receivedLabelInfoReturnCount
+            // 
+            this.receivedLabelInfoReturnCount.AutoSize = true;
+            this.receivedLabelInfoReturnCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelInfoReturnCount.Location = new System.Drawing.Point(585, 2);
+            this.receivedLabelInfoReturnCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.receivedLabelInfoReturnCount.Name = "receivedLabelInfoReturnCount";
+            this.receivedLabelInfoReturnCount.Size = new System.Drawing.Size(69, 20);
+            this.receivedLabelInfoReturnCount.TabIndex = 5;
+            this.receivedLabelInfoReturnCount.Text = "Возврат:";
+            // 
+            // receivedLabelReturnCount
+            // 
+            this.receivedLabelReturnCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelReturnCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.receivedLabelReturnCount.Location = new System.Drawing.Point(660, 2);
+            this.receivedLabelReturnCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.receivedLabelReturnCount.Name = "receivedLabelReturnCount";
+            this.receivedLabelReturnCount.Size = new System.Drawing.Size(90, 22);
+            this.receivedLabelReturnCount.TabIndex = 6;
+            this.receivedLabelReturnCount.Text = "0";
+            // 
+            // receivedLabelInfoReturnPay
+            // 
+            this.receivedLabelInfoReturnPay.AutoSize = true;
+            this.receivedLabelInfoReturnPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelInfoReturnPay.Location = new System.Drawing.Point(761, 2);
+            this.receivedLabelInfoReturnPay.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.receivedLabelInfoReturnPay.Name = "receivedLabelInfoReturnPay";
+            this.receivedLabelInfoReturnPay.Size = new System.Drawing.Size(54, 20);
+            this.receivedLabelInfoReturnPay.TabIndex = 7;
+            this.receivedLabelInfoReturnPay.Text = "Плата:";
+            // 
+            // receivedLabelReturnPay
+            // 
+            this.receivedLabelReturnPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelReturnPay.ForeColor = System.Drawing.Color.DarkOrange;
+            this.receivedLabelReturnPay.Location = new System.Drawing.Point(821, 2);
+            this.receivedLabelReturnPay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.receivedLabelReturnPay.Name = "receivedLabelReturnPay";
+            this.receivedLabelReturnPay.Size = new System.Drawing.Size(122, 22);
+            this.receivedLabelReturnPay.TabIndex = 8;
+            this.receivedLabelReturnPay.Text = "0,00 ₽";
+            // 
+            // panelReceivedL2
+            // 
+            this.panelReceivedL2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelReceivedL2.Controls.Add(this.flowLayoutPanelReceivedL2);
+            this.panelReceivedL2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelReceivedL2.Location = new System.Drawing.Point(0, 48);
+            this.panelReceivedL2.Name = "panelReceivedL2";
+            this.panelReceivedL2.Size = new System.Drawing.Size(1002, 44);
+            this.panelReceivedL2.TabIndex = 9;
+            // 
+            // flowLayoutPanelReceivedL2
+            // 
+            this.flowLayoutPanelReceivedL2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelReceivedL2.Controls.Add(this.receivedLabelInfoDate);
+            this.flowLayoutPanelReceivedL2.Controls.Add(this.receivedToggleButtonCalendar);
+            this.flowLayoutPanelReceivedL2.Controls.Add(this.receivedDateTimePickerStart);
+            this.flowLayoutPanelReceivedL2.Controls.Add(this.receivedDateTimePickerEnd);
+            this.flowLayoutPanelReceivedL2.Controls.Add(this.receivedDateTimePickerMonth);
+            this.flowLayoutPanelReceivedL2.Location = new System.Drawing.Point(3, 5);
+            this.flowLayoutPanelReceivedL2.Name = "flowLayoutPanelReceivedL2";
+            this.flowLayoutPanelReceivedL2.Size = new System.Drawing.Size(989, 34);
+            this.flowLayoutPanelReceivedL2.TabIndex = 27;
+            this.flowLayoutPanelReceivedL2.WrapContents = false;
+            // 
+            // receivedLabelInfoDate
+            // 
+            this.receivedLabelInfoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.receivedLabelInfoDate.AutoSize = true;
+            this.receivedLabelInfoDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelInfoDate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.receivedLabelInfoDate.Location = new System.Drawing.Point(6, 6);
+            this.receivedLabelInfoDate.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.receivedLabelInfoDate.Name = "receivedLabelInfoDate";
+            this.receivedLabelInfoDate.Size = new System.Drawing.Size(46, 20);
+            this.receivedLabelInfoDate.TabIndex = 1;
+            this.receivedLabelInfoDate.Text = "Дата:";
+            // 
+            // receivedToggleButtonCalendar
+            // 
+            this.receivedToggleButtonCalendar.AutoSize = true;
+            this.receivedToggleButtonCalendar.DisableBackColor = System.Drawing.Color.DimGray;
+            this.receivedToggleButtonCalendar.DisableToggleColor = System.Drawing.Color.Gray;
+            this.receivedToggleButtonCalendar.Location = new System.Drawing.Point(58, 6);
+            this.receivedToggleButtonCalendar.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.receivedToggleButtonCalendar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.receivedToggleButtonCalendar.Name = "receivedToggleButtonCalendar";
+            this.receivedToggleButtonCalendar.OffBackColor = System.Drawing.Color.Firebrick;
+            this.receivedToggleButtonCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.receivedToggleButtonCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.receivedToggleButtonCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.receivedToggleButtonCalendar.Size = new System.Drawing.Size(45, 22);
+            this.receivedToggleButtonCalendar.TabIndex = 36;
+            this.receivedToggleButtonCalendar.UseVisualStyleBackColor = true;
+            this.receivedToggleButtonCalendar.CheckedChanged += new System.EventHandler(this.receivedToggleButtonCalendar_CheckedChanged);
+            // 
+            // receivedDateTimePickerStart
+            // 
+            this.receivedDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.receivedDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.receivedDateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.receivedDateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.receivedDateTimePickerStart.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.receivedDateTimePickerStart.Location = new System.Drawing.Point(109, 3);
+            this.receivedDateTimePickerStart.Name = "receivedDateTimePickerStart";
+            this.receivedDateTimePickerStart.Size = new System.Drawing.Size(220, 29);
+            this.receivedDateTimePickerStart.TabIndex = 32;
+            this.receivedDateTimePickerStart.ValueChanged += new System.EventHandler(this.receivedDateTimePickerStart_ValueChanged);
+            // 
+            // receivedDateTimePickerEnd
+            // 
+            this.receivedDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.receivedDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.receivedDateTimePickerEnd.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.receivedDateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.receivedDateTimePickerEnd.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.receivedDateTimePickerEnd.Location = new System.Drawing.Point(335, 3);
+            this.receivedDateTimePickerEnd.Name = "receivedDateTimePickerEnd";
+            this.receivedDateTimePickerEnd.Size = new System.Drawing.Size(200, 29);
+            this.receivedDateTimePickerEnd.TabIndex = 33;
+            // 
+            // receivedDateTimePickerMonth
+            // 
+            this.receivedDateTimePickerMonth.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.receivedDateTimePickerMonth.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.receivedDateTimePickerMonth.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.receivedDateTimePickerMonth.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.receivedDateTimePickerMonth.CustomFormat = "MMMM yyyy";
+            this.receivedDateTimePickerMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.receivedDateTimePickerMonth.Location = new System.Drawing.Point(541, 3);
+            this.receivedDateTimePickerMonth.Name = "receivedDateTimePickerMonth";
+            this.receivedDateTimePickerMonth.ShowUpDown = true;
+            this.receivedDateTimePickerMonth.Size = new System.Drawing.Size(220, 29);
+            this.receivedDateTimePickerMonth.TabIndex = 35;
+            this.receivedDateTimePickerMonth.Visible = false;
             // 
             // panelReceivedL1
             // 
@@ -802,7 +1144,6 @@ namespace DwUtils.Core.Forms
             this.btnLoadReceived.BorderSize = 0;
             this.btnLoadReceived.DisableBackColor = System.Drawing.Color.DimGray;
             this.btnLoadReceived.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadReceived.Enabled = false;
             this.btnLoadReceived.FlatAppearance.BorderSize = 0;
             this.btnLoadReceived.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.btnLoadReceived.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -819,16 +1160,45 @@ namespace DwUtils.Core.Forms
             this.btnLoadReceived.TabStop = false;
             this.btnLoadReceived.TextColor = System.Drawing.Color.White;
             this.btnLoadReceived.UseVisualStyleBackColor = false;
+            this.btnLoadReceived.Click += new System.EventHandler(this.btnLoadReceived_Click);
             // 
             // flowLayoutPanelReceivedL1
             // 
             this.flowLayoutPanelReceivedL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelReceivedL1.Controls.Add(this.receivedLabelInfoUsers);
+            this.flowLayoutPanelReceivedL1.Controls.Add(this.receivedComboBoxUsers);
             this.flowLayoutPanelReceivedL1.Location = new System.Drawing.Point(3, 7);
             this.flowLayoutPanelReceivedL1.Name = "flowLayoutPanelReceivedL1";
             this.flowLayoutPanelReceivedL1.Size = new System.Drawing.Size(897, 34);
             this.flowLayoutPanelReceivedL1.TabIndex = 27;
             this.flowLayoutPanelReceivedL1.WrapContents = false;
+            // 
+            // receivedLabelInfoUsers
+            // 
+            this.receivedLabelInfoUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.receivedLabelInfoUsers.AutoSize = true;
+            this.receivedLabelInfoUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.receivedLabelInfoUsers.ForeColor = System.Drawing.Color.Gainsboro;
+            this.receivedLabelInfoUsers.Location = new System.Drawing.Point(6, 6);
+            this.receivedLabelInfoUsers.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.receivedLabelInfoUsers.Name = "receivedLabelInfoUsers";
+            this.receivedLabelInfoUsers.Size = new System.Drawing.Size(111, 20);
+            this.receivedLabelInfoUsers.TabIndex = 1;
+            this.receivedLabelInfoUsers.Text = "Пользователь:";
+            // 
+            // receivedComboBoxUsers
+            // 
+            this.receivedComboBoxUsers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.receivedComboBoxUsers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.receivedComboBoxUsers.DataSource = this.userBindingSource;
+            this.receivedComboBoxUsers.DisplayMember = "Name";
+            this.receivedComboBoxUsers.FormattingEnabled = true;
+            this.receivedComboBoxUsers.Location = new System.Drawing.Point(123, 3);
+            this.receivedComboBoxUsers.Name = "receivedComboBoxUsers";
+            this.receivedComboBoxUsers.Size = new System.Drawing.Size(234, 29);
+            this.receivedComboBoxUsers.TabIndex = 2;
+            this.receivedComboBoxUsers.ValueMember = "Id";
             // 
             // tabDelivery
             // 
@@ -938,14 +1308,14 @@ namespace DwUtils.Core.Forms
             this.filesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.filesDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.filesDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.filesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.filesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.filesDataGridView.ColumnHeadersHeight = 40;
             this.filesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.filesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -955,14 +1325,14 @@ namespace DwUtils.Core.Forms
             this.filesColumnUserId,
             this.filesColumnCount});
             this.filesDataGridView.DataSource = this.rpoFileBindingSource;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.filesDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.filesDataGridView.DefaultCellStyle = dataGridViewCellStyle10;
             this.filesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filesDataGridView.EnableHeadersVisualStyles = false;
             this.filesDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -970,14 +1340,14 @@ namespace DwUtils.Core.Forms
             this.filesDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.filesDataGridView.Name = "filesDataGridView";
             this.filesDataGridView.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.filesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.filesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.filesDataGridView.RowHeadersVisible = false;
             this.filesDataGridView.RowHeadersWidth = 40;
             this.filesDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -997,9 +1367,9 @@ namespace DwUtils.Core.Forms
             // filesColumnDate
             // 
             this.filesColumnDate.DataPropertyName = "DateName";
-            dataGridViewCellStyle5.Format = "G";
-            dataGridViewCellStyle5.NullValue = null;
-            this.filesColumnDate.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Format = "G";
+            dataGridViewCellStyle9.NullValue = null;
+            this.filesColumnDate.DefaultCellStyle = dataGridViewCellStyle9;
             this.filesColumnDate.HeaderText = "Выгружено";
             this.filesColumnDate.Name = "filesColumnDate";
             this.filesColumnDate.ReadOnly = true;
@@ -1120,7 +1490,7 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelFilesL2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelFilesL2.Controls.Add(this.filesLabelInfoDate);
-            this.flowLayoutPanelFilesL2.Controls.Add(this.filesToggleButtonCalendar);
+            this.flowLayoutPanelFilesL2.Controls.Add(this.filesToggleButtonDate);
             this.flowLayoutPanelFilesL2.Controls.Add(this.filesDateTimePickerStart);
             this.flowLayoutPanelFilesL2.Controls.Add(this.filesDateTimePickerEnd);
             this.flowLayoutPanelFilesL2.Location = new System.Drawing.Point(3, 5);
@@ -1142,23 +1512,23 @@ namespace DwUtils.Core.Forms
             this.filesLabelInfoDate.TabIndex = 1;
             this.filesLabelInfoDate.Text = "Дата:";
             // 
-            // filesToggleButtonCalendar
+            // filesToggleButtonDate
             // 
-            this.filesToggleButtonCalendar.AutoSize = true;
-            this.filesToggleButtonCalendar.DisableBackColor = System.Drawing.Color.DimGray;
-            this.filesToggleButtonCalendar.DisableToggleColor = System.Drawing.Color.Gray;
-            this.filesToggleButtonCalendar.Location = new System.Drawing.Point(58, 6);
-            this.filesToggleButtonCalendar.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.filesToggleButtonCalendar.MinimumSize = new System.Drawing.Size(45, 22);
-            this.filesToggleButtonCalendar.Name = "filesToggleButtonCalendar";
-            this.filesToggleButtonCalendar.OffBackColor = System.Drawing.Color.DimGray;
-            this.filesToggleButtonCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.filesToggleButtonCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
-            this.filesToggleButtonCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.filesToggleButtonCalendar.Size = new System.Drawing.Size(45, 22);
-            this.filesToggleButtonCalendar.TabIndex = 34;
-            this.filesToggleButtonCalendar.UseVisualStyleBackColor = true;
-            this.filesToggleButtonCalendar.CheckedChanged += new System.EventHandler(this.filesToggleButtonCalendar_CheckedChanged);
+            this.filesToggleButtonDate.AutoSize = true;
+            this.filesToggleButtonDate.DisableBackColor = System.Drawing.Color.DimGray;
+            this.filesToggleButtonDate.DisableToggleColor = System.Drawing.Color.Gray;
+            this.filesToggleButtonDate.Location = new System.Drawing.Point(58, 6);
+            this.filesToggleButtonDate.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.filesToggleButtonDate.MinimumSize = new System.Drawing.Size(45, 22);
+            this.filesToggleButtonDate.Name = "filesToggleButtonDate";
+            this.filesToggleButtonDate.OffBackColor = System.Drawing.Color.DimGray;
+            this.filesToggleButtonDate.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.filesToggleButtonDate.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.filesToggleButtonDate.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.filesToggleButtonDate.Size = new System.Drawing.Size(45, 22);
+            this.filesToggleButtonDate.TabIndex = 34;
+            this.filesToggleButtonDate.UseVisualStyleBackColor = true;
+            this.filesToggleButtonDate.CheckedChanged += new System.EventHandler(this.filesToggleButtonDate_CheckedChanged);
             // 
             // filesDateTimePickerStart
             // 
@@ -1378,14 +1748,14 @@ namespace DwUtils.Core.Forms
             this.onlineDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.onlineDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.onlineDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.onlineDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.onlineDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.onlineDataGridView.ColumnHeadersHeight = 40;
             this.onlineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.onlineDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1395,14 +1765,14 @@ namespace DwUtils.Core.Forms
             this.onlineColumnWorkDate,
             this.onlineColumnAdminStatus});
             this.onlineDataGridView.DataSource = this.connectUserBindingSource;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.onlineDataGridView.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.onlineDataGridView.DefaultCellStyle = dataGridViewCellStyle13;
             this.onlineDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.onlineDataGridView.EnableHeadersVisualStyles = false;
             this.onlineDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -1410,14 +1780,14 @@ namespace DwUtils.Core.Forms
             this.onlineDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.onlineDataGridView.Name = "onlineDataGridView";
             this.onlineDataGridView.ReadOnly = true;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.onlineDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.onlineDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.onlineDataGridView.RowHeadersVisible = false;
             this.onlineDataGridView.RowHeadersWidth = 40;
             this.onlineDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1808,6 +2178,44 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
+            // receivedColumnClientName
+            // 
+            this.receivedColumnClientName.DataPropertyName = "ClientName";
+            this.receivedColumnClientName.HeaderText = "Организация";
+            this.receivedColumnClientName.Name = "receivedColumnClientName";
+            this.receivedColumnClientName.ReadOnly = true;
+            // 
+            // receivedColumnAllCount
+            // 
+            this.receivedColumnAllCount.DataPropertyName = "AllCount";
+            this.receivedColumnAllCount.HeaderText = "Прибыло";
+            this.receivedColumnAllCount.Name = "receivedColumnAllCount";
+            this.receivedColumnAllCount.ReadOnly = true;
+            // 
+            // receivedColumnReceivedCount
+            // 
+            this.receivedColumnReceivedCount.DataPropertyName = "ReceivedCountName";
+            this.receivedColumnReceivedCount.HeaderText = "Получателю";
+            this.receivedColumnReceivedCount.Name = "receivedColumnReceivedCount";
+            this.receivedColumnReceivedCount.ReadOnly = true;
+            // 
+            // receivedColumnReturnCount
+            // 
+            this.receivedColumnReturnCount.DataPropertyName = "ReturnCountName";
+            this.receivedColumnReturnCount.HeaderText = "Возврат";
+            this.receivedColumnReturnCount.Name = "receivedColumnReturnCount";
+            this.receivedColumnReturnCount.ReadOnly = true;
+            // 
+            // receivedColumnReturnPay
+            // 
+            this.receivedColumnReturnPay.DataPropertyName = "ReturnPayName";
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.receivedColumnReturnPay.DefaultCellStyle = dataGridViewCellStyle5;
+            this.receivedColumnReturnPay.HeaderText = "Плата за возврат";
+            this.receivedColumnReturnPay.Name = "receivedColumnReturnPay";
+            this.receivedColumnReturnPay.ReadOnly = true;
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1847,7 +2255,17 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelFreeRpoL1.ResumeLayout(false);
             this.flowLayoutPanelFreeRpoL1.PerformLayout();
             this.tabReceived.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.receivedDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receivedRpoBindingSource)).EndInit();
+            this.receivedPanelStat.ResumeLayout(false);
+            this.flowLayoutPanelReceivedStat.ResumeLayout(false);
+            this.flowLayoutPanelReceivedStat.PerformLayout();
+            this.panelReceivedL2.ResumeLayout(false);
+            this.flowLayoutPanelReceivedL2.ResumeLayout(false);
+            this.flowLayoutPanelReceivedL2.PerformLayout();
             this.panelReceivedL1.ResumeLayout(false);
+            this.flowLayoutPanelReceivedL1.ResumeLayout(false);
+            this.flowLayoutPanelReceivedL1.PerformLayout();
             this.tabDelivery.ResumeLayout(false);
             this.panelDeliveryL1.ResumeLayout(false);
             this.tabFiles.ResumeLayout(false);
@@ -1928,7 +2346,7 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.ComboBox freeRpoComboBoxPlace;
         private System.Windows.Forms.Panel panelFreeRpoL2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFreeRpoL2;
-        private WcToggleButton freeRpoToggleButtonCalendar;
+        private WcToggleButton freeRpoToggleButtonDate;
         private System.Windows.Forms.DateTimePicker freeRpoDateTimePickerStart;
         private System.Windows.Forms.DateTimePicker freeRpoDateTimePickerEnd;
         private System.Windows.Forms.Label freeRpoLabelInfoDate;
@@ -1972,7 +2390,7 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.Panel panelFilesL2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFilesL2;
         private System.Windows.Forms.Label filesLabelInfoDate;
-        private WcToggleButton filesToggleButtonCalendar;
+        private WcToggleButton filesToggleButtonDate;
         private System.Windows.Forms.DateTimePicker filesDateTimePickerStart;
         private System.Windows.Forms.DateTimePicker filesDateTimePickerEnd;
         private System.Windows.Forms.Panel filesPanelStat;
@@ -1991,6 +2409,34 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.Label filesLabelInfoLimit;
         private WcToggleButton filesToggleButtonLimit;
         private System.Windows.Forms.NumericUpDown filesLimit;
+        private System.Windows.Forms.Label receivedLabelInfoUsers;
+        private System.Windows.Forms.ComboBox receivedComboBoxUsers;
+        private System.Windows.Forms.Panel panelReceivedL2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelReceivedL2;
+        private System.Windows.Forms.Label receivedLabelInfoDate;
+        private System.Windows.Forms.DateTimePicker receivedDateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker receivedDateTimePickerEnd;
+        private System.Windows.Forms.DateTimePicker receivedDateTimePickerMonth;
+        private WcToggleButton receivedToggleButtonCalendar;
+        private System.Windows.Forms.DataGridView receivedDataGridView;
+        private System.Windows.Forms.BindingSource receivedRpoBindingSource;
+        private System.Windows.Forms.Panel receivedPanelStat;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelReceivedStat;
+        private System.Windows.Forms.Label receivedLabelInfoPosCount;
+        private System.Windows.Forms.Label receivedLabelPosCount;
+        private System.Windows.Forms.Label receivedLabelInfoAllCount;
+        private System.Windows.Forms.Label receivedLabelAllCount;
+        private System.Windows.Forms.Label receivedLabelInfoReceiveCount;
+        private System.Windows.Forms.Label receivedLabelReceiveCount;
+        private System.Windows.Forms.Label receivedLabelInfoReturnCount;
+        private System.Windows.Forms.Label receivedLabelReturnCount;
+        private System.Windows.Forms.Label receivedLabelInfoReturnPay;
+        private System.Windows.Forms.Label receivedLabelReturnPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnClientName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnAllCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnReceivedCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnReturnCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnReturnPay;
     }
 }
 

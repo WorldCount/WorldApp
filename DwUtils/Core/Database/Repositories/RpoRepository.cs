@@ -50,6 +50,18 @@ namespace DwUtils.Core.Database.Repositories
             return await Task.Run(() => UpdateFreeRposPlace(rpos, placeId));
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
+        public List<ReceivedRpo> GetReceivedRpos(ReceivedRpoRequest request)
+        {
+            GetReceivedRpoQuery query = new GetReceivedRpoQuery(Connect, request, DebugMode);
+            return query.Run();
+        }
+
+        public async Task<List<ReceivedRpo>> GetReceivedRposAsync(ReceivedRpoRequest request)
+        {
+            return await Task.Run(() => GetReceivedRpos(request));
+        }
+
         #endregion
     }
 }

@@ -66,6 +66,7 @@
     <Compile Include="Core\Database\Db.cs" />
     <Compile Include="Core\Database\Interfaces\IFbQueryable.cs" />
     <Compile Include="Core\Database\Models\ConnectUser.cs" />
+    <Compile Include="Core\Database\Models\ReceivedRpo.cs" />
     <Compile Include="Core\Database\Models\RpoFile.cs" />
     <Compile Include="Core\Database\Models\FreeRpo.cs" />
     <Compile Include="Core\Database\Models\Place.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Core\Database\Queryes\Base\PostUnitUpdateQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostItem\DeleteFreeRposQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostItem\GetPlaceQuery.cs" />
+    <Compile Include="Core\Database\Queryes\PostItem\GetReceivedRpoQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostItem\UpdateFreeRposPlaceQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostUnit\GetConnectUsersQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostUnit\GetLkApiQuery.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Core\Database\Repositories\SettingRepository.cs" />
     <Compile Include="Core\Database\Repositories\UserRepository.cs" />
     <Compile Include="Core\Database\Requests\FreeRpoRequest.cs" />
+    <Compile Include="Core\Database\Requests\ReceivedRpoRequest.cs" />
     <Compile Include="Core\Database\Requests\RpoFileRequest.cs" />
     <Compile Include="Core\Forms\ConfigForm.cs">
       <SubType>Form</SubType>
@@ -138,6 +141,7 @@
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.ConnectUser.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.FreeRpo.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.Place.datasource" />
+    <None Include="Properties\DataSources\DwUtils.Core.Database.Models.ReceivedRpo.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.RpoFile.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.User.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Types.RpoType.datasource" />
