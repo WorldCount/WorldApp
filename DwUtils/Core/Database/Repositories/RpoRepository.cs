@@ -15,13 +15,13 @@ namespace DwUtils.Core.Database.Repositories
         #region Public Methods
 
         // ReSharper disable once MemberCanBePrivate.Global
-        public List<FreeRpo> GetFreeRpos(FreeRpoResponse response)
+        public List<FreeRpo> GetFreeRpos(FreeRpoRequest request)
         {
-            GetFreeRpoQuery query = new GetFreeRpoQuery(Connect, response, DebugMode);
+            GetFreeRpoQuery query = new GetFreeRpoQuery(Connect, request, DebugMode);
             return query.Run();
         }
 
-        public async Task<List<FreeRpo>> GetFreeRposAsync(FreeRpoResponse response)
+        public async Task<List<FreeRpo>> GetFreeRposAsync(FreeRpoRequest response)
         {
             return await Task.Run(() => GetFreeRpos(response));
         }

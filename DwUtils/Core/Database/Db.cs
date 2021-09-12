@@ -20,6 +20,7 @@ namespace DwUtils.Core.Database
         public UserRepository Users;
         public PlaceRepository Places;
         public DocumentRepository Documents;
+        public FileRepository Files;
 
         #endregion
 
@@ -45,6 +46,7 @@ namespace DwUtils.Core.Database
             Users = new UserRepository(_postUnitConnect, _debugMode);
             Places = new PlaceRepository(_postItemConnect, _debugMode);
             Documents = new DocumentRepository(_postItemConnect, _debugMode);
+            Files = new FileRepository(_postItemConnect, _debugMode);
         }
 
         #endregion

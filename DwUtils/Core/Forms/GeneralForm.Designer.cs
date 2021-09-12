@@ -36,8 +36,12 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -58,7 +62,7 @@ namespace DwUtils.Core.Forms
             this.freeRpoColumnUserId = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.freeRpoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.barcodePanelStat = new System.Windows.Forms.Panel();
+            this.freeRpoPanelStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFreeRpoStat = new System.Windows.Forms.FlowLayoutPanel();
             this.freeRpoLabelInfoCount = new System.Windows.Forms.Label();
             this.freeRpoLabelCount = new System.Windows.Forms.Label();
@@ -90,6 +94,19 @@ namespace DwUtils.Core.Forms
             this.btnLoadDelivery = new Wc32Api.Widgets.Buttons.WcButton();
             this.flowLayoutPanelDeliveryL1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabFiles = new System.Windows.Forms.TabPage();
+            this.filesDataGridView = new System.Windows.Forms.DataGridView();
+            this.filesColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filesColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filesColumnDayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filesColumnUserId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.filesColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rpoFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.filesPanelStat = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelFilesStat = new System.Windows.Forms.FlowLayoutPanel();
+            this.filesLabelInfoCount = new System.Windows.Forms.Label();
+            this.filesLabelCount = new System.Windows.Forms.Label();
+            this.filesLabelInfoRpoCount = new System.Windows.Forms.Label();
+            this.filesLabelRpoCount = new System.Windows.Forms.Label();
             this.panelFilesL2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFilesL2 = new System.Windows.Forms.FlowLayoutPanel();
             this.filesLabelInfoDate = new System.Windows.Forms.Label();
@@ -101,6 +118,9 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelFilesL1 = new System.Windows.Forms.FlowLayoutPanel();
             this.filesLabelInfoUsers = new System.Windows.Forms.Label();
             this.filesComboBoxUsers = new System.Windows.Forms.ComboBox();
+            this.filesLabelInfoLimit = new System.Windows.Forms.Label();
+            this.filesToggleButtonLimit = new Wc32Api.Widgets.Buttons.WcToggleButton();
+            this.filesLimit = new System.Windows.Forms.NumericUpDown();
             this.tabConnected = new System.Windows.Forms.TabPage();
             this.panelOnlineStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelOnlineStat = new System.Windows.Forms.FlowLayoutPanel();
@@ -130,8 +150,8 @@ namespace DwUtils.Core.Forms
             this.wcDropdownMenuFile = new Wc32Api.Widgets.Menus.WcDropdownMenu(this.components);
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wcDropdownMenuSettings = new Wc32Api.Widgets.Menus.WcDropdownMenu(this.components);
-            this.connectPostUnitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectPostItemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectPostUnitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar.SuspendLayout();
@@ -143,7 +163,7 @@ namespace DwUtils.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.freeRpoBindingSource)).BeginInit();
-            this.barcodePanelStat.SuspendLayout();
+            this.freeRpoPanelStat.SuspendLayout();
             this.flowLayoutPanelFreeRpoStat.SuspendLayout();
             this.panelFreeRpoL2.SuspendLayout();
             this.flowLayoutPanelFreeRpoL2.SuspendLayout();
@@ -154,10 +174,15 @@ namespace DwUtils.Core.Forms
             this.tabDelivery.SuspendLayout();
             this.panelDeliveryL1.SuspendLayout();
             this.tabFiles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.filesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpoFileBindingSource)).BeginInit();
+            this.filesPanelStat.SuspendLayout();
+            this.flowLayoutPanelFilesStat.SuspendLayout();
             this.panelFilesL2.SuspendLayout();
             this.flowLayoutPanelFilesL2.SuspendLayout();
             this.panelFilesL1.SuspendLayout();
             this.flowLayoutPanelFilesL1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.filesLimit)).BeginInit();
             this.tabConnected.SuspendLayout();
             this.panelOnlineStat.SuspendLayout();
             this.flowLayoutPanelOnlineStat.SuspendLayout();
@@ -239,7 +264,7 @@ namespace DwUtils.Core.Forms
             // tabFreeRpo
             // 
             this.tabFreeRpo.Controls.Add(this.freeRpoDataGridView);
-            this.tabFreeRpo.Controls.Add(this.barcodePanelStat);
+            this.tabFreeRpo.Controls.Add(this.freeRpoPanelStat);
             this.tabFreeRpo.Controls.Add(this.panelFreeRpoL2);
             this.tabFreeRpo.Controls.Add(this.panelFreeRpoL1);
             this.tabFreeRpo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
@@ -404,16 +429,16 @@ namespace DwUtils.Core.Forms
             // 
             this.freeRpoBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.FreeRpo);
             // 
-            // barcodePanelStat
+            // freeRpoPanelStat
             // 
-            this.barcodePanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.barcodePanelStat.Controls.Add(this.flowLayoutPanelFreeRpoStat);
-            this.barcodePanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barcodePanelStat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.barcodePanelStat.Location = new System.Drawing.Point(0, 343);
-            this.barcodePanelStat.Name = "barcodePanelStat";
-            this.barcodePanelStat.Size = new System.Drawing.Size(1002, 30);
-            this.barcodePanelStat.TabIndex = 7;
+            this.freeRpoPanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.freeRpoPanelStat.Controls.Add(this.flowLayoutPanelFreeRpoStat);
+            this.freeRpoPanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.freeRpoPanelStat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.freeRpoPanelStat.Location = new System.Drawing.Point(0, 343);
+            this.freeRpoPanelStat.Name = "freeRpoPanelStat";
+            this.freeRpoPanelStat.Size = new System.Drawing.Size(1002, 30);
+            this.freeRpoPanelStat.TabIndex = 7;
             // 
             // flowLayoutPanelFreeRpoStat
             // 
@@ -490,6 +515,8 @@ namespace DwUtils.Core.Forms
             // 
             // freeRpoComboBoxPlace
             // 
+            this.freeRpoComboBoxPlace.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.freeRpoComboBoxPlace.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.freeRpoComboBoxPlace.DataSource = this.placeBindingSource;
             this.freeRpoComboBoxPlace.DisplayMember = "Name";
             this.freeRpoComboBoxPlace.FormattingEnabled = true;
@@ -681,6 +708,8 @@ namespace DwUtils.Core.Forms
             // 
             // freeRpoComboBoxUsers
             // 
+            this.freeRpoComboBoxUsers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.freeRpoComboBoxUsers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.freeRpoComboBoxUsers.DataSource = this.userBindingSource;
             this.freeRpoComboBoxUsers.DisplayMember = "Name";
             this.freeRpoComboBoxUsers.FormattingEnabled = true;
@@ -705,6 +734,8 @@ namespace DwUtils.Core.Forms
             // 
             // freeRpoComboBoxRpoType
             // 
+            this.freeRpoComboBoxRpoType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.freeRpoComboBoxRpoType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.freeRpoComboBoxRpoType.DataSource = this.rpoTypeBindingSource;
             this.freeRpoComboBoxRpoType.DisplayMember = "Name";
             this.freeRpoComboBoxRpoType.FormattingEnabled = true;
@@ -886,6 +917,8 @@ namespace DwUtils.Core.Forms
             // 
             // tabFiles
             // 
+            this.tabFiles.Controls.Add(this.filesDataGridView);
+            this.tabFiles.Controls.Add(this.filesPanelStat);
             this.tabFiles.Controls.Add(this.panelFilesL2);
             this.tabFiles.Controls.Add(this.panelFilesL1);
             this.tabFiles.Location = new System.Drawing.Point(4, 36);
@@ -894,6 +927,183 @@ namespace DwUtils.Core.Forms
             this.tabFiles.TabIndex = 4;
             this.tabFiles.Text = "Файлы";
             this.tabFiles.UseVisualStyleBackColor = true;
+            // 
+            // filesDataGridView
+            // 
+            this.filesDataGridView.AllowUserToAddRows = false;
+            this.filesDataGridView.AllowUserToDeleteRows = false;
+            this.filesDataGridView.AllowUserToResizeColumns = false;
+            this.filesDataGridView.AllowUserToResizeRows = false;
+            this.filesDataGridView.AutoGenerateColumns = false;
+            this.filesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.filesDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.filesDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.filesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.filesDataGridView.ColumnHeadersHeight = 40;
+            this.filesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.filesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.filesColumnName,
+            this.filesColumnDate,
+            this.filesColumnDayName,
+            this.filesColumnUserId,
+            this.filesColumnCount});
+            this.filesDataGridView.DataSource = this.rpoFileBindingSource;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.filesDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            this.filesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filesDataGridView.EnableHeadersVisualStyles = false;
+            this.filesDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.filesDataGridView.Location = new System.Drawing.Point(0, 92);
+            this.filesDataGridView.Margin = new System.Windows.Forms.Padding(1);
+            this.filesDataGridView.Name = "filesDataGridView";
+            this.filesDataGridView.ReadOnly = true;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.filesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.filesDataGridView.RowHeadersVisible = false;
+            this.filesDataGridView.RowHeadersWidth = 40;
+            this.filesDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.filesDataGridView.RowTemplate.Height = 40;
+            this.filesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.filesDataGridView.Size = new System.Drawing.Size(1002, 251);
+            this.filesDataGridView.TabIndex = 11;
+            this.filesDataGridView.TabStop = false;
+            // 
+            // filesColumnName
+            // 
+            this.filesColumnName.DataPropertyName = "Name";
+            this.filesColumnName.HeaderText = "Файл";
+            this.filesColumnName.Name = "filesColumnName";
+            this.filesColumnName.ReadOnly = true;
+            // 
+            // filesColumnDate
+            // 
+            this.filesColumnDate.DataPropertyName = "DateName";
+            dataGridViewCellStyle5.Format = "G";
+            dataGridViewCellStyle5.NullValue = null;
+            this.filesColumnDate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.filesColumnDate.HeaderText = "Выгружено";
+            this.filesColumnDate.Name = "filesColumnDate";
+            this.filesColumnDate.ReadOnly = true;
+            // 
+            // filesColumnDayName
+            // 
+            this.filesColumnDayName.DataPropertyName = "DayName";
+            this.filesColumnDayName.HeaderText = "День";
+            this.filesColumnDayName.Name = "filesColumnDayName";
+            this.filesColumnDayName.ReadOnly = true;
+            // 
+            // filesColumnUserId
+            // 
+            this.filesColumnUserId.DataPropertyName = "UserId";
+            this.filesColumnUserId.DataSource = this.userBindingSource;
+            this.filesColumnUserId.DisplayMember = "Name";
+            this.filesColumnUserId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.filesColumnUserId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filesColumnUserId.HeaderText = "Пользователь";
+            this.filesColumnUserId.Name = "filesColumnUserId";
+            this.filesColumnUserId.ReadOnly = true;
+            this.filesColumnUserId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.filesColumnUserId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.filesColumnUserId.ValueMember = "Id";
+            // 
+            // filesColumnCount
+            // 
+            this.filesColumnCount.DataPropertyName = "Count";
+            this.filesColumnCount.HeaderText = "Кол-во";
+            this.filesColumnCount.Name = "filesColumnCount";
+            this.filesColumnCount.ReadOnly = true;
+            // 
+            // rpoFileBindingSource
+            // 
+            this.rpoFileBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.RpoFile);
+            // 
+            // filesPanelStat
+            // 
+            this.filesPanelStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.filesPanelStat.Controls.Add(this.flowLayoutPanelFilesStat);
+            this.filesPanelStat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.filesPanelStat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.filesPanelStat.Location = new System.Drawing.Point(0, 343);
+            this.filesPanelStat.Name = "filesPanelStat";
+            this.filesPanelStat.Size = new System.Drawing.Size(1002, 30);
+            this.filesPanelStat.TabIndex = 10;
+            // 
+            // flowLayoutPanelFilesStat
+            // 
+            this.flowLayoutPanelFilesStat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelFilesStat.Controls.Add(this.filesLabelInfoCount);
+            this.flowLayoutPanelFilesStat.Controls.Add(this.filesLabelCount);
+            this.flowLayoutPanelFilesStat.Controls.Add(this.filesLabelInfoRpoCount);
+            this.flowLayoutPanelFilesStat.Controls.Add(this.filesLabelRpoCount);
+            this.flowLayoutPanelFilesStat.Location = new System.Drawing.Point(0, 3);
+            this.flowLayoutPanelFilesStat.Name = "flowLayoutPanelFilesStat";
+            this.flowLayoutPanelFilesStat.Size = new System.Drawing.Size(999, 26);
+            this.flowLayoutPanelFilesStat.TabIndex = 1;
+            this.flowLayoutPanelFilesStat.WrapContents = false;
+            // 
+            // filesLabelInfoCount
+            // 
+            this.filesLabelInfoCount.AutoSize = true;
+            this.filesLabelInfoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filesLabelInfoCount.Location = new System.Drawing.Point(8, 2);
+            this.filesLabelInfoCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.filesLabelInfoCount.Name = "filesLabelInfoCount";
+            this.filesLabelInfoCount.Size = new System.Drawing.Size(52, 20);
+            this.filesLabelInfoCount.TabIndex = 0;
+            this.filesLabelInfoCount.Text = "Всего:";
+            // 
+            // filesLabelCount
+            // 
+            this.filesLabelCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filesLabelCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.filesLabelCount.Location = new System.Drawing.Point(66, 2);
+            this.filesLabelCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.filesLabelCount.Name = "filesLabelCount";
+            this.filesLabelCount.Size = new System.Drawing.Size(90, 22);
+            this.filesLabelCount.TabIndex = 0;
+            this.filesLabelCount.Text = "0";
+            // 
+            // filesLabelInfoRpoCount
+            // 
+            this.filesLabelInfoRpoCount.AutoSize = true;
+            this.filesLabelInfoRpoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filesLabelInfoRpoCount.Location = new System.Drawing.Point(167, 2);
+            this.filesLabelInfoRpoCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.filesLabelInfoRpoCount.Name = "filesLabelInfoRpoCount";
+            this.filesLabelInfoRpoCount.Size = new System.Drawing.Size(107, 20);
+            this.filesLabelInfoRpoCount.TabIndex = 1;
+            this.filesLabelInfoRpoCount.Text = "Отправлений:";
+            // 
+            // filesLabelRpoCount
+            // 
+            this.filesLabelRpoCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filesLabelRpoCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.filesLabelRpoCount.Location = new System.Drawing.Point(280, 2);
+            this.filesLabelRpoCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.filesLabelRpoCount.Name = "filesLabelRpoCount";
+            this.filesLabelRpoCount.Size = new System.Drawing.Size(90, 22);
+            this.filesLabelRpoCount.TabIndex = 2;
+            this.filesLabelRpoCount.Text = "0";
             // 
             // panelFilesL2
             // 
@@ -948,6 +1158,7 @@ namespace DwUtils.Core.Forms
             this.filesToggleButtonCalendar.Size = new System.Drawing.Size(45, 22);
             this.filesToggleButtonCalendar.TabIndex = 34;
             this.filesToggleButtonCalendar.UseVisualStyleBackColor = true;
+            this.filesToggleButtonCalendar.CheckedChanged += new System.EventHandler(this.filesToggleButtonCalendar_CheckedChanged);
             // 
             // filesDateTimePickerStart
             // 
@@ -996,7 +1207,6 @@ namespace DwUtils.Core.Forms
             this.btnLoadFiles.BorderSize = 0;
             this.btnLoadFiles.DisableBackColor = System.Drawing.Color.DimGray;
             this.btnLoadFiles.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadFiles.Enabled = false;
             this.btnLoadFiles.FlatAppearance.BorderSize = 0;
             this.btnLoadFiles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.btnLoadFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1013,6 +1223,7 @@ namespace DwUtils.Core.Forms
             this.btnLoadFiles.TabStop = false;
             this.btnLoadFiles.TextColor = System.Drawing.Color.White;
             this.btnLoadFiles.UseVisualStyleBackColor = false;
+            this.btnLoadFiles.Click += new System.EventHandler(this.btnLoadFiles_Click);
             // 
             // flowLayoutPanelFilesL1
             // 
@@ -1020,6 +1231,9 @@ namespace DwUtils.Core.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelFilesL1.Controls.Add(this.filesLabelInfoUsers);
             this.flowLayoutPanelFilesL1.Controls.Add(this.filesComboBoxUsers);
+            this.flowLayoutPanelFilesL1.Controls.Add(this.filesLabelInfoLimit);
+            this.flowLayoutPanelFilesL1.Controls.Add(this.filesToggleButtonLimit);
+            this.flowLayoutPanelFilesL1.Controls.Add(this.filesLimit);
             this.flowLayoutPanelFilesL1.Location = new System.Drawing.Point(3, 7);
             this.flowLayoutPanelFilesL1.Name = "flowLayoutPanelFilesL1";
             this.flowLayoutPanelFilesL1.Size = new System.Drawing.Size(943, 34);
@@ -1041,6 +1255,8 @@ namespace DwUtils.Core.Forms
             // 
             // filesComboBoxUsers
             // 
+            this.filesComboBoxUsers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.filesComboBoxUsers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.filesComboBoxUsers.DataSource = this.userBindingSource;
             this.filesComboBoxUsers.DisplayMember = "Name";
             this.filesComboBoxUsers.FormattingEnabled = true;
@@ -1049,6 +1265,51 @@ namespace DwUtils.Core.Forms
             this.filesComboBoxUsers.Size = new System.Drawing.Size(234, 29);
             this.filesComboBoxUsers.TabIndex = 0;
             this.filesComboBoxUsers.ValueMember = "Id";
+            // 
+            // filesLabelInfoLimit
+            // 
+            this.filesLabelInfoLimit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.filesLabelInfoLimit.AutoSize = true;
+            this.filesLabelInfoLimit.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filesLabelInfoLimit.ForeColor = System.Drawing.Color.Gainsboro;
+            this.filesLabelInfoLimit.Location = new System.Drawing.Point(366, 6);
+            this.filesLabelInfoLimit.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.filesLabelInfoLimit.Name = "filesLabelInfoLimit";
+            this.filesLabelInfoLimit.Size = new System.Drawing.Size(58, 20);
+            this.filesLabelInfoLimit.TabIndex = 1;
+            this.filesLabelInfoLimit.Text = "Лимит:";
+            // 
+            // filesToggleButtonLimit
+            // 
+            this.filesToggleButtonLimit.AutoSize = true;
+            this.filesToggleButtonLimit.Checked = true;
+            this.filesToggleButtonLimit.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.filesToggleButtonLimit.DisableBackColor = System.Drawing.Color.DimGray;
+            this.filesToggleButtonLimit.DisableToggleColor = System.Drawing.Color.Gray;
+            this.filesToggleButtonLimit.Location = new System.Drawing.Point(430, 6);
+            this.filesToggleButtonLimit.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.filesToggleButtonLimit.MinimumSize = new System.Drawing.Size(45, 22);
+            this.filesToggleButtonLimit.Name = "filesToggleButtonLimit";
+            this.filesToggleButtonLimit.OffBackColor = System.Drawing.Color.DimGray;
+            this.filesToggleButtonLimit.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.filesToggleButtonLimit.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.filesToggleButtonLimit.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.filesToggleButtonLimit.Size = new System.Drawing.Size(45, 22);
+            this.filesToggleButtonLimit.TabIndex = 35;
+            this.filesToggleButtonLimit.UseVisualStyleBackColor = true;
+            this.filesToggleButtonLimit.CheckedChanged += new System.EventHandler(this.filesToggleButtonLimit_CheckedChanged);
+            // 
+            // filesLimit
+            // 
+            this.filesLimit.Location = new System.Drawing.Point(481, 3);
+            this.filesLimit.Name = "filesLimit";
+            this.filesLimit.Size = new System.Drawing.Size(59, 29);
+            this.filesLimit.TabIndex = 36;
+            this.filesLimit.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // tabConnected
             // 
@@ -1117,14 +1378,14 @@ namespace DwUtils.Core.Forms
             this.onlineDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.onlineDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.onlineDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.onlineDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.onlineDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.onlineDataGridView.ColumnHeadersHeight = 40;
             this.onlineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.onlineDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1134,14 +1395,14 @@ namespace DwUtils.Core.Forms
             this.onlineColumnWorkDate,
             this.onlineColumnAdminStatus});
             this.onlineDataGridView.DataSource = this.connectUserBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.onlineDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.onlineDataGridView.DefaultCellStyle = dataGridViewCellStyle9;
             this.onlineDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.onlineDataGridView.EnableHeadersVisualStyles = false;
             this.onlineDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -1149,14 +1410,14 @@ namespace DwUtils.Core.Forms
             this.onlineDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.onlineDataGridView.Name = "onlineDataGridView";
             this.onlineDataGridView.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.onlineDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.onlineDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.onlineDataGridView.RowHeadersVisible = false;
             this.onlineDataGridView.RowHeadersWidth = 40;
             this.onlineDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1518,14 +1779,6 @@ namespace DwUtils.Core.Forms
             this.wcDropdownMenuSettings.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(74)))), ((int)(((byte)(84)))));
             this.wcDropdownMenuSettings.Size = new System.Drawing.Size(248, 82);
             // 
-            // connectPostUnitMenuItem
-            // 
-            this.connectPostUnitMenuItem.Image = global::DwUtils.Properties.Resources.Server;
-            this.connectPostUnitMenuItem.Name = "connectPostUnitMenuItem";
-            this.connectPostUnitMenuItem.Size = new System.Drawing.Size(247, 24);
-            this.connectPostUnitMenuItem.Text = "Подключение к PostUnit";
-            this.connectPostUnitMenuItem.Click += new System.EventHandler(this.connectPostUnitMenuItem_Click);
-            // 
             // connectPostItemMenuItem
             // 
             this.connectPostItemMenuItem.Image = global::DwUtils.Properties.Resources.Server;
@@ -1533,6 +1786,14 @@ namespace DwUtils.Core.Forms
             this.connectPostItemMenuItem.Size = new System.Drawing.Size(247, 24);
             this.connectPostItemMenuItem.Text = "Подключение к PostItem";
             this.connectPostItemMenuItem.Click += new System.EventHandler(this.connectPostItemMenuItem_Click);
+            // 
+            // connectPostUnitMenuItem
+            // 
+            this.connectPostUnitMenuItem.Image = global::DwUtils.Properties.Resources.Server;
+            this.connectPostUnitMenuItem.Name = "connectPostUnitMenuItem";
+            this.connectPostUnitMenuItem.Size = new System.Drawing.Size(247, 24);
+            this.connectPostUnitMenuItem.Text = "Подключение к PostUnit";
+            this.connectPostUnitMenuItem.Click += new System.EventHandler(this.connectPostUnitMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -1576,7 +1837,7 @@ namespace DwUtils.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.freeRpoBindingSource)).EndInit();
-            this.barcodePanelStat.ResumeLayout(false);
+            this.freeRpoPanelStat.ResumeLayout(false);
             this.flowLayoutPanelFreeRpoStat.ResumeLayout(false);
             this.flowLayoutPanelFreeRpoStat.PerformLayout();
             this.panelFreeRpoL2.ResumeLayout(false);
@@ -1590,12 +1851,18 @@ namespace DwUtils.Core.Forms
             this.tabDelivery.ResumeLayout(false);
             this.panelDeliveryL1.ResumeLayout(false);
             this.tabFiles.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.filesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpoFileBindingSource)).EndInit();
+            this.filesPanelStat.ResumeLayout(false);
+            this.flowLayoutPanelFilesStat.ResumeLayout(false);
+            this.flowLayoutPanelFilesStat.PerformLayout();
             this.panelFilesL2.ResumeLayout(false);
             this.flowLayoutPanelFilesL2.ResumeLayout(false);
             this.flowLayoutPanelFilesL2.PerformLayout();
             this.panelFilesL1.ResumeLayout(false);
             this.flowLayoutPanelFilesL1.ResumeLayout(false);
             this.flowLayoutPanelFilesL1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.filesLimit)).EndInit();
             this.tabConnected.ResumeLayout(false);
             this.panelOnlineStat.ResumeLayout(false);
             this.flowLayoutPanelOnlineStat.ResumeLayout(false);
@@ -1631,7 +1898,7 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFreeRpoL1;
         private System.Windows.Forms.Label freeRpoLabelInfoUsers;
         private System.Windows.Forms.ComboBox freeRpoComboBoxUsers;
-        private System.Windows.Forms.Panel barcodePanelStat;
+        private System.Windows.Forms.Panel freeRpoPanelStat;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFreeRpoStat;
         private System.Windows.Forms.Label freeRpoLabelInfoCount;
         private System.Windows.Forms.Label freeRpoLabelCount;
@@ -1708,6 +1975,22 @@ namespace DwUtils.Core.Forms
         private WcToggleButton filesToggleButtonCalendar;
         private System.Windows.Forms.DateTimePicker filesDateTimePickerStart;
         private System.Windows.Forms.DateTimePicker filesDateTimePickerEnd;
+        private System.Windows.Forms.Panel filesPanelStat;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFilesStat;
+        private System.Windows.Forms.Label filesLabelInfoCount;
+        private System.Windows.Forms.Label filesLabelCount;
+        private System.Windows.Forms.Label filesLabelInfoRpoCount;
+        private System.Windows.Forms.Label filesLabelRpoCount;
+        private System.Windows.Forms.DataGridView filesDataGridView;
+        private System.Windows.Forms.BindingSource rpoFileBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn filesColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn filesColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn filesColumnDayName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn filesColumnUserId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn filesColumnCount;
+        private System.Windows.Forms.Label filesLabelInfoLimit;
+        private WcToggleButton filesToggleButtonLimit;
+        private System.Windows.Forms.NumericUpDown filesLimit;
     }
 }
 
