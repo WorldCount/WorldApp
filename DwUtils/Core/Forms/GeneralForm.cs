@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DwUtils.Core.Database;
-using DwUtils.Core.Database.Connects;
 using DwUtils.Core.Database.Models;
 using DwUtils.Core.Database.Requests;
 using DwUtils.Core.Forms.ConnectForms;
@@ -56,8 +54,8 @@ namespace DwUtils.Core.Forms
         private void LoadSettings()
         {
             _debugMode = Properties.Settings.Default.DebugMode;
+            _database = new Db(_debugMode);
             toggleDebug.Checked = Properties.Settings.Default.DebugMode;
-            _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
 
             int lastTabIndex = Properties.Settings.Default.LastTabIndex;
             tabControl.SelectedIndex = lastTabIndex >= tabControl.TabCount ? 0 : lastTabIndex;
@@ -78,7 +76,7 @@ namespace DwUtils.Core.Forms
 
             if (_database != null && !string.IsNullOrEmpty(_lkState))
             {
-                _database.SetLkApiUrl(_lkState);
+                _database.Settings.SetLkApiUrl(_lkState);
             }
         }
 
@@ -263,9 +261,9 @@ namespace DwUtils.Core.Forms
                 await Task.Run(() =>
                 {
                     // Загрузка пользователей
-                    _users = _database.GetUsers();
+                    _users = _database.Users.GetUsers();
                     // Загрузка мест
-                    _places = _database.GetPlaces();
+                    _places = _database.Places.GetPlaces();
                 });
 
                 _places?.Insert(0, new Place { Id = 0, Name = "ВСЕ" });
@@ -298,7 +296,7 @@ namespace DwUtils.Core.Forms
                 UserId = ((User) freeRpoComboBoxUsers.SelectedItem).Id
             };
 
-            List<FreeRpo> rpos = await _database.GetFreeRposAsync(response);
+            List<FreeRpo> rpos = await _database.Rpos.GetFreeRposAsync(response);
             freeRpoBindingSource.DataSource = rpos;
 
             if (rpos != null)
@@ -313,7 +311,7 @@ namespace DwUtils.Core.Forms
             onlineLabelCount.Text = "0";
             connectUserBindingSource.DataSource = null;
 
-            List<ConnectUser> connectUsers = await _database.GetConnectUsersAsync();
+            List<ConnectUser> connectUsers = await _database.Users.GetConnectUsersAsync();
             connectUserBindingSource.DataSource = connectUsers;
 
             if (connectUsers != null)
@@ -385,7 +383,10 @@ namespace DwUtils.Core.Forms
             PostUnitConnectForm postUnitConnectForm = new PostUnitConnectForm();
 
             if (postUnitConnectForm.ShowDialog(this) == DialogResult.OK)
-                _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
+            {
+                _database.Refresh();
+                LoadData();
+            }
         }
 
         private void connectPostItemMenuItem_Click(object sender, EventArgs e)
@@ -393,7 +394,10 @@ namespace DwUtils.Core.Forms
             PostItemConnectForm postItemConnectForm = new PostItemConnectForm();
 
             if (postItemConnectForm.ShowDialog(this) == DialogResult.OK)
-                _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
+            {
+                _database.Refresh();
+                LoadData();
+            }
         }
 
         private void configMenuItem_Click(object sender, EventArgs e)
@@ -420,8 +424,9 @@ namespace DwUtils.Core.Forms
         private void toggleDebug_CheckedChanged(object sender, EventArgs e)
         {
             _debugMode = toggleDebug.Checked;
+            _database.SetDebug(_debugMode);
+
             Properties.Settings.Default.DebugMode = _debugMode;
-            _database = new Db(PostItemConnect.GetConnect(), PostUnitConnect.GetConnect(), _debugMode);
             Properties.Settings.Default.Save();
         }
 
@@ -430,9 +435,9 @@ namespace DwUtils.Core.Forms
             bool res;
 
             if (toggleLoadLk.Checked)
-                res = await _database.SetLkApiUrlAsync(_lkState);
+                res = await _database.Settings.SetLkApiUrlAsync(_lkState);
             else
-                res = await _database.SetLkApiUrlAsync("");
+                res = await _database.Settings.SetLkApiUrlAsync("");
 
             if(res)
                 SuccessMessage("Статус загрузки ЛК изменен.");
@@ -475,7 +480,7 @@ namespace DwUtils.Core.Forms
                     // Разбиваем данные по 1000
                     var data = checkedRpos.Chunk(1000);
                     foreach (IEnumerable<FreeRpo> freeRpos in data)
-                        await _database.DeleteFreeRposAsync(freeRpos.ToList());
+                        await _database.Rpos.DeleteFreeRposAsync(freeRpos.ToList());
 
                     LoadFreeRpos();
                 }
@@ -484,7 +489,18 @@ namespace DwUtils.Core.Forms
 
         private async void btnEditFreeRpo_Click(object sender, EventArgs e)
         {
-            List<FreeRpo> rpos = (List<FreeRpo>)freeRpoBindingSource.DataSource;
+            List<FreeRpo> rpos;
+
+            try
+            {
+                rpos = (List<FreeRpo>)freeRpoBindingSource.DataSource;
+            }
+            catch
+            {
+                return;
+            }
+
+            
             if (rpos != null)
             {
                 List<FreeRpo> checkedRpos = rpos.Where(r => r.Check).ToList();
@@ -500,7 +516,7 @@ namespace DwUtils.Core.Forms
                     var data = checkedRpos.Chunk(1000);
                     foreach (IEnumerable<FreeRpo> freeRpos in data)
                     {
-                        await _database.UpdateFreeRposPlaceAsync(freeRpos.ToList(), place.Id);
+                        await _database.Rpos.UpdateFreeRposPlaceAsync(freeRpos.ToList(), place.Id);
                     }
 
                     LoadFreeRpos();
@@ -633,11 +649,17 @@ namespace DwUtils.Core.Forms
             freeRpoDateTimePickerEnd.Value = freeRpoDateTimePickerStart.Value;
         }
 
+        private void filesDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            filesDateTimePickerEnd.Value = filesDateTimePickerStart.Value;
+        }
         #endregion
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_database.GenDocumentNum(101, 12), "Номер накладной");
+            MessageBox.Show(_database.Documents.GenDocumentNum(101, 12), "Номер накладной");
         }
+
+        
     }
 }

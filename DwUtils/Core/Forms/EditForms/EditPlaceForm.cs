@@ -36,7 +36,7 @@ namespace DwUtils.Core.Forms.EditForms
 
         private void form_Load(object sender, EventArgs e)
         {
-            List<Place> places = _database.GetPlaces();
+            List<Place> places = _database.Places.GetPlaces();
             placeBindingSource.DataSource = places;
             _selectPlace = (Place)cbPlace.SelectedItem;
         }
