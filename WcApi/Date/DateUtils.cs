@@ -23,5 +23,11 @@ namespace WcApi.Date
             string[] months = { "ЯНВАРЬ", "ФЕВРАЛЬ", "МАРТ", "АПРЕЛЬ", "МАЙ", "ИЮНЬ", "ИЮЛЬ", "АВГУСТ", "СЕНТЯБРЬ", "ОКТЯБРЬ", "НОЯБРЬ", "ДЕКАБРЬ" };
             return toUpper ? months[date.Month - 1] : months[date.Month - 1].ToLower();
         }
+
+        public static string GetDayName(DateTime date, bool toUpper = false)
+        {
+            string name = date.ToString("ddd");
+            return toUpper ? name.ToUpper() : name;
+        }
     }
 }
