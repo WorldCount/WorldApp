@@ -286,7 +286,7 @@ namespace DwUtils.Core.Forms
             freeRpoLabelCount.Text = "0";
             freeRpoBindingSource.DataSource = null;
 
-            FreeRpoResponse response = new FreeRpoResponse
+            FreeRpoRequest request = new FreeRpoRequest
             {
                 StartDate = freeRpoDateTimePickerStart.Value,
                 EndDate = freeRpoDateTimePickerEnd.Value,
@@ -296,7 +296,7 @@ namespace DwUtils.Core.Forms
                 UserId = ((User) freeRpoComboBoxUsers.SelectedItem).Id
             };
 
-            List<FreeRpo> rpos = await _database.Rpos.GetFreeRposAsync(response);
+            List<FreeRpo> rpos = await _database.Rpos.GetFreeRposAsync(request);
             freeRpoBindingSource.DataSource = rpos;
 
             if (rpos != null)
@@ -451,6 +451,17 @@ namespace DwUtils.Core.Forms
             freeRpoDateTimePickerEnd.Enabled = freeRpoToggleButtonCalendar.Checked;
         }
 
+        private void filesToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        {
+            filesDateTimePickerStart.Enabled = filesToggleButtonCalendar.Checked;
+            filesDateTimePickerEnd.Enabled = filesToggleButtonCalendar.Checked;
+        }
+
+        private void filesToggleButtonLimit_CheckedChanged(object sender, EventArgs e)
+        {
+            filesLimit.Enabled = filesToggleButtonLimit.Checked;
+        }
+
         #endregion
 
         #region Buttons Events
@@ -521,6 +532,34 @@ namespace DwUtils.Core.Forms
 
                     LoadFreeRpos();
                 }
+            }
+        }
+
+        private async void btnLoadFiles_Click(object sender, EventArgs e)
+        {
+            filesLabelCount.Text = "0";
+            filesLabelRpoCount.Text = "0";
+            rpoFileBindingSource.DataSource = null;
+
+            RpoFileRequest request = new RpoFileRequest
+            {
+                StartDate = filesDateTimePickerStart.Value,
+                EndDate = filesDateTimePickerEnd.Value,
+                FilterDate = filesToggleButtonCalendar.Checked,
+                UserId = ((User) freeRpoComboBoxUsers.SelectedItem).Id
+            };
+
+            if (filesLimit.Enabled)
+                request.Limit = (int) filesLimit.Value;
+
+            List<RpoFile> files = await _database.Files.GetFilesAsync(request);
+            rpoFileBindingSource.DataSource = files;
+
+            if (files != null)
+            {
+                filesLabelCount.Text = files.Count.ToString();
+                filesLabelRpoCount.Text = files.Sum(f => f.Count).ToString();
+                SuccessMessage("Файлы загружены!");
             }
         }
 
@@ -653,13 +692,12 @@ namespace DwUtils.Core.Forms
         {
             filesDateTimePickerEnd.Value = filesDateTimePickerStart.Value;
         }
+
         #endregion
 
         private void btnTest_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_database.Documents.GenDocumentNum(101, 12), "Номер накладной");
         }
-
-        
     }
 }

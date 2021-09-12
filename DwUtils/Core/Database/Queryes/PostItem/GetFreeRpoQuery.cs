@@ -10,11 +10,11 @@ namespace DwUtils.Core.Database.Queryes.PostItem
 {
     public class GetFreeRpoQuery : PostItemSelectQuery<List<FreeRpo>>
     {
-        private readonly FreeRpoResponse _response;
+        private readonly FreeRpoRequest _request;
 
-        public GetFreeRpoQuery(PostItemConnect connect, FreeRpoResponse response, bool debugMode = false) : base(connect, debugMode)
+        public GetFreeRpoQuery(PostItemConnect connect, FreeRpoRequest request, bool debugMode = false) : base(connect, debugMode)
         {
-            _response = response;
+            _request = request;
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
@@ -26,19 +26,19 @@ namespace DwUtils.Core.Database.Queryes.PostItem
             sb.Append(" left join place p on v.placeid = p.placeid");
             sb.Append(" where lastdocvalid = 1 and reestrid is null");
 
-            if (_response != null)
+            if (_request != null)
             {
-                if (_response.PlaceId != 0)
-                    sb.Append($" and placeid = {_response.PlaceId}");
+                if (_request.PlaceId != 0)
+                    sb.Append($" and placeid = {_request.PlaceId}");
 
-                if(_response.UserId != 0)
-                    sb.Append($" and createuserid = {_response.UserId}");
+                if(_request.UserId != 0)
+                    sb.Append($" and createuserid = {_request.UserId}");
 
-                if(_response.TypeId != 0)
-                    sb.Append($" and doctypeid = {_response.TypeId}");
+                if(_request.TypeId != 0)
+                    sb.Append($" and doctypeid = {_request.TypeId}");
 
-                if (_response.FilterDate)
-                    sb.Append($" and docdate >= '{_response.StartDate:dd.MM.yyyy}' and docdate < '{_response.EndDate.AddDays(1):dd.MM.yyyy}'");
+                if (_request.FilterDate)
+                    sb.Append($" and docdate >= '{_request.StartDate:dd.MM.yyyy}' and docdate < '{_request.EndDate.AddDays(1):dd.MM.yyyy}'");
             }
 
             sb.Append(" order by docdate");

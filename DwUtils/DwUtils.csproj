@@ -66,12 +66,15 @@
     <Compile Include="Core\Database\Db.cs" />
     <Compile Include="Core\Database\Interfaces\IFbQueryable.cs" />
     <Compile Include="Core\Database\Models\ConnectUser.cs" />
+    <Compile Include="Core\Database\Models\RpoFile.cs" />
     <Compile Include="Core\Database\Models\FreeRpo.cs" />
     <Compile Include="Core\Database\Models\Place.cs" />
     <Compile Include="Core\Database\Models\User.cs" />
     <Compile Include="Core\Database\Queryes\Base\PostItemSelectQuery.cs" />
     <Compile Include="Core\Database\Queryes\Base\PostItemUpdateQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostItem\GenDocumentNumQuery.cs" />
+    <Compile Include="Core\Database\Queryes\PostItem\GetCountRpoQuery.cs" />
+    <Compile Include="Core\Database\Queryes\PostItem\GetFilesQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostItem\GetFreeRpoQuery.cs" />
     <Compile Include="Core\Database\Queryes\Base\PostUnitSelectQuery.cs" />
     <Compile Include="Core\Database\Queryes\Base\PostUnitUpdateQuery.cs" />
@@ -83,7 +86,16 @@
     <Compile Include="Core\Database\Queryes\PostUnit\GetUsersQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostUnit\SetLkApiQuery.cs" />
     <Compile Include="Core\Database\Queryes\Base\Query.cs" />
-    <Compile Include="Core\Database\Requests\FreeRpoResponse.cs" />
+    <Compile Include="Core\Database\Repositories\Base\PostItemRepository.cs" />
+    <Compile Include="Core\Database\Repositories\Base\PostUnitRepository.cs" />
+    <Compile Include="Core\Database\Repositories\DocumentRepository.cs" />
+    <Compile Include="Core\Database\Repositories\FileRepository.cs" />
+    <Compile Include="Core\Database\Repositories\PlaceRepository.cs" />
+    <Compile Include="Core\Database\Repositories\RpoRepository.cs" />
+    <Compile Include="Core\Database\Repositories\SettingRepository.cs" />
+    <Compile Include="Core\Database\Repositories\UserRepository.cs" />
+    <Compile Include="Core\Database\Requests\FreeRpoRequest.cs" />
+    <Compile Include="Core\Database\Requests\RpoFileRequest.cs" />
     <Compile Include="Core\Forms\ConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +138,7 @@
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.ConnectUser.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.FreeRpo.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.Place.datasource" />
+    <None Include="Properties\DataSources\DwUtils.Core.Database.Models.RpoFile.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.User.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Types.RpoType.datasource" />
     <None Include="Resources\Button-Settings.png" />
