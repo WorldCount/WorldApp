@@ -97,8 +97,9 @@
     <Compile Include="Core\Database\Repositories\SettingRepository.cs" />
     <Compile Include="Core\Database\Repositories\UserRepository.cs" />
     <Compile Include="Core\Database\Requests\FreeRpoRequest.cs" />
-    <Compile Include="Core\Database\Requests\ReceivedRpoRequest.cs" />
+    <Compile Include="Core\Database\Requests\ReceiveRpoRequest.cs" />
     <Compile Include="Core\Database\Requests\RpoFileRequest.cs" />
+    <Compile Include="Core\Database\Requests\Types\ReceiveRpoRequestType.cs" />
     <Compile Include="Core\Forms\ConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +141,7 @@
     </Compile>
     <Compile Include="Core\Stats\ReceiveRpoStat.cs" />
     <Compile Include="Core\Storage\PathManager.cs" />
+    <Compile Include="Core\Types\ReceiveRpoReportType.cs" />
     <Compile Include="Core\Types\RpoType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,6 +151,7 @@
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.ReceivedRpo.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.RpoFile.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.User.datasource" />
+    <None Include="Properties\DataSources\DwUtils.Core.Types.ReceiveRpoReportType.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Types.RpoType.datasource" />
     <None Include="Resources\Button-Settings.png" />
     <None Include="Resources\edit-11-24.png" />

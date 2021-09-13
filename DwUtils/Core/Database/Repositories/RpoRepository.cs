@@ -51,13 +51,13 @@ namespace DwUtils.Core.Database.Repositories
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
-        public List<ReceivedRpo> GetReceivedRpos(ReceivedRpoRequest request)
+        public List<ReceivedRpo> GetReceivedRpos(ReceiveRpoRequest request)
         {
             GetReceivedRpoQuery query = new GetReceivedRpoQuery(Connect, request, DebugMode);
             return query.Run();
         }
 
-        public async Task<List<ReceivedRpo>> GetReceivedRposAsync(ReceivedRpoRequest request)
+        public async Task<List<ReceivedRpo>> GetReceivedRposAsync(ReceiveRpoRequest request)
         {
             return await Task.Run(() => GetReceivedRpos(request));
         }

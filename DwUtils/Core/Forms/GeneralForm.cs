@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DwUtils.Core.Database;
 using DwUtils.Core.Database.Models;
 using DwUtils.Core.Database.Requests;
+using DwUtils.Core.Database.Requests.Types;
 using DwUtils.Core.Forms.ConnectForms;
 using DwUtils.Core.Forms.EditForms;
 using DwUtils.Core.PrintDocuments;
@@ -69,6 +70,7 @@ namespace DwUtils.Core.Forms
             _lkState = Properties.Settings.Default.LkApiUrl;
 
             rpoTypeBindingSource.DataSource = RpoType.GetRpoTypes();
+            receiveRpoReportTypeBindingSource.DataSource = ReceiveRpoReportType.GetReceiveRpoReportTypes();
 
             LoadData();
             //CheckLkState();
@@ -264,6 +266,13 @@ namespace DwUtils.Core.Forms
             // Received
             receivedColumnClientName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+            receivedColumnUserName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            receivedColumnHour.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            receivedColumnDocumentCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            receivedColumnDocumentCount.Width = 120;
+
             receivedColumnAllCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             receivedColumnAllCount.Width = 120;
 
@@ -383,6 +392,36 @@ namespace DwUtils.Core.Forms
             dropdownMenu.Show(control, control.Top, control.Height);
         }
 
+        private void ReceivedReportTypeChange(ReceiveRpoRequestType type)
+        {
+            if (type == ReceiveRpoRequestType.Общий)
+            {
+                receivedColumnDocumentCount.Visible = false;
+                receivedColumnUserName.Visible = false;
+                receivedColumnHour.Visible = false;
+
+                receivedColumnClientName.Visible = true;
+            }
+
+            if (type == ReceiveRpoRequestType.ПоОператорам)
+            {
+                receivedColumnDocumentCount.Visible = true;
+                receivedColumnUserName.Visible = true;
+
+                receivedColumnHour.Visible = false;
+                receivedColumnClientName.Visible = false;
+            }
+
+            if (type == ReceiveRpoRequestType.ПоЧасам)
+            {
+                receivedColumnHour.Visible = true;
+                receivedColumnDocumentCount.Visible = true;
+                
+                receivedColumnUserName.Visible = false;
+                receivedColumnClientName.Visible = false;
+            }
+        }
+
         private int GetPrintDocumentPageCount(ReceivePrintDocument document)
         {
             int count = 0;
@@ -392,19 +431,32 @@ namespace DwUtils.Core.Forms
             return count;
         }
 
-        private async Task<ReceivePrintDocument> GetReceivePrintDocument(List<ReceivedRpo> rpos, ReceiveRpoStat stat, User user, string date)
+        private async Task<ReceivePrintDocument> GetReceivePrintDocument(List<ReceivedRpo> rpos, ReceiveRpoStat stat, User user, string date, ReceiveRpoRequestType type)
         {
             return await Task.Run(() =>
             {
-                int[] columnWidth = { 270, 140, 100, 100, 160 };
                 PrintController printController = new StandardPrintController();
 
-                ReceivePrintDocument document = new ReceivePrintDocument(rpos, columnWidth, stat)
+                string reportTitle = "ОТЧЕТ НА ВРУЧЕНИЕ";
+                string reportSubTitle = $"Период: {date}, Оператор: {user.Name}";
+
+                List<User> users = (List<User>) userBindingSource.DataSource;
+
+                if (type == ReceiveRpoRequestType.ПоОператорам)
+                {
+                    reportTitle = "ОТЧЕТ НА ВРУЧЕНИЕ ПО ОПЕРАТОРАМ";
+                    reportSubTitle = $"Период: {date}";
+                }
+
+                if (type == ReceiveRpoRequestType.ПоЧасам)
+                    reportTitle = "ОТЧЕТ НА ВРУЧЕНИЕ ПО ЧАСАМ";
+
+                ReceivePrintDocument document = new ReceivePrintDocument(rpos, stat, type, users)
                 {
                     PrintNumPageInfo = true,
                     PrintLogo = true,
-                    ReportTitle = "ОТЧЕТ НА ВРУЧЕНИЕ",
-                    ReportSubTitle = $"Период: {date}, Оператор: {user.Name}"
+                    ReportTitle = reportTitle,
+                    ReportSubTitle = reportSubTitle
                 };
 
                 int count = GetPrintDocumentPageCount(document);
@@ -634,9 +686,14 @@ namespace DwUtils.Core.Forms
             receivedLabelReturnPay.Text = "0,00 ₽";
             receivedRpoBindingSource.DataSource = null;
             _receivePrintDocument = null;
+            btnLoadReceived.Enabled = false;
             btnPrintReceived.Enabled = false;
 
             User user = (User) receivedComboBoxUsers.SelectedItem;
+            List<User> users = (List<User>) userBindingSource.DataSource;
+
+            ReceiveRpoReportType reportType = (ReceiveRpoReportType) receivedComboBoxReportType.SelectedItem;
+
             DateTime start;
             DateTime end;
             string dateString = "";
@@ -655,17 +712,28 @@ namespace DwUtils.Core.Forms
                 dateString = start == end ? $"{start:dd.MM.yyyy}" : $"{start:dd.MM.yyyy} - {end:dd.MM.yyyy}";
             }
 
-            ReceivedRpoRequest request = new ReceivedRpoRequest
+            ReceiveRpoRequest request = new ReceiveRpoRequest
             {
                 UserId = user.Id,
                 StartDate = start,
                 EndDate = end
             };
 
+            if (users != null)
+                request.Users = users;
+
+            if (reportType != null)
+                request.Type = reportType.Type;
+
             List<ReceivedRpo> rpos = await _database.Rpos.GetReceivedRposAsync(request);
             receivedRpoBindingSource.DataSource = rpos.ToSortableBindingList();
 
-            receivedDataGridView.Sort(receivedColumnClientName, ListSortDirection.Ascending);
+            if(request.Type == ReceiveRpoRequestType.Общий)
+                receivedDataGridView.Sort(receivedColumnClientName, ListSortDirection.Ascending);
+            if(request.Type == ReceiveRpoRequestType.ПоЧасам)
+                receivedDataGridView.Sort(receivedColumnHour, ListSortDirection.Ascending);
+            if(request.Type == ReceiveRpoRequestType.ПоОператорам)
+                receivedDataGridView.Sort(receivedColumnUserName, ListSortDirection.Ascending);
 
             ReceiveRpoStat stat = new ReceiveRpoStat(rpos) { ReplaceNull = true };
 
@@ -677,10 +745,12 @@ namespace DwUtils.Core.Forms
 
             if (rpos.Count > 0)
             {
+                ReceivedReportTypeChange(request.Type);
+                _receivePrintDocument = await GetReceivePrintDocument(rpos, stat, user, dateString, request.Type);
                 btnPrintReceived.Enabled = true;
-                _receivePrintDocument = await GetReceivePrintDocument(rpos, stat, user, dateString);
             }
 
+            btnLoadReceived.Enabled = true;
             SuccessMessage("РПО на доставку - загружены!");
         }
 
@@ -688,6 +758,8 @@ namespace DwUtils.Core.Forms
         {
             btnPrintReceived.Enabled = false;
 
+            List<ReceivedRpo> rpos = ((SortableBindingList<ReceivedRpo>) receivedRpoBindingSource.DataSource).ToList();
+            _receivePrintDocument.SetRpos(rpos);
             _receivePrintDocument?.Print();
 
             btnPrintReceived.Enabled = true;
