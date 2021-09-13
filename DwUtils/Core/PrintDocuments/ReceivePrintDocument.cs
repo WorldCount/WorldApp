@@ -13,6 +13,7 @@ namespace DwUtils.Core.PrintDocuments
 {
     public class ReceivePrintDocument : PrintDocument
     {
+        
         #region Private Fields
 
         private readonly List<ReceivedRpo> _rpos;
@@ -225,7 +226,6 @@ namespace DwUtils.Core.PrintDocuments
         }
 
         #endregion
-
 
         #region Overrides Methods
 
