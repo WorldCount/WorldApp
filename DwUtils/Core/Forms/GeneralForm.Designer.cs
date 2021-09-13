@@ -1158,6 +1158,7 @@ namespace DwUtils.Core.Forms
             this.btnPrintReceived.BorderSize = 0;
             this.btnPrintReceived.DisableBackColor = System.Drawing.Color.DimGray;
             this.btnPrintReceived.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnPrintReceived.Enabled = false;
             this.btnPrintReceived.FlatAppearance.BorderSize = 0;
             this.btnPrintReceived.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.btnPrintReceived.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1174,6 +1175,7 @@ namespace DwUtils.Core.Forms
             this.btnPrintReceived.TabStop = false;
             this.btnPrintReceived.TextColor = System.Drawing.Color.White;
             this.btnPrintReceived.UseVisualStyleBackColor = false;
+            this.btnPrintReceived.Click += new System.EventHandler(this.btnPrintReceived_Click);
             // 
             // btnLoadReceived
             // 

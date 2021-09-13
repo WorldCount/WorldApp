@@ -134,6 +134,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>FormsPosition.settings</DependentUpon>
     </Compile>
+    <Compile Include="Core\PrintDocuments\Pens\PrintPens.cs" />
+    <Compile Include="Core\PrintDocuments\ReceivePrintDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\Stats\ReceiveRpoStat.cs" />
     <Compile Include="Core\Storage\PathManager.cs" />
     <Compile Include="Core\Types\RpoType.cs" />
     <Compile Include="Program.cs" />
