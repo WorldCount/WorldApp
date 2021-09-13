@@ -684,6 +684,15 @@ namespace DwUtils.Core.Forms
             SuccessMessage("РПО на доставку - загружены!");
         }
 
+        private void btnPrintReceived_Click(object sender, EventArgs e)
+        {
+            btnPrintReceived.Enabled = false;
+
+            _receivePrintDocument?.Print();
+
+            btnPrintReceived.Enabled = true;
+        }
+
         #endregion
 
         #region DataGrid Events
@@ -874,15 +883,6 @@ namespace DwUtils.Core.Forms
         private void btnTest_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_database.Documents.GenDocumentNum(101, 12), "Номер накладной");
-        }
-
-        private void btnPrintReceived_Click(object sender, EventArgs e)
-        {
-            btnPrintReceived.Enabled = false;
-
-            _receivePrintDocument?.Print();
-
-            btnPrintReceived.Enabled = true;
         }
     }
 }
