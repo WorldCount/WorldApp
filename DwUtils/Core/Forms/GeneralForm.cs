@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -10,6 +11,8 @@ using DwUtils.Core.Database.Models;
 using DwUtils.Core.Database.Requests;
 using DwUtils.Core.Forms.ConnectForms;
 using DwUtils.Core.Forms.EditForms;
+using DwUtils.Core.PrintDocuments;
+using DwUtils.Core.Stats;
 using DwUtils.Core.Types;
 using Wc32Api.Extensions.Bindings;
 using Wc32Api.Widgets.Menus;
@@ -26,6 +29,7 @@ namespace DwUtils.Core.Forms
         private string _lkState;
         private List<User> _users;
         private List<Place> _places;
+        private ReceivePrintDocument _receivePrintDocument;
 
         #endregion
 
@@ -379,6 +383,38 @@ namespace DwUtils.Core.Forms
             dropdownMenu.Show(control, control.Top, control.Height);
         }
 
+        private int GetPrintDocumentPageCount(ReceivePrintDocument document)
+        {
+            int count = 0;
+            document.PrintController = new PreviewPrintController();
+            document.PrintPage += (s, e) => count++;
+            document.Print();
+            return count;
+        }
+
+        private async Task<ReceivePrintDocument> GetReceivePrintDocument(List<ReceivedRpo> rpos, ReceiveRpoStat stat, User user, string date)
+        {
+            return await Task.Run(() =>
+            {
+                int[] columnWidth = { 270, 140, 100, 100, 160 };
+                PrintController printController = new StandardPrintController();
+
+                ReceivePrintDocument document = new ReceivePrintDocument(rpos, columnWidth, stat)
+                {
+                    PrintNumPageInfo = true,
+                    PrintLogo = true,
+                    ReportTitle = "ОТЧЕТ НА ВРУЧЕНИЕ",
+                    ReportSubTitle = $"Период: {date}, Оператор: {user.Name}"
+                };
+
+                int count = GetPrintDocumentPageCount(document);
+                document.PagesCount = count;
+                document.PrintController = printController;
+
+                return document;
+            });
+        }
+
         #endregion
 
         #region Menu Events
@@ -597,25 +633,31 @@ namespace DwUtils.Core.Forms
             receivedLabelReturnCount.Text = "0";
             receivedLabelReturnPay.Text = "0,00 ₽";
             receivedRpoBindingSource.DataSource = null;
+            _receivePrintDocument = null;
+            btnPrintReceived.Enabled = false;
 
+            User user = (User) receivedComboBoxUsers.SelectedItem;
             DateTime start;
             DateTime end;
+            string dateString = "";
 
             if (receivedDateTimePickerMonth.Visible)
             {
                 DateTime date = receivedDateTimePickerMonth.Value;
                 start = WcApi.Date.DateUtils.CropDate(date, day: 1);
                 end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+                dateString = WcApi.Date.DateUtils.GetMonthName(receivedDateTimePickerMonth.Value);
             }
             else
             {
                 start = WcApi.Date.DateUtils.CropTime(receivedDateTimePickerStart.Value);
                 end = WcApi.Date.DateUtils.CropTime(receivedDateTimePickerEnd.Value);
+                dateString = start == end ? $"{start:dd.MM.yyyy}" : $"{start:dd.MM.yyyy} - {end:dd.MM.yyyy}";
             }
 
             ReceivedRpoRequest request = new ReceivedRpoRequest
             {
-                UserId = ((User)receivedComboBoxUsers.SelectedItem).Id,
+                UserId = user.Id,
                 StartDate = start,
                 EndDate = end
             };
@@ -625,16 +667,21 @@ namespace DwUtils.Core.Forms
 
             receivedDataGridView.Sort(receivedColumnClientName, ListSortDirection.Ascending);
 
-            if (rpos != null)
-            {
-                receivedLabelPosCount.Text = rpos.Count.ToString();
-                receivedLabelAllCount.Text = rpos.Sum(r => r.AllCount).ToString();
-                receivedLabelReceiveCount.Text = rpos.Sum(r => r.ReceivedCount).ToString();
-                receivedLabelReturnCount.Text = rpos.Sum(r => r.ReturnCount).ToString();
-                receivedLabelReturnPay.Text = rpos.Sum(r => r.ReturnPay).ToString("C");
+            ReceiveRpoStat stat = new ReceiveRpoStat(rpos) { ReplaceNull = true };
 
-                SuccessMessage("РПО на доставку - загружены!");
+            receivedLabelPosCount.Text = stat.PosCount;
+            receivedLabelAllCount.Text = stat.AllCount;
+            receivedLabelReceiveCount.Text = stat.ReceiveCount;
+            receivedLabelReturnCount.Text = stat.ReturnCount;
+            receivedLabelReturnPay.Text = stat.GetReturnPayToFormat();
+
+            if (rpos.Count > 0)
+            {
+                btnPrintReceived.Enabled = true;
+                _receivePrintDocument = await GetReceivePrintDocument(rpos, stat, user, dateString);
             }
+
+            SuccessMessage("РПО на доставку - загружены!");
         }
 
         #endregion
@@ -827,6 +874,15 @@ namespace DwUtils.Core.Forms
         private void btnTest_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_database.Documents.GenDocumentNum(101, 12), "Номер накладной");
+        }
+
+        private void btnPrintReceived_Click(object sender, EventArgs e)
+        {
+            btnPrintReceived.Enabled = false;
+
+            _receivePrintDocument?.Print();
+
+            btnPrintReceived.Enabled = true;
         }
     }
 }
