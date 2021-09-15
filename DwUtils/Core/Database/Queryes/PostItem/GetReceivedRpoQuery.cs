@@ -38,7 +38,7 @@ namespace DwUtils.Core.Database.Queryes.PostItem
             sb.Append("select UPPER(client), count(extcode), count(case when psissuetypeid=1 then 1 else null end),");
             sb.Append(" count(case when psissuetypeid=2 then 1 else null end), sum(paysum) from doc");
             sb.Append(" left join docval v on doc.docid = v.docid");
-            sb.Append(" where v.docstateid = 1 and doc.client is not null and doc.lastdocvalid != 2 and v.docvalid = 1");
+            sb.Append(" where v.docstateid = 1 and doc.client is not null and v.docvalid != 2 and doc.postofficef30 is null");
             sb.Append($" and doc.docdate >= '{_request.StartDate:dd.MM.yyyy}'  and doc.docdate < '{_request.EndDate.AddDays(1):dd.MM.yyyy}'");
 
             if (_request.UserId != 0)
@@ -55,7 +55,7 @@ namespace DwUtils.Core.Database.Queryes.PostItem
             sb.Append("select v.createuserid, count(distinct client), count(extcode), count(case when psissuetypeid=1 then 1 else null end),");
             sb.Append(" count(case when psissuetypeid=2 then 1 else null end), sum(paysum)");
             sb.Append(" from doc left join docval v on doc.docid = v.docid");
-            sb.Append(" where v.docstateid = 1 and doc.client is not null and doc.lastdocvalid != 2 and v.docvalid = 1");
+            sb.Append(" where v.docstateid = 1 and doc.client is not null and v.docvalid != 2 and doc.postofficef30 is null");
             sb.Append($" and doc.docdate >= '{_request.StartDate:dd.MM.yyyy}'  and doc.docdate < '{_request.EndDate.AddDays(1):dd.MM.yyyy}'");
             sb.Append(" group by v.createuserid");
 
@@ -68,7 +68,7 @@ namespace DwUtils.Core.Database.Queryes.PostItem
             sb.Append("select extract(hour from v.createtime), count(distinct client), count(extcode),");
             sb.Append(" count(case when psissuetypeid=1 then 1 else null end), count(case when psissuetypeid=2 then 1 else null end),");
             sb.Append(" sum(paysum) from doc left join docval v on doc.docid = v.docid");
-            sb.Append(" where v.docstateid = 1 and doc.client is not null and doc.lastdocvalid != 2 and v.docvalid = 1");
+            sb.Append(" where v.docstateid = 1 and doc.client is not null and v.docvalid != 2 and doc.postofficef30 is null");
             sb.Append($" and doc.docdate >= '{_request.StartDate:dd.MM.yyyy}'  and doc.docdate < '{_request.EndDate.AddDays(1):dd.MM.yyyy}'");
 
             if (_request.UserId != 0)
