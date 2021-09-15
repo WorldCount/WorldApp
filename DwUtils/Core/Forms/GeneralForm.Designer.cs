@@ -117,6 +117,8 @@ namespace DwUtils.Core.Forms
             this.receivedDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.receivedDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.receivedDateTimePickerMonth = new System.Windows.Forms.DateTimePicker();
+            this.receivedBtnDateMinus = new Wc32Api.Widgets.Buttons.WcButton();
+            this.receivedBtnDatePlus = new Wc32Api.Widgets.Buttons.WcButton();
             this.panelReceivedL1 = new System.Windows.Forms.Panel();
             this.btnPrintReceived = new Wc32Api.Widgets.Buttons.WcButton();
             this.btnLoadReceived = new Wc32Api.Widgets.Buttons.WcButton();
@@ -1099,6 +1101,8 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelReceivedL2.Controls.Add(this.receivedDateTimePickerStart);
             this.flowLayoutPanelReceivedL2.Controls.Add(this.receivedDateTimePickerEnd);
             this.flowLayoutPanelReceivedL2.Controls.Add(this.receivedDateTimePickerMonth);
+            this.flowLayoutPanelReceivedL2.Controls.Add(this.receivedBtnDateMinus);
+            this.flowLayoutPanelReceivedL2.Controls.Add(this.receivedBtnDatePlus);
             this.flowLayoutPanelReceivedL2.Location = new System.Drawing.Point(3, 5);
             this.flowLayoutPanelReceivedL2.Name = "flowLayoutPanelReceivedL2";
             this.flowLayoutPanelReceivedL2.Size = new System.Drawing.Size(989, 34);
@@ -1175,6 +1179,56 @@ namespace DwUtils.Core.Forms
             this.receivedDateTimePickerMonth.Size = new System.Drawing.Size(220, 29);
             this.receivedDateTimePickerMonth.TabIndex = 35;
             this.receivedDateTimePickerMonth.Visible = false;
+            // 
+            // receivedBtnDateMinus
+            // 
+            this.receivedBtnDateMinus.BackColor = System.Drawing.Color.Firebrick;
+            this.receivedBtnDateMinus.BorderColor = System.Drawing.Color.Silver;
+            this.receivedBtnDateMinus.BorderRadius = 4F;
+            this.receivedBtnDateMinus.BorderSize = 0;
+            this.receivedBtnDateMinus.DisableBackColor = System.Drawing.Color.DimGray;
+            this.receivedBtnDateMinus.DisableBorderColor = System.Drawing.Color.Silver;
+            this.receivedBtnDateMinus.FlatAppearance.BorderSize = 0;
+            this.receivedBtnDateMinus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.receivedBtnDateMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.receivedBtnDateMinus.ForeColor = System.Drawing.Color.White;
+            this.receivedBtnDateMinus.Image = global::DwUtils.Properties.Resources.minus_16;
+            this.receivedBtnDateMinus.Location = new System.Drawing.Point(764, 3);
+            this.receivedBtnDateMinus.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.receivedBtnDateMinus.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.receivedBtnDateMinus.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.receivedBtnDateMinus.Name = "receivedBtnDateMinus";
+            this.receivedBtnDateMinus.Padding = new System.Windows.Forms.Padding(0, 3, 0, 2);
+            this.receivedBtnDateMinus.Size = new System.Drawing.Size(28, 28);
+            this.receivedBtnDateMinus.TabIndex = 38;
+            this.receivedBtnDateMinus.TextColor = System.Drawing.Color.White;
+            this.receivedBtnDateMinus.UseVisualStyleBackColor = false;
+            this.receivedBtnDateMinus.Click += new System.EventHandler(this.receivedBtnDateMinus_Click);
+            // 
+            // receivedBtnDatePlus
+            // 
+            this.receivedBtnDatePlus.BackColor = System.Drawing.Color.SeaGreen;
+            this.receivedBtnDatePlus.BorderColor = System.Drawing.Color.Silver;
+            this.receivedBtnDatePlus.BorderRadius = 4F;
+            this.receivedBtnDatePlus.BorderSize = 0;
+            this.receivedBtnDatePlus.DisableBackColor = System.Drawing.Color.DimGray;
+            this.receivedBtnDatePlus.DisableBorderColor = System.Drawing.Color.Silver;
+            this.receivedBtnDatePlus.FlatAppearance.BorderSize = 0;
+            this.receivedBtnDatePlus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.receivedBtnDatePlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.receivedBtnDatePlus.ForeColor = System.Drawing.Color.White;
+            this.receivedBtnDatePlus.Image = global::DwUtils.Properties.Resources.plus_16;
+            this.receivedBtnDatePlus.Location = new System.Drawing.Point(792, 3);
+            this.receivedBtnDatePlus.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.receivedBtnDatePlus.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.receivedBtnDatePlus.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.receivedBtnDatePlus.Name = "receivedBtnDatePlus";
+            this.receivedBtnDatePlus.Padding = new System.Windows.Forms.Padding(0, 3, 0, 2);
+            this.receivedBtnDatePlus.Size = new System.Drawing.Size(28, 28);
+            this.receivedBtnDatePlus.TabIndex = 37;
+            this.receivedBtnDatePlus.TextColor = System.Drawing.Color.White;
+            this.receivedBtnDatePlus.UseVisualStyleBackColor = false;
+            this.receivedBtnDatePlus.Click += new System.EventHandler(this.receivedBtnDatePlus_Click);
             // 
             // panelReceivedL1
             // 
@@ -2061,7 +2115,8 @@ namespace DwUtils.Core.Forms
             this.comboBoxPrinters.Location = new System.Drawing.Point(256, 17);
             this.comboBoxPrinters.Name = "comboBoxPrinters";
             this.comboBoxPrinters.Size = new System.Drawing.Size(225, 25);
-            this.comboBoxPrinters.TabIndex = 3;
+            this.comboBoxPrinters.TabIndex = 0;
+            this.comboBoxPrinters.TabStop = false;
             this.comboBoxPrinters.SelectedIndexChanged += new System.EventHandler(this.comboBoxPrinters_SelectedIndexChanged);
             // 
             // lblInfoPrinter
@@ -2073,7 +2128,7 @@ namespace DwUtils.Core.Forms
             this.lblInfoPrinter.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
             this.lblInfoPrinter.Name = "lblInfoPrinter";
             this.lblInfoPrinter.Size = new System.Drawing.Size(74, 20);
-            this.lblInfoPrinter.TabIndex = 2;
+            this.lblInfoPrinter.TabIndex = 0;
             this.lblInfoPrinter.Text = "Принтер:";
             // 
             // btnTest
@@ -2560,6 +2615,8 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.PictureBox deliveryPictureBox;
         private System.Windows.Forms.Label lblInfoPrinter;
         private System.Windows.Forms.ComboBox comboBoxPrinters;
+        private WcButton receivedBtnDatePlus;
+        private WcButton receivedBtnDateMinus;
     }
 }
 

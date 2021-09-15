@@ -1029,5 +1029,17 @@ namespace DwUtils.Core.Forms
         {
             MessageBox.Show(_database.Documents.GenDocumentNum(101, 12), "Номер накладной");
         }
+
+        private void receivedBtnDatePlus_Click(object sender, EventArgs e)
+        {
+            receivedDateTimePickerStart.Value = receivedDateTimePickerStart.Value.AddDays(1);
+            receivedDateTimePickerMonth.Value = receivedDateTimePickerMonth.Value.AddMonths(1);
+        }
+
+        private void receivedBtnDateMinus_Click(object sender, EventArgs e)
+        {
+            receivedDateTimePickerStart.Value = receivedDateTimePickerStart.Value.AddDays(-1);
+            receivedDateTimePickerMonth.Value = receivedDateTimePickerMonth.Value.AddMonths(-1);
+        }
     }
 }
