@@ -1,18 +1,17 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace DwUtils.Core.Forms
 {
     public partial class ConfigForm : Form
     {
-
         public ConfigForm()
         {
             InitializeComponent();
 
             // ReSharper disable once VirtualMemberCallInConstructor
             Text = $"{Properties.Settings.Default.AppName}: Настройки";
-
         }
 
         #region Private Methods
@@ -71,6 +70,12 @@ namespace DwUtils.Core.Forms
         private void form_Load(object sender, EventArgs e)
         {
             LoadConfigs();
+
+            if (!Properties.Settings.Default.IsAdmin)
+            {
+                lkTbApiUrl.ReadOnly = true;
+                lkTbApiUrl.BackColor = Color.Gainsboro;
+            }
         }
 
         #endregion

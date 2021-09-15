@@ -38,6 +38,7 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,7 +46,6 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -89,6 +89,14 @@ namespace DwUtils.Core.Forms
             this.freeRpoComboBoxRpoType = new System.Windows.Forms.ComboBox();
             this.tabReceived = new System.Windows.Forms.TabPage();
             this.receivedDataGridView = new System.Windows.Forms.DataGridView();
+            this.receivedColumnHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnDocumentCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnAllCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnReceivedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnReturnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receivedColumnReturnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.receivedRpoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.receivedPanelStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanelReceivedStat = new System.Windows.Forms.FlowLayoutPanel();
@@ -119,6 +127,7 @@ namespace DwUtils.Core.Forms
             this.receivedComboBoxReportType = new System.Windows.Forms.ComboBox();
             this.receiveRpoReportTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabDelivery = new System.Windows.Forms.TabPage();
+            this.deliveryPictureBox = new System.Windows.Forms.PictureBox();
             this.panelDeliveryL1 = new System.Windows.Forms.Panel();
             this.btnPrintDelivery = new Wc32Api.Widgets.Buttons.WcButton();
             this.btnLoadDelivery = new Wc32Api.Widgets.Buttons.WcButton();
@@ -184,14 +193,6 @@ namespace DwUtils.Core.Forms
             this.connectPostUnitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.receivedColumnHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedColumnUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedColumnDocumentCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedColumnClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedColumnAllCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedColumnReceivedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedColumnReturnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedColumnReturnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusBar.SuspendLayout();
             this.panelWork.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -218,6 +219,7 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelReceivedL1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.receiveRpoReportTypeBindingSource)).BeginInit();
             this.tabDelivery.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryPictureBox)).BeginInit();
             this.panelDeliveryL1.SuspendLayout();
             this.tabFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.filesDataGridView)).BeginInit();
@@ -868,6 +870,69 @@ namespace DwUtils.Core.Forms
             this.receivedDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.receivedDataGridView_CellFormatting);
             this.receivedDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             // 
+            // receivedColumnHour
+            // 
+            this.receivedColumnHour.DataPropertyName = "Hour";
+            this.receivedColumnHour.HeaderText = "Час";
+            this.receivedColumnHour.Name = "receivedColumnHour";
+            this.receivedColumnHour.ReadOnly = true;
+            this.receivedColumnHour.Visible = false;
+            // 
+            // receivedColumnUserName
+            // 
+            this.receivedColumnUserName.DataPropertyName = "UserName";
+            this.receivedColumnUserName.HeaderText = "Оператор";
+            this.receivedColumnUserName.Name = "receivedColumnUserName";
+            this.receivedColumnUserName.ReadOnly = true;
+            this.receivedColumnUserName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.receivedColumnUserName.Visible = false;
+            // 
+            // receivedColumnDocumentCount
+            // 
+            this.receivedColumnDocumentCount.DataPropertyName = "DocumentCount";
+            this.receivedColumnDocumentCount.HeaderText = "Организаций";
+            this.receivedColumnDocumentCount.Name = "receivedColumnDocumentCount";
+            this.receivedColumnDocumentCount.ReadOnly = true;
+            this.receivedColumnDocumentCount.Visible = false;
+            // 
+            // receivedColumnClientName
+            // 
+            this.receivedColumnClientName.DataPropertyName = "ClientName";
+            this.receivedColumnClientName.HeaderText = "Организация";
+            this.receivedColumnClientName.Name = "receivedColumnClientName";
+            this.receivedColumnClientName.ReadOnly = true;
+            // 
+            // receivedColumnAllCount
+            // 
+            this.receivedColumnAllCount.DataPropertyName = "AllCount";
+            this.receivedColumnAllCount.HeaderText = "Прибыло";
+            this.receivedColumnAllCount.Name = "receivedColumnAllCount";
+            this.receivedColumnAllCount.ReadOnly = true;
+            // 
+            // receivedColumnReceivedCount
+            // 
+            this.receivedColumnReceivedCount.DataPropertyName = "ReceivedCount";
+            this.receivedColumnReceivedCount.HeaderText = "Получателю";
+            this.receivedColumnReceivedCount.Name = "receivedColumnReceivedCount";
+            this.receivedColumnReceivedCount.ReadOnly = true;
+            // 
+            // receivedColumnReturnCount
+            // 
+            this.receivedColumnReturnCount.DataPropertyName = "ReturnCount";
+            this.receivedColumnReturnCount.HeaderText = "Возврат";
+            this.receivedColumnReturnCount.Name = "receivedColumnReturnCount";
+            this.receivedColumnReturnCount.ReadOnly = true;
+            // 
+            // receivedColumnReturnPay
+            // 
+            this.receivedColumnReturnPay.DataPropertyName = "ReturnPay";
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.receivedColumnReturnPay.DefaultCellStyle = dataGridViewCellStyle5;
+            this.receivedColumnReturnPay.HeaderText = "Плата за возврат";
+            this.receivedColumnReturnPay.Name = "receivedColumnReturnPay";
+            this.receivedColumnReturnPay.ReadOnly = true;
+            // 
             // receivedRpoBindingSource
             // 
             this.receivedRpoBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.ReceivedRpo);
@@ -1248,6 +1313,7 @@ namespace DwUtils.Core.Forms
             // 
             // tabDelivery
             // 
+            this.tabDelivery.Controls.Add(this.deliveryPictureBox);
             this.tabDelivery.Controls.Add(this.panelDeliveryL1);
             this.tabDelivery.Location = new System.Drawing.Point(4, 36);
             this.tabDelivery.Name = "tabDelivery";
@@ -1255,6 +1321,17 @@ namespace DwUtils.Core.Forms
             this.tabDelivery.TabIndex = 2;
             this.tabDelivery.Text = "Вручено";
             this.tabDelivery.UseVisualStyleBackColor = true;
+            // 
+            // deliveryPictureBox
+            // 
+            this.deliveryPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deliveryPictureBox.Image = global::DwUtils.Properties.Resources.no_result;
+            this.deliveryPictureBox.Location = new System.Drawing.Point(0, 48);
+            this.deliveryPictureBox.Name = "deliveryPictureBox";
+            this.deliveryPictureBox.Size = new System.Drawing.Size(1002, 325);
+            this.deliveryPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.deliveryPictureBox.TabIndex = 8;
+            this.deliveryPictureBox.TabStop = false;
             // 
             // panelDeliveryL1
             // 
@@ -2224,69 +2301,6 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
-            // receivedColumnHour
-            // 
-            this.receivedColumnHour.DataPropertyName = "Hour";
-            this.receivedColumnHour.HeaderText = "Час";
-            this.receivedColumnHour.Name = "receivedColumnHour";
-            this.receivedColumnHour.ReadOnly = true;
-            this.receivedColumnHour.Visible = false;
-            // 
-            // receivedColumnUserName
-            // 
-            this.receivedColumnUserName.DataPropertyName = "UserName";
-            this.receivedColumnUserName.HeaderText = "Оператор";
-            this.receivedColumnUserName.Name = "receivedColumnUserName";
-            this.receivedColumnUserName.ReadOnly = true;
-            this.receivedColumnUserName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.receivedColumnUserName.Visible = false;
-            // 
-            // receivedColumnDocumentCount
-            // 
-            this.receivedColumnDocumentCount.DataPropertyName = "DocumentCount";
-            this.receivedColumnDocumentCount.HeaderText = "Организаций";
-            this.receivedColumnDocumentCount.Name = "receivedColumnDocumentCount";
-            this.receivedColumnDocumentCount.ReadOnly = true;
-            this.receivedColumnDocumentCount.Visible = false;
-            // 
-            // receivedColumnClientName
-            // 
-            this.receivedColumnClientName.DataPropertyName = "ClientName";
-            this.receivedColumnClientName.HeaderText = "Организация";
-            this.receivedColumnClientName.Name = "receivedColumnClientName";
-            this.receivedColumnClientName.ReadOnly = true;
-            // 
-            // receivedColumnAllCount
-            // 
-            this.receivedColumnAllCount.DataPropertyName = "AllCount";
-            this.receivedColumnAllCount.HeaderText = "Прибыло";
-            this.receivedColumnAllCount.Name = "receivedColumnAllCount";
-            this.receivedColumnAllCount.ReadOnly = true;
-            // 
-            // receivedColumnReceivedCount
-            // 
-            this.receivedColumnReceivedCount.DataPropertyName = "ReceivedCount";
-            this.receivedColumnReceivedCount.HeaderText = "Получателю";
-            this.receivedColumnReceivedCount.Name = "receivedColumnReceivedCount";
-            this.receivedColumnReceivedCount.ReadOnly = true;
-            // 
-            // receivedColumnReturnCount
-            // 
-            this.receivedColumnReturnCount.DataPropertyName = "ReturnCount";
-            this.receivedColumnReturnCount.HeaderText = "Возврат";
-            this.receivedColumnReturnCount.Name = "receivedColumnReturnCount";
-            this.receivedColumnReturnCount.ReadOnly = true;
-            // 
-            // receivedColumnReturnPay
-            // 
-            this.receivedColumnReturnPay.DataPropertyName = "ReturnPay";
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.receivedColumnReturnPay.DefaultCellStyle = dataGridViewCellStyle5;
-            this.receivedColumnReturnPay.HeaderText = "Плата за возврат";
-            this.receivedColumnReturnPay.Name = "receivedColumnReturnPay";
-            this.receivedColumnReturnPay.ReadOnly = true;
-            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2339,6 +2353,7 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelReceivedL1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.receiveRpoReportTypeBindingSource)).EndInit();
             this.tabDelivery.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryPictureBox)).EndInit();
             this.panelDeliveryL1.ResumeLayout(false);
             this.tabFiles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.filesDataGridView)).EndInit();
@@ -2515,6 +2530,7 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnReceivedCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnReturnCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnReturnPay;
+        private System.Windows.Forms.PictureBox deliveryPictureBox;
     }
 }
 

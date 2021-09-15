@@ -106,5 +106,17 @@ namespace DwUtils.Properties {
                 this["LkApiUrl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsAdmin {
+            get {
+                return ((bool)(this["IsAdmin"]));
+            }
+            set {
+                this["IsAdmin"] = value;
+            }
+        }
     }
 }
