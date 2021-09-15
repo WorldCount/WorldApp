@@ -118,5 +118,17 @@ namespace DwUtils.Properties {
                 this["IsAdmin"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastPrinterName {
+            get {
+                return ((string)(this["LastPrinterName"]));
+            }
+            set {
+                this["LastPrinterName"] = value;
+            }
+        }
     }
 }

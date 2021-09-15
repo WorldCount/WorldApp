@@ -177,6 +177,8 @@ namespace DwUtils.Core.Forms
             this.btnLoadConnectedUser = new Wc32Api.Widgets.Buttons.WcButton();
             this.flowLayoutPanelOnline = new System.Windows.Forms.FlowLayoutPanel();
             this.panelGeneral = new System.Windows.Forms.Panel();
+            this.comboBoxPrinters = new System.Windows.Forms.ComboBox();
+            this.lblInfoPrinter = new System.Windows.Forms.Label();
             this.btnTest = new Wc32Api.Widgets.Buttons.WcButton();
             this.lblInfoDebug = new System.Windows.Forms.Label();
             this.toggleDebug = new Wc32Api.Widgets.Buttons.WcToggleButton();
@@ -2038,6 +2040,8 @@ namespace DwUtils.Core.Forms
             // panelGeneral
             // 
             this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelGeneral.Controls.Add(this.comboBoxPrinters);
+            this.panelGeneral.Controls.Add(this.lblInfoPrinter);
             this.panelGeneral.Controls.Add(this.btnTest);
             this.panelGeneral.Controls.Add(this.lblInfoDebug);
             this.panelGeneral.Controls.Add(this.toggleDebug);
@@ -2049,6 +2053,28 @@ namespace DwUtils.Core.Forms
             this.panelGeneral.Name = "panelGeneral";
             this.panelGeneral.Size = new System.Drawing.Size(1010, 58);
             this.panelGeneral.TabIndex = 0;
+            // 
+            // comboBoxPrinters
+            // 
+            this.comboBoxPrinters.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxPrinters.FormattingEnabled = true;
+            this.comboBoxPrinters.Location = new System.Drawing.Point(256, 17);
+            this.comboBoxPrinters.Name = "comboBoxPrinters";
+            this.comboBoxPrinters.Size = new System.Drawing.Size(225, 25);
+            this.comboBoxPrinters.TabIndex = 3;
+            this.comboBoxPrinters.SelectedIndexChanged += new System.EventHandler(this.comboBoxPrinters_SelectedIndexChanged);
+            // 
+            // lblInfoPrinter
+            // 
+            this.lblInfoPrinter.AutoSize = true;
+            this.lblInfoPrinter.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoPrinter.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblInfoPrinter.Location = new System.Drawing.Point(176, 19);
+            this.lblInfoPrinter.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.lblInfoPrinter.Name = "lblInfoPrinter";
+            this.lblInfoPrinter.Size = new System.Drawing.Size(74, 20);
+            this.lblInfoPrinter.TabIndex = 2;
+            this.lblInfoPrinter.Text = "Принтер:";
             // 
             // btnTest
             // 
@@ -2062,7 +2088,7 @@ namespace DwUtils.Core.Forms
             this.btnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTest.ForeColor = System.Drawing.Color.White;
-            this.btnTest.Location = new System.Drawing.Point(235, 9);
+            this.btnTest.Location = new System.Drawing.Point(668, 10);
             this.btnTest.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnTest.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnTest.Name = "btnTest";
@@ -2532,6 +2558,8 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnReturnCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnReturnPay;
         private System.Windows.Forms.PictureBox deliveryPictureBox;
+        private System.Windows.Forms.Label lblInfoPrinter;
+        private System.Windows.Forms.ComboBox comboBoxPrinters;
     }
 }
 

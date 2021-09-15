@@ -33,6 +33,7 @@ namespace DwUtils.Core.Forms
         private ReceivePrintDocument _receivePrintDocument;
         private bool _isAdmin;
         private bool _restore;
+        private string _printerName;
 
         #endregion
 
@@ -67,6 +68,8 @@ namespace DwUtils.Core.Forms
         {
             _debugMode = Properties.Settings.Default.DebugMode;
             _isAdmin = Properties.Settings.Default.IsAdmin;
+            _printerName = Properties.Settings.Default.LastPrinterName;
+
             _database = new Db(_debugMode);
             toggleDebug.Checked = Properties.Settings.Default.DebugMode;
 
@@ -76,6 +79,8 @@ namespace DwUtils.Core.Forms
             tabControl.SelectedIndex = lastTabIndex >= tabControl.TabCount ? 0 : lastTabIndex;
 
             _lkState = Properties.Settings.Default.LkApiUrl;
+
+            SetPrinterSettings();
 
             rpoTypeBindingSource.DataSource = RpoType.GetRpoTypes();
             receiveRpoReportTypeBindingSource.DataSource = ReceiveRpoReportType.GetReceiveRpoReportTypes();
@@ -89,6 +94,10 @@ namespace DwUtils.Core.Forms
         {
             Properties.Settings.Default.LastTabIndex = tabControl.SelectedIndex;
             Properties.Settings.Default.IsAdmin = false;
+
+            if (!string.IsNullOrEmpty(_printerName))
+                Properties.Settings.Default.LastPrinterName = _printerName;
+
             Properties.Settings.Default.Save();
 
             if (_database != null && !string.IsNullOrEmpty(_lkState))
@@ -239,6 +248,22 @@ namespace DwUtils.Core.Forms
         #endregion
 
         #region Private Methods
+
+        private void SetPrinterSettings()
+        {
+            PrinterSettings.StringCollection printers = PrinterSettings.InstalledPrinters;
+            PrinterSettings printerSettings = new PrinterSettings();
+
+            foreach (string printer in printers)
+                comboBoxPrinters.Items.Add(printer);
+
+            if (!string.IsNullOrEmpty(_printerName) || comboBoxPrinters.FindString(_printerName) > -1)
+                printerSettings.PrinterName = _printerName;
+
+            int index = comboBoxPrinters.FindString(printerSettings.PrinterName);
+            if (index != -1)
+                comboBoxPrinters.SelectedIndex = index;
+        }
 
         private void HideShowAdminWidgets()
         {
@@ -494,6 +519,8 @@ namespace DwUtils.Core.Forms
                 int count = GetPrintDocumentPageCount(document);
                 document.PagesCount = count;
                 document.PrintController = printController;
+
+                document.PrinterSettings.Duplex = Duplex.Simplex;
 
                 return document;
             });
@@ -792,6 +819,11 @@ namespace DwUtils.Core.Forms
 
             List<ReceivedRpo> rpos = ((SortableBindingList<ReceivedRpo>) receivedRpoBindingSource.DataSource).ToList();
             _receivePrintDocument.SetRpos(rpos);
+
+            string printerName = (string) comboBoxPrinters.SelectedItem;
+            if (!string.IsNullOrEmpty(printerName))
+                _receivePrintDocument.PrinterSettings.PrinterName = printerName;
+
             _receivePrintDocument?.Print();
 
             btnPrintReceived.Enabled = true;
@@ -980,6 +1012,15 @@ namespace DwUtils.Core.Forms
         private void receivedDateTimePickerStart_ValueChanged(object sender, EventArgs e)
         {
             receivedDateTimePickerEnd.Value = receivedDateTimePickerStart.Value;
+        }
+
+        #endregion
+
+        #region Other Events
+
+        private void comboBoxPrinters_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _printerName = (string)comboBoxPrinters.SelectedItem;
         }
 
         #endregion
