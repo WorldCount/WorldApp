@@ -824,8 +824,11 @@ namespace DwUtils.Core.Forms
             if (!string.IsNullOrEmpty(printerName))
                 _receivePrintDocument.PrinterSettings.PrinterName = printerName;
 
+
+            _receivePrintDocument.PrinterSettings.Copies = (short) numericUpDownCopies.Value;
             _receivePrintDocument?.Print();
 
+            numericUpDownCopies.Value = 1;
             btnPrintReceived.Enabled = true;
         }
 
