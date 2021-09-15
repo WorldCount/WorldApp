@@ -31,6 +31,8 @@ namespace DwUtils.Core.Forms
         private List<User> _users;
         private List<Place> _places;
         private ReceivePrintDocument _receivePrintDocument;
+        private bool _isAdmin;
+        private bool _restore;
 
         #endregion
 
@@ -48,6 +50,9 @@ namespace DwUtils.Core.Forms
 
             Wc32Api.DrawingControl.SetDoubleBuffered(panelWork);
 
+            // Чтение аргументов
+            CheckArgs();
+
             // Настройка таблиц
             InitTables();
 
@@ -61,8 +66,11 @@ namespace DwUtils.Core.Forms
         private void LoadSettings()
         {
             _debugMode = Properties.Settings.Default.DebugMode;
+            _isAdmin = Properties.Settings.Default.IsAdmin;
             _database = new Db(_debugMode);
             toggleDebug.Checked = Properties.Settings.Default.DebugMode;
+
+            HideShowAdminWidgets();
 
             int lastTabIndex = Properties.Settings.Default.LastTabIndex;
             tabControl.SelectedIndex = lastTabIndex >= tabControl.TabCount ? 0 : lastTabIndex;
@@ -80,6 +88,7 @@ namespace DwUtils.Core.Forms
         private void SaveSettings()
         {
             Properties.Settings.Default.LastTabIndex = tabControl.SelectedIndex;
+            Properties.Settings.Default.IsAdmin = false;
             Properties.Settings.Default.Save();
 
             if (_database != null && !string.IsNullOrEmpty(_lkState))
@@ -99,6 +108,13 @@ namespace DwUtils.Core.Forms
         // Загрузка расположения окна
         private void LoadPos()
         {
+
+            if (_restore)
+            {
+                CenterToScreen();
+                return;
+            }
+
             int width = Settings.FormsPosition.Default.GeneralFormSize.Width;
             int height = Settings.FormsPosition.Default.GeneralFormSize.Height;
 
@@ -147,15 +163,19 @@ namespace DwUtils.Core.Forms
 
             // Восстановление положения окна
             if (args.Contains("-restore"))
-                CenterToScreen();
+                _restore = true;
+
+            if (args.Contains("-admin"))
+            {
+                Properties.Settings.Default.IsAdmin = true;
+                Properties.Settings.Default.Save();
+            }
+                
         }
 
         private void form_Load(object sender, EventArgs e)
         {
             LoadPos();
-
-            // Чтение аргументов
-            CheckArgs();
         }
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)
@@ -219,6 +239,18 @@ namespace DwUtils.Core.Forms
         #endregion
 
         #region Private Methods
+
+        private void HideShowAdminWidgets()
+        {
+            if (!_isAdmin)
+            {
+                tabControl.TabPages.Remove(tabFreeRpo);
+            }
+
+            labelInfoLoadLk.Visible = _isAdmin;
+            toggleLoadLk.Visible = _isAdmin;
+            receivedComboBoxReportType.Enabled = _isAdmin;
+        }
 
         private void InitTables()
         {
