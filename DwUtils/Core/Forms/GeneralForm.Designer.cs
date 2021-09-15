@@ -197,6 +197,8 @@ namespace DwUtils.Core.Forms
             this.connectPostUnitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblInfoCopies = new System.Windows.Forms.Label();
+            this.numericUpDownCopies = new System.Windows.Forms.NumericUpDown();
             this.statusBar.SuspendLayout();
             this.panelWork.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -245,6 +247,7 @@ namespace DwUtils.Core.Forms
             this.panelMenu.SuspendLayout();
             this.wcDropdownMenuFile.SuspendLayout();
             this.wcDropdownMenuSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).BeginInit();
             this.SuspendLayout();
             // 
             // statusBar
@@ -2094,11 +2097,11 @@ namespace DwUtils.Core.Forms
             // panelGeneral
             // 
             this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelGeneral.Controls.Add(this.numericUpDownCopies);
+            this.panelGeneral.Controls.Add(this.lblInfoCopies);
             this.panelGeneral.Controls.Add(this.comboBoxPrinters);
             this.panelGeneral.Controls.Add(this.lblInfoPrinter);
             this.panelGeneral.Controls.Add(this.btnTest);
-            this.panelGeneral.Controls.Add(this.lblInfoDebug);
-            this.panelGeneral.Controls.Add(this.toggleDebug);
             this.panelGeneral.Controls.Add(this.labelInfoLoadLk);
             this.panelGeneral.Controls.Add(this.toggleLoadLk);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2112,7 +2115,7 @@ namespace DwUtils.Core.Forms
             // 
             this.comboBoxPrinters.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxPrinters.FormattingEnabled = true;
-            this.comboBoxPrinters.Location = new System.Drawing.Point(256, 17);
+            this.comboBoxPrinters.Location = new System.Drawing.Point(95, 17);
             this.comboBoxPrinters.Name = "comboBoxPrinters";
             this.comboBoxPrinters.Size = new System.Drawing.Size(225, 25);
             this.comboBoxPrinters.TabIndex = 0;
@@ -2124,7 +2127,7 @@ namespace DwUtils.Core.Forms
             this.lblInfoPrinter.AutoSize = true;
             this.lblInfoPrinter.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblInfoPrinter.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblInfoPrinter.Location = new System.Drawing.Point(176, 19);
+            this.lblInfoPrinter.Location = new System.Drawing.Point(15, 19);
             this.lblInfoPrinter.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
             this.lblInfoPrinter.Name = "lblInfoPrinter";
             this.lblInfoPrinter.Size = new System.Drawing.Size(74, 20);
@@ -2158,10 +2161,11 @@ namespace DwUtils.Core.Forms
             // 
             // lblInfoDebug
             // 
+            this.lblInfoDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblInfoDebug.AutoSize = true;
             this.lblInfoDebug.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblInfoDebug.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblInfoDebug.Location = new System.Drawing.Point(15, 18);
+            this.lblInfoDebug.Location = new System.Drawing.Point(874, 11);
             this.lblInfoDebug.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
             this.lblInfoDebug.Name = "lblInfoDebug";
             this.lblInfoDebug.Size = new System.Drawing.Size(71, 20);
@@ -2170,10 +2174,11 @@ namespace DwUtils.Core.Forms
             // 
             // toggleDebug
             // 
+            this.toggleDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.toggleDebug.AutoSize = true;
             this.toggleDebug.DisableBackColor = System.Drawing.Color.DimGray;
             this.toggleDebug.DisableToggleColor = System.Drawing.Color.Gray;
-            this.toggleDebug.Location = new System.Drawing.Point(92, 18);
+            this.toggleDebug.Location = new System.Drawing.Point(951, 10);
             this.toggleDebug.MinimumSize = new System.Drawing.Size(45, 22);
             this.toggleDebug.Name = "toggleDebug";
             this.toggleDebug.OffBackColor = System.Drawing.Color.Firebrick;
@@ -2226,6 +2231,8 @@ namespace DwUtils.Core.Forms
             this.panelMenu.Controls.Add(this.infosMenuItem);
             this.panelMenu.Controls.Add(this.settingsMenuItem);
             this.panelMenu.Controls.Add(this.fileMenuItem);
+            this.panelMenu.Controls.Add(this.lblInfoDebug);
+            this.panelMenu.Controls.Add(this.toggleDebug);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
@@ -2383,6 +2390,31 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
+            // lblInfoCopies
+            // 
+            this.lblInfoCopies.AutoSize = true;
+            this.lblInfoCopies.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoCopies.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblInfoCopies.Location = new System.Drawing.Point(338, 19);
+            this.lblInfoCopies.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.lblInfoCopies.Name = "lblInfoCopies";
+            this.lblInfoCopies.Size = new System.Drawing.Size(58, 20);
+            this.lblInfoCopies.TabIndex = 0;
+            this.lblInfoCopies.Text = "Копий:";
+            // 
+            // numericUpDownCopies
+            // 
+            this.numericUpDownCopies.Location = new System.Drawing.Point(402, 17);
+            this.numericUpDownCopies.Name = "numericUpDownCopies";
+            this.numericUpDownCopies.Size = new System.Drawing.Size(50, 25);
+            this.numericUpDownCopies.TabIndex = 0;
+            this.numericUpDownCopies.TabStop = false;
+            this.numericUpDownCopies.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2460,8 +2492,10 @@ namespace DwUtils.Core.Forms
             this.panelGeneral.ResumeLayout(false);
             this.panelGeneral.PerformLayout();
             this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
             this.wcDropdownMenuFile.ResumeLayout(false);
             this.wcDropdownMenuSettings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2617,6 +2651,8 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.ComboBox comboBoxPrinters;
         private WcButton receivedBtnDatePlus;
         private WcButton receivedBtnDateMinus;
+        private System.Windows.Forms.Label lblInfoCopies;
+        private System.Windows.Forms.NumericUpDown numericUpDownCopies;
     }
 }
 
