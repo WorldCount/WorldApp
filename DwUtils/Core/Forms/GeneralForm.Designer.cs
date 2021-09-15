@@ -2072,6 +2072,7 @@ namespace DwUtils.Core.Forms
             this.btnTest.Text = "Test";
             this.btnTest.TextColor = System.Drawing.Color.White;
             this.btnTest.UseVisualStyleBackColor = false;
+            this.btnTest.Visible = false;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // lblInfoDebug
