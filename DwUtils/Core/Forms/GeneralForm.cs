@@ -31,6 +31,7 @@ namespace DwUtils.Core.Forms
         private List<User> _users;
         private List<Place> _places;
         private ReceivePrintDocument _receivePrintDocument;
+        private AllStatPrintDocument _allStatPrintDocument;
         private bool _isAdmin;
         private bool _restore;
         private string _printerName;
@@ -275,6 +276,7 @@ namespace DwUtils.Core.Forms
             labelInfoLoadLk.Visible = _isAdmin;
             toggleLoadLk.Visible = _isAdmin;
             receivedComboBoxReportType.Enabled = _isAdmin;
+            allStatComboBoxReportType.Enabled = _isAdmin;
         }
 
         private void InitTables()
@@ -519,7 +521,34 @@ namespace DwUtils.Core.Forms
             }
         }
 
-        private int GetPrintDocumentPageCount(ReceivePrintDocument document)
+        private void AllStatReportTypeChange(ReceiveRpoRequestType type)
+        {
+            if (type == ReceiveRpoRequestType.Общий)
+            {
+                allStatColumnDate.Visible = true;
+
+                allStatColumnUserName.Visible = false;
+                allStatColumnHour.Visible = false;
+            }
+
+            if (type == ReceiveRpoRequestType.ПоОператорам)
+            {
+                allStatColumnUserName.Visible = true;
+
+                allStatColumnHour.Visible = false;
+                allStatColumnDate.Visible = false;
+            }
+
+            if (type == ReceiveRpoRequestType.ПоЧасам)
+            {
+                allStatColumnHour.Visible = true;
+
+                allStatColumnDate.Visible = false;
+                allStatColumnUserName.Visible = false;
+            }
+        }
+
+        private int GetPrintDocumentPageCount(PrintDocument document)
         {
             int count = 0;
             document.PrintController = new PreviewPrintController();
@@ -537,8 +566,6 @@ namespace DwUtils.Core.Forms
                 string reportTitle = "ОТЧЕТ НА ВРУЧЕНИЕ";
                 string reportSubTitle = $"Период: {date}, Оператор: {user.Name}";
 
-                List<User> users = (List<User>) userBindingSource.DataSource;
-
                 if (type == ReceiveRpoRequestType.ПоОператорам)
                 {
                     reportTitle = "ОТЧЕТ НА ВРУЧЕНИЕ ПО ОПЕРАТОРАМ";
@@ -548,7 +575,7 @@ namespace DwUtils.Core.Forms
                 if (type == ReceiveRpoRequestType.ПоЧасам)
                     reportTitle = "ОТЧЕТ НА ВРУЧЕНИЕ ПО ЧАСАМ";
 
-                ReceivePrintDocument document = new ReceivePrintDocument(rpos, stat, type, users)
+                ReceivePrintDocument document = new ReceivePrintDocument(rpos, stat, type)
                 {
                     PrintNumPageInfo = true,
                     PrintLogo = true,
@@ -556,8 +583,41 @@ namespace DwUtils.Core.Forms
                     ReportSubTitle = reportSubTitle
                 };
 
-                int count = GetPrintDocumentPageCount(document);
-                document.PagesCount = count;
+                document.PagesCount = GetPrintDocumentPageCount(document);
+                document.PrintController = printController;
+
+                document.PrinterSettings.Duplex = Duplex.Simplex;
+
+                return document;
+            });
+        }
+
+        private async Task<AllStatPrintDocument> GetAllStatPrintDocument(List<AllStatRpo> rpos, AllStat stat, User user, string date, ReceiveRpoRequestType type)
+        {
+            return await Task.Run(() =>
+            {
+                PrintController printController = new StandardPrintController();
+                string reportTitle = "СТАТИСТИКА";
+                string reportSubTitle = $"Период: {date}, Оператор: {user.Name}";
+
+                if (type == ReceiveRpoRequestType.ПоОператорам)
+                {
+                    reportTitle = "СТАТИСТИКА ПО ОПЕРАТОРАМ";
+                    reportSubTitle = $"Период: {date}";
+                }
+
+                if (type == ReceiveRpoRequestType.ПоЧасам)
+                    reportTitle = "СТАТИСТИКА ПО ЧАСАМ";
+
+                AllStatPrintDocument document = new AllStatPrintDocument(rpos, stat, type)
+                {
+                    PrintNumPageInfo = true,
+                    PrintLogo = true,
+                    ReportTitle = reportTitle,
+                    ReportSubTitle = reportSubTitle
+                };
+
+                document.PagesCount = GetPrintDocumentPageCount(document);
                 document.PrintController = printController;
 
                 document.PrinterSettings.Duplex = Duplex.Simplex;
@@ -606,7 +666,7 @@ namespace DwUtils.Core.Forms
             
         }
 
-        private void SetAllStatInfo(AllRpoStat stat)
+        private void SetAllStatInfo(AllStat stat)
         {
             allStatLabelPosCount.Text = stat.PosCount;
             allStatLabelAllCount.Text = stat.AllCount;
@@ -616,7 +676,7 @@ namespace DwUtils.Core.Forms
             allStatLabelAllReceivedCount.Text = stat.AllReceiveCount;
             allStatLabelReceiveCount.Text = stat.ReceiveCount;
             allStatLabelReturnCount.Text = stat.ReturnCount;
-            allStatLabelReturnPay.Text = stat.ReturnPay;
+            allStatLabelReturnPay.Text = stat.GetReturnPayToFormat();
             allStatLabelReceivedNoValueCount.Text = stat.ReceiveNoValueCount;
             allStatLabelValueCount.Text = stat.ValueCount;
             allStatLabelFirstClassCount.Text = stat.FirstClassCount;
@@ -967,12 +1027,14 @@ namespace DwUtils.Core.Forms
                 if (request.Type == ReceiveRpoRequestType.ПоОператорам)
                     allStatDataGridView.Sort(allStatColumnUserName, ListSortDirection.Ascending);
 
-                AllRpoStat stat = new AllRpoStat(rpos);
+                AllStat stat = new AllStat(rpos);
                 SetAllStatInfo(stat);
 
                 if (rpos.Count > 0)
                 {
-                    //TODO: Сгенерировать отчет на печать
+                    AllStatReportTypeChange(request.Type);
+                    _allStatPrintDocument = await GetAllStatPrintDocument(rpos, stat, user, dateString, request.Type);
+                    btnPrintAllStat.Enabled = true;
                 }
             }
 
@@ -980,48 +1042,86 @@ namespace DwUtils.Core.Forms
             SuccessMessage("Статистика загружена!");
         }
 
+        #region Btn Print
+
         private void btnPrintReceived_Click(object sender, EventArgs e)
         {
             btnPrintReceived.Enabled = false;
 
-            List<ReceivedRpo> rpos = ((SortableBindingList<ReceivedRpo>) receivedRpoBindingSource.DataSource).ToList();
+            List<ReceivedRpo> rpos = ((SortableBindingList<ReceivedRpo>)receivedRpoBindingSource.DataSource).ToList();
             _receivePrintDocument.SetRpos(rpos);
 
-            string printerName = (string) comboBoxPrinters.SelectedItem;
+            string printerName = (string)comboBoxPrinters.SelectedItem;
             if (!string.IsNullOrEmpty(printerName))
                 _receivePrintDocument.PrinterSettings.PrinterName = printerName;
 
 
-            _receivePrintDocument.PrinterSettings.Copies = (short) numericUpDownCopies.Value;
+            _receivePrintDocument.PrinterSettings.Copies = (short)numericUpDownCopies.Value;
             _receivePrintDocument?.Print();
 
             numericUpDownCopies.Value = 1;
             btnPrintReceived.Enabled = true;
         }
 
+        private void btnPrintAllStat_Click(object sender, EventArgs e)
+        {
+            btnPrintAllStat.Enabled = false;
+
+            List<AllStatRpo> rpos = ((SortableBindingList<AllStatRpo>) allStatRpoBindingSource.DataSource).ToList();
+            _allStatPrintDocument.SetRpos(rpos);
+
+            string printerName = (string)comboBoxPrinters.SelectedItem;
+            if (!string.IsNullOrEmpty(printerName))
+                _allStatPrintDocument.PrinterSettings.PrinterName = printerName;
+
+            _allStatPrintDocument.PrinterSettings.Copies = (short)numericUpDownCopies.Value;
+            _allStatPrintDocument?.Print();
+
+            numericUpDownCopies.Value = 1;
+            btnPrintAllStat.Enabled = true;
+        }
+
+        #endregion
+
+        #region Btn Date
+
         private void receivedBtnDatePlus_Click(object sender, EventArgs e)
         {
-            receivedDateTimePickerStart.Value = receivedDateTimePickerStart.Value.AddDays(1);
-            receivedDateTimePickerMonth.Value = receivedDateTimePickerMonth.Value.AddMonths(1);
+            if (receivedDateTimePickerStart.Visible)
+                receivedDateTimePickerStart.Value = receivedDateTimePickerStart.Value.AddDays(1);
+
+            if (receivedDateTimePickerMonth.Visible)
+                receivedDateTimePickerMonth.Value = receivedDateTimePickerMonth.Value.AddMonths(1);
         }
 
         private void receivedBtnDateMinus_Click(object sender, EventArgs e)
         {
-            receivedDateTimePickerStart.Value = receivedDateTimePickerStart.Value.AddDays(-1);
-            receivedDateTimePickerMonth.Value = receivedDateTimePickerMonth.Value.AddMonths(-1);
+            if (receivedDateTimePickerStart.Visible)
+                receivedDateTimePickerStart.Value = receivedDateTimePickerStart.Value.AddDays(-1);
+
+            if (receivedDateTimePickerMonth.Visible)
+                receivedDateTimePickerMonth.Value = receivedDateTimePickerMonth.Value.AddMonths(-1);
         }
 
         private void allStatBtnDatePlus_Click(object sender, EventArgs e)
         {
-            allStatDateTimePickerStart.Value = allStatDateTimePickerStart.Value.AddDays(1);
-            allStatDateTimePickerMonth.Value = allStatDateTimePickerMonth.Value.AddMonths(1);
+            if (allStatDateTimePickerStart.Visible)
+                allStatDateTimePickerStart.Value = allStatDateTimePickerStart.Value.AddDays(1);
+
+            if (allStatDateTimePickerMonth.Visible)
+                allStatDateTimePickerMonth.Value = allStatDateTimePickerMonth.Value.AddMonths(1);
         }
 
         private void allStatBtnDateMinus_Click(object sender, EventArgs e)
         {
-            allStatDateTimePickerStart.Value = allStatDateTimePickerStart.Value.AddDays(-1);
-            allStatDateTimePickerMonth.Value = allStatDateTimePickerMonth.Value.AddMonths(-1);
+            if (allStatDateTimePickerStart.Visible)
+                allStatDateTimePickerStart.Value = allStatDateTimePickerStart.Value.AddDays(-1);
+
+            if (allStatDateTimePickerMonth.Visible)
+                allStatDateTimePickerMonth.Value = allStatDateTimePickerMonth.Value.AddMonths(-1);
         }
+
+        #endregion
 
         #endregion
 
@@ -1167,6 +1267,37 @@ namespace DwUtils.Core.Forms
 
         #endregion
 
+        #region AllStat
+
+        private void allStatDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            DataGridViewTextBoxColumn[] data = new[]
+            {
+                allStatColumnAllCount, allStatColumnSentCount, allStatColumnAllReceivedCount, allStatColumnReceivedCount,
+                allStatColumnReturnCount, allStatColumnReceivedNoValueCount, allStatColumnValueCount, allStatColumnFirstClassCount,
+                allStatColumnNotifyCount, allStatColumnHandedCount
+            };
+
+            if (data.Contains(allStatDataGridView.Columns[e.ColumnIndex]))
+            {
+                int value = (int)e.Value;
+                if (value == 0)
+                    e.Value = "-";
+            }
+
+            if (allStatDataGridView.Columns[e.ColumnIndex] == allStatColumnReturnPay)
+            {
+                double value = (double)e.Value;
+
+                // ReSharper disable once CompareOfFloatsByEqualityOperator
+                if (value == 0)
+                    e.Value = "-";
+            }
+        }
+
+        #endregion
+
         #region Online
 
         private void onlineDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -1229,13 +1360,5 @@ namespace DwUtils.Core.Forms
             MessageBox.Show(_database.Documents.GenDocumentNum(101, 12), "Номер накладной");
         }
 
-        
-
-        private void btnPrintAllStat_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
 }

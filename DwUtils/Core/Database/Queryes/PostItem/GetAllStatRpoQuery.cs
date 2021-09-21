@@ -87,7 +87,7 @@ namespace DwUtils.Core.Database.Queryes.PostItem
         private string GetInHoursQuery()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("select CAST(docval.edittime as DATE),");
+            sb.Append("select extract(hour from createtime),");
             sb.Append(" count(case when docstateid=1 and docvalid != 2 then 1 else null end),");
             sb.Append(" count(case when docstateid=6 then 1 else null end),");
             sb.Append(" count(case when docstateid=1 and client is not null and docvalid != 2 and postofficef30 is null then 1 else null end),");
