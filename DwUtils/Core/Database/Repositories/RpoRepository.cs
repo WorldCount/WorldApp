@@ -62,6 +62,18 @@ namespace DwUtils.Core.Database.Repositories
             return await Task.Run(() => GetReceivedRpos(request));
         }
 
+
+        // ReSharper disable once MemberCanBePrivate.Global
+        public List<AllStatRpo> GetAllStatRpos(AllStatRpoRequest request)
+        {
+            GetAllStatRpoQuery query = new GetAllStatRpoQuery(Connect, request, DebugMode);
+            return query.Run();
+        }
+
+        public async Task<List<AllStatRpo>> GetAllStatRposAsync(AllStatRpoRequest request)
+        {
+            return await Task.Run(() => GetAllStatRpos(request));
+        }
         #endregion
     }
 }

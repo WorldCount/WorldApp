@@ -341,6 +341,46 @@ namespace DwUtils.Core.Forms
 
             receivedColumnReturnPay.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             receivedColumnReturnPay.Width = 200;
+
+            // AllStat
+            allStatColumnUserName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            allStatColumnHour.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            allStatColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            allStatColumnAllCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            allStatColumnAllCount.Width = 80;
+
+            allStatColumnSentCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            allStatColumnSentCount.Width = 70;
+
+            allStatColumnAllReceivedCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            allStatColumnAllReceivedCount.Width = 90;
+
+            allStatColumnReceivedNoValueCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            allStatColumnReceivedNoValueCount.Width = 110;
+
+            allStatColumnValueCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            allStatColumnValueCount.Width = 60;
+
+            allStatColumnFirstClassCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            allStatColumnFirstClassCount.Width = 60;
+
+            allStatColumnReceivedCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            allStatColumnReceivedCount.Width = 80;
+
+            allStatColumnReturnCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            allStatColumnReturnCount.Width = 60;
+
+            allStatColumnReturnPay.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            allStatColumnReturnPay.Width = 180;
+
+            allStatColumnNotifyCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            allStatColumnNotifyCount.Width = 60;
+
+            allStatColumnHandedCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            allStatColumnHandedCount.Width = 90;
         }
 
         private async void LoadData()
@@ -526,6 +566,62 @@ namespace DwUtils.Core.Forms
             });
         }
 
+        private void ClearReceivedInfo()
+        {
+            receivedLabelPosCount.Text = "0";
+            receivedLabelAllCount.Text = "0";
+            receivedLabelReceiveCount.Text = "0";
+            receivedLabelReturnCount.Text = "0";
+            receivedLabelReturnPay.Text = "0,00 ₽";
+
+            receivedRpoBindingSource.DataSource = null;
+            _receivePrintDocument = null;
+        }
+
+        private void SetReceivedInfo(ReceiveRpoStat stat)
+        {
+            receivedLabelPosCount.Text = stat.PosCount;
+            receivedLabelAllCount.Text = stat.AllCount;
+            receivedLabelReceiveCount.Text = stat.ReceiveCount;
+            receivedLabelReturnCount.Text = stat.ReturnCount;
+            receivedLabelReturnPay.Text = stat.GetReturnPayToFormat();
+        }
+
+        private void ClearAllStatInfo()
+        {
+            allStatLabelPosCount.Text = "0";
+            allStatLabelAllCount.Text = "0";
+            allStatLabelSentCount.Text = "0";
+            allStatLabelNotifyCount.Text = "0";
+            allStatLabelHandedCount.Text = "0";
+            allStatLabelAllReceivedCount.Text = "0";
+            allStatLabelReceiveCount.Text = "0";
+            allStatLabelReturnCount.Text = "0";
+            allStatLabelReturnPay.Text = "0,00 ₽";
+            allStatLabelReceivedNoValueCount.Text = "0";
+            allStatLabelValueCount.Text = "0";
+            allStatLabelFirstClassCount.Text = "0";
+
+            allStatRpoBindingSource.DataSource = null;
+            
+        }
+
+        private void SetAllStatInfo(AllRpoStat stat)
+        {
+            allStatLabelPosCount.Text = stat.PosCount;
+            allStatLabelAllCount.Text = stat.AllCount;
+            allStatLabelSentCount.Text = stat.SentCount;
+            allStatLabelNotifyCount.Text = stat.NotifyCount;
+            allStatLabelHandedCount.Text = stat.HandedCount;
+            allStatLabelAllReceivedCount.Text = stat.AllReceiveCount;
+            allStatLabelReceiveCount.Text = stat.ReceiveCount;
+            allStatLabelReturnCount.Text = stat.ReturnCount;
+            allStatLabelReturnPay.Text = stat.ReturnPay;
+            allStatLabelReceivedNoValueCount.Text = stat.ReceiveNoValueCount;
+            allStatLabelValueCount.Text = stat.ValueCount;
+            allStatLabelFirstClassCount.Text = stat.FirstClassCount;
+        }
+
         #endregion
 
         #region Menu Events
@@ -635,6 +731,13 @@ namespace DwUtils.Core.Forms
             receivedDateTimePickerMonth.Visible = receivedToggleButtonCalendar.Checked;
         }
 
+        private void allStatToggleButtonCalendar_CheckedChanged(object sender, EventArgs e)
+        {
+            allStatDateTimePickerStart.Visible = !allStatToggleButtonCalendar.Checked;
+            allStatDateTimePickerEnd.Visible = !allStatToggleButtonCalendar.Checked;
+            allStatDateTimePickerMonth.Visible = allStatToggleButtonCalendar.Checked;
+        }
+
         #endregion
 
         #region Buttons Events
@@ -738,13 +841,7 @@ namespace DwUtils.Core.Forms
 
         private async void btnLoadReceived_Click(object sender, EventArgs e)
         {
-            receivedLabelPosCount.Text = "0";
-            receivedLabelAllCount.Text = "0";
-            receivedLabelReceiveCount.Text = "0";
-            receivedLabelReturnCount.Text = "0";
-            receivedLabelReturnPay.Text = "0,00 ₽";
-            receivedRpoBindingSource.DataSource = null;
-            _receivePrintDocument = null;
+            ClearReceivedInfo();
             btnLoadReceived.Enabled = false;
             btnPrintReceived.Enabled = false;
 
@@ -773,10 +870,12 @@ namespace DwUtils.Core.Forms
 
             ReceiveRpoRequest request = new ReceiveRpoRequest
             {
-                UserId = user.Id,
                 StartDate = start,
                 EndDate = end
             };
+
+            if (user != null)
+                request.UserId = user.Id;
 
             if (users != null)
                 request.Users = users;
@@ -785,32 +884,100 @@ namespace DwUtils.Core.Forms
                 request.Type = reportType.Type;
 
             List<ReceivedRpo> rpos = await _database.Rpos.GetReceivedRposAsync(request);
-            receivedRpoBindingSource.DataSource = rpos.ToSortableBindingList();
 
-            if(request.Type == ReceiveRpoRequestType.Общий)
-                receivedDataGridView.Sort(receivedColumnClientName, ListSortDirection.Ascending);
-            if(request.Type == ReceiveRpoRequestType.ПоЧасам)
-                receivedDataGridView.Sort(receivedColumnHour, ListSortDirection.Ascending);
-            if(request.Type == ReceiveRpoRequestType.ПоОператорам)
-                receivedDataGridView.Sort(receivedColumnUserName, ListSortDirection.Ascending);
-
-            ReceiveRpoStat stat = new ReceiveRpoStat(rpos) { ReplaceNull = true };
-
-            receivedLabelPosCount.Text = stat.PosCount;
-            receivedLabelAllCount.Text = stat.AllCount;
-            receivedLabelReceiveCount.Text = stat.ReceiveCount;
-            receivedLabelReturnCount.Text = stat.ReturnCount;
-            receivedLabelReturnPay.Text = stat.GetReturnPayToFormat();
-
-            if (rpos.Count > 0)
+            if (rpos != null)
             {
-                ReceivedReportTypeChange(request.Type);
-                _receivePrintDocument = await GetReceivePrintDocument(rpos, stat, user, dateString, request.Type);
-                btnPrintReceived.Enabled = true;
+                receivedRpoBindingSource.DataSource = rpos.ToSortableBindingList();
+
+                if (request.Type == ReceiveRpoRequestType.Общий)
+                    receivedDataGridView.Sort(receivedColumnClientName, ListSortDirection.Ascending);
+                if (request.Type == ReceiveRpoRequestType.ПоЧасам)
+                    receivedDataGridView.Sort(receivedColumnHour, ListSortDirection.Ascending);
+                if (request.Type == ReceiveRpoRequestType.ПоОператорам)
+                    receivedDataGridView.Sort(receivedColumnUserName, ListSortDirection.Ascending);
+
+                ReceiveRpoStat stat = new ReceiveRpoStat(rpos) {ReplaceNull = true};
+                SetReceivedInfo(stat);
+
+                if (rpos.Count > 0)
+                {
+                    ReceivedReportTypeChange(request.Type);
+                    _receivePrintDocument = await GetReceivePrintDocument(rpos, stat, user, dateString, request.Type);
+                    btnPrintReceived.Enabled = true;
+                }
             }
 
             btnLoadReceived.Enabled = true;
             SuccessMessage("РПО на доставку - загружены!");
+        }
+
+        private async void btnLoadAllStat_Click(object sender, EventArgs e)
+        {
+            ClearAllStatInfo();
+            btnLoadAllStat.Enabled = false;
+            btnPrintAllStat.Enabled = false;
+
+            User user = (User)allStatComboBoxUsers.SelectedItem;
+            List<User> users = (List<User>)userBindingSource.DataSource;
+
+            ReceiveRpoReportType reportType = (ReceiveRpoReportType)allStatComboBoxReportType.SelectedItem;
+
+            DateTime start;
+            DateTime end;
+            string dateString = "";
+
+            if (allStatDateTimePickerMonth.Visible)
+            {
+                DateTime date = allStatDateTimePickerMonth.Value;
+                start = WcApi.Date.DateUtils.CropDate(date, day: 1);
+                end = WcApi.Date.DateUtils.CropDate(date, day: DateTime.DaysInMonth(date.Year, date.Month));
+                dateString = WcApi.Date.DateUtils.GetMonthName(allStatDateTimePickerMonth.Value);
+            }
+            else
+            {
+                start = WcApi.Date.DateUtils.CropTime(allStatDateTimePickerStart.Value);
+                end = WcApi.Date.DateUtils.CropTime(allStatDateTimePickerEnd.Value);
+                dateString = start == end ? $"{start:dd.MM.yyyy}" : $"{start:dd.MM.yyyy} - {end:dd.MM.yyyy}";
+            }
+
+            AllStatRpoRequest request = new AllStatRpoRequest
+            {
+                StartDate = start,
+                EndDate = end
+            };
+
+            if (user != null)
+                request.UserId = user.Id;
+
+            if (users != null)
+                request.Users = users;
+
+            if (reportType != null)
+                request.Type = reportType.Type;
+
+            List<AllStatRpo> rpos = await _database.Rpos.GetAllStatRposAsync(request);
+            if (rpos != null)
+            {
+                allStatRpoBindingSource.DataSource = rpos.ToSortableBindingList();
+
+                if (request.Type == ReceiveRpoRequestType.Общий)
+                    allStatDataGridView.Sort(allStatColumnDate, ListSortDirection.Ascending);
+                if (request.Type == ReceiveRpoRequestType.ПоЧасам)
+                    allStatDataGridView.Sort(allStatColumnHour, ListSortDirection.Ascending);
+                if (request.Type == ReceiveRpoRequestType.ПоОператорам)
+                    allStatDataGridView.Sort(allStatColumnUserName, ListSortDirection.Ascending);
+
+                AllRpoStat stat = new AllRpoStat(rpos);
+                SetAllStatInfo(stat);
+
+                if (rpos.Count > 0)
+                {
+                    //TODO: Сгенерировать отчет на печать
+                }
+            }
+
+            btnLoadAllStat.Enabled = true;
+            SuccessMessage("Статистика загружена!");
         }
 
         private void btnPrintReceived_Click(object sender, EventArgs e)
@@ -830,6 +997,30 @@ namespace DwUtils.Core.Forms
 
             numericUpDownCopies.Value = 1;
             btnPrintReceived.Enabled = true;
+        }
+
+        private void receivedBtnDatePlus_Click(object sender, EventArgs e)
+        {
+            receivedDateTimePickerStart.Value = receivedDateTimePickerStart.Value.AddDays(1);
+            receivedDateTimePickerMonth.Value = receivedDateTimePickerMonth.Value.AddMonths(1);
+        }
+
+        private void receivedBtnDateMinus_Click(object sender, EventArgs e)
+        {
+            receivedDateTimePickerStart.Value = receivedDateTimePickerStart.Value.AddDays(-1);
+            receivedDateTimePickerMonth.Value = receivedDateTimePickerMonth.Value.AddMonths(-1);
+        }
+
+        private void allStatBtnDatePlus_Click(object sender, EventArgs e)
+        {
+            allStatDateTimePickerStart.Value = allStatDateTimePickerStart.Value.AddDays(1);
+            allStatDateTimePickerMonth.Value = allStatDateTimePickerMonth.Value.AddMonths(1);
+        }
+
+        private void allStatBtnDateMinus_Click(object sender, EventArgs e)
+        {
+            allStatDateTimePickerStart.Value = allStatDateTimePickerStart.Value.AddDays(-1);
+            allStatDateTimePickerMonth.Value = allStatDateTimePickerMonth.Value.AddMonths(-1);
         }
 
         #endregion
@@ -1017,6 +1208,11 @@ namespace DwUtils.Core.Forms
             receivedDateTimePickerEnd.Value = receivedDateTimePickerStart.Value;
         }
 
+        private void allStatDateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            allStatDateTimePickerEnd.Value = allStatDateTimePickerStart.Value;
+        }
+
         #endregion
 
         #region Other Events
@@ -1033,16 +1229,13 @@ namespace DwUtils.Core.Forms
             MessageBox.Show(_database.Documents.GenDocumentNum(101, 12), "Номер накладной");
         }
 
-        private void receivedBtnDatePlus_Click(object sender, EventArgs e)
+        
+
+        private void btnPrintAllStat_Click(object sender, EventArgs e)
         {
-            receivedDateTimePickerStart.Value = receivedDateTimePickerStart.Value.AddDays(1);
-            receivedDateTimePickerMonth.Value = receivedDateTimePickerMonth.Value.AddMonths(1);
+
         }
 
-        private void receivedBtnDateMinus_Click(object sender, EventArgs e)
-        {
-            receivedDateTimePickerStart.Value = receivedDateTimePickerStart.Value.AddDays(-1);
-            receivedDateTimePickerMonth.Value = receivedDateTimePickerMonth.Value.AddMonths(-1);
-        }
+        
     }
 }
