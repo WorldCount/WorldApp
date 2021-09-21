@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DwUtils.Core.Database.Models;
 
 namespace DwUtils.Core.Stats
 {
-    public class AllRpoStat
+    public class AllStat
     {
         #region Private Fields
 
@@ -46,7 +42,7 @@ namespace DwUtils.Core.Stats
 
         #endregion
 
-        public AllRpoStat(List<AllStatRpo> rpos)
+        public AllStat(List<AllStatRpo> rpos)
         {
             if (rpos != null)
             {

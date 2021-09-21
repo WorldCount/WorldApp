@@ -40,15 +40,16 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -1492,14 +1493,14 @@ namespace DwUtils.Core.Forms
             this.allStatColumnNotifyCount,
             this.allStatColumnHandedCount});
             this.allStatDataGridView.DataSource = this.allStatRpoBindingSource;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.allStatDataGridView.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.allStatDataGridView.DefaultCellStyle = dataGridViewCellStyle10;
             this.allStatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.allStatDataGridView.EnableHeadersVisualStyles = false;
             this.allStatDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -1507,14 +1508,14 @@ namespace DwUtils.Core.Forms
             this.allStatDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.allStatDataGridView.Name = "allStatDataGridView";
             this.allStatDataGridView.ReadOnly = true;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.allStatDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.allStatDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.allStatDataGridView.RowHeadersVisible = false;
             this.allStatDataGridView.RowHeadersWidth = 40;
             this.allStatDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1523,6 +1524,8 @@ namespace DwUtils.Core.Forms
             this.allStatDataGridView.Size = new System.Drawing.Size(1002, 191);
             this.allStatDataGridView.TabIndex = 11;
             this.allStatDataGridView.TabStop = false;
+            this.allStatDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.allStatDataGridView_CellFormatting);
+            this.allStatDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             // 
             // allStatRpoBindingSource
             // 
@@ -2181,14 +2184,14 @@ namespace DwUtils.Core.Forms
             this.filesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.filesDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.filesDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.filesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.filesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.filesDataGridView.ColumnHeadersHeight = 40;
             this.filesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.filesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2198,14 +2201,14 @@ namespace DwUtils.Core.Forms
             this.filesColumnUserId,
             this.filesColumnCount});
             this.filesDataGridView.DataSource = this.rpoFileBindingSource;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.filesDataGridView.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.filesDataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.filesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filesDataGridView.EnableHeadersVisualStyles = false;
             this.filesDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -2213,14 +2216,14 @@ namespace DwUtils.Core.Forms
             this.filesDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.filesDataGridView.Name = "filesDataGridView";
             this.filesDataGridView.ReadOnly = true;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.filesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.filesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.filesDataGridView.RowHeadersVisible = false;
             this.filesDataGridView.RowHeadersWidth = 40;
             this.filesDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -2240,9 +2243,9 @@ namespace DwUtils.Core.Forms
             // filesColumnDate
             // 
             this.filesColumnDate.DataPropertyName = "DateName";
-            dataGridViewCellStyle12.Format = "G";
-            dataGridViewCellStyle12.NullValue = null;
-            this.filesColumnDate.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle13.Format = "G";
+            dataGridViewCellStyle13.NullValue = null;
+            this.filesColumnDate.DefaultCellStyle = dataGridViewCellStyle13;
             this.filesColumnDate.HeaderText = "Выгружено";
             this.filesColumnDate.Name = "filesColumnDate";
             this.filesColumnDate.ReadOnly = true;
@@ -2621,14 +2624,14 @@ namespace DwUtils.Core.Forms
             this.onlineDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.onlineDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.onlineDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.onlineDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.onlineDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.onlineDataGridView.ColumnHeadersHeight = 40;
             this.onlineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.onlineDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2638,14 +2641,14 @@ namespace DwUtils.Core.Forms
             this.onlineColumnWorkDate,
             this.onlineColumnAdminStatus});
             this.onlineDataGridView.DataSource = this.connectUserBindingSource;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.onlineDataGridView.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.onlineDataGridView.DefaultCellStyle = dataGridViewCellStyle17;
             this.onlineDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.onlineDataGridView.EnableHeadersVisualStyles = false;
             this.onlineDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -2653,14 +2656,14 @@ namespace DwUtils.Core.Forms
             this.onlineDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.onlineDataGridView.Name = "onlineDataGridView";
             this.onlineDataGridView.ReadOnly = true;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.onlineDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.onlineDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.onlineDataGridView.RowHeadersVisible = false;
             this.onlineDataGridView.RowHeadersWidth = 40;
             this.onlineDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -3131,77 +3134,80 @@ namespace DwUtils.Core.Forms
             // 
             // allStatColumnAllCount
             // 
-            this.allStatColumnAllCount.DataPropertyName = "AllCountName";
+            this.allStatColumnAllCount.DataPropertyName = "AllCount";
             this.allStatColumnAllCount.HeaderText = "Прибыло";
             this.allStatColumnAllCount.Name = "allStatColumnAllCount";
             this.allStatColumnAllCount.ReadOnly = true;
             // 
             // allStatColumnSentCount
             // 
-            this.allStatColumnSentCount.DataPropertyName = "SentCountName";
+            this.allStatColumnSentCount.DataPropertyName = "SentCount";
             this.allStatColumnSentCount.HeaderText = "Досыл";
             this.allStatColumnSentCount.Name = "allStatColumnSentCount";
             this.allStatColumnSentCount.ReadOnly = true;
             // 
             // allStatColumnAllReceivedCount
             // 
-            this.allStatColumnAllReceivedCount.DataPropertyName = "AllReceivedCountName";
+            this.allStatColumnAllReceivedCount.DataPropertyName = "AllReceivedCount";
             this.allStatColumnAllReceivedCount.HeaderText = "На вруч.";
             this.allStatColumnAllReceivedCount.Name = "allStatColumnAllReceivedCount";
             this.allStatColumnAllReceivedCount.ReadOnly = true;
             // 
             // allStatColumnReceivedCount
             // 
-            this.allStatColumnReceivedCount.DataPropertyName = "ReceivedCountName";
+            this.allStatColumnReceivedCount.DataPropertyName = "ReceivedCount";
             this.allStatColumnReceivedCount.HeaderText = "Получ.";
             this.allStatColumnReceivedCount.Name = "allStatColumnReceivedCount";
             this.allStatColumnReceivedCount.ReadOnly = true;
             // 
             // allStatColumnReturnCount
             // 
-            this.allStatColumnReturnCount.DataPropertyName = "ReturnCountName";
+            this.allStatColumnReturnCount.DataPropertyName = "ReturnCount";
             this.allStatColumnReturnCount.HeaderText = "Возв.";
             this.allStatColumnReturnCount.Name = "allStatColumnReturnCount";
             this.allStatColumnReturnCount.ReadOnly = true;
             // 
             // allStatColumnReturnPay
             // 
-            this.allStatColumnReturnPay.DataPropertyName = "ReturnPayName";
+            this.allStatColumnReturnPay.DataPropertyName = "ReturnPay";
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.allStatColumnReturnPay.DefaultCellStyle = dataGridViewCellStyle9;
             this.allStatColumnReturnPay.HeaderText = "За возв.";
             this.allStatColumnReturnPay.Name = "allStatColumnReturnPay";
             this.allStatColumnReturnPay.ReadOnly = true;
             // 
             // allStatColumnReceivedNoValueCount
             // 
-            this.allStatColumnReceivedNoValueCount.DataPropertyName = "ReceivedNoValueCountName";
+            this.allStatColumnReceivedNoValueCount.DataPropertyName = "ReceivedNoValueCount";
             this.allStatColumnReceivedNoValueCount.HeaderText = "Вруч. без ОЦ";
             this.allStatColumnReceivedNoValueCount.Name = "allStatColumnReceivedNoValueCount";
             this.allStatColumnReceivedNoValueCount.ReadOnly = true;
             // 
             // allStatColumnValueCount
             // 
-            this.allStatColumnValueCount.DataPropertyName = "ValueCountName";
+            this.allStatColumnValueCount.DataPropertyName = "ValueCount";
             this.allStatColumnValueCount.HeaderText = "Цен.";
             this.allStatColumnValueCount.Name = "allStatColumnValueCount";
             this.allStatColumnValueCount.ReadOnly = true;
             // 
             // allStatColumnFirstClassCount
             // 
-            this.allStatColumnFirstClassCount.DataPropertyName = "FirstClassCountName";
+            this.allStatColumnFirstClassCount.DataPropertyName = "FirstClassCount";
             this.allStatColumnFirstClassCount.HeaderText = "1 кл.";
             this.allStatColumnFirstClassCount.Name = "allStatColumnFirstClassCount";
             this.allStatColumnFirstClassCount.ReadOnly = true;
             // 
             // allStatColumnNotifyCount
             // 
-            this.allStatColumnNotifyCount.DataPropertyName = "NotifyCountName";
+            this.allStatColumnNotifyCount.DataPropertyName = "NotifyCount";
             this.allStatColumnNotifyCount.HeaderText = "Увед";
             this.allStatColumnNotifyCount.Name = "allStatColumnNotifyCount";
             this.allStatColumnNotifyCount.ReadOnly = true;
             // 
             // allStatColumnHandedCount
             // 
-            this.allStatColumnHandedCount.DataPropertyName = "HandedCountName";
+            this.allStatColumnHandedCount.DataPropertyName = "HandedCount";
             this.allStatColumnHandedCount.HeaderText = "Вручено";
             this.allStatColumnHandedCount.Name = "allStatColumnHandedCount";
             this.allStatColumnHandedCount.ReadOnly = true;

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Drawing.Text;
-using System.Linq;
 using DwUtils.Core.Database.Models;
 using DwUtils.Core.Database.Requests.Types;
 using DwUtils.Core.PrintDocuments.Pens;
@@ -13,15 +12,16 @@ using NLog;
 
 namespace DwUtils.Core.PrintDocuments
 {
-    public class ReceivePrintDocument : PrintDocument
+    public class AllStatPrintDocument : PrintDocument
     {
-        
+
         #region Private Fields
 
-        private List<ReceivedRpo> _rpos;
-        private readonly ReceiveRpoStat _stat;
+        private List<AllStatRpo> _rpos;
+        private readonly AllStat _stat;
         private readonly int[] _columnWidths;
         private readonly ReceiveRpoRequestType _type;
+        private readonly List<User> _users;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         // Форматирование строк
@@ -44,14 +44,15 @@ namespace DwUtils.Core.PrintDocuments
 
         #endregion
 
-        public ReceivePrintDocument(List<ReceivedRpo> rpos, ReceiveRpoStat stat, ReceiveRpoRequestType type)
+        public AllStatPrintDocument(List<AllStatRpo> rpos, AllStat stat, ReceiveRpoRequestType type)
         {
             _rpos = rpos;
             _stat = stat;
             _type = type;
             _columnWidths = GetWidthByType();
 
-            DefaultPageSettings.Margins = new Margins(10, 10, 40, 40);
+            DefaultPageSettings.Landscape = true;
+            SetMargin(new Margins(10, 10, 40, 40));
         }
 
         #region Public Properties
@@ -59,7 +60,7 @@ namespace DwUtils.Core.PrintDocuments
         // Отображать номера страниц
         public bool PrintNumPageInfo { get; set; }
         public int PagesCount { get; set; } = 0;
-        public string ReportTitle { get; set; } = "Отчет на вручение";
+        public string ReportTitle { get; set; } = "Статистика по доставке";
         public string ReportSubTitle { get; set; } = "";
         public string AppLogo { get; set; } = "DU";
         public bool PrintLogo { get; set; }
@@ -74,7 +75,7 @@ namespace DwUtils.Core.PrintDocuments
             DefaultPageSettings.Margins = margins;
         }
 
-        public void SetRpos(List<ReceivedRpo> rpos)
+        public void SetRpos(List<AllStatRpo> rpos)
         {
             _rpos = rpos;
         }
@@ -86,49 +87,62 @@ namespace DwUtils.Core.PrintDocuments
         private int[] GetWidthByType()
         {
             if (_type == ReceiveRpoRequestType.ПоОператорам)
-                return new[] { 180, 110, 130, 100, 100, 150 };
+                return new[] { 140, 90, 90, 90, 90, 90, 130, 80, 70, 70, 80, 90 };
 
             if (_type == ReceiveRpoRequestType.ПоЧасам)
-                return new[] { 180, 110, 130, 100, 100, 150 };
+                return new[] { 140, 90, 90, 90, 90, 90, 130, 80, 70, 70, 80, 90 };
 
-            return new[] { 290, 130, 100, 100, 150 };
+            return new[] { 140, 90, 90, 90, 90, 90, 130, 80, 70, 70, 80, 90 };
         }
 
-        private string[] GetValuesByType(ReceivedRpo rpo)
+        private string[] GetValuesByType(AllStatRpo rpo)
         {
             if (_type == ReceiveRpoRequestType.ПоОператорам)
-                return new[] { rpo.UserName, rpo.DocumentCount.ToString(), rpo.AllCountName, rpo.ReceivedCountName, rpo.ReturnCountName, rpo.ReturnPayName };
+                return new[] { rpo.UserName, rpo.AllCountName, rpo.SentCountName,
+                    rpo.AllReceivedCountName, rpo.ReceivedCountName, rpo.ReturnCountName, rpo.ReturnPayName,
+                    rpo.ReceivedNoValueCountName, rpo.ValueCountName, rpo.FirstClassCountName, rpo.NotifyCountName, rpo.HandedCountName };
 
-            if(_type == ReceiveRpoRequestType.ПоЧасам)
-                return new[] { rpo.Hour.ToString(), rpo.DocumentCount.ToString(), rpo.AllCountName, rpo.ReceivedCountName, rpo.ReturnCountName, rpo.ReturnPayName };
+            if (_type == ReceiveRpoRequestType.ПоЧасам)
+                return new[] { rpo.Hour.ToString(), rpo.AllCountName, rpo.SentCountName,
+                    rpo.AllReceivedCountName, rpo.ReceivedCountName, rpo.ReturnCountName, rpo.ReturnPayName,
+                    rpo.ReceivedNoValueCountName, rpo.ValueCountName, rpo.FirstClassCountName, rpo.NotifyCountName, rpo.HandedCountName };
 
-            return new[] { rpo.ClientName, rpo.AllCountName, rpo.ReceivedCountName, rpo.ReturnCountName, rpo.ReturnPayName };
+            return new[] { rpo.Date.ToString("dd.MM.yyyy"), rpo.AllCountName, rpo.SentCountName, 
+                rpo.AllReceivedCountName, rpo.ReceivedCountName, rpo.ReturnCountName, rpo.ReturnPayName, 
+                rpo.ReceivedNoValueCountName, rpo.ValueCountName, rpo.FirstClassCountName, rpo.NotifyCountName, rpo.HandedCountName };
         }
 
         private string[] GetHeaderByType()
         {
             if (_type == ReceiveRpoRequestType.ПоОператорам)
-                return new[] { "Оператор", "Организаций", "Прибыло", "Получателю", "Возврат", "Плата за возврат" };
+                return new[] { "Оператор", "Прибыло", "Досыл", "На вруч.", "Получ.", "Возв.", "За возв.", "Без ОЦ", "Цен.", "1 кл.", "Увед.", "Вручено" };
 
             if (_type == ReceiveRpoRequestType.ПоЧасам)
-                return new[] { "Час", "Организаций", "Прибыло", "Получателю", "Возврат", "Плата за возврат" };
+                return new[] { "Час", "Прибыло", "Досыл", "На вруч.", "Получ.", "Возв.", "За возв.", "Без ОЦ", "Цен.", "1 кл.", "Увед.", "Вручено" };
 
-            return new[] {"Организация", "Прибыло", "Получателю", "Возврат", "Плата за возврат"};
+            return new[] { "Дата", "Прибыло", "Досыл", "На вруч.", "Получ.", "Возв.", "За возв.", "Без ОЦ", "Цен.", "1 кл.", "Увед.", "Вручено" };
         }
+
 
         private string[] GetStatByType()
         {
             if (_type == ReceiveRpoRequestType.ПоОператорам)
-                return new[] { _stat.PosCount, "-", _stat.AllCount, _stat.ReceiveCount, _stat.ReturnCount, _stat.GetReturnPayToFormat("N2") };
+                return new[] { _stat.PosCount, _stat.AllCount, _stat.SentCount,
+                    _stat.AllReceiveCount, _stat.ReceiveCount, _stat.ReturnCount, _stat.GetReturnPayToFormat("N2"),
+                    _stat.ReceiveNoValueCount, _stat.ValueCount, _stat.FirstClassCount, _stat.NotifyCount, _stat.HandedCount };
 
             if (_type == ReceiveRpoRequestType.ПоЧасам)
-                return new[] { _stat.PosCount, "-", _stat.AllCount, _stat.ReceiveCount, _stat.ReturnCount, _stat.GetReturnPayToFormat("N2") };
+                return new[] { _stat.PosCount, _stat.AllCount, _stat.SentCount,
+                    _stat.AllReceiveCount, _stat.ReceiveCount, _stat.ReturnCount, _stat.GetReturnPayToFormat("N2"),
+                    _stat.ReceiveNoValueCount, _stat.ValueCount, _stat.FirstClassCount, _stat.NotifyCount, _stat.HandedCount };
 
-            return new[] { _stat.PosCount, _stat.AllCount, _stat.ReceiveCount, _stat.ReturnCount, _stat.GetReturnPayToFormat("N2") };
+            return new[] { _stat.PosCount, _stat.AllCount, _stat.SentCount, 
+                _stat.AllReceiveCount, _stat.ReceiveCount, _stat.ReturnCount, _stat.GetReturnPayToFormat("N2"),
+                _stat.ReceiveNoValueCount, _stat.ValueCount, _stat.FirstClassCount, _stat.NotifyCount, _stat.HandedCount };
         }
 
         /// <summary>Печать строки</summary>
-        private void PrintRow(PrintPageEventArgs e, ReceivedRpo rpo, int topMargin)
+        private void PrintRow(PrintPageEventArgs e, AllStatRpo rpo, int topMargin)
         {
 
             string[] values = GetValuesByType(rpo);
@@ -159,7 +173,8 @@ namespace DwUtils.Core.PrintDocuments
                 int colWidth = _columnWidths[colCount];
 
                 e.Graphics.DrawRectangle(PrintPens.BorderBrush, new Rectangle(colLeft, topMargin, colWidth, _headerHeight));
-                e.Graphics.DrawString(headerStrings[colCount], PrintPens.BoldFont, PrintPens.ForeBrush, new Rectangle(colLeft, topMargin, colWidth, _headerHeight), _stringFormat);
+                e.Graphics.DrawString(headerStrings[colCount], PrintPens.BoldFont, PrintPens.ForeBrush, 
+                    new Rectangle(colLeft, topMargin, colWidth, _headerHeight), _stringFormat);
 
                 colCount++;
             }
@@ -236,10 +251,10 @@ namespace DwUtils.Core.PrintDocuments
             int topMargin = 10 + margin;
 
             string[] data = GetStatByType();
-            string[] headerStrings = GetHeaderByType();
-            headerStrings[0] = "Строк";
+            string[] header = GetHeaderByType();
+            header[0] = "Строк";
 
-            PrintTableHeader(e, topMargin, headerStrings);
+            PrintTableHeader(e, topMargin, header);
             topMargin += 40;
 
             int cellCount = 0;
@@ -350,8 +365,8 @@ namespace DwUtils.Core.PrintDocuments
                         {
                             topMargin = _firstPage ? topMargin : e.MarginBounds.Top;
                             // Заголовок таблицы
-                            string[] headerStrings = GetHeaderByType();
-                            PrintTableHeader(e, topMargin, headerStrings);
+                            string[] header = GetHeaderByType();
+                            PrintTableHeader(e, topMargin, header);
 
                             if (PrintNumPageInfo)
                             {
@@ -407,6 +422,5 @@ namespace DwUtils.Core.PrintDocuments
         }
 
         #endregion
-
     }
 }
