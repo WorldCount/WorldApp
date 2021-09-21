@@ -40,12 +40,15 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -128,12 +131,56 @@ namespace DwUtils.Core.Forms
             this.receivedLabelInfoReportType = new System.Windows.Forms.Label();
             this.receivedComboBoxReportType = new System.Windows.Forms.ComboBox();
             this.receiveRpoReportTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabDelivery = new System.Windows.Forms.TabPage();
-            this.deliveryPictureBox = new System.Windows.Forms.PictureBox();
-            this.panelDeliveryL1 = new System.Windows.Forms.Panel();
-            this.btnPrintDelivery = new Wc32Api.Widgets.Buttons.WcButton();
-            this.btnLoadDelivery = new Wc32Api.Widgets.Buttons.WcButton();
-            this.flowLayoutPanelDeliveryL1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabAllStat = new System.Windows.Forms.TabPage();
+            this.allStatDataGridView = new System.Windows.Forms.DataGridView();
+            this.allStatRpoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allStatPanelStatL1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelAllStatStatL1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.allStatLabelInfoPosCount = new System.Windows.Forms.Label();
+            this.allStatLabelPosCount = new System.Windows.Forms.Label();
+            this.allStatLabelInfoAllCount = new System.Windows.Forms.Label();
+            this.allStatLabelAllCount = new System.Windows.Forms.Label();
+            this.allStatLabelInfoSentCount = new System.Windows.Forms.Label();
+            this.allStatLabelSentCount = new System.Windows.Forms.Label();
+            this.allStatLabelInfoNotifyCount = new System.Windows.Forms.Label();
+            this.allStatLabelNotifyCount = new System.Windows.Forms.Label();
+            this.allStatLabelInfoHandedCount = new System.Windows.Forms.Label();
+            this.allStatLabelHandedCount = new System.Windows.Forms.Label();
+            this.allStatPanelStatL2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelAllStatStatL2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.allStatLabelInfoAllReceivedCount = new System.Windows.Forms.Label();
+            this.allStatLabelAllReceivedCount = new System.Windows.Forms.Label();
+            this.allStatLabelInfoReceiveCount = new System.Windows.Forms.Label();
+            this.allStatLabelReceiveCount = new System.Windows.Forms.Label();
+            this.allStatLabelInfoReturnCount = new System.Windows.Forms.Label();
+            this.allStatLabelReturnCount = new System.Windows.Forms.Label();
+            this.allStatLabelInfoReturnPay = new System.Windows.Forms.Label();
+            this.allStatLabelReturnPay = new System.Windows.Forms.Label();
+            this.panelAllStatL2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelAllStatL2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.allStatLabelInfoDate = new System.Windows.Forms.Label();
+            this.allStatToggleButtonCalendar = new Wc32Api.Widgets.Buttons.WcToggleButton();
+            this.allStatDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.allStatDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.allStatDateTimePickerMonth = new System.Windows.Forms.DateTimePicker();
+            this.allStatBtnDateMinus = new Wc32Api.Widgets.Buttons.WcButton();
+            this.allStatBtnDatePlus = new Wc32Api.Widgets.Buttons.WcButton();
+            this.panelAllStatL1 = new System.Windows.Forms.Panel();
+            this.btnPrintAllStat = new Wc32Api.Widgets.Buttons.WcButton();
+            this.btnLoadAllStat = new Wc32Api.Widgets.Buttons.WcButton();
+            this.flowLayoutPanelAllStatL1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.allStatLabelInfoUsers = new System.Windows.Forms.Label();
+            this.allStatComboBoxUsers = new System.Windows.Forms.ComboBox();
+            this.allStatLabelInfoReportType = new System.Windows.Forms.Label();
+            this.allStatComboBoxReportType = new System.Windows.Forms.ComboBox();
+            this.allStatPanelStatL3 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelAllStatStatL3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.allStatLabelInfoReceivedNoValueCount = new System.Windows.Forms.Label();
+            this.allStatLabelReceivedNoValueCount = new System.Windows.Forms.Label();
+            this.allStatLabelInfoValueCount = new System.Windows.Forms.Label();
+            this.allStatLabelValueCount = new System.Windows.Forms.Label();
+            this.allStatLabelInfoFirstClassCount = new System.Windows.Forms.Label();
+            this.allStatLabelFirstClassCount = new System.Windows.Forms.Label();
             this.tabFiles = new System.Windows.Forms.TabPage();
             this.filesDataGridView = new System.Windows.Forms.DataGridView();
             this.filesColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -179,17 +226,19 @@ namespace DwUtils.Core.Forms
             this.btnLoadConnectedUser = new Wc32Api.Widgets.Buttons.WcButton();
             this.flowLayoutPanelOnline = new System.Windows.Forms.FlowLayoutPanel();
             this.panelGeneral = new System.Windows.Forms.Panel();
+            this.numericUpDownCopies = new System.Windows.Forms.NumericUpDown();
+            this.lblInfoCopies = new System.Windows.Forms.Label();
             this.comboBoxPrinters = new System.Windows.Forms.ComboBox();
             this.lblInfoPrinter = new System.Windows.Forms.Label();
             this.btnTest = new Wc32Api.Widgets.Buttons.WcButton();
-            this.lblInfoDebug = new System.Windows.Forms.Label();
-            this.toggleDebug = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.labelInfoLoadLk = new System.Windows.Forms.Label();
             this.toggleLoadLk = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.infosMenuItem = new Wc32Api.Widgets.Buttons.WcButton();
             this.settingsMenuItem = new Wc32Api.Widgets.Buttons.WcButton();
             this.fileMenuItem = new Wc32Api.Widgets.Buttons.WcButton();
+            this.lblInfoDebug = new System.Windows.Forms.Label();
+            this.toggleDebug = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.wcDropdownMenuFile = new Wc32Api.Widgets.Menus.WcDropdownMenu(this.components);
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wcDropdownMenuSettings = new Wc32Api.Widgets.Menus.WcDropdownMenu(this.components);
@@ -197,8 +246,20 @@ namespace DwUtils.Core.Forms
             this.connectPostUnitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblInfoCopies = new System.Windows.Forms.Label();
-            this.numericUpDownCopies = new System.Windows.Forms.NumericUpDown();
+            this.allStatColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnAllCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnSentCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnAllReceivedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnReceivedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnReturnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnReturnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnReceivedNoValueCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnValueCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnFirstClassCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnNotifyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnHandedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusBar.SuspendLayout();
             this.panelWork.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -224,9 +285,19 @@ namespace DwUtils.Core.Forms
             this.panelReceivedL1.SuspendLayout();
             this.flowLayoutPanelReceivedL1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.receiveRpoReportTypeBindingSource)).BeginInit();
-            this.tabDelivery.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deliveryPictureBox)).BeginInit();
-            this.panelDeliveryL1.SuspendLayout();
+            this.tabAllStat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.allStatDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allStatRpoBindingSource)).BeginInit();
+            this.allStatPanelStatL1.SuspendLayout();
+            this.flowLayoutPanelAllStatStatL1.SuspendLayout();
+            this.allStatPanelStatL2.SuspendLayout();
+            this.flowLayoutPanelAllStatStatL2.SuspendLayout();
+            this.panelAllStatL2.SuspendLayout();
+            this.flowLayoutPanelAllStatL2.SuspendLayout();
+            this.panelAllStatL1.SuspendLayout();
+            this.flowLayoutPanelAllStatL1.SuspendLayout();
+            this.allStatPanelStatL3.SuspendLayout();
+            this.flowLayoutPanelAllStatStatL3.SuspendLayout();
             this.tabFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.filesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpoFileBindingSource)).BeginInit();
@@ -244,10 +315,10 @@ namespace DwUtils.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.connectUserBindingSource)).BeginInit();
             this.panelOnline.SuspendLayout();
             this.panelGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.wcDropdownMenuFile.SuspendLayout();
             this.wcDropdownMenuSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).BeginInit();
             this.SuspendLayout();
             // 
             // statusBar
@@ -302,7 +373,7 @@ namespace DwUtils.Core.Forms
             // 
             this.tabControl.Controls.Add(this.tabFreeRpo);
             this.tabControl.Controls.Add(this.tabReceived);
-            this.tabControl.Controls.Add(this.tabDelivery);
+            this.tabControl.Controls.Add(this.tabAllStat);
             this.tabControl.Controls.Add(this.tabFiles);
             this.tabControl.Controls.Add(this.tabConnected);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1370,102 +1441,722 @@ namespace DwUtils.Core.Forms
             // 
             this.receiveRpoReportTypeBindingSource.DataSource = typeof(DwUtils.Core.Types.ReceiveRpoReportType);
             // 
-            // tabDelivery
+            // tabAllStat
             // 
-            this.tabDelivery.Controls.Add(this.deliveryPictureBox);
-            this.tabDelivery.Controls.Add(this.panelDeliveryL1);
-            this.tabDelivery.Location = new System.Drawing.Point(4, 36);
-            this.tabDelivery.Name = "tabDelivery";
-            this.tabDelivery.Size = new System.Drawing.Size(1002, 373);
-            this.tabDelivery.TabIndex = 2;
-            this.tabDelivery.Text = "Вручено";
-            this.tabDelivery.UseVisualStyleBackColor = true;
+            this.tabAllStat.Controls.Add(this.allStatDataGridView);
+            this.tabAllStat.Controls.Add(this.allStatPanelStatL1);
+            this.tabAllStat.Controls.Add(this.allStatPanelStatL2);
+            this.tabAllStat.Controls.Add(this.panelAllStatL2);
+            this.tabAllStat.Controls.Add(this.panelAllStatL1);
+            this.tabAllStat.Controls.Add(this.allStatPanelStatL3);
+            this.tabAllStat.Location = new System.Drawing.Point(4, 36);
+            this.tabAllStat.Name = "tabAllStat";
+            this.tabAllStat.Size = new System.Drawing.Size(1002, 373);
+            this.tabAllStat.TabIndex = 2;
+            this.tabAllStat.Text = "Статистика";
+            this.tabAllStat.UseVisualStyleBackColor = true;
             // 
-            // deliveryPictureBox
+            // allStatDataGridView
             // 
-            this.deliveryPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deliveryPictureBox.Image = global::DwUtils.Properties.Resources.no_result;
-            this.deliveryPictureBox.Location = new System.Drawing.Point(0, 48);
-            this.deliveryPictureBox.Name = "deliveryPictureBox";
-            this.deliveryPictureBox.Size = new System.Drawing.Size(1002, 325);
-            this.deliveryPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.deliveryPictureBox.TabIndex = 8;
-            this.deliveryPictureBox.TabStop = false;
+            this.allStatDataGridView.AllowUserToAddRows = false;
+            this.allStatDataGridView.AllowUserToDeleteRows = false;
+            this.allStatDataGridView.AllowUserToResizeColumns = false;
+            this.allStatDataGridView.AllowUserToResizeRows = false;
+            this.allStatDataGridView.AutoGenerateColumns = false;
+            this.allStatDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.allStatDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.allStatDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.allStatDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.allStatDataGridView.ColumnHeadersHeight = 40;
+            this.allStatDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.allStatDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.allStatColumnDate,
+            this.allStatColumnUserName,
+            this.allStatColumnHour,
+            this.allStatColumnAllCount,
+            this.allStatColumnSentCount,
+            this.allStatColumnAllReceivedCount,
+            this.allStatColumnReceivedCount,
+            this.allStatColumnReturnCount,
+            this.allStatColumnReturnPay,
+            this.allStatColumnReceivedNoValueCount,
+            this.allStatColumnValueCount,
+            this.allStatColumnFirstClassCount,
+            this.allStatColumnNotifyCount,
+            this.allStatColumnHandedCount});
+            this.allStatDataGridView.DataSource = this.allStatRpoBindingSource;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.allStatDataGridView.DefaultCellStyle = dataGridViewCellStyle9;
+            this.allStatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.allStatDataGridView.EnableHeadersVisualStyles = false;
+            this.allStatDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.allStatDataGridView.Location = new System.Drawing.Point(0, 92);
+            this.allStatDataGridView.Margin = new System.Windows.Forms.Padding(1);
+            this.allStatDataGridView.Name = "allStatDataGridView";
+            this.allStatDataGridView.ReadOnly = true;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.allStatDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.allStatDataGridView.RowHeadersVisible = false;
+            this.allStatDataGridView.RowHeadersWidth = 40;
+            this.allStatDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.allStatDataGridView.RowTemplate.Height = 40;
+            this.allStatDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.allStatDataGridView.Size = new System.Drawing.Size(1002, 191);
+            this.allStatDataGridView.TabIndex = 11;
+            this.allStatDataGridView.TabStop = false;
             // 
-            // panelDeliveryL1
+            // allStatRpoBindingSource
             // 
-            this.panelDeliveryL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.panelDeliveryL1.Controls.Add(this.btnPrintDelivery);
-            this.panelDeliveryL1.Controls.Add(this.btnLoadDelivery);
-            this.panelDeliveryL1.Controls.Add(this.flowLayoutPanelDeliveryL1);
-            this.panelDeliveryL1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelDeliveryL1.Location = new System.Drawing.Point(0, 0);
-            this.panelDeliveryL1.Name = "panelDeliveryL1";
-            this.panelDeliveryL1.Size = new System.Drawing.Size(1002, 48);
-            this.panelDeliveryL1.TabIndex = 7;
+            this.allStatRpoBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.AllStatRpo);
             // 
-            // btnPrintDelivery
+            // allStatPanelStatL1
             // 
-            this.btnPrintDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintDelivery.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnPrintDelivery.BorderColor = System.Drawing.Color.Silver;
-            this.btnPrintDelivery.BorderRadius = 6F;
-            this.btnPrintDelivery.BorderSize = 0;
-            this.btnPrintDelivery.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnPrintDelivery.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnPrintDelivery.FlatAppearance.BorderSize = 0;
-            this.btnPrintDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnPrintDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintDelivery.ForeColor = System.Drawing.Color.White;
-            this.btnPrintDelivery.Image = global::DwUtils.Properties.Resources.printer_3_24;
-            this.btnPrintDelivery.Location = new System.Drawing.Point(906, 4);
-            this.btnPrintDelivery.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.btnPrintDelivery.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnPrintDelivery.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnPrintDelivery.Name = "btnPrintDelivery";
-            this.btnPrintDelivery.Padding = new System.Windows.Forms.Padding(5, 0, 4, 0);
-            this.btnPrintDelivery.Size = new System.Drawing.Size(40, 40);
-            this.btnPrintDelivery.TabIndex = 0;
-            this.btnPrintDelivery.TabStop = false;
-            this.btnPrintDelivery.TextColor = System.Drawing.Color.White;
-            this.btnPrintDelivery.UseVisualStyleBackColor = false;
+            this.allStatPanelStatL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.allStatPanelStatL1.Controls.Add(this.flowLayoutPanelAllStatStatL1);
+            this.allStatPanelStatL1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.allStatPanelStatL1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.allStatPanelStatL1.Location = new System.Drawing.Point(0, 283);
+            this.allStatPanelStatL1.Name = "allStatPanelStatL1";
+            this.allStatPanelStatL1.Size = new System.Drawing.Size(1002, 30);
+            this.allStatPanelStatL1.TabIndex = 12;
             // 
-            // btnLoadDelivery
+            // flowLayoutPanelAllStatStatL1
             // 
-            this.btnLoadDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoadDelivery.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLoadDelivery.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoadDelivery.BorderRadius = 6F;
-            this.btnLoadDelivery.BorderSize = 0;
-            this.btnLoadDelivery.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnLoadDelivery.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnLoadDelivery.Enabled = false;
-            this.btnLoadDelivery.FlatAppearance.BorderSize = 0;
-            this.btnLoadDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnLoadDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadDelivery.ForeColor = System.Drawing.Color.White;
-            this.btnLoadDelivery.Image = global::DwUtils.Properties.Resources.synchronize_24;
-            this.btnLoadDelivery.Location = new System.Drawing.Point(952, 4);
-            this.btnLoadDelivery.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.btnLoadDelivery.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnLoadDelivery.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnLoadDelivery.Name = "btnLoadDelivery";
-            this.btnLoadDelivery.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnLoadDelivery.Size = new System.Drawing.Size(40, 40);
-            this.btnLoadDelivery.TabIndex = 0;
-            this.btnLoadDelivery.TabStop = false;
-            this.btnLoadDelivery.TextColor = System.Drawing.Color.White;
-            this.btnLoadDelivery.UseVisualStyleBackColor = false;
+            this.flowLayoutPanelAllStatStatL1.Controls.Add(this.allStatLabelInfoPosCount);
+            this.flowLayoutPanelAllStatStatL1.Controls.Add(this.allStatLabelPosCount);
+            this.flowLayoutPanelAllStatStatL1.Controls.Add(this.allStatLabelInfoAllCount);
+            this.flowLayoutPanelAllStatStatL1.Controls.Add(this.allStatLabelAllCount);
+            this.flowLayoutPanelAllStatStatL1.Controls.Add(this.allStatLabelInfoSentCount);
+            this.flowLayoutPanelAllStatStatL1.Controls.Add(this.allStatLabelSentCount);
+            this.flowLayoutPanelAllStatStatL1.Controls.Add(this.allStatLabelInfoNotifyCount);
+            this.flowLayoutPanelAllStatStatL1.Controls.Add(this.allStatLabelNotifyCount);
+            this.flowLayoutPanelAllStatStatL1.Controls.Add(this.allStatLabelInfoHandedCount);
+            this.flowLayoutPanelAllStatStatL1.Controls.Add(this.allStatLabelHandedCount);
+            this.flowLayoutPanelAllStatStatL1.Location = new System.Drawing.Point(0, 3);
+            this.flowLayoutPanelAllStatStatL1.Name = "flowLayoutPanelAllStatStatL1";
+            this.flowLayoutPanelAllStatStatL1.Size = new System.Drawing.Size(999, 26);
+            this.flowLayoutPanelAllStatStatL1.TabIndex = 1;
+            this.flowLayoutPanelAllStatStatL1.WrapContents = false;
             // 
-            // flowLayoutPanelDeliveryL1
+            // allStatLabelInfoPosCount
             // 
-            this.flowLayoutPanelDeliveryL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.allStatLabelInfoPosCount.AutoSize = true;
+            this.allStatLabelInfoPosCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoPosCount.Location = new System.Drawing.Point(8, 2);
+            this.allStatLabelInfoPosCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoPosCount.Name = "allStatLabelInfoPosCount";
+            this.allStatLabelInfoPosCount.Size = new System.Drawing.Size(76, 20);
+            this.allStatLabelInfoPosCount.TabIndex = 0;
+            this.allStatLabelInfoPosCount.Text = "Позиций:";
+            // 
+            // allStatLabelPosCount
+            // 
+            this.allStatLabelPosCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelPosCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelPosCount.Location = new System.Drawing.Point(90, 2);
+            this.allStatLabelPosCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelPosCount.Name = "allStatLabelPosCount";
+            this.allStatLabelPosCount.Size = new System.Drawing.Size(90, 22);
+            this.allStatLabelPosCount.TabIndex = 0;
+            this.allStatLabelPosCount.Text = "0";
+            // 
+            // allStatLabelInfoAllCount
+            // 
+            this.allStatLabelInfoAllCount.AutoSize = true;
+            this.allStatLabelInfoAllCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoAllCount.Location = new System.Drawing.Point(191, 2);
+            this.allStatLabelInfoAllCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoAllCount.Name = "allStatLabelInfoAllCount";
+            this.allStatLabelInfoAllCount.Size = new System.Drawing.Size(79, 20);
+            this.allStatLabelInfoAllCount.TabIndex = 1;
+            this.allStatLabelInfoAllCount.Text = "Прибыло:";
+            // 
+            // allStatLabelAllCount
+            // 
+            this.allStatLabelAllCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelAllCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelAllCount.Location = new System.Drawing.Point(276, 2);
+            this.allStatLabelAllCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelAllCount.Name = "allStatLabelAllCount";
+            this.allStatLabelAllCount.Size = new System.Drawing.Size(90, 22);
+            this.allStatLabelAllCount.TabIndex = 2;
+            this.allStatLabelAllCount.Text = "0";
+            // 
+            // allStatLabelInfoSentCount
+            // 
+            this.allStatLabelInfoSentCount.AutoSize = true;
+            this.allStatLabelInfoSentCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoSentCount.Location = new System.Drawing.Point(377, 2);
+            this.allStatLabelInfoSentCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoSentCount.Name = "allStatLabelInfoSentCount";
+            this.allStatLabelInfoSentCount.Size = new System.Drawing.Size(59, 20);
+            this.allStatLabelInfoSentCount.TabIndex = 0;
+            this.allStatLabelInfoSentCount.Text = "Досыл:";
+            // 
+            // allStatLabelSentCount
+            // 
+            this.allStatLabelSentCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelSentCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelSentCount.Location = new System.Drawing.Point(442, 2);
+            this.allStatLabelSentCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelSentCount.Name = "allStatLabelSentCount";
+            this.allStatLabelSentCount.Size = new System.Drawing.Size(90, 22);
+            this.allStatLabelSentCount.TabIndex = 0;
+            this.allStatLabelSentCount.Text = "0";
+            // 
+            // allStatLabelInfoNotifyCount
+            // 
+            this.allStatLabelInfoNotifyCount.AutoSize = true;
+            this.allStatLabelInfoNotifyCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoNotifyCount.Location = new System.Drawing.Point(543, 2);
+            this.allStatLabelInfoNotifyCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoNotifyCount.Name = "allStatLabelInfoNotifyCount";
+            this.allStatLabelInfoNotifyCount.Size = new System.Drawing.Size(110, 20);
+            this.allStatLabelInfoNotifyCount.TabIndex = 5;
+            this.allStatLabelInfoNotifyCount.Text = "Уведомлений:";
+            // 
+            // allStatLabelNotifyCount
+            // 
+            this.allStatLabelNotifyCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelNotifyCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelNotifyCount.Location = new System.Drawing.Point(659, 2);
+            this.allStatLabelNotifyCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelNotifyCount.Name = "allStatLabelNotifyCount";
+            this.allStatLabelNotifyCount.Size = new System.Drawing.Size(90, 22);
+            this.allStatLabelNotifyCount.TabIndex = 6;
+            this.allStatLabelNotifyCount.Text = "0";
+            // 
+            // allStatLabelInfoHandedCount
+            // 
+            this.allStatLabelInfoHandedCount.AutoSize = true;
+            this.allStatLabelInfoHandedCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoHandedCount.Location = new System.Drawing.Point(760, 2);
+            this.allStatLabelInfoHandedCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoHandedCount.Name = "allStatLabelInfoHandedCount";
+            this.allStatLabelInfoHandedCount.Size = new System.Drawing.Size(74, 20);
+            this.allStatLabelInfoHandedCount.TabIndex = 3;
+            this.allStatLabelInfoHandedCount.Text = "Вручено:";
+            // 
+            // allStatLabelHandedCount
+            // 
+            this.allStatLabelHandedCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelHandedCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelHandedCount.Location = new System.Drawing.Point(840, 2);
+            this.allStatLabelHandedCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelHandedCount.Name = "allStatLabelHandedCount";
+            this.allStatLabelHandedCount.Size = new System.Drawing.Size(90, 22);
+            this.allStatLabelHandedCount.TabIndex = 4;
+            this.allStatLabelHandedCount.Text = "0";
+            // 
+            // allStatPanelStatL2
+            // 
+            this.allStatPanelStatL2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.allStatPanelStatL2.Controls.Add(this.flowLayoutPanelAllStatStatL2);
+            this.allStatPanelStatL2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.allStatPanelStatL2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.allStatPanelStatL2.Location = new System.Drawing.Point(0, 313);
+            this.allStatPanelStatL2.Name = "allStatPanelStatL2";
+            this.allStatPanelStatL2.Size = new System.Drawing.Size(1002, 30);
+            this.allStatPanelStatL2.TabIndex = 13;
+            // 
+            // flowLayoutPanelAllStatStatL2
+            // 
+            this.flowLayoutPanelAllStatStatL2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelDeliveryL1.Location = new System.Drawing.Point(3, 7);
-            this.flowLayoutPanelDeliveryL1.Name = "flowLayoutPanelDeliveryL1";
-            this.flowLayoutPanelDeliveryL1.Size = new System.Drawing.Size(897, 34);
-            this.flowLayoutPanelDeliveryL1.TabIndex = 27;
-            this.flowLayoutPanelDeliveryL1.WrapContents = false;
+            this.flowLayoutPanelAllStatStatL2.Controls.Add(this.allStatLabelInfoAllReceivedCount);
+            this.flowLayoutPanelAllStatStatL2.Controls.Add(this.allStatLabelAllReceivedCount);
+            this.flowLayoutPanelAllStatStatL2.Controls.Add(this.allStatLabelInfoReceiveCount);
+            this.flowLayoutPanelAllStatStatL2.Controls.Add(this.allStatLabelReceiveCount);
+            this.flowLayoutPanelAllStatStatL2.Controls.Add(this.allStatLabelInfoReturnCount);
+            this.flowLayoutPanelAllStatStatL2.Controls.Add(this.allStatLabelReturnCount);
+            this.flowLayoutPanelAllStatStatL2.Controls.Add(this.allStatLabelInfoReturnPay);
+            this.flowLayoutPanelAllStatStatL2.Controls.Add(this.allStatLabelReturnPay);
+            this.flowLayoutPanelAllStatStatL2.Location = new System.Drawing.Point(0, 3);
+            this.flowLayoutPanelAllStatStatL2.Name = "flowLayoutPanelAllStatStatL2";
+            this.flowLayoutPanelAllStatStatL2.Size = new System.Drawing.Size(999, 26);
+            this.flowLayoutPanelAllStatStatL2.TabIndex = 1;
+            this.flowLayoutPanelAllStatStatL2.WrapContents = false;
+            // 
+            // allStatLabelInfoAllReceivedCount
+            // 
+            this.allStatLabelInfoAllReceivedCount.AutoSize = true;
+            this.allStatLabelInfoAllReceivedCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoAllReceivedCount.Location = new System.Drawing.Point(8, 2);
+            this.allStatLabelInfoAllReceivedCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoAllReceivedCount.Name = "allStatLabelInfoAllReceivedCount";
+            this.allStatLabelInfoAllReceivedCount.Size = new System.Drawing.Size(104, 20);
+            this.allStatLabelInfoAllReceivedCount.TabIndex = 1;
+            this.allStatLabelInfoAllReceivedCount.Text = "На вручение:";
+            // 
+            // allStatLabelAllReceivedCount
+            // 
+            this.allStatLabelAllReceivedCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelAllReceivedCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelAllReceivedCount.Location = new System.Drawing.Point(118, 2);
+            this.allStatLabelAllReceivedCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelAllReceivedCount.Name = "allStatLabelAllReceivedCount";
+            this.allStatLabelAllReceivedCount.Size = new System.Drawing.Size(90, 22);
+            this.allStatLabelAllReceivedCount.TabIndex = 2;
+            this.allStatLabelAllReceivedCount.Text = "0";
+            // 
+            // allStatLabelInfoReceiveCount
+            // 
+            this.allStatLabelInfoReceiveCount.AutoSize = true;
+            this.allStatLabelInfoReceiveCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoReceiveCount.Location = new System.Drawing.Point(219, 2);
+            this.allStatLabelInfoReceiveCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoReceiveCount.Name = "allStatLabelInfoReceiveCount";
+            this.allStatLabelInfoReceiveCount.Size = new System.Drawing.Size(101, 20);
+            this.allStatLabelInfoReceiveCount.TabIndex = 3;
+            this.allStatLabelInfoReceiveCount.Text = "Получателю:";
+            // 
+            // allStatLabelReceiveCount
+            // 
+            this.allStatLabelReceiveCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelReceiveCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelReceiveCount.Location = new System.Drawing.Point(326, 2);
+            this.allStatLabelReceiveCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelReceiveCount.Name = "allStatLabelReceiveCount";
+            this.allStatLabelReceiveCount.Size = new System.Drawing.Size(90, 22);
+            this.allStatLabelReceiveCount.TabIndex = 4;
+            this.allStatLabelReceiveCount.Text = "0";
+            // 
+            // allStatLabelInfoReturnCount
+            // 
+            this.allStatLabelInfoReturnCount.AutoSize = true;
+            this.allStatLabelInfoReturnCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoReturnCount.Location = new System.Drawing.Point(427, 2);
+            this.allStatLabelInfoReturnCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoReturnCount.Name = "allStatLabelInfoReturnCount";
+            this.allStatLabelInfoReturnCount.Size = new System.Drawing.Size(69, 20);
+            this.allStatLabelInfoReturnCount.TabIndex = 5;
+            this.allStatLabelInfoReturnCount.Text = "Возврат:";
+            // 
+            // allStatLabelReturnCount
+            // 
+            this.allStatLabelReturnCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelReturnCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelReturnCount.Location = new System.Drawing.Point(502, 2);
+            this.allStatLabelReturnCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelReturnCount.Name = "allStatLabelReturnCount";
+            this.allStatLabelReturnCount.Size = new System.Drawing.Size(90, 22);
+            this.allStatLabelReturnCount.TabIndex = 6;
+            this.allStatLabelReturnCount.Text = "0";
+            // 
+            // allStatLabelInfoReturnPay
+            // 
+            this.allStatLabelInfoReturnPay.AutoSize = true;
+            this.allStatLabelInfoReturnPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoReturnPay.Location = new System.Drawing.Point(603, 2);
+            this.allStatLabelInfoReturnPay.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoReturnPay.Name = "allStatLabelInfoReturnPay";
+            this.allStatLabelInfoReturnPay.Size = new System.Drawing.Size(54, 20);
+            this.allStatLabelInfoReturnPay.TabIndex = 7;
+            this.allStatLabelInfoReturnPay.Text = "Плата:";
+            // 
+            // allStatLabelReturnPay
+            // 
+            this.allStatLabelReturnPay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelReturnPay.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelReturnPay.Location = new System.Drawing.Point(663, 2);
+            this.allStatLabelReturnPay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelReturnPay.Name = "allStatLabelReturnPay";
+            this.allStatLabelReturnPay.Size = new System.Drawing.Size(122, 22);
+            this.allStatLabelReturnPay.TabIndex = 8;
+            this.allStatLabelReturnPay.Text = "0,00 ₽";
+            // 
+            // panelAllStatL2
+            // 
+            this.panelAllStatL2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelAllStatL2.Controls.Add(this.flowLayoutPanelAllStatL2);
+            this.panelAllStatL2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelAllStatL2.Location = new System.Drawing.Point(0, 48);
+            this.panelAllStatL2.Name = "panelAllStatL2";
+            this.panelAllStatL2.Size = new System.Drawing.Size(1002, 44);
+            this.panelAllStatL2.TabIndex = 10;
+            // 
+            // flowLayoutPanelAllStatL2
+            // 
+            this.flowLayoutPanelAllStatL2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelAllStatL2.Controls.Add(this.allStatLabelInfoDate);
+            this.flowLayoutPanelAllStatL2.Controls.Add(this.allStatToggleButtonCalendar);
+            this.flowLayoutPanelAllStatL2.Controls.Add(this.allStatDateTimePickerStart);
+            this.flowLayoutPanelAllStatL2.Controls.Add(this.allStatDateTimePickerEnd);
+            this.flowLayoutPanelAllStatL2.Controls.Add(this.allStatDateTimePickerMonth);
+            this.flowLayoutPanelAllStatL2.Controls.Add(this.allStatBtnDateMinus);
+            this.flowLayoutPanelAllStatL2.Controls.Add(this.allStatBtnDatePlus);
+            this.flowLayoutPanelAllStatL2.Location = new System.Drawing.Point(3, 5);
+            this.flowLayoutPanelAllStatL2.Name = "flowLayoutPanelAllStatL2";
+            this.flowLayoutPanelAllStatL2.Size = new System.Drawing.Size(989, 34);
+            this.flowLayoutPanelAllStatL2.TabIndex = 27;
+            this.flowLayoutPanelAllStatL2.WrapContents = false;
+            // 
+            // allStatLabelInfoDate
+            // 
+            this.allStatLabelInfoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.allStatLabelInfoDate.AutoSize = true;
+            this.allStatLabelInfoDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoDate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.allStatLabelInfoDate.Location = new System.Drawing.Point(6, 6);
+            this.allStatLabelInfoDate.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.allStatLabelInfoDate.Name = "allStatLabelInfoDate";
+            this.allStatLabelInfoDate.Size = new System.Drawing.Size(46, 20);
+            this.allStatLabelInfoDate.TabIndex = 1;
+            this.allStatLabelInfoDate.Text = "Дата:";
+            // 
+            // allStatToggleButtonCalendar
+            // 
+            this.allStatToggleButtonCalendar.AutoSize = true;
+            this.allStatToggleButtonCalendar.DisableBackColor = System.Drawing.Color.DimGray;
+            this.allStatToggleButtonCalendar.DisableToggleColor = System.Drawing.Color.Gray;
+            this.allStatToggleButtonCalendar.Location = new System.Drawing.Point(58, 6);
+            this.allStatToggleButtonCalendar.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.allStatToggleButtonCalendar.MinimumSize = new System.Drawing.Size(45, 22);
+            this.allStatToggleButtonCalendar.Name = "allStatToggleButtonCalendar";
+            this.allStatToggleButtonCalendar.OffBackColor = System.Drawing.Color.Firebrick;
+            this.allStatToggleButtonCalendar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.allStatToggleButtonCalendar.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.allStatToggleButtonCalendar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.allStatToggleButtonCalendar.Size = new System.Drawing.Size(45, 22);
+            this.allStatToggleButtonCalendar.TabIndex = 36;
+            this.allStatToggleButtonCalendar.UseVisualStyleBackColor = true;
+            this.allStatToggleButtonCalendar.CheckedChanged += new System.EventHandler(this.allStatToggleButtonCalendar_CheckedChanged);
+            // 
+            // allStatDateTimePickerStart
+            // 
+            this.allStatDateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.allStatDateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.allStatDateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.allStatDateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.allStatDateTimePickerStart.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.allStatDateTimePickerStart.Location = new System.Drawing.Point(109, 3);
+            this.allStatDateTimePickerStart.Name = "allStatDateTimePickerStart";
+            this.allStatDateTimePickerStart.Size = new System.Drawing.Size(220, 29);
+            this.allStatDateTimePickerStart.TabIndex = 32;
+            this.allStatDateTimePickerStart.ValueChanged += new System.EventHandler(this.allStatDateTimePickerStart_ValueChanged);
+            // 
+            // allStatDateTimePickerEnd
+            // 
+            this.allStatDateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.allStatDateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.allStatDateTimePickerEnd.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.allStatDateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.allStatDateTimePickerEnd.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
+            this.allStatDateTimePickerEnd.Location = new System.Drawing.Point(335, 3);
+            this.allStatDateTimePickerEnd.Name = "allStatDateTimePickerEnd";
+            this.allStatDateTimePickerEnd.Size = new System.Drawing.Size(200, 29);
+            this.allStatDateTimePickerEnd.TabIndex = 33;
+            // 
+            // allStatDateTimePickerMonth
+            // 
+            this.allStatDateTimePickerMonth.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.allStatDateTimePickerMonth.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.allStatDateTimePickerMonth.CalendarTitleBackColor = System.Drawing.Color.WhiteSmoke;
+            this.allStatDateTimePickerMonth.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.allStatDateTimePickerMonth.CustomFormat = "MMMM yyyy";
+            this.allStatDateTimePickerMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.allStatDateTimePickerMonth.Location = new System.Drawing.Point(541, 3);
+            this.allStatDateTimePickerMonth.Name = "allStatDateTimePickerMonth";
+            this.allStatDateTimePickerMonth.ShowUpDown = true;
+            this.allStatDateTimePickerMonth.Size = new System.Drawing.Size(220, 29);
+            this.allStatDateTimePickerMonth.TabIndex = 35;
+            this.allStatDateTimePickerMonth.Visible = false;
+            // 
+            // allStatBtnDateMinus
+            // 
+            this.allStatBtnDateMinus.BackColor = System.Drawing.Color.Firebrick;
+            this.allStatBtnDateMinus.BorderColor = System.Drawing.Color.Silver;
+            this.allStatBtnDateMinus.BorderRadius = 4F;
+            this.allStatBtnDateMinus.BorderSize = 0;
+            this.allStatBtnDateMinus.DisableBackColor = System.Drawing.Color.DimGray;
+            this.allStatBtnDateMinus.DisableBorderColor = System.Drawing.Color.Silver;
+            this.allStatBtnDateMinus.FlatAppearance.BorderSize = 0;
+            this.allStatBtnDateMinus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.allStatBtnDateMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.allStatBtnDateMinus.ForeColor = System.Drawing.Color.White;
+            this.allStatBtnDateMinus.Image = global::DwUtils.Properties.Resources.minus_16;
+            this.allStatBtnDateMinus.Location = new System.Drawing.Point(764, 3);
+            this.allStatBtnDateMinus.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.allStatBtnDateMinus.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.allStatBtnDateMinus.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.allStatBtnDateMinus.Name = "allStatBtnDateMinus";
+            this.allStatBtnDateMinus.Padding = new System.Windows.Forms.Padding(0, 3, 0, 2);
+            this.allStatBtnDateMinus.Size = new System.Drawing.Size(28, 28);
+            this.allStatBtnDateMinus.TabIndex = 38;
+            this.allStatBtnDateMinus.TextColor = System.Drawing.Color.White;
+            this.allStatBtnDateMinus.UseVisualStyleBackColor = false;
+            this.allStatBtnDateMinus.Click += new System.EventHandler(this.allStatBtnDateMinus_Click);
+            // 
+            // allStatBtnDatePlus
+            // 
+            this.allStatBtnDatePlus.BackColor = System.Drawing.Color.SeaGreen;
+            this.allStatBtnDatePlus.BorderColor = System.Drawing.Color.Silver;
+            this.allStatBtnDatePlus.BorderRadius = 4F;
+            this.allStatBtnDatePlus.BorderSize = 0;
+            this.allStatBtnDatePlus.DisableBackColor = System.Drawing.Color.DimGray;
+            this.allStatBtnDatePlus.DisableBorderColor = System.Drawing.Color.Silver;
+            this.allStatBtnDatePlus.FlatAppearance.BorderSize = 0;
+            this.allStatBtnDatePlus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.allStatBtnDatePlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.allStatBtnDatePlus.ForeColor = System.Drawing.Color.White;
+            this.allStatBtnDatePlus.Image = global::DwUtils.Properties.Resources.plus_16;
+            this.allStatBtnDatePlus.Location = new System.Drawing.Point(792, 3);
+            this.allStatBtnDatePlus.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.allStatBtnDatePlus.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.allStatBtnDatePlus.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.allStatBtnDatePlus.Name = "allStatBtnDatePlus";
+            this.allStatBtnDatePlus.Padding = new System.Windows.Forms.Padding(0, 3, 0, 2);
+            this.allStatBtnDatePlus.Size = new System.Drawing.Size(28, 28);
+            this.allStatBtnDatePlus.TabIndex = 37;
+            this.allStatBtnDatePlus.TextColor = System.Drawing.Color.White;
+            this.allStatBtnDatePlus.UseVisualStyleBackColor = false;
+            this.allStatBtnDatePlus.Click += new System.EventHandler(this.allStatBtnDatePlus_Click);
+            // 
+            // panelAllStatL1
+            // 
+            this.panelAllStatL1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.panelAllStatL1.Controls.Add(this.btnPrintAllStat);
+            this.panelAllStatL1.Controls.Add(this.btnLoadAllStat);
+            this.panelAllStatL1.Controls.Add(this.flowLayoutPanelAllStatL1);
+            this.panelAllStatL1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelAllStatL1.Location = new System.Drawing.Point(0, 0);
+            this.panelAllStatL1.Name = "panelAllStatL1";
+            this.panelAllStatL1.Size = new System.Drawing.Size(1002, 48);
+            this.panelAllStatL1.TabIndex = 7;
+            // 
+            // btnPrintAllStat
+            // 
+            this.btnPrintAllStat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintAllStat.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintAllStat.BorderColor = System.Drawing.Color.Silver;
+            this.btnPrintAllStat.BorderRadius = 6F;
+            this.btnPrintAllStat.BorderSize = 0;
+            this.btnPrintAllStat.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnPrintAllStat.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnPrintAllStat.Enabled = false;
+            this.btnPrintAllStat.FlatAppearance.BorderSize = 0;
+            this.btnPrintAllStat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrintAllStat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintAllStat.ForeColor = System.Drawing.Color.White;
+            this.btnPrintAllStat.Image = global::DwUtils.Properties.Resources.printer_3_24;
+            this.btnPrintAllStat.Location = new System.Drawing.Point(906, 4);
+            this.btnPrintAllStat.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnPrintAllStat.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnPrintAllStat.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrintAllStat.Name = "btnPrintAllStat";
+            this.btnPrintAllStat.Padding = new System.Windows.Forms.Padding(5, 0, 4, 0);
+            this.btnPrintAllStat.Size = new System.Drawing.Size(40, 40);
+            this.btnPrintAllStat.TabIndex = 0;
+            this.btnPrintAllStat.TabStop = false;
+            this.btnPrintAllStat.TextColor = System.Drawing.Color.White;
+            this.btnPrintAllStat.UseVisualStyleBackColor = false;
+            this.btnPrintAllStat.Click += new System.EventHandler(this.btnPrintAllStat_Click);
+            // 
+            // btnLoadAllStat
+            // 
+            this.btnLoadAllStat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadAllStat.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLoadAllStat.BorderColor = System.Drawing.Color.Silver;
+            this.btnLoadAllStat.BorderRadius = 6F;
+            this.btnLoadAllStat.BorderSize = 0;
+            this.btnLoadAllStat.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnLoadAllStat.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnLoadAllStat.FlatAppearance.BorderSize = 0;
+            this.btnLoadAllStat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadAllStat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadAllStat.ForeColor = System.Drawing.Color.White;
+            this.btnLoadAllStat.Image = global::DwUtils.Properties.Resources.synchronize_24;
+            this.btnLoadAllStat.Location = new System.Drawing.Point(952, 4);
+            this.btnLoadAllStat.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnLoadAllStat.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnLoadAllStat.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLoadAllStat.Name = "btnLoadAllStat";
+            this.btnLoadAllStat.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnLoadAllStat.Size = new System.Drawing.Size(40, 40);
+            this.btnLoadAllStat.TabIndex = 0;
+            this.btnLoadAllStat.TabStop = false;
+            this.btnLoadAllStat.TextColor = System.Drawing.Color.White;
+            this.btnLoadAllStat.UseVisualStyleBackColor = false;
+            this.btnLoadAllStat.Click += new System.EventHandler(this.btnLoadAllStat_Click);
+            // 
+            // flowLayoutPanelAllStatL1
+            // 
+            this.flowLayoutPanelAllStatL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelAllStatL1.Controls.Add(this.allStatLabelInfoUsers);
+            this.flowLayoutPanelAllStatL1.Controls.Add(this.allStatComboBoxUsers);
+            this.flowLayoutPanelAllStatL1.Controls.Add(this.allStatLabelInfoReportType);
+            this.flowLayoutPanelAllStatL1.Controls.Add(this.allStatComboBoxReportType);
+            this.flowLayoutPanelAllStatL1.Location = new System.Drawing.Point(3, 7);
+            this.flowLayoutPanelAllStatL1.Name = "flowLayoutPanelAllStatL1";
+            this.flowLayoutPanelAllStatL1.Size = new System.Drawing.Size(897, 34);
+            this.flowLayoutPanelAllStatL1.TabIndex = 27;
+            this.flowLayoutPanelAllStatL1.WrapContents = false;
+            // 
+            // allStatLabelInfoUsers
+            // 
+            this.allStatLabelInfoUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.allStatLabelInfoUsers.AutoSize = true;
+            this.allStatLabelInfoUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoUsers.ForeColor = System.Drawing.Color.Gainsboro;
+            this.allStatLabelInfoUsers.Location = new System.Drawing.Point(6, 6);
+            this.allStatLabelInfoUsers.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.allStatLabelInfoUsers.Name = "allStatLabelInfoUsers";
+            this.allStatLabelInfoUsers.Size = new System.Drawing.Size(111, 20);
+            this.allStatLabelInfoUsers.TabIndex = 5;
+            this.allStatLabelInfoUsers.Text = "Пользователь:";
+            // 
+            // allStatComboBoxUsers
+            // 
+            this.allStatComboBoxUsers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.allStatComboBoxUsers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.allStatComboBoxUsers.DataSource = this.userBindingSource;
+            this.allStatComboBoxUsers.DisplayMember = "Name";
+            this.allStatComboBoxUsers.FormattingEnabled = true;
+            this.allStatComboBoxUsers.Location = new System.Drawing.Point(123, 3);
+            this.allStatComboBoxUsers.Name = "allStatComboBoxUsers";
+            this.allStatComboBoxUsers.Size = new System.Drawing.Size(234, 29);
+            this.allStatComboBoxUsers.TabIndex = 6;
+            this.allStatComboBoxUsers.ValueMember = "Id";
+            // 
+            // allStatLabelInfoReportType
+            // 
+            this.allStatLabelInfoReportType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.allStatLabelInfoReportType.AutoSize = true;
+            this.allStatLabelInfoReportType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoReportType.ForeColor = System.Drawing.Color.Gainsboro;
+            this.allStatLabelInfoReportType.Location = new System.Drawing.Point(366, 6);
+            this.allStatLabelInfoReportType.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.allStatLabelInfoReportType.Name = "allStatLabelInfoReportType";
+            this.allStatLabelInfoReportType.Size = new System.Drawing.Size(53, 20);
+            this.allStatLabelInfoReportType.TabIndex = 7;
+            this.allStatLabelInfoReportType.Text = "Отчет:";
+            // 
+            // allStatComboBoxReportType
+            // 
+            this.allStatComboBoxReportType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.allStatComboBoxReportType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.allStatComboBoxReportType.DataSource = this.receiveRpoReportTypeBindingSource;
+            this.allStatComboBoxReportType.DisplayMember = "Name";
+            this.allStatComboBoxReportType.FormattingEnabled = true;
+            this.allStatComboBoxReportType.Location = new System.Drawing.Point(425, 3);
+            this.allStatComboBoxReportType.Name = "allStatComboBoxReportType";
+            this.allStatComboBoxReportType.Size = new System.Drawing.Size(173, 29);
+            this.allStatComboBoxReportType.TabIndex = 8;
+            this.allStatComboBoxReportType.ValueMember = "Id";
+            // 
+            // allStatPanelStatL3
+            // 
+            this.allStatPanelStatL3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.allStatPanelStatL3.Controls.Add(this.flowLayoutPanelAllStatStatL3);
+            this.allStatPanelStatL3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.allStatPanelStatL3.ForeColor = System.Drawing.Color.Gainsboro;
+            this.allStatPanelStatL3.Location = new System.Drawing.Point(0, 343);
+            this.allStatPanelStatL3.Name = "allStatPanelStatL3";
+            this.allStatPanelStatL3.Size = new System.Drawing.Size(1002, 30);
+            this.allStatPanelStatL3.TabIndex = 14;
+            // 
+            // flowLayoutPanelAllStatStatL3
+            // 
+            this.flowLayoutPanelAllStatStatL3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelAllStatStatL3.Controls.Add(this.allStatLabelInfoReceivedNoValueCount);
+            this.flowLayoutPanelAllStatStatL3.Controls.Add(this.allStatLabelReceivedNoValueCount);
+            this.flowLayoutPanelAllStatStatL3.Controls.Add(this.allStatLabelInfoValueCount);
+            this.flowLayoutPanelAllStatStatL3.Controls.Add(this.allStatLabelValueCount);
+            this.flowLayoutPanelAllStatStatL3.Controls.Add(this.allStatLabelInfoFirstClassCount);
+            this.flowLayoutPanelAllStatStatL3.Controls.Add(this.allStatLabelFirstClassCount);
+            this.flowLayoutPanelAllStatStatL3.Location = new System.Drawing.Point(0, 3);
+            this.flowLayoutPanelAllStatStatL3.Name = "flowLayoutPanelAllStatStatL3";
+            this.flowLayoutPanelAllStatStatL3.Size = new System.Drawing.Size(999, 26);
+            this.flowLayoutPanelAllStatStatL3.TabIndex = 1;
+            this.flowLayoutPanelAllStatStatL3.WrapContents = false;
+            // 
+            // allStatLabelInfoReceivedNoValueCount
+            // 
+            this.allStatLabelInfoReceivedNoValueCount.AutoSize = true;
+            this.allStatLabelInfoReceivedNoValueCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoReceivedNoValueCount.Location = new System.Drawing.Point(8, 2);
+            this.allStatLabelInfoReceivedNoValueCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoReceivedNoValueCount.Name = "allStatLabelInfoReceivedNoValueCount";
+            this.allStatLabelInfoReceivedNoValueCount.Size = new System.Drawing.Size(190, 20);
+            this.allStatLabelInfoReceivedNoValueCount.TabIndex = 1;
+            this.allStatLabelInfoReceivedNoValueCount.Text = "На вручение без ценных:";
+            // 
+            // allStatLabelReceivedNoValueCount
+            // 
+            this.allStatLabelReceivedNoValueCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelReceivedNoValueCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelReceivedNoValueCount.Location = new System.Drawing.Point(204, 2);
+            this.allStatLabelReceivedNoValueCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelReceivedNoValueCount.Name = "allStatLabelReceivedNoValueCount";
+            this.allStatLabelReceivedNoValueCount.Size = new System.Drawing.Size(90, 22);
+            this.allStatLabelReceivedNoValueCount.TabIndex = 2;
+            this.allStatLabelReceivedNoValueCount.Text = "0";
+            // 
+            // allStatLabelInfoValueCount
+            // 
+            this.allStatLabelInfoValueCount.AutoSize = true;
+            this.allStatLabelInfoValueCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoValueCount.Location = new System.Drawing.Point(305, 2);
+            this.allStatLabelInfoValueCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoValueCount.Name = "allStatLabelInfoValueCount";
+            this.allStatLabelInfoValueCount.Size = new System.Drawing.Size(70, 20);
+            this.allStatLabelInfoValueCount.TabIndex = 3;
+            this.allStatLabelInfoValueCount.Text = "Ценных:";
+            // 
+            // allStatLabelValueCount
+            // 
+            this.allStatLabelValueCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelValueCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelValueCount.Location = new System.Drawing.Point(381, 2);
+            this.allStatLabelValueCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelValueCount.Name = "allStatLabelValueCount";
+            this.allStatLabelValueCount.Size = new System.Drawing.Size(90, 22);
+            this.allStatLabelValueCount.TabIndex = 4;
+            this.allStatLabelValueCount.Text = "0";
+            // 
+            // allStatLabelInfoFirstClassCount
+            // 
+            this.allStatLabelInfoFirstClassCount.AutoSize = true;
+            this.allStatLabelInfoFirstClassCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelInfoFirstClassCount.Location = new System.Drawing.Point(482, 2);
+            this.allStatLabelInfoFirstClassCount.Margin = new System.Windows.Forms.Padding(8, 2, 3, 0);
+            this.allStatLabelInfoFirstClassCount.Name = "allStatLabelInfoFirstClassCount";
+            this.allStatLabelInfoFirstClassCount.Size = new System.Drawing.Size(61, 20);
+            this.allStatLabelInfoFirstClassCount.TabIndex = 5;
+            this.allStatLabelInfoFirstClassCount.Text = "1 класс:";
+            // 
+            // allStatLabelFirstClassCount
+            // 
+            this.allStatLabelFirstClassCount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allStatLabelFirstClassCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.allStatLabelFirstClassCount.Location = new System.Drawing.Point(549, 2);
+            this.allStatLabelFirstClassCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.allStatLabelFirstClassCount.Name = "allStatLabelFirstClassCount";
+            this.allStatLabelFirstClassCount.Size = new System.Drawing.Size(90, 22);
+            this.allStatLabelFirstClassCount.TabIndex = 6;
+            this.allStatLabelFirstClassCount.Text = "0";
             // 
             // tabFiles
             // 
@@ -1490,14 +2181,14 @@ namespace DwUtils.Core.Forms
             this.filesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.filesDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.filesDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.filesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.filesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.filesDataGridView.ColumnHeadersHeight = 40;
             this.filesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.filesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1507,14 +2198,14 @@ namespace DwUtils.Core.Forms
             this.filesColumnUserId,
             this.filesColumnCount});
             this.filesDataGridView.DataSource = this.rpoFileBindingSource;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.filesDataGridView.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.filesDataGridView.DefaultCellStyle = dataGridViewCellStyle13;
             this.filesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filesDataGridView.EnableHeadersVisualStyles = false;
             this.filesDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -1522,14 +2213,14 @@ namespace DwUtils.Core.Forms
             this.filesDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.filesDataGridView.Name = "filesDataGridView";
             this.filesDataGridView.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.filesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.filesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.filesDataGridView.RowHeadersVisible = false;
             this.filesDataGridView.RowHeadersWidth = 40;
             this.filesDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1549,9 +2240,9 @@ namespace DwUtils.Core.Forms
             // filesColumnDate
             // 
             this.filesColumnDate.DataPropertyName = "DateName";
-            dataGridViewCellStyle9.Format = "G";
-            dataGridViewCellStyle9.NullValue = null;
-            this.filesColumnDate.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle12.Format = "G";
+            dataGridViewCellStyle12.NullValue = null;
+            this.filesColumnDate.DefaultCellStyle = dataGridViewCellStyle12;
             this.filesColumnDate.HeaderText = "Выгружено";
             this.filesColumnDate.Name = "filesColumnDate";
             this.filesColumnDate.ReadOnly = true;
@@ -1930,14 +2621,14 @@ namespace DwUtils.Core.Forms
             this.onlineDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.onlineDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.onlineDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.onlineDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.onlineDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.onlineDataGridView.ColumnHeadersHeight = 40;
             this.onlineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.onlineDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1947,14 +2638,14 @@ namespace DwUtils.Core.Forms
             this.onlineColumnWorkDate,
             this.onlineColumnAdminStatus});
             this.onlineDataGridView.DataSource = this.connectUserBindingSource;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.onlineDataGridView.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.onlineDataGridView.DefaultCellStyle = dataGridViewCellStyle16;
             this.onlineDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.onlineDataGridView.EnableHeadersVisualStyles = false;
             this.onlineDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -1962,14 +2653,14 @@ namespace DwUtils.Core.Forms
             this.onlineDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.onlineDataGridView.Name = "onlineDataGridView";
             this.onlineDataGridView.ReadOnly = true;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.onlineDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.onlineDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.onlineDataGridView.RowHeadersVisible = false;
             this.onlineDataGridView.RowHeadersWidth = 40;
             this.onlineDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -2111,6 +2802,31 @@ namespace DwUtils.Core.Forms
             this.panelGeneral.Size = new System.Drawing.Size(1010, 58);
             this.panelGeneral.TabIndex = 0;
             // 
+            // numericUpDownCopies
+            // 
+            this.numericUpDownCopies.Location = new System.Drawing.Point(402, 17);
+            this.numericUpDownCopies.Name = "numericUpDownCopies";
+            this.numericUpDownCopies.Size = new System.Drawing.Size(50, 25);
+            this.numericUpDownCopies.TabIndex = 0;
+            this.numericUpDownCopies.TabStop = false;
+            this.numericUpDownCopies.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblInfoCopies
+            // 
+            this.lblInfoCopies.AutoSize = true;
+            this.lblInfoCopies.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoCopies.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblInfoCopies.Location = new System.Drawing.Point(338, 19);
+            this.lblInfoCopies.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.lblInfoCopies.Name = "lblInfoCopies";
+            this.lblInfoCopies.Size = new System.Drawing.Size(58, 20);
+            this.lblInfoCopies.TabIndex = 0;
+            this.lblInfoCopies.Text = "Копий:";
+            // 
             // comboBoxPrinters
             // 
             this.comboBoxPrinters.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -2158,38 +2874,6 @@ namespace DwUtils.Core.Forms
             this.btnTest.UseVisualStyleBackColor = false;
             this.btnTest.Visible = false;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
-            // lblInfoDebug
-            // 
-            this.lblInfoDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblInfoDebug.AutoSize = true;
-            this.lblInfoDebug.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblInfoDebug.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblInfoDebug.Location = new System.Drawing.Point(874, 11);
-            this.lblInfoDebug.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
-            this.lblInfoDebug.Name = "lblInfoDebug";
-            this.lblInfoDebug.Size = new System.Drawing.Size(71, 20);
-            this.lblInfoDebug.TabIndex = 0;
-            this.lblInfoDebug.Text = "Отладка:";
-            // 
-            // toggleDebug
-            // 
-            this.toggleDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.toggleDebug.AutoSize = true;
-            this.toggleDebug.DisableBackColor = System.Drawing.Color.DimGray;
-            this.toggleDebug.DisableToggleColor = System.Drawing.Color.Gray;
-            this.toggleDebug.Location = new System.Drawing.Point(951, 10);
-            this.toggleDebug.MinimumSize = new System.Drawing.Size(45, 22);
-            this.toggleDebug.Name = "toggleDebug";
-            this.toggleDebug.OffBackColor = System.Drawing.Color.Firebrick;
-            this.toggleDebug.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.toggleDebug.OnBackColor = System.Drawing.Color.SeaGreen;
-            this.toggleDebug.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.toggleDebug.Size = new System.Drawing.Size(45, 22);
-            this.toggleDebug.TabIndex = 0;
-            this.toggleDebug.TabStop = false;
-            this.toggleDebug.UseVisualStyleBackColor = true;
-            this.toggleDebug.CheckedChanged += new System.EventHandler(this.toggleDebug_CheckedChanged);
             // 
             // labelInfoLoadLk
             // 
@@ -2326,6 +3010,38 @@ namespace DwUtils.Core.Forms
             this.fileMenuItem.UseVisualStyleBackColor = false;
             this.fileMenuItem.Click += new System.EventHandler(this.fileMenuItem_Click);
             // 
+            // lblInfoDebug
+            // 
+            this.lblInfoDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblInfoDebug.AutoSize = true;
+            this.lblInfoDebug.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoDebug.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblInfoDebug.Location = new System.Drawing.Point(874, 11);
+            this.lblInfoDebug.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.lblInfoDebug.Name = "lblInfoDebug";
+            this.lblInfoDebug.Size = new System.Drawing.Size(71, 20);
+            this.lblInfoDebug.TabIndex = 0;
+            this.lblInfoDebug.Text = "Отладка:";
+            // 
+            // toggleDebug
+            // 
+            this.toggleDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.toggleDebug.AutoSize = true;
+            this.toggleDebug.DisableBackColor = System.Drawing.Color.DimGray;
+            this.toggleDebug.DisableToggleColor = System.Drawing.Color.Gray;
+            this.toggleDebug.Location = new System.Drawing.Point(951, 10);
+            this.toggleDebug.MinimumSize = new System.Drawing.Size(45, 22);
+            this.toggleDebug.Name = "toggleDebug";
+            this.toggleDebug.OffBackColor = System.Drawing.Color.Firebrick;
+            this.toggleDebug.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.toggleDebug.OnBackColor = System.Drawing.Color.SeaGreen;
+            this.toggleDebug.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.toggleDebug.Size = new System.Drawing.Size(45, 22);
+            this.toggleDebug.TabIndex = 0;
+            this.toggleDebug.TabStop = false;
+            this.toggleDebug.UseVisualStyleBackColor = true;
+            this.toggleDebug.CheckedChanged += new System.EventHandler(this.toggleDebug_CheckedChanged);
+            // 
             // wcDropdownMenuFile
             // 
             this.wcDropdownMenuFile.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -2390,30 +3106,105 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
-            // lblInfoCopies
+            // allStatColumnDate
             // 
-            this.lblInfoCopies.AutoSize = true;
-            this.lblInfoCopies.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblInfoCopies.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblInfoCopies.Location = new System.Drawing.Point(338, 19);
-            this.lblInfoCopies.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
-            this.lblInfoCopies.Name = "lblInfoCopies";
-            this.lblInfoCopies.Size = new System.Drawing.Size(58, 20);
-            this.lblInfoCopies.TabIndex = 0;
-            this.lblInfoCopies.Text = "Копий:";
+            this.allStatColumnDate.DataPropertyName = "Date";
+            this.allStatColumnDate.HeaderText = "Дата";
+            this.allStatColumnDate.Name = "allStatColumnDate";
+            this.allStatColumnDate.ReadOnly = true;
             // 
-            // numericUpDownCopies
+            // allStatColumnUserName
             // 
-            this.numericUpDownCopies.Location = new System.Drawing.Point(402, 17);
-            this.numericUpDownCopies.Name = "numericUpDownCopies";
-            this.numericUpDownCopies.Size = new System.Drawing.Size(50, 25);
-            this.numericUpDownCopies.TabIndex = 0;
-            this.numericUpDownCopies.TabStop = false;
-            this.numericUpDownCopies.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.allStatColumnUserName.DataPropertyName = "UserName";
+            this.allStatColumnUserName.HeaderText = "Пользователь";
+            this.allStatColumnUserName.Name = "allStatColumnUserName";
+            this.allStatColumnUserName.ReadOnly = true;
+            this.allStatColumnUserName.Visible = false;
+            // 
+            // allStatColumnHour
+            // 
+            this.allStatColumnHour.DataPropertyName = "Hour";
+            this.allStatColumnHour.HeaderText = "Час";
+            this.allStatColumnHour.Name = "allStatColumnHour";
+            this.allStatColumnHour.ReadOnly = true;
+            this.allStatColumnHour.Visible = false;
+            // 
+            // allStatColumnAllCount
+            // 
+            this.allStatColumnAllCount.DataPropertyName = "AllCountName";
+            this.allStatColumnAllCount.HeaderText = "Прибыло";
+            this.allStatColumnAllCount.Name = "allStatColumnAllCount";
+            this.allStatColumnAllCount.ReadOnly = true;
+            // 
+            // allStatColumnSentCount
+            // 
+            this.allStatColumnSentCount.DataPropertyName = "SentCountName";
+            this.allStatColumnSentCount.HeaderText = "Досыл";
+            this.allStatColumnSentCount.Name = "allStatColumnSentCount";
+            this.allStatColumnSentCount.ReadOnly = true;
+            // 
+            // allStatColumnAllReceivedCount
+            // 
+            this.allStatColumnAllReceivedCount.DataPropertyName = "AllReceivedCountName";
+            this.allStatColumnAllReceivedCount.HeaderText = "На вруч.";
+            this.allStatColumnAllReceivedCount.Name = "allStatColumnAllReceivedCount";
+            this.allStatColumnAllReceivedCount.ReadOnly = true;
+            // 
+            // allStatColumnReceivedCount
+            // 
+            this.allStatColumnReceivedCount.DataPropertyName = "ReceivedCountName";
+            this.allStatColumnReceivedCount.HeaderText = "Получ.";
+            this.allStatColumnReceivedCount.Name = "allStatColumnReceivedCount";
+            this.allStatColumnReceivedCount.ReadOnly = true;
+            // 
+            // allStatColumnReturnCount
+            // 
+            this.allStatColumnReturnCount.DataPropertyName = "ReturnCountName";
+            this.allStatColumnReturnCount.HeaderText = "Возв.";
+            this.allStatColumnReturnCount.Name = "allStatColumnReturnCount";
+            this.allStatColumnReturnCount.ReadOnly = true;
+            // 
+            // allStatColumnReturnPay
+            // 
+            this.allStatColumnReturnPay.DataPropertyName = "ReturnPayName";
+            this.allStatColumnReturnPay.HeaderText = "За возв.";
+            this.allStatColumnReturnPay.Name = "allStatColumnReturnPay";
+            this.allStatColumnReturnPay.ReadOnly = true;
+            // 
+            // allStatColumnReceivedNoValueCount
+            // 
+            this.allStatColumnReceivedNoValueCount.DataPropertyName = "ReceivedNoValueCountName";
+            this.allStatColumnReceivedNoValueCount.HeaderText = "Вруч. без ОЦ";
+            this.allStatColumnReceivedNoValueCount.Name = "allStatColumnReceivedNoValueCount";
+            this.allStatColumnReceivedNoValueCount.ReadOnly = true;
+            // 
+            // allStatColumnValueCount
+            // 
+            this.allStatColumnValueCount.DataPropertyName = "ValueCountName";
+            this.allStatColumnValueCount.HeaderText = "Цен.";
+            this.allStatColumnValueCount.Name = "allStatColumnValueCount";
+            this.allStatColumnValueCount.ReadOnly = true;
+            // 
+            // allStatColumnFirstClassCount
+            // 
+            this.allStatColumnFirstClassCount.DataPropertyName = "FirstClassCountName";
+            this.allStatColumnFirstClassCount.HeaderText = "1 кл.";
+            this.allStatColumnFirstClassCount.Name = "allStatColumnFirstClassCount";
+            this.allStatColumnFirstClassCount.ReadOnly = true;
+            // 
+            // allStatColumnNotifyCount
+            // 
+            this.allStatColumnNotifyCount.DataPropertyName = "NotifyCountName";
+            this.allStatColumnNotifyCount.HeaderText = "Увед";
+            this.allStatColumnNotifyCount.Name = "allStatColumnNotifyCount";
+            this.allStatColumnNotifyCount.ReadOnly = true;
+            // 
+            // allStatColumnHandedCount
+            // 
+            this.allStatColumnHandedCount.DataPropertyName = "HandedCountName";
+            this.allStatColumnHandedCount.HeaderText = "Вручено";
+            this.allStatColumnHandedCount.Name = "allStatColumnHandedCount";
+            this.allStatColumnHandedCount.ReadOnly = true;
             // 
             // GeneralForm
             // 
@@ -2466,9 +3257,24 @@ namespace DwUtils.Core.Forms
             this.flowLayoutPanelReceivedL1.ResumeLayout(false);
             this.flowLayoutPanelReceivedL1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.receiveRpoReportTypeBindingSource)).EndInit();
-            this.tabDelivery.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.deliveryPictureBox)).EndInit();
-            this.panelDeliveryL1.ResumeLayout(false);
+            this.tabAllStat.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.allStatDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allStatRpoBindingSource)).EndInit();
+            this.allStatPanelStatL1.ResumeLayout(false);
+            this.flowLayoutPanelAllStatStatL1.ResumeLayout(false);
+            this.flowLayoutPanelAllStatStatL1.PerformLayout();
+            this.allStatPanelStatL2.ResumeLayout(false);
+            this.flowLayoutPanelAllStatStatL2.ResumeLayout(false);
+            this.flowLayoutPanelAllStatStatL2.PerformLayout();
+            this.panelAllStatL2.ResumeLayout(false);
+            this.flowLayoutPanelAllStatL2.ResumeLayout(false);
+            this.flowLayoutPanelAllStatL2.PerformLayout();
+            this.panelAllStatL1.ResumeLayout(false);
+            this.flowLayoutPanelAllStatL1.ResumeLayout(false);
+            this.flowLayoutPanelAllStatL1.PerformLayout();
+            this.allStatPanelStatL3.ResumeLayout(false);
+            this.flowLayoutPanelAllStatStatL3.ResumeLayout(false);
+            this.flowLayoutPanelAllStatStatL3.PerformLayout();
             this.tabFiles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.filesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpoFileBindingSource)).EndInit();
@@ -2491,11 +3297,11 @@ namespace DwUtils.Core.Forms
             this.panelOnline.ResumeLayout(false);
             this.panelGeneral.ResumeLayout(false);
             this.panelGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             this.wcDropdownMenuFile.ResumeLayout(false);
             this.wcDropdownMenuSettings.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2540,7 +3346,7 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem configMenuItem;
         private System.Windows.Forms.TabPage tabReceived;
-        private System.Windows.Forms.TabPage tabDelivery;
+        private System.Windows.Forms.TabPage tabAllStat;
         private System.Windows.Forms.TabPage tabConnected;
         private System.Windows.Forms.Label freeRpoLabelInfoType;
         private System.Windows.Forms.ComboBox freeRpoComboBoxRpoType;
@@ -2575,10 +3381,10 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn onlineColumnConnectDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn onlineColumnWorkDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn onlineColumnAdminStatus;
-        private System.Windows.Forms.Panel panelDeliveryL1;
-        private WcButton btnPrintDelivery;
-        private WcButton btnLoadDelivery;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDeliveryL1;
+        private System.Windows.Forms.Panel panelAllStatL1;
+        private WcButton btnPrintAllStat;
+        private WcButton btnLoadAllStat;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAllStatL1;
         private System.Windows.Forms.Panel panelReceivedL1;
         private WcButton btnPrintReceived;
         private WcButton btnLoadReceived;
@@ -2646,13 +3452,71 @@ namespace DwUtils.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnReceivedCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnReturnCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn receivedColumnReturnPay;
-        private System.Windows.Forms.PictureBox deliveryPictureBox;
         private System.Windows.Forms.Label lblInfoPrinter;
         private System.Windows.Forms.ComboBox comboBoxPrinters;
         private WcButton receivedBtnDatePlus;
         private WcButton receivedBtnDateMinus;
         private System.Windows.Forms.Label lblInfoCopies;
         private System.Windows.Forms.NumericUpDown numericUpDownCopies;
+        private System.Windows.Forms.Label allStatLabelInfoUsers;
+        private System.Windows.Forms.ComboBox allStatComboBoxUsers;
+        private System.Windows.Forms.Label allStatLabelInfoReportType;
+        private System.Windows.Forms.ComboBox allStatComboBoxReportType;
+        private System.Windows.Forms.Panel panelAllStatL2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAllStatL2;
+        private System.Windows.Forms.Label allStatLabelInfoDate;
+        private WcToggleButton allStatToggleButtonCalendar;
+        private System.Windows.Forms.DateTimePicker allStatDateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker allStatDateTimePickerEnd;
+        private System.Windows.Forms.DateTimePicker allStatDateTimePickerMonth;
+        private WcButton allStatBtnDateMinus;
+        private WcButton allStatBtnDatePlus;
+        private System.Windows.Forms.Panel allStatPanelStatL1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAllStatStatL1;
+        private System.Windows.Forms.Label allStatLabelInfoPosCount;
+        private System.Windows.Forms.Label allStatLabelPosCount;
+        private System.Windows.Forms.Label allStatLabelInfoAllCount;
+        private System.Windows.Forms.Label allStatLabelAllCount;
+        private System.Windows.Forms.Label allStatLabelInfoReceiveCount;
+        private System.Windows.Forms.Label allStatLabelReceiveCount;
+        private System.Windows.Forms.Label allStatLabelInfoReturnCount;
+        private System.Windows.Forms.Label allStatLabelReturnCount;
+        private System.Windows.Forms.Label allStatLabelInfoReturnPay;
+        private System.Windows.Forms.Label allStatLabelReturnPay;
+        private System.Windows.Forms.DataGridView allStatDataGridView;
+        private System.Windows.Forms.Panel allStatPanelStatL2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAllStatStatL2;
+        private System.Windows.Forms.Label allStatLabelInfoSentCount;
+        private System.Windows.Forms.Label allStatLabelSentCount;
+        private System.Windows.Forms.Label allStatLabelInfoAllReceivedCount;
+        private System.Windows.Forms.Label allStatLabelAllReceivedCount;
+        private System.Windows.Forms.Label allStatLabelInfoHandedCount;
+        private System.Windows.Forms.Label allStatLabelHandedCount;
+        private System.Windows.Forms.Label allStatLabelInfoNotifyCount;
+        private System.Windows.Forms.Label allStatLabelNotifyCount;
+        private System.Windows.Forms.Panel allStatPanelStatL3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAllStatStatL3;
+        private System.Windows.Forms.Label allStatLabelInfoReceivedNoValueCount;
+        private System.Windows.Forms.Label allStatLabelReceivedNoValueCount;
+        private System.Windows.Forms.Label allStatLabelInfoValueCount;
+        private System.Windows.Forms.Label allStatLabelValueCount;
+        private System.Windows.Forms.Label allStatLabelInfoFirstClassCount;
+        private System.Windows.Forms.Label allStatLabelFirstClassCount;
+        private System.Windows.Forms.BindingSource allStatRpoBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnUserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnHour;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnAllCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnSentCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnAllReceivedCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnReceivedCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnReturnCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnReturnPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnReceivedNoValueCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnValueCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnFirstClassCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnNotifyCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allStatColumnHandedCount;
     }
 }
 

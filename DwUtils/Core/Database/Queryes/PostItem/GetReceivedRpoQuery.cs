@@ -133,10 +133,7 @@ namespace DwUtils.Core.Database.Queryes.PostItem
                 };
 
                 User user = _request.Users.FirstOrDefault(u => u.Id == rpo.UserId);
-                if (user != null)
-                    rpo.UserName = user.Name;
-                else
-                    rpo.UserName = rpo.UserId.ToString();
+                rpo.UserName = user != null ? user.Name : rpo.UserId.ToString();
 
                 try
                 {

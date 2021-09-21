@@ -65,6 +65,7 @@
     <Compile Include="Core\Database\Connects\PostUnitConnect.cs" />
     <Compile Include="Core\Database\Db.cs" />
     <Compile Include="Core\Database\Interfaces\IFbQueryable.cs" />
+    <Compile Include="Core\Database\Models\AllStatRpo.cs" />
     <Compile Include="Core\Database\Models\ConnectUser.cs" />
     <Compile Include="Core\Database\Models\ReceivedRpo.cs" />
     <Compile Include="Core\Database\Models\RpoFile.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Core\Database\Queryes\Base\PostItemSelectQuery.cs" />
     <Compile Include="Core\Database\Queryes\Base\PostItemUpdateQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostItem\GenDocumentNumQuery.cs" />
+    <Compile Include="Core\Database\Queryes\PostItem\GetAllStatRpoQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostItem\GetCountRpoQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostItem\GetFilesQuery.cs" />
     <Compile Include="Core\Database\Queryes\PostItem\GetFreeRpoQuery.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Core\Database\Repositories\RpoRepository.cs" />
     <Compile Include="Core\Database\Repositories\SettingRepository.cs" />
     <Compile Include="Core\Database\Repositories\UserRepository.cs" />
+    <Compile Include="Core\Database\Requests\AllStatRpoRequest.cs" />
     <Compile Include="Core\Database\Requests\FreeRpoRequest.cs" />
     <Compile Include="Core\Database\Requests\ReceiveRpoRequest.cs" />
     <Compile Include="Core\Database\Requests\RpoFileRequest.cs" />
@@ -139,12 +142,14 @@
     <Compile Include="Core\PrintDocuments\ReceivePrintDocument.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Core\Stats\AllRpoStat.cs" />
     <Compile Include="Core\Stats\ReceiveRpoStat.cs" />
     <Compile Include="Core\Storage\PathManager.cs" />
     <Compile Include="Core\Types\ReceiveRpoReportType.cs" />
     <Compile Include="Core\Types\RpoType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Properties\DataSources\DwUtils.Core.Database.Models.AllStatRpo.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.ConnectUser.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.FreeRpo.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.Place.datasource" />
