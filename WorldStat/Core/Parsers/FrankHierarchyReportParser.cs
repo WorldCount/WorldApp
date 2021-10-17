@@ -265,7 +265,7 @@ namespace WorldStat.Core.Parsers
         {
             int cellCount = row.Cells.Count;
 
-            if (cellCount == 2)
+            if (cellCount == 2 || cellCount == 3)
                 return ParseFirmNameRow(row);
 
             if (cellCount == 1)

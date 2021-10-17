@@ -155,6 +155,9 @@ namespace WorldStat.Core.Forms
 
                 foreach (HierarchyFrankReport frankReport in parser.GetReports())
                 {
+                    if(frankReport.FirmCode == "-2147483648")
+                        continue;
+
                     Firm firm = db.Firms.FirstOrDefault(f => f.Code == frankReport.FirmCode);
                     if (firm == null)
                     {
