@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace DwUtils.Core.Forms
@@ -11,11 +12,11 @@ namespace DwUtils.Core.Forms
 
             // ReSharper disable once VirtualMemberCallInConstructor
             Text = $"{Properties.Settings.Default.AppName}: Настройки";
-
-            LoadConfigs();
         }
 
-        private void LoadConfigs()
+        #region Private Methods
+
+                private void LoadConfigs()
         {
             lkTbApiUrl.Text = Properties.Settings.Default.LkApiUrl;
         }
@@ -25,6 +26,10 @@ namespace DwUtils.Core.Forms
             Properties.Settings.Default.LkApiUrl = lkTbApiUrl.Text.Trim();
             Properties.Settings.Default.Save();
         }
+
+        #endregion
+
+        #region Widgets Events
 
         private void tb_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -47,7 +52,11 @@ namespace DwUtils.Core.Forms
             Close();
         }
 
-        private void ConfigForm_KeyDown(object sender, KeyEventArgs e)
+        #endregion
+
+        #region Form Events
+
+        private void form_KeyDown(object sender, KeyEventArgs e)
         {
             // Нажатие Ctrl + S
             if (e.KeyCode == Keys.S && e.Control)
@@ -57,5 +66,20 @@ namespace DwUtils.Core.Forms
             if (e.KeyCode == Keys.Escape)
                 btnCancel.PerformClick();
         }
+
+        private void form_Load(object sender, EventArgs e)
+        {
+            LoadConfigs();
+
+            if (!Properties.Settings.Default.IsAdmin)
+            {
+                lkTbApiUrl.ReadOnly = true;
+                lkTbApiUrl.BackColor = Color.Gainsboro;
+            }
+        }
+
+        #endregion
+
+        
     }
 }

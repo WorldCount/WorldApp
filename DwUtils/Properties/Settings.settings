@@ -23,5 +23,11 @@
     <Setting Name="LkApiUrl" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://cdb.tools.russianpost.ru/api/v2/topics/</Value>
     </Setting>
+    <Setting Name="IsAdmin" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LastPrinterName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

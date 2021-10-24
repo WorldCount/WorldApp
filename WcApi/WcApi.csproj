@@ -50,6 +50,7 @@
     <Compile Include="Cryptography\Md5Hash.cs" />
     <Compile Include="Database\DBFReader.cs" />
     <Compile Include="Date\DateUtils.cs" />
+    <Compile Include="Ext\EnumerableExt.cs" />
     <Compile Include="Ext\ListExt.cs" />
     <Compile Include="Ext\TextExt.cs" />
     <Compile Include="Files\FindFiles.cs" />

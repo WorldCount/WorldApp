@@ -32,65 +32,32 @@ namespace DwUtils.Core.Forms.EditForms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditPlaceForm));
-            this.cbPlace = new System.Windows.Forms.ComboBox();
             this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnCancel = new WcButton();
-            this.btnSave = new WcButton();
+            this.panelWork = new System.Windows.Forms.Panel();
+            this.btnSave = new Wc32Api.Widgets.Buttons.WcButton();
+            this.btnCancel = new Wc32Api.Widgets.Buttons.WcButton();
+            this.cbPlace = new System.Windows.Forms.ComboBox();
             this.lblInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
+            this.panelWork.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cbPlace
-            // 
-            this.cbPlace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbPlace.BackColor = System.Drawing.Color.White;
-            this.cbPlace.DataSource = this.placeBindingSource;
-            this.cbPlace.DisplayMember = "Name";
-            this.cbPlace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPlace.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cbPlace.ForeColor = System.Drawing.Color.DimGray;
-            this.cbPlace.FormattingEnabled = true;
-            this.cbPlace.Location = new System.Drawing.Point(16, 81);
-            this.cbPlace.Name = "cbPlace";
-            this.cbPlace.Size = new System.Drawing.Size(365, 33);
-            this.cbPlace.TabIndex = 5;
-            this.cbPlace.ValueMember = "Id";
-            this.cbPlace.SelectedIndexChanged += new System.EventHandler(this.cbPlace_SelectedIndexChanged);
             // 
             // placeBindingSource
             // 
             this.placeBindingSource.DataSource = typeof(DwUtils.Core.Database.Models.Place);
             // 
-            // btnCancel
+            // panelWork
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancel.BackColor = System.Drawing.Color.Firebrick;
-            this.btnCancel.BorderColor = System.Drawing.Color.Silver;
-            this.btnCancel.BorderRadius = 6F;
-            this.btnCancel.BorderSize = 0;
-            this.btnCancel.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnCancel.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Image = global::DwUtils.Properties.Resources.close_window_24;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(16, 163);
-            this.btnCancel.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnCancel.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnCancel.Size = new System.Drawing.Size(120, 46);
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Отмена";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.TextColor = System.Drawing.Color.White;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.panelWork.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelWork.Controls.Add(this.btnSave);
+            this.panelWork.Controls.Add(this.btnCancel);
+            this.panelWork.Controls.Add(this.cbPlace);
+            this.panelWork.Controls.Add(this.lblInfo);
+            this.panelWork.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelWork.Location = new System.Drawing.Point(0, 0);
+            this.panelWork.Name = "panelWork";
+            this.panelWork.Size = new System.Drawing.Size(444, 241);
+            this.panelWork.TabIndex = 5;
             // 
             // btnSave
             // 
@@ -109,40 +76,85 @@ namespace DwUtils.Core.Forms.EditForms
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = global::DwUtils.Properties.Resources.save_24;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(261, 163);
+            this.btnSave.Location = new System.Drawing.Point(300, 183);
             this.btnSave.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnSave.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.btnSave.Name = "btnSave";
             this.btnSave.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.btnSave.Size = new System.Drawing.Size(120, 46);
-            this.btnSave.TabIndex = 7;
+            this.btnSave.TabIndex = 32;
             this.btnSave.Text = "Принять";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.TextColor = System.Drawing.Color.White;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancel.BackColor = System.Drawing.Color.Firebrick;
+            this.btnCancel.BorderColor = System.Drawing.Color.Silver;
+            this.btnCancel.BorderRadius = 6F;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnCancel.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Image = global::DwUtils.Properties.Resources.close_window_24;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(30, 183);
+            this.btnCancel.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnCancel.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnCancel.Size = new System.Drawing.Size(120, 46);
+            this.btnCancel.TabIndex = 31;
+            this.btnCancel.Text = "Отмена";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // cbPlace
+            // 
+            this.cbPlace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbPlace.BackColor = System.Drawing.Color.White;
+            this.cbPlace.DataSource = this.placeBindingSource;
+            this.cbPlace.DisplayMember = "Name";
+            this.cbPlace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPlace.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cbPlace.ForeColor = System.Drawing.Color.DimGray;
+            this.cbPlace.FormattingEnabled = true;
+            this.cbPlace.Location = new System.Drawing.Point(30, 77);
+            this.cbPlace.Name = "cbPlace";
+            this.cbPlace.Size = new System.Drawing.Size(390, 33);
+            this.cbPlace.TabIndex = 30;
+            this.cbPlace.ValueMember = "Id";
+            this.cbPlace.SelectedIndexChanged += new System.EventHandler(this.cbPlace_SelectedIndexChanged);
+            // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(74)))), ((int)(((byte)(84)))));
-            this.lblInfo.Location = new System.Drawing.Point(15, 19);
+            this.lblInfo.Location = new System.Drawing.Point(25, 23);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(192, 25);
-            this.lblInfo.TabIndex = 28;
+            this.lblInfo.TabIndex = 29;
             this.lblInfo.Text = "Изменение участка";
             // 
             // EditPlaceForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(393, 221);
-            this.Controls.Add(this.lblInfo);
-            this.Controls.Add(this.cbPlace);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSave);
+            this.ClientSize = new System.Drawing.Size(444, 241);
+            this.Controls.Add(this.panelWork);
             this.Font = new System.Drawing.Font("Segoe UI", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -150,20 +162,21 @@ namespace DwUtils.Core.Forms.EditForms
             this.Name = "EditPlaceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditPlaceForm";
-            this.Load += new System.EventHandler(this.ConnectForm_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConnectForm_KeyDown);
+            this.Load += new System.EventHandler(this.form_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.form_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).EndInit();
+            this.panelWork.ResumeLayout(false);
+            this.panelWork.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.BindingSource placeBindingSource;
+        private System.Windows.Forms.Panel panelWork;
+        private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.ComboBox cbPlace;
         private WcButton btnCancel;
         private WcButton btnSave;
-        private System.Windows.Forms.Label lblInfo;
-        private System.Windows.Forms.BindingSource placeBindingSource;
     }
 }

@@ -18,32 +18,26 @@ namespace DwUtils.Core.Database.Queryes.Base
         public T Run()
         {
             string query = GetQuery();
-            if (DebugMode)
-                Logger.Debug($"Запрос в БД:\n{query}");
-
-            FbConnection fbConnection = null;
-            FbTransaction fbTransaction = null;
 
             try
             {
-                fbConnection = new FbConnection(Connect.ToString());
-                if (fbConnection.State == ConnectionState.Closed)
-                    fbConnection.Open();
+                using (FbConnection fbConnection = new FbConnection(Connect.ToString()))
+                {
+                    if (fbConnection.State == ConnectionState.Closed)
+                        fbConnection.Open();
 
-                fbTransaction = fbConnection.BeginTransaction();
+                    using (FbTransaction fbTransaction = fbConnection.BeginTransaction(IsolationLevel.ReadCommitted))
+                    {
+                        using (FbCommand cmd = new FbCommand(query, fbConnection, fbTransaction))
+                        {
+                            int count = cmd.ExecuteNonQuery();
 
-                FbCommand updateCommand = new FbCommand(query, fbConnection) { Transaction = fbTransaction };
-                int count = updateCommand.ExecuteNonQuery();
-
-                T data = ParseResponse(count);
-
-                updateCommand.Dispose();
-                fbTransaction.Commit();
-
-                if (DebugMode)
-                    Logger.Debug($"Запрос обновил строк: {count}");
-
-                return data;
+                            T data = ParseResponse(count);
+                            fbTransaction.Commit();
+                            return data;
+                        }
+                    }
+                }
             }
             catch (Exception e)
             {
@@ -53,13 +47,7 @@ namespace DwUtils.Core.Database.Queryes.Base
                     Logger.Error(e);
                 }
 
-                fbTransaction?.Rollback();
                 return default;
-            }
-            finally
-            {
-                fbTransaction?.Dispose();
-                fbConnection?.Close();
             }
         }
     }

@@ -18,31 +18,27 @@ namespace DwUtils.Core.Database.Queryes.Base
         public T Run()
         {
             string query = GetQuery();
-            if (DebugMode)
-                Logger.Debug($"Запрос в БД:\n{query}");
-
-            FbConnection fbConnection = null;
-            FbDataReader reader = null;
-            FbTransaction fbTransaction = null;
 
             try
             {
-                fbConnection = new FbConnection(Connect.ToString());
-                if (fbConnection.State == ConnectionState.Closed)
-                    fbConnection.Open();
+                using (FbConnection fbConnection = new FbConnection(Connect.ToString()))
+                {
+                    if (fbConnection.State == ConnectionState.Closed)
+                        fbConnection.Open();
 
-                fbTransaction = fbConnection.BeginTransaction();
-
-                FbCommand selectCommand = new FbCommand(query, fbConnection) { Transaction = fbTransaction };
-                reader = selectCommand.ExecuteReader();
-
-                T data = ParseResponse(reader);
-
-                reader.Close();
-                selectCommand.Dispose();
-                fbTransaction.Commit();
-
-                return data;
+                    using (FbTransaction fbTransaction = fbConnection.BeginTransaction(IsolationLevel.ReadUncommitted))
+                    {
+                        using (FbCommand cmd = new FbCommand(query, fbConnection, fbTransaction))
+                        {
+                            using (FbDataReader reader = cmd.ExecuteReader())
+                            {
+                                T data = ParseResponse(reader);
+                                fbTransaction.Commit();
+                                return data;
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception e)
             {
@@ -52,14 +48,7 @@ namespace DwUtils.Core.Database.Queryes.Base
                     Logger.Error(e);
                 }
 
-                fbTransaction?.Rollback();
                 return default;
-            }
-            finally
-            {
-                reader?.Close();
-                fbTransaction?.Dispose();
-                fbConnection?.Close();
             }
         }
     }

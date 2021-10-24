@@ -21,6 +21,9 @@ namespace DwUtils.Core.Database.Queryes.PostUnit
         {
             List<User> data = new List<User>();
 
+            if (DebugMode)
+                Logger.Debug($"Запрос в БД:\n{GetQuery()}");
+
             while (reader.Read())
             {
                 User dbUser = new User
@@ -37,6 +40,7 @@ namespace DwUtils.Core.Database.Queryes.PostUnit
 
             if(DebugMode)
                 Logger.Debug($"Запрос вернул записей: {data.Count}");
+
             return data;
         }
     }

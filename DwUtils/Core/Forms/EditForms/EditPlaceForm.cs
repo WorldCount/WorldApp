@@ -1,31 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using DwUtils.Core.Database;
 using DwUtils.Core.Database.Models;
 
 namespace DwUtils.Core.Forms.EditForms
 {
     public partial class EditPlaceForm : Form
     {
+
+        #region Private Fields
+
         private Place _selectPlace;
+        private Db _database;
 
-        public Place Place => _selectPlace;
+        #endregion
 
-        public EditPlaceForm(List<Place> places)
+        public EditPlaceForm(Db database)
         {
             InitializeComponent();
-            placeBindingSource.DataSource = places;
-            _selectPlace = (Place) cbPlace.SelectedItem;
 
+            _database = database;
             // ReSharper disable once VirtualMemberCallInConstructor
             Text = $"{Properties.Settings.Default.AppName}: Изменение участка";
         }
 
-        private void ConnectForm_Load(object sender, EventArgs e)
+
+        #region Public Properties
+
+        public Place Place => _selectPlace;
+
+        #endregion
+
+        #region Form Events
+
+        private void form_Load(object sender, EventArgs e)
         {
+            List<Place> places = _database.Places.GetPlaces();
+            placeBindingSource.DataSource = places;
+            _selectPlace = (Place)cbPlace.SelectedItem;
         }
 
-        private void ConnectForm_KeyDown(object sender, KeyEventArgs e)
+        private void form_KeyDown(object sender, KeyEventArgs e)
         {
             // Нажатие Ctrl + S
             if (e.KeyCode == Keys.S && e.Control)
@@ -35,6 +51,10 @@ namespace DwUtils.Core.Forms.EditForms
             if (e.KeyCode == Keys.Escape)
                 btnCancel.PerformClick();
         }
+
+        #endregion
+
+        #region Button Events
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -48,9 +68,16 @@ namespace DwUtils.Core.Forms.EditForms
             Close();
         }
 
+        #endregion
+
+        #region Other Events
+
         private void cbPlace_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectPlace = (Place) cbPlace.SelectedItem;
         }
+
+        #endregion
+
     }
 }

@@ -32,27 +32,30 @@ namespace DwUtils.Core.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
-            this.panelButton = new System.Windows.Forms.Panel();
+            this.panelWork = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabLk = new System.Windows.Forms.TabPage();
-            this.btnCancel = new WcButton();
-            this.btnSave = new WcButton();
+            this.lkTbApiUrl = new Wc32Api.Widgets.Texts.WcTextBox();
             this.labelInfoLkApi = new System.Windows.Forms.Label();
-            this.lkTbApiUrl = new WcTextBox();
-            this.panelButton.SuspendLayout();
+            this.panelButton = new System.Windows.Forms.Panel();
+            this.btnCancel = new Wc32Api.Widgets.Buttons.WcButton();
+            this.btnSave = new Wc32Api.Widgets.Buttons.WcButton();
+            this.panelWork.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabLk.SuspendLayout();
+            this.panelButton.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelButton
+            // panelWork
             // 
-            this.panelButton.Controls.Add(this.btnCancel);
-            this.panelButton.Controls.Add(this.btnSave);
-            this.panelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelButton.Location = new System.Drawing.Point(0, 415);
-            this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(570, 66);
-            this.panelButton.TabIndex = 1;
+            this.panelWork.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelWork.Controls.Add(this.tabControl);
+            this.panelWork.Controls.Add(this.panelButton);
+            this.panelWork.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelWork.Location = new System.Drawing.Point(0, 0);
+            this.panelWork.Name = "panelWork";
+            this.panelWork.Size = new System.Drawing.Size(570, 481);
+            this.panelWork.TabIndex = 3;
             // 
             // tabControl
             // 
@@ -79,6 +82,56 @@ namespace DwUtils.Core.Forms
             this.tabLk.TabIndex = 0;
             this.tabLk.Text = "Личный кабинет";
             this.tabLk.UseVisualStyleBackColor = true;
+            // 
+            // lkTbApiUrl
+            // 
+            this.lkTbApiUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lkTbApiUrl.BackColor = System.Drawing.Color.White;
+            this.lkTbApiUrl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(74)))), ((int)(((byte)(84)))));
+            this.lkTbApiUrl.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.lkTbApiUrl.BorderSize = 1;
+            this.lkTbApiUrl.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.lkTbApiUrl.DisableBackColor = System.Drawing.Color.DarkGray;
+            this.lkTbApiUrl.DisableBorderColor = System.Drawing.Color.DimGray;
+            this.lkTbApiUrl.DisableForeColor = System.Drawing.Color.DimGray;
+            this.lkTbApiUrl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lkTbApiUrl.ForeColor = System.Drawing.Color.DimGray;
+            this.lkTbApiUrl.Location = new System.Drawing.Point(9, 44);
+            this.lkTbApiUrl.Margin = new System.Windows.Forms.Padding(4);
+            this.lkTbApiUrl.MaxLength = 32767;
+            this.lkTbApiUrl.Multiline = false;
+            this.lkTbApiUrl.Name = "lkTbApiUrl";
+            this.lkTbApiUrl.Padding = new System.Windows.Forms.Padding(7);
+            this.lkTbApiUrl.PasswordChar = '\0';
+            this.lkTbApiUrl.ReadOnly = false;
+            this.lkTbApiUrl.Size = new System.Drawing.Size(544, 36);
+            this.lkTbApiUrl.TabIndex = 1;
+            this.lkTbApiUrl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.lkTbApiUrl.UnderlinedStyle = false;
+            this.lkTbApiUrl.UsePasswordChar = false;
+            // 
+            // labelInfoLkApi
+            // 
+            this.labelInfoLkApi.AutoSize = true;
+            this.labelInfoLkApi.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInfoLkApi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(74)))), ((int)(((byte)(84)))));
+            this.labelInfoLkApi.Location = new System.Drawing.Point(11, 20);
+            this.labelInfoLkApi.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
+            this.labelInfoLkApi.Name = "labelInfoLkApi";
+            this.labelInfoLkApi.Size = new System.Drawing.Size(61, 20);
+            this.labelInfoLkApi.TabIndex = 0;
+            this.labelInfoLkApi.Text = "Api Url:";
+            // 
+            // panelButton
+            // 
+            this.panelButton.Controls.Add(this.btnCancel);
+            this.panelButton.Controls.Add(this.btnSave);
+            this.panelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelButton.Location = new System.Drawing.Point(0, 415);
+            this.panelButton.Name = "panelButton";
+            this.panelButton.Size = new System.Drawing.Size(570, 66);
+            this.panelButton.TabIndex = 2;
             // 
             // btnCancel
             // 
@@ -140,53 +193,12 @@ namespace DwUtils.Core.Forms
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // labelInfoLkApi
-            // 
-            this.labelInfoLkApi.AutoSize = true;
-            this.labelInfoLkApi.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInfoLkApi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(74)))), ((int)(((byte)(84)))));
-            this.labelInfoLkApi.Location = new System.Drawing.Point(11, 20);
-            this.labelInfoLkApi.Margin = new System.Windows.Forms.Padding(6, 6, 3, 0);
-            this.labelInfoLkApi.Name = "labelInfoLkApi";
-            this.labelInfoLkApi.Size = new System.Drawing.Size(61, 20);
-            this.labelInfoLkApi.TabIndex = 0;
-            this.labelInfoLkApi.Text = "Api Url:";
-            // 
-            // lkTbApiUrl
-            // 
-            this.lkTbApiUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lkTbApiUrl.BackColor = System.Drawing.Color.White;
-            this.lkTbApiUrl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(74)))), ((int)(((byte)(84)))));
-            this.lkTbApiUrl.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.lkTbApiUrl.BorderSize = 1;
-            this.lkTbApiUrl.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.lkTbApiUrl.DisableBackColor = System.Drawing.Color.DarkGray;
-            this.lkTbApiUrl.DisableBorderColor = System.Drawing.Color.DimGray;
-            this.lkTbApiUrl.DisableForeColor = System.Drawing.Color.DimGray;
-            this.lkTbApiUrl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lkTbApiUrl.ForeColor = System.Drawing.Color.DimGray;
-            this.lkTbApiUrl.Location = new System.Drawing.Point(9, 44);
-            this.lkTbApiUrl.Margin = new System.Windows.Forms.Padding(4);
-            this.lkTbApiUrl.MaxLength = 32767;
-            this.lkTbApiUrl.Multiline = false;
-            this.lkTbApiUrl.Name = "lkTbApiUrl";
-            this.lkTbApiUrl.Padding = new System.Windows.Forms.Padding(7);
-            this.lkTbApiUrl.PasswordChar = '\0';
-            this.lkTbApiUrl.ReadOnly = false;
-            this.lkTbApiUrl.Size = new System.Drawing.Size(544, 36);
-            this.lkTbApiUrl.TabIndex = 1;
-            this.lkTbApiUrl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.lkTbApiUrl.UnderlinedStyle = false;
-            this.lkTbApiUrl.UsePasswordChar = false;
-            // 
             // ConfigForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(570, 481);
-            this.Controls.Add(this.tabControl);
-            this.Controls.Add(this.panelButton);
+            this.Controls.Add(this.panelWork);
             this.Font = new System.Drawing.Font("Segoe UI", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -195,22 +207,25 @@ namespace DwUtils.Core.Forms
             this.Name = "ConfigForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ConfigForm";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConfigForm_KeyDown);
-            this.panelButton.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.form_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.form_KeyDown);
+            this.panelWork.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabLk.ResumeLayout(false);
             this.tabLk.PerformLayout();
+            this.panelButton.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+        private System.Windows.Forms.Panel panelWork;
         private System.Windows.Forms.Panel panelButton;
-        private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabLk;
         private WcButton btnCancel;
         private WcButton btnSave;
-        private System.Windows.Forms.Label labelInfoLkApi;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabLk;
         private WcTextBox lkTbApiUrl;
+        private System.Windows.Forms.Label labelInfoLkApi;
     }
 }

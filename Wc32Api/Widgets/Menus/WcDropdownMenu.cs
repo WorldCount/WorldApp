@@ -14,8 +14,8 @@ namespace Wc32Api.Widgets.Menus
         private int _menuItemHeight = 25;
         private Color _menuItemTextColor = Color.DimGray;
         private Color _primaryColor = Color.FromArgb(67, 74, 84);
-        private IMenuColor _mainMenuColor = new DefaultMainMenuColor();
-        private IMenuColor _menuColor = new DefaultMenuColor();
+        private readonly IMenuColor _mainMenuColor;
+        private readonly IMenuColor _menuColor;
 
         private Bitmap _menuItemHeaderSize;
 
@@ -23,24 +23,11 @@ namespace Wc32Api.Widgets.Menus
 
         public WcDropdownMenu(IContainer container) : base(container)
         {
-
+            _mainMenuColor = new DefaultMainMenuColor();
+            _menuColor = new DefaultMenuColor();
         }
 
         #region Public Properties
-
-        [Category("WcDropdownMenu - Appearance")]
-        public IMenuColor MenuColor
-        {
-            get => _menuColor;
-            set => _menuColor = value;
-        }
-
-        [Category("WcDropdownMenu - Appearance")]
-        public IMenuColor MainMenuColor
-        {
-            get => _mainMenuColor;
-            set => _mainMenuColor = value;
-        }
 
         [Browsable(false)]
         //[Category("WcDropdownMenu - Appearance")]

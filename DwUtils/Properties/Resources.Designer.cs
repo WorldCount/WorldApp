@@ -123,9 +123,9 @@ namespace DwUtils.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit_24 {
+        internal static System.Drawing.Bitmap expand_16 {
             get {
-                object obj = ResourceManager.GetObject("edit-24", resourceCulture);
+                object obj = ResourceManager.GetObject("expand-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,29 +133,9 @@ namespace DwUtils.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Folder {
+        internal static System.Drawing.Bitmap folder_7_24 {
             get {
-                object obj = ResourceManager.GetObject("Folder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Folder_Heart {
-            get {
-                object obj = ResourceManager.GetObject("Folder-Heart", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Folder_Settings {
-            get {
-                object obj = ResourceManager.GetObject("Folder-Settings", resourceCulture);
+                object obj = ResourceManager.GetObject("folder-7-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,6 +163,106 @@ namespace DwUtils.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap info_24 {
+            get {
+                object obj = ResourceManager.GetObject("info-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minus_16 {
+            get {
+                object obj = ResourceManager.GetObject("minus-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minus_2_16 {
+            get {
+                object obj = ResourceManager.GetObject("minus-2-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minus_7_16 {
+            get {
+                object obj = ResourceManager.GetObject("minus-7-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap no_result {
+            get {
+                object obj = ResourceManager.GetObject("no_result", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_16 {
+            get {
+                object obj = ResourceManager.GetObject("plus-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_6_16 {
+            get {
+                object obj = ResourceManager.GetObject("plus-6-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_6_24 {
+            get {
+                object obj = ResourceManager.GetObject("plus-6-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printer_3_24 {
+            get {
+                object obj = ResourceManager.GetObject("printer-3-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printer_5_24 {
+            get {
+                object obj = ResourceManager.GetObject("printer-5-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap save_24 {
             get {
                 object obj = ResourceManager.GetObject("save_24", resourceCulture);
@@ -196,6 +276,16 @@ namespace DwUtils.Properties {
         internal static System.Drawing.Bitmap Server {
             get {
                 object obj = ResourceManager.GetObject("Server", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_4_24 {
+            get {
+                object obj = ResourceManager.GetObject("settings-4-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +323,39 @@ namespace DwUtils.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap usb_disconnected_24 {
+            get {
+                object obj = ResourceManager.GetObject("usb-disconnected-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap web_hi_res_512 {
+            get {
+                object obj = ResourceManager.GetObject("web_hi_res_512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap white_folder_24 {
             get {
                 object obj = ResourceManager.GetObject("white-folder-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap x_mark_16 {
+            get {
+                object obj = ResourceManager.GetObject("x-mark-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

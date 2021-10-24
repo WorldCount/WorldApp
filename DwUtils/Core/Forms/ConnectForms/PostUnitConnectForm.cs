@@ -11,7 +11,13 @@ namespace DwUtils.Core.Forms.ConnectForms
 {
     public partial class PostUnitConnectForm : Form
     {
+
+        #region Private Fields
+
         private readonly PostUnitConnect _connect;
+
+        #endregion
+        
 
         public PostUnitConnectForm()
         {
@@ -22,33 +28,19 @@ namespace DwUtils.Core.Forms.ConnectForms
             // ReSharper disable once VirtualMemberCallInConstructor
             Text = $"{Properties.Settings.Default.AppName}: Подключение к PostUnit";
 
-            if (string.IsNullOrEmpty(_connect.Login))
-                _connect.Login = "SYSDBA";
-
-            if (string.IsNullOrEmpty(_connect.Password))
-                _connect.Password = "masterkey";
-
             WcApi.Keyboard.Keyboard.SetEnglishLanguage();
         }
+
+        #region Private Methods
 
         private void SaveConnect()
         {
             _connect.Save();
         }
 
-        private void ConnectForm_Load(object sender, EventArgs e)
-        {
-            cbType.Items.Add("Стандартный");
-            cbType.Items.Add("Встроенный");
-            tbUser.CharacterCasing = CharacterCasing.Upper;
+        #endregion
 
-            tbHost.DataBindings.Add("Text", _connect, "Host", false, DataSourceUpdateMode.OnPropertyChanged);
-            tbPass.DataBindings.Add("Text", _connect, "Password", false, DataSourceUpdateMode.OnPropertyChanged);
-            tbUser.DataBindings.Add("Text", _connect, "Login", false, DataSourceUpdateMode.OnPropertyChanged);
-            tbPath.DataBindings.Add("Text", _connect, "Path", false, DataSourceUpdateMode.OnPropertyChanged);
-            tbPort.DataBindings.Add("Text", _connect, "Port", false, DataSourceUpdateMode.OnPropertyChanged);
-            cbType.DataBindings.Add("SelectedIndex", _connect, "ServerType", false, DataSourceUpdateMode.OnPropertyChanged);
-        }
+        #region TextBox Events
 
         private void tbStatus_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -63,7 +55,32 @@ namespace DwUtils.Core.Forms.ConnectForms
             }
         }
 
-        private void ConnectForm_KeyDown(object sender, KeyEventArgs e)
+        #endregion
+
+        #region Form Events
+
+        private void form_Load(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(_connect.Login))
+                _connect.Login = "SYSDBA";
+
+            if (string.IsNullOrEmpty(_connect.Password))
+                _connect.Password = "masterkey";
+
+            cbType.Items.Add("Стандартный");
+            cbType.Items.Add("Встроенный");
+            tbUser.CharacterCasing = CharacterCasing.Upper;
+
+            tbHost.DataBindings.Add("Text", _connect, "Host", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbPass.DataBindings.Add("Text", _connect, "Password", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbUser.DataBindings.Add("Text", _connect, "Login", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbPath.DataBindings.Add("Text", _connect, "Path", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbPort.DataBindings.Add("Text", _connect, "Port", false, DataSourceUpdateMode.OnPropertyChanged);
+            cbType.DataBindings.Add("SelectedIndex", _connect, "ServerType", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
+        private void form_KeyDown(object sender, KeyEventArgs e)
         {
             // Нажатие Ctrl + S
             if (e.KeyCode == Keys.S && e.Control)
@@ -77,6 +94,20 @@ namespace DwUtils.Core.Forms.ConnectForms
             if (e.KeyCode == Keys.R && e.Control)
                 btnCheck.PerformClick();
         }
+
+        private void form_Resize(object sender, EventArgs e)
+        {
+            tbPath.Refresh();
+            tbHost.Refresh();
+            tbPass.Refresh();
+            tbUser.Refresh();
+            tbPort.Refresh();
+            tbStatus.Refresh();
+        }
+
+        #endregion
+
+        #region Buttons Events
 
         private async void btnCheck_Click(object sender, EventArgs e)
         {
@@ -128,5 +159,9 @@ namespace DwUtils.Core.Forms.ConnectForms
             DialogResult = DialogResult.OK;
             Close();
         }
+
+        #endregion
+
+        
     }
 }

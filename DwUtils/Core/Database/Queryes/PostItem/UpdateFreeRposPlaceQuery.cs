@@ -31,6 +31,12 @@ namespace DwUtils.Core.Database.Queryes.PostItem
 
         protected override bool ParseResponse(int updateCount)
         {
+            if (DebugMode)
+            {
+                Logger.Debug($"Запрос в БД:\n{GetQuery()}");
+                Logger.Debug($"Запрос обновил строк: {updateCount}");
+            }
+
             return updateCount > 0;
         }
     }
