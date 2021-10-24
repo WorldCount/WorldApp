@@ -268,13 +268,13 @@ namespace DwUtils.Core.Forms
 
         private void HideShowAdminWidgets()
         {
-            if (!_isAdmin)
-            {
-                tabControl.TabPages.Remove(tabFreeRpo);
-            }
+            //if (!_isAdmin)
+            //{
+            //    tabControl.TabPages.Remove(tabFreeRpo);
+            //}
 
-            labelInfoLoadLk.Visible = _isAdmin;
-            toggleLoadLk.Visible = _isAdmin;
+            labelInfoLoadLk.Visible = true;
+            toggleLoadLk.Visible = true;
             receivedComboBoxReportType.Enabled = _isAdmin;
             allStatComboBoxReportType.Enabled = _isAdmin;
         }

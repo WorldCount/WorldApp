@@ -60,6 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\PostApi\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Core\Database\Connects\FbConnect.cs" />
     <Compile Include="Core\Database\Connects\PostItemConnect.cs" />
     <Compile Include="Core\Database\Connects\PostUnitConnect.cs" />
@@ -152,6 +157,55 @@
     <Compile Include="Core\Types\RpoType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Connected Services\PostApi\DwUtils.PostApi.CustomDutyEvent.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PostApi\DwUtils.PostApi.getCustomDutyEventsForMailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PostApi\DwUtils.PostApi.getLanguagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PostApi\DwUtils.PostApi.getOperationHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PostApi\DwUtils.PostApi.getSmsHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PostApi\DwUtils.PostApi.LanguageDataLanguage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PostApi\DwUtils.PostApi.OperationHistoryRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PostApi\DwUtils.PostApi.PostalOrderEvent.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PostApi\DwUtils.PostApi.PostalOrderEventsForMailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PostApi\DwUtils.PostApi.SmsHistoryRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PostApi\OperationHistory12.wsdl" />
+    <None Include="Connected Services\PostApi\rtm34_xsd1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PostApi\rtm34_xsd2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PostApi\rtm34_xsd3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PostApi\rtm34_xsd4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PostApi\rtm34_xsd5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PostApi\rtm34_xsd6.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.AllStatRpo.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.ConnectUser.datasource" />
     <None Include="Properties\DataSources\DwUtils.Core.Database.Models.FreeRpo.datasource" />
@@ -179,6 +233,12 @@
     <None Include="Resources\minus-7-16.png" />
     <None Include="Resources\plus-16.png" />
     <None Include="Resources\minus-16.png" />
+    <None Include="Connected Services\PostApi\configuration91.svcinfo" />
+    <None Include="Connected Services\PostApi\configuration.svcinfo" />
+    <None Include="Connected Services\PostApi\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="web_hi_res_512.ico" />
     <None Include="Resources\Server.png" />
     <None Include="Resources\unchecked-32.png" />
@@ -253,6 +313,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Database\Responses\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\PostApi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

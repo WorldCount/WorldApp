@@ -42,6 +42,7 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,7 +50,6 @@ namespace DwUtils.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -134,6 +134,20 @@ namespace DwUtils.Core.Forms
             this.receiveRpoReportTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabAllStat = new System.Windows.Forms.TabPage();
             this.allStatDataGridView = new System.Windows.Forms.DataGridView();
+            this.allStatColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnAllCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnSentCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnAllReceivedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnReceivedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnReturnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnReturnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnReceivedNoValueCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnValueCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnFirstClassCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnNotifyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allStatColumnHandedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.allStatRpoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.allStatPanelStatL1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanelAllStatStatL1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -247,20 +261,6 @@ namespace DwUtils.Core.Forms
             this.connectPostUnitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.allStatColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnAllCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnSentCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnAllReceivedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnReceivedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnReturnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnReturnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnReceivedNoValueCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnValueCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnFirstClassCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnNotifyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allStatColumnHandedCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusBar.SuspendLayout();
             this.panelWork.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -1526,6 +1526,109 @@ namespace DwUtils.Core.Forms
             this.allStatDataGridView.TabStop = false;
             this.allStatDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.allStatDataGridView_CellFormatting);
             this.allStatDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            // 
+            // allStatColumnDate
+            // 
+            this.allStatColumnDate.DataPropertyName = "Date";
+            this.allStatColumnDate.HeaderText = "Дата";
+            this.allStatColumnDate.Name = "allStatColumnDate";
+            this.allStatColumnDate.ReadOnly = true;
+            // 
+            // allStatColumnUserName
+            // 
+            this.allStatColumnUserName.DataPropertyName = "UserName";
+            this.allStatColumnUserName.HeaderText = "Пользователь";
+            this.allStatColumnUserName.Name = "allStatColumnUserName";
+            this.allStatColumnUserName.ReadOnly = true;
+            this.allStatColumnUserName.Visible = false;
+            // 
+            // allStatColumnHour
+            // 
+            this.allStatColumnHour.DataPropertyName = "Hour";
+            this.allStatColumnHour.HeaderText = "Час";
+            this.allStatColumnHour.Name = "allStatColumnHour";
+            this.allStatColumnHour.ReadOnly = true;
+            this.allStatColumnHour.Visible = false;
+            // 
+            // allStatColumnAllCount
+            // 
+            this.allStatColumnAllCount.DataPropertyName = "AllCount";
+            this.allStatColumnAllCount.HeaderText = "Прибыло";
+            this.allStatColumnAllCount.Name = "allStatColumnAllCount";
+            this.allStatColumnAllCount.ReadOnly = true;
+            // 
+            // allStatColumnSentCount
+            // 
+            this.allStatColumnSentCount.DataPropertyName = "SentCount";
+            this.allStatColumnSentCount.HeaderText = "Досыл";
+            this.allStatColumnSentCount.Name = "allStatColumnSentCount";
+            this.allStatColumnSentCount.ReadOnly = true;
+            // 
+            // allStatColumnAllReceivedCount
+            // 
+            this.allStatColumnAllReceivedCount.DataPropertyName = "AllReceivedCount";
+            this.allStatColumnAllReceivedCount.HeaderText = "На вруч.";
+            this.allStatColumnAllReceivedCount.Name = "allStatColumnAllReceivedCount";
+            this.allStatColumnAllReceivedCount.ReadOnly = true;
+            // 
+            // allStatColumnReceivedCount
+            // 
+            this.allStatColumnReceivedCount.DataPropertyName = "ReceivedCount";
+            this.allStatColumnReceivedCount.HeaderText = "Получ.";
+            this.allStatColumnReceivedCount.Name = "allStatColumnReceivedCount";
+            this.allStatColumnReceivedCount.ReadOnly = true;
+            // 
+            // allStatColumnReturnCount
+            // 
+            this.allStatColumnReturnCount.DataPropertyName = "ReturnCount";
+            this.allStatColumnReturnCount.HeaderText = "Возв.";
+            this.allStatColumnReturnCount.Name = "allStatColumnReturnCount";
+            this.allStatColumnReturnCount.ReadOnly = true;
+            // 
+            // allStatColumnReturnPay
+            // 
+            this.allStatColumnReturnPay.DataPropertyName = "ReturnPay";
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.allStatColumnReturnPay.DefaultCellStyle = dataGridViewCellStyle9;
+            this.allStatColumnReturnPay.HeaderText = "За возв.";
+            this.allStatColumnReturnPay.Name = "allStatColumnReturnPay";
+            this.allStatColumnReturnPay.ReadOnly = true;
+            // 
+            // allStatColumnReceivedNoValueCount
+            // 
+            this.allStatColumnReceivedNoValueCount.DataPropertyName = "ReceivedNoValueCount";
+            this.allStatColumnReceivedNoValueCount.HeaderText = "Вруч. без ОЦ";
+            this.allStatColumnReceivedNoValueCount.Name = "allStatColumnReceivedNoValueCount";
+            this.allStatColumnReceivedNoValueCount.ReadOnly = true;
+            // 
+            // allStatColumnValueCount
+            // 
+            this.allStatColumnValueCount.DataPropertyName = "ValueCount";
+            this.allStatColumnValueCount.HeaderText = "Цен.";
+            this.allStatColumnValueCount.Name = "allStatColumnValueCount";
+            this.allStatColumnValueCount.ReadOnly = true;
+            // 
+            // allStatColumnFirstClassCount
+            // 
+            this.allStatColumnFirstClassCount.DataPropertyName = "FirstClassCount";
+            this.allStatColumnFirstClassCount.HeaderText = "1 кл.";
+            this.allStatColumnFirstClassCount.Name = "allStatColumnFirstClassCount";
+            this.allStatColumnFirstClassCount.ReadOnly = true;
+            // 
+            // allStatColumnNotifyCount
+            // 
+            this.allStatColumnNotifyCount.DataPropertyName = "NotifyCount";
+            this.allStatColumnNotifyCount.HeaderText = "Увед";
+            this.allStatColumnNotifyCount.Name = "allStatColumnNotifyCount";
+            this.allStatColumnNotifyCount.ReadOnly = true;
+            // 
+            // allStatColumnHandedCount
+            // 
+            this.allStatColumnHandedCount.DataPropertyName = "HandedCount";
+            this.allStatColumnHandedCount.HeaderText = "Вручено";
+            this.allStatColumnHandedCount.Name = "allStatColumnHandedCount";
+            this.allStatColumnHandedCount.ReadOnly = true;
             // 
             // allStatRpoBindingSource
             // 
@@ -3108,109 +3211,6 @@ namespace DwUtils.Core.Forms
             this.configMenuItem.Size = new System.Drawing.Size(247, 24);
             this.configMenuItem.Text = "Настройки";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
-            // 
-            // allStatColumnDate
-            // 
-            this.allStatColumnDate.DataPropertyName = "Date";
-            this.allStatColumnDate.HeaderText = "Дата";
-            this.allStatColumnDate.Name = "allStatColumnDate";
-            this.allStatColumnDate.ReadOnly = true;
-            // 
-            // allStatColumnUserName
-            // 
-            this.allStatColumnUserName.DataPropertyName = "UserName";
-            this.allStatColumnUserName.HeaderText = "Пользователь";
-            this.allStatColumnUserName.Name = "allStatColumnUserName";
-            this.allStatColumnUserName.ReadOnly = true;
-            this.allStatColumnUserName.Visible = false;
-            // 
-            // allStatColumnHour
-            // 
-            this.allStatColumnHour.DataPropertyName = "Hour";
-            this.allStatColumnHour.HeaderText = "Час";
-            this.allStatColumnHour.Name = "allStatColumnHour";
-            this.allStatColumnHour.ReadOnly = true;
-            this.allStatColumnHour.Visible = false;
-            // 
-            // allStatColumnAllCount
-            // 
-            this.allStatColumnAllCount.DataPropertyName = "AllCount";
-            this.allStatColumnAllCount.HeaderText = "Прибыло";
-            this.allStatColumnAllCount.Name = "allStatColumnAllCount";
-            this.allStatColumnAllCount.ReadOnly = true;
-            // 
-            // allStatColumnSentCount
-            // 
-            this.allStatColumnSentCount.DataPropertyName = "SentCount";
-            this.allStatColumnSentCount.HeaderText = "Досыл";
-            this.allStatColumnSentCount.Name = "allStatColumnSentCount";
-            this.allStatColumnSentCount.ReadOnly = true;
-            // 
-            // allStatColumnAllReceivedCount
-            // 
-            this.allStatColumnAllReceivedCount.DataPropertyName = "AllReceivedCount";
-            this.allStatColumnAllReceivedCount.HeaderText = "На вруч.";
-            this.allStatColumnAllReceivedCount.Name = "allStatColumnAllReceivedCount";
-            this.allStatColumnAllReceivedCount.ReadOnly = true;
-            // 
-            // allStatColumnReceivedCount
-            // 
-            this.allStatColumnReceivedCount.DataPropertyName = "ReceivedCount";
-            this.allStatColumnReceivedCount.HeaderText = "Получ.";
-            this.allStatColumnReceivedCount.Name = "allStatColumnReceivedCount";
-            this.allStatColumnReceivedCount.ReadOnly = true;
-            // 
-            // allStatColumnReturnCount
-            // 
-            this.allStatColumnReturnCount.DataPropertyName = "ReturnCount";
-            this.allStatColumnReturnCount.HeaderText = "Возв.";
-            this.allStatColumnReturnCount.Name = "allStatColumnReturnCount";
-            this.allStatColumnReturnCount.ReadOnly = true;
-            // 
-            // allStatColumnReturnPay
-            // 
-            this.allStatColumnReturnPay.DataPropertyName = "ReturnPay";
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.allStatColumnReturnPay.DefaultCellStyle = dataGridViewCellStyle9;
-            this.allStatColumnReturnPay.HeaderText = "За возв.";
-            this.allStatColumnReturnPay.Name = "allStatColumnReturnPay";
-            this.allStatColumnReturnPay.ReadOnly = true;
-            // 
-            // allStatColumnReceivedNoValueCount
-            // 
-            this.allStatColumnReceivedNoValueCount.DataPropertyName = "ReceivedNoValueCount";
-            this.allStatColumnReceivedNoValueCount.HeaderText = "Вруч. без ОЦ";
-            this.allStatColumnReceivedNoValueCount.Name = "allStatColumnReceivedNoValueCount";
-            this.allStatColumnReceivedNoValueCount.ReadOnly = true;
-            // 
-            // allStatColumnValueCount
-            // 
-            this.allStatColumnValueCount.DataPropertyName = "ValueCount";
-            this.allStatColumnValueCount.HeaderText = "Цен.";
-            this.allStatColumnValueCount.Name = "allStatColumnValueCount";
-            this.allStatColumnValueCount.ReadOnly = true;
-            // 
-            // allStatColumnFirstClassCount
-            // 
-            this.allStatColumnFirstClassCount.DataPropertyName = "FirstClassCount";
-            this.allStatColumnFirstClassCount.HeaderText = "1 кл.";
-            this.allStatColumnFirstClassCount.Name = "allStatColumnFirstClassCount";
-            this.allStatColumnFirstClassCount.ReadOnly = true;
-            // 
-            // allStatColumnNotifyCount
-            // 
-            this.allStatColumnNotifyCount.DataPropertyName = "NotifyCount";
-            this.allStatColumnNotifyCount.HeaderText = "Увед";
-            this.allStatColumnNotifyCount.Name = "allStatColumnNotifyCount";
-            this.allStatColumnNotifyCount.ReadOnly = true;
-            // 
-            // allStatColumnHandedCount
-            // 
-            this.allStatColumnHandedCount.DataPropertyName = "HandedCount";
-            this.allStatColumnHandedCount.HeaderText = "Вручено";
-            this.allStatColumnHandedCount.Name = "allStatColumnHandedCount";
-            this.allStatColumnHandedCount.ReadOnly = true;
             // 
             // GeneralForm
             // 
