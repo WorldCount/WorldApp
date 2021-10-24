@@ -42,6 +42,8 @@ namespace WorldStat.Core.Forms
         private List<MailType> _activeMailTypes;
         private List<DispathReport> _dispathReports;
 
+        private bool _isAdmin = false;
+
         #endregion
 
         public GeneralForm()
@@ -142,6 +144,9 @@ namespace WorldStat.Core.Forms
             // Восстановление положения окна
             if (args.Contains("-restore"))
                 CenterToScreen();
+
+            if (args.Contains("-admin"))
+                _isAdmin = true;
         }
 
         private async void GeneralForm_Load(object sender, EventArgs e)
@@ -726,7 +731,7 @@ namespace WorldStat.Core.Forms
                         reportContextMenuUnload.Tag = report;
 
                         reportContextMenuUploadYandexDisk.Text = $"Выгрузить отчет за '{report.Date.ToShortDateString()}' на Яндекс";
-                        reportContextMenuUploadYandexDisk.Enabled = true;
+                        reportContextMenuUploadYandexDisk.Enabled = _isAdmin;
                         reportContextMenuUploadYandexDisk.Tag = report;
                     }
                     else

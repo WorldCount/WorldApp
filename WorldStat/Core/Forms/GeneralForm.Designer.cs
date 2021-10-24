@@ -33,26 +33,26 @@ namespace WorldStat.Core.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle97 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle98 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle99 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle100 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,11 +68,11 @@ namespace WorldStat.Core.Forms
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
-            this.btnOpenUnloadDir = new WcButton();
+            this.btnOpenUnloadDir = new Wc32Api.Widgets.Buttons.WcButton();
             this.reportLabelInfoUnloadDir = new System.Windows.Forms.Label();
-            this.reportTextBoxUnloadDir = new WcTextBox();
-            this.btnTest = new WcButton();
-            this.orgToggleButtonCalendar = new WcToggleButton();
+            this.reportTextBoxUnloadDir = new Wc32Api.Widgets.Texts.WcTextBox();
+            this.btnTest = new Wc32Api.Widgets.Buttons.WcButton();
+            this.orgToggleButtonCalendar = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
@@ -95,13 +95,13 @@ namespace WorldStat.Core.Forms
             this.reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelReport = new System.Windows.Forms.FlowLayoutPanel();
-            this.reportToggleButton = new WcToggleButton();
+            this.reportToggleButton = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.reportDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.reportDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.reportDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.reportLabelInfoTeam = new System.Windows.Forms.Label();
             this.reportComboBoxTeam = new System.Windows.Forms.ComboBox();
-            this.btnLoadReports = new WcButton();
+            this.btnLoadReports = new Wc32Api.Widgets.Buttons.WcButton();
             this.tabOrgs = new System.Windows.Forms.TabPage();
             this.orgPanelStat = new System.Windows.Forms.Panel();
             this.orgLabelPosCount = new System.Windows.Forms.Label();
@@ -140,8 +140,8 @@ namespace WorldStat.Core.Forms
             this.orgDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.orgDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.orgLabelInfoGroup = new System.Windows.Forms.Label();
-            this.orgToggleButtonGroup = new WcToggleButton();
-            this.btnLoadOrgs = new WcButton();
+            this.orgToggleButtonGroup = new Wc32Api.Widgets.Buttons.WcToggleButton();
+            this.btnLoadOrgs = new Wc32Api.Widgets.Buttons.WcButton();
             this.orgComboBoxFirms = new System.Windows.Forms.ComboBox();
             this.orgFirmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageIncomes = new System.Windows.Forms.TabPage();
@@ -171,13 +171,13 @@ namespace WorldStat.Core.Forms
             this.incomeLabelInfoTransType = new System.Windows.Forms.Label();
             this.incomeComboBoxTransType = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.incomeToggleButtonCalendar = new WcToggleButton();
+            this.incomeToggleButtonCalendar = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.incomeDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.incomeDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.incomeDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
             this.incomeLabelInfoGroup = new System.Windows.Forms.Label();
-            this.incomeToggleButtonGroup = new WcToggleButton();
-            this.btnLoadIncomes = new WcButton();
+            this.incomeToggleButtonGroup = new Wc32Api.Widgets.Buttons.WcToggleButton();
+            this.btnLoadIncomes = new Wc32Api.Widgets.Buttons.WcButton();
             this.incomeComboBoxFirms = new System.Windows.Forms.ComboBox();
             this.incomeFirmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabStats = new System.Windows.Forms.TabPage();
@@ -189,11 +189,11 @@ namespace WorldStat.Core.Forms
             this.dispathReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelStat = new System.Windows.Forms.Panel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.statToggleButtonCalendar = new WcToggleButton();
+            this.statToggleButtonCalendar = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.statDateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.statDateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.statDateTimePickerCalendar = new System.Windows.Forms.DateTimePicker();
-            this.btnLoadStat = new WcButton();
+            this.btnLoadStat = new Wc32Api.Widgets.Buttons.WcButton();
             this.statComboBoxFirms = new System.Windows.Forms.ComboBox();
             this.statFirmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabCharts = new System.Windows.Forms.TabPage();
@@ -203,8 +203,8 @@ namespace WorldStat.Core.Forms
             this.reportContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reportContextMenuUnload = new System.Windows.Forms.ToolStripMenuItem();
             this.reportContextMenuUnloadAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportContextMenuUploadYandexDisk = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.reportContextMenuUploadYandexDisk = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -422,6 +422,7 @@ namespace WorldStat.Core.Forms
             this.reportTextBoxUnloadDir.ForeColor = System.Drawing.Color.DimGray;
             this.reportTextBoxUnloadDir.Location = new System.Drawing.Point(160, 14);
             this.reportTextBoxUnloadDir.Margin = new System.Windows.Forms.Padding(4);
+            this.reportTextBoxUnloadDir.MaxLength = 32767;
             this.reportTextBoxUnloadDir.Multiline = false;
             this.reportTextBoxUnloadDir.Name = "reportTextBoxUnloadDir";
             this.reportTextBoxUnloadDir.Padding = new System.Windows.Forms.Padding(7);
@@ -429,7 +430,7 @@ namespace WorldStat.Core.Forms
             this.reportTextBoxUnloadDir.ReadOnly = true;
             this.reportTextBoxUnloadDir.Size = new System.Drawing.Size(538, 31);
             this.reportTextBoxUnloadDir.TabIndex = 28;
-            this.reportTextBoxUnloadDir.Text = "";
+            this.reportTextBoxUnloadDir.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.reportTextBoxUnloadDir.UnderlinedStyle = false;
             this.reportTextBoxUnloadDir.UsePasswordChar = false;
             // 
@@ -628,14 +629,14 @@ namespace WorldStat.Core.Forms
             this.reportDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.reportDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.reportDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle81.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle81.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle81.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle81.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle81.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle81.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.reportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle81;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.reportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.reportDataGridView.ColumnHeadersHeight = 40;
             this.reportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.reportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -645,27 +646,27 @@ namespace WorldStat.Core.Forms
             this.reportColumnCount,
             this.reportColumnPay});
             this.reportDataGridView.DataSource = this.reportBindingSource;
-            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle85.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle85.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle85.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle85.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle85.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle85.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.reportDataGridView.DefaultCellStyle = dataGridViewCellStyle85;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.reportDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.reportDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportDataGridView.EnableHeadersVisualStyles = false;
             this.reportDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.reportDataGridView.Location = new System.Drawing.Point(0, 48);
             this.reportDataGridView.Name = "reportDataGridView";
-            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle86.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle86.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle86.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle86.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle86.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle86.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.reportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle86;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.reportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.reportDataGridView.RowHeadersVisible = false;
             this.reportDataGridView.RowHeadersWidth = 40;
             this.reportDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -680,10 +681,10 @@ namespace WorldStat.Core.Forms
             // reportColumnDate
             // 
             this.reportColumnDate.DataPropertyName = "Date";
-            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle82.Format = "d";
-            dataGridViewCellStyle82.NullValue = null;
-            this.reportColumnDate.DefaultCellStyle = dataGridViewCellStyle82;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.reportColumnDate.DefaultCellStyle = dataGridViewCellStyle2;
             this.reportColumnDate.HeaderText = "Дата";
             this.reportColumnDate.Name = "reportColumnDate";
             this.reportColumnDate.ReadOnly = true;
@@ -705,8 +706,8 @@ namespace WorldStat.Core.Forms
             // reportColumnCount
             // 
             this.reportColumnCount.DataPropertyName = "Count";
-            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.reportColumnCount.DefaultCellStyle = dataGridViewCellStyle83;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.reportColumnCount.DefaultCellStyle = dataGridViewCellStyle3;
             this.reportColumnCount.HeaderText = "Количество";
             this.reportColumnCount.Name = "reportColumnCount";
             this.reportColumnCount.ReadOnly = true;
@@ -714,10 +715,10 @@ namespace WorldStat.Core.Forms
             // reportColumnPay
             // 
             this.reportColumnPay.DataPropertyName = "Pay";
-            dataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle84.Format = "N2";
-            dataGridViewCellStyle84.NullValue = null;
-            this.reportColumnPay.DefaultCellStyle = dataGridViewCellStyle84;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.reportColumnPay.DefaultCellStyle = dataGridViewCellStyle4;
             this.reportColumnPay.HeaderText = "Плата";
             this.reportColumnPay.Name = "reportColumnPay";
             this.reportColumnPay.ReadOnly = true;
@@ -959,14 +960,14 @@ namespace WorldStat.Core.Forms
             this.orgDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.orgDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.orgDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle87.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle87.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle87.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle87.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle87.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle87.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.orgDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle87;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.orgDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.orgDataGridView.ColumnHeadersHeight = 40;
             this.orgDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.orgDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -979,28 +980,28 @@ namespace WorldStat.Core.Forms
             this.orgColumnPay,
             this.orgColumnTransType});
             this.orgDataGridView.DataSource = this.orgReportPosBindingSource;
-            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle89.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle89.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle89.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle89.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle89.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle89.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.orgDataGridView.DefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.orgDataGridView.DefaultCellStyle = dataGridViewCellStyle9;
             this.orgDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.orgDataGridView.EnableHeadersVisualStyles = false;
             this.orgDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.orgDataGridView.Location = new System.Drawing.Point(0, 92);
             this.orgDataGridView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.orgDataGridView.Name = "orgDataGridView";
-            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle90.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle90.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle90.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle90.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle90.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle90.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.orgDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.orgDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.orgDataGridView.RowHeadersVisible = false;
             this.orgDataGridView.RowHeadersWidth = 40;
             this.orgDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1076,9 +1077,9 @@ namespace WorldStat.Core.Forms
             // orgColumnPay
             // 
             this.orgColumnPay.DataPropertyName = "Pay";
-            dataGridViewCellStyle88.Format = "N2";
-            dataGridViewCellStyle88.NullValue = null;
-            this.orgColumnPay.DefaultCellStyle = dataGridViewCellStyle88;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.orgColumnPay.DefaultCellStyle = dataGridViewCellStyle8;
             this.orgColumnPay.HeaderText = "Плата";
             this.orgColumnPay.Name = "orgColumnPay";
             this.orgColumnPay.ReadOnly = true;
@@ -1102,37 +1103,37 @@ namespace WorldStat.Core.Forms
             this.dataGridViewDocOrg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDocOrg.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewDocOrg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle91.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle91.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle91.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle91.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle91.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle91.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDocOrg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle91;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDocOrg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewDocOrg.ColumnHeadersHeight = 40;
             this.dataGridViewDocOrg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle92.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle92.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle92.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle92.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle92.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle92.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewDocOrg.DefaultCellStyle = dataGridViewCellStyle92;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewDocOrg.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewDocOrg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDocOrg.EnableHeadersVisualStyles = false;
             this.dataGridViewDocOrg.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.dataGridViewDocOrg.Location = new System.Drawing.Point(0, 92);
             this.dataGridViewDocOrg.Name = "dataGridViewDocOrg";
-            dataGridViewCellStyle93.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle93.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle93.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle93.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle93.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle93.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle93.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDocOrg.RowHeadersDefaultCellStyle = dataGridViewCellStyle93;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDocOrg.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewDocOrg.RowHeadersVisible = false;
             this.dataGridViewDocOrg.RowHeadersWidth = 40;
             this.dataGridViewDocOrg.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1508,14 +1509,14 @@ namespace WorldStat.Core.Forms
             this.incomeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.incomeDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.incomeDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle94.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle94.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle94.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle94.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle94.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle94.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.incomeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle94;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.incomeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.incomeDataGridView.ColumnHeadersHeight = 40;
             this.incomeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.incomeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1524,28 +1525,28 @@ namespace WorldStat.Core.Forms
             this.incomeColumnCount,
             this.incomeColumnPay});
             this.incomeDataGridView.DataSource = this.incomeReportPosBindingSource;
-            dataGridViewCellStyle96.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle96.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle96.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle96.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle96.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle96.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle96.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.incomeDataGridView.DefaultCellStyle = dataGridViewCellStyle96;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.incomeDataGridView.DefaultCellStyle = dataGridViewCellStyle16;
             this.incomeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.incomeDataGridView.EnableHeadersVisualStyles = false;
             this.incomeDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.incomeDataGridView.Location = new System.Drawing.Point(0, 92);
             this.incomeDataGridView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.incomeDataGridView.Name = "incomeDataGridView";
-            dataGridViewCellStyle97.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle97.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle97.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle97.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle97.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle97.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle97.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.incomeDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle97;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.incomeDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.incomeDataGridView.RowHeadersVisible = false;
             this.incomeDataGridView.RowHeadersWidth = 40;
             this.incomeDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1580,9 +1581,9 @@ namespace WorldStat.Core.Forms
             // incomeColumnPay
             // 
             this.incomeColumnPay.DataPropertyName = "Pay";
-            dataGridViewCellStyle95.Format = "N2";
-            dataGridViewCellStyle95.NullValue = null;
-            this.incomeColumnPay.DefaultCellStyle = dataGridViewCellStyle95;
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.incomeColumnPay.DefaultCellStyle = dataGridViewCellStyle15;
             this.incomeColumnPay.HeaderText = "Плата";
             this.incomeColumnPay.Name = "incomeColumnPay";
             this.incomeColumnPay.ReadOnly = true;
@@ -1900,14 +1901,14 @@ namespace WorldStat.Core.Forms
             this.statDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.statDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.statDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle98.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle98.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle98.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle98.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle98.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle98.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle98.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.statDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle98;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.statDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.statDataGridView.ColumnHeadersHeight = 40;
             this.statDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.statDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1916,28 +1917,28 @@ namespace WorldStat.Core.Forms
             this.statColumnCount,
             this.statColumnPay});
             this.statDataGridView.DataSource = this.dispathReportBindingSource;
-            dataGridViewCellStyle99.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle99.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle99.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle99.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle99.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            dataGridViewCellStyle99.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle99.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.statDataGridView.DefaultCellStyle = dataGridViewCellStyle99;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.statDataGridView.DefaultCellStyle = dataGridViewCellStyle19;
             this.statDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.statDataGridView.EnableHeadersVisualStyles = false;
             this.statDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.statDataGridView.Location = new System.Drawing.Point(0, 48);
             this.statDataGridView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.statDataGridView.Name = "statDataGridView";
-            dataGridViewCellStyle100.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle100.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle100.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle100.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle100.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle100.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle100.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.statDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle100;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.statDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.statDataGridView.RowHeadersVisible = false;
             this.statDataGridView.RowHeadersWidth = 40;
             this.statDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -2164,34 +2165,35 @@ namespace WorldStat.Core.Forms
             this.toolStripSeparator1,
             this.reportContextMenuUploadYandexDisk});
             this.reportContextMenu.Name = "reportContextMenu";
-            this.reportContextMenu.Size = new System.Drawing.Size(265, 104);
+            this.reportContextMenu.Size = new System.Drawing.Size(265, 82);
             // 
             // reportContextMenuUnload
             // 
             this.reportContextMenuUnload.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.reportContextMenuUnload.Name = "reportContextMenuUnload";
-            this.reportContextMenuUnload.Size = new System.Drawing.Size(229, 24);
+            this.reportContextMenuUnload.Size = new System.Drawing.Size(264, 24);
             this.reportContextMenuUnload.Text = "Выгрузить отчет";
             this.reportContextMenuUnload.Click += new System.EventHandler(this.reportContextMenuUnload_Click);
             // 
             // reportContextMenuUnloadAll
             // 
             this.reportContextMenuUnloadAll.Name = "reportContextMenuUnloadAll";
-            this.reportContextMenuUnloadAll.Size = new System.Drawing.Size(229, 24);
+            this.reportContextMenuUnloadAll.Size = new System.Drawing.Size(264, 24);
             this.reportContextMenuUnloadAll.Text = "Выгрузить все отчеты";
             this.reportContextMenuUnloadAll.Click += new System.EventHandler(this.reportContextMenuUnloadAll_Click);
-            // 
-            // reportContextMenuUploadYandexDisk
-            // 
-            this.reportContextMenuUploadYandexDisk.Name = "reportContextMenuUploadYandexDisk";
-            this.reportContextMenuUploadYandexDisk.Size = new System.Drawing.Size(264, 24);
-            this.reportContextMenuUploadYandexDisk.Text = "Выгрузить отчет на Яндекс";
-            this.reportContextMenuUploadYandexDisk.Click += new System.EventHandler(this.reportContextMenuUploadYandexDisk_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(261, 6);
+            // 
+            // reportContextMenuUploadYandexDisk
+            // 
+            this.reportContextMenuUploadYandexDisk.Enabled = false;
+            this.reportContextMenuUploadYandexDisk.Name = "reportContextMenuUploadYandexDisk";
+            this.reportContextMenuUploadYandexDisk.Size = new System.Drawing.Size(264, 24);
+            this.reportContextMenuUploadYandexDisk.Text = "Выгрузить отчет на Яндекс";
+            this.reportContextMenuUploadYandexDisk.Click += new System.EventHandler(this.reportContextMenuUploadYandexDisk_Click);
             // 
             // GeneralForm
             // 
