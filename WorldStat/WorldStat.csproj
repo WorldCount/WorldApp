@@ -274,6 +274,9 @@
     <Compile Include="Core\Parsers\Models\FrankMail.cs" />
     <Compile Include="Core\Parsers\Models\FrankRow.cs" />
     <Compile Include="Core\Parsers\Models\HierarchyFrankReport.cs" />
+    <Compile Include="Core\PrintDocuments\IncomePrintDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Core\PrintDocuments\OrgPrintDocument.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -476,6 +476,7 @@ namespace WorldStat.Core.Forms
             MailType mailType = (MailType)incomeComboBoxMailType.SelectedItem;
             MailCategory mailCategory = (MailCategory)incomeComboBoxMailCategory.SelectedItem;
             TransCategory transCategory = (TransCategory)incomeComboBoxTransCategory.SelectedItem;
+            TransType transType = (TransType) incomeComboBoxTransType.SelectedItem;
 
             long type = 9999;
             long category = 9999;
@@ -508,7 +509,7 @@ namespace WorldStat.Core.Forms
                     type = mailType.Code;
 
 
-                _incomeReportPoses = await Db.LoadGroupIncomeReportPosesAsync(start, end, firm.Id, type, category, transCategory, incomeToggleButtonGroup.Checked);
+                _incomeReportPoses = await Db.LoadGroupIncomeReportPosesAsync(start, end, firm.Id, type, category, transCategory, transType, incomeToggleButtonGroup.Checked);
                 UpdateIncomeReportPoses();
 
                 string count = _incomeReportPoses.Sum(r => r.Count).ToString("### ###");
@@ -1213,7 +1214,7 @@ namespace WorldStat.Core.Forms
 
             if (orgDateTimePickerCalendar.Visible)
             {
-                dateString = WcApi.Date.DateUtils.GetMonthName(reportDateTimePickerCalendar.Value);
+                dateString = WcApi.Date.DateUtils.GetMonthName(orgDateTimePickerCalendar.Value);
             }
             else
             {
@@ -1255,7 +1256,76 @@ namespace WorldStat.Core.Forms
 
         private void PrintIncomes()
         {
+            btnPrint.Enabled = false;
 
+            Firm firm = (Firm)orgComboBoxFirms.SelectedItem;
+            MailType mailType = (MailType)incomeComboBoxMailType.SelectedItem;
+            MailCategory mailCategory = (MailCategory)incomeComboBoxMailCategory.SelectedItem;
+            TransCategory transCategory = (TransCategory)incomeComboBoxTransCategory.SelectedItem;
+            TransType transType = (TransType)incomeComboBoxTransType.SelectedItem;
+
+            if (firm == null || mailType == null || mailCategory == null)
+            {
+                btnPrint.Enabled = true;
+                ErrorMessage("Загруженны не полные данные.");
+                return;
+            }
+
+            List<ReportPos> reports = new List<ReportPos>();
+
+            try
+            {
+                reports = ((SortableBindingList<ReportPos>) incomeReportPosBindingSource.DataSource).ToList();
+            }
+            catch
+            {
+                btnPrint.Enabled = true;
+                ErrorMessage("Нет данных для печати");
+                return;
+            }
+
+            string dateString = "";
+
+            if (incomeDateTimePickerCalendar.Visible)
+            {
+                dateString = WcApi.Date.DateUtils.GetMonthName(incomeDateTimePickerCalendar.Value);
+            }
+            else
+            {
+                DateTime start = WcApi.Date.DateUtils.CropTime(incomeDateTimePickerStart.Value);
+                DateTime end = WcApi.Date.DateUtils.CropTime(incomeDateTimePickerEnd.Value);
+                dateString = start == end ? $"{start:dd.MM.yyyy}" : $"{start:dd.MM.yyyy} - {end:dd.MM.yyyy}";
+            }
+
+            string reportTitle = $"ОТЧЕТ ПО ДОХОДУ: {firm.ShortName}";
+            if (orgToggleButtonGroup.Checked)
+                reportTitle = $"ГРУППИРОВАННЫЙ ОТЧЕТ ПО ДОХОДУ: {firm.ShortName}";
+
+            string reportSubTitle = $"Период: {dateString}, Тип: {mailType.ShortName}, " +
+                                    $"Категория: {mailCategory.ShortName}, Класс: {transCategory}, Пересылка: {transType}";
+
+            string printerName = (string)comboBoxPrinters.SelectedItem;
+
+            string count = reports.Sum(r => r.Count).ToString("### ###");
+            string sum = reports.Sum(r => r.Pay).ToString("N2");
+
+            IncomePrintDocument document = new IncomePrintDocument(reports, count, sum, incomeLabelPosCount.Text, 
+                incomeToggleButtonGroup.Checked)
+            {
+                PrintLogo = true,
+                PrintNumPageInfo = true,
+                ReportTitle = reportTitle,
+                ReportSubTitle = reportSubTitle,
+                PrinterSettings = { Copies = (short)numericUpDownCopies.Value }
+            };
+
+            if (!string.IsNullOrEmpty(printerName))
+                document.PrinterSettings.PrinterName = printerName;
+
+            document.Print();
+            numericUpDownCopies.Value = 1;
+            btnPrint.Enabled = true;
+            SuccessMessage("Отчет ушел на печать");
         }
 
         private void PrintStats()

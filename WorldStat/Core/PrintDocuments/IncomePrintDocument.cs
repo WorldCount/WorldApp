@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Drawing.Text;
-using System.Linq;
 using NLog;
-using WcPostApi.Types;
 using WorldStat.Core.Database.Models;
 using WorldStat.Core.PrintDocuments.Pens;
 
 namespace WorldStat.Core.PrintDocuments
 {
-    public class OrgPrintDocument : PrintDocument
+    public class IncomePrintDocument : PrintDocument
     {
         #region Private Fields
 
@@ -22,9 +20,6 @@ namespace WorldStat.Core.PrintDocuments
         private readonly string _count;
         private readonly string _posCount;
         private readonly bool _grouping;
-
-        private readonly List<MailCategory> _mailCategories;
-        private readonly List<MailType> _mailTypes;
 
         private readonly int[] _columnWidths;
 
@@ -50,19 +45,13 @@ namespace WorldStat.Core.PrintDocuments
 
         #endregion
 
-        public OrgPrintDocument(List<ReportPos> reports, string count, string sum, string posCount, bool grouping,
-            List<MailCategory> mailCategories, List<MailType> mailTypes)
+        public IncomePrintDocument(List<ReportPos> reports, string count, string sum, string posCount, bool grouping)
         {
             _reports = reports;
             _count = count;
             _sum = sum;
             _posCount = posCount;
             _grouping = grouping;
-
-            _mailTypes = mailTypes;
-            _mailCategories = mailCategories;
-
-            DefaultPageSettings.Landscape = !grouping;
 
             _columnWidths = GetWidthByType();
             DefaultPageSettings.Margins = new Margins(10, 10, 40, 40);
@@ -99,57 +88,31 @@ namespace WorldStat.Core.PrintDocuments
 
         private int[] GetWidthByType()
         {
-            if(_grouping)
-                return new[] { 200, 140, 140, 80, 90, 120 };
-            return new[] { 100, 320, 150, 150, 80, 90, 120, 100 };
+            if (_grouping)
+                return new[] { 470, 150, 150 };
+            return new[] { 100, 370, 150, 150 };
         }
 
         private string[] GetValuesByType(ReportPos report)
         {
-            string category = "ВСЕ";
-            if (report.TransCategory == TransCategory.Международная)
-                category = "МЖД";
-            else if (report.TransCategory == TransCategory.Внутренняя)
-                category = "-";
+            if (_grouping)
+                return new[] { report.FirmName, report.Count.ToString(), report.Pay.ToString("N2")};
 
-            MailCategory mailCategory = _mailCategories.FirstOrDefault(c => c.Code == report.MailCategory);
-            string mailCategoryName = report.MailCategory.ToString();
-            if (mailCategory != null)
-                mailCategoryName = mailCategory.ShortName;
-
-            MailType mailType = _mailTypes.FirstOrDefault(t => t.Code == report.MailType);
-            string mailTypeName = report.MailType.ToString();
-            if (mailType != null)
-                mailTypeName = mailType.ShortName;
-
-            string type = "-";
-            if (report.TransType == TransType.Нет)
-                type = "-";
-            else
-                type = report.TransType.ToString();
-
-            if(_grouping)
-                return new[] { report.FirmName, mailTypeName, 
-                    mailCategoryName, category, 
-                    report.Count.ToString(), report.Pay.ToString("N2")};
-
-            return new[] { report.DateText, report.FirmName, mailTypeName, 
-                mailCategoryName, category,
-                report.Count.ToString(), report.Pay.ToString("N2"), type };
+            return new[] { report.DateText, report.FirmName, report.Count.ToString(), report.Pay.ToString("N2") };
         }
 
         private string[] GetHeaderByType()
         {
-            if(_grouping)
-                return new[] { "Организация", "Тип", "Категория", "Класс", "Кол-во", "Плата" };
-            return new[] { "Дата", "Организация", "Тип", "Категория", "Класс", "Кол-во", "Плата", "Пересылка" };
+            if (_grouping)
+                return new[] { "Организация", "Количество", "Плата" };
+            return new[] { "Дата", "Организация", "Количество", "Плата" };
         }
 
         private string[] GetStatByType()
         {
-            if(_grouping)
-                return new[] { _posCount, "", "", "", _count, _sum, "" };
-            return new[] { "", _posCount, "", "", "", _count, _sum, "" };
+            if (_grouping)
+                return new[] { _posCount, _count, _sum };
+            return new[] { "", _posCount, _count, _sum };
         }
 
         /// <summary>Печать строки</summary>
@@ -263,7 +226,7 @@ namespace WorldStat.Core.PrintDocuments
             string[] data = GetStatByType();
             string[] headerStrings = GetHeaderByType();
 
-            if(_grouping)
+            if (_grouping)
                 headerStrings[0] = "Позиций";
             else
                 headerStrings[1] = "Позиций";

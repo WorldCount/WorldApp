@@ -129,10 +129,11 @@ namespace WorldStat.Core.Database
         /// <param name="mailType">Тип отправления</param>
         /// <param name="mailCategory">Категория отправления</param>
         /// <param name="transCategory">Класс отправления</param>
+        /// <param name="transType">Пересылка</param>
         /// <param name="group">Групировать данные</param>
         /// <returns>Список позиций</returns>
         public static List<ReportPos> LoadGroupIncomeReportPoses(DateTime start, DateTime end, int firmId = 0,
-            long mailType = 9999, long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ, bool group = false)
+            long mailType = 9999, long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ, TransType transType = TransType.ВСЕ, bool group = false)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -152,6 +153,9 @@ namespace WorldStat.Core.Database
 
             if (transCategory != TransCategory.ВСЕ)
                 sb.Append($" and r.TransCategory = {(int)transCategory}");
+
+            if (transType != TransType.ВСЕ)
+                sb.Append($" and r.TransType = {(int) transType}");
 
             sb.Append(@group ? " group by r.FirmId" : " group by r.Date, r.FirmId");
 
@@ -184,12 +188,14 @@ namespace WorldStat.Core.Database
         /// <param name="mailType">Тип отправления</param>
         /// <param name="mailCategory">Категория отправления</param>
         /// <param name="transCategory">Класс отправления</param>
+        /// <param name="transType">Пересылка</param>
         /// <param name="group">Групировать данные</param>
         /// <returns>Список позиций</returns>
         public static async Task<List<ReportPos>> LoadGroupIncomeReportPosesAsync(DateTime start, DateTime end,
-            int firmId = 0, long mailType = 9999, long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ, bool group = false)
+            int firmId = 0, long mailType = 9999, long mailCategory = 9999, TransCategory transCategory = TransCategory.ВСЕ, 
+            TransType transType = TransType.ВСЕ, bool group = false)
         {
-            return await Task.Run(() => LoadGroupIncomeReportPoses(start, end, firmId, mailType, mailCategory, transCategory, group));
+            return await Task.Run(() => LoadGroupIncomeReportPoses(start, end, firmId, mailType, mailCategory, transCategory, transType, group));
         }
 
         /// <summary>
