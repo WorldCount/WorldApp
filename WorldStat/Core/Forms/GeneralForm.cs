@@ -1258,7 +1258,7 @@ namespace WorldStat.Core.Forms
         {
             btnPrint.Enabled = false;
 
-            Firm firm = (Firm)orgComboBoxFirms.SelectedItem;
+            Firm firm = (Firm)incomeComboBoxFirms.SelectedItem;
             MailType mailType = (MailType)incomeComboBoxMailType.SelectedItem;
             MailCategory mailCategory = (MailCategory)incomeComboBoxMailCategory.SelectedItem;
             TransCategory transCategory = (TransCategory)incomeComboBoxTransCategory.SelectedItem;
@@ -1330,7 +1330,53 @@ namespace WorldStat.Core.Forms
 
         private void PrintStats()
         {
+            btnPrint.Enabled = false;
 
+            Firm firm = (Firm)statComboBoxFirms.SelectedItem;
+            if (firm == null)
+            {
+                btnPrint.Enabled = true;
+                ErrorMessage("Загруженны не полные данные.");
+                return;
+            }
+
+            string dateString = "";
+
+            if (statDateTimePickerCalendar.Visible)
+            {
+                dateString = WcApi.Date.DateUtils.GetMonthName(statDateTimePickerCalendar.Value);
+            }
+            else
+            {
+                DateTime start = WcApi.Date.DateUtils.CropTime(statDateTimePickerStart.Value);
+                DateTime end = WcApi.Date.DateUtils.CropTime(statDateTimePickerEnd.Value);
+                dateString = start == end ? $"{start:dd.MM.yyyy}" : $"{start:dd.MM.yyyy} - {end:dd.MM.yyyy}";
+            }
+
+            string reportTitle = $"СТАТИСТИКА: {firm.ShortName}";
+            string reportSubTitle = $"Период: {dateString}";
+            string printerName = (string)comboBoxPrinters.SelectedItem;
+
+            if (statDataGridView.RowCount > 0)
+            {
+                StatPrintDocument document = new StatPrintDocument(statDataGridView)
+                {
+                    PrintLogo = true,
+                    PrintNumPageInfo = true,
+                    ReportTitle = reportTitle,
+                    ReportSubTitle = reportSubTitle,
+                    PrinterSettings = { Copies = (short)numericUpDownCopies.Value }
+                };
+
+                if (!string.IsNullOrEmpty(printerName))
+                    document.PrinterSettings.PrinterName = printerName;
+
+                document.Print();
+                numericUpDownCopies.Value = 1;
+                SuccessMessage("Отчет ушел на печать");
+            }
+
+            btnPrint.Enabled = true;
         }
 
         #endregion

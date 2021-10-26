@@ -1,6 +1,4 @@
 ﻿
-using System;
-
 namespace WorldStat.Core.Reports.Models
 {
     public class DispathReport
@@ -31,7 +29,7 @@ namespace WorldStat.Core.Reports.Models
                 if (IsVoid && Pay == 0)
                     return "";
 
-                return Pay.ToString("C");
+                return Pay.ToString("N2");
             }
         }
     }

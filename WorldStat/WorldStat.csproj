@@ -284,6 +284,9 @@
     <Compile Include="Core\PrintDocuments\ReportPrintDocument.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Core\PrintDocuments\StatPrintDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Core\Reports\Models\DispathReport.cs" />
     <Compile Include="Core\Reports\Models\DispathReportRepository.cs" />
     <Compile Include="Core\Reports\Models\DispathReportStat.cs" />
