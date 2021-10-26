@@ -1357,24 +1357,29 @@ namespace WorldStat.Core.Forms
             string reportSubTitle = $"Период: {dateString}";
             string printerName = (string)comboBoxPrinters.SelectedItem;
 
-            if (statDataGridView.RowCount > 0)
+            if (statDataGridView.RowCount == 0)
             {
-                StatPrintDocument document = new StatPrintDocument(statDataGridView)
-                {
-                    PrintLogo = true,
-                    PrintNumPageInfo = true,
-                    ReportTitle = reportTitle,
-                    ReportSubTitle = reportSubTitle,
-                    PrinterSettings = { Copies = (short)numericUpDownCopies.Value }
-                };
-
-                if (!string.IsNullOrEmpty(printerName))
-                    document.PrinterSettings.PrinterName = printerName;
-
-                document.Print();
-                numericUpDownCopies.Value = 1;
-                SuccessMessage("Отчет ушел на печать");
+                btnPrint.Enabled = true;
+                ErrorMessage("Нет данных для печати");
+                return;
             }
+
+            
+            StatPrintDocument document = new StatPrintDocument(statDataGridView)
+            {
+                PrintLogo = true,
+                PrintNumPageInfo = true,
+                ReportTitle = reportTitle,
+                ReportSubTitle = reportSubTitle,
+                PrinterSettings = { Copies = (short)numericUpDownCopies.Value }
+            };
+
+            if (!string.IsNullOrEmpty(printerName))
+                document.PrinterSettings.PrinterName = printerName;
+
+            document.Print();
+            numericUpDownCopies.Value = 1;
+            SuccessMessage("Отчет ушел на печать");
 
             btnPrint.Enabled = true;
         }
