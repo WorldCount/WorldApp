@@ -49,10 +49,10 @@ namespace WorldStat.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,12 +61,15 @@ namespace WorldStat.Core.Forms
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.firmsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mailCategoryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mailTypeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mailCategoryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mailCodeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.numericUpDownCopies = new System.Windows.Forms.NumericUpDown();
             this.lblInfoCopies = new System.Windows.Forms.Label();
@@ -157,6 +160,10 @@ namespace WorldStat.Core.Forms
             this.incomeLabelInfoPay = new System.Windows.Forms.Label();
             this.incomeLabelInfoCount = new System.Windows.Forms.Label();
             this.incomeDataGridView = new System.Windows.Forms.DataGridView();
+            this.incomeColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.incomeColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.incomeColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.incomeColumnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incomeReportPosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.incomePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -205,10 +212,8 @@ namespace WorldStat.Core.Forms
             this.reportContextMenuUnloadAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.reportContextMenuUploadYandexDisk = new System.Windows.Forms.ToolStripMenuItem();
-            this.incomeColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.incomeColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.incomeColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.incomeColumnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).BeginInit();
@@ -276,30 +281,36 @@ namespace WorldStat.Core.Forms
             // 
             this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadFrankReportMenuItem,
+            this.toolStripSeparator5,
             this.importCalendarMenuItem,
+            this.toolStripSeparator4,
             this.exitMenuItem});
+            this.fileMenuItem.Image = global::WorldStat.Properties.Resources.File;
             this.fileMenuItem.Name = "fileMenuItem";
-            this.fileMenuItem.Size = new System.Drawing.Size(57, 36);
-            this.fileMenuItem.Text = "Файл";
+            this.fileMenuItem.Size = new System.Drawing.Size(85, 36);
+            this.fileMenuItem.Text = " Файл";
             // 
             // loadFrankReportMenuItem
             // 
+            this.loadFrankReportMenuItem.Image = global::WorldStat.Properties.Resources.File_Excel;
             this.loadFrankReportMenuItem.Name = "loadFrankReportMenuItem";
-            this.loadFrankReportMenuItem.Size = new System.Drawing.Size(263, 24);
+            this.loadFrankReportMenuItem.Size = new System.Drawing.Size(271, 30);
             this.loadFrankReportMenuItem.Text = "Загрузить отчет по франку";
             this.loadFrankReportMenuItem.Click += new System.EventHandler(this.loadFrankReportMenuItem_Click);
             // 
             // importCalendarMenuItem
             // 
+            this.importCalendarMenuItem.Image = global::WorldStat.Properties.Resources.Calendar_Day;
             this.importCalendarMenuItem.Name = "importCalendarMenuItem";
-            this.importCalendarMenuItem.Size = new System.Drawing.Size(263, 24);
+            this.importCalendarMenuItem.Size = new System.Drawing.Size(271, 30);
             this.importCalendarMenuItem.Text = "Импорт календаря";
             this.importCalendarMenuItem.Click += new System.EventHandler(this.importCalendarMenuItem_Click);
             // 
             // exitMenuItem
             // 
+            this.exitMenuItem.Image = global::WorldStat.Properties.Resources.Button_Close;
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(263, 24);
+            this.exitMenuItem.Size = new System.Drawing.Size(271, 30);
             this.exitMenuItem.Text = "Выход";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -307,38 +318,55 @@ namespace WorldStat.Core.Forms
             // 
             this.dataMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.firmsMenuItem,
-            this.mailCategoryMenuItem,
+            this.toolStripSeparator2,
             this.mailTypeMenuItem,
+            this.mailCategoryMenuItem,
+            this.toolStripSeparator3,
             this.mailCodeMenuItem});
+            this.dataMenuItem.Image = global::WorldStat.Properties.Resources.Cabinet;
             this.dataMenuItem.Name = "dataMenuItem";
-            this.dataMenuItem.Size = new System.Drawing.Size(76, 36);
-            this.dataMenuItem.Text = "Данные";
+            this.dataMenuItem.Size = new System.Drawing.Size(104, 36);
+            this.dataMenuItem.Text = " Данные";
             // 
             // firmsMenuItem
             // 
+            this.firmsMenuItem.Image = global::WorldStat.Properties.Resources.Man_Suit_2;
             this.firmsMenuItem.Name = "firmsMenuItem";
-            this.firmsMenuItem.Size = new System.Drawing.Size(247, 24);
+            this.firmsMenuItem.Size = new System.Drawing.Size(255, 30);
             this.firmsMenuItem.Text = "Организации";
             this.firmsMenuItem.Click += new System.EventHandler(this.firmsMenuItem_Click);
             // 
-            // mailCategoryMenuItem
+            // toolStripSeparator2
             // 
-            this.mailCategoryMenuItem.Name = "mailCategoryMenuItem";
-            this.mailCategoryMenuItem.Size = new System.Drawing.Size(247, 24);
-            this.mailCategoryMenuItem.Text = "Категории отправлений";
-            this.mailCategoryMenuItem.Click += new System.EventHandler(this.mailCategoryMenuItem_Click);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(252, 6);
             // 
             // mailTypeMenuItem
             // 
+            this.mailTypeMenuItem.Image = global::WorldStat.Properties.Resources.Envelope_2;
             this.mailTypeMenuItem.Name = "mailTypeMenuItem";
-            this.mailTypeMenuItem.Size = new System.Drawing.Size(247, 24);
+            this.mailTypeMenuItem.Size = new System.Drawing.Size(255, 30);
             this.mailTypeMenuItem.Text = "Типы отправлений";
             this.mailTypeMenuItem.Click += new System.EventHandler(this.mailTypeMenuItem_Click);
             // 
+            // mailCategoryMenuItem
+            // 
+            this.mailCategoryMenuItem.Image = global::WorldStat.Properties.Resources.Notebook_2;
+            this.mailCategoryMenuItem.Name = "mailCategoryMenuItem";
+            this.mailCategoryMenuItem.Size = new System.Drawing.Size(255, 30);
+            this.mailCategoryMenuItem.Text = "Категории отправлений";
+            this.mailCategoryMenuItem.Click += new System.EventHandler(this.mailCategoryMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(252, 6);
+            // 
             // mailCodeMenuItem
             // 
+            this.mailCodeMenuItem.Image = global::WorldStat.Properties.Resources.Calculator_2;
             this.mailCodeMenuItem.Name = "mailCodeMenuItem";
-            this.mailCodeMenuItem.Size = new System.Drawing.Size(247, 24);
+            this.mailCodeMenuItem.Size = new System.Drawing.Size(255, 30);
             this.mailCodeMenuItem.Text = "Коды отправлений";
             this.mailCodeMenuItem.Click += new System.EventHandler(this.mailCodeMenuItem_Click);
             // 
@@ -346,22 +374,35 @@ namespace WorldStat.Core.Forms
             // 
             this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createDbMenuItem});
+            this.settingsMenuItem.Image = global::WorldStat.Properties.Resources.Button_Settings;
             this.settingsMenuItem.Name = "settingsMenuItem";
-            this.settingsMenuItem.Size = new System.Drawing.Size(96, 36);
-            this.settingsMenuItem.Text = "Настройки";
+            this.settingsMenuItem.Size = new System.Drawing.Size(124, 36);
+            this.settingsMenuItem.Text = " Настройки";
             // 
             // createDbMenuItem
             // 
+            this.createDbMenuItem.Image = global::WorldStat.Properties.Resources.Server;
             this.createDbMenuItem.Name = "createDbMenuItem";
-            this.createDbMenuItem.Size = new System.Drawing.Size(205, 24);
+            this.createDbMenuItem.Size = new System.Drawing.Size(213, 30);
             this.createDbMenuItem.Text = "Создать новую БД";
             this.createDbMenuItem.Click += new System.EventHandler(this.createDbMenuItem_Click);
             // 
             // infosMenuItem
             // 
+            this.infosMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateMenuItem});
+            this.infosMenuItem.Image = global::WorldStat.Properties.Resources._4_Leaf_Clover;
             this.infosMenuItem.Name = "infosMenuItem";
-            this.infosMenuItem.Size = new System.Drawing.Size(60, 36);
-            this.infosMenuItem.Text = "Инфо";
+            this.infosMenuItem.Size = new System.Drawing.Size(88, 36);
+            this.infosMenuItem.Text = " Инфо";
+            // 
+            // updateMenuItem
+            // 
+            this.updateMenuItem.Image = global::WorldStat.Properties.Resources.Button_Dashboard;
+            this.updateMenuItem.Name = "updateMenuItem";
+            this.updateMenuItem.Size = new System.Drawing.Size(155, 30);
+            this.updateMenuItem.Text = "Обновить";
+            this.updateMenuItem.Click += new System.EventHandler(this.updateMenuItem_Click);
             // 
             // panelGeneral
             // 
@@ -474,7 +515,7 @@ namespace WorldStat.Core.Forms
             this.btnOpenUnloadDir.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.btnOpenUnloadDir.Size = new System.Drawing.Size(101, 35);
             this.btnOpenUnloadDir.TabIndex = 30;
-            this.btnOpenUnloadDir.Text = "Открыть";
+            this.btnOpenUnloadDir.Text = "Изменить";
             this.btnOpenUnloadDir.TextColor = System.Drawing.Color.White;
             this.btnOpenUnloadDir.UseVisualStyleBackColor = false;
             this.btnOpenUnloadDir.Click += new System.EventHandler(this.btnOpenUnloadDir_Click);
@@ -1611,6 +1652,37 @@ namespace WorldStat.Core.Forms
             this.incomeDataGridView.TabStop = false;
             this.incomeDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             // 
+            // incomeColumnDate
+            // 
+            this.incomeColumnDate.DataPropertyName = "DateText";
+            this.incomeColumnDate.HeaderText = "Дата";
+            this.incomeColumnDate.Name = "incomeColumnDate";
+            this.incomeColumnDate.ReadOnly = true;
+            // 
+            // incomeColumnName
+            // 
+            this.incomeColumnName.DataPropertyName = "FirmName";
+            this.incomeColumnName.HeaderText = "Организация";
+            this.incomeColumnName.Name = "incomeColumnName";
+            this.incomeColumnName.ReadOnly = true;
+            // 
+            // incomeColumnCount
+            // 
+            this.incomeColumnCount.DataPropertyName = "Count";
+            this.incomeColumnCount.HeaderText = "Количество";
+            this.incomeColumnCount.Name = "incomeColumnCount";
+            this.incomeColumnCount.ReadOnly = true;
+            // 
+            // incomeColumnPay
+            // 
+            this.incomeColumnPay.DataPropertyName = "Pay";
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.incomeColumnPay.DefaultCellStyle = dataGridViewCellStyle15;
+            this.incomeColumnPay.HeaderText = "Плата";
+            this.incomeColumnPay.Name = "incomeColumnPay";
+            this.incomeColumnPay.ReadOnly = true;
+            // 
             // incomeReportPosBindingSource
             // 
             this.incomeReportPosBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.ReportPos);
@@ -2218,36 +2290,15 @@ namespace WorldStat.Core.Forms
             this.reportContextMenuUploadYandexDisk.Text = "Выгрузить отчет на Яндекс";
             this.reportContextMenuUploadYandexDisk.Click += new System.EventHandler(this.reportContextMenuUploadYandexDisk_Click);
             // 
-            // incomeColumnDate
+            // toolStripSeparator4
             // 
-            this.incomeColumnDate.DataPropertyName = "DateText";
-            this.incomeColumnDate.HeaderText = "Дата";
-            this.incomeColumnDate.Name = "incomeColumnDate";
-            this.incomeColumnDate.ReadOnly = true;
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(268, 6);
             // 
-            // incomeColumnName
+            // toolStripSeparator5
             // 
-            this.incomeColumnName.DataPropertyName = "FirmName";
-            this.incomeColumnName.HeaderText = "Организация";
-            this.incomeColumnName.Name = "incomeColumnName";
-            this.incomeColumnName.ReadOnly = true;
-            // 
-            // incomeColumnCount
-            // 
-            this.incomeColumnCount.DataPropertyName = "Count";
-            this.incomeColumnCount.HeaderText = "Количество";
-            this.incomeColumnCount.Name = "incomeColumnCount";
-            this.incomeColumnCount.ReadOnly = true;
-            // 
-            // incomeColumnPay
-            // 
-            this.incomeColumnPay.DataPropertyName = "Pay";
-            dataGridViewCellStyle15.Format = "N2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.incomeColumnPay.DefaultCellStyle = dataGridViewCellStyle15;
-            this.incomeColumnPay.HeaderText = "Плата";
-            this.incomeColumnPay.Name = "incomeColumnPay";
-            this.incomeColumnPay.ReadOnly = true;
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(268, 6);
             // 
             // GeneralForm
             // 
@@ -2483,6 +2534,11 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnPay;
+        private System.Windows.Forms.ToolStripMenuItem updateMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 

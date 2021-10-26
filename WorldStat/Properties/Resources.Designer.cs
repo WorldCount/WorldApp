@@ -63,6 +63,76 @@ namespace WorldStat.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _4_Leaf_Clover {
+            get {
+                object obj = ResourceManager.GetObject("4-Leaf-Clover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_Close {
+            get {
+                object obj = ResourceManager.GetObject("Button-Close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_Dashboard {
+            get {
+                object obj = ResourceManager.GetObject("Button-Dashboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_Settings {
+            get {
+                object obj = ResourceManager.GetObject("Button-Settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cabinet {
+            get {
+                object obj = ResourceManager.GetObject("Cabinet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Calculator_2 {
+            get {
+                object obj = ResourceManager.GetObject("Calculator-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Calendar_Day {
+            get {
+                object obj = ResourceManager.GetObject("Calendar-Day", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap checked_32 {
             get {
                 object obj = ResourceManager.GetObject("checked_32", resourceCulture);
@@ -76,6 +146,36 @@ namespace WorldStat.Properties {
         internal static System.Drawing.Bitmap close_window_24 {
             get {
                 object obj = ResourceManager.GetObject("close_window_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Envelope_2 {
+            get {
+                object obj = ResourceManager.GetObject("Envelope-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap File {
+            get {
+                object obj = ResourceManager.GetObject("File", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap File_Excel {
+            get {
+                object obj = ResourceManager.GetObject("File-Excel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,6 +213,26 @@ namespace WorldStat.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Man_Suit_2 {
+            get {
+                object obj = ResourceManager.GetObject("Man-Suit-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Notebook_2 {
+            get {
+                object obj = ResourceManager.GetObject("Notebook-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap printer_3_24 {
             get {
                 object obj = ResourceManager.GetObject("printer-3-24", resourceCulture);
@@ -126,6 +246,16 @@ namespace WorldStat.Properties {
         internal static System.Drawing.Bitmap save_24 {
             get {
                 object obj = ResourceManager.GetObject("save_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Server {
+            get {
+                object obj = ResourceManager.GetObject("Server", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
