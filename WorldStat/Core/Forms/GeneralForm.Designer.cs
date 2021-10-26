@@ -68,10 +68,14 @@ namespace WorldStat.Core.Forms
             this.createDbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGeneral = new System.Windows.Forms.Panel();
+            this.numericUpDownCopies = new System.Windows.Forms.NumericUpDown();
+            this.lblInfoCopies = new System.Windows.Forms.Label();
+            this.comboBoxPrinters = new System.Windows.Forms.ComboBox();
+            this.lblInfoPrinter = new System.Windows.Forms.Label();
+            this.btnPrint = new Wc32Api.Widgets.Buttons.WcButton();
             this.btnOpenUnloadDir = new Wc32Api.Widgets.Buttons.WcButton();
             this.reportLabelInfoUnloadDir = new System.Windows.Forms.Label();
             this.reportTextBoxUnloadDir = new Wc32Api.Widgets.Texts.WcTextBox();
-            this.btnTest = new Wc32Api.Widgets.Buttons.WcButton();
             this.orgToggleButtonCalendar = new Wc32Api.Widgets.Buttons.WcToggleButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -144,7 +148,7 @@ namespace WorldStat.Core.Forms
             this.btnLoadOrgs = new Wc32Api.Widgets.Buttons.WcButton();
             this.orgComboBoxFirms = new System.Windows.Forms.ComboBox();
             this.orgFirmBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPageIncomes = new System.Windows.Forms.TabPage();
+            this.tabIncomes = new System.Windows.Forms.TabPage();
             this.incomePanelStat = new System.Windows.Forms.Panel();
             this.incomeLabelPosCount = new System.Windows.Forms.Label();
             this.incomeLabelInfoPosCount = new System.Windows.Forms.Label();
@@ -207,6 +211,7 @@ namespace WorldStat.Core.Forms
             this.reportContextMenuUploadYandexDisk = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).BeginInit();
             this.statusBar.SuspendLayout();
             this.tabsControl.SuspendLayout();
             this.tabReports.SuspendLayout();
@@ -228,7 +233,7 @@ namespace WorldStat.Core.Forms
             ((System.ComponentModel.ISupportInitialize)(this.orgActiveMailCategoryBindingSource)).BeginInit();
             this.flowLayoutPanelOrgBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orgFirmBindingSource)).BeginInit();
-            this.tabPageIncomes.SuspendLayout();
+            this.tabIncomes.SuspendLayout();
             this.incomePanelStat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incomeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomeReportPosBindingSource)).BeginInit();
@@ -361,16 +366,94 @@ namespace WorldStat.Core.Forms
             // panelGeneral
             // 
             this.panelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.panelGeneral.Controls.Add(this.numericUpDownCopies);
+            this.panelGeneral.Controls.Add(this.lblInfoCopies);
+            this.panelGeneral.Controls.Add(this.comboBoxPrinters);
+            this.panelGeneral.Controls.Add(this.lblInfoPrinter);
+            this.panelGeneral.Controls.Add(this.btnPrint);
             this.panelGeneral.Controls.Add(this.btnOpenUnloadDir);
             this.panelGeneral.Controls.Add(this.reportLabelInfoUnloadDir);
             this.panelGeneral.Controls.Add(this.reportTextBoxUnloadDir);
-            this.panelGeneral.Controls.Add(this.btnTest);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelGeneral.ForeColor = System.Drawing.Color.Gainsboro;
             this.panelGeneral.Location = new System.Drawing.Point(0, 40);
             this.panelGeneral.Name = "panelGeneral";
             this.panelGeneral.Size = new System.Drawing.Size(1357, 58);
             this.panelGeneral.TabIndex = 4;
+            // 
+            // numericUpDownCopies
+            // 
+            this.numericUpDownCopies.Location = new System.Drawing.Point(1213, 17);
+            this.numericUpDownCopies.Name = "numericUpDownCopies";
+            this.numericUpDownCopies.Size = new System.Drawing.Size(50, 25);
+            this.numericUpDownCopies.TabIndex = 0;
+            this.numericUpDownCopies.TabStop = false;
+            this.numericUpDownCopies.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblInfoCopies
+            // 
+            this.lblInfoCopies.AutoSize = true;
+            this.lblInfoCopies.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoCopies.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblInfoCopies.Location = new System.Drawing.Point(1149, 19);
+            this.lblInfoCopies.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.lblInfoCopies.Name = "lblInfoCopies";
+            this.lblInfoCopies.Size = new System.Drawing.Size(58, 20);
+            this.lblInfoCopies.TabIndex = 0;
+            this.lblInfoCopies.Text = "Копий:";
+            // 
+            // comboBoxPrinters
+            // 
+            this.comboBoxPrinters.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxPrinters.FormattingEnabled = true;
+            this.comboBoxPrinters.Location = new System.Drawing.Point(906, 17);
+            this.comboBoxPrinters.Name = "comboBoxPrinters";
+            this.comboBoxPrinters.Size = new System.Drawing.Size(225, 25);
+            this.comboBoxPrinters.TabIndex = 0;
+            this.comboBoxPrinters.TabStop = false;
+            // 
+            // lblInfoPrinter
+            // 
+            this.lblInfoPrinter.AutoSize = true;
+            this.lblInfoPrinter.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoPrinter.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblInfoPrinter.Location = new System.Drawing.Point(826, 19);
+            this.lblInfoPrinter.Margin = new System.Windows.Forms.Padding(6, 10, 3, 0);
+            this.lblInfoPrinter.Name = "lblInfoPrinter";
+            this.lblInfoPrinter.Size = new System.Drawing.Size(74, 20);
+            this.lblInfoPrinter.TabIndex = 0;
+            this.lblInfoPrinter.Text = "Принтер:";
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnPrint.BorderColor = System.Drawing.Color.Silver;
+            this.btnPrint.BorderRadius = 6F;
+            this.btnPrint.BorderSize = 0;
+            this.btnPrint.DisableBackColor = System.Drawing.Color.DimGray;
+            this.btnPrint.DisableBorderColor = System.Drawing.Color.Silver;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Image = global::WorldStat.Properties.Resources.printer_3_24;
+            this.btnPrint.Location = new System.Drawing.Point(1305, 9);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnPrint.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnPrint.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Padding = new System.Windows.Forms.Padding(5, 0, 4, 0);
+            this.btnPrint.Size = new System.Drawing.Size(40, 40);
+            this.btnPrint.TabIndex = 30;
+            this.btnPrint.TabStop = false;
+            this.btnPrint.TextColor = System.Drawing.Color.White;
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnOpenUnloadDir
             // 
@@ -434,35 +517,6 @@ namespace WorldStat.Core.Forms
             this.reportTextBoxUnloadDir.UnderlinedStyle = false;
             this.reportTextBoxUnloadDir.UsePasswordChar = false;
             // 
-            // btnTest
-            // 
-            this.btnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTest.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnTest.BorderColor = System.Drawing.Color.Silver;
-            this.btnTest.BorderRadius = 6F;
-            this.btnTest.BorderSize = 0;
-            this.btnTest.DisableBackColor = System.Drawing.Color.DimGray;
-            this.btnTest.DisableBorderColor = System.Drawing.Color.Silver;
-            this.btnTest.FlatAppearance.BorderSize = 0;
-            this.btnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTest.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnTest.ForeColor = System.Drawing.Color.White;
-            this.btnTest.Image = global::WorldStat.Properties.Resources.sinchronize_24;
-            this.btnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTest.Location = new System.Drawing.Point(1191, 8);
-            this.btnTest.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnTest.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnTest.Size = new System.Drawing.Size(154, 40);
-            this.btnTest.TabIndex = 27;
-            this.btnTest.Text = "С группировкой";
-            this.btnTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTest.TextColor = System.Drawing.Color.White;
-            this.btnTest.UseVisualStyleBackColor = false;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
             // orgToggleButtonCalendar
             // 
             this.orgToggleButtonCalendar.AutoSize = true;
@@ -520,7 +574,7 @@ namespace WorldStat.Core.Forms
             // 
             this.tabsControl.Controls.Add(this.tabReports);
             this.tabsControl.Controls.Add(this.tabOrgs);
-            this.tabsControl.Controls.Add(this.tabPageIncomes);
+            this.tabsControl.Controls.Add(this.tabIncomes);
             this.tabsControl.Controls.Add(this.tabStats);
             this.tabsControl.Controls.Add(this.tabCharts);
             this.tabsControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1411,17 +1465,17 @@ namespace WorldStat.Core.Forms
             // 
             this.orgFirmBindingSource.DataSource = typeof(WorldStat.Core.Database.Models.Firm);
             // 
-            // tabPageIncomes
+            // tabIncomes
             // 
-            this.tabPageIncomes.Controls.Add(this.incomePanelStat);
-            this.tabPageIncomes.Controls.Add(this.incomeDataGridView);
-            this.tabPageIncomes.Controls.Add(this.incomePanel);
-            this.tabPageIncomes.Location = new System.Drawing.Point(4, 29);
-            this.tabPageIncomes.Name = "tabPageIncomes";
-            this.tabPageIncomes.Size = new System.Drawing.Size(1349, 373);
-            this.tabPageIncomes.TabIndex = 4;
-            this.tabPageIncomes.Text = "Доход";
-            this.tabPageIncomes.UseVisualStyleBackColor = true;
+            this.tabIncomes.Controls.Add(this.incomePanelStat);
+            this.tabIncomes.Controls.Add(this.incomeDataGridView);
+            this.tabIncomes.Controls.Add(this.incomePanel);
+            this.tabIncomes.Location = new System.Drawing.Point(4, 29);
+            this.tabIncomes.Name = "tabIncomes";
+            this.tabIncomes.Size = new System.Drawing.Size(1349, 373);
+            this.tabIncomes.TabIndex = 4;
+            this.tabIncomes.Text = "Доход";
+            this.tabIncomes.UseVisualStyleBackColor = true;
             // 
             // incomePanelStat
             // 
@@ -2216,6 +2270,7 @@ namespace WorldStat.Core.Forms
             this.menuBar.PerformLayout();
             this.panelGeneral.ResumeLayout(false);
             this.panelGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).EndInit();
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
             this.tabsControl.ResumeLayout(false);
@@ -2243,7 +2298,7 @@ namespace WorldStat.Core.Forms
             this.flowLayoutPanelOrgBase.ResumeLayout(false);
             this.flowLayoutPanelOrgBase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orgFirmBindingSource)).EndInit();
-            this.tabPageIncomes.ResumeLayout(false);
+            this.tabIncomes.ResumeLayout(false);
             this.incomePanelStat.ResumeLayout(false);
             this.incomePanelStat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incomeDataGridView)).EndInit();
@@ -2348,10 +2403,9 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.ComboBox orgComboBoxTransCategory;
         private System.Windows.Forms.Label orgLabelInfoTransCategory;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelOrgFilter;
-        private WcButton btnTest;
         private System.Windows.Forms.Label orgLabelInfoGroup;
         private WcToggleButton orgToggleButtonGroup;
-        private System.Windows.Forms.TabPage tabPageIncomes;
+        private System.Windows.Forms.TabPage tabIncomes;
         private System.Windows.Forms.DataGridView incomeDataGridView;
         private System.Windows.Forms.Panel incomePanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -2424,6 +2478,11 @@ namespace WorldStat.Core.Forms
         private WcButton btnOpenUnloadDir;
         private System.Windows.Forms.ToolStripMenuItem reportContextMenuUploadYandexDisk;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private WcButton btnPrint;
+        private System.Windows.Forms.NumericUpDown numericUpDownCopies;
+        private System.Windows.Forms.Label lblInfoCopies;
+        private System.Windows.Forms.ComboBox comboBoxPrinters;
+        private System.Windows.Forms.Label lblInfoPrinter;
     }
 }
 

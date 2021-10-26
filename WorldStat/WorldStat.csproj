@@ -274,6 +274,13 @@
     <Compile Include="Core\Parsers\Models\FrankMail.cs" />
     <Compile Include="Core\Parsers\Models\FrankRow.cs" />
     <Compile Include="Core\Parsers\Models\HierarchyFrankReport.cs" />
+    <Compile Include="Core\PrintDocuments\OrgPrintDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\PrintDocuments\Pens\PrintPens.cs" />
+    <Compile Include="Core\PrintDocuments\ReportPrintDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Core\Reports\Models\DispathReport.cs" />
     <Compile Include="Core\Reports\Models\DispathReportRepository.cs" />
     <Compile Include="Core\Reports\Models\DispathReportStat.cs" />
@@ -281,6 +288,7 @@
     <Compile Include="Core\Types\CalendarType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\printer-3-24.png" />
     <Content Include="WS.ico" />
     <None Include="Properties\DataSources\WorldStat.Core.Database.Models.Calendar.datasource" />
     <None Include="Properties\DataSources\WorldStat.Core.Database.Models.Firm.datasource" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -16,7 +17,7 @@ using WorldStat.Core.Database.Models;
 using WorldStat.Core.Forms.DataForms;
 using WorldStat.Core.Forms.TypeForms;
 using WorldStat.Core.Libs;
-using WorldStat.Core.Libs.Models;
+using WorldStat.Core.PrintDocuments;
 using WorldStat.Core.Reports.Models;
 using WorldStat.Core.Storage;
 using WorldStat.Core.Types;
@@ -28,7 +29,7 @@ namespace WorldStat.Core.Forms
 
         #region Private Field
 
-        private string _yaToken = "AQAAAAAHBmbXAAdOm4JmlzWwwUHuh9B14NYevJI";
+        private string _yaToken;
         private string _yaReportFmDir;
         private string _yaReportOrigDir ;
 
@@ -41,6 +42,8 @@ namespace WorldStat.Core.Forms
         private List<MailCategory> _activeMailCategories;
         private List<MailType> _activeMailTypes;
         private List<DispathReport> _dispathReports;
+
+        private string _printerName;
 
         private bool _isAdmin = false;
 
@@ -67,6 +70,8 @@ namespace WorldStat.Core.Forms
 
             // Инизиализации таблиц
             InitTables();
+
+            tabsControl.TabPages.Remove(tabCharts);
         }
 
         #region Form Config
@@ -76,12 +81,19 @@ namespace WorldStat.Core.Forms
         {
             FillComboBoxes();
             reportTextBoxUnloadDir.Text = Properties.Settings.Default.UnloadReportsDir;
+            _yaToken = Properties.Settings.Default.YaToken;
+            _printerName = Properties.Settings.Default.LastPrinterName;
+
+            SetPrinterSettings();
         }
 
         // Сохранение настроек
         private void SaveSettings()
         {
+            if (!string.IsNullOrEmpty(_printerName))
+                Properties.Settings.Default.LastPrinterName = _printerName;
 
+            Properties.Settings.Default.Save();
         }
 
         // Перенос настроек предыдущей сборки в новую
@@ -752,8 +764,6 @@ namespace WorldStat.Core.Forms
 
         #endregion
 
-        #endregion
-
         #region Menu Events
 
         private void loadFrankReportMenuItem_Click(object sender, EventArgs e)
@@ -763,7 +773,9 @@ namespace WorldStat.Core.Forms
 
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Multiselect = true, Filter = @"Отчеты (*.xls)|*.xls|Все файлы (*.*)|*.*", RestoreDirectory = false
+                Multiselect = true,
+                Filter = @"Отчеты (*.xls)|*.xls|Все файлы (*.*)|*.*",
+                RestoreDirectory = false
             };
 
             if (!string.IsNullOrEmpty(lastDir))
@@ -865,7 +877,111 @@ namespace WorldStat.Core.Forms
 
         #endregion
 
+        #region Context Menu Events
+
+        private async void reportContextMenuUnload_Click(object sender, EventArgs e)
+        {
+            Report report = (Report)reportContextMenuUnload.Tag;
+            if (report != null)
+            {
+                List<ReportPos> reportPoses = await Db.GetReportPosesByReportIdAsync(report.Id);
+                DispathReportRepository repository = new DispathReportRepository(reportPoses);
+
+                await Task.Run(() =>
+                {
+                    repository.SaveToFile(Path.Combine(reportTextBoxUnloadDir.Text, $"{report.Date.ToShortDateString()}.txt"), report.Date.ToShortDateString());
+                });
+
+                SuccessMessage("Готово!");
+            }
+
+            reportContextMenuUnload.Tag = null;
+        }
+
+        private async void reportContextMenuUnloadAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Report> reports = ((SortableBindingList<Report>)reportBindingSource.DataSource).ToList();
+
+                foreach (Report report in reports)
+                {
+                    List<ReportPos> reportPoses = await Db.GetReportPosesByReportIdAsync(report.Id);
+                    DispathReportRepository repository = new DispathReportRepository(reportPoses);
+
+                    await Task.Run(() =>
+                    {
+                        repository.SaveToFile(Path.Combine(reportTextBoxUnloadDir.Text, $"{report.Date.ToShortDateString()}.txt"), report.Date.ToShortDateString());
+                    });
+                }
+
+                SuccessMessage("Готово!");
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private async void reportContextMenuUploadYandexDisk_Click(object sender, EventArgs e)
+        {
+            Report report = (Report)reportContextMenuUploadYandexDisk.Tag;
+
+            if (report != null)
+            {
+                List<ReportPos> reportPoses = await Db.GetReportPosesByReportIdAsync(report.Id);
+                DispathReportRepository repository = new DispathReportRepository(reportPoses);
+
+                string tempReportPath = Path.Combine(PathManager.TempReportsDir, $"{report.Date.ToShortDateString()}.txt");
+                string reserveReportPath = Path.Combine(PathManager.ReserveReportsDir, $"{report.Date:MM}.{report.Date:yyyy}", $"{report.Date.ToShortDateString()}.xls");
+
+                string reportDir = $"{WcApi.Date.DateUtils.GetMonthName(report.Date)} {report.Date.Year}";
+
+                YaDiskClient client = new YaDiskClient(_yaToken);
+
+                if (string.IsNullOrEmpty(_yaReportFmDir))
+                    _yaReportFmDir = await client.CreateReportDir(reportDir, "ОТЧЕТ ПО ФМ");
+
+                if (string.IsNullOrEmpty(_yaReportOrigDir))
+                    _yaReportOrigDir = await client.CreateReportDir(reportDir, "ОРИГИНАЛ");
+
+                await Task.Run(() =>
+                {
+                    repository.SaveToFile(tempReportPath, report.Date.ToShortDateString());
+                });
+
+                if (await client.UploadFile(tempReportPath, $"{_yaReportFmDir}/{report.Date.ToShortDateString()}.txt"))
+                    SuccessMessage("Выгрузка отчета завершена!");
+
+                if (File.Exists(reserveReportPath))
+                    if (await client.UploadFile(reserveReportPath, $"{_yaReportOrigDir}/{report.Date.ToShortDateString()}.xls"))
+                        SuccessMessage("Выгрузка оригинального отчета завершена!");
+            }
+
+            reportContextMenuUploadYandexDisk.Tag = null;
+        }
+
+        #endregion
+
+        #endregion
+
         #region Private Methods
+
+        private void SetPrinterSettings()
+        {
+            PrinterSettings.StringCollection printers = PrinterSettings.InstalledPrinters;
+            PrinterSettings printerSettings = new PrinterSettings();
+
+            foreach (string printer in printers)
+                comboBoxPrinters.Items.Add(printer);
+
+            if (!string.IsNullOrEmpty(_printerName) || comboBoxPrinters.FindString(_printerName) > -1)
+                printerSettings.PrinterName = _printerName;
+
+            int index = comboBoxPrinters.FindString(printerSettings.PrinterName);
+            if (index != -1)
+                comboBoxPrinters.SelectedIndex = index;
+        }
 
         private void ParseReports()
         {
@@ -984,91 +1100,169 @@ namespace WorldStat.Core.Forms
 
         #endregion
 
-        private async void btnTest_Click(object sender, EventArgs e)
+        private void btnPrint_Click(object sender, EventArgs e)
         {
+            TabPage selectPage = tabsControl.SelectedTab;
 
+            if (selectPage == tabReports)
+                PrintReports();
+            else if(selectPage == tabOrgs)
+                PrintOrgs();
+            else if(selectPage == tabIncomes)
+                PrintIncomes();
+            else if(selectPage == tabStats)
+                PrintStats();
+            else
+            {
+                selectPage = null;
+                return;
+            }
         }
 
-        private async void reportContextMenuUnload_Click(object sender, EventArgs e)
-        {
-            Report report = (Report) reportContextMenuUnload.Tag;
-            if (report != null)
-            {
-                List<ReportPos> reportPoses = await Db.GetReportPosesByReportIdAsync(report.Id);
-                DispathReportRepository repository = new DispathReportRepository(reportPoses);
+        #region Prints
 
-                await Task.Run(() =>
-                {
-                    repository.SaveToFile(Path.Combine(reportTextBoxUnloadDir.Text, $"{report.Date.ToShortDateString()}.txt"), report.Date.ToShortDateString());
-                });
-                
-                SuccessMessage("Готово!");
+        private void PrintReports()
+        {
+            btnPrint.Enabled = false;
+            CalendarType type = (CalendarType)reportComboBoxTeam.SelectedItem;
+
+            string dateString = "";
+
+            if (reportDateTimePickerCalendar.Visible)
+            {
+                dateString = WcApi.Date.DateUtils.GetMonthName(reportDateTimePickerCalendar.Value);
+            }
+            else
+            {
+                DateTime start = WcApi.Date.DateUtils.CropTime(reportDateTimePickerStart.Value);
+                DateTime end = WcApi.Date.DateUtils.CropTime(reportDateTimePickerEnd.Value);
+                dateString = start == end ? $"{start:dd.MM.yyyy}" : $"{start:dd.MM.yyyy} - {end:dd.MM.yyyy}";
             }
 
-            reportContextMenuUnload.Tag = null;
-        }
+            List<Report> reports = new List<Report>();
 
-        private async void reportContextMenuUnloadAll_Click(object sender, EventArgs e)
-        {
             try
             {
-                List<Report> reports = ((SortableBindingList<Report>)reportBindingSource.DataSource).ToList();
-
-                foreach (Report report in reports)
-                {
-                    List<ReportPos> reportPoses = await Db.GetReportPosesByReportIdAsync(report.Id);
-                    DispathReportRepository repository = new DispathReportRepository(reportPoses);
-
-                    await Task.Run(() =>
-                    {
-                        repository.SaveToFile(Path.Combine(reportTextBoxUnloadDir.Text, $"{report.Date.ToShortDateString()}.txt"), report.Date.ToShortDateString());
-                    });
-                }
-
-                SuccessMessage("Готово!");
+                reports = ((SortableBindingList<Report>)reportBindingSource.DataSource).ToList();
             }
             catch
             {
-                //
+                btnPrint.Enabled = true;
+                ErrorMessage("Нет данных для печати");
+                return;
             }
-        }
+            
+            string printerName = (string)comboBoxPrinters.SelectedItem;
 
-        private async void reportContextMenuUploadYandexDisk_Click(object sender, EventArgs e)
-        {
-            Report report = (Report)reportContextMenuUploadYandexDisk.Tag;
+            string reportTitle = "ОБЩИЙ ОТЧЕТ";
+            string reportSubTitle = $"Период: {dateString}, Смена: {type}";
 
-            if (report != null)
+            string count = reports.Sum(r => r.Count).ToString("### ###");
+            string sum = reports.Sum(r => r.Pay).ToString("N2");
+
+            ReportPrintDocument document = new ReportPrintDocument(reports, count, sum, reportLabelDaysCount.Text)
             {
-                List<ReportPos> reportPoses = await Db.GetReportPosesByReportIdAsync(report.Id);
-                DispathReportRepository repository = new DispathReportRepository(reportPoses);
+                PrintLogo = true,
+                PrintNumPageInfo = true,
+                ReportTitle = reportTitle,
+                ReportSubTitle = reportSubTitle,
+                PrinterSettings = {Copies = (short) numericUpDownCopies.Value}
+            };
 
-                string tempReportPath = Path.Combine(PathManager.TempReportsDir, $"{report.Date.ToShortDateString()}.txt");
-                string reserveReportPath = Path.Combine(PathManager.ReserveReportsDir, $"{report.Date:MM}.{report.Date:yyyy}", $"{report.Date.ToShortDateString()}.xls");
+            if (!string.IsNullOrEmpty(printerName))
+                document.PrinterSettings.PrinterName = printerName;
 
-                string reportDir = $"{WcApi.Date.DateUtils.GetMonthName(report.Date)} {report.Date.Year}";
+            document.Print();
+            numericUpDownCopies.Value = 1;
+            btnPrint.Enabled = true;
+            SuccessMessage("Отчет ушел на печать");
+        }
 
-                YaDiskClient client = new YaDiskClient(_yaToken);
+        private void PrintOrgs()
+        {
+            btnPrint.Enabled = false;
 
-                if(string.IsNullOrEmpty(_yaReportFmDir))
-                    _yaReportFmDir = await client.CreateReportDir(reportDir, "ОТЧЕТ ПО ФМ");
+            Firm firm = (Firm)orgComboBoxFirms.SelectedItem;
+            MailType mailType = (MailType)orgComboBoxMailType.SelectedItem;
+            MailCategory mailCategory = (MailCategory)orgComboBoxMailCategory.SelectedItem;
+            TransCategory transCategory = (TransCategory)orgComboBoxTransCategory.SelectedItem;
+            TransType transType = (TransType)orgComboBoxTransType.SelectedItem;
 
-                if (string.IsNullOrEmpty(_yaReportOrigDir))
-                    _yaReportOrigDir = await client.CreateReportDir(reportDir, "ОРИГИНАЛ");
 
-                await Task.Run(() =>
-                {
-                    repository.SaveToFile(tempReportPath, report.Date.ToShortDateString());
-                });
-
-                if(await client.UploadFile(tempReportPath, $"{_yaReportFmDir}/{report.Date.ToShortDateString()}.txt"))
-                    SuccessMessage("Выгрузка отчета завершена!");
-
-                if(File.Exists(reserveReportPath))
-                    if (await client.UploadFile(reserveReportPath, $"{_yaReportOrigDir}/{report.Date.ToShortDateString()}.xls"))
-                        SuccessMessage("Выгрузка оригинального отчета завершена!");
+            if (firm == null || mailType == null || mailCategory == null)
+            {
+                btnPrint.Enabled = true;
+                ErrorMessage("Загруженны не полные данные.");
+                return;
             }
 
-            reportContextMenuUploadYandexDisk.Tag = null;
+            List<ReportPos> reports = new List<ReportPos>();
+
+            try
+            {
+                reports = ((SortableBindingList<ReportPos>) orgReportPosBindingSource.DataSource).ToList();
+            }
+            catch
+            {
+                btnPrint.Enabled = true;
+                ErrorMessage("Нет данных для печати");
+                return;
+            }
+
+            string dateString = "";
+
+            if (orgDateTimePickerCalendar.Visible)
+            {
+                dateString = WcApi.Date.DateUtils.GetMonthName(reportDateTimePickerCalendar.Value);
+            }
+            else
+            {
+                DateTime start = WcApi.Date.DateUtils.CropTime(orgDateTimePickerStart.Value);
+                DateTime end = WcApi.Date.DateUtils.CropTime(orgDateTimePickerEnd.Value);
+                dateString = start == end ? $"{start:dd.MM.yyyy}" : $"{start:dd.MM.yyyy} - {end:dd.MM.yyyy}";
+            }
+
+            string reportTitle = $"ОТЧЕТ ПО ОРГАНИЗАЦИИ: {firm.ShortName}";
+            if (orgToggleButtonGroup.Checked)
+                reportTitle = $"ГРУППИРОВАННЫЙ ОТЧЕТ ПО ОРГАНИЗАЦИИ: {firm.ShortName}";
+
+            string reportSubTitle = $"Период: {dateString}, Тип: {mailType.ShortName}, " +
+                                    $"Категория: {mailCategory.ShortName}, Класс: {transCategory}, Пересылка: {transType}";
+
+            string printerName = (string)comboBoxPrinters.SelectedItem;
+
+            string count = reports.Sum(r => r.Count).ToString("### ###");
+            string sum = reports.Sum(r => r.Pay).ToString("N2");
+
+            OrgPrintDocument document = new OrgPrintDocument(reports, count, sum, 
+                orgLabelPosCount.Text, orgToggleButtonGroup.Checked, _mailCategories, _mailTypes)
+            {
+                PrintLogo = true,
+                PrintNumPageInfo = true,
+                ReportTitle = reportTitle,
+                ReportSubTitle = reportSubTitle,
+                PrinterSettings = { Copies = (short)numericUpDownCopies.Value }
+            };
+
+            if (!string.IsNullOrEmpty(printerName))
+                document.PrinterSettings.PrinterName = printerName;
+
+            document.Print();
+            numericUpDownCopies.Value = 1;
+            btnPrint.Enabled = true;
+            SuccessMessage("Отчет ушел на печать");
         }
+
+        private void PrintIncomes()
+        {
+
+        }
+
+        private void PrintStats()
+        {
+
+        }
+
+        #endregion
     }
 }

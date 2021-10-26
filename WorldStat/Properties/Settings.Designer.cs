@@ -118,5 +118,29 @@ namespace WorldStat.Properties {
                 this["TempReportsDir"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("AQAAAAAHBmbXAAdOm4JmlzWwwUHuh9B14NYevJI")]
+        public string YaToken {
+            get {
+                return ((string)(this["YaToken"]));
+            }
+            set {
+                this["YaToken"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastPrinterName {
+            get {
+                return ((string)(this["LastPrinterName"]));
+            }
+            set {
+                this["LastPrinterName"] = value;
+            }
+        }
     }
 }

@@ -26,5 +26,11 @@
     <Setting Name="TempReportsDir" Type="System.String" Scope="User">
       <Value Profile="(Default)">TempReports</Value>
     </Setting>
+    <Setting Name="YaToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AQAAAAAHBmbXAAdOm4JmlzWwwUHuh9B14NYevJI</Value>
+    </Setting>
+    <Setting Name="LastPrinterName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
