@@ -35,6 +35,17 @@ namespace WorldStat.Core.Database.Models
         }
 
         [NotMapped]
+        public string FirmName
+        {
+            get
+            {
+                if (Firm != null)
+                    return Firm.ShortName;
+                return FirmId.ToString();
+            }
+        }
+
+        [NotMapped]
         public string DateText
         {
             get

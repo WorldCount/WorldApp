@@ -49,10 +49,10 @@ namespace WorldStat.Core.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -157,10 +157,6 @@ namespace WorldStat.Core.Forms
             this.incomeLabelInfoPay = new System.Windows.Forms.Label();
             this.incomeLabelInfoCount = new System.Windows.Forms.Label();
             this.incomeDataGridView = new System.Windows.Forms.DataGridView();
-            this.incomeColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.incomeColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.incomeColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.incomeColumnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incomeReportPosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.incomePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -209,6 +205,10 @@ namespace WorldStat.Core.Forms
             this.reportContextMenuUnloadAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.reportContextMenuUploadYandexDisk = new System.Windows.Forms.ToolStripMenuItem();
+            this.incomeColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.incomeColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.incomeColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.incomeColumnPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).BeginInit();
@@ -1075,7 +1075,7 @@ namespace WorldStat.Core.Forms
             // 
             // orgColumnName
             // 
-            this.orgColumnName.DataPropertyName = "Firm";
+            this.orgColumnName.DataPropertyName = "FirmName";
             this.orgColumnName.HeaderText = "Организация";
             this.orgColumnName.Name = "orgColumnName";
             this.orgColumnName.ReadOnly = true;
@@ -1610,37 +1610,6 @@ namespace WorldStat.Core.Forms
             this.incomeDataGridView.TabIndex = 11;
             this.incomeDataGridView.TabStop = false;
             this.incomeDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
-            // 
-            // incomeColumnDate
-            // 
-            this.incomeColumnDate.DataPropertyName = "DateText";
-            this.incomeColumnDate.HeaderText = "Дата";
-            this.incomeColumnDate.Name = "incomeColumnDate";
-            this.incomeColumnDate.ReadOnly = true;
-            // 
-            // incomeColumnName
-            // 
-            this.incomeColumnName.DataPropertyName = "Firm";
-            this.incomeColumnName.HeaderText = "Организация";
-            this.incomeColumnName.Name = "incomeColumnName";
-            this.incomeColumnName.ReadOnly = true;
-            // 
-            // incomeColumnCount
-            // 
-            this.incomeColumnCount.DataPropertyName = "Count";
-            this.incomeColumnCount.HeaderText = "Количество";
-            this.incomeColumnCount.Name = "incomeColumnCount";
-            this.incomeColumnCount.ReadOnly = true;
-            // 
-            // incomeColumnPay
-            // 
-            this.incomeColumnPay.DataPropertyName = "Pay";
-            dataGridViewCellStyle15.Format = "N2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.incomeColumnPay.DefaultCellStyle = dataGridViewCellStyle15;
-            this.incomeColumnPay.HeaderText = "Плата";
-            this.incomeColumnPay.Name = "incomeColumnPay";
-            this.incomeColumnPay.ReadOnly = true;
             // 
             // incomeReportPosBindingSource
             // 
@@ -2249,6 +2218,37 @@ namespace WorldStat.Core.Forms
             this.reportContextMenuUploadYandexDisk.Text = "Выгрузить отчет на Яндекс";
             this.reportContextMenuUploadYandexDisk.Click += new System.EventHandler(this.reportContextMenuUploadYandexDisk_Click);
             // 
+            // incomeColumnDate
+            // 
+            this.incomeColumnDate.DataPropertyName = "DateText";
+            this.incomeColumnDate.HeaderText = "Дата";
+            this.incomeColumnDate.Name = "incomeColumnDate";
+            this.incomeColumnDate.ReadOnly = true;
+            // 
+            // incomeColumnName
+            // 
+            this.incomeColumnName.DataPropertyName = "FirmName";
+            this.incomeColumnName.HeaderText = "Организация";
+            this.incomeColumnName.Name = "incomeColumnName";
+            this.incomeColumnName.ReadOnly = true;
+            // 
+            // incomeColumnCount
+            // 
+            this.incomeColumnCount.DataPropertyName = "Count";
+            this.incomeColumnCount.HeaderText = "Количество";
+            this.incomeColumnCount.Name = "incomeColumnCount";
+            this.incomeColumnCount.ReadOnly = true;
+            // 
+            // incomeColumnPay
+            // 
+            this.incomeColumnPay.DataPropertyName = "Pay";
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.incomeColumnPay.DefaultCellStyle = dataGridViewCellStyle15;
+            this.incomeColumnPay.HeaderText = "Плата";
+            this.incomeColumnPay.Name = "incomeColumnPay";
+            this.incomeColumnPay.ReadOnly = true;
+            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2443,18 +2443,6 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.BindingSource incomeFirmBindingSource;
         private System.Windows.Forms.BindingSource incomeAcitveMailTypeBindingSource;
         private System.Windows.Forms.BindingSource incomeActiveMailCategoryBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn orgColumnMailType;
-        private System.Windows.Forms.DataGridViewComboBoxColumn orgColumnMailCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnTransCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnPay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnTransType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnPay;
         private System.Windows.Forms.Panel panelStat;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private WcToggleButton statToggleButtonCalendar;
@@ -2483,6 +2471,18 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.Label lblInfoCopies;
         private System.Windows.Forms.ComboBox comboBoxPrinters;
         private System.Windows.Forms.Label lblInfoPrinter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn orgColumnMailType;
+        private System.Windows.Forms.DataGridViewComboBoxColumn orgColumnMailCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnTransCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgColumnTransType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn incomeColumnPay;
     }
 }
 
