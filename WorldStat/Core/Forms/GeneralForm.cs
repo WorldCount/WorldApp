@@ -87,6 +87,7 @@ namespace WorldStat.Core.Forms
             FillComboBoxes();
             reportTextBoxUnloadDir.Text = Properties.Settings.Default.UnloadReportsDir;
             _yaToken = Properties.Settings.Default.YaToken;
+
             _printerName = Properties.Settings.Default.LastPrinterName;
 
             SetPrinterSettings();
@@ -95,8 +96,10 @@ namespace WorldStat.Core.Forms
         // Сохранение настроек
         private void SaveSettings()
         {
-            if (!string.IsNullOrEmpty(_printerName))
-                Properties.Settings.Default.LastPrinterName = _printerName;
+            string printerName = comboBoxPrinters.SelectedText;
+
+            if (!string.IsNullOrEmpty(printerName))
+                Properties.Settings.Default.LastPrinterName = printerName;
 
             Properties.Settings.Default.Save();
         }
@@ -1027,6 +1030,9 @@ namespace WorldStat.Core.Forms
         {
             PrinterSettings.StringCollection printers = PrinterSettings.InstalledPrinters;
             PrinterSettings printerSettings = new PrinterSettings();
+
+            if (string.IsNullOrEmpty(_printerName))
+                _printerName = printerSettings.PrinterName;
 
             foreach (string printer in printers)
                 comboBoxPrinters.Items.Add(printer);
