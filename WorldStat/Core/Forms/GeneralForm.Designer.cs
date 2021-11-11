@@ -57,7 +57,9 @@ namespace WorldStat.Core.Forms
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFrankReportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.importCalendarMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.firmsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +85,6 @@ namespace WorldStat.Core.Forms
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusAuthor = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timerStatus = new System.Windows.Forms.Timer(this.components);
             this.tabsControl = new System.Windows.Forms.TabControl();
             this.tabReports = new System.Windows.Forms.TabPage();
             this.reportPanelStat = new System.Windows.Forms.Panel();
@@ -212,8 +213,6 @@ namespace WorldStat.Core.Forms
             this.reportContextMenuUnloadAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.reportContextMenuUploadYandexDisk = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.menuBar.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).BeginInit();
@@ -298,6 +297,11 @@ namespace WorldStat.Core.Forms
             this.loadFrankReportMenuItem.Text = "Загрузить отчет по франку";
             this.loadFrankReportMenuItem.Click += new System.EventHandler(this.loadFrankReportMenuItem_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(268, 6);
+            // 
             // importCalendarMenuItem
             // 
             this.importCalendarMenuItem.Image = global::WorldStat.Properties.Resources.Calendar_Day;
@@ -305,6 +309,11 @@ namespace WorldStat.Core.Forms
             this.importCalendarMenuItem.Size = new System.Drawing.Size(271, 30);
             this.importCalendarMenuItem.Text = "Импорт календаря";
             this.importCalendarMenuItem.Click += new System.EventHandler(this.importCalendarMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(268, 6);
             // 
             // exitMenuItem
             // 
@@ -605,11 +614,6 @@ namespace WorldStat.Core.Forms
             this.statusAuthor.Name = "statusAuthor";
             this.statusAuthor.Size = new System.Drawing.Size(114, 17);
             this.statusAuthor.Text = "WorldCount, 2021 ©";
-            // 
-            // timerStatus
-            // 
-            this.timerStatus.Interval = 3000;
-            this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
             // 
             // tabsControl
             // 
@@ -2290,16 +2294,6 @@ namespace WorldStat.Core.Forms
             this.reportContextMenuUploadYandexDisk.Text = "Выгрузить отчет на Яндекс";
             this.reportContextMenuUploadYandexDisk.Click += new System.EventHandler(this.reportContextMenuUploadYandexDisk_Click);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(268, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(268, 6);
-            // 
             // GeneralForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2391,7 +2385,6 @@ namespace WorldStat.Core.Forms
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripStatusLabel statusText;
         private System.Windows.Forms.ToolStripStatusLabel statusAuthor;
-        private System.Windows.Forms.Timer timerStatus;
         private System.Windows.Forms.TabControl tabsControl;
         private System.Windows.Forms.TabPage tabReports;
         private System.Windows.Forms.DataGridView reportDataGridView;

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AutoUpdaterDotNET;
 using Newtonsoft.Json;
 using Wc32Api.Extensions.Bindings;
+using Wc32Api.Messages;
 using WcApi.Keyboard;
 using WcPostApi.Types;
 using WorldStat.Core.Database;
@@ -43,6 +44,7 @@ namespace WorldStat.Core.Forms
         private List<MailCategory> _activeMailCategories;
         private List<MailType> _activeMailTypes;
         private List<DispathReport> _dispathReports;
+        private readonly StatusMessage _statusMessage;
 
         private string _printerName;
 
@@ -63,6 +65,8 @@ namespace WorldStat.Core.Forms
             // ReSharper disable once VirtualMemberCallInConstructor
             // ReSharper disable once LocalizableElement
             Text = $"{Properties.Settings.Default.AppName} {Application.ProductVersion}";
+
+            _statusMessage = new StatusMessage(statusText);
 
             SetDoubleBuffered();
 
@@ -197,58 +201,6 @@ namespace WorldStat.Core.Forms
         {
             SaveSettings();
             SavePos();
-        }
-
-        #endregion
-
-        #region Messages
-
-        /// <summary>
-        /// Отправляет сообщение в статус
-        /// </summary>
-        /// <param name="message"></param>
-        /// <param name="color"></param>
-        private void SendStatucMessage(string message, Color color)
-        {
-            statusText.ForeColor = color;
-            statusText.Text = message;
-            timerStatus.Start();
-        }
-
-        // Сообщение: обычное
-        // ReSharper disable once UnusedMember.Global
-        public void NormalMessage(string message)
-        {
-            SendStatucMessage(message, Color.DimGray);
-        }
-
-        // Сообщение: успех
-        public void SuccessMessage(string message)
-        {
-            SendStatucMessage(message, Color.Green);
-        }
-
-        // Сообщение: ошибка
-        public void ErrorMessage(string message)
-        {
-            SendStatucMessage(message, Color.Firebrick);
-        }
-
-        // Сообщение: предупреждение
-        public void WarningMessage(string message)
-        {
-            SendStatucMessage(message, Color.DarkOrange);
-        }
-
-        // Сообщение: информация
-        public void InfoMessage(string message)
-        {
-            SendStatucMessage(message, Color.DodgerBlue);
-        }
-
-        private void timerStatus_Tick(object sender, EventArgs e)
-        {
-            statusText.Text = "";
         }
 
         #endregion
@@ -927,7 +879,7 @@ namespace WorldStat.Core.Forms
                     repository.SaveToFile(Path.Combine(reportTextBoxUnloadDir.Text, $"{report.Date.ToShortDateString()}.txt"), report.Date.ToShortDateString());
                 });
 
-                SuccessMessage("Готово!");
+                _statusMessage.SuccessMessage("Готово!");
             }
 
             reportContextMenuUnload.Tag = null;
@@ -950,7 +902,7 @@ namespace WorldStat.Core.Forms
                     });
                 }
 
-                SuccessMessage("Готово!");
+                _statusMessage.SuccessMessage("Готово!");
             }
             catch
             {
@@ -986,11 +938,11 @@ namespace WorldStat.Core.Forms
                 });
 
                 if (await client.UploadFile(tempReportPath, $"{_yaReportFmDir}/{report.Date.ToShortDateString()}.txt"))
-                    SuccessMessage("Выгрузка отчета завершена!");
+                    _statusMessage.SuccessMessage("Выгрузка отчета завершена!");
 
                 if (File.Exists(reserveReportPath))
                     if (await client.UploadFile(reserveReportPath, $"{_yaReportOrigDir}/{report.Date.ToShortDateString()}.xls"))
-                        SuccessMessage("Выгрузка оригинального отчета завершена!");
+                        _statusMessage.SuccessMessage("Выгрузка оригинального отчета завершена!");
             }
 
             reportContextMenuUploadYandexDisk.Tag = null;
@@ -1099,7 +1051,7 @@ namespace WorldStat.Core.Forms
             catch
             {
                 btnPrint.Enabled = true;
-                ErrorMessage("Нет данных для печати");
+                _statusMessage.ErrorMessage("Нет данных для печати");
                 return;
             }
 
@@ -1126,7 +1078,7 @@ namespace WorldStat.Core.Forms
             document.Print();
             numericUpDownCopies.Value = 1;
             btnPrint.Enabled = true;
-            SuccessMessage("Отчет ушел на печать");
+            _statusMessage.SuccessMessage("Отчет ушел на печать");
         }
 
         private void PrintOrgs()
@@ -1143,7 +1095,7 @@ namespace WorldStat.Core.Forms
             if (firm == null || mailType == null || mailCategory == null)
             {
                 btnPrint.Enabled = true;
-                ErrorMessage("Загруженны не полные данные.");
+                _statusMessage.ErrorMessage("Загруженны не полные данные.");
                 return;
             }
 
@@ -1156,7 +1108,7 @@ namespace WorldStat.Core.Forms
             catch
             {
                 btnPrint.Enabled = true;
-                ErrorMessage("Нет данных для печати");
+                _statusMessage.ErrorMessage("Нет данных для печати");
                 return;
             }
 
@@ -1201,7 +1153,7 @@ namespace WorldStat.Core.Forms
             document.Print();
             numericUpDownCopies.Value = 1;
             btnPrint.Enabled = true;
-            SuccessMessage("Отчет ушел на печать");
+            _statusMessage.SuccessMessage("Отчет ушел на печать");
         }
 
         private void PrintIncomes()
@@ -1217,7 +1169,7 @@ namespace WorldStat.Core.Forms
             if (firm == null || mailType == null || mailCategory == null)
             {
                 btnPrint.Enabled = true;
-                ErrorMessage("Загруженны не полные данные.");
+                _statusMessage.ErrorMessage("Загруженны не полные данные.");
                 return;
             }
 
@@ -1230,7 +1182,7 @@ namespace WorldStat.Core.Forms
             catch
             {
                 btnPrint.Enabled = true;
-                ErrorMessage("Нет данных для печати");
+                _statusMessage.ErrorMessage("Нет данных для печати");
                 return;
             }
 
@@ -1275,7 +1227,7 @@ namespace WorldStat.Core.Forms
             document.Print();
             numericUpDownCopies.Value = 1;
             btnPrint.Enabled = true;
-            SuccessMessage("Отчет ушел на печать");
+            _statusMessage.SuccessMessage("Отчет ушел на печать");
         }
 
         private void PrintStats()
@@ -1286,7 +1238,7 @@ namespace WorldStat.Core.Forms
             if (firm == null)
             {
                 btnPrint.Enabled = true;
-                ErrorMessage("Загруженны не полные данные.");
+                _statusMessage.ErrorMessage("Загруженны не полные данные.");
                 return;
             }
 
@@ -1310,7 +1262,7 @@ namespace WorldStat.Core.Forms
             if (statDataGridView.RowCount == 0)
             {
                 btnPrint.Enabled = true;
-                ErrorMessage("Нет данных для печати");
+                _statusMessage.ErrorMessage("Нет данных для печати");
                 return;
             }
 
@@ -1329,7 +1281,7 @@ namespace WorldStat.Core.Forms
 
             document.Print();
             numericUpDownCopies.Value = 1;
-            SuccessMessage("Отчет ушел на печать");
+            _statusMessage.SuccessMessage("Отчет ушел на печать");
 
             btnPrint.Enabled = true;
         }
