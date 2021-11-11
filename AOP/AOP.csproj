@@ -69,6 +69,7 @@
       <DependentUpon>FormsPosition.settings</DependentUpon>
     </Compile>
     <Compile Include="Core\Storage\PathManager.cs" />
+    <Compile Include="Core\Views\GeneralView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Resources\gray-unchecked-32.png" />
@@ -136,5 +137,6 @@
       <Name>WcPostApi</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

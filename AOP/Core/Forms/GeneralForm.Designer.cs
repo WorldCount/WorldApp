@@ -32,7 +32,6 @@ namespace AOP.Core.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralForm));
             this.panelGeneral = new System.Windows.Forms.Panel();
-            this.timerStatus = new System.Windows.Forms.Timer(this.components);
             this.panelMenu = new System.Windows.Forms.Panel();
             this.infosMenuItem = new Wc32Api.Widgets.Buttons.WcButton();
             this.settingsMenuItem = new Wc32Api.Widgets.Buttons.WcButton();
@@ -63,11 +62,6 @@ namespace AOP.Core.Forms
             this.panelGeneral.Name = "panelGeneral";
             this.panelGeneral.Size = new System.Drawing.Size(800, 58);
             this.panelGeneral.TabIndex = 5;
-            // 
-            // timerStatus
-            // 
-            this.timerStatus.Interval = 3000;
-            this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
             // 
             // panelMenu
             // 
@@ -225,8 +219,9 @@ namespace AOP.Core.Forms
             this.exitMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(58)))));
             this.exitMenuItem.Image = global::AOP.Properties.Resources.Button_Close;
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(124, 26);
+            this.exitMenuItem.Size = new System.Drawing.Size(180, 26);
             this.exitMenuItem.Text = "Выход";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // wcDropdownMenuSettings
             // 
@@ -263,6 +258,7 @@ namespace AOP.Core.Forms
             this.configMenuItem.Name = "configMenuItem";
             this.configMenuItem.Size = new System.Drawing.Size(160, 26);
             this.configMenuItem.Text = "Настройки";
+            this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
             // statusBar
             // 
@@ -325,7 +321,6 @@ namespace AOP.Core.Forms
 
         #endregion
         private System.Windows.Forms.Panel panelGeneral;
-        private System.Windows.Forms.Timer timerStatus;
         private System.Windows.Forms.Panel panelMenu;
         private Wc32Api.Widgets.Buttons.WcButton infosMenuItem;
         private Wc32Api.Widgets.Buttons.WcButton settingsMenuItem;
