@@ -48,7 +48,7 @@ namespace WorldStat.Core.Forms
 
         private string _printerName;
 
-        private bool _isAdmin = false;
+        private bool _isAdmin;
 
         #endregion
 
@@ -536,11 +536,6 @@ namespace WorldStat.Core.Forms
                 PrintIncomes();
             else if (selectPage == tabStats)
                 PrintStats();
-            else
-            {
-                selectPage = null;
-                return;
-            }
         }
 
         #endregion
@@ -1029,7 +1024,7 @@ namespace WorldStat.Core.Forms
             btnPrint.Enabled = false;
             CalendarType type = (CalendarType)reportComboBoxTeam.SelectedItem;
 
-            string dateString = "";
+            string dateString;
 
             if (reportDateTimePickerCalendar.Visible)
             {
@@ -1042,7 +1037,7 @@ namespace WorldStat.Core.Forms
                 dateString = start == end ? $"{start:dd.MM.yyyy}" : $"{start:dd.MM.yyyy} - {end:dd.MM.yyyy}";
             }
 
-            List<Report> reports = new List<Report>();
+            List<Report> reports;
 
             try
             {
@@ -1099,7 +1094,7 @@ namespace WorldStat.Core.Forms
                 return;
             }
 
-            List<ReportPos> reports = new List<ReportPos>();
+            List<ReportPos> reports;
 
             try
             {
@@ -1112,7 +1107,7 @@ namespace WorldStat.Core.Forms
                 return;
             }
 
-            string dateString = "";
+            string dateString;
 
             if (orgDateTimePickerCalendar.Visible)
             {
@@ -1173,7 +1168,7 @@ namespace WorldStat.Core.Forms
                 return;
             }
 
-            List<ReportPos> reports = new List<ReportPos>();
+            List<ReportPos> reports;
 
             try
             {
@@ -1186,7 +1181,7 @@ namespace WorldStat.Core.Forms
                 return;
             }
 
-            string dateString = "";
+            string dateString;
 
             if (incomeDateTimePickerCalendar.Visible)
             {
@@ -1242,7 +1237,7 @@ namespace WorldStat.Core.Forms
                 return;
             }
 
-            string dateString = "";
+            string dateString;
 
             if (statDateTimePickerCalendar.Visible)
             {

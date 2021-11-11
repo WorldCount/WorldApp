@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace WorldStat.Core.PrintDocuments.Pens
+namespace Wc32Api.Prints.Pens
 {
     public static class PrintPens
     {

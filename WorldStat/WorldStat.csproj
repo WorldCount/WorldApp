@@ -286,7 +286,6 @@
     <Compile Include="Core\PrintDocuments\OrgPrintDocument.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Core\PrintDocuments\Pens\PrintPens.cs" />
     <Compile Include="Core\PrintDocuments\ReportPrintDocument.cs">
       <SubType>Component</SubType>
     </Compile>

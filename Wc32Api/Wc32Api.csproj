@@ -46,6 +46,22 @@
   <ItemGroup>
     <Compile Include="DrawingControl.cs" />
     <Compile Include="Extensions\Bindings\SortableBindingList.cs" />
+    <Compile Include="Messages\StatusMessage.cs" />
+    <Compile Include="Messages\MessageColorTable.cs" />
+    <Compile Include="Prints\Interfaces\IPrintDocument.cs" />
+    <Compile Include="Prints\Interfaces\IPrintObjectDocument.cs" />
+    <Compile Include="Prints\Interfaces\IPrintTableDocument.cs" />
+    <Compile Include="Prints\Interfaces\IWcPrintDocument.cs" />
+    <Compile Include="Prints\Pens\PrintPens.cs" />
+    <Compile Include="Prints\PrintObjectDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Prints\PrintTableDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Prints\WcPrintDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Widgets\Buttons\WcButton.cs">
       <SubType>Component</SubType>
